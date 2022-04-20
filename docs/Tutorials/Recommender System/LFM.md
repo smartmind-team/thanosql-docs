@@ -74,8 +74,9 @@ OPTIONS (   user_col='userid',
 AS SELECT * FROM movielens_train
 ```
 ### **쿼리 세부정보**
-```BUILD MODEL``` 명령어를 사용하여 movie_rec 이라는 모델을 만들고 학습시킵니다.
-```OPTIONS()
+```BUILD MODEL``` 명령어를 사용하여 movie_rec 이라는 모델을 만들고 학습시킵니다. 
+
+```OPTIONS(user_col='userid',item_col='movieid',rating_col='rating', item_names= 'title', ...)```
 
 
 
