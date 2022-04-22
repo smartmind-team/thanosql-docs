@@ -61,7 +61,7 @@ Movielens_train 데이터셋은 'userid', 'movieid', 'rating', 'title' 정보를
 ```POSTGRESQL
 SELECT * FROM movielens_train
 ```
-![movie_train](./movie_train.png)
+![movie_train](./image/movie_train.png)
 
 <br>
 
@@ -141,7 +141,7 @@ Movielens 튜토리얼을 끝내셨다면 ThanosSQL DB에 저장된 Goodbooks �
 ```POSTGRESQL
 SELECT * FROM books_train LIMIT 5
 ```
-![books_train](./books_train.png)
+![books_train](./image/books_train.png)
 >   user_col='user_id', <br>
     item_col='lsbn', <br>
     rating_col='rating', <br>
