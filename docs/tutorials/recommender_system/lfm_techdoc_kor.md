@@ -38,7 +38,7 @@ Goodbooks 데이터 세트에는 사용자가 도서에 부여한 평점(1~10점
 
 # **Movielens데이터셋을 사용하여 평점기반 추천 모델 구축과 추천 리스트 생성해보기**
 ## **데이터셋 Thanosql db 에 업로드**
-로컬환경에 저장되어 있는 movielens.csv 파일을 표준 SQL 쿼리를 사용하여 ThanoSQL DB에 업로드 합니다.
+로컬환경에 저장되어 있는 `movielens.csv` 파일을 표준 SQL 쿼리를 사용하여 ThanoSQL DB에 업로드 합니다.
 ```postgresql
 CREATE TABLE movielens_train 
 (
@@ -57,7 +57,7 @@ COPY movielens_train from '/your local data directory/movielens.csv' delimiter '
 ## **데이터셋 확인**
 ThanoSQL DB에 저장되어 있는 Movielens 샘플 데이터 셋을 표준 SQL 쿼리를 사용하여 확인합니다.
 
-Movielens_train 데이터셋은 'userid', 'movieid', 'rating', 'title' 정보를 담고 있는 테이블입니다. 이 데이터셋은 ThanoSQL DB에 저장되어 있어 아래의 쿼리를 실행하여 불러올 수 있습니다.  
+`movielens_train` 데이터셋은 'userid', 'movieid', 'rating', 'title' 정보를 담고 있는 테이블입니다. 이 데이터셋은 ThanoSQL DB에 저장되어 있어 아래의 쿼리를 실행하여 불러올 수 있습니다.  
 ```POSTGRESQL
 SELECT * FROM movielens_train
 ```
@@ -96,7 +96,7 @@ AS SELECT * FROM movielens_train
 <br>
 
 >### **쿼리 세부정보**
->```PREDICT USING``` 쿼리를 사용하여 이전 단계에서 생성한 movie_rec 이라는 모델을 사용하여 예측하게 합니다.
+>```PREDICT USING``` 쿼리는 이전 단계에서 생성한 movie_rec 이라는 모델을 사용하여 예측하게 합니다.
 ```OPTIONS(predict_type='predict_user', user_id=1, nrec=10, ...)``` 쿼리는 ```predict_type='predict_user', user_id=1, nrec=10``` 를 지정하여 유저ID 1번이 좋아할만한 아이템 10개를 예상하여 리스트를 만들어 출력합니다. 
 
 <br>
