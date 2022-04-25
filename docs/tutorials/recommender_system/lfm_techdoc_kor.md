@@ -4,10 +4,9 @@
 
 이 가이드에서는 Kaggle의 Movielens 데이터 세트와 Goodbooks 데이터 세트를 사용하여 평점(explicit-feedback)을 활용한 LFM모델을 만들어 아이템 ID와 사용자 ID를 기반으로 추천 리스트를 생성하는 방법을 알아봅니다.
 
-Movielens 데이터 세트에는 사용자가 영화에 부여한 평점 (1~5점)과 장르 등의 영화 메타데이터가 포함됩니다.
-Goodbooks 데이터 세트에는 사용자가 도서에 부여한 평점 (1~10점)과 장르 등의 도서 메타데이터가 포함됩니다.
+Movielens 데이터 세트에는 사용자가 영화에 부여한 평점 (1-5점)과 장르 등의 영화 메타데이터가 포함됩니다. <br>
+Goodbooks 데이터 세트에는 사용자가 도서에 부여한 평점 (1-10점)과 장르 등의 도서 메타데이터가 포함됩니다.
 
-</br>
 
 ## **Model Description :**
     - 모델 설명 : Light FM 모델은 추천시스템의 Cold-start 문제를 최소화 시키기 위해 Lyst사에서 제안된 모델로 Content-based 와 Collaborative Filtering의 장점을 결합한 하이브리드 모델입니다. 메타데이터의 모든 아이템과 유저를 행렬분해알고리즘 (Matrix Factorization)을 사용하여 Latent vector로 임베딩이 되어집니다. 새로운 유저나 아이템을 추천할 수 있습니다.
