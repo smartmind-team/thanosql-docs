@@ -1,6 +1,7 @@
-## this is the test ##
+# ThanoSQL Documentation
 
+These are the source files for the guide and tutorials on [thanosql.ai](https://thanosql.ai/)
 
-#### 재작성 끝 
+## License
 
-### Another Imporvement 
+[Apache License 2.0](LICENSE)
