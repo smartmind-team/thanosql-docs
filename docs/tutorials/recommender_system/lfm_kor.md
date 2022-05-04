@@ -71,19 +71,6 @@ ThanoSQL DB에 저장되어 있는 Movielens 샘플 데이터 셋을 표준 SQL 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -248,9 +235,6 @@ PREDICT USING movie_rec
 OPTIONS (predict_type='predict_item', item_id=1, nrec=10)
 AS SELECT * FROM movielens_train
 ```
-
-
-
 
 <div>
 <table border="1" class="dataframe">
