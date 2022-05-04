@@ -1,4 +1,4 @@
-# **ThanoSQL LightFM Recommender System**
+# **ThanoSQL LightFM Recommendation System**
 ## **Tutorial Guideline :**
 This tutorial introduces the LightFM recommendation system for data analysts. The goal of this tutorial is letting data analysts, who use SQL for getting some insights from a dataset, be able to build predictive machine learning models.
 

@@ -1,4 +1,4 @@
-# **ThanoSQL LightFM Recommender System**
+# **ThanoSQL LightFM Recommendation System**
 ## **Tutorial Guideline :**
 이번 튜토리얼에서는 데이터 분석가에게 LightFM 추천 모델을 소개합니다. ThanoSQL을 사용하면 표준 SQL 쿼리문을 통해 머신러닝 모델을 만들고 실행할 수 있습니다. 목표는 SQL 실무자가 광범위한 프로그래밍 스킬, 머신러닝에 대한 지식 없이도 간단한 쿼리문으로 모델을 빌드할 수 있도록 지원하여 머신러닝을 대중화하고 데이터 이동의 필요성을 제거하여 개발 속도를 향상시키는 것입니다.
 
@@ -65,7 +65,7 @@ SELECT * FROM movielens_train
 <br>
 
 ## **추천 모델 빌드**
-이전 단계에서 확인한 Movielens 샘플 데이터를 사용하여 명시적 추천 모델을 만듭니다. 샘플데이터로부터 '사용자ID', '아이템ID', '평점' 칼럼 이름을 지정해주고 LFM 모델을 만들고 학습합니다.
+이전 단계에서 확인한 Movielens 샘플 데이터를 사용하여 명시적 추천 모델을 만듭니다. 샘플데이터로부터 '사용자ID', '아이템ID', '평점' 칼럼 이름을 지정해주며 LFM 모델을 만들고 학습합니다.
 ```POSTGRESQL
 BUILD MODEL movie_rec
 USING Light_FM

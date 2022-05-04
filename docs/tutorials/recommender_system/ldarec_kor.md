@@ -44,24 +44,11 @@ ThanoSQL DB에 저장되어 있는 `news_train` 샘플 데이터 셋을 표준 S
 `news_train` 데이터셋은 'id', 'category', 'subcategory', 'title', 'abstract' 정보를 담고 있는 테이블입니다. <br> 이번 튜토리얼에서는 LDA 모델 빌드를 위해 'id', 'title', 'abstract' 3개의 칼럼만 사용합니다. 이 데이터셋은 ThanoSQL DB에 저장되어 있어 아래의 쿼리를 실행하여 불러올 수 있습니다.  
 
 
-```python{toggle}
+```python
 %thanosql SELECT * FROM news_train LIMIT 5
 ```
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -150,19 +137,6 @@ ThanoSQL DB에 저장되어 있는 `news_train` 샘플 데이터 셋을 표준 S
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -245,23 +219,7 @@ OPTIONS(
 AS SELECT * FROM news_train
 ```
 
-
-
-
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -330,13 +288,7 @@ AS SELECT * FROM news_train
 </table>
 </div>
 
-
-
 >### **쿼리 세부정보**
 >```PREDICT USING``` 쿼리는 이전 단계에서 생성한 news_rec 이라는 모델을 사용하여 예측하게 합니다.
 ```OPTIONS(user_id='U9999', nrec=10 )``` 쿼리는 특정 유저 아이디 'U9999'의 추천 뉴스 '5개'를 예측하여 출력하게 합니다.
 
-
-```python
-
-```
