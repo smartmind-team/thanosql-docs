@@ -48,7 +48,7 @@ ThanoSQL DB에 저장되어 있는 `news_train` 샘플 데이터 셋을 표준 S
 %thanosql SELECT * FROM news_train LIMIT 5
 ```
 
-<div>
+<div><!--
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -62,6 +62,7 @@ ThanoSQL DB에 저장되어 있는 `news_train` 샘플 데이터 셋을 표준 S
         text-align: right;
     }
 </style>
+-->
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
