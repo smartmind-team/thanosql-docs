@@ -5,3 +5,4 @@ These are the source files for the guide and tutorials on [thanosql.ai](https://
 ## License
 
 [Apache License 2.0](LICENSE)
+
