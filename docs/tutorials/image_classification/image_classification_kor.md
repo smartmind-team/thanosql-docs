@@ -58,12 +58,14 @@ pandas를 사용하여 위와 같은 형태의 구조에서 이미지의 경로�
 import pandas as pd
 from pathlib import Path
 
+
 def make_df(data_dir: str) -> pd.DataFrame:
     paths = list(Path(data_dir).rglob("*.jpg"))
     image = [str(p.resolve()) for p in paths]
     label = [p.stem.split(".")[0] for p in paths]
     df = pd.DataFrame({"image": image, "label": label})
     return df
+
 
 train_data_root = "your local data directory/Cat and Dog/training_set"
 test_data_root = "your local data directory/Cat and Dog/test_set"
@@ -174,7 +176,7 @@ print(test_result.head())
 ```python
 from sklearn.metrics import accuracy_score
 
-accuracy_score(test_result["label"], test_result["predicted"]))
+accuracy_score(test_result["label"], test_result["predicted"])
 ```
 
 ```
