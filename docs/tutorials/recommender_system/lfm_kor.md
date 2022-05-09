@@ -529,4 +529,9 @@ Movielens 튜토리얼을 끝내셨다면 ThanosSQL DB에 저장된 Goodbooks �
 </table>
 </div>
 
+>   user_col='user_id', <br>
+    item_col='lsbn', <br>
+    rating_col='rating', <br>
+    item_names= 'book_title'<br>
+
 
