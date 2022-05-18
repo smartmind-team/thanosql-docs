@@ -4,15 +4,9 @@
 
 이 예제에서는 캐글의 Dogs vs. Cats 데이터세트를 이용하여 이미지에 고양이가 있는지, 개가 있는 지를 ThanoSQL을 통해 예측하는 작업을 해보겠습니다.
 
-### 모델 설명
+### 의도 & 제한사항
 
-ConvNeXt는 2022년 1월 Facebook AI Research에서 발표한 논문 'A ConvNet for the 2020s'에 소개된 이미지 모델로, 기존의 CNN구조에 transformer 구조와 최신 기법들을 적용한 모델입니다.
-
-<br>
-
-### Intended uses & Limitation
-
-- 현재 이 모델은 하나의 이미지에서 하나의 레이블을 예측하는 용도로 사용할 수 있습니다.
+- 이미지 분류 모델은 하나의 이미지에서 하나의 레이블을 예측하는 용도로 사용할 수 있습니다.
 
 - 이미지의 경로를 담은 열과, 이미지의 레이블을 담은 열이 존재해야 합니다.
 
@@ -20,167 +14,383 @@ ConvNeXt는 2022년 1월 Facebook AI Research에서 발표한 논문 'A ConvNet 
 
 <br>
 
-## 이미지 분류 모델 빌드하기
+## 이미지 분류모델 빌드
 
-### 1. ThanoSQL DB에 데이터셋 업로드
+### 데이터
 
-데이터세트는 `training_set` 폴더와 `test_set` 폴더로 나뉘어 있고, 각각의 폴더는 하위 폴더에 `cats` 폴더와 `dogs` 폴더로 나뉘어 고양이와 개 사진을 담고 있습니다.
+모델을 빌드하기 전에, 사용할 데이터를 확인해보겠습니다. 이번 예제에서 사용할 데이터는 캐글의 Cat and Dog 데이터로, 10000장의 고양이와 개 사진으로 구성되어 있습니다. 그 중 8000장은 훈련 데이터로, 2000장은 테스트 데이터로 사용할 예정입니다. SQL 문법으로 데이터를 확인할 수 있습니다.
 
+
+```sql
+%load_ext thanosql
 ```
-Cat and Dog
-├─training_set
-│   └─training_set
-│       ├─cats
-│       │   ├─cat.1.jpg
-│       │   ├─cat.2.jpg
-│       │   ...
-│       └─dogs
-│           ├─dog.1.jpg
-│           ├─dog.2.jpg
-│           ...
-└─test_set
-    └─test_set
-        ├─cats
-        │   ├─cat.4001.jpg
-        │   ├─cat.4002.jpg
-        │   ...
-        └─dogs
-            ├─dog.4001.jpg
-            ├─dog.4002.jpg
-            ...
-```
-
-#### 1-1. image와 label 정보를 담은 csv파일 만들기
-
-pandas를 사용하여 위와 같은 형태의 구조에서 이미지의 경로를 담은 열과 레이블 정보를 담은 열을 만들 수 있습니다.
-
-```python
-import pandas as pd
-from pathlib import Path
-
-
-def make_df(data_dir: str) -> pd.DataFrame:
-    paths = list(Path(data_dir).rglob("*.jpg"))
-    image = [str(p.resolve()) for p in paths]
-    label = [p.stem.split(".")[0] for p in paths]
-    df = pd.DataFrame({"image": image, "label": label})
-    return df
-
-
-train_data_root = "your local data directory/Cat and Dog/training_set"
-test_data_root = "your local data directory/Cat and Dog/test_set"
-
-train_df = make_df(train_data_root)
-test_df = make_df(test_data_root)
-```
-
-#### 1-2. ThanoSQL DB에 csv파일 업로드하기
-
-### 2. 데이터 확인
-
-ThanoSQL DB에 저장되어 있는 image_tutorial 샘플 데이터셋을 SQL 쿼리를 통해 확인합니다.
-
-이 데이터셋은 캐글의 Cat and Dog 데이터로, 약 10000장의 고양이와 개 사진을 담고 있습니다. 이 중 8000장은 훈련 데이터이고, 나머지 2000장은 테스트 데이터입니다.
-
-다음 쿼리문을 통해 훈련 데이터를 확인해볼 수 있습니다.
 
 ```sql
 %%thanosql
-SELECT image, label FROM cat_and_dog_train
+SELECT * FROM cat_and_dog_train
 ```
 
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>image</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>.../Cat and Dog/training_set/training_...</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>.../Cat and Dog/training_set/training_...</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>.../Cat and Dog/training_set/training_...</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>.../Cat and Dog/training_set/training_...</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>.../Cat and Dog/training_set/training_...</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>7995</th>
+      <td>.../Cat and Dog/training_set/training_...</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>7996</th>
+      <td>.../Cat and Dog/training_set/training_...</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>7997</th>
+      <td>.../Cat and Dog/training_set/training_...</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>7998</th>
+      <td>.../Cat and Dog/training_set/training_...</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>7999</th>
+      <td>.../Cat and Dog/training_set/training_...</td>
+      <td>cat</td>
+    </tr>
+  </tbody>
+</table>
+<p>8000 rows × 2 columns</p>
+</div>
+
+
+
+
+```sql
+%%thanosql
+SELECT * FROM cat_and_dog_test
 ```
-                                                  image label
-0     .../Cat and Dog/training_set/training_set/dogs/dog...   dog
-1     .../Cat and Dog/training_set/training_set/dogs/dog...   dog
-2     .../Cat and Dog/training_set/training_set/dogs/dog...   dog
-3     .../Cat and Dog/training_set/training_set/dogs/dog...   dog
-4     .../Cat and Dog/training_set/training_set/dogs/dog...   dog
-...                                                 ...   ...
-8000  .../Cat and Dog/training_set/training_set/cats/cat...   cat
-8001  .../Cat and Dog/training_set/training_set/cats/cat...   cat
-8002  .../Cat and Dog/training_set/training_set/cats/cat...   cat
-8003  .../Cat and Dog/training_set/training_set/cats/cat...   cat
-8004  .../Cat and Dog/training_set/training_set/cats/cat...   cat
-```
 
-### 3. 이미지 분류 모델 빌드
 
-위의 Cat and Dog 데이터를 사용하여 이미지 분류 모델을 만들어 보겠습니다. 사용할 모델은 ViT_Tiny입니다.
 
-샘플 데이터에서 image 열과 label 열의 이름을 지정해주고 모델을 만들고 학습합니다.
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>image</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1995</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+    </tr>
+  </tbody>
+</table>
+<p>2000 rows × 2 columns</p>
+</div>
+
+
+
+이제, thanosql을 사용하여 이미지 분류모델을 빌드합니다.
+
 
 ```sql
 %%thanosql
 
 BUILD MODEL my_image_classifier
 USING ConvNeXt_Tiny
-OPTIONS (image_col='image', label_col='label')
+OPTIONS (image_col='image', label_col='label', epochs=1)
 AS SELECT * FROM cat_and_dog_train
 ```
 
-### 4. 빌드된 모델을 사용하여 이미지 예측
+<br>
 
-#### 4-1. 훈련 데이터에 대한 예측
+## 예측
 
-`PREDICT`를 사용하면 빌드된 모델을 사용하여 예측을 진행할 수 있습니다.
+이번에는 전 단계에서 만든 이미지 분류모델을 사용하여 실제로 이미지를 예측해보겠습니다.
+
+
 
 ```sql
 %%thanosql
 PREDICT USING my_image_classifier
-AS SELECT * FROM cat_and_dog_train
+AS SELECT * FROM cat_and_dog_test
 ```
 
-만약 결과를 파이썬 변수로 받고싶다면 다음처럼 하면 됩니다.
+
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>image</th>
+      <th>label</th>
+      <th>predicted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1995</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+      <td>cat</td>
+    </tr>
+  </tbody>
+</table>
+<p>2000 rows × 3 columns</p>
+</div>
+
+
+
+결과를 파이썬 변수로 받고싶다면, 다음처럼 `%%thanosql`이 아니라 `%thanosql`을 사용하면 됩니다.
+
 
 ```sql
-train_result = %thanosql PREDICT USING my_image_classifier AS SELECT * FROM cat_and_dog_train
+result = %thanosql PREDICT USING my_image_classifier AS SELECT * FROM cat_and_dog_test
 ```
 
-```python
-print(train_result.head())
-```
-
-```
-                                               image label predicted
-0  /home/dowon/notebook/data/Cat and Dog/training...   cat       cat
-1  /home/dowon/notebook/data/Cat and Dog/training...   cat       cat
-2  /home/dowon/notebook/data/Cat and Dog/training...   cat       cat
-3  /home/dowon/notebook/data/Cat and Dog/training...   cat       cat
-4  /home/dowon/notebook/data/Cat and Dog/training...   cat       cat
-```
-
-#### 4-2. 테스트 데이터에 대한 예측과 정확도 확인
-
-위와 같은 방법을 사용해 테스트 데이터에 대해 결과를 예측하고 그 결과를 데이터프레임으로 저장합니다.
 
 ```sql
-test_result = %thanosql PREDICT USING my_image_classifier AS SELECT * FROM cat_and_dog_test
+result
 ```
 
-```python
-print(test_result.head())
-```
 
-```
-                                               image label predicted
-0  /home/dowon/notebook/data/Cat and Dog/test_set...   cat       cat
-1  /home/dowon/notebook/data/Cat and Dog/test_set...   cat       cat
-2  /home/dowon/notebook/data/Cat and Dog/test_set...   cat       cat
-3  /home/dowon/notebook/data/Cat and Dog/test_set...   cat       cat
-4  /home/dowon/notebook/data/Cat and Dog/test_set...   cat       cat
-```
 
-예측 정확도를 확인해보겠습니다.
 
-```python
-from sklearn.metrics import accuracy_score
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>image</th>
+      <th>label</th>
+      <th>predicted</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>.../Cat and Dog/test_set/test_set/dogs...</td>
+      <td>dog</td>
+      <td>dog</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1995</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1996</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1997</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1998</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+      <td>cat</td>
+    </tr>
+    <tr>
+      <th>1999</th>
+      <td>.../Cat and Dog/test_set/test_set/cats...</td>
+      <td>cat</td>
+      <td>cat</td>
+    </tr>
+  </tbody>
+</table>
+<p>2000 rows × 3 columns</p>
+</div>
 
-accuracy_score(test_result["label"], test_result["predicted"])
-```
-
-```
-0.9822046465645081
-```
-
-98% 이상의 데이터에 대해 정확히 예측했다는 것을 알 수 있습니다.

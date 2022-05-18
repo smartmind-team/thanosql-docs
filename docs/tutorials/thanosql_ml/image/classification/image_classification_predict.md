@@ -1,6 +1,6 @@
 # 이미지 분류
 
-## 예측, 평가
+## 예측
 
 이번에는 전 단계에서 만든 이미지 분류모델을 사용하여 실제로 이미지를 예측해보겠습니다.
 
@@ -200,12 +200,3 @@ result
 <p>2000 rows × 3 columns</p>
 </div>
 
-
-
-# TODO
-# TODO
-# TODO
-# TODO
-# TODO
-
-## Evalutate
