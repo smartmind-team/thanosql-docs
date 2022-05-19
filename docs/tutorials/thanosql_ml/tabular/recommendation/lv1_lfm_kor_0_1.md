@@ -205,6 +205,6 @@ AS SELECT * FROM movielens_train
 <br>
 
 ## **나만의 추천시스템을 만드는 것에 어려움이 있나요?** <br>
-추천시스템 구축 관련 문의: smartmind@smartmind.team
+추천시스템 구축 관련 문의: contact@smartmind.team
 
 
