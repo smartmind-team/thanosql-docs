@@ -15,17 +15,10 @@ ThanoSQL은 표준 SQL 쿼리를 활용하여 ThanoSQL에서 정형/비정형 �
 
 이러한 복잡한 요구 사항들로 인한 기술 구현의 난이도와 복잡성이 점진적으로 증가하여 개발 기간과 인력, 운영 개발/배포 등에 많은 시간과 비용을 할애하게 되는 문제점이 발생합니다.
 
-
-
 ThanoSQL을 사용하면 데이터 사이언티스트가 표준 SQL을 통해 정형, 비정형 데이터 모두를 질의할 수 있으며 실시간으로 누적되는 Ops table로부터 
 Sample data를 만들어 Modeling하고 빠르게 실험할 수 있습니다. 
 
 데이터 사이언티스트는 ThanoSQL을 통해 Insert 와 Predict 두 라인으로 배포/개발/운영 가능합니다.
-
-
-
-
-
 
 
 # ThanoSQL에서 지원되는 데이터 타입
@@ -40,7 +33,7 @@ ThanoSQL은 다음과 같은 데이터 타입 질의를 지원합니다.
     * 오디오 (업데이트 예정)
     * 비디오 (업데이트 예정)
 
-ThanoSQL에서 지원되는 모델
+# ThanoSQL에서 지원되는 모델
 
 ThanoSQL의 모델은 ThanoSQL System이 Sample 데이터에서 학습한 내용을 나타냅니다.
 
@@ -77,6 +70,8 @@ ThanoSQL에는 다음과 같은 장점이 있습니다.
 
 * ThanoSQL을 사용하는 데이터 사이언티스트 한명이 응용프로그램에서 바로 Insert와 Predict이 가능합니다.
 이는 개발과 배포가 같아져 다양한 정보를 융복합 Insight를 빠르게 만들어 실험할 수 있는 환경을 제공하므로 모델 개발과 비즈니스 혁신 속도를 향상시킬 수 있습니다. 
+# ThanoSQL Tutorial Guide v1
+![Group 3870](https://user-images.githubusercontent.com/105042667/169217615-92634f84-52c2-4176-a71a-18cdb7db533f.png)
 
 # Upcoming updates
 
