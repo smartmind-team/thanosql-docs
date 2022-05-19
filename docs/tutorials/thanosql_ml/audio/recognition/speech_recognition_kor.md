@@ -40,27 +40,27 @@ SELECT * FROM librispeech_train
   <tbody>
     <tr>
       <th>0</th>
-      <td>/data/000.wav</td>
+      <td>/data/librispeech/000.wav</td>
       <td>i noticed how white and well shaped his own ha...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>/data/001.wav</td>
+      <td>/data/librispeech/001.wav</td>
       <td>the only conflicts that occurred on irish soil...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>/data/002.wav</td>
+      <td>/data/librispeech/002.wav</td>
       <td>inquired shaggy in the metal forest</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>/data/003.wav</td>
+      <td>/data/librispeech/003.wav</td>
       <td>my grandmother always spoke in a very loud ton...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>/data/004.wav</td>
+      <td>/data/librispeech/004.wav</td>
       <td>the poets of succeeding ages have dwelt much i...</td>
     </tr>
     <tr>
@@ -70,27 +70,27 @@ SELECT * FROM librispeech_train
     </tr>
     <tr>
       <th>95</th>
-      <td>/data/095.wav</td>
+      <td>/data/librispeech/095.wav</td>
       <td>i've decided to enlist in the army</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>/data/096.wav</td>
+      <td>/data/librispeech/096.wav</td>
       <td>i also offered to help your brother to escape ...</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>/data/097.wav</td>
+      <td>/data/librispeech/097.wav</td>
       <td>well now said meekin with asperity i don't agr...</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>/data/098.wav</td>
+      <td>/data/librispeech/098.wav</td>
       <td>little did i expect however the spectacle whic...</td>
     </tr>
     <tr>
       <th>99</th>
-      <td>/data/099.wav</td>
+      <td>/data/librispeech/099.wav</td>
       <td>i look at my watch it's a quarter to eleven</td>
     </tr>
   </tbody>
@@ -117,102 +117,102 @@ SELECT * FROM librispeech_test
   <tbody>
     <tr>
       <th>0</th>
-      <td>/data/100.wav</td>
+      <td>/data/librispeech/100.wav</td>
       <td>at that word deception spoken with such self c...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>/data/101.wav</td>
+      <td>/data/librispeech/101.wav</td>
       <td>then why indulge in prophetic phantasies</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>/data/102.wav</td>
+      <td>/data/librispeech/102.wav</td>
       <td>there appeared to be an immediate association ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>/data/103.wav</td>
+      <td>/data/librispeech/103.wav</td>
       <td>down below in the quiet narrow street measured...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>/data/104.wav</td>
+      <td>/data/librispeech/104.wav</td>
       <td>he closed the door behind their backs with res...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>/data/105.wav</td>
+      <td>/data/librispeech/105.wav</td>
       <td>the third day it was reported that the yankees...</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>/data/106.wav</td>
+      <td>/data/librispeech/106.wav</td>
       <td>it is lined with emerald algae and mosses and ...</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>/data/107.wav</td>
+      <td>/data/librispeech/107.wav</td>
       <td>then when your manager added two more weeks i ...</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>/data/108.wav</td>
+      <td>/data/librispeech/108.wav</td>
       <td>there were never before such times in old kent...</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>/data/109.wav</td>
+      <td>/data/librispeech/109.wav</td>
       <td>what that little cabin</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>/data/110.wav</td>
+      <td>/data/librispeech/110.wav</td>
       <td>go quietly alone no harm will befall you</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>/data/111.wav</td>
+      <td>/data/librispeech/111.wav</td>
       <td>i get the pillows comfortably arranged on the ...</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>/data/112.wav</td>
+      <td>/data/librispeech/112.wav</td>
       <td>he suffered all the pangs of a mother and he k...</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>/data/113.wav</td>
+      <td>/data/librispeech/113.wav</td>
       <td>accustomed as i had been to the steam ferry bo...</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>/data/114.wav</td>
+      <td>/data/librispeech/114.wav</td>
       <td>at all events we shall get there some day</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>/data/115.wav</td>
+      <td>/data/librispeech/115.wav</td>
       <td>the saxons of kent and the southern kingdoms g...</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>/data/116.wav</td>
+      <td>/data/librispeech/116.wav</td>
       <td>the prospect was as black as the window pane a...</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>/data/117.wav</td>
+      <td>/data/librispeech/117.wav</td>
       <td>who lives here are the people mad</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>/data/118.wav</td>
+      <td>/data/librispeech/118.wav</td>
       <td>don't you see how many uses we have found for ...</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>/data/119.wav</td>
+      <td>/data/librispeech/119.wav</td>
       <td>he certainly possesses talents beyond the rude...</td>
     </tr>
   </tbody>
@@ -262,121 +262,121 @@ AS SELECT * FROM librispeech_test
   <tbody>
     <tr>
       <th>0</th>
-      <td>/data/100.wav</td>
+      <td>/data/librispeech/100.wav</td>
       <td>at that word deception spoken with such self c...</td>
       <td>AT THAT WORD DECEPTION SPOKEN WITH SUCH SELF C...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>/data/101.wav</td>
+      <td>/data/librispeech/101.wav</td>
       <td>then why indulge in prophetic phantasies</td>
       <td>THAN WHY INDULGE IN PROPHETIC PHANTASIES</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>/data/102.wav</td>
+      <td>/data/librispeech/102.wav</td>
       <td>there appeared to be an immediate association ...</td>
       <td>THERE APPEARED TO BE AN IMMEDIATE ASSOCIATION ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>/data/103.wav</td>
+      <td>/data/librispeech/103.wav</td>
       <td>down below in the quiet narrow street measured...</td>
       <td>DOWN BELOW IN THE QUIET NARROW STREET MEASURED...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>/data/104.wav</td>
+      <td>/data/librispeech/104.wav</td>
       <td>he closed the door behind their backs with res...</td>
       <td>HE CLOSED THE DOOR BEHIND THEIR BACKS WITH RES...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>/data/105.wav</td>
+      <td>/data/librispeech/105.wav</td>
       <td>the third day it was reported that the yankees...</td>
       <td>THE THIRD DAY IT WAS REPORTED THAT THE YANKEES...</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>/data/106.wav</td>
+      <td>/data/librispeech/106.wav</td>
       <td>it is lined with emerald algae and mosses and ...</td>
       <td>IT IS LINED WITH EMERALD ALGI AND MOSSES AND S...</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>/data/107.wav</td>
+      <td>/data/librispeech/107.wav</td>
       <td>then when your manager added two more weeks i ...</td>
       <td>THEN WHEN YOUR MANAGER ADDED TWO MORE WEEKS I ...</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>/data/108.wav</td>
+      <td>/data/librispeech/108.wav</td>
       <td>there were never before such times in old kent...</td>
       <td>NER WERE NEVER BEFORE SUCH TIMES IN OLD KENTUCKY</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>/data/109.wav</td>
+      <td>/data/librispeech/109.wav</td>
       <td>what that little cabin</td>
       <td>WHAT THAT LITTLE CABIN</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>/data/110.wav</td>
+      <td>/data/librispeech/110.wav</td>
       <td>go quietly alone no harm will befall you</td>
       <td>GO QUIETLY ALONE NO HARM WILL BEFALL YOU</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>/data/111.wav</td>
+      <td>/data/librispeech/111.wav</td>
       <td>i get the pillows comfortably arranged on the ...</td>
       <td>I GET THE PILLOWS COMFORTABLY ARRANGED ON THE ...</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>/data/112.wav</td>
+      <td>/data/librispeech/112.wav</td>
       <td>he suffered all the pangs of a mother and he k...</td>
       <td>HE SUFFERED ALL THE PANGS OF A MOTHER AND HE K...</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>/data/113.wav</td>
+      <td>/data/librispeech/113.wav</td>
       <td>accustomed as i had been to the steam ferry bo...</td>
       <td>ACCUSTOMED AS I HAD BEEN TO THE STEAM FERRYBOA...</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>/data/114.wav</td>
+      <td>/data/librispeech/114.wav</td>
       <td>at all events we shall get there some day</td>
       <td>AT ALL EVENTS WE SHALL GET THERE SOME DAY</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>/data/115.wav</td>
+      <td>/data/librispeech/115.wav</td>
       <td>the saxons of kent and the southern kingdoms g...</td>
       <td>THE SAXONS OF KENT AND THE SOUTHERN KINGDOMS G...</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>/data/116.wav</td>
+      <td>/data/librispeech/116.wav</td>
       <td>the prospect was as black as the window pane a...</td>
       <td>THE PROSPECT WAS AS BLACK AS THE WINDOWPANE AG...</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>/data/117.wav</td>
+      <td>/data/librispeech/117.wav</td>
       <td>who lives here are the people mad</td>
       <td>WHO LIVES HERE ARE THE PEOPLE MAD</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>/data/118.wav</td>
+      <td>/data/librispeech/118.wav</td>
       <td>don't you see how many uses we have found for ...</td>
       <td>DON'T YOU SEE HOW MANY USES WE HAVE FOUND FOR ...</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>/data/119.wav</td>
+      <td>/data/librispeech/119.wav</td>
       <td>he certainly possesses talents beyond the rude...</td>
       <td>HE CERTAINLY POSSESSES TALENTS BEYOND THE RUDE...</td>
     </tr>
@@ -416,121 +416,121 @@ result
   <tbody>
     <tr>
       <th>0</th>
-      <td>/data/100.wav</td>
+      <td>/data/librispeech/100.wav</td>
       <td>at that word deception spoken with such self c...</td>
       <td>AT THAT WORD DECEPTION SPOKEN WITH SUCH SELF C...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>/data/101.wav</td>
+      <td>/data/librispeech/101.wav</td>
       <td>then why indulge in prophetic phantasies</td>
       <td>THAN WHY INDULGE IN PROPHETIC PHANTASIES</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>/data/102.wav</td>
+      <td>/data/librispeech/102.wav</td>
       <td>there appeared to be an immediate association ...</td>
       <td>THERE APPEARED TO BE AN IMMEDIATE ASSOCIATION ...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>/data/103.wav</td>
+      <td>/data/librispeech/103.wav</td>
       <td>down below in the quiet narrow street measured...</td>
       <td>DOWN BELOW IN THE QUIET NARROW STREET MEASURED...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>/data/104.wav</td>
+      <td>/data/librispeech/104.wav</td>
       <td>he closed the door behind their backs with res...</td>
       <td>HE CLOSED THE DOOR BEHIND THEIR BACKS WITH RES...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>/data/105.wav</td>
+      <td>/data/librispeech/105.wav</td>
       <td>the third day it was reported that the yankees...</td>
       <td>THE THIRD DAY IT WAS REPORTED THAT THE YANKEES...</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>/data/106.wav</td>
+      <td>/data/librispeech/106.wav</td>
       <td>it is lined with emerald algae and mosses and ...</td>
       <td>IT IS LINED WITH EMERALD ALGI AND MOSSES AND S...</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>/data/107.wav</td>
+      <td>/data/librispeech/107.wav</td>
       <td>then when your manager added two more weeks i ...</td>
       <td>THEN WHEN YOUR MANAGER ADDED TWO MORE WEEKS I ...</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>/data/108.wav</td>
+      <td>/data/librispeech/108.wav</td>
       <td>there were never before such times in old kent...</td>
       <td>NER WERE NEVER BEFORE SUCH TIMES IN OLD KENTUCKY</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>/data/109.wav</td>
+      <td>/data/librispeech/109.wav</td>
       <td>what that little cabin</td>
       <td>WHAT THAT LITTLE CABIN</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>/data/110.wav</td>
+      <td>/data/librispeech/110.wav</td>
       <td>go quietly alone no harm will befall you</td>
       <td>GO QUIETLY ALONE NO HARM WILL BEFALL YOU</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>/data/111.wav</td>
+      <td>/data/librispeech/111.wav</td>
       <td>i get the pillows comfortably arranged on the ...</td>
       <td>I GET THE PILLOWS COMFORTABLY ARRANGED ON THE ...</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>/data/112.wav</td>
+      <td>/data/librispeech/112.wav</td>
       <td>he suffered all the pangs of a mother and he k...</td>
       <td>HE SUFFERED ALL THE PANGS OF A MOTHER AND HE K...</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>/data/113.wav</td>
+      <td>/data/librispeech/113.wav</td>
       <td>accustomed as i had been to the steam ferry bo...</td>
       <td>ACCUSTOMED AS I HAD BEEN TO THE STEAM FERRYBOA...</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>/data/114.wav</td>
+      <td>/data/librispeech/114.wav</td>
       <td>at all events we shall get there some day</td>
       <td>AT ALL EVENTS WE SHALL GET THERE SOME DAY</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>/data/115.wav</td>
+      <td>/data/librispeech/115.wav</td>
       <td>the saxons of kent and the southern kingdoms g...</td>
       <td>THE SAXONS OF KENT AND THE SOUTHERN KINGDOMS G...</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>/data/116.wav</td>
+      <td>/data/librispeech/116.wav</td>
       <td>the prospect was as black as the window pane a...</td>
       <td>THE PROSPECT WAS AS BLACK AS THE WINDOWPANE AG...</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>/data/117.wav</td>
+      <td>/data/librispeech/117.wav</td>
       <td>who lives here are the people mad</td>
       <td>WHO LIVES HERE ARE THE PEOPLE MAD</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>/data/118.wav</td>
+      <td>/data/librispeech/118.wav</td>
       <td>don't you see how many uses we have found for ...</td>
       <td>DON'T YOU SEE HOW MANY USES WE HAVE FOUND FOR ...</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>/data/119.wav</td>
+      <td>/data/librispeech/119.wav</td>
       <td>he certainly possesses talents beyond the rude...</td>
       <td>HE CERTAINLY POSSESSES TALENTS BEYOND THE RUDE...</td>
     </tr>
