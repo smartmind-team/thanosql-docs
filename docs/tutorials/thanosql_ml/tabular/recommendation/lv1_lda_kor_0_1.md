@@ -4,7 +4,7 @@
 * 튜토리얼 난이도 : ★☆☆☆☆
 * 읽는데 걸리는 시간(실행시간) : 7분
 * 사용 언어 : SQL(100%)
-* 배경 지식(언어 / 머신러닝 수준 등) : SQL 중급 | 머시러닝 하
+* 배경 지식(언어 / 머신러닝 수준 등) : SQL 중급 | 머신러닝 하
 * 예제 파일 위치: model/recommendation/data/news
 * 참고문서 : [Latent Dirichlet Allocation 공식 논문](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf), [Gensim Github](https://github.com/RaRe-Technologies/gensim)
 
