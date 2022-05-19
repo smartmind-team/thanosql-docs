@@ -1,11 +1,3 @@
-```python
-%load_ext thanosql
-%thanosql http://localhost:8005/api/v1/query
-```
-
-    API URL is changed to http://localhost:8005/api/v1/query
-
-
 # **ThanoSQL 쿼리 구문 사용 튜토리얼**
 
  * ThanoSQL은 ANSI/ISO 표준 준수하며 85% 이상의 표준 SQL 쿼리문들과 호환합니다.
@@ -77,19 +69,6 @@ AS select * from news_train
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -162,8 +141,7 @@ AS [변환하고자 하는 데이터세트]
 
 ### **3.2 CREATE 쿼리구문 사용예시**
 
-아래 예시는 ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
-
+아래 예시는 ㅇㅇㅇ
 
 ```python
 %%thanosql
@@ -226,7 +204,6 @@ AS SELECT * FROM titanic_test LIMIT 100
 
 ## **7. SEARCH**
 
-
 ```python
 SEARCH IMAGE images='/data/thanosAlgo/image_search/junyoung_test/20150617_132435.jpg' 
 USING Color_Descriptor 
@@ -234,7 +211,6 @@ AS SELECT * FROM color_descriptor_table_test
 ```
 
 ## **8. PRINT**
-
 
 ```python
 PRINT OOOO
