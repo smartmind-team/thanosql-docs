@@ -4,6 +4,7 @@
 
 
 # ThanoSQL은 무엇인가요?
+아티클ㅣ2022.05.20ㅣ읽는 데 5분 걸림ㅣ기여자 1명
 
 ThanoSQL은 표준 SQL 쿼리를 활용하여 ThanoSQL에서 정형/비정형 데이터를 질의하고 쿼리를 사용하여 모델을 빌드할 수 있게 합니다. ThanoSQL을 통해 다수의 데이터 타입과 언어, 프레임 워크를 사용할 필요가 없어 개발 속도가 향상됩니다.
 
@@ -18,7 +19,7 @@ ThanoSQL은 표준 SQL 쿼리를 활용하여 ThanoSQL에서 정형/비정형 �
 ThanoSQL을 사용하면 데이터 사이언티스트가 표준 SQL을 통해 정형, 비정형 데이터 모두를 질의할 수 있으며 실시간으로 누적되는 Ops table로부터 
 Sample data를 만들어 Modeling하고 빠르게 실험할 수 있습니다. 
 
-![Group 8623](https://user-images.githubusercontent.com/105042667/169228582-8dc29db3-7212-47bf-a3fe-0397db70fc38.png)
+![Group 8621](https://user-images.githubusercontent.com/105042667/169262127-53306df6-eb2f-425c-aaac-c27c67e5d48a.png)
 
 데이터 사이언티스트는 ThanoSQL을 통해 Insert 와 Predict 두 라인으로 배포/개발/운영 가능합니다.
 
