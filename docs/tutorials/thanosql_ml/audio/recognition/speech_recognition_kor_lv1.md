@@ -7,7 +7,7 @@
 - 튜토리얼 난이도: ★☆☆☆☆
 - 읽는데 걸리는 시간(실행시간): 10분
 - 사용언어: SQL(100%)
-- 배경지식(언어 / 머신러닝 지식 등): SQL 하, 머신러닝 하
+- 참고문서: [LibriSpeech 데이터 세트](http://www.openslr.org/12)
 
 <br>
 
@@ -27,17 +27,14 @@
 
 음성 인식 모델을 만들기 전에, 사용할 데이터를 확인해보겠습니다. 여기서 사용할 데이터는 `librispeech` 데이터로, 영어 음성 파일과 해당 음성 파일의 스크립트로 구성된 데이터입니다. ThanoSQL DB에는 해당 데이터의 일부분이 훈련용 데이터와 테스트 데이터로 구분되어 저장되어 있습니다. 아래 SQL문을 통해 데이터를 확인할 수 있습니다.
 
-
 ```sql
 %load_ext thanosql
 ```
-
 
 ```sql
 %%thanosql
 SELECT * FROM librispeech_train LIMIT 5
 ```
-
 
 <div>
 <table border="1" class="dataframe">
@@ -78,10 +75,8 @@ SELECT * FROM librispeech_train LIMIT 5
 </table>
 </div>
 
-
-
-> 데이터 이해하기
->
+> #### 데이터 이해하기
+> 
 > `audio` 행은 음성 파일의 경로를 담고 있으며, `text`행은 해당 음성 파일의 스크립트를 담고 있습니다.
 
 <br>
@@ -90,26 +85,20 @@ SELECT * FROM librispeech_train LIMIT 5
 
 이제, thanosql을 사용하여 음성 인식 모델을 빌드합니다.
 
-
 ```sql
 %%thanosql
-
 BUILD MODEL my_speech_recognition_model
 USING Wav2Vec2En
 OPTIONS (audio_col='audio', text_col='text', epochs=1, batch_size=4)
 AS SELECT * FROM librispeech_train
 ```
 
-
-
     <Response [200]>
 
-
-
-> 쿼리 세부 정보
->
+> #### 쿼리 세부 정보
+> 
 > BUILD MODEL 구문을 사용하여 `my_speech_recognition_model` 모델을 만듭니다. USING 구문을 통해 기반 모델로 `Wav2Vec2En`를 사용할 것을 명시합니다.
->
+> 
 > OPTIONS를 통해 빌드에 사용할 옵션을 지정합니다. `audio_col`은 학습에 사용할 오디오 경로를 담은 행의 이름이며, `text_col`은 해당 오디오의 스크립트 정보를 담은 행입니다. `epochs`를 통해 몇 번의 에포크로 학습할 지를 지정하고, `batch_size`를 통해 한번에 데이터를 몇 개씩 읽을지 정합니다. 여기서는 빠르게 학습하기 위해 epochs를 1로 지정했습니다.
 
 <br>
@@ -118,14 +107,12 @@ AS SELECT * FROM librispeech_train
 
 빌드 완료된 모델을 사용하여, 오디오 파일의 스크립트를 읽어보겠습니다.
 
-
 ```sql
 %%thanosql
 PREDICT USING my_speech_recognition_model
 OPTIONS (audio_col='audio')
 AS SELECT * FROM librispeech_test
 ```
-
 
 <div>
 <table border="1" class="dataframe">
@@ -262,10 +249,8 @@ AS SELECT * FROM librispeech_test
 </table>
 </div>
 
-
-
-> 쿼리 세부 정보
->
+> #### 쿼리 세부 정보
+> 
 > PREDICT USING 쿼리를 통해 이전 단계에서 만든 `my_speech_recognition_model` 모델을 사용할 것이라 지정해줍니다.
->
+> 
 > OPTIONS를 통해 예측에 사용할 옵션을 지정합니다. `audio_col`은 예측에 사용할 오디오의 경로를 담은 행의 이름입니다.
