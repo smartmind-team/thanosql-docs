@@ -6,7 +6,7 @@ ex) 7분
 * 사용 언어 : **<ins>{사용언어 % 단위로 기재}**</ins> <br>
 ex) SQL(100%)
 * 참고문서 : **<ins>{데이터 세트 공식문서 링크}, {모델 공식문서 링크}**</ins> <br>
-ex) [Movielens 데이터셋 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
+ex) [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
 * 바로 따라해보기 : **<ins>{튜토리얼 환경 링크 제공 예정}**</ins>
 
 
@@ -32,16 +32,16 @@ ex)
 <br>
 
 **<ins>튜토리얼 목표 설명</ins>** <br>
-ex) 이번 튜토리얼에서는 <span style="background-color:#FDF5E3">`Movielens`</span> 영화평점 데이터셋을 사용합니다. 
-<span style="background-color:#FDF5E3">`Movielens`</span> 데이터셋은 사용자가 특정 영화에 대해서 평점을 준 것을 모아놓은 데이터세트입니다. <br>
+ex) 이번 튜토리얼에서는 <span style="background-color:#FDF5E3">`Movielens`</span> 영화평점 데이터 세트를 사용합니다. 
+<span style="background-color:#FDF5E3">`Movielens`</span> 데이터 세트는 사용자가 특정 영화에 대해서 평점을 준 것을 모아놓은 데이터세트입니다. <br>
 ThanoSQL을 사용하여 간단하게 사용자가 좋아할 영화목록을 추천하는 영화 추천 모델을 만들어 봅니다.
 
 ---
 <br>
 
-## **1. 데이터세트 확인**
+## **1. 데이터 세트 확인**
 
-아래 쿼리문을 실행하여 ThanoSQL DB에 저장되어 있는 <span style="background-color:#FDF5E3">`Movielens`</span> 영화평점 데이터셋을 확인합니다.
+아래 쿼리문을 실행하여 ThanoSQL DB에 저장되어 있는 <span style="background-color:#FDF5E3">`Movielens`</span> 영화평점 데이터 세트를 확인합니다.
 
 ```python
 %%thanosql 
@@ -109,7 +109,7 @@ SELECT * FROM movielens_train LIMIT 5
 
 
 
-## **2. 추천 모델 빌드**
+## **2. {모델} **
 
 다음 쿼리 구문을 실행하여 추천 모델을 구축합니다.
 
@@ -128,7 +128,7 @@ AS SELECT * FROM movielens_train
 
 >### **쿼리 세부정보**
 >```BUILD MODEL``` 쿼리를 사용하여 movie_rec 이라는 모델을 만들고 학습시킵니다. <br>
->```OPTIONS(user_col='userid',item_col='movieid',rating_col='rating', item_names= 'title', ...)``` 쿼리는 모델 생성에 필수적으로 필요한 movielens 샘플데이터셋의 `유저아이디 칼럼명`, `아이템아이디 칼럼명`, `평점 칼럼명` 들을 할당하여 데이터셋 전처리 및 모델 빌드가 가능하도록 합니다.
+>```OPTIONS(user_col='userid',item_col='movieid',rating_col='rating', item_names= 'title', ...)``` 쿼리는 모델 생성에 필수적으로 필요한 movielens 샘플 데이터 의 `유저아이디 칼럼명`, `아이템아이디 칼럼명`, `평점 칼럼명` 들을 할당하여 데이터 세트 전처리 및 모델 빌드가 가능하도록 합니다.
 
 ## **3. 빌드 완료된 모델을 사용하여 새로운 데이터 예측**
 
@@ -202,17 +202,15 @@ AS SELECT * FROM movielens_train
 <br>
 
 ## **4. 튜토리얼을 마치며**
-**<ins>튜토리얼 요약 설명</ins>** <br>
-ex) 이번 튜토리얼에서는 <span style="background-color:#FDF5E3">`Movielens`</span> 데이터셋을 사용하여 영화 평점기반 추천모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. 다음단계인  [중급 추천 시스템 만들기](comingsoon) 튜토리얼에서는 추천모델을 더욱 심도있게 다뤄봅니다. 
+**<ins>튜토리얼 요약</ins>** <br>
+ex) 이번 튜토리얼에서는 <span style="background-color:#FDF5E3">`Movielens`</span> 데이터 세트를 사용하여 영화 평점기반 추천모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. 다음단계인  [중급 추천 시스템 만들기](comingsoon) 튜토리얼에서는 추천모델을 더욱 심도있게 다뤄봅니다. 
 
-유사 튜토리얼 리스트 <br>
+**<ins>유사 튜토리얼 리스트</ins>** <br>
 * [유사 튜토리얼1](comingsoon)
 * [유사 튜토리얼2](comingsoon) 
 * [유사 튜토리얼3](comingsoon)
   
 <br>
 
-## **나만의 추천시스템을 만드는 것에 어려움이 있나요?** <br>
-추천시스템 구축 관련 문의: contact@smartmind.team
-
-
+## **<ins>{모델} 튜토리얼 관련 문의</ins>** <br>
+ex) 추천시스템 구축 관련 문의: contact@smartmind.team
