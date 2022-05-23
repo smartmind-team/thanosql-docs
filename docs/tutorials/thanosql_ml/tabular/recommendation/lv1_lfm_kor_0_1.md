@@ -35,11 +35,13 @@ ThanoSQL을 사용하여 간단하게 사용자가 좋아할 영화목록을 추
 
 ## **1. 데이터세트 확인**
 
-아래 쿼리문을 실행하여 ThanoSQL [DB](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 `Movielens` 영화평점 데이터 세트를 확인합니다.
+영화평점 데이터를 이용한 영화 추천 모델을 만들기 위해 ThanoSQL [DB](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 `movielens_train` 테이블을 사용합니다. 아래의 쿼리문을 실행하면서 테이블 내용을 확인합니다.
 
 ```python
 %%thanosql 
-SELECT * FROM movielens_train LIMIT 5
+SELECT * 
+FROM movielens_train 
+LIMIT 5
 ```
 
 
@@ -97,10 +99,8 @@ SELECT * FROM movielens_train LIMIT 5
 
 
 > **데이터 테이블 이해하기 :**<br> 
-`유저 31번`이 `1번 영화(Toy Story(1995))`에 `평점 3점` 부여 <br>
-`110번 영화 (Bravehear)`에 `평점 5점` 부여 <br>
-`260번 영화 (star wars)`에 `평점 5점` 부여 ...
-
+`movielens_train` 테이블은 `userid`(사용자ID), `movieid`(영화ID), `rating`(평점), `title`(영화 제목)에 대한 정보를 담고 있습니다. 
+"유저 31번"이 "1번 영화(Toy Story(1995))"에 "평점 3점"을 부여하고 "110번 영화(Brave Heart)"에 "평점 5점"을 부여한 것을 확인할 수 있습니다. 
 
 
 ## **2. 추천 모델 빌드**
@@ -112,13 +112,15 @@ SELECT * FROM movielens_train LIMIT 5
 %%thanosql
 BUILD MODEL movie_rec
 USING Light_FM
-OPTIONS (   
-          user_col='userid',   
-          item_col='movieid',
-          rating_col='rating',
-          item_names= 'title'
-        )
-AS SELECT * FROM movielens_train
+OPTIONS (
+  user_col='userid',   
+  item_col='movieid',
+  rating_col='rating',
+  item_names= 'title'
+  )
+AS 
+SELECT * 
+FROM movielens_train
 ```
 
 >### **쿼리 세부정보**
