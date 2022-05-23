@@ -123,7 +123,7 @@ SELECT *
 FROM movielens_train
 ```
 
->### **쿼리 세부정보**
+> **쿼리 세부정보**
 >```BUILD MODEL``` 쿼리를 사용하여 movie_rec 이라는 모델을 만들고 학습시킵니다. <br>
 >```OPTIONS(user_col='userid',item_col='movieid',rating_col='rating', item_names= 'title', ...)``` 쿼리는 모델 생성에 필수적으로 필요한 `Movielens` 샘플 데이터 세트의 `유저아이디 칼럼명`, `아이템아이디 칼럼명`, `평점 칼럼명` 들을 할당하여 데이터 세트 전처리 및 모델 빌드가 가능하도록 합니다.
 
@@ -199,7 +199,7 @@ AS SELECT * FROM movielens_train
 </table>
 </div>
 
->### 쿼리 세부정보
+> **쿼리 세부정보**
 >```PREDICT USING``` 쿼리는 이전 단계에서 생성한 movie_rec 이라는 모델을 사용하여 예측하게 합니다.
 ```OPTIONS(predict_type='predict_user', user_id=1, nrec=10, ...)``` 쿼리는 ```predict_type='predict_user', user_id=31, nrec=10``` 를 지정하여 유저ID 31번이 좋아할만한 아이템 10개를 예상하여 리스트를 만들어 출력합니다.
 
