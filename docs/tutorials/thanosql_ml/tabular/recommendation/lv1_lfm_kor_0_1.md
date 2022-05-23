@@ -1,12 +1,12 @@
 # **ThanoSQL 무작정 따라하기** 
 # **Movielens 영화평점 데이터를 이용한 영화 추천 시스템 만들기**
 ## **시작 전 사전정보**
-* 마지막 수정날짜 : 2022-05-20
-* 튜토리얼 난이도 : ★☆☆☆☆
-* 읽는데 걸리는 시간 : 7분
-* 사용 언어 : SQL(100%)
-* 예제 파일 위치 : model/recommendation/data/movielens 
-* 참고문서 : [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
+- 마지막 수정날짜 : 2022-05-20
+- 튜토리얼 난이도 : ★☆☆☆☆
+- 읽는데 걸리는 시간 : 7분
+- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 예제 파일 위치 : model/recommendation/data/movielens 
+- 참고문서 : [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
 
 
 **[이전 문서 - ThanoSQL에서 자동화된 머신러닝을 이용하여 캐글 자전거 수요 예측 회귀(Regression) 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/tabular/regression/docs/tutorials/thanosql_ml/tabular/regression/lv1_automl_regression_kor.md) | [다음 문서]()**
