@@ -9,14 +9,14 @@
 - 참고문서 : [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
 
 
-**[이전 문서 - ThanoSQL에서 자동화된 머신러닝을 이용하여 캐글 자전거 수요 예측 회귀(Regression) 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/tabular/regression/docs/tutorials/thanosql_ml/tabular/regression/lv1_automl_regression_kor.md) | [다음 문서]()**
+**[이전 문서 - ThanoSQL에서 자동화된 머신러닝을 이용하여 캐글 자전거 수요 예측 회귀(Regression) 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/tabular/regression/docs/tutorials/thanosql_ml/tabular/regression/lv1_automl_regression_kor.md) | [다음 문서 - Microsoft 뉴스 데이터세트를 이용한 뉴스 추천 시스템 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lda_kor_0_1.md)**
 
 <br> 
 
 ## **튜토리얼 소개 :** <br>
 
 >**추천 시스템 이해하기 :** 추천시스템은 사용자가 전체 아이템이 아닌 소수의 아이템을 소비(이 경우에는 시청)하고 평점을 주게 됩니다. 아직 소비하지 않은 아이템에 대해서 평점을 어떻게 줄지를 예측하고 높은 평점을 줄 것으로 예측되는, 하지만 소비되지 않은 아이템의 평점을 높은 순위부터 보여줍니다. <br>
->> 본 튜토리얼에서는 사용자가 콘텐츠에 부여한 평점 데이터만을 사용하여 간단한 추천시스템을 구축합니다. 만약, 평점기반이 아닌 소비한 아이템 내용(제목, 카테고리, 키워드 등)을 기반으로 한 추천시스템을 만들고 싶다면 다음 [뉴스 추천모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lda_kor_0_1.md) 튜토리얼을 참조하세요.
+>> 본 튜토리얼에서는 사용자가 콘텐츠에 부여한 평점 데이터만을 사용하여 간단한 추천시스템을 구축합니다. 만약, 평점기반이 아닌 소비한 아이템 내용(제목, 카테고리, 키워드 등)을 기반으로 한 추천시스템을 만들고 싶다면 다음 [Microsoft 뉴스 데이터세트를 이용한 뉴스 추천 시스템 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lda_kor_0_1.md) 튜토리얼을 참조하세요.
 
 넷플릭스등의 [OTT 서비스](https://ko.wikipedia.org/wiki/OTT_%EC%84%9C%EB%B9%84%EC%8A%A4)등을 사용하다보면 'OO님이 좋아할만한 영화', 'OO님이 좋아할만한 드라마' 등의 제목 아래 흥미로운 컨텐츠 리스트들을 볼 수 있습니다. OTT 서비스 외에도 온라인쇼핑몰, 온라인 뉴스, 온라인 광고 등 온라인 플랫폼 시장에는 유저를 사로잡기 위한 다양한 추천시스템들이 존재합니다. 이처럼 플랫폼의 고객유치와 타 플랫폼과의 경쟁력을 높이기 위해 추천시스템의 중요도는 계속 올라가고 있습니다.
 ThanoSQL은 추천시스템 알고리즘을 자동화하여 머신러닝 지식이 없어도 플랫폼 실무자들이 간단히 쿼리구문을 통해 추천 시스템을 구축할 수 있도록 도와줍니다. 
