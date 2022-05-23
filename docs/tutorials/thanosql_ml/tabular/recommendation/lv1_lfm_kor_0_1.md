@@ -116,7 +116,7 @@ OPTIONS (
   user_col='userid',   
   item_col='movieid',
   rating_col='rating',
-  item_names= 'title'
+  item_names='title'
   )
 AS 
 SELECT * 
