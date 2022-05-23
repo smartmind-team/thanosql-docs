@@ -5,7 +5,7 @@
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는데 걸리는 시간 : 7분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 예제 파일 위치 : model/recommendation/data/movielens 
+- 실행 파일 위치 : model/recommendation/data/movielens 
 - 참고문서 : [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
 
 
