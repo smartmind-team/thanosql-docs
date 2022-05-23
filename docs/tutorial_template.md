@@ -1,7 +1,7 @@
 ## ***Tutorial Manual*** <br>
 ***# 아래 제공된 템플릿에서 밑줄로 표시된 부분 채워넣기*** <br>
 ***# 데이터셋(x) 데이터 세트(o)로 통일*** <br>
-***# 데이터 세트명 스타일 통일(색은 추후 한번에 변경 예정) <br>
+***# [데이터 세트명, 테이블명, 모델명, 컬럼명] 스타일 통일(색은 추후 한번에 변경 예정) <br>
 `<span style="background-color:#FDF5E3">`{데이터 세트명}`</span>`*** <br>
 &ensp;&ensp;ex) <br>
 &ensp;&ensp;&ensp;&ensp;`<span style="background-color:#FDF5E3">`Movielens`</span>` <br>
@@ -39,6 +39,10 @@ ex) SQL(100%)
 * 참고문서 : **<ins>{데이터 세트 공식문서 링크}, {모델 공식문서 링크}**</ins> <br>
 ex) [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
 * 바로 따라해보기 : **<ins>{튜토리얼 환경 링크 제공 예정}**</ins>
+
+<br>
+
+**[이전] &nbsp;&nbsp;| &nbsp;&nbsp; [다음]**
 
 
 <br> 
@@ -240,7 +244,11 @@ ex) 이번 튜토리얼에서는 <span style="background-color:#FDF5E3">`Moviele
 * [유사 튜토리얼1](comingsoon)
 * [유사 튜토리얼2](comingsoon) 
 * [유사 튜토리얼3](comingsoon)
-  
+
+<br>
+
+**[이전] &nbsp;&nbsp;| &nbsp;&nbsp; [다음]**
+
 <br>
 
 ## **<ins>{모델} 튜토리얼 관련 문의</ins>** <br>
