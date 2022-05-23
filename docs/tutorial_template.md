@@ -109,7 +109,7 @@ SELECT * FROM movielens_train LIMIT 5
 
 
 
-## **<ins>{모델 }</ins>**
+## **<ins>2. {모델} 생성하기</ins>**
 
 다음 쿼리 구문을 실행하여 추천 모델을 구축합니다.
 
