@@ -136,11 +136,13 @@ FROM movielens_train
 %%thanosql
 PREDICT USING movie_rec
 OPTIONS (
-          predict_type='predict_user', 
-          user_id=31, 
-          nrec=10
-        )
-AS SELECT * FROM movielens_train
+  predict_type='predict_user', 
+  user_id=31, 
+  nrec=10
+  )
+AS 
+SELECT * 
+FROM movielens_train
 ```
 
 
