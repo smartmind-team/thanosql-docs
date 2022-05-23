@@ -9,7 +9,7 @@
 * 참고문서 : [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
 
 
-**[이전 - ThanoSQL에서 자동화된 머신러닝을 이용하여 캐글 자전거 수요 예측 회귀(Regression) 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/tabular/regression/docs/tutorials/thanosql_ml/tabular/regression/lv1_automl_regression_kor.md) | [다음 문서]()**
+**[이전  - ThanoSQL에서 자동화된 머신러닝을 이용하여 캐글 자전거 수요 예측 회귀(Regression) 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/tabular/regression/docs/tutorials/thanosql_ml/tabular/regression/lv1_automl_regression_kor.md) | [다음 문서]()**
 
 <br> 
 
@@ -214,7 +214,7 @@ AS SELECT * FROM movielens_train
 <br>
 
 
-**[이전 - ThanoSQL에서 자동화된 머신러닝을 이용하여 캐글 자전거 수요 예측 회귀(Regression) 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/tabular/regression/docs/tutorials/thanosql_ml/tabular/regression/lv1_automl_regression_kor.md) | [다음 문서]()**
+**[이전 문서 - ThanoSQL에서 자동화된 머신러닝을 이용하여 캐글 자전거 수요 예측 회귀(Regression) 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/tabular/regression/docs/tutorials/thanosql_ml/tabular/regression/lv1_automl_regression_kor.md) | [다음 문서]()**
 
 
 ---
