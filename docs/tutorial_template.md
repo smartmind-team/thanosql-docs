@@ -1,3 +1,34 @@
+## ***Tutorial Manual*** <br>
+***# 아래 제공된 템플릿에서 밑줄로 표시된 부분 채워넣기*** <br>
+***# 데이터셋(x) 데이터 세트(o)로 통일*** <br>
+***# 데이터 세트명 스타일 통일(색은 추후 한번에 변경 예정) <br>
+`<span style="background-color:#FDF5E3">`{데이터 세트명}`</span>`*** <br>
+&ensp;&ensp;ex) <br>
+&ensp;&ensp;&ensp;&ensp;`<span style="background-color:#FDF5E3">`Movielens`</span>` <br>
+***# thanosql문 예제로 사용 시, %%thanosql 사용 (단, pandas df로 ouput 받는 경우만 %thanosql 사용)*** <br>
+&ensp;&ensp;ex1) <br>
+&ensp;&ensp;&ensp;&ensp;__%%thanosql__ <br>
+&ensp;&ensp;&ensp;&ensp;BUILD MODEL {model_name} <br>
+&ensp;&ensp;&ensp;&ensp;USING {model} <br>
+&ensp;&ensp;&ensp;&ensp;AS {sql} <br>
+&ensp;&ensp;ex2) <br>
+&ensp;&ensp;&ensp;&ensp;df = __%thanosql__ SELECT * FROM {table} <br>
+***# thanosql문 예제로 사용 시, Clause 마다 라인 구분하기*** <br>
+&ensp;&ensp;ex1) <br>
+&ensp;&ensp;&ensp;&ensp;__%%thanosql__ <br>
+&ensp;&ensp;&ensp;&ensp;BUILD MODEL {model_name} -> line break <br>
+&ensp;&ensp;&ensp;&ensp;USING {model} -> line break <br>
+&ensp;&ensp;&ensp;&ensp;OPTIONS {options} -> line break <br>
+&ensp;&ensp;&ensp;&ensp;AS {sql} -> line break <br>
+***# thanosql문 OPTIONS 문 예제로 사용 시 포멧*** <br>
+&ensp;&ensp;OPTIONS(opt1=val1, <br>
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;opt2=val2, <br>
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;opt3=val3, <br>
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;opt4=val4 <br>
+&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&ensp;&nbsp;) <br>
+
+<br><br>
+
 # **{튜토리얼 제목 기재}**
 ## **시작 전 사전정보**
 * 튜토리얼 난이도 : **<ins>★☆☆☆☆**</ins>
