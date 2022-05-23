@@ -12,7 +12,6 @@
 **[이전 문서 - 자동화된 머신러닝을 이용하여 캐글 자전거 수요 예측 회귀(Regression) 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/tabular/regression/docs/tutorials/thanosql_ml/tabular/regression/lv1_automl_regression_kor.md)** <br>
 **| [다음 문서 - Microsoft 뉴스 데이터세트를 이용한 뉴스 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lda_kor_0_1.md)**
 
-<br> 
 
 ## **튜토리얼 소개** <br>
 
