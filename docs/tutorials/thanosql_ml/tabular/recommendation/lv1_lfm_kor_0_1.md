@@ -100,7 +100,7 @@ LIMIT 5
 
 > **데이터 테이블 이해하기 :**<br> 
 `movielens_train` 테이블은 `userid`(사용자ID), `movieid`(영화ID), `rating`(평점), `title`(영화 제목)에 대한 정보를 담고 있습니다. 
-"유저 31번"이 "Toy Story (1995)"에 "평점 3점"을 주고 "Braveheart (1995)"에 "평점 5점"을 준 것을 확인할 수 있습니다. 
+`userid` 값이 31인 사용자는 "Toy Story (1995)"에 "평점 3점"을 주고 "Braveheart (1995)"에 "평점 5점"을 준 것을 확인할 수 있습니다. 
 
 
 ## 2. 추천 모델 빌드
@@ -136,8 +136,8 @@ FROM movielens_train
 %%thanosql
 PREDICT USING movie_rec
 OPTIONS (
-  predict_type='predict_user', 
-  user_id=31, 
+  predict_type='user', 
+  user=31, 
   nrec=10
   )
 AS 
@@ -203,7 +203,7 @@ FROM movielens_train
 
 > **쿼리 세부정보** <br>
 >__"PREDICT USING"__ 쿼리는 이전 단계에서 생성한 `movie_rec` 이라는 모델을 사용하여 예측합니다. 
-추천모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. "user_id"는 보고자 하는 특정 사용자의 "userid"를 입력합니다. 이번 튜토리얼에서는 "userid"가 31에 해당하는 사용자에게 추천하는 영화 리스트를 살펴보겠습니다. "nrec"은 추천하는 아이템의 개수를 의미합니다. 이미 본 영화를 제외하기 위해서는 사용자의 추가적인 시청이력 데이터가 필요합니다. 
+추천모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. "predict_type"은 예측결과를 정렬할 대상 기준을 설정합니다. 이번 튜토리얼에서는 특정 사용자(`userid`의 값이 31)에게 추천할 영화 목록을 보려고 하기 때문에 "user"를 적어줍니다. 추가적인 파라메터는 [중급 추천 시스템 만들기](comingsoon) 튜토리얼에서 다루게 됩니다. "user"는 보고자 하는 특정 사용자의 "userid"값인 31을 입력합니다. "nrec"은 추천하는 아이템의 개수를 의미합니다. 
 
 <br>
 
