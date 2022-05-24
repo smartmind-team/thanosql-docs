@@ -198,7 +198,7 @@ FROM news_train
 ```
 
 > **쿼리 세부정보 :** <br>
->"__BUILD MODEL__" 쿼리구문을 사용하여 이전 단계에서 만든 `news_rec` 이라는 모델을 예측에 사용합니다. 추천 모델에서 "__OPTIONS__"는 4개의 컬럼(Column)이 사용됩니다. "article_id"에는 뉴스의 ID 컬럼명(`id`), "article_title"에는 뉴스의 제목 컬럼명(`title`), "article_abstract"에는 뉴스의 요약내용 컬럼명(`abstract`), "user_history_tb_name"은 사용자의 행동 이력(뉴스를 본 순서)가 있는 테이블 이름(`mind_train_user_history`)을 적어줍니다. 
+>"__BUILD MODEL__" 쿼리구문을 사용하여 이전 단계에서 만든 `news_rec` 이라는 모델을 예측에 사용합니다. 추천 모델에서 "__OPTIONS__"는 4개의 컬럼(Column)이 사용됩니다. "article_id"에는 뉴스의 ID 컬럼명(`id`), "article_title"에는 뉴스의 제목 컬럼명(`title`), "article_abstract"에는 뉴스의 요약내용 컬럼명(`abstract`), "user_history_tb_name"은 사용자의 행동 이력(뉴스를 본 순서)에 대한 테이블명(`mind_train_user_history`)을 적어줍니다. 
 >', ...)``` 쿼리구문은 모델 생성에 필수적으로 필요한 news_train 샘플데이터 세트의 유저 아이디 칼럼이름, 문서제목칼럼, 문서내용칼럼, 유저히스토리 테이블 이름들을 할당하여 모델 빌드를 위한 데이터 세트 전처리 및 모델 학습이 가능하도록 합니다.  
 
 ## 3. 빌드 완료된 모델 사용하여 사용자에게 맞춤 뉴스추천 해보기
