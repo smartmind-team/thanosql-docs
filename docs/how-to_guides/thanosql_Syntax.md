@@ -76,7 +76,7 @@ FROM movielens_train
 
 >### 쿼리 세부정보
 >"__BUILD MODEL__" 쿼리를 사용하여 `movie_rec` 이라는 모델을 만들고 학습시킵니다.
->"__OPTIONS(user='userid', item='movieid', rating='rating', description='title', ...)__" 쿼리는 모델 생성에 필수적으로 필요한 `movielens` 샘플데이터셋의 사용자 ID 컬럼명, 아이템 ID 컬럼명, 평점 컬럼명들을 할당하여 데이터 세트 전처리 및 모델 빌드가 가능하도록 합니다. "__OPTIONS__"에 따로 파라미터 할당을 하지 않으면 기본적인 파라미터 값으로 모델이 생성됩니다. <br> 모델의 파라미터 튜닝 옵션들 또한 사용이 가능합니다. 사용가능한 파라미터에 대한 추가적인 설명은 [참조 페이지](https://making.lyst.com/lightfm/docs/lightfm.html)를 통해 확인할 수 있습니다.
+>"__OPTIONS(user='userid', item='movieid', rating='rating', description='title', ...)__" 쿼리는 모델 생성에 필수적으로 필요한 `movielens` 샘플 데이터 세트의 사용자 ID 컬럼(Column)명, 아이템 ID 컬럼명, 평점 컬럼명들을 할당하여 데이터 세트 전처리 및 모델 빌드가 가능하도록 합니다. "__OPTIONS__"에 따로 파라미터 할당을 하지 않으면 기본적인 파라미터 값으로 모델이 생성됩니다. <br> 모델의 파라미터 튜닝 옵션들 또한 사용이 가능합니다. 사용가능한 파라미터에 대한 추가적인 설명은 [참조 페이지](https://making.lyst.com/lightfm/docs/lightfm.html)를 통해 확인할 수 있습니다.
 
 #### 1.2.2 타이타닉 생존분류 데이터셋 예시
 아래 예시는 AutomlClassifier 분류모델을 사용하여 타이타닉 생존여부 예측 모델을 만듭니다. 
