@@ -337,7 +337,7 @@ FROM color_descriptor_table_test
 
 ## 9. SEARCH Clause
 
-"__SEARCH__" 쿼리 구문은 이미지, 비디오, 음성 파일 내 찾고자 하는 특정 파일을 검색 합니다.
+"__SEARCH__" 쿼리 구문은 정형/비정형 데이터에서 내용/의미/유사도 등을 검색 합니다.
 
 ### 9.1 SEARCH Statement
 
