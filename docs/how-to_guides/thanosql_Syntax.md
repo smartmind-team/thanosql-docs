@@ -26,7 +26,7 @@ ThanoSQL에서 사용하는 문법들의 기능을 모아두었습니다. 각 �
 |Clause|Function|
 |:---|:---|
 |BUILD MODEL|모델 빌드|
-|FIT MODEL|MODEL 재학습|
+|FIT MODEL|모델 (재)학습|
 |DELETE MODEL|모델 삭제|
 |TRANSFORM|테이블/데이터프레임 형태 변환|
 |PREDICT|모델을 사용한 예측|
