@@ -29,7 +29,7 @@
 이번 튜토리얼에서는 `Microsoft News Dataset` 을 사용합니다. `Microsoft News Dataset` 데이터 세트는 대표적인 뉴스 데이터 세트로 MSN에 있는 뉴스 기사들을 모아놓은 데이터 세트입니다. <br>
 ThanoSQL을 사용하여 간단하게 사용자가 관심있어 할 뉴스를 추천해주는 뉴스 추천 모델을 만들어봅니다.
 
-<br><br>
+<br>
 
 ## 1. 데이터세트 확인
 
