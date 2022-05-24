@@ -11,7 +11,6 @@
 
 **[이전 문서 - Movielens 영화평점 데이터를 이용한 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)** <br> **| [다음 문서]()**
 
-
 <br>
 
 ## 튜토리얼 소개 <br>
