@@ -57,7 +57,7 @@ AS [사용하고자 하는 데이터세트]
 
 #### 1.2.1 추천 모델 구축을 위해 "__Light_FM__" 베이스 알고리즘 사용
 
-아래 예시는 "__BUILD MODEL__" 쿼리문을 사용하여 `user_rec`라는 모델을 ["__Light_FM__"]()이라는 베이스 알고리즘을 사용해서 추천 모델을 구축합니다. 자세한 코드 내용이 궁금하다면 [Movielens 영화평점 데이터를 이용한 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)를 진행해 보세요.
+아래 예시는 "__BUILD MODEL__" 쿼리문을 사용하여 `user_rec`라는 모델을 ["__Light_FM__"]()이라는 베이스 알고리즘을 학습시켜 추천 모델을 구축합니다. 자세한 코드 내용이 궁금하다면 [Movielens 영화평점 데이터를 이용한 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)를 진행해 보세요.
 
 ```python
 %%thanosql
