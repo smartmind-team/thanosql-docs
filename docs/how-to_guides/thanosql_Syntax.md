@@ -359,11 +359,11 @@ FROM color_descriptor_table_test
 
 ## 10. PRINT Clause
 
-`PRINT` 쿼리 구문을 사용하여 이미지, 음성, 비디오 파일을 출력합니다.
+"__PRINT__" 쿼리 구문을 사용하여 이미지, 음성, 비디오 파일을 출력합니다.
 
 ### 10.1 PRINT Statement
 
-```POSTGRESQL
+```python
 PRINT IMAGE|AUDIO|VIDEO
 AS [출력할 데이터 세트]
 ```
