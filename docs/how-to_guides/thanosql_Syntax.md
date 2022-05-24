@@ -161,8 +161,7 @@ DELETE MODEL user_rec
 ### 4.1 TRANSFORM Statement
 
 ```python
-TRANSFORM [사용자 지정 테이블 이름]
-USING [사용하고 싶은 변환 알고리즘]
+TRANSFORM USING [사용하고 싶은 변환 알고리즘]
 AS [변환하고자 하는 데이터 세트]
 ```
 
@@ -170,8 +169,7 @@ AS [변환하고자 하는 데이터 세트]
 
 ```python
 %%thanosql
-TRANSFORM 
-USING test_classifier 
+TRANSFORM USING test_classifier 
 AS 
 SELECT * 
 FROM titanic_test 
@@ -180,28 +178,32 @@ LIMIT 100
 
 ## 5. PREDICT 쿼리 구문 설명
 
-"__PREDICT__"  쿼리 구문은 1단계에서 빌드한 인공지능 모델을 사용하여 예측, 분류, 추천 등의 작업을 수행합니다.
+"__PREDICT__"  쿼리 구문은 [1.2.1 단계](#1_2_1)에서 빌드한 인공지능 모델을 사용하여 예측, 분류, 추천 등의 작업을 수행합니다.
 
 ### 5.1 PREDICT 쿼리 구문 기본 구조
 
 ```python
-PREDICT 
-USING [사용하고 싶은 모델]
+PREDICT USING [사용하고 싶은 모델]
 OPTIONS ([PREDICT에 필요한 파라미터등의 옵션값])
 AS [사용하고자 하는 데이터 세트]
 ```
 
 ### 5.2 PREDICT 쿼리 구문 사용 예시
 
-아래 예시는 `PREDICT USING` 쿼리 구문을 사용하여 [1.2.1 단계](#1_2_1)에서 빌드한 `user_rec`이라는 추천 모델을 사용하여 31번 유저가 좋아할만한 영화 목록 10개를 출력합니다.  
+아래 예시는 "__PREDICT USING__" 쿼리 구문을 사용하여 [1.2.1 단계](#1_2_1)에서 빌드한 `user_rec`이라는 추천 모델을 사용하여 31번 유저가 좋아할만한 영화 목록 10개를 출력합니다.  
 
 
 ```python
 %%thanosql 
-PREDICT 
-USING user_rec 
-OPTIONS (predict_type='predict_user',user_id=31, nrec=10)
-AS select * from news_train
+PREDICT USING user_rec 
+OPTIONS (
+ predict_type='predict_user',
+ user_id=31, 
+ nrec=10
+ )
+AS 
+SELECT * 
+FROM news_train
 ```
 
 <div>
@@ -260,12 +262,12 @@ AS select * from news_train
 
 
 >### 쿼리 세부정보
->```PREDICT USING``` 쿼리는 [1.2.1 단계](#1_2_1) 단계에서 생성한 user_rec 이라는 모델을 사용하여 예측하게 합니다.
+>"__PREDICT USING__" 쿼리는 [1.2.1 단계](#1_2_1) 단계에서 생성한 user_rec 이라는 모델을 사용하여 예측하게 합니다.
 ```OPTIONS(predict_type='predict_user', user_id=31, nrec=10, ...)``` 쿼리는 ```predict_type='predict_user', user_id=31, nrec=10``` 를 지정하여 유저ID 31번이 좋아할만한 아이템 10개를 예상하여 추천 목록을 출력합니다.
 
 ## 6. EVALUATE 쿼리 구문 설명
 
-`EVALUATE` 쿼리 구문은 빌드한 모델의 성능을 평가합니다.
+"__EVALUATE__" 쿼리 구문은 빌드한 모델의 성능을 평가합니다.
 
 ### 6.1 EVALUATE 쿼리구문 기본 구조
 
