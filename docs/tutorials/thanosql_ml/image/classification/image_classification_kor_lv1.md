@@ -31,11 +31,8 @@
 
 이미지 분류 모델을 만들기 전에, 사용할 데이터를 확인해보겠습니다. 캐글의 `Cat and Dog` 데이터는 10000장의 고양이와 개 사진으로 구성되어 있습니다. 데이터는 훈련용 데이터 8000장과 테스트 데이터 2000장으로 나뉘어 ThanoSQL DB에 저장되어 있습니다. 아래 SQL 문법으로 데이터를 확인할 수 있습니다.
 
-```sql
+```python
 %load_ext thanosql
-```
-
-```sql
 %%thanosql
 SELECT * FROM cat_and_dog_train LIMIT 5
 ```
