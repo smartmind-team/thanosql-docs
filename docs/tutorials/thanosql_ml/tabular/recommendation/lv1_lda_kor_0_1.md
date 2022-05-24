@@ -179,7 +179,7 @@ LIMIT 5
 
 
 ## 2. 개인화 뉴스추천 모델 빌드
-이전 단계에서 확인한 `news_train` 샘플 데이터를 사용하여 개인화 뉴스추천 모델을 만듭니다. 다음 쿼리 구문을 실행시켜 `news_rec` 이라는 모델을 만듭니다. 
+이전 단계에서 확인한 `news_train` 샘플 데이터를 사용하여 개인화 뉴스추천 모델을 만듭니다. 다음 쿼리 구문을 실행시켜 `news_rec` 라는 모델을 만듭니다. 
 
 
 ```python
@@ -198,21 +198,22 @@ FROM news_train
 ```
 
 > **쿼리 세부정보 :** <br>
->"__BUILD MODEL__" 쿼리구문을 사용하여 이전 단계에서 만든 `news_rec` 이라는 모델을 예측에 사용합니다. 추천 모델에서 "__OPTIONS__"는 4개의 컬럼(Column)이 사용됩니다. "article_id"에는 뉴스의 ID 컬럼명(`id`), "article_title"에는 뉴스의 제목 컬럼명(`title`), "article_abstract"에는 뉴스의 요약내용 컬럼명(`abstract`), "user_history_tb_name"은 사용자의 행동 이력(뉴스를 본 순서)에 대한 테이블명(`mind_train_user_history`)을 적어줍니다. 
+>"__BUILD MODEL__" 쿼리구문을 사용하여 이전 단계에서 만든 `news_rec` 이라는 모델을 예측에 사용합니다. 추천 모델에서 "__OPTIONS__"는 4개의 컬럼(Column)이 사용됩니다. "article_id"에는 뉴스의 ID 컬럼명(`id`), "article_title"에는 뉴스의 제목 컬럼명(`title`), "article_abstract"에는 뉴스의 요약내용 컬럼명(`abstract`), "user_history_tb_name"은 사용자의 행동 이력(뉴스를 본 순서)에 대한 테이블명(`mind_train_user_history`)을 적어줍니다. <br>
 >`mind_train_user_history` 테이블은 컬럼명을 `user_id`, `news_id`, `ord`를 사용합니다.
  
 ## 3. 빌드 완료된 모델 사용하여 사용자에게 맞춤 뉴스추천 해보기
-이전 단계에서 빌드한 개인화 추천 모델을 사용해 유저가 좋아할 뉴스기사를 예측해 추천목록을 출력합니다.
-
+이전 단계에서 빌드한 개인화 추천 모델을 사용해서 특정 사용자가 좋아할만한 뉴스를 예측해 추천목록을 만듭니다. 뉴스 추천 결과 사용자 ID가 U9999인 사용자는 주로 정치/경제 관련 뉴스에 대해 관심이 많은 것을 확인 할 수 있습니다.  
 
 ```python
 %%thanosql
 PREDICT USING news_rec
 OPTIONS(
-        user_id = 'U9999', 
-        nrec= 5
-       ) 
-AS SELECT * FROM news_train
+  user_id = 'U9999', 
+  nrec= 5
+  ) 
+AS 
+SELECT * 
+FROM news_train
 ```
 
 
@@ -287,11 +288,10 @@ AS SELECT * FROM news_train
 </table>
 </div>
 
-뉴스추천 결과 유저 `U9999`는 주로 정치 경제 관련 뉴스 기사에 대해 관심이 많은 유저인 것을 확인 할 수 있습니다.  
+
 
 > **쿼리 세부정보 :** <br>
->"__PREDICT USING__" 쿼리는 이전 단계에서 생성한 `news_rec` 이라는 모델을 사용하여 예측하게 합니다.
-```OPTIONS(user_id='U9999', nrec=5 )``` 쿼리는 특정 유저 아이디 `U9999`의 추천 뉴스 `5개`를 예측하여 출력하게 합니다.
+>"__PREDICT USING__" 쿼리구문을 사용하여 이전 단계에서 만든 `news_rec` 모델을 예측에 사용합니다. 추천모델에서는 예측 단계에서도 "OPTIONS"를 사용합니다. 이번 튜토리얼에서는 특정 사용자(user_id의 값이 U9999)에게 추천할 뉴스 목록을 보려고 하기 때문에 "user_id"는 보고자 하는 특정 사용자의 "user_id"값인 U9999 입력합니다. "nrec"은 추천하는 아이템의 개수를 의미합니다.
 
 <br>
 
