@@ -99,7 +99,7 @@ FROM titanic_train
 ## __3. 빌드 완료된 모델 평가__ 
 아래의 쿼리문을 실행하여 이전 단계에서 만든 예측 모델의 성능을 평가합니다.
 
-```
+```sql
 %%thanosql 
 EVALUATE USING titanic_classification 
 OPTIONS (

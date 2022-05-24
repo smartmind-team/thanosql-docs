@@ -2,7 +2,7 @@
 # __Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기__
 
 **[이전 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/tabular/regression/docs/tutorials/thanosql_ml/tabular/regression/lv1_automl_regression_kor.md)** <br>
-**[다음 문서 - Microsoft 뉴스 데이터 세트를 이용한 뉴스 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lda_kor_0_1.md)**
+**[다음 문서 - Microsoft 뉴스 데이터 세트를 사용하여 뉴스 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lda_kor_0_1.md)**
 
 ## 시작 전 사전정보
 - 튜토리얼 난이도 : ★☆☆☆☆
@@ -16,9 +16,10 @@
 ## 튜토리얼 소개
 
 !!! note "__추천 모델 이해하기__"
-     일반적으로 추천 모델에서 해당 플랫폼의 특정 사용자는 플랫폼 내의 전체 아이템(제품/콘텐츠)이 아닌 소수의 아이템만을 소비(시청여부, 구매이력, 후기, 평점 등)하게 됩니다. 아직 소비하지 않은 아이템에 대해서 특정 소비자가 어떤 평점을 줄지 예측하고 높은 평점을 줄 것으로 예측되는 아이템(하지만 소비되지 않은 아이템)을 예측 평점이 높은 순위부터 보여줍니다. 
+     일반적으로 추천 모델에서 해당 플랫폼의 특정 사용자는 플랫폼 내의 전체 아이템(제품 또는 콘텐츠)이 아닌 소수의 아이템만을 소비(시청여부, 구매이력, 후기, 평점 등)하게 됩니다. 아직 소비하지 않은 아이템에 대해서 특정 소비자가 어떤 평점을 줄지 예측하고 높은 평점을 줄 것으로 예측되는 아이템(하지만 소비되지 않은 아이템)을 예측 평점이 높은 순위부터 보여줍니다. 
 
-넷플릭스와 같은 [OTT 서비스](https://ko.wikipedia.org/wiki/OTT_%EC%84%9C%EB%B9%84%EC%8A%A4)를 사용하면 'OO님이 좋아할만한 영화', 'OO님이 좋아할만한 드라마' 등의 콘텐츠 추천 리스트들을 볼 수 있습니다. OTT 서비스 외에도 온라인 쇼핑몰, 온라인 뉴스, 온라인 광고 등 온라인 플랫폼 시장에는 사용자를 사로잡기 위한 다양한 추천 모델들이 존재합니다. 이처럼 플랫폼 내에서 사용자의 체류시간/인게이지먼트 등을 높이고 타 플랫폼과의 경쟁력을 높이기 위해 추천 모델의 중요성은 계속 증가하고 있습니다.
+넷플릭스와 같은 [OTT 서비스](https://ko.wikipedia.org/wiki/OTT_%EC%84%9C%EB%B9%84%EC%8A%A4)를 사용하면 'OO님이 좋아할만한 영화', 'OO님이 좋아할만한 드라마' 등의 콘텐츠 추천 리스트들을 볼 수 있습니다. OTT 서비스 외에도 온라인 쇼핑몰, 온라인 뉴스, 온라인 광고 등 온라인 플랫폼 시장에는 사용자를 사로잡기 위한 다양한 추천 모델들이 존재합니다. 이처럼 플랫폼 내에서 사용자의 체류시간 또는 인게이지먼트 등을 높이고 타 플랫폼과의 경쟁력을 높이기 위해 추천 모델의 중요성은 계속 증가하고 있습니다.
+
 ThanoSQL은 추천 모델 알고리즘을 자동화하여 머신러닝이나 데이터 과학(Data Science)에 대한 지식이 없어도 서비스 제공자들이 간단한 쿼리구문만을 이용해 추천 모델을 구축할 수 있도록 도와줍니다.  
 
 __아래는 ThanoSQL (영화) 추천 모델의 활용 및 기대효과 예시입니다.__
@@ -36,7 +37,7 @@ __아래는 ThanoSQL (영화) 추천 모델의 활용 및 기대효과 예시입
 
 ## __1. 데이터 세트 확인__
 
-영화 평점 데이터를 이용한 영화 추천 모델을 만들기 위해 ThanoSQL [데이터베이스(DB)](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 <mark style="background-color:#FFEC92 ">movielens_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
+영화 평점 데이터를 이용한 영화 추천 모델을 만들기 위해 ThanoSQL [데이터 베이스(DB)](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 <mark style="background-color:#FFEC92 ">movielens_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 ```sql
 %%thanosql 
@@ -48,8 +49,8 @@ LIMIT 5
 
 !!! note "데이터 이해하기"
     <mark style="background-color:#FFEC92 ">movielens_train</mark> 데이터 세트는 다음과 같은 정보를 담고 있습니다.  
-    - <mark style="background-color:#D7D0FF ">userid</mark> : 사용자ID   
-    - <mark style="background-color:#D7D0FF ">movieid</mark> : 영화ID  
+    - <mark style="background-color:#D7D0FF ">userid</mark> : 사용자 ID   
+    - <mark style="background-color:#D7D0FF ">movieid</mark> : 영화 ID  
     - <mark style="background-color:#D7D0FF ">rating</mark> : 평점   
     - <mark style="background-color:#D7D0FF ">title</mark> : 영화 제목  
     <mark style="background-color:#D7D0FF ">userid</mark> 값이 31인 사용자는 "Toy Story (1995)"에 평점 3.0점을 주고 "Braveheart (1995)"에 평점 5.0점을 준 것을 확인할 수 있습니다. 

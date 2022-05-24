@@ -41,6 +41,7 @@ nav:
           - Auto-ML을 사용하여 수요 예측 모델 만들기: tutorials/thanosql_ml/tabular/regression/automl_regression.md
       - 추천시스템 만들기:
           - 영화 평점 데이터를 사용하여 영화 추천 모델 만들기: tutorials/thanosql_ml/tabular/recommendation/recommendation_lfm.md
+          - 뉴스 데이터를 사용하여 뉴스 추천 모델 만들기: tutorials/thanosql_ml/tabular/recommendation/recommendation_lda.md 
 # extra:
 #   alternate:
 #     - link: /
