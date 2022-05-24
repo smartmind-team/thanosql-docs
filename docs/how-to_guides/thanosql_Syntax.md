@@ -1,6 +1,18 @@
 # ThanoSQL Syntax
 ## 쿼리 구문 사용 튜토리얼
 
+## 시작 전 사전정보
+
+- 튜토리얼 난이도 : ★★☆☆☆
+- 읽는데 걸리는 시간 : 5분
+- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 마지막 수정날짜 : 2022-06-01
+
+**[이전 문서 - ](https://github.com/smartmind-team/thanosql-docs/blob/sunkeun/docs/tutorials/thanosql_ml/tabular/classification/automl_classification.md)** <br>| **[다음 문서 - ](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)**
+
+<br>
+
+## 튜토리얼 소개
  * ThanoSQL은 [ANSI/ISO 표준](https://en.wikipedia.org/wiki/SQL_syntax)을 준수하며 85% 이상의 표준 SQL 쿼리 구문들과 호환합니다.
  * ThanoSQL만의 쿼리기능을 통해 이미지/동영상 내의 내용 검색이 가능합니다.
  * ThanoSQL만의 쿼리기능을 통해 이미지분류모델, 회귀예측, 회귀분류, 추천시스템 등의 인공지능 모델들을 SQL쿼리문으로 쉽고 간단하게 만들 수 있습니다. <br><br>
