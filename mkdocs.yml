@@ -4,6 +4,10 @@ site_url: http://dev.thanosql.ai/docs/
 site_author: Smartmind Team
 theme:
   name: material
+  logo: assets/images/docs_logo.png
+  favicon: assets/images/favicon.ico
+  features:
+    - navigation.top
 markdown_extensions:
   - admonition
   - attr_list
@@ -34,3 +38,13 @@ edit_uri: ""
 #           - tabular:
 #               - classification:
 #                   - 자동화된 ML을 이용하여 분류 모델 만들기: tutorials/thanosql_ml/tabular/classification/automl_classification.md
+# extra:
+#   alternate:
+#     - link: /
+#       lang: en
+#       name: English
+#     - link: /ko/
+#       lang: kr
+#       name: 한국어
+extra_css:
+  - /assets/css/extra.css
