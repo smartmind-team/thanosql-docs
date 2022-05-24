@@ -46,9 +46,9 @@ ThanoSQL에서 사용하는 문법들의 기능을 모아두었습니다. 각 �
 
 ```python
 BUILD MODEL [사용자 지정 모델 이름] 
-USING [사용하고자 하는 베이스 알고리즘]
+USING [사용할 베이스 알고리즘]
 OPTIONS ([알고리즘 별 모델 빌드에 필요한 파라미터 등의 옵션값])
-AS [사용하고자 하는 데이터 세트] 
+AS [사용할 데이터 세트] 
 ```
 
 "__OPTIONS__"에서 사용하는 파라미터 등의 옵션값은 사용하는 베이스 알고리즘에 따라 다르게 적용됩니다. 각 알고리즘에 대한 "__OPTIONS__"는 [다음 문서]()에서 확인 가능합니다.
@@ -112,7 +112,7 @@ LIMIT 100
 FIT MODEL [사용자 지정 모델 이름]
 USING [빌드했던 모델 이름]
 OPTIONS ([알고리즘 별 모델 빌드에 필요한 파라미터 등의 옵션값]) 
-AS [새로운 학습 데이터 세트]            
+AS [사용할 데이터 세트]            
 ```
 
 
@@ -161,8 +161,8 @@ DELETE MODEL user_rec
 ### 4.1 TRANSFORM USING Statement
 
 ```python
-TRANSFORM USING [사용하고 싶은 변환 알고리즘]
-AS [변환하고자 하는 데이터 세트]
+TRANSFORM USING [사용할 변환 알고리즘]
+AS [사용할 데이터 세트]
 ```
 
 ### 4.2 TRANSFORM USING Examples
@@ -183,9 +183,9 @@ LIMIT 100
 ### 5.1 PREDICT USING Statement
 
 ```python
-PREDICT USING [사용하고 싶은 모델 이름]
-OPTIONS ([PREDICT에 필요한 파라미터 등의 옵션값])
-AS [사용하고자 하는 데이터 세트]
+PREDICT USING [사용할 모델 이름]
+OPTIONS ([사용할 모델에서 필요한 파라미터 등의 옵션값])
+AS [사용할 데이터 세트]
 ```
 
 ### 5.2 PREDICT USING Examples
@@ -271,9 +271,9 @@ FROM news_train
 ### 6.1 EVALUATE USING Statement
 
 ```python
-EVALUATE USING [사용하고 싶은 모델]
-OPTIONS ([EVALUATE 변수값 설정])
-AS [사용하고자 하는 데이터 세트]
+EVALUATE USING [사용할 모델]
+OPTIONS ([사용할 모델의 성능평가를 위한 변수값 설정])
+AS [사용할 데이터 세트]
 ```
 
 ### 6.2 EVALUATE USING Examples
@@ -297,8 +297,8 @@ LIMIT 100
 
 ```python
 CREATE TABLE [사용자 지정 테이블 이름]
-USING [사용하고 싶은 변환 알고리즘]
-AS [변환하고자 하는 데이터 세트]
+USING [사용할 변환 알고리즘]
+AS [사용할 데이터 세트]
 ```
 
 ### 7.2 CREATE TABLE Examples
@@ -322,8 +322,8 @@ FROM '/data/thanosAlgo/image_search/junyoung_test/'
 
 ```python
 CONVERT [사용자 지정 테이블 이름]
-USING [사용하고 싶은 변환 알고리즘]
-AS [변환하고자 하는 데이터 세트]
+USING [사용할 변환 알고리즘]
+AS [사용할 데이터 세트]
 ```
 
 ### 8.2 CONVERT Examples
@@ -343,8 +343,8 @@ FROM color_descriptor_table_test
 
 ```python
 SEARCH [사용자 지정 테이블 이름]
-USING [사용하고 싶은 변환 알고리즘]
-AS [변환하고자 하는 데이터세트]
+USING [사용할 변환 알고리즘]
+AS [사용할 데이터 세트]
 ```
 
 ### 9.2 SEARCH Examples
@@ -364,8 +364,8 @@ FROM color_descriptor_table_test
 ### 10.1 PRINT Statement
 
 ```POSTGRESQL
-PRINT IMAGE | AUDIO | VIDEO
-AS [출력하고자 하는 파일]
+PRINT IMAGE|AUDIO|VIDEO
+AS [출력할 데이터 세트]
 ```
 
 ### 10.2 PRINT Examples
@@ -373,17 +373,23 @@ AS [출력하고자 하는 파일]
 ```python
 %%thanosql
 PRINT IMAGE
-AS SELECT * FROM junyong_img 
+AS 
+SELECT * 
+FROM junyong_img 
 ```
 
 ```python
 %%thanosql
 PRINT AUDIO
-AS SELECT * FROM junyong_aud
+AS 
+SELECT * 
+FROM junyong_aud
 ```
 
 ```python
 %%thanosql
 PRINT VIDEO
-AS SELECT * FROM junyong_vid
+AS 
+SELECT * 
+FROM junyong_vid
 ```
