@@ -47,9 +47,11 @@ ThanoSQL에서 사용하는 문법들의 기능을 모아두었습니다. 각 �
 ```python
 BUILD MODEL [사용자 지정 모델 이름] 
 USING [사용하고 싶은 모델]
-OPTIONS ([모델별 빌드에 필요한 파라미터등의 옵션값])
+OPTIONS ([모델별 빌드에 필요한 파라미터 등의 옵션값])
 AS [사용하고자 하는 데이터세트] 
 ```
+
+"__OPTIONS__"에서 사용하는 파라미터 등의 옵션값은 사용하는 베이스 알고리즘에 따라 다르게 적용됩니다. 각 알고리즘에 대한 "__OPTIONS__"는 [다음 문서]()에서 확인 가능합니다.
 
 ### 1.2 BUILD MODEL Examples
 
@@ -86,10 +88,13 @@ FROM movielens_train
 BUILD MODEL test_classifier
 USING AutomlClassifier
 OPTIONS (
-         target='survived', 
-         impute_type='simple',
-         features_to_drop=["name", "ticket", "passengerid", "cabin"]) 
-AS SELECT * FROM titanic_train LIMIT 100
+ target='survived',
+ impute_type='simple',
+ features_to_drop=["name", "ticket", "passengerid", "cabin"]) 
+AS 
+SELECT * 
+FROM titanic_train 
+LIMIT 100
 ```
 
 ## 2. FIT MODEL 쿼리 구문 설명
