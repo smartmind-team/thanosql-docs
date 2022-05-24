@@ -1,6 +1,6 @@
 site_name: ThanoSQL
 site_description: AI개발이 가능한 세상의 모든 비정형 데이터를 SQL로
-site_url: http://dev.thanosql.ai/docs/
+site_url: https://docs.thanosql.ai/
 site_author: Smartmind Team
 theme:
   name: material
@@ -25,8 +25,7 @@ repo_name: smartmind-team/thanosql-docs
 repo_url: https://github.com/smartmind-team/thanosql-docs
 edit_uri: ""
 nav:
-  - Home: ../
-  - ThanoSQL: index.md
+  - Home: index.md
   - ThanoSQL:
       - thanosql/what_is_thanosql.md
       - thanosql/quick_start.md
@@ -41,7 +40,7 @@ nav:
           - Auto-ML을 사용하여 수요 예측 모델 만들기: tutorials/thanosql_ml/tabular/regression/automl_regression.md
       - 추천시스템 만들기:
           - 영화 평점 데이터를 사용하여 영화 추천 모델 만들기: tutorials/thanosql_ml/tabular/recommendation/recommendation_lfm.md
-          - 뉴스 데이터를 사용하여 뉴스 추천 모델 만들기: tutorials/thanosql_ml/tabular/recommendation/recommendation_lda.md 
+          - 뉴스 데이터를 사용하여 뉴스 추천 모델 만들기: tutorials/thanosql_ml/tabular/recommendation/recommendation_lda.md
 # extra:
 #   alternate:
 #     - link: /
