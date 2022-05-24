@@ -15,30 +15,32 @@ markdown_extensions:
       permalink: true
   - pymdownx.details
   - pymdownx.emoji
+  - pymdownx.highlight
   - pymdownx.pathconverter
   - pymdownx.progressbar
   - pymdownx.smartsymbols
-  - pymdownx.tabbed
-  - pymdownx.highlight
   - pymdownx.superfences
+  - pymdownx.tabbed
 repo_name: smartmind-team/thanosql-docs
 repo_url: https://github.com/smartmind-team/thanosql-docs
 edit_uri: ""
-# nav:
-#   - Home: ../
-#   - ThanoSQL: index.md
-#   - 시작하기:
-#       - how-to_guides/data_upload.md
-#       - how-to_guides/rest_api.md
-#       - how-to_guides/thanosql_syntax.md
-#   - ThanoSQL:
-#       - thanosql/quick_start.md
-#       - thanosql/what_is_thanosql.md
-#   - Tutorials:
-#       - ML:
-#           - tabular:
-#               - classification:
-#                   - 자동화된 ML을 이용하여 분류 모델 만들기: tutorials/thanosql_ml/tabular/classification/automl_classification.md
+nav:
+  - Home: ../
+  - ThanoSQL: index.md
+  - ThanoSQL:
+      - thanosql/what_is_thanosql.md
+      - thanosql/quick_start.md
+  - 시작하기:
+      - how-to_guides/data_upload.md
+      - how-to_guides/rest_api.md
+      - how-to_guides/thanosql_syntax.md
+  - ML 무작정 따라하기:
+      - 분류 모델 만들기:
+          - Auto-ML을 사용하여 생존자 분류 모델 만들기: tutorials/thanosql_ml/tabular/classification/automl_classification.md
+      - 회귀 모델 만들기:
+          - Auto-ML을 사용하여 수요 예측 모델 만들기: tutorials/thanosql_ml/tabular/regression/automl_regression.md
+      - 추천시스템 만들기:
+          - 영화 평점 데이터를 사용하여 영화 추천 모델 만들기: tutorials/thanosql_ml/tabular/recommendation/recommendation_lfm.md
 # extra:
 #   alternate:
 #     - link: /
