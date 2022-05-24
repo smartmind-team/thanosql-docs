@@ -1,0 +1,36 @@
+site_name: ThanoSQL
+site_description: AI개발이 가능한 세상의 모든 비정형 데이터를 SQL로
+site_url: http://dev.thanosql.ai/docs/
+site_author: Smartmind Team
+theme:
+  name: material
+markdown_extensions:
+  - admonition
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.pathconverter
+  - pymdownx.progressbar
+  - pymdownx.smartsymbols
+  - pymdownx.tabbed
+  - pymdownx.highlight
+repo_name: smartmind-team/thanosql-docs
+repo_url: https://github.com/smartmind-team/thanosql-docs
+edit_uri: ""
+# nav:
+#   - Home: ../
+#   - ThanoSQL: index.md
+#   - 시작하기:
+#       - how-to_guides/data_upload.md
+#       - how-to_guides/rest_api.md
+#       - how-to_guides/thanosql_syntax.md
+#   - ThanoSQL:
+#       - thanosql/quick_start.md
+#       - thanosql/what_is_thanosql.md
+#   - Tutorials:
+#       - ML:
+#           - tabular:
+#               - classification:
+#                   - 자동화된 ML을 이용하여 분류 모델 만들기: tutorials/thanosql_ml/tabular/classification/automl_classification.md
