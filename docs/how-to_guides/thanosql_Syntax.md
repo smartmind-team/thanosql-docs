@@ -57,7 +57,7 @@ AS [사용하고자 하는 데이터 세트]
 
 #### <div id="1_2_1">1.2.1 추천 모델 구축을 위해 "__Light_FM__" 베이스 알고리즘 사용</div>
 
-아래 예시는 "__BUILD MODEL__" 쿼리문을 사용하여 `user_rec`라는 모델을 ["__Light_FM__"]()이라는 베이스 알고리즘을 학습시켜 추천 모델을 구축합니다. 자세한 코드 내용이 궁금하다면 [Movielens 영화평점 데이터를 이용한 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)를 진행해 보세요.
+아래 예는 "__BUILD MODEL__" 쿼리문을 사용하여 `user_rec`라는 모델을 ["__Light_FM__"]()이라는 베이스 알고리즘을 학습시켜 추천 모델을 구축합니다. 자세한 코드 내용이 궁금하다면 [Movielens 영화평점 데이터를 이용한 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)를 진행해 보세요.
 
 ```python
 %%thanosql
@@ -96,7 +96,7 @@ FROM titanic_train
 LIMIT 100
 ```
 
-:point_right: "__BUILD MODEL__"에서 "__USING__"을 사용해서 학습이 가능한 베이스 알고리즘의 종류는 다음과 같습니다. 사용할 수 있는 모델은 지속적으로 업데이트 중에 있습니다.
+:point_right: "__BUILD MODEL__" 쿼리 구문에서 "__USING__"을 사용해 학습이 가능한 베이스 알고리즘의 종류는 다음과 같습니다. 사용할 수 있는 모델은 지속적으로 업데이트 중에 있습니다.
 * Auto-ML 분류 모델 - [__AutomlClassifier__]()
 * Auto-ML 회귀 모델 - [__AutomlRegressor__]()
 * 추천 모델 - [__Light_FM__]()
@@ -136,7 +136,7 @@ LIMIT 100
 ## 3. DELETE MODEL Clause
 
 
-`DELETE MODEL` 구문은 Thanosql 데이터베이스에 만들어진 모델을 삭제합니다. 
+"__DELETE MODEL__" 구문은 ThanoSQL 데이터베이스에 만들어진 모델을 삭제합니다. 
 
 ### 3.1 DELETE MODEL Statement
 
