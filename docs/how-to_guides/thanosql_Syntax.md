@@ -55,7 +55,7 @@ AS [사용하고자 하는 데이터세트]
 
 #### 1.2.1 추천 시스템 Light_FM모델 사용
 
-아래 예시는 `BUILD MODEL` 쿼리문을 사용하여 `user_rec`이라는 `Light_FM` 추천 모델을 구축합니다.
+아래 예시는 "__BUILD MODEL__" 쿼리문을 사용하여 `user_rec`이라는 `Light_FM` 추천 모델을 구축합니다.
 
 
 ```python
