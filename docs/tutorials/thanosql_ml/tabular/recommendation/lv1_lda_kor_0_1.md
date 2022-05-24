@@ -8,7 +8,7 @@
 * 예제 파일 위치 : model/recommendation/data/news
 * 참고문서 : [Latent Dirichlet Allocation 공식 논문](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf), [Gensim Github](https://github.com/RaRe-Technologies/gensim)
 * 마지막 수정날짜 : 2022-06-01
-* 
+
 **[이전 문서 - Movielens 영화평점 데이터를 이용한 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)** <br> **| [다음 문서]()**
 
 
