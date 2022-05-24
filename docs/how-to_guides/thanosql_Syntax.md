@@ -307,7 +307,10 @@ AS [변환하고자 하는 데이터 세트]
 %%thanosql
 CREATE TABLE color_descriptor_table_test 
 USING Color_Descriptor 
-OPTIONS(data_type='image',file_type=['.jpg']) 
+OPTIONS (
+ data_type='image',
+ file_type=['.jpg']
+ ) 
 FROM '/data/thanosAlgo/image_search/junyoung_test/'
 ```
 
