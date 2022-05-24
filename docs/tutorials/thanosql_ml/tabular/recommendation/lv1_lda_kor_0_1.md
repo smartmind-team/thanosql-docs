@@ -96,7 +96,9 @@ SELECT * FROM mind_train_user_history LIMIT 5
 
 ```python
 %%thanosql 
-SELECT * FROM news_train LIMIT 5
+SELECT * 
+FROM news_train 
+LIMIT 5
 ```
 
 <div>
