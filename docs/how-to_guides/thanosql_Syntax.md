@@ -146,7 +146,7 @@ DELETE MODEL [지우려는 모델 이름]
 
 ### 3.2 DELETE MODEL Examples
 
-아래 예는 "__DELETE MODEL__" 쿼리 구문을 사용하여 [1.2.1 추천 모델 구축을 위해 "__Light_FM__" 베이스 알고리즘 사용](#1_2_1)에서 만들었던 `user_rec` 이라는 추천 모델을 ThanoSQL 데이터베이스에서 삭제합니다. 
+아래 예는 "__DELETE MODEL__" 쿼리 구문을 사용하여 [1.2.1 단계](#1_2_1)에서 만들었던 `user_rec` 이라는 추천 모델을 ThanoSQL 데이터베이스에서 삭제합니다. 
 
 ```python
 %%thanosql
@@ -190,7 +190,7 @@ AS [사용하고자 하는 데이터세트]
 
 ### 5.2 PREDICT 쿼리 구문 사용 예시
 
-아래 예시는 `PREDICT USING` 쿼리 구문을 사용하여 1단계에서 빌드한 `user_rec`이라는 추천 모델을 사용하여 31번 유저가 좋아할만한 영화 목록 10개를 출력합니다.  
+아래 예시는 `PREDICT USING` 쿼리 구문을 사용하여 [1.2.1 단계](#1_2_1)에서 빌드한 `user_rec`이라는 추천 모델을 사용하여 31번 유저가 좋아할만한 영화 목록 10개를 출력합니다.  
 
 
 ```python
@@ -260,7 +260,7 @@ AS select * from news_train
 
 
 >### 쿼리 세부정보
->```PREDICT USING``` 쿼리는 이전 단계에서 생성한 user_rec 이라는 모델을 사용하여 예측하게 합니다.
+>```PREDICT USING``` 쿼리는 [1.2.1 단계](#1_2_1) 단계에서 생성한 user_rec 이라는 모델을 사용하여 예측하게 합니다.
 ```OPTIONS(predict_type='predict_user', user_id=31, nrec=10, ...)``` 쿼리는 ```predict_type='predict_user', user_id=31, nrec=10``` 를 지정하여 유저ID 31번이 좋아할만한 아이템 10개를 예상하여 추천 목록을 출력합니다.
 
 ## 6. EVALUATE 쿼리 구문 설명
