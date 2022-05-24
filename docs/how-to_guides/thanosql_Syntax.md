@@ -23,7 +23,7 @@ ThanoSQL에서 사용하는 문법들의 기능을 모아두었습니다. 각 �
  
 ## ThanoSQL Clauses 미리보기
 
-|쿼리구문|기능|
+|Clause|Function|
 |:---|:---|
 |BUILD MODEL|모델 빌드|
 |FIT MODEL|MODEL 재학습|
