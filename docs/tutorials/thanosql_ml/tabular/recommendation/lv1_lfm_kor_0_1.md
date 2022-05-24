@@ -36,7 +36,7 @@ ThanoSQL을 사용하여 간단하게 사용자가 좋아할 영화목록을 추
 
 ## 1. 데이터세트 확인
 
-영화평점 데이터를 이용한 영화 추천 모델을 만들기 위해 ThanoSQL [데이터베이스(DB)](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 `movielens_train` 테이블을 사용합니다. 아래의 쿼리문을 실행하면서 테이블 내용을 확인합니다.
+영화평점 데이터를 이용한 영화 추천 모델을 만들기 위해 ThanoSQL [데이터베이스(DB)](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 `movielens_train` 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 ```python
 %%thanosql 
