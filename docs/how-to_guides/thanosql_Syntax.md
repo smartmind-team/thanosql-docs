@@ -1,7 +1,7 @@
 # ThanoSQL Grammar
 ## 쿼리 구문 사용 튜토리얼
 
- * ThanoSQL은 ANSI/ISO 표준 준수하며 85% 이상의 표준 SQL 쿼리문들과 호환합니다.
+ * ThanoSQL은 [ANSI/ISO 표준](https://en.wikipedia.org/wiki/SQL_syntax)을 준수하며 85% 이상의 표준 SQL 쿼리 구문들과 호환합니다.
  * ThanoSQL만의 쿼리기능을 통해 이미지/동영상 내의 내용 검색이 가능합니다.
  * ThanoSQL만의 쿼리기능을 통해 이미지분류모델, 회귀예측, 회귀분류, 추천시스템 등의 인공지능 모델들을 SQL쿼리문으로 쉽고 간단하게 만들 수 있습니다.
  <br>
