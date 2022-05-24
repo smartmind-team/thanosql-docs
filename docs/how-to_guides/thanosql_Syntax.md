@@ -55,10 +55,9 @@ AS [사용하고자 하는 데이터세트]
 
 ### 1.2 BUILD MODEL Examples
 
-#### 1.2.1 추천 시스템 Light_FM모델 사용
+#### 1.2.1 추천 모델 구축을 위해 Light_FM 베이스 알고리즘 사용
 
-아래 예시는 "__BUILD MODEL__" 쿼리문을 사용하여 `user_rec`이라는 `Light_FM` 추천 모델을 구축합니다.
-
+아래 예시는 "__BUILD MODEL__" 쿼리문을 사용하여 `user_rec`라는 모델을 `Light_FM`이라는 베이스 알고리즘을 사용해서 추천 모델을 구축합니다.
 
 ```python
 %%thanosql
