@@ -105,7 +105,7 @@ LIMIT 5
 
 ## 2. 추천 모델 빌드
 
-다음 쿼리 구문을 실행하여 추천 모델을 구축합니다.
+이전 단계에서 확인한 `movielens_train` 데이터를 사용하여 영화 추천 모델을 만듭니다. 다음 쿼리 구문을 실행하여 `movie_rec` 이름의 모델을 만듭니다. 
 
 
 ```python
@@ -113,10 +113,10 @@ LIMIT 5
 BUILD MODEL movie_rec
 USING Light_FM
 OPTIONS (
-  user_col='userid',   
-  item_col='movieid',
-  rating_col='rating',
-  item_names='title'
+  user='userid',   
+  item='movieid',
+  target='rating',
+  description='title'
   )
 AS 
 SELECT * 
@@ -124,8 +124,9 @@ FROM movielens_train
 ```
 
 > **쿼리 세부정보**
->```BUILD MODEL``` 쿼리를 사용하여 movie_rec 이라는 모델을 만들고 학습시킵니다. <br>
->```OPTIONS(user_col='userid',item_col='movieid',rating_col='rating', item_names= 'title', ...)``` 쿼리는 모델 생성에 필수적으로 필요한 `Movielens` 샘플 데이터 세트의 `유저아이디 칼럼명`, `아이템아이디 칼럼명`, `평점 칼럼명` 들을 할당하여 데이터 세트 전처리 및 모델 빌드가 가능하도록 합니다.
+>"__BUILD MODEL__" 쿼리 구문을 사용하여 movie_rec 이라는 모델을 만들고 학습시킵니다. <br>
+>추천 모델에서 "__OPTIONS__"은 3가지 컬럼(Column)이 사용됩니다. "user"에는 사용자의 ID (`userid`), item에는 아이템의 ID가 들어갑니다. 본 튜토리얼에서는 `movieid`가 사용됩니다. "target"에서는 예측하고자 하는 목표값이 되는 열의 이름(`rating`)을 적어줍니다.   
+> "description"의 경우 모델의 학습에는 사용되지 않지만 결과값 확인의 편의성을 위해 "item" 컬럼의 설명(`title`)을 넣어 줄 수 있습니다. 
 
 ## **3. 빌드 완료된 모델을 사용하여 추천목록 생성하기**
 
