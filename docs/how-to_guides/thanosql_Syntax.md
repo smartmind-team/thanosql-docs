@@ -55,7 +55,7 @@ AS [사용하고자 하는 데이터세트]
 
 ### 1.2 BUILD MODEL Examples
 
-#### 1.2.1 추천 모델 구축을 위해 "__Light_FM__" 베이스 알고리즘 사용
+#### <div id="1_2_1">1.2.1 추천 모델 구축을 위해 "__Light_FM__" 베이스 알고리즘 사용</div>
 
 아래 예시는 "__BUILD MODEL__" 쿼리문을 사용하여 `user_rec`라는 모델을 ["__Light_FM__"]()이라는 베이스 알고리즘을 학습시켜 추천 모델을 구축합니다. 자세한 코드 내용이 궁금하다면 [Movielens 영화평점 데이터를 이용한 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)를 진행해 보세요.
 
@@ -133,20 +133,20 @@ FROM titanic_train
 LIMIT 100
 ```
 
-## 3. DELETE 쿼리 구문 설명
+## 3. DELETE MODEL Clause
+
 
 `DELETE MODEL` 구문은 Thanosql 데이터베이스에 만들어진 모델을 삭제합니다. 
 
-### 3.1 DELETE MODEL 구문의 기본 쿼리 구조
+### 3.1 DELETE MODEL Statement
 
-```POSTGRESQL
-DELETE MODEL [지우고 싶은 모델명]
+```python
+DELETE MODEL [지우려는 모델 이름]
 ```
 
-### 3.2 DELETE MODEL 사용 예시
+### 3.2 DELETE MODEL Examples
 
-아래 예시는 1.2 단계에서 만들었던 `user_rec` 이라는 추천시스템을 thanosql DB 상에서 삭제합니다. 
-
+아래 예는 "__DELETE MODEL__" 쿼리 구문을 사용하여 [1.2.1 추천 모델 구축을 위해 "__Light_FM__" 베이스 알고리즘 사용](#1_2_1)에서 만들었던 `user_rec` 이라는 추천 모델을 ThanoSQL 데이터베이스에서 삭제합니다. 
 
 ```python
 %%thanosql
