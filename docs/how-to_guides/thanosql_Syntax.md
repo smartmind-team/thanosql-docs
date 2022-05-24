@@ -291,8 +291,8 @@ LIMIT 100
 
 ## 7. CREATE TABLE Clause
 
-`CREATE TABLE` 쿼리 구문은 비정형 파일을 다양한 임베딩 알고리즘을 사용하여 벡터 형식으로 변환 합니다.
-
+"__CREATE TABLE__" 쿼리 구문은 비정형 데이터(이미지, 음성, 영상)를 다양한 임베딩 알고리즘을 사용하여 벡터 형식으로 변환한 테이블을 생성 합니다.
+ 
 ### 7.1 CREATE TABLE Statement
 
 ```python
@@ -313,7 +313,7 @@ FROM '/data/thanosAlgo/image_search/junyoung_test/'
 
 ## 8. CONVERT Clause
 
-"__CONVERT__" 쿼리 구문은 이미지, 비디오, 음성 등 비정형 파일을 다양한 임베딩 알고리즘을 통해 벡터형식으로 변환 합니다.
+"__CONVERT__" 쿼리 구문은 이미지, 비디오, 음성 등 비정형 데이터의 정보를 이용해서 다양한 임베딩 알고리즘을 통해 벡터형식으로 변환하고 대상 테이블에 정형 컬럼을 추가합니다.
 
 ### 8.1 CONVERT Statement
 
