@@ -146,7 +146,7 @@ DELETE MODEL [지우려는 모델 이름]
 
 ### 3.2 DELETE MODEL Examples
 
-아래 예는 "__DELETE MODEL__" 쿼리 구문을 사용하여 [1.2.1 단계](#1_2_1)에서 만들었던 `user_rec` 이라는 추천 모델을 ThanoSQL 데이터베이스에서 삭제합니다. 
+아래 예는 "__DELETE MODEL__" 쿼리 구문을 사용하여 [1.2.1 단계](#1_2_1)에서 만들었던 `user_rec` 라는 추천 모델을 ThanoSQL 데이터베이스에서 삭제합니다. 
 
 ```python
 %%thanosql
@@ -154,7 +154,7 @@ DELETE MODEL user_rec
 ```
 
 >### 쿼리 세부정보
->"__DELETE MODEL__" 쿼리 구문을 사용하여 `user_rec` 이라는 모델을 ThanoSQL 데이터베이스에서 삭제합니다.
+>"__DELETE MODEL__" 쿼리 구문을 사용하여 `user_rec` 라는 모델을 ThanoSQL 데이터베이스에서 삭제합니다.
 
 ## 4. TRANSFORM USING Clause
 
@@ -190,7 +190,7 @@ AS [사용하고자 하는 데이터 세트]
 
 ### 5.2 PREDICT USING Examples
 
-아래 예시는 "__PREDICT USING__" 쿼리 구문을 사용하여 [1.2.1 단계](#1_2_1)에서 빌드한 `user_rec`이라는 추천 모델을 사용하여 사용자 ID의 값이 31인 사용자가 좋아할만한 영화 목록 10개를 출력합니다.  
+아래 예시는 "__PREDICT USING__" 쿼리 구문을 사용하여 [1.2.1 단계](#1_2_1)에서 빌드한 `user_rec`라는 추천 모델을 사용하여 사용자 ID의 값이 31인 사용자가 좋아할만한 영화 목록 10개를 출력합니다.  
 
 
 ```python
