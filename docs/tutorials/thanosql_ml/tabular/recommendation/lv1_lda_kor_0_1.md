@@ -1,13 +1,16 @@
 # 추천모델 만들기 (2)
 ## (ThanoSQL 무작정 따라하기) Microsoft 뉴스 데이터세트를 이용한 뉴스 추천 시스템 만들기
 ## 시작 전 사전정보
-* 마지막 수정날짜 : 2022-05-20
+
 * 튜토리얼 난이도 : ★☆☆☆☆
 * 읽는데 걸리는 시간 : 7분
 * 사용 언어 : SQL(100%)
 * 예제 파일 위치 : model/recommendation/data/news
 * 참고문서 : [Latent Dirichlet Allocation 공식 논문](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf), [Gensim Github](https://github.com/RaRe-Technologies/gensim)
-* [이전 문서]() | [다음 문서]()
+* 마지막 수정날짜 : 2022-06-01
+* 
+**[이전 문서 - Movielens 영화평점 데이터를 이용한 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)** <br> **| [다음 문서]()**
+
 
 <br>
 
@@ -308,8 +311,12 @@ AS SELECT * FROM news_train
 * [나만의 데이터 업로드하기](comingsoon)
 * [중급 추천시스템 만들기](comingsoon) 
 * [나만의 추천시스템 배포하기](comingsoon)
- 
+  
 <br>
+
+**[이전 문서 - Movielens 영화평점 데이터를 이용한 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)** <br> **| [다음 문서]()**
+
+---
 
 ## 나만의 서비스를 위한 모델배포 관련 문의 <br>
 ThanoSQL로 만든 모델을 나만의 플랫폼에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊
