@@ -154,25 +154,28 @@ DELETE MODEL user_rec
 ```
 
 >### 쿼리 세부정보
->```DELETE MODEL``` 쿼리를 사용하여 user_rec 이라는 모델을 ThanoSQL DB에서 삭제합니다.
+>"__DELETE MODEL__" 쿼리 구문을 사용하여 `user_rec` 이라는 모델을 ThanoSQL 데이터베이스에서 삭제합니다.
 
-## 4. TRANSFORM 쿼리 구문 설명
+## 4. TRANSFORM Clause
 
-### 4.1 TRANSFORM 쿼리구문 기본 구조
+### 4.1 TRANSFORM Statement
 
-```POSTGRESQL
+```python
 TRANSFORM [사용자 지정 테이블 이름]
 USING [사용하고 싶은 변환 알고리즘]
 AS [변환하고자 하는 데이터세트]
 ```
 
-### 4.2 TRANSFORM 쿼리구문 사용예시
-
+### 4.2 TRANSFORM Examples
 
 ```python
 %%thanosql
-TRANSFORM USING test_classifier 
-AS SELECT * FROM titanic_test LIMIT 100
+TRANSFORM 
+USING test_classifier 
+AS 
+SELECT * 
+FROM titanic_test 
+LIMIT 100
 ```
 
 ## 5. PREDICT 쿼리 구문 설명
@@ -200,9 +203,6 @@ USING user_rec
 OPTIONS (predict_type='predict_user',user_id=31, nrec=10)
 AS select * from news_train
 ```
-
-
-
 
 <div>
 <table border="1" class="dataframe">
