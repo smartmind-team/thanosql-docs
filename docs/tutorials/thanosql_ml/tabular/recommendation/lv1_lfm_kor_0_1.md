@@ -100,7 +100,7 @@ LIMIT 5
 
 > **데이터 테이블 이해하기 :**<br> 
 `movielens_train` 테이블은 `userid`(사용자ID), `movieid`(영화ID), `rating`(평점), `title`(영화 제목)에 대한 정보를 담고 있습니다. 
-`userid` 값이 31인 사용자는 "Toy Story (1995)"에 "평점 3점"을 주고 "Braveheart (1995)"에 "평점 5점"을 준 것을 확인할 수 있습니다. 
+`userid` 값이 31인 사용자는 "Toy Story (1995)"에 평점 3.0점을 주고 "Braveheart (1995)"에 평점 5.0점을 준 것을 확인할 수 있습니다. 
 
 
 ## 2. 추천 모델 빌드
