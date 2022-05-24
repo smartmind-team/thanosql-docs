@@ -62,18 +62,20 @@ AS [사용하고자 하는 데이터세트]
 %%thanosql
 BUILD MODEL user_rec
 USING Light_FM
-OPTIONS (   
-            user_col='userid',
-            item_col='movieid',
-            rating_col='rating',
-            item_names= 'title'
-        )
-AS SELECT * FROM movielens_train 
+OPTIONS (
+ user='userid',
+ item='movieid',
+ target='rating',
+ description='title'
+ )
+AS 
+SELECT * 
+FROM movielens_train 
 ```
 
 >### 쿼리 세부정보
->```BUILD MODEL``` 쿼리를 사용하여 movie_rec 이라는 모델을 만들고 학습시킵니다.
->```OPTIONS(user_col='userid',item_col='movieid',rating_col='rating', item_names= 'title', ...)``` 쿼리는 모델 생성에 필수적으로 필요한 movielens 샘플데이터셋의 유저칼럼이름, 아이템칼럼이름, 평점칼럼 이름들을 할당하여 데이터셋 전처리 및 모델 빌드가 가능하도록 합니다. 모델의 파라미터 튜닝 옵션들 또한 사용이 가능합니다. Options에 따로 파라미터 할당을 하지 않으면 기본적인 파라미터 값으로 모델이 생성됩니다. 사용가능한 파라미터에 대한 설명은 https://making.lyst.com/lightfm/docs/lightfm.html 를 통해 확인할 수 있습니다.
+>"__BUILD MODEL__" 쿼리를 사용하여 movie_rec 이라는 모델을 만들고 학습시킵니다.
+>"__OPTIONS(user_col='userid',item_col='movieid',rating_col='rating', item_names= 'title', ...)__" 쿼리는 모델 생성에 필수적으로 필요한 `movielens` 샘플데이터셋의 유저칼럼이름, 아이템칼럼이름, 평점칼럼 이름들을 할당하여 데이터셋 전처리 및 모델 빌드가 가능하도록 합니다. 모델의 파라미터 튜닝 옵션들 또한 사용이 가능합니다. "__OPTIONS__"에 따로 파라미터 할당을 하지 않으면 기본적인 파라미터 값으로 모델이 생성됩니다. 사용가능한 파라미터에 대한 설명은 https://making.lyst.com/lightfm/docs/lightfm.html 를 통해 확인할 수 있습니다.
 
 #### 1.2.2 타이타닉 생존분류 데이터셋 예시
 아래 예시는 AutomlClassifier 분류모델을 사용하여 타이타닉 생존여부 예측 모델을 만듭니다. 
