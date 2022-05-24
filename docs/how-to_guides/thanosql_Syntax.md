@@ -176,19 +176,19 @@ FROM titanic_test
 LIMIT 100
 ```
 
-## 5. PREDICT 쿼리 구문 설명
+## 5. PREDICT USING Clause
 
-"__PREDICT__"  쿼리 구문은 [1.2.1 단계](#1_2_1)에서 빌드한 인공지능 모델을 사용하여 예측, 분류, 추천 등의 작업을 수행합니다.
+"__PREDICT USING__"  쿼리 구문은 [1.2.1 단계](#1_2_1)에서 빌드한 인공지능 모델을 사용하여 예측, 분류, 추천 등의 작업을 수행합니다.
 
-### 5.1 PREDICT 쿼리 구문 기본 구조
+### 5.1 PREDICT USING Statement
 
 ```python
 PREDICT USING [사용하고 싶은 모델]
-OPTIONS ([PREDICT에 필요한 파라미터등의 옵션값])
+OPTIONS ([PREDICT에 필요한 파라미터 등의 옵션값])
 AS [사용하고자 하는 데이터 세트]
 ```
 
-### 5.2 PREDICT 쿼리 구문 사용 예시
+### 5.2 PREDICT USING Examples
 
 아래 예시는 "__PREDICT USING__" 쿼리 구문을 사용하여 [1.2.1 단계](#1_2_1)에서 빌드한 `user_rec`이라는 추천 모델을 사용하여 31번 유저가 좋아할만한 영화 목록 10개를 출력합니다.  
 
@@ -265,20 +265,19 @@ FROM news_train
 >"__PREDICT USING__" 쿼리는 [1.2.1 단계](#1_2_1) 단계에서 생성한 user_rec 이라는 모델을 사용하여 예측하게 합니다.
 ```OPTIONS(predict_type='predict_user', user_id=31, nrec=10, ...)``` 쿼리는 ```predict_type='predict_user', user_id=31, nrec=10``` 를 지정하여 유저ID 31번이 좋아할만한 아이템 10개를 예상하여 추천 목록을 출력합니다.
 
-## 6. EVALUATE 쿼리 구문 설명
+## 6. EVALUATE USING Clause
 
-"__EVALUATE__" 쿼리 구문은 빌드한 모델의 성능을 평가합니다.
+"__EVALUATE USING__" 쿼리 구문은 빌드한 모델의 성능을 평가합니다.
 
-### 6.1 EVALUATE 쿼리구문 기본 구조
+### 6.1 EVALUATE USING Statement
 
-```postgresql
-EVALUATE 
-USING [사용하고 싶은 모델]
+```python
+EVALUATE USING [사용하고 싶은 모델]
 OPTIONS ([EVALUATE 변수값 설정])
-AS [사용하고자 하는 데이터세트]
+AS [사용하고자 하는 데이터 세트]
 ```
 
-### 6.2 EVALUATE 쿼리구문 사용예시
+### 6.2 EVALUATE USING Examples
 
 
 ```python
@@ -287,7 +286,10 @@ EVALUATE USING test_classifier
 OPTIONS (
          target='survived'
         ) 
-AS SELECT * FROM titanic_train LIMIT 100
+AS 
+SELECT * 
+FROM titanic_train 
+LIMIT 100
 ```
 
 ## 7. CREATE TABLE 쿼리 구문 설명
