@@ -42,7 +42,7 @@ ThanoSQL에서 사용하는 문법들의 기능을 모아두었습니다. 각 �
 
 "__BUILD MODEL__" 쿼리구문은 사용자가 원하는 인공지능 모델을 구축하고 학습시킵니다. 사용자는 인공지능에 대한 깊은 지식 또는 코딩능력이 없어도 간단하게 "__BUILD MODEL__" 쿼리 구문만을 사용하여 인공지능 모델을 개발 할 수 있습니다.
 
-### 1.1 BUILD MODEL Expression
+### 1.1 BUILD MODEL Statement
 
 ```postgresql
 BUILD MODEL [사용자 지정 모델 이름] 
