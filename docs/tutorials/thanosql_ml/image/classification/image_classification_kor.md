@@ -54,7 +54,7 @@ Cat and Dog
 
 pandas를 사용하여 위와 같은 형태의 구조에서 이미지의 경로를 담은 열과 레이블 정보를 담은 열을 만들 수 있습니다.
 
-```python
+```sql
 import pandas as pd
 from pathlib import Path
 
@@ -137,7 +137,7 @@ AS SELECT * FROM cat_and_dog_train
 train_result = %thanosql PREDICT USING my_image_classifier AS SELECT * FROM cat_and_dog_train
 ```
 
-```python
+```sql
 print(train_result.head())
 ```
 
@@ -158,7 +158,7 @@ print(train_result.head())
 test_result = %thanosql PREDICT USING my_image_classifier AS SELECT * FROM cat_and_dog_test
 ```
 
-```python
+```sql
 print(test_result.head())
 ```
 
@@ -173,7 +173,7 @@ print(test_result.head())
 
 예측 정확도를 확인해보겠습니다.
 
-```python
+```sql
 from sklearn.metrics import accuracy_score
 
 accuracy_score(test_result["label"], test_result["predicted"])

@@ -1,233 +1,149 @@
-# ThanoSQL 무작정 따라하기
----
-# ThanoSQL에서 자동화된 ML을 이용하여 캐글 타이타닉 생존자 분류 모델 만들기 
----
+# __Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기__ 
+
+**[이전](coming_soon)** &nbsp;&nbsp; <br>
+**[다음 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/tabular/regression/docs/tutorials/thanosql_ml/tabular/regression/lv1_automl_regression_kor.md)**
+
 
 ## 시작 전 사전정보
----
-- 튜토리얼 난이도 ★☆☆☆☆
-- 읽는 시간 : 4 분
-- 사용 언어 : SQL (100%)
-- 실행 파일 위치 : 
-- 참고 문서 : [캐글 타이타닉 대회](https://www.kaggle.com/competitions/titanic/overview)
 
+- 튜토리얼 난이도 : ★☆☆☆☆
+- 읽는 시간 : 4 분
+- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : [AutoML_Classifier.ipynb](http://35.222.17.152:8888/lab/tree/thanos_AI_team/AutoML_Classifier.ipynb)
+- 참고 문서 : [(캐글) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
+- 마지막 수정날짜 : 2022-06-01
 
 ## 튜토리얼 소개
----
-> __`분류 작업 이해하기`__ : 분류 작업은 목표로 하는 항목이 속한 범주를 예측하는 데 사용하는 기계 학습의 한 형태입니다.  <br>
-예를 들면,  기업의 마케팅 프로모션에 대해 긍정적인 반응을 보일 것인지 아닐 것인지를 예측하기 위해서는 고객의 CRM 데이터
-(인구 통계학 정보,  고객의 행동 데이터 그리고 고객의 검색 데이터 등)를 이용할 수 있습니다.   
-이 경우 고객의 CRM 데이터에서 표현되는 특성이 특징이며, 범주는 프로모션에 대해 각각 긍정적일 것이거나 부정적일 것 같은 고객을 나타내는 0 또는 1이라는 분류입니다.   
-이러한 분류 작업을 통해, 마케팅에 노출되지 않은 고객들의 프로모션에 대한 반응을 예측할 수 있습니다. 
 
-아래는 ThanoSQL 분류 모델의 활용 및 예시입니다. 
-- 분류 모델은 문제(사건)에 대해 즉각 대응할 수 있도록 현재 사용자의 이탈에 대한 조기 탐지를 가능하게 합니다. 과거 데이터를 통해 이탈 고객의 특성을 파악할 수 있게 되고 조기 탐지하고 조치하여 고객과의 관계 유지 강화 및 수익 감소 효과를 기대할 수 있습니다. 
+!!! note "분류 작업 이해하기" 
+    분류 작업은 목표값(Target)이 속한 범주(Category 또는 Class)를 예측하기 위해 사용하는 [머신러닝(기계학습/Machine Learning)](https://ko.wikipedia.org/wiki/%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5)의 한 형태입니다. 예를 들어, 남성 또는 여성을 분류하는 이진분류와 동물의 종(개, 고양이, 토끼 등)을 예측하는 다중 분류 모두 분류 작업에 포함됩니다. <br>
 
-- 온라인 플랫폼 내에서 사용자의 세그먼트를 예측할 수 있습니다. 대부분의 서비스 사용자들은 서로 다른 속성을 가지고 사고방식과 필요를 가지고 있습니다. 분류 예측 모델은 서비스 사용자의 특성을 이용하여 세분화된 집단을 식별하고 그들에게 맞춤화된 전략 수립을 가능하게 합니다.  
+기업의 특정 마케팅 프로모션에 대해 잠재고객이 긍정적인 반응을 보일 것인지 아닌지를 예측하기 위해서는 고객의 [CRM(Customer Relationship Management)](https://ko.wikipedia.org/wiki/%EA%B3%A0%EA%B0%9D_%EA%B4%80%EA%B3%84_%EA%B4%80%EB%A6%AC) 데이터(인구 통계학 정보, 고객의 행동/검색 데이터 등)를 이용할 수 있습니다. 이 경우 CRM 데이터에서 표현되는 [특성(Feature)](https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%A7%95_(%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5))이 입력 데이터로 사용되며, 예측하고자 하는 값인 목표값은 프로모션에 대한 대상 고객의 반응이 긍정(1 또는 True) 또는 부정(0 또는 False)일지 여부입니다. 이러한 분류 모델을 이용해서, 마케팅에 노출되지 않은 고객들의 프로모션에 대한 반응을 미리 예측하고 적절한 고객에게 마케팅을 노출함으로써 마케팅 효율을 지속적으로 높일 수 있습니다. 
+
+__아래는 ThanoSQL 분류 모델의 활용 및 예시입니다.__  
+
+- 분류 모델은 현재 사용자의 이탈에 대한 조기 탐지를 가능하게 하고 문제(이탈)에 대해 사전에 대응할 수 있도록 해줍니다. 과거 데이터를 통해 이탈 고객의 특성을 파악할 수 있게 되고 이탈 가능성이 높은 사용자를 사전에 발견함으로써 적절한 조치가 가능해집니다. 이를 통해 고객이탈 방지 및 매출 증대 효과를 기대할 수 있습니다.
+
+- 온라인 플랫폼 내에서 사용자의 [세그먼트](https://ko.wikipedia.org/wiki/%EC%8B%9C%EC%9E%A5%EC%84%B8%EB%B6%84%ED%99%94)를 예측할 수 있습니다. 대부분의 서비스 사용자들은 서로 다른 특성을 가지고 다양한 행동방식(User Behaviour)과 니즈(Needs)를 가지고 있습니다. 분류 예측 모델은 서비스 사용자의 특성을 이용하여 세분화된 집단을 식별하고 그들에게 맞춤화된 전략 수립을 가능하게 합니다.  
 
 
 
-:point_right: 본 튜토리얼에서는 캐글 경진대회의 입문자를 위한 문제라고 할 수 있는 `Titanic: Machine Learning from Disaster` 데이터를 사용하여 생존자 예측 분류 모델을 만듭니다. 이 대회의 목표는 아래와 같습니다. 
-(참고로, 해당 대회의 데이터는 1912년 4월 15일 실제 타이타닉 사건 때, 탑승했었던 승객들 명단입니다.)
+!!! note "본 튜토리얼에서는"
+    :point_right: 대표적인 머신러닝 경진대회 플랫폼인 [캐글](https://www.kaggle.com/)의 입문자를 위한 <mark style="background-color:#FFD79C"> __Titanic: Machine Learning from Disaster__</mark> 데이터 세트를 사용하여 생존자 예측 분류 모델을 만듭니다. 이 대회의 목표는 아래와 같습니다. 
+    (참고로, 해당 대회의 데이터는 1912년 4월 15일 실제 타이타닉 사건 때, 탑승했었던 승객들 명단입니다.)
 
-> __타이타닉에서 살아남을 수 있는 승객을 예측하기__
+- __타이타닉에서 살아남을 수 있는 승객을 예측하기__
 
-ThanoSQL에서는 자동화된 ML을 제공합니다. 본 튜토리얼에서는 자동화된 ML을 사용하여 타이타닉에서 살아남을 수 있는 승객을 예측합니다. ThanoSQL에서 제공하는 자동화된 ML은 기계학습 모델 개발 프로세스를 보편화하고, 데이터 과학 전문 지식과 관계없이 문제에 대한 엔드투엔드 기계학습 파이프라인을 식별할 수 있도록 사용자의 역량을 강화시킵니다.
+ThanoSQL에서는 자동화된 머신러닝(__Auto-ML__) 도구를 제공합니다. 본 튜토리얼에서는 Auto-ML을 사용하여 타이타닉에서 살아남을 수 있는 승객을 예측합니다. ThanoSQL에서 제공하는 Auto-ML은 모델(Model)개발을 위한 프로세스를 자동화하고, 데이터 과학(Data Science)에 대한 전문지식이 없어도 데이터의 수집 및 저장, 머신러닝 모델의 개발 및 배포(엔드투엔드 머신러닝 파이프라인)를 하나의 언어(ThanoSQL)만으로 가능하도록 지원합니다.
 
 **자동화된 ML을 사용하면 다음과 같은 장점이 있습니다.** 
 
-1. 광범위한 프로그래밍 지식 없이 ML 솔루션 구현 
-2. 시간 및 리소스 절약 
-3. 신속한 문제 해결 제공
+1. 광범위한 프로그래밍 또는 데이터 과학에 대한 지식이 없어도 머신러닝 솔루션의 구현 및 배포가 가능  
+2. 개발모델의 배포에 들어가는 시간 및 리소스를 절약   
+3. 의사결정을 위해 보유하고 있는 데이터를 이용한 신속한 문제해결이 가능  
 
-그러면 이제 ThanoSQL을 사용하여 간단하게 타이타닉에서 살아남을 수 있는 승객을 예측하는 분류 모델을 만들어 보겠습니다.
+이제부터 ThanoSQL을 사용하여 간단하게 타이타닉에서 살아남을 수 있는 승객을 예측하는 분류 모델을 만들어 봅니다.
 
 
-## 1. 데이터 세트 확인
----
-생존자 예측 분류 모델을 만들기 위해 우리는 우리는 ThanoSQL DB에 저장되어 있는 titanic_train을 사용합니다. 아래의 쿼리문을 실행하면서 테이블 내용을 확인합니다.
+## __1. 데이터 세트 확인__
 
-```python
+생존자 예측 분류 모델을 만들기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">__titanic_train__</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하면서 테이블 내용을 확인합니다.
+
+```sql
 %%thanosql
 SELECT * 
 FROM titanic_train 
 LIMIT 5 
 ```
-<div>
-<table border=\1\ class=\dataframe\>
-    <thead>
-    <tr style=\text-align: right;\>
-        <th></th>
-        <th>passengerid</th>
-        <th>survived</th>
-        <th>pclass</th>
-        <th>name</th>
-        <th>sex</th>
-        <th>age</th>
-        <th>sibsp</th>
-        <th>parch</th>
-        <th>ticket</th>
-        <th>fare</th>
-        <th>cabin</th>
-        <th>embarked</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <th>0</th>
-        <td>1</td>
-        <td>0</td>
-        <td>3</td>
-        <td>Braund, Mr. Owen Harris</td>
-        <td>male</td>
-        <td>22</td>
-        <td>1</td>
-        <td>0</td>
-        <td>A/5 21171</td>
-        <td>7.2500</td>
-        <td>None</td>
-        <td>S</td>
-    </tr>
-    <tr>
-        <th>1</th>
-        <td>2</td>
-        <td>1</td>
-        <td>1</td>
-        <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
-        <td>female</td>
-        <td>38</td>
-        <td>1</td>
-        <td>0</td>
-        <td>PC 17599</td>
-        <td>71.2833</td>
-        <td>C85</td>
-        <td>C</td>
-    </tr>
-    <tr>
-        <th>2</th>
-        <td>3</td>
-        <td>1</td>
-        <td>3</td>
-        <td>Heikkinen, Miss. Laina</td>
-        <td>female</td>
-        <td>26</td>
-        <td>0</td>
-        <td>0</td>
-        <td>STON/O2. 3101282</td>
-        <td>7.9250</td>
-        <td>None</td>
-        <td>S</td>
-    </tr>
-    <tr>
-        <th>3</th>
-        <td>4</td>
-        <td>1</td>
-        <td>1</td>
-        <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
-        <td>female</td>
-        <td>35</td>
-        <td>1</td>
-        <td>0</td>
-        <td>113803</td>
-        <td>53.1000</td>
-        <td>C123</td>
-        <td>S</td>
-    </tr>
-    <tr>
-        <th>4</th>
-        <td>5</td>
-        <td>0</td>
-        <td>3</td>
-        <td>Allen, Mr. William Henry</td>
-        <td>male</td>
-        <td>35</td>
-        <td>0</td>
-        <td>0</td>
-        <td>373450</td>
-        <td>8.0500</td>
-        <td>None</td>
-        <td>S</td>
-    </tr>
-    </tbody>
-</table>
-</div>
+![IMAGE](/docs/img/automl_classification_img1.png)
 
+!!! note "__데이터 이해하기__"
+    <mark style="background-color:#FFEC92 ">__tianic_train__</mark> 데이터 세트는 다음과 같은 정보를 담고 있습니다.  
+    - <mark style="background-color:#D7D0FF ">passengerid</mark> : 탑승승객 아이디  
+    - <mark style="background-color:#D7D0FF ">survived</mark> : 탑승승객  
+    - <mark style="background-color:#D7D0FF ">pclass</mark> : 탑승승객 티켓 등급  
+    - <mark style="background-color:#D7D0FF ">name</mark> : 탑승승객 이름  
+    - <mark style="background-color:#D7D0FF ">sex</mark> : 탑승승객 성별  
+    - <mark style="background-color:#D7D0FF ">age</mark> : 탑승승객 나이  
+    - <mark style="background-color:#D7D0FF ">sibsp</mark> : 탑승한 형제 자매 또는 배우자 수   
+    - <mark style="background-color:#D7D0FF ">parch</mark> : 탑승한 부모 또는 자녀의 수  
+    - <mark style="background-color:#D7D0FF ">ticket</mark> : 티켓 번호  
+    - <mark style="background-color:#D7D0FF ">fare</mark> : 요금  
+    - <mark style="background-color:#D7D0FF ">cabin</mark> : 선실  
+    - <mark style="background-color:#D7D0FF">embarked</mark> : 승선지 또는 항구   
+ 
+    이번 튜토리얼에서는 추가적인 쿼리문을 이용한 데이터 전처리가 필요한 <mark style="background-color:#D7D0FF">name</mark>, <mark style="background-color:#D7D0FF">ticket</mark>, <mark style="background-color:#D7D0FF">cabin</mark>컬럼을 제외하고 모델 학습을 진행하겠습니다.
 
-> __데이터 이해하기__   
-`tianic_train` 데이터 세트는 `passengerid`: 탑승승객 아이디, `survived`: 탑승승객, `pclass`: 탑승승객 티켓 등급, `name`: 탑승승객 이름, `sex`: 탑승승객 성별, `age`: 탑승승객 나이, `sibsp`: 탑승한 형제 자매/ 배우자 수, `parch`: 탑승한 부모/자녀의 수, `ticket`: 티켓 번호, `fare`: 요금, `cabin`: 선실, `embarked`: 승선지(항구) 에 대한 정보를 담고 있습니다. 이번 튜토리얼에서는 추가적인 전처리가 필요한 name, ticket, cabin을 제외하겠습니다. 
+## __2. 분류 모델 빌드__
 
-## 2. 분류 모델 빌드
----
-이전 단계에서 확인한 `titanic_train` 데이터를 사용하여 생존자 예측 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행시켜 'titanic_classification' 이름의 모델을 만들어 봅니다.
+이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">titanic_train</mark> 데이터를 사용하여 생존자 예측 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행시켜 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 이름의 모델을 만들어 봅니다.
 
-
-```python
-%%thanosql
-BUILD MODEL titanic_classification
+```sql
+BUILD MODEL titanic_classification 
 USING AutomlClassifier 
 OPTIONS (
     target='survived', 
     impute_type='iterative',  
-    features_to_drop=["name", 'ticket', 'passengerid','cabin']
+    features_to_drop=["name", 'ticket', 'passengerid', 'cabin']
     ) 
 AS 
-(SELECT * 
-FROM titanic_train)
+SELECT * 
+FROM titanic_train
 ```
 
-> __쿼리 세부 정보__  
-`BUILD MODEL` 쿼리 구문을 사용하여 titanic_classification이라는 모델을 만들고 학습시킵니다.  
- `OPTIONS`의 target에는 분류 예측 모델에 목표값이 되는 열의 이름을 적어줍니다. impute_type의 경우에는 데이터 세트의 빈 값에 대한 처리를 의미합니다. features_to_drop은 학습에 이용하지 않을 데이터를 적어주면 머신러닝 모델 빌드를 진행할 수 있습니다.  
+!!! note "__쿼리 세부 정보__"  
+    "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">titanic_classification</mark>이라는 모델을 만들고 학습시킵니다.  
+    "__OPTIONS__"의 "target"에는 분류 예측 모델에 목표값이 되는 컬럼(Column)의 이름을 적어줍니다. "impute_type"의 경우에는 데이터 세트의 빈 값에 대한 처리를 의미합니다. "features_to_drop"은 학습에 이용하지 않을 데이터를 적어주면 머신러닝 모델 빌드를 진행할 수 있습니다.  
 
-## 3. 빌드 완료된 모델 평가 
----
+
+## __3. 빌드 완료된 모델 평가__ 
+아래의 쿼리문을 실행하여 이전 단계에서 만든 예측 모델의 성능을 평가합니다.
 
 ```
 %%thanosql 
-
 EVALUATE USING titanic_classification 
-OPTIONS( target = 'survived')
+OPTIONS (
+    target = 'survived'
+    )
 AS 
-(SELECT * 
-FROM titanic_train)
-
+SELECT * 
+FROM titanic_train
 ```
-![IMAGE](./img/img2.png)
+![IMAGE](/docs/img/automl_classification_img2.png)
 
-> __쿼리 세부 정보__   
-`EVALUATE USING` 쿼리 구문을 사용하여 구축한 titanic_classification이라는 모델을 평가합니다. `OPTIONS`의 target에는 분류 예측 모델에 목표값이 되는 열의 이름을 적어줍니다.
+!!! note "__쿼리 세부 정보__"   
+    "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_classification</mark>이라는 모델을 평가합니다. "__OPTIONS__"의 "target"에는 분류 예측 모델에 목표값이 되는 컬럼의 이름(<mark style="background-color:#D7D0FF">survived</mark>)을 적어줍니다.
 
 
-## 4. 빌드 완료된 모델을 사용하여 생존자 예측 
----
-이전 단계에서 빌드한 생존자 예측 모델을 사용해 탑승 승객 정보에 따른 생존 여부를 예측해 봅니다. 
+## __4. 빌드 완료된 모델을 사용하여 생존자 예측__ 
 
-```
+이전 단계에서 빌드한 생존자 예측 모델을 사용해 탑승 승객 정보에 따른 생존 여부를 예측해 봅니다. 테스트용 데이터 세트(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#FFEC92 ">__titanic_test__</mark>)를 사용합니다.
+
+```sql
 %%thanosql 
-
 PREDICT USING titanic_classification
 AS 
-(SELECT * 
-FROM titanic_test)
-
+SELECT * 
+FROM titanic_test
 ```
-![IMAGE](./img/img1.png)
+![IMAGE](/docs/img/automl_classification_img3.png)
 
-> __쿼리 세부 정보__  
-`PREDICT USING` 쿼리 구문을 사용하여 titanic_classification이라는 모델을 사용하여 예측합니다. PREDICT의 경우 빌드된 모델의 프로세스를 따르기 때문에 특별한 처리가 필요없습니다. 
+!!! note "__쿼리 세부 정보__" 
+    "__PREDICT USING__" 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 모델을 예측에 사용합니다. "__PREDICT__"의 경우 빌드된 모델의 절차를 따르기 때문에 특별한 처리가 필요없습니다. 
 
+## __5. 튜토리얼을 마치며__ 
 
-## 5. 튜토리얼을 마치며 
----
+이번 튜토리얼에서는 [캐글](https://www.kaggle.com/)의 <mark style="background-color:#FFD79C"> __Titanic: Machine Learning from Disaster__</mark> 데이터를 사용하여 타이타닉 생존자 분류 예측 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정보다는 전반적인 프로세스 위주의 설명으로 진행 하였습니다. 향상 된 분류 모델 구축에 대해 자세히 알고 싶다면 중급 튜토리얼을 진행해 볼 것을 권장드립니다.
 
-이번 튜토리얼에서는 캐글 경진대회의 Titanic 데이터셋을 사용하여 Titanic 생존자 분류 예측 모델 을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. 분류 작업에 대해 자세히 알고 싶다면 중급 튜토리얼을 진행해 볼 것을 권장드립니다. 
-
-다음 `중급 분류 예측 모델 만들기` 튜토리얼에서는 정확도 향상을 위한 OPTIONS에 대해 더욱 심도있게 다뤄보겠습니다. 중급,고급 단계를 마치고 나만의 서비스/프로덕트를 위한 분류 예측 모델을 만들어 보세요. 중급 단계에서는 ThanoSQL의 AutoML이 제공하는 다양한 OPTIONS를 활용하여 정교한 분류 예측 모델을 만들어 볼 예정입니다. 또한, 중급 단계를 마치신 이후 고급 단계에서는 비정형 데이터를 변수화시킨 후 AutoML의 학습 요소로 포함하여 분류 예측 모델을 만들 수 있습니다. 
+다음 [중급 분류 예측 모델 만들기](coming_soon) 튜토리얼에서는 정확도 향상을 위한 "__OPTIONS__"에 대해 더욱 심도있게 다뤄보겠습니다. 중급,고급 단계를 마치고 나만의 서비스/프로덕트를 위한 분류 예측 모델을 만들어 보세요. 중급 단계에서는 ThanoSQL의 AutoML이 제공하는 다양한 "__OPTIONS__"를 활용하여 정교한 분류 예측 모델을 만들어 볼 예정입니다. 또한, 중급 단계를 마치신 이후 고급 단계에서는 비정형 데이터를 수치화시킨 후 AutoML의 학습 요소로 포함하여 분류 예측 모델을 만들 수 있습니다. 
 
 * [중급 분류 예측 모델 만들기](coming_soon)
 * [고급 분류 예측 모델 만들기](coming_soon)
 
-분류 모델 구축 관련 문의 : contact@smartmind.team
+!!! tip "__나만의 서비스를 위한 모델배포 관련 문의__"
+    ThanoSQL을 활용해 나만의 모델을 만들거나, 나의 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊
+
+    분류 모델 구축 관련 문의: contact@smartmind.team
 
 
 
