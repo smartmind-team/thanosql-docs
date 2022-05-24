@@ -109,7 +109,7 @@ LIMIT 100
 ### 2.1 FIT MODEL Statement
 
 ```python
-FIT MODEL [사용자 지정 모델이름]
+FIT MODEL [사용자 지정 모델 이름]
 USING [빌드했던 모델 이름]
 OPTIONS ([알고리즘 별 모델 빌드에 필요한 파라미터 등의 옵션값]) 
 AS [새로운 학습 데이터 세트]            
@@ -156,16 +156,16 @@ DELETE MODEL user_rec
 >### 쿼리 세부정보
 >"__DELETE MODEL__" 쿼리 구문을 사용하여 `user_rec` 이라는 모델을 ThanoSQL 데이터베이스에서 삭제합니다.
 
-## 4. TRANSFORM Clause
+## 4. TRANSFORM USING Clause
 
-### 4.1 TRANSFORM Statement
+### 4.1 TRANSFORM USING Statement
 
 ```python
 TRANSFORM USING [사용하고 싶은 변환 알고리즘]
 AS [변환하고자 하는 데이터 세트]
 ```
 
-### 4.2 TRANSFORM Examples
+### 4.2 TRANSFORM USING Examples
 
 ```python
 %%thanosql
@@ -183,24 +183,24 @@ LIMIT 100
 ### 5.1 PREDICT USING Statement
 
 ```python
-PREDICT USING [사용하고 싶은 모델]
+PREDICT USING [사용하고 싶은 모델 이름]
 OPTIONS ([PREDICT에 필요한 파라미터 등의 옵션값])
 AS [사용하고자 하는 데이터 세트]
 ```
 
 ### 5.2 PREDICT USING Examples
 
-아래 예시는 "__PREDICT USING__" 쿼리 구문을 사용하여 [1.2.1 단계](#1_2_1)에서 빌드한 `user_rec`이라는 추천 모델을 사용하여 31번 유저가 좋아할만한 영화 목록 10개를 출력합니다.  
+아래 예시는 "__PREDICT USING__" 쿼리 구문을 사용하여 [1.2.1 단계](#1_2_1)에서 빌드한 `user_rec`이라는 추천 모델을 사용하여 사용자 ID의 값이 31인 사용자가 좋아할만한 영화 목록 10개를 출력합니다.  
 
 
 ```python
 %%thanosql 
 PREDICT USING user_rec 
 OPTIONS (
- predict_type='predict_user',
- user_id=31, 
- nrec=10
- )
+  predict_type='user', 
+  user=31, 
+  nrec=10
+  )
 AS 
 SELECT * 
 FROM news_train
@@ -261,9 +261,8 @@ FROM news_train
 
 
 
->### 쿼리 세부정보
->"__PREDICT USING__" 쿼리는 [1.2.1 단계](#1_2_1) 단계에서 생성한 user_rec 이라는 모델을 사용하여 예측하게 합니다.
-```OPTIONS(predict_type='predict_user', user_id=31, nrec=10, ...)``` 쿼리는 ```predict_type='predict_user', user_id=31, nrec=10``` 를 지정하여 유저ID 31번이 좋아할만한 아이템 10개를 예상하여 추천 목록을 출력합니다.
+>### 쿼리 세부정보 :
+>"__PREDICT USING__" 쿼리구문을 사용하여 이전 단계에서 만든 `user_rec` 모델을 예측에 사용합니다. 추천모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. "predict_type"은 예측결과를 정렬할 대상 기준을 설정합니다. 특정 사용자(userid의 값이 31)에게 추천할 영화 목록을 보려고 하기 때문에 "user"를 적어줍니다. "user"는 보고자 하는 특정 사용자의 "userid"값인 31을 입력합니다. "nrec"는 추천하는 아이템의 개수를 의미합니다.
 
 ## 6. EVALUATE USING Clause
 
@@ -283,28 +282,26 @@ AS [사용하고자 하는 데이터 세트]
 ```python
 %%thanosql
 EVALUATE USING test_classifier 
-OPTIONS (
-         target='survived'
-        ) 
+OPTIONS (target='survived') 
 AS 
 SELECT * 
 FROM titanic_train 
 LIMIT 100
 ```
 
-## 7. CREATE TABLE 쿼리 구문 설명
+## 7. CREATE TABLE Clause
 
-`CREATE TABLE` 쿼리구문은 비정형파일을 다양한 임베딩 알고리즘을 사용하여 벡터형식으로 변환 합니다.
+`CREATE TABLE` 쿼리 구문은 비정형 파일을 다양한 임베딩 알고리즘을 사용하여 벡터 형식으로 변환 합니다.
 
-### 7.1 CREATE TABLE 쿼리구문 기본 구조
+### 7.1 CREATE TABLE Statement
 
-```POSTGRESQL
+```python
 CREATE TABLE [사용자 지정 테이블 이름]
 USING [사용하고 싶은 변환 알고리즘]
-AS [변환하고자 하는 데이터세트]
+AS [변환하고자 하는 데이터 세트]
 ```
 
-### 7.2 CREATE TABLE 쿼리구문 사용예시
+### 7.2 CREATE TABLE Examples
 
 ```python
 %%thanosql
@@ -314,58 +311,61 @@ OPTIONS(data_type='image',file_type=['.jpg'])
 FROM '/data/thanosAlgo/image_search/junyoung_test/'
 ```
 
-## 8. CONVERT 쿼리 구문 설명
+## 8. CONVERT Clause
 
-`CONVERT` 쿼리구문은 이미지, 비디오, 음성 등 비정형 파일을 다양한 임베딩 알고리즘을 통해 벡터형식으로 변환 합니다.
+"__CONVERT__" 쿼리 구문은 이미지, 비디오, 음성 등 비정형 파일을 다양한 임베딩 알고리즘을 통해 벡터형식으로 변환 합니다.
 
-### 8.1 CONVERT 쿼리구문 기본구조
+### 8.1 CONVERT Statement
 
-```POSTGRESQL
+```python
 CONVERT [사용자 지정 테이블 이름]
 USING [사용하고 싶은 변환 알고리즘]
-AS [변환하고자 하는 데이터세트]
+AS [변환하고자 하는 데이터 세트]
 ```
 
-### 8.2 CONVERT 쿼리구문 사용예시
-
+### 8.2 CONVERT Examples
 
 ```python
 CONVERT USING Color_Descriptor 
-AS SELECT * FROM color_descriptor_table_test
+AS 
+SELECT * 
+FROM color_descriptor_table_test
 ```
 
-## 9. SEARCH 쿼리 구문 설명
+## 9. SEARCH Clause
 
-`SEARCH` 쿼리구문은 이미지, 비디오, 음성 파일 내 찾고자 하는 특정 파일을 검색 합니다.
-### 9.1 SEARCH 쿼리구문 기본 구조
+"__SEARCH__" 쿼리 구문은 이미지, 비디오, 음성 파일 내 찾고자 하는 특정 파일을 검색 합니다.
 
-```POSTGRESQL
+### 9.1 SEARCH Statement
+
+```python
 SEARCH [사용자 지정 테이블 이름]
 USING [사용하고 싶은 변환 알고리즘]
 AS [변환하고자 하는 데이터세트]
 ```
 
-### 9.2 SEARCH 쿼리구문 사용예시
-
+### 9.2 SEARCH Examples
 
 ```python
 SEARCH IMAGE images='/data/thanosAlgo/image_search/junyoung_test/20150617_132435.jpg' 
 USING Color_Descriptor 
-AS SELECT * FROM color_descriptor_table_test
+AS 
+SELECT * 
+FROM color_descriptor_table_test
 ```
 
-## 10. PRINT 쿼리 구문 설명
+## 10. PRINT Clause
 
-`PRINT` 쿼리구문을 사용하여 이미지, 음성, 비디오 파일을 출력합니다.
+`PRINT` 쿼리 구문을 사용하여 이미지, 음성, 비디오 파일을 출력합니다.
 
-### 10.1 PRINT 쿼리구문 기본구조
+### 10.1 PRINT Statement
 
 ```POSTGRESQL
 PRINT IMAGE | AUDIO | VIDEO
 AS [출력하고자 하는 파일]
 ```
 
-### 10.2 PRINT 쿼리구문 사용예시
+### 10.2 PRINT Examples
 
 ```python
 %%thanosql
@@ -378,7 +378,6 @@ AS SELECT * FROM junyong_img
 PRINT AUDIO
 AS SELECT * FROM junyong_aud
 ```
-
 
 ```python
 %%thanosql
