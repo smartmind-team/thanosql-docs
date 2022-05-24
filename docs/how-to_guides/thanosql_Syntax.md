@@ -118,14 +118,14 @@ AS [새로운 학습 데이터 세트]
 FIT MODEL fit_test_classifier
 USING test_classifier
 OPTIONS (
-         target='survived', 
-         impute_type='iterative'
-        ) 
-AS SELECT * FROM titanic_train LIMIT 100
+ target='survived', 
+ impute_type='iterative'
+ ) 
+AS 
+SELECT * 
+FROM titanic_train 
+LIMIT 100
 ```
-
-
-    
 
 ## 3. DELETE 쿼리 구문 설명
 
