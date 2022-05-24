@@ -96,7 +96,7 @@ FROM titanic_train
 LIMIT 100
 ```
 
-"__BUILD MODEL__"에서 "__USING__"을 사용해서 학습이 가능한 베이스 알고리즘의 종류는 다음과 같습니다. 사용할 수 있는 모델은 지속적으로 업데이트 중에 있습니다.
+:point_right: "__BUILD MODEL__"에서 "__USING__"을 사용해서 학습이 가능한 베이스 알고리즘의 종류는 다음과 같습니다. 사용할 수 있는 모델은 지속적으로 업데이트 중에 있습니다.
 * ["__AutomlClassifier__"]()
 * ["__AutomlRegressor__"]()
 * ["__Light_FM__"]()
