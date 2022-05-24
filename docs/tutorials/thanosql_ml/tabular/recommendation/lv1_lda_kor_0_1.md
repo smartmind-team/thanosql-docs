@@ -16,8 +16,11 @@
 
 ## 튜토리얼 소개 <br>
 
+>**추천 모델 이해하기 :** 일반적으로 추천 모델에서 해당 플랫폼의 특정 사용자는 플랫폼 내의 전체 아이템(제품/콘텐츠)이 아닌 소수의 아이템만을 소비(시청여부, 구매이력, 후기, 평점 등)하게 됩니다. 아직 소비하지 않은 아이템에 대해서 특정 소비자가 어떤 평점을 줄지 예측하고 높은 평점을 줄 것으로 예측되는 아이템(하지만 소비되지 않은 아이템)을 예측 평점이 높은 순위부터 보여줍니다. <br>
+> 본 튜토리얼에서는 사용자가 소비한 아이템(뉴스) 내용(제목, 카테고리, 키워드 등)데이터를 사용하여 간단한 추천시스템을 구축합니다. 만약, 아이템 내용이 아닌 사용자가 부여한 평점데이터를 사용하여 추천시스템을 만들고 싶다면 다음 "[Movielens 영화평점 데이터를 이용한 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/edit/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)" 튜토리얼을 참조하세요.
+
 >**추천 시스템 이해하기 :** 추천시스템은 사용자가 전체 아이템이 아닌 소수의 아이템을 소비하고 평점을 주게 됩니다. 아직 소비하지 않은 아이템에 대해서 평점을 어떻게 줄지를 예측하고 높은 평점을 줄 것으로 예측되는, 하지만 소비되지 않은 아이템의 평점을 높은 순위부터 보여줍니다. <br>
->> 본 튜토리얼에서는 사용자가 소비한 아이템(뉴스) 내용(제목, 카테고리, 키워드 등)데이터를 사용하여 간단한 추천시스템을 구축합니다. 만약, 아이템 내용이 아닌 사용자가 부여한 평점데이터를 사용하여 추천시스템을 만들고 싶다면 다음 [영화 추천 시스템 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md) 튜토리얼을 참조하세요. 
+>>  [영화 추천 시스템 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md) 튜토리얼을 참조하세요. 
 
 <br>
 
