@@ -89,7 +89,8 @@ USING AutomlClassifier
 OPTIONS (
  target='survived',
  impute_type='simple',
- features_to_drop=["name", "ticket", "passengerid", "cabin"]) 
+ features_to_drop=["name", "ticket", "passengerid", "cabin"]
+ ) 
 AS 
 SELECT * 
 FROM titanic_train 
@@ -104,15 +105,13 @@ LIMIT 100
 ```python
 FIT MODEL [사용자 지정 모델이름]
 USING [빌드했던 모델 이름]
-OPTIONS (
-         [모델 필요한 변수 옵션]
-        ) 
+OPTIONS ([모델 필요한 변수 옵션]) 
 AS [새로운 학습 데이터 세트]            
 ```
 
 
 ### 2.2 FIT MODEL Examples
-아래 예시는 "__FIT MODEL__" 쿼리 구문을 사용하여 이전에 만들었던 `test_classifier` 모델에 새로운 데이터 세트를 추가 학습하여 `fit_test_classifier`라는 모델을 만듭니다. 
+아래 예는 "__FIT MODEL__" 쿼리 구문을 사용하여 이전에 만들었던 `test_classifier` 모델에 새로운 데이터 세트를 추가 학습하여 `fit_test_classifier`라는 모델을 만듭니다. 
 
 ```python
 %%thanosql
