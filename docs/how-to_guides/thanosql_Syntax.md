@@ -96,11 +96,10 @@ FROM titanic_train
 LIMIT 100
 ```
 
-## 2. FIT MODEL 쿼리 구문 설명
+## 2. FIT MODEL Clause
 "__FIT MODEL__"은 이미 학습된 모델에 새로운 데이터를 추가하여 재학습 시킬때 사용되는 쿼리 구문 입니다.
 
-### 2.1 FIT 쿼리 구문 기본 구조
-
+### 2.1 FIT MODEL Statement
 
 ```python
 FIT MODEL [사용자 지정 모델이름]
@@ -112,8 +111,8 @@ AS [새로운 학습 데이터 세트]
 ```
 
 
-### 2.2 FIT MODEL 쿼리 구문 사용 예시
-아래 예시는 FIT MODEL 쿼리 구문을 사용하여 이전에 만들었던 `test_classifier` 모델에 새로운 데이터 세트를 추가 학습하여 `fit_test_classifier`라는 모델을 만듭니다. 
+### 2.2 FIT MODEL Examples
+아래 예시는 "__FIT MODEL__" 쿼리 구문을 사용하여 이전에 만들었던 `test_classifier` 모델에 새로운 데이터 세트를 추가 학습하여 `fit_test_classifier`라는 모델을 만듭니다. 
 
 ```python
 %%thanosql
