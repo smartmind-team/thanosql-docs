@@ -1,4 +1,4 @@
-# ThanoSQL Grammar
+# ThanoSQL Syntax
 ## 쿼리 구문 사용 튜토리얼
 
  * ThanoSQL은 [ANSI/ISO 표준](https://en.wikipedia.org/wiki/SQL_syntax)을 준수하며 85% 이상의 표준 SQL 쿼리 구문들과 호환합니다.
