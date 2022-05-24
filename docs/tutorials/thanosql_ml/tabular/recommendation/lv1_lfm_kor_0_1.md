@@ -126,7 +126,7 @@ FROM movielens_train
 
 > **쿼리 세부정보 :** <br>
 >"__BUILD MODEL__" 쿼리 구문을 사용하여 movie_rec 이라는 모델을 만들고 학습시킵니다. <br>
->추천 모델에서 "__OPTIONS__"는 3 컬럼(Column)이 사용됩니다. "user"에는 사용자의 ID (`userid`), "item"에는 아이템의 ID가 들어갑니다. 본 튜토리얼에서는 `movieid`가 사용됩니다. "target"에서는 예측하고자 하는 목표값이 되는 열의 이름(`rating`)을 적어줍니다.   
+>추천 모델에서 "__OPTIONS__"는 3개의 컬럼(Column)이 사용됩니다. "user"에는 사용자의 ID (`userid`), "item"에는 아이템의 ID가 들어갑니다. 본 튜토리얼에서는 `movieid`가 사용됩니다. "target"에서는 예측하고자 하는 목표값이 되는 열의 이름(`rating`)을 적어줍니다.   
 > "description"의 경우 모델의 학습에는 사용되지 않지만 결과값 확인의 편의성을 위해 "item" 컬럼의 설명(`title`)을 넣어 줄 수 있습니다. 
 
 ## 3. 빌드 완료된 모델을 사용하여 추천목록 생성하기
