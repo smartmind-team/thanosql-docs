@@ -291,7 +291,7 @@ FROM news_train
 
 
 > **쿼리 세부정보 :** <br>
->"__PREDICT USING__" 쿼리구문을 사용하여 이전 단계에서 만든 `news_rec` 모델을 예측에 사용합니다. 추천모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. 이번 튜토리얼에서는 특정 사용자(user_id의 값이 U9999)에게 추천할 뉴스 목록을 보려고 하기 때문에 "user_id"는 보고자 하는 특정 사용자의 `user_id`(테이블 `mind_train_user_history`) /`id`(테이블 `news_train`) 값인 U9999 입력합니다. "nrec"은 추천하는 아이템의 개수를 의미합니다.
+>"__PREDICT USING__" 쿼리구문을 사용하여 이전 단계에서 만든 `news_rec` 모델을 예측에 사용합니다. 추천모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. 이번 튜토리얼에서는 특정 사용자(user_id의 값이 U9999)에게 추천할 뉴스 목록을 보려고 하기 때문에 "user_id"는 보고자 하는 특정 사용자의 `user_id`(테이블 `mind_train_user_history`) /`id`(테이블 `news_train`) 값인 U9999 입력합니다. "nrec"는 추천하는 아이템의 개수를 의미합니다.
 
 <br>
 
