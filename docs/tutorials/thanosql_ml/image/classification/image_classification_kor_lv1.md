@@ -2,6 +2,8 @@
 
 ## (ThanoSQL 무작정 따라하기) 고양이와 개를 분류하는 이미지 분류 모델 만들기
 
+**[이전 문서 - Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](https://docs.thanosql.ai/tutorials/thanosql_ml/tabular/classification/automl_classification/)** <br>| **[다음 문서 ]()**
+
 ## 시작 전 사전 정보
 
 - 튜토리얼 난이도: ★☆☆☆☆
