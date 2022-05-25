@@ -7,6 +7,7 @@
 ## __2.DELETE MODEL 구문__
 
 ```sql
+%%thanosql
 DELETE MODEL [삭제할 모델 이름]
 ```
 
@@ -15,5 +16,6 @@ DELETE MODEL [삭제할 모델 이름]
 아래 예는 "__DELETE MODEL__" 구문을 사용하여 사용자가 [모델 학습하기]()에서 만들었던 <mark style="background-color:#E9D7FD ">user_rec</mark> 추천 모델을 데이터 베이스에서 삭제합니다.
 
 ```sql
+%%thanosql
 DELETE MODEL user_rec
 ```
