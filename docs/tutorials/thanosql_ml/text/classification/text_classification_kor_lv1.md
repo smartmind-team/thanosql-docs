@@ -88,7 +88,7 @@ LIMIT 5
 > #### 데이터 이해하기
 > 
 > - `review` : 영화 리뷰 텍스트
-> - `sentiment` : 해당 리뷰가 긍정적인지(positive), 부정적인지(negative)를 나타내는 목표값(Target)
+> - `sentiment` : 해당 리뷰가 긍정적인지(Positive), 부정적인지(Negative)를 나타내는 목표값(Target)
 
 <br>
 
