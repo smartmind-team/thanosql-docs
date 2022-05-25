@@ -234,6 +234,6 @@ FROM cat_and_dog_test
 ## 나만의 서비스를 위한 모델배포 관련 문의 <br>
 ThanoSQL을 활용해 나만의 모델을 만들거나, 나의 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊
 
-추천 모델 구축 관련 문의: contact@smartmind.team
+이미지 분류 모델 구축 관련 문의: contact@smartmind.team
 
 
