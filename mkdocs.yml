@@ -31,7 +31,7 @@ nav:
       - Quick Start: how-to_guides/quick_start.md
       - 모든 안내 가이드: how-to_guides/syntax_list.md
       - 모델 다루기:
-          - 데이터 업로드: how-to_guides/data_upload.md
+          - 데이터 업로드: how-to_guides/modelling/data_upload.md
           - 모델 학습하기: how-to_guides/modelling/BUILD_MODEL_SYNTAX.md
           - 모델 재학습하기: how-to_guides/modelling/FIT_MODEL_SYNTAX.md
           - 모델 적용을 위해 데이터 전처리하기: how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX.md
