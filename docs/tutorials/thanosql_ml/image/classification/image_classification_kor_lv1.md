@@ -216,7 +216,7 @@ FROM cat_and_dog_test
 
 > #### 쿼리 세부 정보
 > 
-> "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 `my_image_classifier` 모델을 예측에 사용합니다. "__OPTIONS__"를 통해 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼("image_col")의 이름인 `image'을 지정합니다. 
+> "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 `my_image_classifier` 모델을 예측에 사용합니다. "__OPTIONS__"의 파라미터인 "image_col"에는 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름인 `image'을 지정합니다. 
 
 ## 4. 튜토리얼을 마치며
 
