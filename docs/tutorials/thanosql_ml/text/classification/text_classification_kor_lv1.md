@@ -1,13 +1,17 @@
-# ThanoSQL 무작정 따라하기
+# 텍스트 분류 모델 만들기
 
-# 영화 리뷰가 긍정적인지 부정적인지를 분류하는 모델 만들기
+## (ThanoSQL 무작정 따라하기) 영화 리뷰에서 감정(긍정/부정) 분류 모델 만들기
+
+**[이전 문서 - 고양이와 강아지를 분류하는 이미지 분류 모델 만들기](https://github.com/smartmind-team/thanosql-docs/edit/dowon/docs/tutorials/thanosql_ml/image/classification/image_classification_kor_lv1.md)** <br>| **[다음 문서 Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](https://docs.thanosql.ai/tutorials/thanosql_ml/tabular/classification/automl_classification/)** 
 
 ### 시작 전 사전 정보
 
 - 튜토리얼 난이도: ★☆☆☆☆
 - 읽는데 걸리는 시간(실행시간): 10분
-- 사용언어: SQL(100%)
+- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 예제 파일 : 
 - 참고문서: [캐글 IMDB Movies Dataset](https://www.kaggle.com/datasets/harshitshankhdhar/imdb-dataset-of-top-1000-movies-and-tv-shows)
+- 마지막 수정날짜 : 2022-06-01
 
 <br>
 
