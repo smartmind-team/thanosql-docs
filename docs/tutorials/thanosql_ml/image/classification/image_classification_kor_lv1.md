@@ -92,29 +92,34 @@ LIMIT 5
 
 <br>
 
-## 2. 이미지 분류모델 빌드
+## 2. 이미지 분류 모델 만들기
 
-이제, thanosql을 사용하여 이미지 분류모델을 빌드합니다.
+이전 단계에서 확인한 `cat_and_dog_train` 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 `my_image_classifier`이라는 이름의 모델을 만듭니다.
 
-```sql
+```python
 %%thanosql
 BUILD MODEL my_image_classifier
 USING ConvNeXt_Tiny
-OPTIONS (image_col='image', label_col='label', epochs=1)
-AS SELECT * FROM cat_and_dog_train
+OPTIONS (
+  image_col='image', 
+  label_col='label', 
+  epochs=1
+  )
+AS 
+SELECT * 
+FROM cat_and_dog_train
 ```
 
     <Response [200]>
 
 > #### 쿼리 세부 정보
 > 
-> BUILD MODEL 구문을 사용하여 `my_image_classifier` 모델을 만듭니다. USING 구문을 통해 기반 모델로 `ConvNeXt_Tiny`를 사용할 것을 명시합니다.
-> 
-> OPTIONS를 통해 빌드에 사용할 옵션을 지정합니다. `image_col`은 이미지 경로를 담은 행의 이름이며, `label_col`은 레이블 정보를 담은 행입니다. `epochs`를 통해 몇 번의 에포크로 학습할 지를 지정합니다. 여기서는 빠르게 학습하기 위해 1로 지정했습니다.
+> "__BUILD MODEL__" 쿼리 구문을 사용하여 `my_image_classifier` 모델을 만들고 학습시킵니다. "__USING__" 쿼리 구문을 통해 베이스 모델로 `ConvNeXt_Tiny`를 사용할 것을 명시합니다.
+> "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다. "image_col"은 이미지 경로를 담은 컬럼의 이름이며, "label_col"은 목표값의 정보를 담은 컬럼의 이름입니다. "epochs"를 통해 몇 번의 학습을 반복할 지를 지정합니다(훈련 데이터 세트에 포함된 모든 데이터들이 한 번씩 모델을 통과한 횟수로, 모든 학습 데이터 세트를 학습하는 횟수를 의미합니다). 여기서는 빠르게 학습하기 위해 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다. 
 
 <br>
 
-## 결과 예측
+## 3. 만든 모델을 사용하여 강아지/고양이 이미지 분류 결과 예측
 
 빌드 완료된 모델을 사용하여, 실제로 이미지를 예측해보겠습니다.
 
