@@ -103,9 +103,11 @@ FROM movielens_train
 
 !!! note "__쿼리 세부 정보__" 
     __"PREDICT USING"__ 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">movie_rec</mark> 모델을 예측에 사용합니다. 
-    추천 모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. "predict_type"은 예측 결과를 정렬할 대상 기준을 설정합니다. 이번 튜토리얼에서는 특정 사용자(<mark style="background-color:#D7D0FF ">userid</mark>의 값이 31)에게 추천할 영화 목록을 보려고 하기 때문에 "user"를 적어줍니다. 추가적인 파라메터는 [중급 추천 시스템 만들기](comingsoon) 튜토리얼에서 다루게 됩니다. "user"는 보고자 하는 특정 사용자의 <mark style="background-color:#D7D0FF ">userid</mark>값인 31을 입력합니다. "nrec"는 추천하는 아이템의 개수를 의미합니다. 
+    추천 모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. "predict_type"은 예측 결과를 정렬할 대상 기준을 설정합니다. 이번 튜토리얼에서는 특정 사용자(<mark style="background-color:#D7D0FF ">userid</mark>의 값이 31)에게 추천할 영화 목록을 보려고 하기 때문에 "user"를 적어주며 "user"는 보고자 하는 특정 사용자의 <mark style="background-color:#D7D0FF ">userid</mark>값인 31을 입력합니다. "nrec"는 추천하는 아이템의 개수를 의미합니다. 
 
-<br>
+!!! warning
+    "__OPTIONS__"와 관련 있는 추가적인 옵션값들은 [중급 추천 시스템 만들기](comingsoon) 튜토리얼에서 다루게 됩니다.
+
 
 ## __4.튜토리얼을 마치며__ 
 
