@@ -157,7 +157,7 @@ DELETE MODEL user_rec
 >"__DELETE MODEL__" 쿼리 구문을 사용하여 `user_rec` 라는 모델을 ThanoSQL 데이터베이스에서 삭제합니다.
 
 ## 4. TRANSFORM USING Clause
-
+"__TRANSFORM USING__" 구문은 모델 사용을 위해 테스트 데이터 세트를 학습 데이터 세트의 형태에 맞춰줍니다. 
 ### 4.1 TRANSFORM USING Statement
 
 ```python
