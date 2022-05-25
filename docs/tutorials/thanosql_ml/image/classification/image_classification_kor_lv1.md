@@ -10,7 +10,7 @@
 - 읽는데 걸리는 시간: 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 예제 파일 : 
-- 참고문서: [캐글 Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [CONVNEXT_TINY](https://pytorch.org/vision/main/models/generated/torchvision.models.convnext_tiny.html)
+- 참고문서: [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [CONVNEXT_TINY](https://pytorch.org/vision/main/models/generated/torchvision.models.convnext_tiny.html)
 - 마지막 수정날짜 : 2022-06-01
 
 <br>
@@ -27,7 +27,7 @@ __아래는 ThanoSQL 이미지 분류 모델의 활용 및 예시입니다.__
 - 제조 공장 등에서 육안으로 확인하던 스크레치나 파손과 같은 불량품을 감지하고 분류 할 수 있습니다. 레이저 스펙트럼과 같은 신호 정보도 시각화 변환 등을 통해서 이미지 분류 모델을 적용할 수 있습니다. 이번 튜토리얼에서는 다루지 않지만 전체 이미지에서 특정 물체(Object)의 위치를 감지하고 경계선(Bounding Box)을 표현할 수 있습니다. 군중 속에서 마스크를 하지 않은 사람을 찾아내거나 자동차 전용 도로에서 보행자나 오토바이 등의 검출이 가능합니다. 
 
 > __본 튜토리얼에서는__ <br>
-> 이 예제에서는 캐글의 Cat and Dog 데이터 세트를 이용하여 이미지에 고양이가 있는지, 개가 있는 지를 ThanoSQL을 통해 예측하는 작업을 해보겠습니다.
+> 이 예제에서는 캐글의 `Cat and Dog` 데이터 세트를 이용하여 이미지에 고양이가 있는지, 개가 있는 지를 ThanoSQL을 통해 예측하는 작업을 해보겠습니다.
 
 ## 의도 & 제한사항
 
