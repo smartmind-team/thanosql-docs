@@ -121,13 +121,15 @@ FROM cat_and_dog_train
 
 ## 3. 만든 모델을 사용하여 강아지/고양이 이미지 분류 결과 예측
 
-빌드 완료된 모델을 사용하여, 실제로 이미지를 예측해보겠습니다.
+이전 단계에서 만든 이미지 예측 모델(`my_image_classifier`)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, `bike_shaing_test`)의 목표값을 예측해 봅니다. 
 
-```sql
+```python
 %%thanosql
 PREDICT USING my_image_classifier
 OPTIONS (image_col='image')
-AS SELECT * FROM cat_and_dog_test
+AS 
+SELECT * 
+FROM cat_and_dog_test
 ```
 
 <div>
@@ -214,6 +216,25 @@ AS SELECT * FROM cat_and_dog_test
 
 > #### 쿼리 세부 정보
 > 
-> PREDICT USING 쿼리를 통해 이전 단계에서 만든 `my_image_classifier` 모델을 사용할 것이라 지정해주었습니다.
-> 
-> OPTIONS를 통해 예측에 사용할 옵션을 지정합니다. `image_col`은 이미지의 경로를 담은 행의 이름입니다.
+> "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 `my_image_classifier` 모델을 예측에 사용합니다. "__OPTIONS__"를 통해 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼("image_col")의 이름인 `image'을 지정합니다. 
+
+## 4. 튜토리얼을 마치며
+
+이번 튜토리얼에서는 `Microsoft news dataset` 데이터 세트를 사용하여 뉴스 추천 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. 추천 모델은 각 플랫폼/서비스에 맞는 정밀한 튜닝을 통해 정확도를 향상 시킬 수 있고 평점기반 추천 모델 등과 함께 사용하여 성능을 더욱 높일 수 있습니다. 뉴스 추천 모델은 뉴스 뿐만이 아니라 문서로 된 아이템만 있다면 다양한 분야에서 적용이 가능합니다. 온라인 서점에 적용하여 유저에게 도서 추천, 커뮤니티 사이트의 글 추천 등 뉴스 추천 모델을 통해 나만의 경쟁력있는 플랫폼을 완성 할 수 있습니다. <br>  
+다음단계인  [중급 추천 모델 만들기](comingsoon) 튜토리얼에서는 추천 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 추천 모델 구축방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요. <br>
+* [나만의 데이터 업로드하기](comingsoon)
+* [중급 추천 모델 만들기](comingsoon) 
+* [나만의 추천 모델 배포하기](comingsoon)
+  
+<br>
+
+**[이전 문서 - Movielens 영화평점 데이터를 이용한 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)** <br> **| [다음 문서]()**
+
+---
+
+## 나만의 서비스를 위한 모델배포 관련 문의 <br>
+ThanoSQL을 활용해 나만의 모델을 만들거나, 나의 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊
+
+추천 모델 구축 관련 문의: contact@smartmind.team
+
+
