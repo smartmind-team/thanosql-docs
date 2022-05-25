@@ -10,7 +10,7 @@
 - 읽는데 걸리는 시간(실행시간): 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 예제 파일 : 
-- 참고문서: [(캐글) IMDB Movies Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
+- 참고문서: [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
 - 마지막 수정날짜 : 2022-06-01
 
 <br>
@@ -27,7 +27,7 @@ __아래는 ThanoSQL 텍스트 분류 모델의 활용 및 예시입니다.__
 - 텍스트 분류 모델을 사용하면 뉴스/게시물 공유 서비스에서 게시 콘텐츠의 그룹을 자동으로 분류해 줄 수 있습니다. 또한 각 콘텐츠의 댓글에 텍스트 분류 모델을 적용 함으로써 감정 분석이 가능하고 과하게 이슈가 되거나 욕설/비방 등에 의한 문제를 효율적으로 관리할 수 있습니다. 또한, 이메일이나 메신저의 스팸 분류나 텍스트 광고의 필터링에 텍스트 분류 모델을 사용할 수 있습니다. 
 
 > __본 튜토리얼에서는__ <br>
-> 대표적인 머신러닝 경진대회 플랫폼인 [캐글](https://www.kaggle.com/)의 `IMDB Movies Dataset` 데이터 세트를 사용하여 영화 리뷰의 감정을 분류하는 모델을 만듭니다. 이 데이터 세트는 25,000장의 훈련 데이터와 12,500장의 테스트 데이터로 구성되어 있습니다. 직관적으로 이해하기 쉽고 각 이미지의 크기가 크지 않아 이미지 분류 모델의 정확도를 판단하기 위해 널리 사용됩니다. 본 튜토리얼에서는 ThanoSQL의 사용방법을 익히고 빠른 결과 확인을 위해, 훈련용 데이터 8,000장과 테스트 데이터 2,000장만을 사용합니다. <br>
+> 대표적인 머신러닝 경진대회 플랫폼인 [캐글](https://www.kaggle.com/)의 `IMDB Movie Reviews` 데이터 세트를 사용하여 영화 리뷰의 감정을 분류하는 모델을 만듭니다. 이 데이터 세트는 50,000 개의 영화 리뷰 텍스트와 긍정/부정 감정에 대한 목표값(Target)으로 구성되어 있는 테이블을 사용합니다. 영화 평점을 기준으로 5보다 작은 값을 부정, 7보다 큰 값을 긍정으로 표현하였으며 각 개별 영화는 30 개 이상의 리뷰 결과를 갖지 않습니다. 25,000 개의 학습용 데이터와 25,000 개의 테스트용 데이터로 구분되어 있으며 두 그룹 간에 중복되는 영화는 없습니다. <br>
 
 > __튜토리얼의 의도 및 제한사항__
 > - 텍스트 분류 모델은 하나의 텍스트에서 하나의 정답을 예측하는 용도로 사용할 수 있습니다.
