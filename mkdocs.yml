@@ -33,6 +33,7 @@ nav:
       - 모델 다루기:
           - 데이터 업로드: how-to_guides/modelling/data_upload.md
           - 모델 학습하기: how-to_guides/modelling/BUILD_MODEL_SYNTAX.md
+          - 모델 평가하기: how-to_guides/modelling/EVALUATE_MODEL_SYNTAX.md
           - 모델 재학습하기: how-to_guides/modelling/FIT_MODEL_SYNTAX.md
           - 모델 적용을 위해 데이터 전처리하기: how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX.md
           - 모델 적용하기: how-to_guides/modelling/PREDICT_MODEL_SYNTAX.md
