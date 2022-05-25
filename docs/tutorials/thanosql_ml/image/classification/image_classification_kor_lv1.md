@@ -124,7 +124,7 @@ FROM cat_and_dog_train
 
 ## 3. 만든 모델을 사용하여 강아지/고양이 이미지 분류 결과 예측
 
-이전 단계에서 만든 이미지 예측 모델(`my_image_classifier`)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, `cat_and_dog_test`)의 목표값을 예측해 봅니다. 
+이전 단계에서 만든 이미지 분류 예측 모델(`my_image_classifier`)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, `cat_and_dog_test`)의 목표값을 예측해 봅니다. 
 
 ```python
 %%thanosql
