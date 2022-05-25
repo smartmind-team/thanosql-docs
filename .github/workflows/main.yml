@@ -10,9 +10,13 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - name: Checkout web
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
 
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          CUSTOM_DOMAIN: docs.thanosql.ai
+          CONFIG_FILE: folder/mkdocs.yml
+          EXTRA_PACKAGES: build-base
+          REQUIREMENTS: folder/requirements.txt
