@@ -50,7 +50,7 @@ SELECT *
 FROM bike_sharing 
 LIMIT 5
 ```
-![IMAGE](/docs/img/automl_regression_img1.png)
+![IMAGE](/img/automl_regression_img1.png)
 
 !!! note "__데이터 이해하기__"
     <mark style="background-color:#FFEC92 ">__bike_sharing__</mark> 데이터 세트에는 2011년 1월부터 2012년 12월까지 날짜와 시간, 기온, 습도, 풍속 등의 정보를 기반으로 1시간 간격 동안의 자전거 대여 횟수에 대한 정보를 담고 있습니다.  
@@ -101,7 +101,7 @@ SELECT *
 FROM bike_sharing
 ```
 
-![IMAGE](/docs/img/automl_regression_img2.png)
+![IMAGE](/img/automl_regression_img2.png)
 
 !!! note "__쿼리 세부 정보__"
     "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 평가합니다. "__OPTIONS__"의 "target"에는 회귀 예측 모델의 목표값이 되는 컬럼(Column)의 이름(<mark style="background-color:#D7D0FF">count</mark>)을 적어줍니다.
@@ -118,7 +118,7 @@ SELECT *
 FROM bike_sharing_test
 LIMIT 10
 ```
-![IMAGE](/docs/img/automl_regression_img3.png)
+![IMAGE](/img/automl_regression_img3.png)
 
 !!! note "__쿼리 세부 정부__"  
     "__PREDICT USING__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 예측에 사용합니다. "__PREDICT__"의 경우 빌드된 모델의 절차를 따르기 때문에 특별한 처리가 필요없습니다.

@@ -45,7 +45,7 @@ SELECT *
 FROM movielens_train 
 LIMIT 5
 ```
-![IMAGE](/docs/img/recommendation_lfm_img1.png)
+![IMAGE](/img/recommendation_lfm_img1.png)
 
 !!! note "데이터 이해하기"
     <mark style="background-color:#FFEC92 ">movielens_train</mark> 데이터 세트는 다음과 같은 정보를 담고 있습니다.  
@@ -99,7 +99,7 @@ AS
 SELECT * 
 FROM movielens_train
 ```
-![IMAGE](/docs/img/recommendation_lfm_img2.png)
+![IMAGE](/img/recommendation_lfm_img2.png)
 
 !!! note "__쿼리 세부 정보__" 
     __"PREDICT USING"__ 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">movie_rec</mark> 모델을 예측에 사용합니다. 

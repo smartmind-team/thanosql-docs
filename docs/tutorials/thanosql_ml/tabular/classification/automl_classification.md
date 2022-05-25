@@ -55,7 +55,7 @@ SELECT *
 FROM titanic_train 
 LIMIT 5 
 ```
-![IMAGE](/docs/img/automl_classification_img1.png)
+![IMAGE](/img/automl_classification_img1.png)
 
 !!! note "__데이터 이해하기__"
     <mark style="background-color:#FFEC92 ">__tianic_train__</mark> 데이터 세트는 다음과 같은 정보를 담고 있습니다.  
@@ -109,7 +109,7 @@ AS
 SELECT * 
 FROM titanic_train
 ```
-![IMAGE](/docs/img/automl_classification_img2.png)
+![IMAGE](/img/automl_classification_img2.png)
 
 !!! note "__쿼리 세부 정보__"   
     "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_classification</mark>이라는 모델을 평가합니다. "__OPTIONS__"의 "target"에는 분류 예측 모델에 목표값이 되는 컬럼의 이름(<mark style="background-color:#D7D0FF">survived</mark>)을 적어줍니다.
@@ -126,7 +126,7 @@ AS
 SELECT * 
 FROM titanic_test
 ```
-![IMAGE](/docs/img/automl_classification_img3.png)
+![IMAGE](/img/automl_classification_img3.png)
 
 !!! note "__쿼리 세부 정보__" 
     "__PREDICT USING__" 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 모델을 예측에 사용합니다. "__PREDICT__"의 경우 빌드된 모델의 절차를 따르기 때문에 특별한 처리가 필요없습니다. 

@@ -46,7 +46,7 @@ FROM news_train
 LIMIT 5
 ```
 
-![IMAGE](/docs/img/recommendation_lda_img2.png)
+![IMAGE](/img/recommendation_lda_img2.png)
 
 !!! note "데이터 이해하기"
     <mark style="background-color:#FFEC92 ">news_train</mark> 데이터 세트는 사용자가 소비한 뉴스 이력 정보를 담고 있습니다.  
@@ -61,7 +61,7 @@ FROM mind_train_user_history
 LIMIT 5
 ```
 
-![IMAGE](/docs/img/recommendation_lda_img1.png)
+![IMAGE](/img/recommendation_lda_img1.png)
 
 !!! note "데이터 이해하기"
     <mark style="background-color:#FFEC92 ">mind_train_user_history</mark> 데이터 세트는 뉴스의 아이디, 범주, 하위범주, 제목, 요약내용 등 뉴스에 대한 추가 정보를 담고 있습니다. 
@@ -108,7 +108,7 @@ SELECT *
 FROM news_train
 ```
 
-![IMAGE](/docs/img/recommendation_lda_img3.png)
+![IMAGE](/img/recommendation_lda_img3.png)
 
 !!! note "__쿼리 세부정보__"
     "__PREDICT USING__" 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">news_rec</mark> 모델을 예측에 사용합니다. 추천모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. 이번 튜토리얼에서는 특정 사용자("user_id"의 값이 U9999)에게 추천할 뉴스 목록을 보려고 하기 때문에 "user_id"는 보고자 하는 특정 사용자의 <mark style="background-color:#D7D0FF ">user_id</mark>(테이블 <mark style="background-color:#FFEC92 ">mind_train_user_history</mark>) /<mark style="background-color:#D7D0FF ">id</mark>(테이블 <mark style="background-color:#FFEC92 ">news_train</mark>) 값인 U9999 입력합니다. "nrec"는 추천하는 아이템의 개수를 의미합니다.
