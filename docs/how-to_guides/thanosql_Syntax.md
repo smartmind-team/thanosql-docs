@@ -203,6 +203,7 @@ FIT MODEL [사용자 지정 모델 이름]
 USING [빌드했던 모델 이름]
 OPTIONS ([알고리즘 별 모델 빌드에 필요한 파라미터 등의 옵션값]) 
 AS [사용할 데이터 세트]            
+<<<<<<< HEAD
 ```
 
 
@@ -236,6 +237,8 @@ OPTIONS (
          [모델 필요한 변수 옵션]
         ) 
 AS [새로운 학습 데이터 세트]            
+=======
+>>>>>>> 6d192ca8c0ec1de429143239776e34ae0e8bb09d
 ```
 
 
@@ -691,6 +694,7 @@ FROM color_descriptor_table_test
 
 ### 10.1 PRINT Statement
 
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 ## 10. PRINT 쿼리 구문 설명
@@ -707,6 +711,8 @@ FROM color_descriptor_table_test
 >>>>>>> 6d192ca8c0ec1de429143239776e34ae0e8bb09d
 
 >>>>>>> Stashed changes
+=======
+>>>>>>> 6d192ca8c0ec1de429143239776e34ae0e8bb09d
 ```python
 PRINT IMAGE|AUDIO|VIDEO
 AS [출력할 데이터 세트]
