@@ -33,7 +33,7 @@ nav:
       - 모든 안내 가이드 : how-to_guides/syntax_list.md
       - 모델 다루기:
         - 모델 학습하기 : how-to_guides/modelling/BUILD_MODEL_SYNTAX.md
-        - 모델 추가 학습하기 : hot-to_guides/modelling/FIT_MODEL_SYNTAX.md
+        - 모델 재학습하기 : how-to_guides/modelling/FIT_MODEL_SYNTAX.md
       - how-to_guides/data_upload.md
       - how-to_guides/rest_api.md
   - ML 무작정 따라하기:
