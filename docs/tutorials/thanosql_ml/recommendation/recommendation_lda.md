@@ -6,10 +6,10 @@
 ## 시작 전 사전정보
 
 * 튜토리얼 난이도 : ★☆☆☆☆
-* 읽는데 걸리는 시간 : 7분
+* 읽는 시간 : 7분
 * 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-* 예제 파일 위치 : [News_Recommender.ipynb](http://35.222.17.152:8888/lab/workspaces/auto-t/tree/indoo/techdoc/lda/lda_kor_lv1.ipynb)
-* 참고문서 : [Latent Dirichlet Allocation 공식 논문](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf), [Gensim Github](https://github.com/RaRe-Technologies/gensim)
+* 실행 예제 파일 : [News_Recommender.ipynb](http://35.222.17.152:8888/lab/workspaces/auto-t/tree/indoo/techdoc/lda/lda_kor_lv1.ipynb)
+* 참고 문서 : [Latent Dirichlet Allocation 공식 논문](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf), [Gensim Github](https://github.com/RaRe-Technologies/gensim)
 * 마지막 수정날짜 : 2022-06-01
 
 
@@ -69,7 +69,7 @@ LIMIT 5
 !!! tip ""
     이번 튜토리얼에서는 뉴스의 아이디(<mark style="background-color:#D7D0FF">id</mark>), 제목( <mark style="background-color:#D7D0FF ">title</mark>), 요약 내용( <mark style="background-color:#D7D0FF ">abstract</mark>) 칼럼 만을 사용하여 모델을 만듭니다. 
 
-## __2. 추천 모델 빌드__
+## __2. 추천 모델 생성__
 이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">news_train</mark> 샘플 데이터를 사용하여 개인화 뉴스 추천 모델을 만듭니다. 다음 쿼리 구문을 실행시켜 <mark style="background-color:#E9D7FD">news_rec</mark> 라는 모델을 만듭니다. 
 
 ```sql
@@ -93,8 +93,8 @@ FROM news_train
 !!! tip ""
     <mark style="background-color:#FFEC92 ">mind_train_user_history</mark> 테이블은 컬럼명 <mark style="background-color:#D7D0FF ">user_id</mark>, <mark style="background-color:#D7D0FF ">news_id</mark>, <mark style="background-color:#D7D0FF ">ord</mark>를 사용합니다.
  
-## __3. 빌드 완료된 모델 사용하여 맞춤 뉴스 추천 목록 생성__
-이전 단계에서 빌드한 개인화 추천 모델을 사용해서 특정 사용자가 좋아할만한 뉴스를 예측해 추천 목록을 만듭니다. 뉴스 추천 결과 사용자 ID가 U9999인 사용자는 주로 정치나 경제 관련 뉴스에 대해 관심이 많은 것을 확인 할 수 있습니다.  
+## __3. 생성된 모델 사용하여 맞춤 뉴스 추천 목록 생성__
+이전 단계에서 생성한 개인화 추천 모델을 사용해서 특정 사용자가 좋아할만한 뉴스를 예측해 추천 목록을 만듭니다. 뉴스 추천 결과 사용자 ID가 U9999인 사용자는 주로 정치나 경제 관련 뉴스에 대해 관심이 많은 것을 확인 할 수 있습니다.  
 
 ```sql
 %%thanosql
@@ -125,7 +125,7 @@ FROM news_train
 * [나만의 추천 모델 배포하기](comingsoon)  
   
 
-!!! tip "__나만의 서비스를 위한 모델배포 관련 문의__" 
+!!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__" 
     ThanoSQL을 활용해 나만의 모델을 만들거나, 나의 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊
 
     추천 모델 구축 관련 문의: contact@smartmind.team

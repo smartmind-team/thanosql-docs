@@ -1,10 +1,11 @@
 # __Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기__ 
 
-**[이전 문서 - Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/sunkeun/docs/tutorials/thanosql_ml/tabular/classification/automl_classification.md)** <br> **[다음 문서 - Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)**
+**[이전 문서 - 고양이와 강아지 분류하는 이미지 분류 모델 만들기](coming_soon)** <br> **[다음 문서 - Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)**
 
 ## 시작 전 사전정보
+
 - 튜토리얼 난이도 : ★☆☆☆☆
-- 읽는데 걸리는 시간 : 5분
+- 읽는 시간 : 5분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 예제 파일 : [AutoML_Regressor.ipynb](http://35.222.17.152:8888/lab/tree/thanos_AI_team/AutoML_Regressor.ipynb)
 - 참고 문서 : [(캐글) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
@@ -65,7 +66,7 @@ LIMIT 5
     - <mark style="background-color:#D7D0FF ">windspeed</mark> : 풍속  
     - <mark style="background-color:#D7D0FF ">count</mark> : 대여 횟수  
 
-## 2. __회귀 모델 빌드__
+## __2. 회귀 모델 생성__
 
 이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">__bike_sharing__</mark> 데이터 세트를 사용하여 자전거 수요 예측 회귀 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>이라는 이름의 모델을 만듭니다.
 
@@ -84,9 +85,9 @@ FROM bike_sharing
 ```
 
 !!! note "__쿼리 세부 정보__"
-    "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>라는 모델을 만들고 학습시킵니다. "__OPTIONS__"의 "target"에는 회귀 예측 모델의 목표값이 되는 열의 이름을 적어줍니다. "impute_type"의 경우에는 데이터 세트의 빈 값에 대한 처리를 의미합니다. "datetime_attribs"에는 날짜 형식의 데이터를 적어주면 머신러닝 모델 빌드를 진행할 수 있습니다.
+    "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>라는 모델을 만들고 학습시킵니다. "__OPTIONS__"의 "target"에는 회귀 예측 모델의 목표값이 되는 열의 이름을 적어줍니다. "impute_type"의 경우에는 데이터 세트의 빈 값에 대한 처리를 의미합니다. "datetime_attribs"에는 날짜 형식의 데이터를 적어주면 머신러닝 모델 생성을 진행할 수 있습니다.
 
-## 3. __빌드 완료된 모델 평가__
+## __3. 생성된 모델 평가__
 
 아래의 쿼리문을 실행하여 이전 단계에서 만든 예측 모델의 성능을 평가합니다.
 
@@ -106,7 +107,7 @@ FROM bike_sharing
 !!! note "__쿼리 세부 정보__"
     "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 평가합니다. "__OPTIONS__"의 "target"에는 회귀 예측 모델의 목표값이 되는 컬럼(Column)의 이름(<mark style="background-color:#D7D0FF">count</mark>)을 적어줍니다.
 
-## __4. 빌드 완료된 모델을 사용하여 자전거 대여 수량 예측__
+## __4. 생성된 모델을 사용하여 자전거 대여 수량 예측__
 
 이전 단계에서 만든 수요 예측 모델로 테스트용 데이터 세트(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#FFEC92 ">bike_shaing_test</mark>)에 있는 10개의 데이터에 대한 자전거 대여 수량을 예측해 봅니다.
 
@@ -121,7 +122,7 @@ LIMIT 10
 ![IMAGE](/img/automl_regression_img3.png)
 
 !!! note "__쿼리 세부 정부__"  
-    "__PREDICT USING__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 예측에 사용합니다. "__PREDICT__"의 경우 빌드된 모델의 절차를 따르기 때문에 특별한 처리가 필요없습니다.
+    "__PREDICT USING__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 예측에 사용합니다. "__PREDICT__"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 처리가 필요없습니다.
 
 <br>
 
@@ -134,7 +135,7 @@ LIMIT 10
 - [중급 회귀 예측 모델 만들기](coming_soon)
 - [고급 회귀 예측 모델 만들기](coming_soon)
 
-!!! tip "__나만의 서비스를 위한 모델배포 관련 문의__"
+!!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"
     ThanoSQL을 활용해 나만의 모델을 만들거나, 나의 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊
 
     회귀 모델 구축 관련 문의: contact@smartmind.team

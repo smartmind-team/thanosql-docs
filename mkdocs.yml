@@ -31,7 +31,7 @@ nav:
       - Quick Start: how-to_guides/quick_start.md
       - 모든 안내 가이드: how-to_guides/syntax_list.md
       - 모델 다루기:
-          - 데이터 업로드: how-to_guides/modelling/data_upload.md
+          - 데이터 업로드하기: how-to_guides/modelling/data_upload.md
           - 모델 학습하기: how-to_guides/modelling/BUILD_MODEL_SYNTAX.md
           - 모델 평가하기: how-to_guides/modelling/EVALUATE_MODEL_SYNTAX.md
           - 모델 재학습하기: how-to_guides/modelling/FIT_MODEL_SYNTAX.md
@@ -42,6 +42,7 @@ nav:
   - ML 무작정 따라하기:
       - 분류 모델 만들기:
           - Auto-ML을 사용하여 생존자 분류 모델 만들기: tutorials/thanosql_ml/classification/automl_classification.md
+          - 이미지 분류 모델 만들기: tutorials/thanosql_ml/classification/classification_convNext.md
       - 회귀 모델 만들기:
           - Auto-ML을 사용하여 수요 예측 모델 만들기: tutorials/thanosql_ml/regression/automl_regression.md
       - 추천시스템 만들기:

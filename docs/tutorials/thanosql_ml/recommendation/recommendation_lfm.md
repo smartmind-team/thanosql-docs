@@ -6,10 +6,10 @@
 
 ## 시작 전 사전정보
 - 튜토리얼 난이도 : ★☆☆☆☆
-- 읽는데 걸리는 시간 : 7분
+- 읽는 시간 : 7분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 파일 위치 : [Movie_Recommender.ipynb](http://35.222.17.152:8888/lab/tree/indoo/techdoc/lfm/lfm_kor_lv1.ipynb) 
-- 참고문서 : [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
+- 실행 예제 파일 : [Movie_Recommender.ipynb](http://35.222.17.152:8888/lab/tree/indoo/techdoc/lfm/lfm_kor_lv1.ipynb) 
+- 참고 문서 : [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
 - 마지막 수정날짜 : 2022-06-01
 
 
@@ -56,7 +56,7 @@ LIMIT 5
     <mark style="background-color:#D7D0FF ">userid</mark> 값이 31인 사용자는 "Toy Story (1995)"에 평점 3.0점을 주고 "Braveheart (1995)"에 평점 5.0점을 준 것을 확인할 수 있습니다. 
 
 
-## __2. 추천 모델 빌드__
+## __2. 추천 모델 생성__
 
 이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">movielens_train</mark> 데이터를 사용하여 영화 추천 모델을 만듭니다. 다음 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">movie_rec</mark> 이름의 모델을 만듭니다. 
 
@@ -83,7 +83,7 @@ FROM movielens_train
 !!! tip ""
     "description"의 경우 모델의 학습에는 사용되지 않지만 결과값 확인의 편의성을 위해 "item" 컬럼의 설명(<mark style="background-color:#D7D0FF ">title</mark>)을 넣어 줄 수 있습니다. 
 
-## __3. 빌드 완료된 모델을 사용하여 추천 목록 생성__
+## __3. 생성한 모델을 사용하여 추천 목록 생성__
 
 이전 단계에서 빌드한 영화 추천 모델을 사용해서 특정 사용자가 좋아할만한 아이템(영화) 목록을 10개 생성합니다.
 
@@ -117,8 +117,8 @@ FROM movielens_train
 * [나만의 데이터 업로드하기](comingsoon)
 * [중급 추천 모델 만들기](comingsoon) 
 * [나만의 추천 모델 배포하기](comingsoon)
-  
-!!! tip "__나만의 서비스를 위한 모델배포 관련 문의__"
+   
+!!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"
     ThanoSQL을 활용해 나만의 모델을 만들거나, 나의 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊
 
     추천 모델 구축 관련 문의: contact@smartmind.team
