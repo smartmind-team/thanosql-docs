@@ -1,6 +1,8 @@
-# ThanoSQL 무작정 따라하기
+# 음성 인식 모델 만들기 
 
-# 오디오파일을 받아쓰는 모델 만들기
+## (ThanoSQL 무작정 따라하기) 오디오 파일을 받아쓰는 음성 인식 모델 만들기
+
+**[이전 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](https://docs.thanosql.ai/tutorials/thanosql_ml/tabular/regression/automl_regression/)** <br>| **[다음 문서 - ]()**
 
 ### 시작 전 사전 정보
 
