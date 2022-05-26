@@ -91,40 +91,47 @@ LIMIT 5
 > - `audio`: 음성 파일의 위치 경로
 > - `text`: 해당 음성의 목표값(Target, 스크립트) <br>
 
-> (향후 내용 추가 필요) PRINT를 이용한 이미지 결과 샘플 출력 <br>
+> (향후 내용 추가 필요) PRINT를 이용한 음성 듣기 샘플 출력 <br>
 
 
 ## 2. 음성 인식 모델 만들기
 
-이제, thanosql을 사용하여 음성 인식 모델을 빌드합니다.
+이전 단계에서 확인한 `librispeech_train` 데이터 세트를 사용하여 음성 인식 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 `my_speech_recognition_model`이라는 이름의 모델을 만듭니다.
 
-```sql
+```python
 %%thanosql
 BUILD MODEL my_speech_recognition_model
 USING Wav2Vec2En
-OPTIONS (audio_col='audio', text_col='text', epochs=1, batch_size=4)
-AS SELECT * FROM librispeech_train
+OPTIONS (
+  audio_col='audio', 
+  text_col='text', 
+  epochs=1, 
+  batch_size=4
+  )
+AS 
+SELECT * 
+FROM librispeech_train
 ```
 
     <Response [200]>
 
-> #### 쿼리 세부 정보
+> #### __쿼리 세부 정보__
 > 
-> BUILD MODEL 구문을 사용하여 `my_speech_recognition_model` 모델을 만듭니다. USING 구문을 통해 기반 모델로 `Wav2Vec2En`를 사용할 것을 명시합니다.
-> 
-> OPTIONS를 통해 빌드에 사용할 옵션을 지정합니다. `audio_col`은 학습에 사용할 오디오 경로를 담은 행의 이름이며, `text_col`은 해당 오디오의 스크립트 정보를 담은 행입니다. `epochs`를 통해 몇 번의 에포크로 학습할 지를 지정하고, `batch_size`를 통해 한번에 데이터를 몇 개씩 읽을지 정합니다. 여기서는 빠르게 학습하기 위해 epochs를 1로 지정했습니다.
+> "__BUILD MODEL__" 쿼리 구문을 사용하여 `my_speech_recognition_model` 모델을 만들고 학습시킵니다. "__USING__" 쿼리 구문을 통해 베이스 모델로 `Wav2Vec2En`을 사용할 것을 명시합니다. "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다. "audio_col" 입력 값은 학습에 사용할 오디오 경로를 담은 컬럼의 이름이며, "text_col" 입력 값은 해당 오디오의 스크립트 정보를 담은 컬럼의 이름 입니다. "epochs"를 통해 몇 번의 학습을 반복할 지를 지정합니다(훈련 데이터 세트에 포함된 모든 데이터들이 한 번씩 모델을 통과한 횟수로, 모든 학습 데이터 세트를 학습하는 횟수를 의미합니다). 여기서는 빠르게 학습하기 위해 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다.
 
 <br>
 
-## 결과 예측
+## 3. 만든 모델을 사용하여 음성 인식 결과 예측
 
-빌드 완료된 모델을 사용하여, 오디오 파일의 스크립트를 읽어보겠습니다.
+이전 단계에서 만든 이미지 분류 예측 모델(`my_speech_recognition_model`)을 사용해서 특정 음성(학습에 이용되지 않은 데이터 테이블, `librispeech_test`)의 목표값(스크립트)를 예측해 봅니다.
 
-```sql
+```python
 %%thanosql
 PREDICT USING my_speech_recognition_model
 OPTIONS (audio_col='audio')
-AS SELECT * FROM librispeech_test
+AS 
+SELECT * 
+FROM librispeech_test
 ```
 
 <div>
