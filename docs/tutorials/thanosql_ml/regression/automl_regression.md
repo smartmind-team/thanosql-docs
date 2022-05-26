@@ -1,6 +1,6 @@
 # __Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기__ 
 
-**[이전 문서 - 고양이와 강아지 분류하는 이미지 분류 모델 만들기](coming_soon)** <br> **[다음 문서 - Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)**
+**[이전 문서 - 영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](coming_soon)** <br> **[다음 문서 - Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)**
 
 ## 시작 전 사전정보
 
@@ -43,7 +43,7 @@ ThanoSQL에서는 자동화된 머신러닝(__Auto-ML__)을 도구로 제공합�
 
 ## __1. 데이터 세트 확인__
 
-본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는 `bike_sharing` 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
+본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">bike_sharing</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 ```sql
 %%thanosql
