@@ -4,12 +4,15 @@
 
 **[이전 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](https://docs.thanosql.ai/tutorials/thanosql_ml/tabular/regression/automl_regression/)** <br>| **[다음 문서 - ]()**
 
-### 시작 전 사전 정보
+
+## 시작 전 사전 정보
 
 - 튜토리얼 난이도: ★☆☆☆☆
-- 읽는데 걸리는 시간(실행시간): 10분
-- 사용언어: SQL(100%)
-- 참고문서: [LibriSpeech 데이터 세트](http://www.openslr.org/12)
+- 읽는데 걸리는 시간: 10분
+- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 예제 파일 : 
+- 참고문서: [LibriSpeech 데이터 세트](http://www.openslr.org/12), [wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations](https://arxiv.org/abs/2006.11477)
+- 마지막 수정날짜 : 2022-06-01
 
 <br>
 
