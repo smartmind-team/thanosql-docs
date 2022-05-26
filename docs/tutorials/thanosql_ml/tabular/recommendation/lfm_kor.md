@@ -63,7 +63,7 @@ ThanoSQL DB에 저장되어 있는 Movielens 샘플 데이터 셋을 표준 SQL 
 `movielens_train` 데이터셋은 'userid', 'movieid', 'rating', 'title' 정보를 담고 있는 테이블입니다. 이 데이터셋은 ThanoSQL DB에 저장되어 있어 아래의 쿼리를 실행하여 불러올 수 있습니다. 
 
 
-```python
+```sql
 %thanosql SELECT * FROM movielens_train LIMIT 5
 ```
 
@@ -128,7 +128,7 @@ ThanoSQL DB에 저장되어 있는 Movielens 샘플 데이터 셋을 표준 SQL 
 이전 단계에서 확인한 Movielens 샘플 데이터를 사용하여 명시적 추천 모델을 만듭니다. 샘플데이터로부터 '사용자ID', '아이템ID', '평점' 칼럼 이름을 지정해주며 LFM 모델을 만들고 학습합니다.
 
 
-```python
+```sql
 %%thanosql
 BUILD MODEL movie_rec
 USING Light_FM
@@ -152,7 +152,7 @@ AS SELECT * FROM movielens_train
 
 이전 단계에서 빌드한 추천 모델을 사용하여 유저가 좋아할만한 아이템 리스트를 생성합니다.
 
-```python
+```sql
 %%thanosql
 PREDICT USING movie_rec
 OPTIONS (predict_type='user', user=31, nrec=10)
@@ -229,7 +229,7 @@ AS SELECT * FROM movielens_train
 
 
 
-```python
+```sql
 %%thanosql
 PREDICT USING movie_rec
 OPTIONS (predict_type='item', item=1, nrec=10)
@@ -304,7 +304,7 @@ AS SELECT * FROM movielens_train
 
 
 
-```python
+```sql
 %%thanosql
 PREDICT USING movie_rec
 OPTIONS (predict_type='simitem', item=1, nrec=10)
@@ -387,7 +387,7 @@ Movielens 튜토리얼을 끝내셨다면 ThanosSQL DB에 저장된 Goodbooks �
 
 
 
-```python
+```sql
 %thanosql SELECT * FROM books_train LIMIT 5
 ```
 

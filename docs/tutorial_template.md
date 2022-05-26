@@ -78,7 +78,7 @@ ThanoSQL을 사용하여 간단하게 사용자가 좋아할 영화목록을 추
 
 아래 쿼리문을 실행하여 ThanoSQL DB에 저장되어 있는 <span style="background-color:#FDF5E3">`Movielens`</span> 영화평점 데이터 세트를 확인합니다.
 
-```python
+```sql
 %%thanosql 
 SELECT * FROM movielens_train LIMIT 5
 ```
@@ -149,7 +149,7 @@ SELECT * FROM movielens_train LIMIT 5
 다음 쿼리 구문을 실행하여 추천 모델을 구축합니다.
 
 
-```python
+```sql
 %%thanosql
 BUILD MODEL movie_rec
 USING Light_FM
@@ -170,7 +170,7 @@ AS SELECT * FROM movielens_train
 다음 쿼리문을 실행하여 이전 단계에서 만든 추천 모델로 유저31번이 좋아할만한 아이템 10개 목록을 생성합니다.
 
 
-```python
+```sql
 %%thanosql
 PREDICT USING movie_rec
 OPTIONS (predict_type='predict_user', user_id=31, nrec=10)

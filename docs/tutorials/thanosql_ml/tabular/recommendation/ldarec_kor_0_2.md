@@ -45,7 +45,7 @@ ThanoSQL DB에 저장되어 있는 `news_train` 샘플 데이터 셋을 표준 S
 `news_train` 데이터셋은 'id', 'category', 'subcategory', 'title', 'abstract' 정보를 담고 있는 테이블입니다. <br> 이번 튜토리얼에서는 LDA 모델 빌드를 위해 'id', 'title', 'abstract' 3개의 칼럼만 사용합니다. 이 데이터셋은 ThanoSQL DB에 저장되어 있어 아래의 쿼리를 실행하여 불러올 수 있습니다.  
 
 
-```python
+```sql
 %thanosql SELECT * FROM news_train LIMIT 5
 ```
 
@@ -130,7 +130,7 @@ ThanoSQL DB에 저장되어 있는 `news_train` 샘플 데이터 셋을 표준 S
 이 데이터 셋은 ThanoSQL DB 에 저장되어 있어 아래의 쿼리를 실행하여 불러올 수 있습니다. 아래의 예시는 상위 5개 로우만 불러오는 쿼리문입니다.
 
 
-```python
+```sql
 %thanosql SELECT * FROM mind_train_user_history LIMIT 5
 ```
 
@@ -188,7 +188,7 @@ ThanoSQL DB에 저장되어 있는 `news_train` 샘플 데이터 셋을 표준 S
 이전 단계에서 확인한 `news_train` 샘플 데이터를 사용하여 LDA 추천 모델을 만듭니다. 샘플데이터로부터 '문서 ID', '문서 제목', '문서 내용'들의 정보가 담겨있는 칼럼들 이름과 '유저 히스토리'정보를 포함하고 있는 테이블 이름'을 지정해주며 LDA 추천 모델을 만들고 학습합니다.
 
 
-```python
+```sql
 %%thanosql
 BUILD MODEL news_rec 
 USING LDAREC
@@ -210,7 +210,7 @@ AS SELECT * FROM news_train
 이번 단계에서는 이전 단계에서 빌드한 LDA 추천 모델을 사용하여 유저가 좋아할만한 뉴스 혹은 문서를 예측하여 추천합니다.
 
 
-```python
+```sql
 %%thanosql
 PREDICT USING news_rec
 OPTIONS(
