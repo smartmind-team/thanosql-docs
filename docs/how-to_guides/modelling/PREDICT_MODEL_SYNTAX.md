@@ -1,4 +1,4 @@
-# 모델 적용하기 (PREDICT USING)
+# __모델 적용하기 (PREDICT USING)__
 
 ## __1.PREDICT USING 구문 개요__
 
