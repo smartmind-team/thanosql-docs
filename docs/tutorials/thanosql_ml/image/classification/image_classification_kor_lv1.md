@@ -10,7 +10,7 @@
 - 읽는데 걸리는 시간: 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 예제 파일 : 
-- 참고문서: [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [CONVNEXT_TINY](https://pytorch.org/vision/main/models/generated/torchvision.models.convnext_tiny.html)
+- 참고문서: [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
 - 마지막 수정날짜 : 2022-06-01
 
 <br>
