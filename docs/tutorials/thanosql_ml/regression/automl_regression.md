@@ -105,7 +105,7 @@ FROM bike_sharing
 ![IMAGE](/img/automl_regression_img2.png)
 
 !!! note "__쿼리 세부 정보__"
-    "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 평가합니다. "__OPTIONS__"의 "target"에는 회귀 예측 모델의 목표값이 되는 컬럼(Column)의 이름(<mark style="background-color:#D7D0FF">count</mark>)을 적어줍니다.
+    "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 평가합니다. "__OPTIONS__"의 "target"에는 회귀 예측 모델의 목표값이 되는 열(Column)의 이름(<mark style="background-color:#D7D0FF">count</mark>)을 적어줍니다.
 
 ## __4. 생성된 모델을 사용하여 자전거 대여 수량 예측__
 
