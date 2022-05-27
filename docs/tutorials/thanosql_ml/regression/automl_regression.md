@@ -1,6 +1,6 @@
 # __Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기__ 
 
-**[이전 문서 - 영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](coming_soon)** <br> **[다음 문서 - Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lfm_kor_0_1.md)**
+**[이전 문서 - 영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/classification/classification_Electra/)** <br> **[다음 문서 - Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/recommendation/recommendation_lfm/)**
 
 ## 시작 전 사전정보
 
