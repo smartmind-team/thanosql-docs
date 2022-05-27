@@ -27,7 +27,7 @@ repo_url: https://github.com/smartmind-team/thanosql-docs
 edit_uri: ""
 nav:
   - Home: index.md
-  - what_is_thanosql.md
+  - What is ThanoSQL? : what_is_thanosql.md
   - 안내 가이드:
       - Quick Start: how-to_guides/quick_start.md
       - 모든 안내 가이드: how-to_guides/syntax_list.md

@@ -4,7 +4,7 @@ ThanoSQL은 정형, 비정형 데이터 모두 SQL만으로 질의가 가능하�
 
 2022년 6월부터 8월까지 3개월간의 프로모션 기간 동안에 아무런 제한 없이 자유롭게 ThanoSQL을 사용할 수 있습니다.
 
-<a href="https://www.thanosql.ai" class="btn--success">무료로 사용해보기</a>
+[무료로 사용해보기](https://www.thanosql.ai){.md-button .md-button--primary}
 
 * ThanoSQL은 정형, 비정형 데이터 모두 SQL만으로 질의가 가능하며 빠르게 AI 모델링까지 가능합니다. <br>
 * 람다 아키텍처 기반의 비정형 빅데이터 플랫폼을 ThanoSQL 하나로 대처하여 개발, 배포, 운영을 하나의 프로세스로 가능하게 합니다. <br>
@@ -20,4 +20,4 @@ ThanoSQL은 많은 플랫폼과 언어,프레임워크를 ThanoSQL 하나로 통
 
 ThanoSQL의 혁신적인 결과는 스타트업부터 대기업까지 똑같이 누릴 수 있습니다.
 
-<a href="https://www.thanosql.ai" class="btn--success">영업팀에 문의하기</a>
+[영업팀에 문의하기](https://www.thanosql.ai){.md-button .md-button--primary}
