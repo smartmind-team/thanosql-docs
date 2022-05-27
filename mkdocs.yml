@@ -1,0 +1,63 @@
+site_name: ThanoSQL
+site_description: AI개발이 가능한 세상의 모든 비정형 데이터를 SQL로
+site_url: https://docs.thanosql.ai/
+site_author: Smartmind Team
+theme:
+  name: material
+  logo: assets/images/docs_logo.png
+  favicon: assets/images/favicon.ico
+  features:
+    - navigation.top
+markdown_extensions:
+  - admonition
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.highlight
+  - pymdownx.pathconverter
+  - pymdownx.progressbar
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true 
+repo_name: smartmind-team/thanosql-docs
+repo_url: https://github.com/smartmind-team/thanosql-docs
+edit_uri: ""
+nav:
+  - Home: index.md
+  - what_is_thanosql.md
+  - 안내 가이드:
+      - Quick Start: how-to_guides/quick_start.md
+      - Rest API: how-to_guides/rest_api_ko.md
+      - 모든 안내 가이드: how-to_guides/syntax_list.md
+      - 모델 다루기:
+          - 데이터 업로드하기: how-to_guides/modelling/data_upload.md
+          - 모델 학습하기: how-to_guides/modelling/BUILD_MODEL_SYNTAX.md
+          - 모델 평가하기: how-to_guides/modelling/EVALUATE_MODEL_SYNTAX.md
+          - 모델 재학습하기: how-to_guides/modelling/FIT_MODEL_SYNTAX.md
+          - 모델 적용을 위해 데이터 전처리하기: how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX.md
+          - 모델 적용하기: how-to_guides/modelling/PREDICT_MODEL_SYNTAX.md
+          - 모델 삭제하기: how-to_guides/modelling/DELETE_MODEL_SYNTAX.md
+      - 모델 배포하기: how-to_guides/rest_api.md
+  - ML 무작정 따라하기:
+      - 분류 모델 만들기:
+          - Auto-ML을 사용하여 생존자 분류 모델 만들기: tutorials/thanosql_ml/classification/automl_classification.md
+          - 이미지 분류 모델 만들기: tutorials/thanosql_ml/classification/classification_convNext.md
+          - 텍스트 분류 모델 만들기 : tutorials/thanosql_ml/classification/classification_Electra.md
+      - 회귀 모델 만들기:
+          - Auto-ML을 사용하여 수요 예측 모델 만들기: tutorials/thanosql_ml/regression/automl_regression.md
+      - 추천시스템 만들기:
+          - 영화 평점 데이터를 사용하여 영화 추천 모델 만들기: tutorials/thanosql_ml/recommendation/recommendation_lfm.md
+          - 뉴스 데이터를 사용하여 뉴스 추천 모델 만들기: tutorials/thanosql_ml/recommendation/recommendation_lda.md
+# extra:
+#   alternate:
+#     - link: /
+#       lang: en
+#       name: English
+#     - link: /ko/
+#       lang: kr
+#       name: 한국어
+extra_css:
+  - /assets/css/extra.css

@@ -4,6 +4,9 @@
 You must get an assigned API Token from the https://thanosql.ai website. This token is only shown once. You can always get another one, but it will render the previous token invalid.
 
 You must add the token to the header when sending the API Query as an Authorization  header
+
+
+
 ```python
 ## REST Header
 
