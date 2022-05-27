@@ -20,7 +20,8 @@ markdown_extensions:
   - pymdownx.progressbar
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true 
 repo_name: smartmind-team/thanosql-docs
 repo_url: https://github.com/smartmind-team/thanosql-docs
 edit_uri: ""
@@ -29,6 +30,7 @@ nav:
   - what_is_thanosql.md
   - 안내 가이드:
       - Quick Start: how-to_guides/quick_start.md
+      - Rest API: how-to_guides/rest_api_ko.md
       - 모든 안내 가이드: how-to_guides/syntax_list.md
       - 모델 다루기:
           - 데이터 업로드하기: how-to_guides/modelling/data_upload.md
