@@ -1,8 +1,8 @@
 
 # __Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기__
 
-**[이전 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/tabular/regression/docs/tutorials/thanosql_ml/tabular/regression/lv1_automl_regression_kor.md)** <br>
-**[다음 문서 - Microsoft 뉴스 데이터 세트를 사용하여 뉴스 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lda_kor_0_1.md)**
+**[이전 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/regression/automl_regression/)** <br>
+**[다음 문서 - Microsoft 뉴스 데이터 세트를 사용하여 뉴스 추천 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/recommendation/recommendation_lda/)**
 
 ## 시작 전 사전정보
 - 튜토리얼 난이도 : ★☆☆☆☆
