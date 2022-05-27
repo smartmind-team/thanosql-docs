@@ -36,7 +36,7 @@ nav:
           - ThanoSQL 쿼리 사용하기 : how-to_guides/thanosql_api/rest_api_thanosql_query.md
           - ThanoSQL 인서트 사용하기 : how-to_guides/thanosql_api/rest_api_thanosql_insert.md
           - ThanoSQL 서치 사용하기 : how-to_guides/thanosql_api/rest_api_thanosql_search.md
-      - 데이터 업로드하기: how-to_guides/modelling/data_upload.md
+      - 데이터 업로드하기: how-to_guides/data_upload.md
       - 모델 다루기:
           - 모델 학습하기: how-to_guides/modelling/BUILD_MODEL_SYNTAX.md
           - 모델 평가하기: how-to_guides/modelling/EVALUATE_MODEL_SYNTAX.md
