@@ -1,4 +1,4 @@
-# 모델 평가하기 (EVALUATE USING)
+# __모델 평가하기 (EVALUATE USING)__
 
 ## __1.EVALUATE USING 구문 개요__
 

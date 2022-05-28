@@ -20,18 +20,24 @@ markdown_extensions:
   - pymdownx.progressbar
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true 
 repo_name: smartmind-team/thanosql-docs
 repo_url: https://github.com/smartmind-team/thanosql-docs
 edit_uri: ""
 nav:
   - Home: index.md
-  - what_is_thanosql.md
+  - What is ThanoSQL? : what_is_thanosql.md
   - 안내 가이드:
       - Quick Start: how-to_guides/quick_start.md
       - 모든 안내 가이드: how-to_guides/syntax_list.md
+      - ThanoSQL and REST API:
+          - 인증 가능한 토큰 만들기 : how-to_guides/thanosql_api/rest_api_token.md
+          - ThanoSQL 쿼리 사용하기 : how-to_guides/thanosql_api/rest_api_thanosql_query.md
+          - ThanoSQL 인서트 사용하기 : how-to_guides/thanosql_api/rest_api_thanosql_insert.md
+          - ThanoSQL 서치 사용하기 : how-to_guides/thanosql_api/rest_api_thanosql_search.md
+      - 데이터 업로드하기: how-to_guides/data_upload.md
       - 모델 다루기:
-          - 데이터 업로드하기: how-to_guides/modelling/data_upload.md
           - 모델 학습하기: how-to_guides/modelling/BUILD_MODEL_SYNTAX.md
           - 모델 평가하기: how-to_guides/modelling/EVALUATE_MODEL_SYNTAX.md
           - 모델 재학습하기: how-to_guides/modelling/FIT_MODEL_SYNTAX.md
@@ -41,14 +47,16 @@ nav:
       - 모델 배포하기: how-to_guides/rest_api.md
   - ML 무작정 따라하기:
       - 분류 모델 만들기:
-          - Auto-ML을 사용하여 생존자 분류 모델 만들기: tutorials/thanosql_ml/classification/automl_classification.md
+          - Auto-ML을 사용하여 분류 모델 만들기: tutorials/thanosql_ml/classification/automl_classification.md
           - 이미지 분류 모델 만들기: tutorials/thanosql_ml/classification/classification_convNext.md
-          - 텍스트 분류 모델 만들기 : tutorials/thanosql_ml/classification/classification_Electra.md
+          - 텍스트 분류 모델 만들기: tutorials/thanosql_ml/classification/classification_Electra.md
       - 회귀 모델 만들기:
-          - Auto-ML을 사용하여 수요 예측 모델 만들기: tutorials/thanosql_ml/regression/automl_regression.md
+          - Auto-ML을 사용하여 예측 모델 만들기: tutorials/thanosql_ml/regression/automl_regression.md
       - 추천시스템 만들기:
           - 영화 평점 데이터를 사용하여 영화 추천 모델 만들기: tutorials/thanosql_ml/recommendation/recommendation_lfm.md
           - 뉴스 데이터를 사용하여 뉴스 추천 모델 만들기: tutorials/thanosql_ml/recommendation/recommendation_lda.md
+      - 음성 인식 모델 만들기:
+          - 오디오 파일을 받아쓰는 음성 인식 모델 만들기: tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec.md
 # extra:
 #   alternate:
 #     - link: /

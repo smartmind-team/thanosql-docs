@@ -1,7 +1,7 @@
 # __Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기__ 
 
 **[이전](coming_soon)** &nbsp;&nbsp; <br>
-**[다음 문서 - 고양이와 강아지 분류하는 이미지 분류 모델 만들기](coming_soon)**
+**[다음 문서 - 고양이와 강아지 분류하는 이미지 분류 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/classification/classification_convNext/)**
 
 
 ## 시작 전 사전정보
@@ -79,6 +79,7 @@ LIMIT 5
 이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">titanic_train</mark> 데이터를 사용하여 생존자 예측 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행시켜 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 이름의 모델을 만들어 봅니다.
 
 ```sql
+%%thanosql
 BUILD MODEL titanic_classification 
 USING AutomlClassifier 
 OPTIONS (

@@ -1,4 +1,4 @@
-# 모델 적용을 위해 데이터 전처리하기 (TRANSFORM USING)
+# __모델 적용을 위해 데이터 전처리하기 (TRANSFORM USING)__
 
 ## __1.TRANSFORM USING 구문 개요__
 
