@@ -10,14 +10,14 @@
 
 <div class="card">
   <header>
-    <h2 id="card-h2">모델 다루기</h2>
+    <h2 id="card-h2">ThanoSQL Syntax 다루기</h2>
   </header>
   <ul class="fullclick">
     <li>
       <a href="../modelling/data_upload/">
-        <h3>데이터 업로드하기</h3>
+        <h3>REST API 사용하기</h3>
         <p>
-            ThanoSQL DB에 데이터를 업로드하는 방법을 알아봅니다.
+            REST API를 사용하여 ThanoSQL을 사용하는 방법을 알아봅니다.
         </p>
       </a>
     </li>
@@ -26,6 +26,46 @@
         <h3>모델 학습하기</h3>
         <p>
             ThanoSQL 모델을 학습하는 방법을 알아봅니다.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../modelling/EVALUATE_MODEL_SYNTAX/">
+        <h3>모델 평가하기</h3>
+        <p>
+            ThanoSQL 모델을 하는 평가하는 방법을 알아봅니다.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../modelling/FIT_MODEL_SYNTAX/">
+        <h3>모델 재학습하기</h3>
+        <p>
+            ThanoSQL 모델을 재학습하는 방법을 알아봅니다.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../modelling/TRANSFORM_MODEL_SYNTAX/">
+        <h3>모델 적용을 위한 데이터 전처리하기</h3>
+        <p>
+            배포를 위해, 학습한 ThanoSQL 모델을 통해 전처리하는 방법을 알아봅니다.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../modelling/PREDICT_MODEL_SYNTAX/">
+        <h3>모델 적용하기</h3>
+        <p>
+            학습한 ThanoSQL 모델을 이용하여 배포하는 방법을 알아봅니다. 
+        </p>
+      </a>
+    </li>    
+    <li>
+      <a href="../modelling/DELETE_MODEL_SYNTAX/">
+        <h3>모델 삭제하기</h3>
+        <p>
+            모델 관리를 위해, 학습한 ThanoSQL 모델을 삭제하는 방법을 알아봅니다.
         </p>
       </a>
     </li>

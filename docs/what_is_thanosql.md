@@ -1,5 +1,7 @@
 # __ThanoSQL__
 
+## __ThanoSQL 정의__
+
 ThanoSQL은 정형, 비정형 데이터 모두 SQL만으로 질의가 가능하며 빠르게 AI 모델링까지 가능한 RDB, AI, Big data platform으로 AI 기반의 디지털 전환에 따라 발생하는 비효율성을 획기적으로 제거합니다.
 
 !!! tip ""
