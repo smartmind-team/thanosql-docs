@@ -1,6 +1,6 @@
 # __모든 안내 가이드__
 
-**[이전 문서 - Quick start](/how-to_guides/thanosql_api/quick_start/)**  
+**[이전 문서 - Quick start](/how-to_guides/quick_start/)**  
 **[다음 문서 - 모델 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)**  
 
 !!! tip ""

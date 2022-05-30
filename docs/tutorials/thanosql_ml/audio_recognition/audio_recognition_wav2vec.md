@@ -1,6 +1,6 @@
 # __오디오 파일을 받아쓰는 음성 인식 모델 만들기__
 
-**[이전 문서 - Microsoft 뉴스 데이터 세트를 사용하여 뉴스 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lda/)**  
+**[이전 문서 - Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)**  
 **[다음 문서 - 데이터 불러오기](/how-to_guides/ThanoSQL_connecting/data_upload/)**
 
 
