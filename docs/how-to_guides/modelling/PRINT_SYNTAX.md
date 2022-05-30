@@ -18,6 +18,7 @@ AS
 %%thanosql
 PRINT IMAGE | AUDIO | VIDEO
 OPTIONS( 
+    base_dir = [주피터 서버 루트 경로],
     image_column | audio_column | video_column = [이미지 경로 열 이름]) 
 AS 
 [출력할 데이터 세트]
@@ -29,7 +30,12 @@ AS
 PRINT 쿼리문을 사용하여 데이터 테이블에 있는 이미지 파일들을 출력합니다.
 ```sql
 %%thanosql
-PRINT IMAGE AS 
+PRINT IMAGE 
+OPTIONS (
+    base_dir='/',
+    image_column='image' 
+    )
+AS 
 SELECT * 
 FROM junyong_img 
 ```
@@ -44,6 +50,10 @@ PRINT 쿼리문을 사용하여 데이터 테이블에 있는 음성 파일들�
 ```sql
 %%thanosql
 PRINT AUDIO
+OPTIONS (
+    base_dir='/',
+    audio_column='audio' 
+    )
 AS 
 SELECT * 
 FROM junyong_aud
@@ -61,6 +71,10 @@ PRINT 쿼리문을 사용하여 데이터 테이블에 있는 영상 파일들�
 ```sql
 %%thanosql
 PRINT VIDEO
+OPTIONS (
+    base_dir='/',
+    video_column='video' 
+    )
 AS 
 SELECT * 
 FROM junyong_vid
