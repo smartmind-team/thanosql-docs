@@ -1,5 +1,8 @@
 # __모든 안내 가이드__
 
+**[이전 문서 - Quick start](/how-to_guides/thanosql_api/quick_start/)**  
+**[다음 문서 - 모델 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)**  
+
 !!! tip ""
     __ThanoSQL에서 사용하는 문법들의 기능과 사용방법을 확인할 수 있습니다.  
     안내 가이드와 함께 활용하면서 모델을 만들고 배포해 보세요.__   
