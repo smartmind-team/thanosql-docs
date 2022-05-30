@@ -2,7 +2,7 @@
 
 ## (ThanoSQL 무작정 따라하기) 텍스트로 원하는 이미지 검색하기
 
-**[이전 문서 - ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ](https://github.com/smartmind-team/thanosql-docs/blob/dowon/docs/tutorials/thanosql_ml/image/classification/image_classification_kor_lv1.md)** <br>| **[다음 문서 - ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ](https://docs.thanosql.ai/tutorials/thanosql_ml/tabular/classification/automl_classification/)**
+**[이전 문서 - 자기주도학습 임베딩 추출모델을 사용하여 MNIST 손글씨 이미지 분류하기](https://github.com/smartmind-team/thanosql-docs/blob/dowon/docs/tutorials/thanosql_ml/image/classification/image_classification_kor_lv1.md)** <br>| **[다음 문서 - ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ](https://docs.thanosql.ai/tutorials/thanosql_ml/tabular/classification/automl_classification/)**
 
 ### 시작 전 사전 정보
 
@@ -17,13 +17,13 @@
 
 ## 튜토리얼 소개
 
-ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ
+>__이미지 임베딩 이해하기__ : 텍스트 시스템과 달리, 이미지 처리 시스템은 개별적인 원시 픽셀 강도를 지닌 이미지를 나타내는 풍부하고 고차원적인 데이터세트로 작동합니다. 하지만 원래의 밀도가 높은 형태의 이미지는 일부 작업에 그리 유용하지 않을 수 있습니다. 예를 들어 잡지 표지 이미지를 보고 비슷한 잡지를 찾거나 참조 사진과 비슷한 사진을 찾아야 한다고 가정해보세요. 입력 사진의 원시 픽셀(2,048 ✕ 2,048)을 다른 사진과 비교하여 비슷한지 여부를 찾는 것은 효율적이거나 효과적이지 않습니다. 하지만 이미지의 저차원적 특성 벡터(임베딩)를 추출하면 이미지에 포함된 내용이 무엇인지를 나타내는 일정한 지표를 얻고, 더 효과적으로 비교할 수 있습니다.
 
-### 의도 & 제한사항
-
-- 이 모델은 GPU를 사용합니다. 사용한 모델의 크기와 배치 사이즈에 따라 GPU 메모리가 부족할 수 있습니다. 이 경우, 더 작은 모델을 사용하시거나 배치 사이즈를 줄여보십시오.
+>__CLIP 이해하기__ : openai의 CLIP 이전의 이미지 모델들은 미리 정의된 카테고리의 데이터에 대해 예측하도록 훈련되었습니다. 이런 지도학습 방식의 모델은 그 사용성에 한계가 있습니다. CLIP은 이미지-라벨 쌍으로부터 훈련된 것이 아닌, 웹상에서 수집한 4억개의 이미지-캡션 데이터로 학습하여, 이미지와 텍스트가 서로의 임베딩을 공유하도록 한 것이 특징입니다.
 
 <br>
+
+이번 튜토리얼에서는 CLIP모델을 사용하여, 텍스트로 Unsplash 데이터세트의 25,000장의 이미지 중에서 원하는 이미지를 찾는 것을 해볼 것입니다.
 
 ## 1. 데이터 세트 확인
 
@@ -65,7 +65,7 @@ SELECT filepath as image FROM unsplash_data LIMIT 5
 ```sql
 %%thanosql
 CONVERT USING clip_en
-OPTIONS(image_col='filepath', table_name='unsplash_data', batch_size=128)
+OPTIONS(image_col="filepath", table_name="unsplash_data", batch_size=128)
 AS SELECT * FROM unsplash_data
 ```
 
@@ -84,7 +84,7 @@ LIMIT 5
 
 ```sql
 %%thanosql
-SEARCH IMAGE text='a black cat'
+SEARCH IMAGE text="a black cat"
 USING clip_en
 AS SELECT * FROM unsplash_data
 ```
@@ -101,7 +101,7 @@ AS SELECT * FROM unsplash_data
 ```sql
 %%thanosql
 SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
-    (SEARCH IMAGE text='a black cat'
+    (SEARCH IMAGE text="a black cat"
     USING clip_en
     AS SELECT * FROM unsplash_data)
 ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5
@@ -124,7 +124,7 @@ ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5
 %%thanosql
 PRINT IMAGE AS
     (SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
-        (SEARCH IMAGE text='a black cat'
+        (SEARCH IMAGE text="a black cat"
         USING clip_en
         AS SELECT * FROM unsplash_data)
     ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5)
@@ -141,7 +141,7 @@ PRINT IMAGE AS
 %%thanosql
 PRINT IMAGE AS
     (SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
-        (SEARCH IMAGE text='a dog on a chair'
+        (SEARCH IMAGE text="a dog on a chair"
         USING clip_en
         AS SELECT * FROM unsplash_data)
     ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5)
@@ -153,7 +153,7 @@ PRINT IMAGE AS
 %%thanosql
 PRINT IMAGE AS
     (SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
-        (SEARCH IMAGE text='gloomy photos'
+        (SEARCH IMAGE text="gloomy photos"
         USING clip_en
         AS SELECT * FROM unsplash_data)
     ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5)
@@ -165,7 +165,7 @@ PRINT IMAGE AS
 %%thanosql
 PRINT IMAGE AS
     (SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
-        (SEARCH IMAGE text='programming language python'
+        (SEARCH IMAGE text="programming language python"
         USING clip_en
         AS SELECT * FROM unsplash_data)
     ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5)
@@ -177,7 +177,7 @@ PRINT IMAGE AS
 %%thanosql
 PRINT IMAGE AS
     (SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
-        (SEARCH IMAGE text='the feeling when your program finally works'
+        (SEARCH IMAGE text="the feeling when your program finally works"
         USING clip_en
         AS SELECT * FROM unsplash_data)
     ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5)
@@ -187,4 +187,10 @@ PRINT IMAGE AS
 
 ## 5. 튜토리얼을 마치며
 
-이번 튜토리얼에서는 CLIP 모델을 사용하여 unsplash 데이터 세트에서 텍스트를 통한 이미지 검색을 해보았습니다.
+이번 튜토리얼에서는 CLIP 모델을 사용하여 unsplash 데이터 세트에서 텍스트를 통한 이미지 검색을 해보았습니다. 초급 단계의 튜토리얼인만큼 간단한 쿼리를 통해 눈에 보이는 결과를 얻는 것 위주로 진행했습니다. 이미지 검색을 조금 더 다채로운 쿼리와 함께 사용한다면, 보다 원하는 결과에 가까운 값을 얻을 수 있을 것입니다.
+
+
+!!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"
+    ThanoSQL을 활용해 나만의 모델을 만들거나, 나의 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊
+
+    이미지 분류 모델 구축 관련 문의: contact@smartmind.team
