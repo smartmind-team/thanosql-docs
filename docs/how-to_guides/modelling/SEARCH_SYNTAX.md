@@ -1,5 +1,7 @@
 # 9. 비정형 데이터 검색하기
 
+**[이전 문서 - 비정형 특성 추가하기](/how-to_guides/modelling/CONVERT_USING_SYNTAX/)**  
+**[다음 문서 - 결과 출력하기](/how-to_guides/modelling/PRINT_SYNTAX/)**
 
 ## __1.SEARCH 구문 개요__
 "__SEARCH__" 쿼리 구문은 비정형 데이터에서 내용이나 의미 또는 유사도 등을 검색합니다.

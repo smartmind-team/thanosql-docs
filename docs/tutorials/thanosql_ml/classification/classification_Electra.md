@@ -1,14 +1,13 @@
 # __영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기__
 
-**[이전 문서 - 고양이와 강아지를 분류하는 이미지 분류 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/classification/classification_convNext/)** <br>
-**[다음 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/regression/automl_regression/)**
+**[이전 문서 - 고양이와 강아지를 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext/)** <br>
+**[다음 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)**
 
 ## 시작 전 사전 정보
 
 - 튜토리얼 난이도: ★☆☆☆☆
 - 읽는 시간 : 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 예제 파일 :
 - 참고 문서: [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
 - 마지막 수정날짜 : 2022-06-01
 

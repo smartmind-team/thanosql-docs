@@ -1,5 +1,8 @@
 # __모델 재학습하기 (FIT MODEL)__
 
+**[이전 문서 - 모델 평가하기](/how-to_guides/modelling/EVALUATE_MODEL_SYNTAX/)**  
+**[다음 문서 - 모델 적용을 위해 데이터 전처리하기](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/)**
+
 ## __1.FIT MODEL 구문 개요__ 
 
 사용자는 데이터 과학(Data Science)에 대한 전문 지식이 없어도 간단하게 "__FIT MODEL__" 구문을 사용하여 모델에 새롭게 추가된 데이터 세트를 사용하여 학습할 수 있습니다.

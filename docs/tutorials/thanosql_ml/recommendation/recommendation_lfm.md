@@ -1,17 +1,15 @@
 
 # __Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기__
 
-**[이전 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/regression/automl_regression/)** <br>
-**[다음 문서 - Microsoft 뉴스 데이터 세트를 사용하여 뉴스 추천 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/recommendation/recommendation_lda/)**
+**[이전 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)** <br>
+**[다음 문서 - 오디오 파일을 받아쓰는 음성 인식 모델 만들기](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/)**
 
 ## 시작 전 사전정보
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는 시간 : 7분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 예제 파일 : [Movie_Recommender.ipynb](http://35.222.17.152:8888/lab/tree/indoo/techdoc/lfm/lfm_kor_lv1.ipynb) 
 - 참고 문서 : [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
 - 마지막 수정날짜 : 2022-06-01
-
 
 ## 튜토리얼 소개
 

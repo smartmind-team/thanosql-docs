@@ -1,5 +1,8 @@
 # __모델 삭제하기 (DELETE MODEL)__
 
+**[이전 문서 - 모델 적용하기](/how-to_guides/modelling/PREDICT_MODEL_SYNTAX/)**  
+**[다음 문서 - 저장한 모델 확인하기](/how-to_guides/modelling/LIST_SYNTAX/)**
+
 ## __1.DELETE MODEL 구문 개요__ 
 
 사용자는 "__DELETE MODEL__" 구문을 사용하여 데이터 베이스에 만들어진 모델을 삭제할 수 있습니다. 

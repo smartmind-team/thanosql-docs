@@ -1,5 +1,8 @@
 # __모델 학습하기 (BUILD MODEL)__ 
 
+**[이전 문서 - 모든 안내 가이드](/how-to_guides/syntax_list/)**  
+**[다음 문서 - 모델 평가하기](/how-to_guides/modelling/EVALUATE_MODEL_SYNTAX/)**
+
 ## __1.BUILD MODEL 구문 개요__
 
 사용자는 데이터 과학(Data Science)에 대한 전문 지식이 없어도 간단하게 "__BUILD MODEL__" 구문을 사용하여 원하는 인공지능 모델을 개발할 수 있습니다.

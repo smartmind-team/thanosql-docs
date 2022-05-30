@@ -1,15 +1,14 @@
-# CLIP을 통한 의미 검색
+# __CLIP을 통한 의미 검색__
 
 ## (ThanoSQL 무작정 따라하기) 텍스트로 원하는 이미지 검색하기
 
-**[이전 문서 - 자기주도학습 임베딩 추출모델을 사용하여 MNIST 손글씨 이미지 분류하기](https://github.com/smartmind-team/thanosql-docs/blob/dowon/docs/tutorials/thanosql_ml/image/classification/image_classification_kor_lv1.md)** <br>| **[다음 문서 - ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ](https://docs.thanosql.ai/tutorials/thanosql_ml/tabular/classification/automl_classification/)**
+**[이전 문서 - 자기주도학습 임베딩 추출모델을 사용하여 MNIST 손글씨 이미지 분류하기](/tutorials/thanosql_search/image_search/simclr_image_search/)** <br> **[다음 문서 - Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)**
 
 ### 시작 전 사전 정보
 
 - 튜토리얼 난이도: ★★☆☆☆
 - 읽는데 걸리는 시간(실행시간): 15분
 - 사용언어: [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 예제 파일:
 - 참고문서: [Unsplash dataset](https://unsplash.com/data), [openai/CLIP](https://github.com/openai/CLIP)
 - 마지막 수정날짜 : 2022-06-01
 
