@@ -42,62 +42,7 @@ FROM unsplash_data
 LIMIT 5
 ```
 
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>photo_id</th>
-      <th>filepath</th>
-      <th>photo_image_url</th>
-      <th>photo_description</th>
-      <th>ai_description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>XMyPniM9LF0</td>
-      <td>/data/tutorial/unsplash_data/XMyPniM9LF0.jpg</td>
-      <td>https://images.unsplash.com/uploads/1411949294...</td>
-      <td>Woman exploring a forest</td>
-      <td>woman walking in the middle of forest</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>rDLBArZUl1c</td>
-      <td>/data/tutorial/unsplash_data/rDLBArZUl1c.jpg</td>
-      <td>https://images.unsplash.com/photo-141633941111...</td>
-      <td>Succulents in a terrarium</td>
-      <td>succulent plants in clear glass terrarium</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>cNDGZ2sQ3Bo</td>
-      <td>/data/tutorial/unsplash_data/cNDGZ2sQ3Bo.jpg</td>
-      <td>https://images.unsplash.com/photo-142014251503...</td>
-      <td>Rural winter mountainside</td>
-      <td>rocky mountain under gray sky at daytime</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>iuZ_D1eoq9k</td>
-      <td>/data/tutorial/unsplash_data/iuZ_D1eoq9k.jpg</td>
-      <td>https://images.unsplash.com/photo-141487280988...</td>
-      <td>Poppy seeds and flowers</td>
-      <td>red common poppy flower selective focus phography</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>BeD3vjQ8SI0</td>
-      <td>/data/tutorial/unsplash_data/BeD3vjQ8SI0.jpg</td>
-      <td>https://images.unsplash.com/photo-141700759404...</td>
-      <td>Silhouette near dark trees</td>
-      <td>trees during night time</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+![IMAGE](/img/thanosql_search/image_search/select_data.png)
 
 > #### 데이터 이해하기
 >
@@ -113,7 +58,7 @@ PRINT IMAGE AS
 SELECT filepath as image FROM unsplash_data LIMIT 5
 ```
 
-![print_image_01](/docs/img/thanosql_search/image_search/print_image_01.png)
+![IMAGE](/img/thanosql_search/image_search/print_dataset_image.png)
 
 ## 2. CONVERT를 통해 이미지 임베딩 생성하기
 
@@ -131,68 +76,7 @@ FROM unsplash_data
 LIMIT 5
 ```
 
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>photo_id</th>
-      <th>filepath</th>
-      <th>photo_image_url</th>
-      <th>photo_description</th>
-      <th>ai_description</th>
-      <th>clip_vit_embedding</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>XMyPniM9LF0</td>
-      <td>/data/tutorial/unsplash_data/XMyPniM9LF0.jpg</td>
-      <td>https://images.unsplash.com/uploads/1411949294...</td>
-      <td>Woman exploring a forest</td>
-      <td>woman walking in the middle of forest</td>
-      <td>[-0.1740911602973938, 0.6694010496139526, 0.19...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>rDLBArZUl1c</td>
-      <td>/data/tutorial/unsplash_data/rDLBArZUl1c.jpg</td>
-      <td>https://images.unsplash.com/photo-141633941111...</td>
-      <td>Succulents in a terrarium</td>
-      <td>succulent plants in clear glass terrarium</td>
-      <td>[-0.4623917043209076, 0.41157785058021545, -0....</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>cNDGZ2sQ3Bo</td>
-      <td>/data/tutorial/unsplash_data/cNDGZ2sQ3Bo.jpg</td>
-      <td>https://images.unsplash.com/photo-142014251503...</td>
-      <td>Rural winter mountainside</td>
-      <td>rocky mountain under gray sky at daytime</td>
-      <td>[-0.29828089475631714, 0.6044139862060547, 0.0...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>iuZ_D1eoq9k</td>
-      <td>/data/tutorial/unsplash_data/iuZ_D1eoq9k.jpg</td>
-      <td>https://images.unsplash.com/photo-141487280988...</td>
-      <td>Poppy seeds and flowers</td>
-      <td>red common poppy flower selective focus phography</td>
-      <td>[0.011878453195095062, 0.1400068998336792, -0....</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>BeD3vjQ8SI0</td>
-      <td>/data/tutorial/unsplash_data/BeD3vjQ8SI0.jpg</td>
-      <td>https://images.unsplash.com/photo-141700759404...</td>
-      <td>Silhouette near dark trees</td>
-      <td>trees during night time</td>
-      <td>[-0.3844836950302124, 0.0722995176911354, 0.05...</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+![IMAGE](/img/thanosql_search/image_search/select_data_with_embedding.png)
 
 ## 3. 텍스트로 이미지 검색하기
 
@@ -205,135 +89,7 @@ USING clip_en
 AS SELECT * FROM unsplash_data
 ```
 
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>photo_id</th>
-      <th>filepath</th>
-      <th>photo_image_url</th>
-      <th>photo_description</th>
-      <th>ai_description</th>
-      <th>clip_vit_embedding</th>
-      <th>clip_en_CLIPEn_similarity1</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>XMyPniM9LF0</td>
-      <td>/data/tutorial/unsplash_data/XMyPniM9LF0.jpg</td>
-      <td>https://images.unsplash.com/uploads/1411949294...</td>
-      <td>Woman exploring a forest</td>
-      <td>woman walking in the middle of forest</td>
-      <td>[-0.1740911602973938, 0.6694010496139526, 0.19...</td>
-      <td>0.181038</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>rDLBArZUl1c</td>
-      <td>/data/tutorial/unsplash_data/rDLBArZUl1c.jpg</td>
-      <td>https://images.unsplash.com/photo-141633941111...</td>
-      <td>Succulents in a terrarium</td>
-      <td>succulent plants in clear glass terrarium</td>
-      <td>[-0.4623917043209076, 0.41157785058021545, -0....</td>
-      <td>0.144811</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>cNDGZ2sQ3Bo</td>
-      <td>/data/tutorial/unsplash_data/cNDGZ2sQ3Bo.jpg</td>
-      <td>https://images.unsplash.com/photo-142014251503...</td>
-      <td>Rural winter mountainside</td>
-      <td>rocky mountain under gray sky at daytime</td>
-      <td>[-0.29828089475631714, 0.6044139862060547, 0.0...</td>
-      <td>0.179360</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>iuZ_D1eoq9k</td>
-      <td>/data/tutorial/unsplash_data/iuZ_D1eoq9k.jpg</td>
-      <td>https://images.unsplash.com/photo-141487280988...</td>
-      <td>Poppy seeds and flowers</td>
-      <td>red common poppy flower selective focus phography</td>
-      <td>[0.011878453195095062, 0.1400068998336792, -0....</td>
-      <td>0.178153</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>BeD3vjQ8SI0</td>
-      <td>/data/tutorial/unsplash_data/BeD3vjQ8SI0.jpg</td>
-      <td>https://images.unsplash.com/photo-141700759404...</td>
-      <td>Silhouette near dark trees</td>
-      <td>trees during night time</td>
-      <td>[-0.3844836950302124, 0.0722995176911354, 0.05...</td>
-      <td>0.201175</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>24963</th>
-      <td>c7OrOMxrurA</td>
-      <td>/data/tutorial/unsplash_data/c7OrOMxrurA.jpg</td>
-      <td>https://images.unsplash.com/photo-159300793778...</td>
-      <td>None</td>
-      <td>black metal fence during daytime</td>
-      <td>[-0.24536675214767456, -0.11746655404567719, -...</td>
-      <td>0.214148</td>
-    </tr>
-    <tr>
-      <th>24964</th>
-      <td>15IuQ5a0Qwg</td>
-      <td>/data/tutorial/unsplash_data/15IuQ5a0Qwg.jpg</td>
-      <td>https://images.unsplash.com/photo-159296761254...</td>
-      <td>Pearl earrings and seashells</td>
-      <td>white and brown seashell on white surface</td>
-      <td>[-0.39285042881965637, 0.5065885186195374, 0.1...</td>
-      <td>0.141949</td>
-    </tr>
-    <tr>
-      <th>24965</th>
-      <td>w8nrcXz8pwk</td>
-      <td>/data/tutorial/unsplash_data/w8nrcXz8pwk.jpg</td>
-      <td>https://images.unsplash.com/photo-159299937329...</td>
-      <td>None</td>
-      <td>leopard on brown tree trunk during daytime</td>
-      <td>[0.08376545459032059, -0.33006206154823303, -0...</td>
-      <td>0.215514</td>
-    </tr>
-    <tr>
-      <th>24966</th>
-      <td>n1jHrRhehUI</td>
-      <td>/data/tutorial/unsplash_data/n1jHrRhehUI.jpg</td>
-      <td>https://images.unsplash.com/photo-159192792878...</td>
-      <td>Floral truck in the streets of Rome</td>
-      <td>woman in beige coat and white hat standing on ...</td>
-      <td>[0.06461465358734131, -0.015747621655464172, 0...</td>
-      <td>0.167231</td>
-    </tr>
-    <tr>
-      <th>24967</th>
-      <td>Ic74ACoaAX0</td>
-      <td>/data/tutorial/unsplash_data/Ic74ACoaAX0.jpg</td>
-      <td>https://images.unsplash.com/photo-159240763188...</td>
-      <td>None</td>
-      <td>green plants on brown rocky mountain under blu...</td>
-      <td>[-0.26213258504867554, 0.6805394887924194, -0....</td>
-      <td>0.149835</td>
-    </tr>
-  </tbody>
-</table>
-<p>24968 rows × 7 columns</p>
-</div>
+![IMAGE](/img/thanosql_search/image_search/search_result_raw.png)
 
 !!! note "쿼리 세부 정보"
     - "__SEARCH IMAGE__" 쿼리 구문을 사용하여 이미지를 찾을 것임을 명시합니다.
@@ -344,51 +100,14 @@ AS SELECT * FROM unsplash_data
 
 ```sql
 %%thanosql
-SELECT filepath as image, clip_en_CLIPEn_similarity1 FROM
+SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
     (SEARCH IMAGE text='a black cat'
     USING clip_en
     AS SELECT * FROM unsplash_data)
-ORDER BY clip_en_CLIPEn_similarity1 DESC LIMIT 5
+ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5
 ```
 
-<div>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>image</th>
-      <th>clip_en_CLIPEn_similarity1</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>/data/tutorial/unsplash_data/UMyfDjQ6Ep8.jpg</td>
-      <td>0.314607</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>/data/tutorial/unsplash_data/3LPGWASiSbM.jpg</td>
-      <td>0.313257</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>/data/tutorial/unsplash_data/m8HsSWh-y6E.jpg</td>
-      <td>0.309940</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>/data/tutorial/unsplash_data/aFyD5aWKu6k.jpg</td>
-      <td>0.307605</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>/data/tutorial/unsplash_data/6ST6S6i9IGM.jpg</td>
-      <td>0.306069</td>
-    </tr>
-  </tbody>
-</table>
-</div>
+![IMAGE](/img/thanosql_search/image_search/search_result_sorted.png)
 
 !!! note "쿼리 세부 정보"
     이 쿼리는 두 단계로 구성됩니다.
@@ -404,14 +123,14 @@ ORDER BY clip_en_CLIPEn_similarity1 DESC LIMIT 5
 ```sql
 %%thanosql
 PRINT IMAGE AS
-    (SELECT filepath as image, clip_en_CLIPEn_similarity1 FROM
+    (SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
         (SEARCH IMAGE text='a black cat'
         USING clip_en
         AS SELECT * FROM unsplash_data)
-    ORDER BY clip_en_CLIPEn_similarity1 DESC LIMIT 5)
+    ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5)
 ```
 
-![a black cat](/docs/img/thanosql_search/image_search/search_result_black_cat.png)
+![a black cat](/img/thanosql_search/image_search/result_black_cat.png)
 
 !!! note "쿼리 세부 정보"
     이 쿼리는 위의 쿼리와 합쳐 세 단계로 구성됩니다.
@@ -421,62 +140,50 @@ PRINT IMAGE AS
 ```sql
 %%thanosql
 PRINT IMAGE AS
-    (SELECT filepath as image, clip_en_CLIPEn_similarity1 FROM
+    (SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
         (SEARCH IMAGE text='a dog on a chair'
         USING clip_en
         AS SELECT * FROM unsplash_data)
-    ORDER BY clip_en_CLIPEn_similarity1 DESC LIMIT 5)
+    ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5)
 ```
 
-![a dog on a chair](/docs/img/thanosql_search/image_search/search_result_dog_on_chair.png)
+![a dog on a chair](/img/thanosql_search/image_search/result_dog_on_chair.png)
 
 ```sql
 %%thanosql
 PRINT IMAGE AS
-    (SELECT filepath as image, clip_en_CLIPEn_similarity1 FROM
-        (SEARCH IMAGE text='sunset on beach'
-        USING clip_en
-        AS SELECT * FROM unsplash_data)
-    ORDER BY clip_en_CLIPEn_similarity1 DESC LIMIT 5)
-```
-
-![sunset on beach](/docs/img/thanosql_search/image_search/search_result_sunset_on_beach.png)
-
-```sql
-%%thanosql
-PRINT IMAGE AS
-    (SELECT filepath as image, clip_en_CLIPEn_similarity1 FROM
+    (SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
         (SEARCH IMAGE text='gloomy photos'
         USING clip_en
         AS SELECT * FROM unsplash_data)
-    ORDER BY clip_en_CLIPEn_similarity1 DESC LIMIT 5)
+    ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5)
 ```
 
-![gloomy photos](/docs/img/thanosql_search/image_search/search_result_gloomy_photos.png)
+![gloomy photos](/img/thanosql_search/image_search/result_gloomy.png)
 
 ```sql
 %%thanosql
 PRINT IMAGE AS
-    (SELECT filepath as image, clip_en_CLIPEn_similarity1 FROM
+    (SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
         (SEARCH IMAGE text='programming language python'
         USING clip_en
         AS SELECT * FROM unsplash_data)
-    ORDER BY clip_en_CLIPEn_similarity1 DESC LIMIT 5)
+    ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5)
 ```
 
-![programming language python](/docs/img/thanosql_search/image_search/search_result_python.png)
+![programming language python](/img/thanosql_search/image_search/result_python.png)
 
 ```sql
 %%thanosql
 PRINT IMAGE AS
-    (SELECT filepath as image, clip_en_CLIPEn_similarity1 FROM
+    (SELECT filepath as image, "clip_en_CLIPEn_similarity1" FROM
         (SEARCH IMAGE text='the feeling when your program finally works'
         USING clip_en
         AS SELECT * FROM unsplash_data)
-    ORDER BY clip_en_CLIPEn_similarity1 DESC LIMIT 5)
+    ORDER BY "clip_en_CLIPEn_similarity1" DESC LIMIT 5)
 ```
 
-![finally works](/docs/img/thanosql_search/image_search/search_result_finally_works.png)
+![finally works](/img/thanosql_search/image_search/result_happy.png)
 
 ## 5. 튜토리얼을 마치며
 
