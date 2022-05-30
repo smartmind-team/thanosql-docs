@@ -14,7 +14,7 @@
   </header>
   <ul class="fullclick">
     <li>
-      <a href="../modelling/data_upload/">
+      <a href="../data_upload/">
         <h3>REST API 사용하기</h3>
         <p>
             REST API를 사용하여 ThanoSQL을 사용하는 방법을 알아봅니다.

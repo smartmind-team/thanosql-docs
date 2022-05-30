@@ -66,10 +66,10 @@ LIMIT 5
 BUILD MODEL movie_rec
 USING Light_FM
 OPTIONS (
-  user='userid',   
-  item='movieid',
-  target='rating',
-  description='title'
+  user_col='userid',   
+  item_col='movieid',
+  rating_col='rating',
+  description_col='title'
   )
 AS 
 SELECT * 
@@ -78,10 +78,10 @@ FROM movielens_train
 
 !!! note "__쿼리 세부 정보__"
     "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">movie_rec</mark> 이라는 모델을 만들고 학습시킵니다. <br>
-    "__OPTIONS__"에서는 3개의 컬럼(Column)이 사용합니다. "user"에는 사용자의 ID (<mark style="background-color:#D7D0FF ">userid</mark>), "item"에는 아이템의 ID가 들어갑니다. 본 튜토리얼에서는 <mark style="background-color:#D7D0FF ">movieid</mark>가 사용됩니다. "target"에서는 예측하고자 하는 목표값이 되는 열의 이름(<mark style="background-color:#D7D0FF ">rating</mark>)을 적어줍니다.   
+    "__OPTIONS__"에서는 3개의 컬럼(Column)이 사용합니다. "user_col"에는 사용자의 ID (<mark style="background-color:#D7D0FF ">userid</mark>), "item_col"에는 아이템의 ID가 들어갑니다. 본 튜토리얼에서는 <mark style="background-color:#D7D0FF ">movieid</mark>가 사용됩니다. "rating_col"에서는 예측하고자 하는 목표값이 되는 열의 이름(<mark style="background-color:#D7D0FF ">rating</mark>)을 적어줍니다.   
 
 !!! tip ""
-    "description"의 경우 모델의 학습에는 사용되지 않지만 결과값 확인의 편의성을 위해 "item" 컬럼의 설명(<mark style="background-color:#D7D0FF ">title</mark>)을 넣어 줄 수 있습니다. 
+    "description_col"의 경우 모델의 학습에는 사용되지 않지만 결과값 확인의 편의성을 위해 "item" 컬럼의 설명(<mark style="background-color:#D7D0FF ">title</mark>)을 넣어 줄 수 있습니다. 
 
 ## __3. 생성된 모델을 사용하여 추천 목록 생성__
 
@@ -92,7 +92,7 @@ FROM movielens_train
 PREDICT USING movie_rec
 OPTIONS (
   predict_type='user', 
-  user=31, 
+  user_col=31, 
   nrec=10
   )
 AS 
@@ -103,7 +103,7 @@ FROM movielens_train
 
 !!! note "__쿼리 세부 정보__" 
     __"PREDICT USING"__ 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">movie_rec</mark> 모델을 예측에 사용합니다. 
-    추천 모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. "predict_type"은 예측 결과를 정렬할 대상 기준을 설정합니다. 이번 튜토리얼에서는 특정 사용자(<mark style="background-color:#D7D0FF ">userid</mark>의 값이 31)에게 추천할 영화 목록을 보려고 하기 때문에 "user"를 적어주며 "user"는 보고자 하는 특정 사용자의 <mark style="background-color:#D7D0FF ">userid</mark>값인 31을 입력합니다. "nrec"는 추천하는 아이템의 개수를 의미합니다. 
+    추천 모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. "predict_type"은 예측 결과를 정렬할 대상 기준을 설정합니다. 이번 튜토리얼에서는 특정 사용자(<mark style="background-color:#D7D0FF ">userid</mark>의 값이 31)에게 추천할 영화 목록을 보려고 하기 때문에 "itemid"를 적어주며 "itemid"는 보고자 하는 특정 사용자의 <mark style="background-color:#D7D0FF ">userid</mark>값인 31을 입력합니다. "nrec"는 추천하는 아이템의 개수를 의미합니다. 
 
 !!! warning
     "__OPTIONS__"와 관련 있는 추가적인 옵션값들은 [중급 추천 시스템 만들기](comingsoon) 튜토리얼에서 다루게 됩니다.
