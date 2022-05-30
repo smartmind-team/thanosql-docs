@@ -13,17 +13,74 @@
 
 <div class="card">
   <header>
-    <h2 id="card-h2">ThanoSQL Syntax 다루기</h2>
+    <h2 id="card-h2"> ThanoSQL Rest API 다루기</h2>
   </header>
   <ul class="fullclick">
     <li>
-      <a href="../data_upload/">
+      <a href="../thanosql_api/rest_api_token/">
         <h3>REST API 사용하기</h3>
         <p>
             REST API를 사용하여 ThanoSQL을 사용하는 방법을 알아봅니다.
         </p>
       </a>
     </li>
+  </ul>
+</div>
+
+<div class="card">
+  <header>
+    <h2 id="card-h2"> ThanoSQL Query 다루기</h2>
+  </header>
+  <ul class="fullclick">
+    <li>
+      <a href="../modelling/LIST_SYNTAX/">
+        <h3>저장한 모델 확인하기</h3>
+        <p>
+          ThanoSQL에 저장한 모델을 조회하는 방법을 알아봅니다.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../modelling/CREATE_TABLE_SYNTAX/">
+        <h3>비정형 데이터 변환하기</h3>
+        <p>
+          비정형 데이터(이미지, 음성 그리고 영상)를 인공지능 모델을 통해 수치화하여 데이터 테이블을 생성하는 방법을 알아봅니다.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../modelling/CONVERT_USING_SYNTAX/">
+        <h3>비정형 특성 추가하기</h3>
+        <p>
+          비정형 데이터(이미지, 음성 그리고 영상)의 정보를 인공지능 모델을 통해 수치화하고 사용할 데이터 테이블에 추가하는 방법을 알아봅니다.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../modelling/SEARCH_SYNTAX/">
+        <h3>비정형 데이터 검색하기</h3>
+        <p>
+          비정형 데이터(이미지, 음성 그리고 영상)에서 내용이나 의미 또는 유사도 등을 검색하는 방법을 알아봅니다.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../modelling/PRINT_SYNTAX/">
+        <h3>결과 출력하기</h3>
+        <p>
+          비정형 데이터(이미지, 음성 그리고 영상)을 출력하는 방법을 알아봅니다.
+        </p>
+      </a>
+    </li>
+  </ul>
+</div>
+   
+
+<div class="card">
+  <header>
+    <h2 id="card-h2">ThanoSQL Syntax 다루기</h2>
+  </header>
+  <ul class="fullclick">
     <li>
       <a href="../modelling/BUILD_MODEL_SYNTAX/">
         <h3>모델 학습하기</h3>
