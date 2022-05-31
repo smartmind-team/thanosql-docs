@@ -1,6 +1,6 @@
 # SEARCH와 SELECT 쿼리로 데이터 검색하기
 
-**[이전 문서 - ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ](https://github.com/smartmind-team/thanosql-docs/blob/dowon/docs/tutorials/thanosql_ml/image/classification/image_classification_kor_lv1.md)** <br>| **[다음 문서 - ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ](https://docs.thanosql.ai/tutorials/thanosql_ml/tabular/classification/automl_classification/)**
+**[이전 문서 - ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ](ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ)** <br>| **[다음 문서 - ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ](ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ)**
 
 ### 시작 전 사전 정보
 
@@ -101,7 +101,3 @@ LIMIT 10
 
 이번 튜토리얼에서는 `diet` 데이터 세트에서 이미지 예측 결과를 WHERE문으로 선택적으로 고르는 것을 해보았습니다. 이번 튜토리얼은 간단한 예제였지만, ThanoSQL의 비정형 예측과 일반 SQL문법을 결합하면, 훨씬 더 많은 것이 가능할 것입니다.
 
-
-```sql
-
-```

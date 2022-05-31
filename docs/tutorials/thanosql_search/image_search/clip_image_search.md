@@ -2,7 +2,7 @@
 
 ## (ThanoSQL 무작정 따라하기) 텍스트로 원하는 이미지 검색하기
 
-**[이전 문서 - 자기주도학습 임베딩 추출모델을 사용하여 MNIST 손글씨 이미지 분류하기](https://github.com/smartmind-team/thanosql-docs/blob/dowon/docs/tutorials/thanosql_ml/image/classification/image_classification_kor_lv1.md)** <br>| **[다음 문서 - ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ](https://docs.thanosql.ai/tutorials/thanosql_ml/tabular/classification/automl_classification/)**
+**[이전 문서 - 자기주도학습 임베딩 추출모델을 사용하여 MNIST 손글씨 이미지 분류하기](ㅇㅇㅇㅇㅇㅇㅇㅇㅇ)** <br>| **[다음 문서 - ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ](ㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇㅇ)**
 
 ### 시작 전 사전 정보
 
