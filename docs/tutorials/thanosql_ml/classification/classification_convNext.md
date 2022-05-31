@@ -6,9 +6,9 @@
 ## 시작 전 사전 정보
 
 - 튜토리얼 난이도: ★☆☆☆☆
-- 읽는 시간 : 10분
+- 읽는데 걸리는 시간 : 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 참고 문서: [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
+- 참고 문서 : [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
 - 마지막 수정날짜 : 2022-06-01
 
 
@@ -64,8 +64,10 @@ LIMIT 5
 
 ```sql
 %%thanosql
-PRINT IMAGE AS
-SELECT image FROM cat_and_dog_train
+PRINT IMAGE 
+AS
+SELECT image 
+FROM cat_and_dog_train
 LIMIT 5
 ```
 
@@ -78,7 +80,9 @@ LIMIT 5
 ```sql
 %%thanosql
 PREDICT USING tutorial_image_classification
-AS SELECT * FROM cat_and_dog_test
+AS 
+SELECT * 
+FROM cat_and_dog_test
 ```
 
 ![IMAGE](/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_1.png)
@@ -105,8 +109,8 @@ FROM cat_and_dog_train
     - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">my_image_classifier</mark> 모델을 만들고 학습시킵니다.
     - "__USING__" 쿼리 구문을 통해 베이스 모델로 `ConvNeXt_Tiny`를 사용할 것을 명시합니다.
     - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
-        - "image_col" : 이미지 경로를 담은 열의 이름
-        - "label_col" : 목표값의 정보를 담은 열의 이름
+        - "image_col" : 이미지 경로를 담은 컬럼의 이름
+        - "label_col" : 목표값의 정보를 담은 컬럼의 이름
         - "epochs : 모든 학습 데이터 세트를 학습하는 횟수
 
 !!! tip ""
@@ -115,7 +119,7 @@ FROM cat_and_dog_train
 
 ## __4. 생성된 모델을 사용하여 강아지와 고양이 이미지 분류 결과 예측__
 
-이전 단계에서 만든 이미지 예측 모델(<mark style="background-color:#FFEC92 ">my_image_classifier</mark>)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#D7D0FF">cat_and_dog_test</mark>)의 목표값을 예측해 봅니다.  아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 열에 저장되어 반환됩니다.
+이전 단계에서 만든 이미지 예측 모델(<mark style="background-color:#FFEC92 ">my_image_classifier</mark>)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#D7D0FF">cat_and_dog_test</mark>)의 목표값을 예측해 봅니다.  아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
 
 ```sql
 %%thanosql
@@ -131,7 +135,7 @@ FROM cat_and_dog_test
 !!! note "__쿼리 세부 정보__"
     - "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_image_classifier</mark> 모델을 예측에 사용합니다.
     - "__OPTIONS__" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
-        - "image_col" : 예측에 사용할 이미지의 경로가 기록되어 있는 열의 이름
+        - "image_col" : 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름
 
 <br>
 
@@ -139,12 +143,12 @@ FROM cat_and_dog_test
 
 이번 튜토리얼에서는 <mark style="background-color:#FFD79C">Cat and Dog</mark> 데이터 세트를 사용하여 이미지 분류 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. 이미지 분류 모델은 각 플랫폼이나 서비스에 맞는 정밀한 튜닝을 통해 정확도를 향상 시킬 수 있고 적은 양의 데이터 라벨링만으로도 대부분 만족스러운 결과를 얻을 수 있습니다. 나만의 데이터를 이용해서 베이스 모델을 학습하거나, 자가학습(Self-supervised) 모델 등을 이용해 나의 데이터를 수치화하여 변환한 후 자동화 된 머신러닝(Auto-ML) 기법을 이용한 배포도 가능합니다. 다양한 비정형 데이터(오디오, 비디오, 텍스트 등)와 수치형 데이터들을 결합하여 나만의 모델을 만들고 경쟁력있는 서비스를 제공해 보세요.
 
-다음단계인  [중급 이미지 분류 모델 만들기](comingsoon) 튜토리얼에서는 이미지 분류 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 이미지 분류 모델 구축방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요.
+다음 단계인  [중급 이미지 분류 모델 만들기] 튜토리얼에서는 이미지 분류 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 이미지 분류 모델 구축방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요.
 
-* [나만의 데이터 업로드하기](comingsoon)
-* [중급 이미지 분류 모델 만들기](comingsoon)
-* [이미지 변환과 Auto-ML을 이용한 나만의 모델 만들기](comingsoon)
-* [나만의 이미지 분류 모델 배포하기](comingsoon)
+* [나만의 데이터 업로드하기](/how-to_guides/ThanoSQL_connecting/data_upload/)
+* [중급 이미지 분류 모델 만들기]
+* [이미지 변환과 Auto-ML을 이용한 나만의 모델 만들기]
+* [나만의 이미지 분류 모델 배포하기](/how-to_guides/thanosql_api/rest_api_thanosql_query/)
 
 
 !!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"

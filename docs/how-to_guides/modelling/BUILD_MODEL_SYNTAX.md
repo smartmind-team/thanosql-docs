@@ -26,7 +26,7 @@ AS
 
 ### __3-1. 추천 모델 생성을 위한 "Light_FM" 인공지능 모델 사용__ 
 
-아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">user_rec</mark> 모델을 ["__Light_FM__"](https://arxiv.org/pdf/1507.08439.pdf)이라는 인공지능 모델을 사용하여 추천 모델을 만듭니다. 전체 과정이 궁금하다면, [Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기]()를 진행해 보세요.
+아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">user_rec</mark> 모델을 ["__Light_FM__"](https://arxiv.org/pdf/1507.08439.pdf)이라는 인공지능 모델을 사용하여 추천 모델을 만듭니다. 전체 과정이 궁금하다면, [Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)를 진행해 보세요.
 
 ```sql
 %%thanosql
@@ -47,7 +47,7 @@ FROM movielens_train
 
 ### __3-2. 분류 모델 생성을 위한 Auto_ML 모델 사용__
 
-아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">test_classifier</mark> 모델을 ThanoSQL에서 제공하는 ["AutomlClassifier"](https://www.google.com/search?q=automl&oq=automl&aqs=chrome.0.69i59j35i39j0i512j69i60l5.3258j0j4&sourceid=chrome&ie=UTF-8) 모델을 사용하여 분류 모델을 만듭니다. 전체 과정이 궁금하다면, [Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기]를 진행해 보세요.
+아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">test_classifier</mark> 모델을 ThanoSQL에서 제공하는 ["AutomlClassifier"](https://www.google.com/search?q=automl&oq=automl&aqs=chrome.0.69i59j35i39j0i512j69i60l5.3258j0j4&sourceid=chrome&ie=UTF-8) 모델을 사용하여 분류 모델을 만듭니다. 전체 과정이 궁금하다면, [Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)를 진행해 보세요.
 
 ```sql
 %%thanosql
