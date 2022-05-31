@@ -34,6 +34,20 @@ ThanoSQL을 사용하여 손글씨 데이터를 입력하고 DB 내에서 입력
 
 ![MNIST 데이터](/img/thanosql_search/simclr_search/simclr_img7.png) 
 
+## __0. 데이터 세트 준비__
+```sql
+%load_ext thanosql
+%thanosql API_TOKEN={발급 받은 개인 토큰}
+```
+```sql
+%%thanosql
+COPY mnist_train FROM "tutorial_data/mnist_data/mnist_train.csv"
+```
+```sql
+%%thanosql
+COPY mnist_test FROM "tutorial_data/mnist_data/mnist_test.csv"
+```
+
 ## __1. 데이터 세트 확인__
 
 손글씨 분류 모델을 만들기 위해 ThanoSQL [DB](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용합니다. <mark style="background-color:#FFEC92">mnist_train</mark> 테이블은 <mark style="background-color:#FFD79C">MNIST</mark> 이미지 파일들이 저장되어 있는 경로와 파일 이름 그리고 라벨 정보가 담겨 있는 테이블입니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
@@ -82,8 +96,10 @@ FROM mnist_train
 ```sql
 %%thanosql
 CONVERT USING my_mnist_model
-OPTIONS(
-    table_name= "mnist_test"
+OPTIONS (
+    image_col='img_path',
+    file_name='filename',
+    max_epochs=1
     )
 AS 
 SELECT * 
