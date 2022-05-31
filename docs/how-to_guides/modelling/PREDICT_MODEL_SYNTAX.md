@@ -1,5 +1,9 @@
 # __모델 적용하기 (PREDICT USING)__
 
+**[이전 문서 - 모델 적용을 위해 데이터 전처리하기](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/)**  
+**[다음 문서 - 모델 삭제하기](/how-to_guides/modelling/DELETE_MODEL_SYNTAX/)**
+
+
 ## __1.PREDICT USING 구문 개요__
 
 사용자는 "__PREDICT USING__" 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다.  

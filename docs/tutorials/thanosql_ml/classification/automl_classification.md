@@ -1,7 +1,7 @@
 # __Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기__ 
 
-**[이전](coming_soon)** &nbsp;&nbsp; <br>
-**[다음 문서 - 고양이와 강아지 분류하는 이미지 분류 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/classification/classification_convNext/)**
+**[이전 문서 - 텍스트로 원하는 이미지 검색하기](/tutorials/thanosql_search/image_search/clip_image_search/)** &nbsp;&nbsp; <br>
+**[다음 문서 - 고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext/)**
 
 
 ## 시작 전 사전정보
@@ -9,7 +9,6 @@
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는 시간 : 4 분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 예제 파일 : [AutoML_Classifier.ipynb](http://35.222.17.152:8888/lab/tree/thanos_AI_team/AutoML_Classifier.ipynb)
 - 참고 문서 : [(캐글) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
 - 마지막 수정날짜 : 2022-06-01
 
