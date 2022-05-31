@@ -66,9 +66,9 @@ LIMIT 5
 BUILD MODEL movie_rec
 USING Light_FM
 OPTIONS (
-  user='userid',   
-  item='movieid',
-  target='rating',
+  user_col='userid',   
+  item_col='movieid',
+  rating_col='rating',
   description='title'
   )
 AS 
