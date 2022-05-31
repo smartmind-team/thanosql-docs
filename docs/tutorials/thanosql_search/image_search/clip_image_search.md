@@ -103,6 +103,10 @@ LIMIT 5
 
 ![IMAGE](/img/thanosql_search/clip_search/select_data_with_embedding.png)
 
+`CONVERT` 쿼리의 결과로 `clip_en_CLIPEn` 열이 생성된 것을 볼 수 있습니다. `{model_name}_{base_model_name}`이라는 이름으로 임베딩 값을 담은 열이 추가되게 됩니다.
+
+<br>
+
 ## 3. 텍스트로 이미지 검색하기
 
 "__SEARCH IMAGE__" 쿼리 구문과 생성한 이미지 수치화 모델(`clip_en`)을 이용하여 이미지를 검색할 수 있습니다. 우선 하나의 텍스트로 검색하고 결과를 확인합니다. "모델명(`clip_en`)_베이스 알고리즘 명(`CLIPEn`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 된 것을 확인할 수 있습니다.

@@ -542,3 +542,136 @@ OPTIONS(
 - "text_col" : 데이터 테이블에서 오디오의 스크립트를 담은 열을 설정합니다. (DEFAULT: "text")
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 
+## __4. CLIP 모델__
+
+### __CREATE TABLE 쿼리 구문__
+
+"__CREATE TABLE__" 구문을 사용하여 이미지 데이터의 임베딩 벡터를 포함한 데이터 테이블을 생성할 수 있습니다.
+
+
+```sql
+CREATE TABLE [사용자 지정 데이터 테이블 이름]
+USING [사용할 인공지능 모델]
+OPTIONS (
+    expression [ , ...]
+)
+FROM [사용할 데이터가 위치한 폴더의 경로]
+```
+
+#### __OPTIONS 절__
+
+```sql
+OPTIONS(
+    path_type='folder',
+    data_type='image',
+    file_type=['.jpg'],
+    [batch_size = VALUE],
+)
+```
+
+"__OPTIONS__" 절은 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
+
+- "path_type" : 데이터 테이블에서 오디오 파일들의 경로를 담은 열을 설정합니다. (DEFAULT: "audio")
+- "data_type" : 데이터의 형식입니다.
+- "file_type" : 이미지의 확장자 형식입니다.
+- "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
+
+
+#### __CREATE TABLE 구문 예시__
+
+```sql
+%%thanosql
+CREATE TABLE unsplash_data
+USING clip_en
+OPTIONS (
+    path_type='folder',
+    data_type='image',
+    file_type=['.jpg']
+ )
+FROM '/data/tutorial/unsplash_data'
+```
+
+#### __CONVERT 쿼리 구문__
+
+"__CONVERT USING__" 구문은 기존에 존재하던 테이블에서 이미지 데이터를 임베딩 벡터로 변환하고 이를 사용할 데이터 테이블에 추가합니다.
+
+```sql
+CONVERT USING [사용할 인공지능 모델]
+OPTIONS(
+    table_name=[저장될 테이블 명],
+    [image_col=column_name],
+    [batch_size=VALUE]
+)
+AS
+[사용할 데이터 세트]
+```
+
+#### __OPTIONS 절__
+
+```sql
+OPTIONS(
+    table_name=table_name,
+    [image_col=column_name],
+    [batch_size=VALUE]
+)
+```
+
+"__OPTIONS__" 절은 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
+
+- "table_name" : 새로 만들어질 테이블의 이름입니다.
+- "image_col" : 테이블에서 이미지의 경로를 담고 있는 열의 이름입니다. (DEFAULT : 'image')
+- "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
+
+
+#### __CONVERT TABLE 구문 예시__
+
+
+[CLIP을 통한 의미 검색](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+
+
+```sql
+%%thanosql
+CONVERT USING clip_en
+OPTIONS(
+    image_col="filepath",
+    table_name="unsplash_data",
+    batch_size=128)
+AS
+SELECT *
+FROM unsplash_data
+```
+
+### __SEARCH IMAGE 쿼리 구문__
+
+"__SEARCH IMAGE__" 쿼리 구문을 사용하여 임베딩을 생성한 테이블에서, 원하는 이미지를 검색할 수 있습니다.
+
+``` sql
+SEARCH IMAGE USING [expression]
+USING [사용할 인공지능 모델]
+OPTIONS (
+    {text|texts|image|images}=[, ...],
+)
+AS
+[사용할 데이터 세트]
+```
+
+#### __OPTIONS 절__
+
+```sql
+OPTIONS(
+    {text|texts|image|images} = [, ...],
+)
+```
+text, texts, image, images 중 하나를 입력으로 받아야 합니다. text와 texts, image와 images는 각각 동일합니다. 입력은 string (예: 'a black cat', 'data/image/image01.jpg'), 또는 list of string (예: ['a black cat', 'a orange cat'], ['data/image/image01.jpg', 'data/image/image02.jpg']) 이어야 합니다.
+
+
+#### __SEARCH IMAGE 구문 예시__
+
+[CLIP을 통한 의미 검색](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+
+```sql
+%%thanosql
+SEARCH IMAGE text="a black cat"
+USING clip_en
+AS SELECT * FROM unsplash_data
+```
