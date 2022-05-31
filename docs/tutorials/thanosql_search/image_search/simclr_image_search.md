@@ -63,7 +63,9 @@ LIMIT 5
 %%thanosql
 BUILD MODEL mnist_model
 USING SimCLR
-OPTIONS (max_epochs=5)
+OPTIONS (
+    max_epochs=5
+    )
 AS 
 SELECT * 
 FROM mnist_dataset
@@ -187,7 +189,9 @@ AS (
 
 
 ![5_1](/img/thanosql_search/simclr_search/simclr_img5.png) <br>
-    
+
+!!! danger "참고 사항"
+    이미지 유사도 검색 알고리즘의 기본 학습 옵션은 이미지의 좌우상하 반전, 색상의 변화 등에 관계없이 모두 같은 이미지로 인식하도록 학습이 진행 됩니다. 강아지의 사진은 뒤집히거나 색이 변해도 강아지로 인식되어야 하기 때문입니다. 의류 이미지 등과 같이 색의 변화가 중요하거나 숫자 처럼 상하, 좌우 반전이 중요한 경우 학습 시 옵션을 변경해 주어야 합니다. 본 튜토리얼에서는 이러한 이미지 유사도 검색의 특징을 보여주고 있습니다.
 
 
 ## __5. 튜토리얼을 마치며__

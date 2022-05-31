@@ -5,10 +5,10 @@
 
 ## 시작 전 사전 정보
 
-- 튜토리얼 난이도: ★★☆☆☆
-- 읽는데 걸리는 시간(실행시간): 15분
-- 사용언어: [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 참고문서: [Unsplash Dataset - Lite](https://unsplash.com/data), [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
+- 튜토리얼 난이도 : ★★☆☆☆
+- 읽는데 걸리는 시간 : 7분
+- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 참고 문서 : [Unsplash Dataset - Lite](https://unsplash.com/data), [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
 - 마지막 수정날짜 : 2022-06-01
 
 ## 튜토리얼 소개
@@ -71,7 +71,7 @@ LIMIT 5
 
 ![IMAGE](/img/thanosql_search/clip_search/print_dataset_image.png)
 
-## 2. 텍스트 검색을 위한 이미지 수치화 모델 생성하기
+## __2. 텍스트 검색을 위한 이미지 수치화 모델 생성하기__
 
 !!! danger "참고 사항"
     텍스트-이미지 검색 알고리즘은 학습에 오랜 시간이 걸리고 총 4억 개의 데이터 세트로 사전 학습된 모델을 사용하기 때문에 "__BUILD MODEL__" 쿼리 구문을 이용한 학습 과정을 본 튜토리얼에서는 생략합니다. `clip_en` 모델은 베이스 알고리즘으로 `CLIPEn`을 사용한 사전학습 된 모델을 가져와서 사용하게 됩니다. "__CONVERT USING__" 쿼리 구문을 실행하게 되면 "모델명(`clip_en`)_베이스 알고리즘명(`CLIPEn`)"으로 이미지가 수치화 된 컬럼이 자동으로 생성이 되며, "__SEARCH IMAGE__" 쿼리 구문을 실행하게 되면 "모델명(`clip_en`)_베이스 알고리즘 명(`CLIPEn`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 됩니다. 여기수 "수"는 검색에 사용한 텍스트의 갯수를 의미합니다. 2개 이상의 텍스트로 검색이 이루어 질 경우 순서에 따라 컬럼의 수가 순차적으로 증가되어 생성 됩니다. 자세한 사항은 아래 내용을 참고하세요.
@@ -107,7 +107,7 @@ LIMIT 5
 
 <br>
 
-## 3. 텍스트로 이미지 검색하기
+## __3. 텍스트로 이미지 검색하기__
 
 "__SEARCH IMAGE__" 쿼리 구문과 생성한 이미지 수치화 모델(`clip_en`)을 이용하여 이미지를 검색할 수 있습니다. 우선 하나의 텍스트로 검색하고 결과를 확인합니다. "모델명(`clip_en`)_베이스 알고리즘 명(`CLIPEn`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 된 것을 확인할 수 있습니다.
 
@@ -169,14 +169,17 @@ AS (
         FROM unsplash_data
         )
     ORDER BY "clip_en_CLIPEn_similarity1" DESC 
-    LIMIT 5)
+    LIMIT 5
+    )
 ```
 
 ![a black cat](/img/thanosql_search/clip_search/result_black_cat.png)
 
 !!! note "쿼리 세부 정보"
-    이 쿼리는 위의 쿼리와 합쳐 세 단계로 구성됩니다.
+    이 쿼리는 위의 쿼리와 합쳐 세 단계로 구성됩니다.  
+
     - 첫 번째 괄호 안의 "__SELECT__" 쿼리 구문을 통해 바로 위 단계의 결과를 생성합니다.
+    
     - "__PRINT IMAGE__" 쿼리 구문을 사용하여 해당 이미지를 출력합니다.
 
 ```sql
@@ -239,9 +242,9 @@ AS (
 
 ![finally works](/img/thanosql_search/clip_search/result_happy.png)
 
-## 4. 튜토리얼을 마치며
+## __4. 튜토리얼을 마치며__
 
-이번 튜토리얼에서는 CLIP 모델을 사용하여 unsplash 데이터 세트에서 텍스트를 통한 이미지 검색을 해보았습니다. 초급 단계의 튜토리얼인만큼 간단한 쿼리를 통해 눈에 보이는 결과를 얻는 것 위주로 진행했습니다. 이미지 검색을 조금 더 다채로운 쿼리와 함께 사용한다면, 보다 원하는 결과에 가까운 값을 얻을 수 있을 것입니다.
+이번 튜토리얼에서는 멀티 모달 텍스트/이미지 수치화 모델을 사용하여 `unsplash 데이터 세트`에서 텍스트를 통한 이미지 검색을 해보았습니다. 초급 단계의 튜토리얼인 만큼 간단한 쿼리를 통해 눈에 보이는 결과를 얻는 것 위주로 진행했습니다. 이미지 검색을 조금 더 다채로운 쿼리와 함께 사용한다면, 보다 원하는 결과에 가까운 값을 얻을 수 있을 것입니다.
 
 
 !!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"

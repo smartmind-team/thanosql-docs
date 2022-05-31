@@ -6,9 +6,9 @@
 
 ## 시작 전 사전정보
 - 튜토리얼 난이도 : ★☆☆☆☆
-- 읽는 시간 : 7분
+- 읽는데 걸리는 시간 : 7분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 참고 문서 : [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
+- 참고 문서 : [Movielens 데이터 세트](https://grouplens.org/datasets/movielens/), [LightFM](https://making.lyst.com/lightfm/docs/home.html)
 - 마지막 수정날짜 : 2022-06-01
 
 ## 튜토리얼 소개
@@ -29,13 +29,10 @@ __아래는 ThanoSQL (영화) 추천 모델의 활용 및 기대효과 예시입
 !!! note "본 튜토리얼에서는"
     :point_right: 사용자가 콘텐츠에 부여한 평점 데이터를 사용하여 간단하게 사용자가 좋아할만한 영화 목록을 추천해주는 추천시스템을 구축합니다. 이를 위해, <mark style="background-color:#FFD79C">__Movielens__</mark> 영화 평점 데이터 세트를 사용합니다. <mark style="background-color:#FFD79C">__Movielens__</mark> 데이터 세트는 사용자가 특정 영화에 대해서 평점을 준 것을 모아놓은 데이터 세트입니다. <br>
     
-!!! tip ""
-    평점 기반이 아닌 소비한 아이템의 내용(제목, 카테고리, 키워드 등)을 활용하여 추천 모델을 만들고 싶다면 다음 "[Microsoft 뉴스 데이터세트를 이용한 뉴스 추천 모델 만들기](https://github.com/smartmind-team/thanosql-docs/blob/indoo2/docs/tutorials/thanosql_ml/tabular/recommendation/lv1_lda_kor_0_1.md)" 튜토리얼을 참조하세요.
-
 
 ## __1. 데이터 세트 확인__
 
-영화 평점 데이터를 이용한 영화 추천 모델을 만들기 위해 ThanoSQL [데이터 베이스(DB)](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 <mark style="background-color:#FFEC92 ">movielens_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
+영화 평점 데이터를 이용한 영화 추천 모델을 만들기 위해 ThanoSQL [DB](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 <mark style="background-color:#FFEC92 ">movielens_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 ```sql
 %%thanosql 
@@ -110,11 +107,12 @@ FROM movielens_train
 ## __4. 튜토리얼을 마치며__ 
 
 이번 튜토리얼에서는 <mark style="background-color:#FFD79C">Movielens</mark> 데이터 세트를 사용하여 영화 평점기반 추천 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. <br>
-다음단계인  [중급 추천 모델 만들기](comingsoon) 튜토리얼에서는 추천 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 추천 모델 구축방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요. <br>
+다음단계인  [중급 추천 모델 만들기] 튜토리얼에서는 추천 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 추천 모델 구축방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요. <br>
 
-* [나만의 데이터 업로드하기](comingsoon)
-* [중급 추천 모델 만들기](comingsoon) 
-* [나만의 추천 모델 배포하기](comingsoon)
+* [나만의 데이터 업로드하기](/how-to_guides/ThanoSQL_connecting/data_upload/)
+* [중급 추천 모델 만들기]
+* [나만의 추천 분류 모델 배포하기](/how-to_guides/thanosql_api/rest_api_thanosql_query/)
+
    
 !!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"
     ThanoSQL을 활용해 나만의 모델을 만들거나, 나의 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊

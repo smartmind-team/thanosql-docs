@@ -19,7 +19,7 @@ AS
     사용할 데이터 세트에 목표값(target)이 없을 경우, 모델에 대한 성능을 평가할 수 없습니다. 
 
 ## __3. EVALUATE USING 구문 예시__ 
-아래 예는 "__EVALUATE USING__" 구문을 사용하여 사용자가 [모델 학습하기]()에서 만들었던 <mark style="background-color:#E9D7FD ">test_classifier</mark> 분류 모델을 평가합니다.
+아래 예는 "__EVALUATE USING__" 구문을 사용하여 사용자가 [모델 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)에서 만들었던 <mark style="background-color:#E9D7FD ">test_classifier</mark> 분류 모델을 평가합니다.
 
 ```sql
 %%thanosql

@@ -6,16 +6,16 @@
 
 __표기법 규칙__ 
 
-- 대괄호 `[]`는 선택적 절을 나타냅니다.   
 - 괄호 `()`는 ^^리터럴^^ 괄호를 나타냅니다.  
-- 세로 막대 `|`는 논리 `OR`를 나타냅니다.  
 - 중괄호 { }는 옵션 조합을 묶는 데 사용됩니다.  
+- 대괄호 `[]`는 선택적 절을 나타냅니다.   
 - 대괄호 [ , ... ] 안에 있는 쉼표 다음에 오는 줄임표는 앞의 항목이 쉼표로 구분된 
 목록으로 반복될 수 있음을 의미합니다.
+- 세로 막대 `|`는 논리 `OR`를 나타냅니다.  
 - VALUE는 값을 의미합니다. 
 
 !!! note "" 
-    __리터럴__ : 고정되거나 변경할 수 없는 값을 의미하며 상수(constant)라고도 불립니다. 
+    __리터럴__ : 고정되거나 변경할 수 없는 값을 의미하며 상수(Constant)라고도 불립니다. 
     > 각 리터럴은 테이블에서 컬럼과 같은 특별한 자료형을 가지고 있다.
 
 ## __1. AutomlClassifier 알고리즘__
@@ -57,18 +57,18 @@ OPTIONS(
 - "impute_type" : 데이터 테이블에서 빈 값을 처리하는 방법을 설정합니다. (DEFAULT : "simple")
 > "simple" : 빈 값에 대해 범주형 변수는 최빈값으로, 연속형 변수는 평균으로 처리합니다.
   "iterative" : 빈 값에 대해 나머지 속성을 통해 예측하는 알고리즘을 적용하여 처리합니다.
-- "features_to_drop" : 데이터 테이블에서 학습에 이용하지 못하는 칼럼을 설정합니다.
-- "datetime_attribs" : 데이터 테이블에서 날짜에 해당하는 칼럼을 설정합니다. 
+- "features_to_drop" : 데이터 테이블에서 학습에 이용하지 못하는 컬럼을 설정합니다.
+- "datetime_attribs" : 데이터 테이블에서 날짜에 해당하는 컬럼을 설정합니다. 
 - "outlier_method" : 데이터 테이블에서 이상치 처리하는 방법을 설정합니다. (DEFAULT : "iso")
 > "pca" : 주어진 데이터 테이블에 대해서 Principal Component Analysis(PCA, 주성분 분석)를 이용하여 차원을 축소하고 복원을 하는 과정을 통해 비정상 샘플을 검출합니다.   
   "iso" : 주어진 데이터 테이블에 대해서 Isolation Forest를 사용하여 트리 기반으로 랜덤하게 데이터 테이블을 분기하며 모든 관측치를 고립시키며 비정상 샘플을 검출합니다. (변수가 많은 데이터 세트에서도 효율적으로 작동합니다)  
   "knn" : K-NN 기반 접근법으로 각 데이터 사이의 거리를 기반으로 비정상 샘플을 검출합니다.
-- "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다.(값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300))
+- "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다. 값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300)
 
 
  __BUILD MODEL 쿼리 구문 예시__
 
-[Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -121,13 +121,13 @@ OPTIONS(
 - "impute_type" : 데이터 테이블에서 빈 값을 처리하는 방법을 설정합니다. (DEFAULT : "simple")
 > "simple" : 빈 값에 대해 범주형 변수는 최빈값으로, 연속형 변수는 평균으로 처리합니다.
   "iterative" : 빈 값에 대해 나머지 속성을 통해 예측하는 알고리즘을 적용하여 처리합니다.
-- "features_to_drop" : 데이터 테이블에서 학습에 이용하지 못하는 칼럼을 설정합니다.
-- "datetime_attribs" : 데이터 테이블에서 날짜에 해당하는 칼럼을 설정합니다. 
+- "features_to_drop" : 데이터 테이블에서 학습에 이용하지 못하는 컬럼을 설정합니다.
+- "datetime_attribs" : 데이터 테이블에서 날짜에 해당하는 컬럼을 설정합니다. 
 - "outlier_method" : 데이터 테이블에서 이상치 처리하는 방법을 설정합니다. (DEFAULT : "iso")
 > "pca" : 주어진 데이터 테이블에 대해서 Principal Component Analysis(PCA, 주성분 분석)를 이용하여 차원을 축소하고 복원을 하는 과정을 통해 비정상 샘플을 검출합니다.   
   "iso" : 주어진 데이터 테이블에 대해서 Isolation Forest를 사용하여 트리 기반으로 랜덤하게 데이터 테이블을 분기하며 모든 관측치를 고립시키며 비정상 샘플을 검출합니다. (변수가 많은 데이터 세트에서도 효율적으로 작동합니다)  
   "knn" : K-NN 기반 접근법으로 각 데이터 사이의 거리를 기반으로 비정상 샘플을 검출합니다.
-- "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다.(값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300))
+- "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다. 값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300)
 
 
  __FIT MODEL 쿼리 구문 예시__
@@ -150,7 +150,7 @@ FROM titanic_train
 
 ### __TRANSFORM USING 쿼리 구문__
 
-이 "__TRANSFORM MODEL__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델 생성시 사용한 동일한 전처리 방법을 적용할 수 있습니다."__TRANSFORM MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__TRANSFORM MODEL__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델 생성시 사용한 동일한 전처리 방법을 적용할 수 있습니다. "__TRANSFORM MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -174,7 +174,7 @@ FROM titanic_test
 
 ### __PREDICT USING 쿼리 구문__
 
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다. "__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -185,8 +185,9 @@ AS
 (query_expr)
 ``` 
 
- __PREDICT USING 쿼리 구문 예시__
-[Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+__PREDICT USING 쿼리 구문 예시__
+
+[Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -224,7 +225,7 @@ OPTIONS(
 - "target" : 데이터 테이블에서 분류 예측 모델에 목표값이 되는 컬럼을 설정합니다.
 
  __EVALUATE USING 쿼리 구문 예시__
-[Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -275,18 +276,18 @@ OPTIONS(
 - "impute_type" : 데이터 테이블에서 빈 값을 처리하는 방법을 설정합니다. (DEFAULT : "simple")
 > "simple" : 빈 값에 대해 범주형 변수는 최빈값으로, 연속형 변수는 평균으로 처리합니다.
   "iterative" : 빈 값에 대해 나머지 속성을 통해 예측하는 알고리즘을 적용하여 처리합니다.
-- "features_to_drop" : 데이터 테이블에서 학습에 이용하지 못하는 칼럼을 설정합니다.
-- "datetime_attribs" : 데이터 테이블에서 날짜에 해당하는 칼럼을 설정합니다. 
+- "features_to_drop" : 데이터 테이블에서 학습에 이용하지 못하는 컬럼을 설정합니다.
+- "datetime_attribs" : 데이터 테이블에서 날짜에 해당하는 컬럼을 설정합니다. 
 - "outlier_method" : 데이터 테이블에서 이상치 처리하는 방법을 설정합니다. (DEFAULT : "iso")
-> "pca" : 주어진 데이터 테이블에 대해서 Principal Component Analysis(PCA, 주성분 분석)를 이용하여 차원을 축소하고 복원을 하는 과정을 통해 비정상 샘플을 검출합니다.   ㄹ
+> "pca" : 주어진 데이터 테이블에 대해서 Principal Component Analysis(PCA, 주성분 분석)를 이용하여 차원을 축소하고 복원을 하는 과정을 통해 비정상 샘플을 검출합니다.   
   "iso" : 주어진 데이터 테이블에 대해서 Isolation Forest를 사용하여 트리 기반으로 랜덤하게 데이터 테이블을 분기하며 모든 관측치를 고립시키며 비정상 샘플을 검출합니다. (변수가 많은 데이터 세트에서도 효율적으로 작동합니다)  
   "knn" : K-NN 기반 접근법으로 각 데이터 사이의 거리를 기반으로 비정상 샘플을 검출합니다.
-- "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다.(값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300))
+- "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다. 값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300)
 
 
 __BUILD MODEL 쿼리 구문 예시__
 
-[Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -338,13 +339,13 @@ OPTIONS(
 - "impute_type" : 데이터 테이블에서 빈 값을 처리하는 방법을 설정합니다. (DEFAULT : "simple")
 > "simple" : 빈 값에 대해 범주형 변수는 최빈값으로, 연속형 변수는 평균으로 처리합니다.
   "iterative" : 빈 값에 대해 나머지 속성을 통해 예측하는 알고리즘을 적용하여 처리합니다.
-- "features_to_drop" : 데이터 테이블에서 학습에 이용하지 못하는 칼럼을 설정합니다.
-- "datetime_attribs" : 데이터 테이블에서 날짜에 해당하는 칼럼을 설정합니다. 
+- "features_to_drop" : 데이터 테이블에서 학습에 이용하지 못하는 컬럼을 설정합니다.
+- "datetime_attribs" : 데이터 테이블에서 날짜에 해당하는 컬럼을 설정합니다. 
 - "outlier_method" : 데이터 테이블에서 이상치 처리하는 방법을 설정합니다. (DEFAULT : "iso")
 > "pca" : 주어진 데이터 테이블에 대해서 Principal Component Analysis(PCA, 주성분 분석)를 이용하여 차원을 축소하고 복원을 하는 과정을 통해 비정상 샘플을 검출합니다.   
   "iso" : 주어진 데이터 테이블에 대해서 Isolation Forest를 사용하여 트리 기반으로 랜덤하게 데이터 테이블을 분기하며 모든 관측치를 고립시키며 비정상 샘플을 검출합니다. (변수가 많은 데이터 세트에서도 효율적으로 작동합니다)  
   "knn" : K-NN 기반 접근법으로 각 데이터 사이의 거리를 기반으로 비정상 샘플을 검출합니다.
-- "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다.(값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300))
+- "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다. 값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300)
 
 
  __FIT MODEL 쿼리 구문 예시__
@@ -367,7 +368,7 @@ FROM titanic_train
 
 ### __TRANSFORM USING 쿼리 구문__
 
-이 "__TRANSFORM MODEL__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델 생성시 사용한 동일한 전처리 방법을 적용할 수 있습니다."__TRANSFORM MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__TRANSFORM MODEL__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델 생성시 사용한 동일한 전처리 방법을 적용할 수 있습니다. "__TRANSFORM MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -391,7 +392,7 @@ FROM titanic_test
 
 ### __PREDICT USING 쿼리 구문__
 
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다. "__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -403,7 +404,8 @@ AS
 ``` 
 
  __PREDICT USING 쿼리 구문 예시__
-[Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+
+[Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -441,7 +443,8 @@ OPTIONS(
 - "target" : 데이터 테이블에서 분류 예측 모델에 목표값이 되는 컬럼을 설정합니다.
 
  __EVALUATE USING 쿼리 구문 예시__
-[Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+
+[Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -497,7 +500,7 @@ OPTIONS(
 
  __BUILD MODEL 쿼리 구문 예시__
 
-[고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -585,7 +588,7 @@ OPTIONS(
 
  __PREDICT USING 쿼리 구문 예시__
 
-[고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -674,7 +677,7 @@ OPTIONS(
 
  __BUILD MODEL 쿼리 구문 예시__
 
-[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -745,7 +748,7 @@ OPTIONS(
 
 ### __PREDICT USING 쿼리 구문__
 
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다. "__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -760,7 +763,8 @@ AS
 ```
 
  __PREDICT USING 쿼리 구문 예시__
-[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+
+[텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -772,8 +776,6 @@ AS
 SELECT *
 FROM imdb_test
 ```
-
-
 
 ### __EVALUATE USING 쿼리 구문__
 
@@ -807,7 +809,6 @@ OPTIONS(
 - "label_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "label")
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 
-<br>
 
 ## __5. Wav2Vec2 모델__
 
@@ -852,7 +853,7 @@ OPTIONS(
 
  __BUILD MODEL 쿼리 구문 예시__
 
-[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -910,7 +911,7 @@ OPTIONS(
 
 ### __PREDICT USING 쿼리 구문__
 
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다. "__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -939,7 +940,8 @@ OPTIONS(
 
 
  __PREDICT USING 쿼리 구문 예시__
-[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+
+[텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -1018,10 +1020,10 @@ OPTIONS(
 
 "__OPTIONS__" 절은 Light_FM 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
 
-- "user_col" : 데이터 테이블에서 유저 ID 정보가 담겨있는 칼럼명을 설정합니다. (DEFAULT: "userid")
-- "item_col" : 데이터 테이블에서 아이템 ID 정보가 담겨있는 칼럼명을 설정합니다. (DEFAULT: "itemid")
-- "rating_col" : 데이터 테이블에서 평점 정보가 담겨있는 칼럼명을 설정합니다. (DEFAULT: "rating")
-- "description" : 데이터 테이블에서 아이템 이름이 담겨있는 칼럼명을 설정합니다.(DEFAULT: None) 
+- "user_col" : 데이터 테이블에서 사용자 ID 정보가 담겨있는 컬럼명을 설정합니다. (DEFAULT: "userid")
+- "item_col" : 데이터 테이블에서 아이템 ID 정보가 담겨있는 컬럼명을 설정합니다. (DEFAULT: "itemid")
+- "rating_col" : 데이터 테이블에서 평점 정보가 담겨있는 컬럼명을 설정합니다. (DEFAULT: "rating")
+- "description" : 데이터 테이블에서 아이템 이름이 담겨있는 컬럼명을 설정합니다.(DEFAULT: None) 
 - "norm" : 평점에 정규화가 필요하다면 True, 필요없다면 False로 설정합니다. (DEFAULT : False)
 - "threshhold" : 평점이 정규화가 되었다면 임의의 임계값(0-1)을 설정합니다. 설정된 임계값 이상은 긍정으로 판단 (DEFAULT: None)
 - "epoch" : 모델 학습 횟수를 설정합니다. (DEFAULT: 30)
@@ -1030,7 +1032,7 @@ OPTIONS(
 
 __BUILD MODEL 쿼리 구문 예시__
 
-[Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[영화 평점 데이터를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -1049,7 +1051,7 @@ FROM movielens_train
 
 ### __PREDICT USING 쿼리 구문__
 
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다. "__PREDICT USING__" 표현식은"__AS__"뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 
 ``` sql
@@ -1077,19 +1079,20 @@ OPTIONS(
 "__OPTIONS__" 절은 Light_FM  매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
 
 - "predict_type" : 평점 예측 종류를 설정합니다. 
-> 'user': 특정 유저ID가 좋아할 아이템 목록을 예상하여 출력 합니다.  
-> 'item': 아이템 ID를 기준으로 선택한 아이템을 좋아할만한 유저 목록을 예상하여 출력합니다.  
+> 'user': 특정 사용자 ID가 좋아할 아이템 목록을 예상하여 출력 합니다.  
+> 'item': 아이템 ID를 기준으로 선택한 아이템을 좋아할만한 사용자 목록을 예상하여 출력합니다.  
 > 'simitem': 특정 아이템 ID를 기준으로 유사한 아이템 목록을 예상하여 출력합니다.    
 - "user_id | item_id" : "predict_type"에 따라 달라지는 변수입니다.  
-> "user_id": "predict_type" 이 'user'일때 추천 대상 유저 ID를 설정합니다.  
-> "item_id":"predict_type" 이 'item' 또는 'simitem' 일때 좋아할 유저추천 또는 유사한 아이템 추천을 하고자하는 아이템 ID를 설정합니다.  
+> "user_id": "predict_type" 이 'user'일때 추천 대상 사용자 ID를 설정합니다.  
+> "item_id":"predict_type" 이 'item' 또는 'simitem' 일때 좋아할 사용자 추천 또는 유사한 아이템 추천을 하고자하는 아이템 ID를 설정합니다.  
 - "nrec" : 추천받을 아이템 갯수를 설정합니다. (DEFAULT : 10)  
-- "show" : "predict_type" 이 'user' 일때 기존에 유저가 소비한 아이템 목록을 함께 출력 되도록 설정합니다. (DEFAULT : False)   
+- "show" : "predict_type" 이 'user' 일때 기존에 사용자가 소비한 아이템 목록을 함께 출력 되도록 설정합니다. (DEFAULT : False)   
 
 
 
 __PREDICT USING 쿼리 구문 예시__
-[Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+
+[영화 평점 데이터를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -1104,11 +1107,11 @@ SELECT *
 FROM movielens_train
 ```
 
-## __7. SimCLR 임베딩 추출 모델__
+## __7. SimCLR 모델__
 ### __BUILD MODEL 쿼리 구문__ 
 ​
 이 "__BUILD MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 개발할 수 있습니다. 
-"__BUILD MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
+"__BUILD MODEL__" 표현식은"__AS__"뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
 ​
 ``` sql
 
@@ -1130,14 +1133,15 @@ OPTIONS(
 )
 ```
 ​
-"__OPTIONS__" 절은 SimCLR 임베딩 모델의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
-​
-- "max_epochs" : 모델학습 횟수를 설정합니다. (DEFAULT: 5)
+"__OPTIONS__" 절은 SimCLR 수치화 모델의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.  
+
+
+- "max_epochs" : 모델학습 횟수를 설정합니다. (DEFAULT: 5)  
 - "batch_size" : 학습 때 사용되어지는 데이터 묶음 속의 데이터 수를 설정합니다. (DEFAULT: 256)
 ​
 
 __BUILD MODEL 쿼리 구문 예시__  
-[이미지로 유사한 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 ​
 ```sql
 %%thanosql
@@ -1151,8 +1155,8 @@ FROM mnist_dataset
 ​
 ### __CREATE TABLE 쿼리 구문__
 
-이 "__CREATE TABLE__" 쿼리 구문을 사용하여 이미지별 폴더경로 정보가 포함되어 있는 테이블 없이도 이미지 폴더 경로를 사용하여 임베딩 변환이 가능합니다. 
-"__CREATE TABLE__" 표현식은 FROM 뒤에 나오는 이미지 폴더 경로의 이미지 파일들을 임베딩하여 테이블로 저장합니다. 
+이 "__CREATE TABLE__" 쿼리 구문을 사용하여 이미지별 폴더경로 정보가 포함되어 있는 테이블 없이도 이미지 폴더 경로를 사용하여 수치화 변환이 가능합니다. 
+"__CREATE TABLE__" 표현식은 "__FROM__" 뒤에 나오는 이미지 폴더 경로의 이미지 파일들을 수치화하여 테이블로 저장합니다. 
 ​
 ``` sql
 ​
@@ -1175,15 +1179,18 @@ OPTIONS(
     )
 ```
 ​
-"__OPTIONS__" 는 이미지 수치화를 위한 이미지 파일의 속성값들을 정의합니다. 각 매개변수의 의미는 아래와 같습니다. 
-​
+"__OPTIONS__" 는 이미지 수치화를 위한 이미지 파일의 속성값들을 정의합니다. 각 매개변수의 의미는 아래와 같습니다.  
+
 - "path_type" : 데이터가 저장되어 있는 파일 경로의 타입을 설정합니다.(folder|file)
+
 - "data_type" : 입력하는 비정형 데이터의  종류를 설정합니다. (image|audio|video)
+
 - "file_type" : 대상 파일의 확장자를 리스트로 정의하여 줍니다. (ex. ['.jpg'], ['.png'])
 ​
+
 __CREATE TABLE 쿼리 구문 예시__
 ​
-[이미지로 유사한 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 ​
 ```sql
 %%thanosql
@@ -1197,13 +1204,13 @@ OPTIONS(
 FROM '/data/development-model/data/mnist/MNIST_DATASET/train_data/'
 ```
 ### __CONVERT USING 쿼리 구문__
-이 "__CONVERT USING__" 쿼리 구문을 사용하여 기존 이미지들의 경로가 포함되어 있는 데이터 세트를 사용하여 임베딩 된 결과를 기존의 데이터셋에 새로운 칼럼으로 저장합니다. 새로운 임베딩 모델을 사용할때마다 새로운 임베딩 칼럼이 추가되어 임베딩 결과 별 비교가 용이합니다.  
+이 "__CONVERT USING__" 쿼리 구문을 사용하여 기존 이미지들의 경로가 포함되어 있는 데이터 세트를 사용하여 수치화 된 결과를 기존의 데이터셋에 새로운 컬럼으로 저장합니다. 새로운 수치화 모델을 사용할때마다 새로운 수치화 컬럼이 추가되어 수치화 결과 별 비교가 용이합니다.  
 ​
 ```sql
 CONVERT USING [expression]
 OPTIONS(
-        expression [ , ...] 
-        )
+    expression [ , ...] 
+    )
 AS 
 (query_expr)
 ``` 
@@ -1214,13 +1221,13 @@ OPTIONS(
     (table_name = VALUE)  
     )
 ```
-"__OPTIONS__" 절은 SimCLR 임베딩 모델의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
+"__OPTIONS__" 절은 SimCLR 수치화 모델의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
 ​
-- "table_name" : 새로운 임베딩 결과를 저장할 테이블 이름을 설정합니다. (DEFAULT: 5)
+- "table_name" : 새로운 수치화 결과를 저장할 테이블 이름을 설정합니다. (DEFAULT: 5)
 ​
 __CONVERT USING 쿼리 구문 예시__
 ​
-[이미지로 유사한 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 ​
 ```sql
 %%thanosql
@@ -1235,7 +1242,7 @@ FROM mnist_dataset
 
 ### __SEARCH IMAGE 쿼리 구문__
 
-"__SEARCH IMAGE__" 쿼리 구문을 사용하여 임베딩을 생성한 테이블에서, 원하는 이미지를 검색할 수 있습니다.
+"__SEARCH IMAGE__" 쿼리 구문을 사용하여 수치화을 생성한 테이블에서 원하는 이미지를 검색할 수 있습니다.
 
 ``` sql
 SEARCH IMAGE [images = expression]
@@ -1248,7 +1255,7 @@ AS
 
 __SEARCH IMAGE 구문 예시__
 
-[이미지로 유사한 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -1263,7 +1270,7 @@ FROM mnist_embds
 
 ### __CREATE TABLE 쿼리 구문__
 
-"__CREATE TABLE__" 구문을 사용하여 이미지 데이터의 임베딩 벡터를 포함한 데이터 테이블을 생성할 수 있습니다.
+"__CREATE TABLE__" 구문을 사용하여 이미지 데이터의 수치화 벡터를 포함한 데이터 테이블을 생성할 수 있습니다.
 
 ```sql
 CREATE TABLE [expression]
@@ -1288,7 +1295,7 @@ OPTIONS(
 
 "__OPTIONS__" 절은 CLIP의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "path_type" : 데이터 테이블에서 오디오 파일들의 경로를 담은 열을 설정합니다. (DEFAULT: "audio")
+- "path_type" : 데이터 테이블에서 오디오 파일들의 경로를 담은 컬럼을 설정합니다. (DEFAULT: "audio")
 - "data_type" : 데이터의 형식입니다.
 - "file_type" : 이미지의 확장자 형식입니다.
 - "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
@@ -1310,7 +1317,7 @@ FROM '/data/tutorial/unsplash_data'
 
 ### __CONVERT USING 쿼리 구문__
 
-"__CONVERT USING__" 쿼리 구문은 기존에 존재하던 테이블에서 이미지 데이터를 임베딩 벡터로 변환하고 이를 사용할 데이터 테이블에 추가합니다.
+"__CONVERT USING__" 쿼리 구문은 기존에 존재하던 테이블에서 이미지 데이터를 수치화한 벡터로 변환하고 이를 사용할 데이터 테이블에 추가합니다.
 
 ```sql
 CONVERT USING clip_en
@@ -1336,14 +1343,13 @@ OPTIONS(
 "__OPTIONS__" 절은 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
 - "table_name" : 새로 만들어질 테이블의 이름입니다.
-- "image_col" : 테이블에서 이미지의 경로를 담고 있는 열의 이름입니다. (DEFAULT : 'image')
+- "image_col" : 테이블에서 이미지의 경로를 담고 있는 컬럼의 이름입니다. (DEFAULT : 'image')
 - "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 
 
 __CONVERT TABLE 구문 예시__
 
-
-[CLIP을 통한 의미 검색](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 이미지 검색하기](/tutorials/thanosql_search/clip_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 
 ```sql
@@ -1361,7 +1367,7 @@ FROM unsplash_data
 
 ### __SEARCH IMAGE 쿼리 구문__
 
-"__SEARCH IMAGE__" 쿼리 구문을 사용하여 임베딩을 생성한 테이블에서, 원하는 이미지를 검색할 수 있습니다.
+"__SEARCH IMAGE__" 쿼리 구문을 사용하여 수치화을 생성한 테이블에서 원하는 이미지를 검색할 수 있습니다.
 
 ``` sql
 SEARCH IMAGE [{text|texts|image|images} = expression]
@@ -1375,7 +1381,7 @@ AS
 
 __SEARCH IMAGE 구문 예시__
 
-[CLIP을 통한 의미 검색](/tutorials/thanosql_ml/classification/classification_Electra/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 이미지 검색하기](/tutorials/thanosql_ml/classification/classification_Electra/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
