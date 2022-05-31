@@ -1138,7 +1138,7 @@ __OPTIONS 절__
 ```sql
 OPTIONS(
     (image_col = VALUE),
-    [file_name = VALUE],
+    (file_name = VALUE),
     [label = VALUE],
     [max_epochs = VALUE],    
     [batch_size = VALUE]    

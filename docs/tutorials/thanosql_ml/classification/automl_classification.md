@@ -25,8 +25,6 @@ __아래는 ThanoSQL 분류 모델의 활용 및 예시입니다.__
 
 - 온라인 플랫폼 내에서 사용자의 [세그먼트](https://ko.wikipedia.org/wiki/%EC%8B%9C%EC%9E%A5%EC%84%B8%EB%B6%84%ED%99%94)를 예측할 수 있습니다. 대부분의 서비스 사용자들은 서로 다른 특성을 가지고 다양한 행동방식(User Behaviour)과 니즈(Needs)를 가지고 있습니다. 분류 예측 모델은 서비스 사용자의 특성을 이용하여 세분화된 집단을 식별하고 그들에게 맞춤화된 전략 수립을 가능하게 합니다.  
 
-
-
 !!! note "본 튜토리얼에서는"
     :point_right: 대표적인 머신러닝 경진대회 플랫폼인 [캐글](https://www.kaggle.com/)의 입문자를 위한 <mark style="background-color:#FFD79C"> __Titanic: Machine Learning from Disaster__</mark> 데이터 세트를 사용하여 생존자 예측 분류 모델을 만듭니다. 이 대회의 목표는 아래와 같습니다. 
     (참고로, 해당 대회의 데이터는 1912년 4월 15일 실제 타이타닉 사건 때, 탑승했었던 승객들 명단입니다.)
@@ -42,6 +40,27 @@ ThanoSQL에서는 자동화된 머신러닝(__Auto-ML__) 도구를 제공합니�
 3. 의사결정을 위해 보유하고 있는 데이터를 이용한 신속한 문제해결이 가능  
 
 이제부터 ThanoSQL을 사용하여 간단하게 타이타닉에서 살아남을 수 있는 승객을 예측하는 분류 모델을 만들어 봅니다.
+
+## __0. 데이터 세트 준비__
+
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
+
+```sql
+%load_ext thanosql
+%thanosql API_TOKEN={발급 받은 개인 토큰}
+```
+```sql
+%%thanosql
+COPY titanic_train FROM "tutorial_data/titanic_data/titanic_train.csv"
+```
+```sql
+%%thanosql
+COPY titanic_test FROM "tutorial_data/titanic_data/titanic_test.csv"
+```
+
+!!! note "" 
+    COPY expression FROM [테이블 위치]
+    - 위의 커리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
 
 
 ## __1. 데이터 세트 확인__
