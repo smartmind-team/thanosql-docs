@@ -5,7 +5,7 @@
 ## 시작 전 사전정보
 
 - 튜토리얼 난이도 : ★☆☆☆☆
-- 읽는 시간 : 7분
+- 읽는 시간 : 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 참고문서 : [MNIST 데이터 세트](http://yann.lecun.com/exdb/mnist/), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
 - 마지막 수정날짜 : 2022-06-01
@@ -77,10 +77,10 @@ FROM mnist_dataset
 ```
 
 !!! note "쿼리 세부정보" 
-    "__BUILD MODEL__" 쿼리 구문을 사용하여 `mnist_model` 이라는 모델을 만들고 학습시킵니다. <br> "__OPTIONS__"는 모델 생성 및 학습에 필요한 변수값들을 정의합니다. 이미지 수치화를 위해서 `SimCLR`이라는 베이스 모델을 사용합니다. <br> 이미지 수치화 모델을 생성하기 위해서 학습횟수(`max_epochs`), 이미지 칼럼 이름(`image_col`), 파일 이름(`fname`), 그리고 목표값(`target`)이 되는 컬럼의 이름을 적어줍니다.   
+    "__BUILD MODEL__" 쿼리 구문을 사용하여 `mnist_model` 이라는 모델을 만들고 학습시킵니다. <br> "__OPTIONS__"는 모델 생성 및 학습에 필요한 변수값들을 정의합니다. 이미지 수치화를 위해서 `SimCLR`이라는 베이스 모델을 사용합니다. <br> 이미지 수치화 모델을 생성할때 선택적으로 학습횟수(`max_epochs`), 배치사이즈(`batch_size`)를 조정 할 수 있습니다.   
 
 
-아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `mnist_model`을 "__CONVERT__" 쿼리 구문을 사용하여 `mnist_dataset` 이미지들을 임베딩합니다. 
+아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `mnist_model`을 "__CONVERT__" 쿼리 구문을 사용하여 `mnist_dataset` 이미지들을 임베딩합니다.  
 
 ```sql
 %%thanosql
@@ -98,7 +98,7 @@ FROM mnist_dataset
 ![4](/img/thanosql_search/simclr_search/simclr_img3.png) <br>
 
 !!! note "쿼리 세부정보" 
-    "__CONVERT USING__" 쿼리 구문은 `mnist_model`을 이미지 수치화를 위한 알고리즘으로 사용합니다. <br> "__OPTIONS__" 쿼리 구문은 이미지 수치화 시 필요한 변수들을 정의합니다. ThanoSQL DB 내에 저장될 테이블 이름("table_name")을 정의합니다. `mnist_dataset` 테이블에 `mnist_model_SimCLR`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
+    "__CONVERT USING__" 쿼리 구문은 `mnist_model`을 이미지 수치화를 위한 알고리즘으로 사용합니다. <br> "__OPTIONS__" 쿼리 구문은 이미지 수치화 시 필요한 변수들을 정의합니다. ThanoSQL DB 내에 저장될 테이블 이름("table_name")을 정의합니다. `mnist_dataset` 테이블에 `mnist_model_SimCLR`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다. "__CONVERT USING__" 쿼리 구문을 사용하여 모델별 다양한 임베딩 결괏값을 하나의 테이블에 저장하여 결과 비교가 가능합니다.
 
 ## __3. (이미지 폴더로부터) 이미지 수치화 결과 저장__
 
