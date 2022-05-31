@@ -180,7 +180,7 @@ LIMIT 5
 
 ```sql
 %%thanosql
-SEARCH IMAGE images='/data/development-model/data/mnist/MNIST_DATASET/test/35322.jpg' 
+SEARCH IMAGE images='tutorial_data/mnist_data/train/1.jpg' 
 USING my_image_search_model 
 AS 
 SELECT * 
@@ -203,15 +203,15 @@ FROM mnist_embds
 PRINT IMAGE 
 AS (
     SELECT image 
-    AS image, my_mnist_model_sinclr_similarity1 
+    AS image, my_image_search_model_sinclr_similarity1 
     FROM (
-        SEARCH IMAGE images='/data/development-model/data/mnist/MNIST_DATASET/train_data/35322.jpg' 
+        SEARCH IMAGE images='tutorial_data/mnist_data/train/1.jpg' 
         USING my_image_search_model 
         AS 
         SELECT * 
         FROM mnist_embds
         )
-    ORDER BY my_mnist_model_sinclr_similarity1 DESC 
+    ORDER BY my_image_search_model_sinclr_similarity1 DESC 
     LIMIT 4
     )
 ```
