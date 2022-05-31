@@ -1,4 +1,4 @@
-# __웹 서비스 사용법__ 
+# __ThanoSQL 웹 서비스 사용법__ 
 
 **[이전 문서 - What is ThanoSQL?](/)** <br>**[다음 문서 - 안내 가이드](/quick_start/algorithm_list/)**
 

@@ -1,7 +1,7 @@
 
-# __Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기__
+# __영화 평점 데이터를 사용하여 영화 추천 모델 만들기__
 
-**[이전 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)** <br>
+**[이전 문서 - Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)** <br>
 **[다음 문서 - 오디오 파일을 받아쓰는 음성 인식 모델 만들기](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/)**
 
 ## 시작 전 사전정보

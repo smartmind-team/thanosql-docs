@@ -1,7 +1,7 @@
-# __텍스트로 원하는 이미지 검색하기__
+# __텍스트로 이미지 검색하기__
 
 
-**[이전 문서 - 자기주도학습 임베딩 추출모델을 사용하여 MNIST 손글씨 이미지 분류하기](/tutorials/thanosql_search/image_search/simclr_image_search/)** <br> **[다음 문서 - Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)**
+**[이전 문서 - 이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)** <br> **[다음 문서 - Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)**
 
 ## 시작 전 사전 정보
 
