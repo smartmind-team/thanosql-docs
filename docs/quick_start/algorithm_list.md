@@ -2,6 +2,11 @@
 
 **[이전 문서 - ThanoSQL 웹 서비스 사용법](/quick_start/how_to_use_ThanoSQL/)** <br>**[다음 문서 - 키워드로 이미지 검색하기](/tutorials/thanosql_search/image_search/select_image_query/)**
 
+## 시작 전 사전 정보
+
+- 읽는데 걸리는 시간 : 3분
+- 마지막 수정날짜 : 2022-06-01
+
 ## 시작하기 전에
 
 ThanoSQL은 PostgreSQL을 기반으로 만들어졌으며, SQL 쿼리를 사용하여 머신러닝과 딥러닝 모델을 만들고 실행할 수 있다는 특징을 가지고 있습니다. 이를 통해 람다 아키텍쳐 기반의 비정형 빅데이터 플랫폼을 ThanoSQL 하나로 대체하여 개발, 배포 그리고 운영을 가능하게 하는 것을 주요 목표로 하고 있습니다.

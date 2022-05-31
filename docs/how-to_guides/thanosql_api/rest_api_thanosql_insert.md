@@ -3,6 +3,10 @@
 **[이전 문서 - ThanoSQL 구문 활용하기](/how-to_guides/thanosql_api/rest_api_thanosql_query/)**  
 **[다음 문서 - ThanoSQL 서치 사용하기](/how-to_guides/thanosql_api/rest_api_thanosql_search/)**
 
+## 시작 전 사전 정보
+
+- 마지막 수정날짜 : 2022-06-01
+
 REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 이미지를 보내고 원하는 DB 테이블에 이미지를 넣을수 있습니다. 
 
 === "Python"
