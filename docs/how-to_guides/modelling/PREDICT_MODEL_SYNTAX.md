@@ -3,6 +3,9 @@
 **[이전 문서 - 모델 적용을 위해 데이터 전처리하기](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/)**  
 **[다음 문서 - 모델 삭제하기](/how-to_guides/modelling/DELETE_MODEL_SYNTAX/)**
 
+## 시작 전 사전 정보
+
+- 마지막 수정날짜 : 2022-06-01
 
 ## __1. PREDICT USING 구문 개요__
 

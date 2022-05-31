@@ -134,7 +134,7 @@ FROM imdb_test
 
 다음 단계인 [중급 텍스트 분류 모델 만들기] 튜토리얼에서는 텍스트 분류 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 텍스트 분류 모델 구축 방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요.
 
-* [나만의 데이터 업로드하기]((/how-to_guides/ThanoSQL_connecting/data_upload/)
+* [나만의 데이터 업로드하기](/how-to_guides/ThanoSQL_connecting/data_upload/)
 * [중급 텍스트 분류 모델 만들기]
 * [텍스트 변환과 Auto-ML을 이용한 나만의 모델 만들기]
 * [나만의 텍스트 분류 모델 배포하기](/how-to_guides/thanosql_api/rest_api_thanosql_query/)

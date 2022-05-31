@@ -3,6 +3,10 @@
 **[이전 문서 - ThanoSQL 서치 사용하기](/how-to_guides/thanosql_api/rest_api_thanosql_search/)**  
 **[다음 문서 - 모델 평가하기](/how-to_guides/modelling/EVALUATE_MODEL_SYNTAX/)**
 
+## 시작 전 사전 정보
+
+- 마지막 수정날짜 : 2022-06-01
+
 ## __1. BUILD MODEL 구문 개요__
 
 사용자는 데이터 과학(Data Science)에 대한 전문 지식이 없어도 간단하게 "__BUILD MODEL__" 구문을 사용하여 원하는 인공지능 모델을 개발할 수 있습니다.

@@ -1,8 +1,14 @@
 # __ThanoSQL 알고리즘 쿼리 구문__
 
+**[이전 문서 - 결과 출력하기](/how-to_guides/modelling/PRINT_SYNTAX/)**  
+
+## 시작 전 사전 정보
+
+- 마지막 수정날짜 : 2022-06-01
+
+
 쿼리 구문은 표현식을 한 개 이상 검색하고 계산된 결과 테이블을 반환합니다. 이 페이지에서는 ThanoSQL에서 사용하는 알고리즘 쿼리에 관한 구문을 설명합니다.
 
-**[이전 문서 - 결과 출력하기](/how-to_guides/modelling/PRINT_SYNTAX/)**  
 
 __표기법 규칙__ 
 
@@ -16,7 +22,7 @@ __표기법 규칙__
 
 !!! note "" 
     __리터럴__ : 고정되거나 변경할 수 없는 값을 의미하며 상수(Constant)라고도 불립니다. 
-    > 각 리터럴은 테이블에서 컬럼과 같은 특별한 자료형을 가지고 있다.
+    > 각 리터럴은 테이블에서 컬럼과 같은 특별한 자료형을 가지고 있습니다.
 
 ## __1. AutomlClassifier 알고리즘__
 
@@ -162,6 +168,7 @@ AS
 ``` 
 
  __TRANSFORM USING 쿼리 구문 예시__
+
 [모델 적용을 위해 데이터 전처리하기](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
@@ -225,6 +232,7 @@ OPTIONS(
 - "target" : 데이터 테이블에서 분류 예측 모델에 목표값이 되는 컬럼을 설정합니다.
 
  __EVALUATE USING 쿼리 구문 예시__
+
 [Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
@@ -380,6 +388,7 @@ AS
 ``` 
 
  __TRANSFORM USING 쿼리 구문 예시__
+
 [모델 적용을 위해 데이터 전처리하기](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
@@ -987,7 +996,7 @@ OPTIONS(
 - "text_col" : 데이터 테이블에서 오디오의 스크립트를 담은 컬럼을 설정합니다. (DEFAULT : "text")
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 
-## __6. LFM 추천 모델__
+## __6. LFM 모델__
 
 ### __BUILD MODEL 쿼리 구문__ 
 
@@ -1141,6 +1150,7 @@ OPTIONS(
 ​
 
 __BUILD MODEL 쿼리 구문 예시__  
+
 [이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 ​
 ```sql
@@ -1204,6 +1214,7 @@ OPTIONS(
 FROM '/data/development-model/data/mnist/MNIST_DATASET/train_data/'
 ```
 ### __CONVERT USING 쿼리 구문__
+
 이 "__CONVERT USING__" 쿼리 구문을 사용하여 기존 이미지들의 경로가 포함되어 있는 데이터 세트를 사용하여 수치화 된 결과를 기존의 데이터셋에 새로운 컬럼으로 저장합니다. 새로운 수치화 모델을 사용할때마다 새로운 수치화 컬럼이 추가되어 수치화 결과 별 비교가 용이합니다.  
 ​
 ```sql
@@ -1223,10 +1234,11 @@ OPTIONS(
 ```
 "__OPTIONS__" 절은 SimCLR 수치화 모델의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
 ​
+
 - "table_name" : 새로운 수치화 결과를 저장할 테이블 이름을 설정합니다. (DEFAULT: 5)
-​
+
 __CONVERT USING 쿼리 구문 예시__
-​
+
 [이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 ​
 ```sql

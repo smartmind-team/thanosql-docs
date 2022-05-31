@@ -3,6 +3,10 @@
 **[이전 문서 - 비정형 데이터 변환하기](/how-to_guides/modelling/CREATE_TABLE_SYNTAX/)**  
 **[다음 문서 - 비정형 데이터 검색하기](/how-to_guides/modelling/SEARCH_SYNTAX/)**
 
+## 시작 전 사전 정보
+
+- 마지막 수정날짜 : 2022-06-01
+
 ## __1. CONVERT USING 쿼리 구문 개요__
 
 사용자는 "__CONVERT USING__"  구문은 이미지, 비디오, 음성 등 비정형 데이터의 정보를 이용해서 수치화 알고리즘을 사용하여 벡터 형식으로 변환하고 이 값을 사용할 데이터 세트에 추가합니다.

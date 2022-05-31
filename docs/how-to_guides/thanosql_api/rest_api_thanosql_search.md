@@ -3,6 +3,10 @@
 **[이전 문서 - ThanoSQL DB 업로드하기](/how-to_guides/thanosql_api/rest_api_thanosql_insert/)**  
 **[다음 문서 - 모델 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)**
 
+## 시작 전 사전 정보
+
+- 마지막 수정날짜 : 2022-06-01
+
 REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으로 ThanoSQL DB 상의 유사한 이미지를 조회하고 받을 수 있습니다. 
 
 ## __이미지로 이미지 검색하기__

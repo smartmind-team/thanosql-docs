@@ -3,6 +3,10 @@
 **[이전 문서 - 비정형 데이터 검색하기](/how-to_guides/modelling/SEARCH_SYNTAX/)**  
 **[다음 문서 - ThanoSQL 알고리즘 쿼리 구문](/how-to_guides/modelling/OPTIONS/)**
 
+## 시작 전 사전 정보
+
+- 마지막 수정날짜 : 2022-06-01
+
 ## __1. PRINT 구문 개요__
 
 사용자는 "__PRINT__" 구문을 사용하여 이미지, 오디오 그리고 비디오 파일을 출력할 수 있습니다. 또한, 서브 쿼리를 사용하여 "__SEARCH__" 구문을 통해 나온 결과를 바로 출력 할 수 있습니다. 
@@ -30,7 +34,7 @@ AS
 
 ### __3.1 이미지 출력__ 
 
-PRINT 쿼리문을 사용하여 데이터 테이블에 있는 이미지 파일들을 출력합니다.
+"__PRINT__" 쿼리문을 사용하여 데이터 테이블에 있는 이미지 파일들을 출력합니다.
 ```sql
 %%thanosql
 PRINT IMAGE 
@@ -48,7 +52,7 @@ FROM junyong_img
 
 ### __3.2 오디오 출력__
 
-PRINT 쿼리문을 사용하여 데이터 테이블에 있는 오디오 파일들을 출력합니다.
+"__PRINT__" 쿼리문을 사용하여 데이터 테이블에 있는 오디오 파일들을 출력합니다.
 
 ```sql
 %%thanosql
@@ -69,7 +73,7 @@ FROM junyong_aud
 
 ### __3.3 비디오 출력__
 
-PRINT 쿼리문을 사용하여 데이터 테이블에 있는 비디오 파일들을 출력합니다.
+"__PRINT__" 쿼리문을 사용하여 데이터 테이블에 있는 비디오 파일들을 출력합니다.
 
 ```sql
 %%thanosql
@@ -87,7 +91,7 @@ FROM junyong_vid
 
 ### __3.4 서브 쿼리를 사용하여 출력하기__
 
-다음 쿼리는 이전 [SEARCH 쿼리](/how-to_guides/modelling/SEARCH_SYNTAX.md)에서 만들었던 "__SEARCH__" 쿼리문을 "__PRINT__" 구문의 서브 쿼리로 사용하여 SEARCH의 결과 테이블을 바로 출력합니다.
+다음 쿼리는 이전 [SEARCH 쿼리](/how-to_guides/modelling/SEARCH_SYNTAX.md)에서 만들었던 "__SEARCH__" 쿼리문을 "__PRINT__" 구문의 서브 쿼리로 사용하여 "__SEARCH__"의 결과 테이블을 바로 출력합니다.
 
 ```sql
 %%thanosql
