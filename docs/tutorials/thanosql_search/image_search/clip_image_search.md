@@ -1,10 +1,9 @@
-# __CLIP을 통한 의미 검색__
+# __텍스트로 원하는 이미지 검색하기__
 
-## (ThanoSQL 무작정 따라하기) 텍스트로 원하는 이미지 검색하기
 
 **[이전 문서 - 자기주도학습 임베딩 추출모델을 사용하여 MNIST 손글씨 이미지 분류하기](/tutorials/thanosql_search/image_search/simclr_image_search/)** <br> **[다음 문서 - Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)**
 
-### 시작 전 사전 정보
+## 시작 전 사전 정보
 
 - 튜토리얼 난이도: ★★☆☆☆
 - 읽는데 걸리는 시간(실행시간): 15분
@@ -44,7 +43,7 @@ __아래는 ThanoSQL 텍스트-이미지 검색 알고리즘의 활용 및 예�
 
 <br>
 
-```python
+```sql
 %%thanosql
 SELECT photo_id, filepath, photo_image_url, photo_description, ai_description
 FROM unsplash_data
@@ -60,7 +59,7 @@ LIMIT 5
     - `photo_description` 해당 이미지에 대해 사람이 작성한 짧은 설명을 나타내는 컬럼 명
     - `ai_description` AI가 생성해낸 해당 이미지에 대한 설명을 나타내는 컬럼 명
 
-```python
+```sql
 %%thanosql
 PRINT IMAGE 
 AS
@@ -77,7 +76,7 @@ LIMIT 5
 !!! danger "참고 사항"
     텍스트-이미지 검색 알고리즘은 학습에 오랜 시간이 걸리고 총 4억 개의 데이터 세트로 사전 학습된 모델을 사용하기 때문에 "__BUILD MODEL__" 쿼리 구문을 이용한 학습 과정을 본 튜토리얼에서는 생략합니다. `clip_en` 모델은 베이스 알고리즘으로 `CLIPEn`을 사용한 사전학습 된 모델을 가져와서 사용하게 됩니다. "__CONVERT USING__" 쿼리 구문을 실행하게 되면 "모델명(`clip_en`)_베이스 알고리즘명(`CLIPEn`)"으로 이미지가 수치화 된 컬럼이 자동으로 생성이 되며, "__SEARCH IMAGE__" 쿼리 구문을 실행하게 되면 "모델명(`clip_en`)_베이스 알고리즘 명(`CLIPEn`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 됩니다. 여기수 "수"는 검색에 사용한 텍스트의 갯수를 의미합니다. 2개 이상의 텍스트로 검색이 이루어 질 경우 순서에 따라 컬럼의 수가 순차적으로 증가되어 생성 됩니다. 자세한 사항은 아래 내용을 참고하세요.
 
-```python
+```sql
 %%thanosql
 CONVERT USING clip_en
 OPTIONS (
@@ -95,7 +94,7 @@ FROM unsplash_data
     "__CONVERT USING__" 쿼리 구문은 `clip_en` 모델을 이미지 수치화를 위한 알고리즘으로 사용합니다.
     "__OPTIONS__" 쿼리 구문은 이미지 수치화 시 필요한 변수들을 정의합니다. ThanoSQL DB 내에 저장될 테이블 이름("table_name")을 정의합니다. 이미지의 저장 경로를 저장한 컬럼 명을 "image_col"에서 정의합니다. 본 튜토리얼에서는 `filepath`를 사용합니다. "batch_size"는 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. 논문에 따르면 클 수록 학습 성능이 증가하지만 메모리의 크기를 고려하여 128을 사용합니다. 
 
-```python
+```sql
 %%thanosql
 SELECT *
 FROM unsplash_data
@@ -108,7 +107,7 @@ LIMIT 5
 
 "__SEARCH IMAGE__" 쿼리 구문과 생성한 이미지 수치화 모델(`clip_en`)을 이용하여 이미지를 검색할 수 있습니다. 우선 하나의 텍스트로 검색하고 결과를 확인합니다. "모델명(`clip_en`)_베이스 알고리즘 명(`CLIPEn`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 된 것을 확인할 수 있습니다.
 
-```python
+```sql
 %%thanosql
 SEARCH IMAGE text="a black cat"
 USING clip_en
@@ -126,7 +125,7 @@ FROM unsplash_data
 
 쿼리 구문의 결과로 `clip_en_CLIPEn_similarity1` 행이 생성된 것을 볼 수 있습니다. 검색 알고리즘으로 사용하기 위해서는 유사도 계산 결과를 이용해서 가장 유사한 이미지를 선별해서 확인해야 합니다. 아래 쿼리 구문을 수행하여 DB에서 해당 텍스트와 가장 유사한 이미지 5개를 확인합니다.
 
-```python
+```sql
 %%thanosql
 SELECT filepath 
 AS image, "clip_en_CLIPEn_similarity1" 
@@ -152,7 +151,7 @@ LIMIT 5
 
 이제 입력한 텍스트 'a black cat'과 가장 유사한 이미지가 순서대로 정렬되어 보여집니다. 이 쿼리 구문을 "__PRINT__"문과 같이 사용한다면, 결과 이미지를 바로 확인할 수 있습니다.
 
-```python
+```sql
 %%thanosql
 PRINT IMAGE 
 AS (
@@ -176,7 +175,7 @@ AS (
     - 첫 번째 괄호 안의 "__SELECT__" 쿼리 구문을 통해 바로 위 단계의 결과를 생성합니다.
     - "__PRINT IMAGE__" 쿼리 구문을 사용하여 해당 이미지를 출력합니다.
 
-```python
+```sql
 %%thanosql
 PRINT IMAGE 
 AS (
@@ -196,7 +195,7 @@ AS (
 
 ![a dog on a chair](/img/thanosql_search/clip_search/result_dog_on_chair.png)
 
-```python
+```sql
 %%thanosql
 PRINT IMAGE 
 AS (
@@ -216,7 +215,7 @@ AS (
 
 ![gloomy photos](/img/thanosql_search/clip_search/result_gloomy.png)
 
-```python
+```sql
 %%thanosql
 PRINT IMAGE 
 AS (
