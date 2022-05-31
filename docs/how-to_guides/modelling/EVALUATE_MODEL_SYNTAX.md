@@ -1,6 +1,6 @@
 # __모델 평가하기 (EVALUATE USING)__
 
-**[이전 문서 - 모든 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)**  
+**[이전 문서 - 모델 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)**  
 **[다음 문서 - 모델 재학습하기](/how-to_guides/modelling/FIT_MODEL_SYNTAX/)**
 
 ## __1. EVALUATE USING 구문 개요__
