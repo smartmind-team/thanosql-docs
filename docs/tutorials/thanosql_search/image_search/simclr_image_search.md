@@ -40,7 +40,7 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](
 
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급 받은 개인 토큰}
+%thanosql API_TOKEN={발급받은 개인 토큰}
 ```
 ```sql
 %%thanosql
@@ -129,7 +129,7 @@ FROM mnist_test
         - "table_name" : ThanoSQL DB 내에 저장될 테이블 이름을 정의합니다. 
 
 !!! note "" 
-    `mnist_test` 테이블에 `my_mnist_model_sinclr`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
+    `mnist_test` 테이블에 `my_image_search_model_sinclr`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
 
 ## __3. (이미지 폴더로부터) 이미지 수치화 결과 저장__
 
