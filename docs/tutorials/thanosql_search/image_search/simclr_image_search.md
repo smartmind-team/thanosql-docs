@@ -84,14 +84,15 @@ FROM mnist_dataset
 
 ```sql
 %%thanosql
-SELECT img_path, filename, label, mnist_model_SimCLR 
-FROM (
-    CONVERT USING mnist_model
-    OPTIONS(table_name= "mnist_dataset")
-    AS 
-    SELECT * 
-    FROM mnist_dataset
+
+CONVERT USING mnist_model
+OPTIONS(
+    table_name= "mnist_dataset"
     )
+AS 
+SELECT * 
+FROM mnist_dataset
+
 ```
 
 ![4](/img/thanosql_search/simclr_search/simclr_img3.png) <br>
