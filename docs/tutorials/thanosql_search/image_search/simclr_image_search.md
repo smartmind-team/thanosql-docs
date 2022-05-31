@@ -36,20 +36,20 @@ ThanoSQL을 사용하여 손글씨 데이터를 입력하고 DB 내에서 입력
 
 ## __1. 데이터 세트 확인__
 
-손글씨 분류 모델을 만들기 위해 ThanoSQL [DB](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 <mark style="background-color:#FFEC92">mnist_dataset</mark> 테이블을 사용합니다. <mark style="background-color:#FFEC92">mnist_dataset</mark> 테이블은 <mark style="background-color:#FFD79C">MNIST</mark> 이미지 파일들이 저장되어 있는 경로와 파일 이름 그리고 라벨 정보가 담겨 있는 테이블입니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
+손글씨 분류 모델을 만들기 위해 ThanoSQL [DB](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용합니다. <mark style="background-color:#FFEC92">mnist_train</mark> 테이블은 <mark style="background-color:#FFD79C">MNIST</mark> 이미지 파일들이 저장되어 있는 경로와 파일 이름 그리고 라벨 정보가 담겨 있는 테이블입니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 
 ```sql
 %%thanosql
 SELECT * 
-FROM mnist_dataset 
+FROM mnist_train 
 LIMIT 5
 ```
 ![1](/img/thanosql_search/simclr_search/simclr_img1.png) <br>
 
 
 !!! note "데이터 테이블 이해하기" 
-    <mark style="background-color:#FFEC92">mnist_dataset</mark> 테이블은 아래와 같은 정보를 담고 있습니다. "18759.jpg" 이미지 파일은 숫자 0을 쓴 손글씨 이미지이고 "18566.jpg" 파일은 숫자 2를 쓴 손글씨 이미지 파일입니다.
+    <mark style="background-color:#FFEC92">mnist_train</mark> 테이블은 아래와 같은 정보를 담고 있습니다. "18759.jpg" 이미지 파일은 숫자 0을 쓴 손글씨 이미지이고 "18566.jpg" 파일은 숫자 2를 쓴 손글씨 이미지 파일입니다.
 
     - <mark style="background-color:#D7D0FF">img_path</mark>: 이미지 경로
     - <mark style="background-color:#D7D0FF">filename</mark>: 파일 이름
@@ -57,11 +57,11 @@ LIMIT 5
 
 ## __2. 이미지 수치화 모델 생성__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92">mnist_dataset</mark> 테이블을 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD">mnist_model</mark>이라는 이름의 모델을 만듭니다.
+이전 단계에서 확인한 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD">my_mnist_model</mark>이라는 이름의 모델을 만듭니다.
 
 ```sql
 %%thanosql
-BUILD MODEL mnist_model
+BUILD MODEL my_mnist_model
 USING SimCLR
 OPTIONS (
     image_col="img_path",
@@ -71,7 +71,7 @@ OPTIONS (
     )
 AS 
 SELECT * 
-FROM mnist_dataset
+FROM mnist_train
 ```
 
 !!! note "쿼리 세부정보" 
@@ -83,30 +83,29 @@ FROM mnist_dataset
         -  "label" : 이미지 라벨을 담은 컬럼
         -  "max_epochs" : 이미지 수치화 모델을 생성하기 위한 데이터 세트 학습 횟수
 
-아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `mnist_model`을 "__CONVERT USING__" 쿼리 구문을 사용하여 `mnist_dataset` 이미지들을 임베딩합니다. 
+아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `my_mnist_model`을 "__CONVERT USING__" 쿼리 구문을 사용하여 `mnist_test` 이미지들을 임베딩합니다. 
 
 ```sql
 %%thanosql
-
-CONVERT USING mnist_model
+CONVERT USING my_mnist_model
 OPTIONS(
-    table_name= "mnist_dataset"
+    table_name= "mnist_test"
     )
 AS 
 SELECT * 
-FROM mnist_dataset
+FROM mnist_test
 
 ```
 
 ![4](/img/thanosql_search/simclr_search/simclr_img3.png) <br>
 
 !!! note "쿼리 세부정보" 
-    - "__CONVERT USING__" 쿼리 구문은 `mnist_model`을 이미지 수치화를 위한 알고리즘으로 사용합니다.   
+    - "__CONVERT USING__" 쿼리 구문은 `my_mnist_model`을 이미지 수치화를 위한 알고리즘으로 사용합니다.   
     - "__OPTIONS__" 쿼리 구문을 통해 이미지 수치화 시 필요한 변수들을 정의합니다. 
         - "table_name" : ThanoSQL DB 내에 저장될 테이블 이름을 정의합니다. 
 
 !!! note "" 
-    `mnist_dataset` 테이블에 `mnist_model_SimCLR`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
+    `mnist_test` 테이블에 `my_mnist_model_sinclr`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
 
 ## __3. (이미지 폴더로부터) 이미지 수치화 결과 저장__
 
@@ -115,13 +114,13 @@ FROM mnist_dataset
 ```sql
 %%thanosql
 CREATE TABLE mnist_embds
-USING mnist_model 
+USING my_mnist_model 
 OPTIONS(
     path_type='folder', 
     data_type='image',
     file_type=['.jpg']
     ) 
-FROM '/data/development-model/data/mnist/MNIST_DATASET/train_data/'
+FROM 'tutorial_data/mnist_data/test/'
 ```
 
 !!! note "쿼리 세부정보" 
@@ -148,7 +147,7 @@ LIMIT 5
 
 ## __4. 이미지 수치화 모델을 사용해서 유사 이미지 검색하기__
 
-이번 단계에서는 `mnist_model` 이미지 수치화 모델과 `mnist_embds` 수치화 테이블을 사용하여 "35322.jpg" 이미지 파일(손글씨 6)과 유사한 이미지를 검색합니다. <br>
+이번 단계에서는 `my_mnist_model` 이미지 수치화 모델과 `mnist_embds` 수치화 테이블을 사용하여 "35322.jpg" 이미지 파일(손글씨 6)과 유사한 이미지를 검색합니다. <br>
 
 ![image](/img/thanosql_search/simclr_search/simclr_img8.png) 
 
@@ -158,7 +157,7 @@ LIMIT 5
 ```sql
 %%thanosql
 SEARCH IMAGE images='/data/development-model/data/mnist/MNIST_DATASET/test/35322.jpg' 
-USING mnist_model 
+USING my_mnist_model 
 AS 
 SELECT * 
 FROM mnist_embds
@@ -180,15 +179,15 @@ FROM mnist_embds
 PRINT IMAGE 
 AS (
     SELECT image 
-    AS image, similarity_image1 
+    AS image, my_mnist_model_sinclr_similarity1 
     FROM (
         SEARCH IMAGE images='/data/development-model/data/mnist/MNIST_DATASET/train_data/35322.jpg' 
-        USING mnist_model 
+        USING my_mnist_model 
         AS 
         SELECT * 
         FROM mnist_embds
         )
-    ORDER BY similarity_image1 DESC 
+    ORDER BY my_mnist_model_sinclr_similarity1 DESC 
     LIMIT 4
     )
 ```
