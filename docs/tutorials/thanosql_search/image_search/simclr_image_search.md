@@ -5,7 +5,7 @@
 ## 시작 전 사전정보
 
 - 튜토리얼 난이도 : ★☆☆☆☆
-- 읽는 시간 : 7분
+- 읽는데 걸리는 시간 : 7분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 참고문서 : [MNIST 데이터 세트](http://yann.lecun.com/exdb/mnist/), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
 - 마지막 수정날짜 : 2022-06-01
@@ -22,6 +22,7 @@ ThanoSQL에서는 이미지를 입력하고 DB에서 유사한 이미지를 검�
 또한, ThanoSQL은 인공지능 알고리즘을 이용해서 데이터 세트를 수치화 합니다. 이렇게 수치화 된 데이터는 DB의 컬럼 내에 저장되고, 이미지 간 유사도(거리) 계산을 통해 비슷한 이미지를 검색하는데 사용됩니다.
 
 __아래는 ThanoSQL 유사 이미지 검색 알고리즘의 활용 및 예시 입니다.__   
+
 - 사용자가 좋아하는 이미지를 입력받으면 DB 상에 저장되어 있는 미술 작품 중에서 비슷한 느낌의 미술 작품들을 검색하고 사용자에게 추천합니다. <br>
 - 수천장의 사진이 담겨있는 앨범에서 유사 이미지를 찾아낼 수 있습니다.<br>
 - 이미지의 수치화 된 값을 ThanoSQL의 DB에 저장하고, ThanoSQL Auto-ML 회귀/분류 예측 모델을 이용해서 나만의 검색 엔진이나 인공지능 모델을 만들 수 있습니다. <br>
@@ -29,13 +30,14 @@ __아래는 ThanoSQL 유사 이미지 검색 알고리즘의 활용 및 예시 �
 
 본 튜토리얼에서는 MNIST 손글씨 데이터를 이미지 처리 알고리즘 중 하나인 SimCLR을 사용하여 임베딩 합니다. 후에 임베딩 된 데이터 테이블을 사용하여 비슷한 이미지 검색을 진행합니다. <br>
 
-아래는 ThanoSQL 임베딩 알고리즘의 활용 및 기대효과 입니다.
-* 마음에 드는 미술작품의 이미지파일로 비슷한 느낌의 미술작품들을 검색 할 수 있습니다.
-* 수천장의 사진이 담겨있는 앨범에서 유사 이미지를 찾아낼수 있습니다.
-* 임베딩 된 값을 정형모델을 사용하여 회귀예측, 분류 예측 서비스 구축이 가능합니다.
+아래는 ThanoSQL 임베딩 알고리즘의 활용 및 기대효과 입니다.   
+
+- 마음에 드는 미술작품의 이미지파일로 비슷한 느낌의 미술작품들을 검색 할 수 있습니다.   
+- 수천장의 사진이 담겨있는 앨범에서 유사 이미지를 찾아낼수 있습니다.   
+- 임베딩 된 값을 정형모델을 사용하여 회귀예측, 분류 예측 서비스 구축이 가능합니다.   
 
 !!! note "본 튜토리얼에서는" 
-    :point_right: 이번 튜토리얼에서는 `MNIST` 손글씨 데이터 세트를 사용합니다. 각 이미지는 0~1 사이의 값을 갖는 고정 크기(28x28 = 784 픽셀) 이며, 여러 사람들이 손으로 쓴 0~9까지 숫자를 정답과 함께 제공합니다. 60,000 개의 학습용 데이터 세트와 10,000개의 테스트용 데이터 세트로 이루어져 있습니다. <br> 
+    :point_right: 이번 튜토리얼에서는 <mark style="background-color:#FFD79C">MNIST 손글씨 데이터 세트</mark>를 사용합니다. 각 이미지는 0~1 사이의 값을 갖는 고정 크기(28x28 = 784 픽셀) 이며, 여러 사람들이 손으로 쓴 0~9까지 숫자를 정답과 함께 제공합니다. 60,000 개의 학습용 데이터 세트와 10,000개의 테스트용 데이터 세트로 이루어져 있습니다. <br> 
     
 ThanoSQL을 사용하여 손글씨 데이터를 입력하고 DB 내에서 입력 이미지와 유사한 이미지를 검색해주는 모델을 만들어 봅니다. 
 
@@ -43,7 +45,7 @@ ThanoSQL을 사용하여 손글씨 데이터를 입력하고 DB 내에서 입력
 
 ## __1. 데이터 세트 확인__
 
-`MNIST` 손글씨 분류 모델을 만들기 위해 ThanoSQL [DB](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 `mnist_dataset` 테이블을 사용합니다. `mnist_dataset` 테이블은 `MNIST` 이미지 파일들이 저장되어 있는 경로와 파일 이름 그리고 라벨 정보가 담겨 있는 테이블입니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
+손글씨 분류 모델을 만들기 위해 ThanoSQL [DB](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 <mark style="background-color:#FFEC92">mnist_dataset</mark> 테이블을 사용합니다. <mark style="background-color:#FFEC92">mnist_dataset</mark> 테이블은 <mark style="background-color:#FFD79C">MNIST</mark> 이미지 파일들이 저장되어 있는 경로와 파일 이름 그리고 라벨 정보가 담겨 있는 테이블입니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 
 ```sql
@@ -56,15 +58,15 @@ LIMIT 5
 
 
 !!! note "데이터 테이블 이해하기" 
-    `mnist_dataset` 테이블은 아래와 같은 정보를 담고 있습니다. "18759.jpg" 이미지 파일은 숫자 0을 쓴 손글씨 이미지이고 "18566.jpg" 파일은 숫자 2를 쓴 손글씨 이미지 파일입니다.
+    <mark style="background-color:#FFEC92">mnist_dataset</mark> 테이블은 아래와 같은 정보를 담고 있습니다. "18759.jpg" 이미지 파일은 숫자 0을 쓴 손글씨 이미지이고 "18566.jpg" 파일은 숫자 2를 쓴 손글씨 이미지 파일입니다.
 
-    - `img_path`: 이미지 경로
-    - `filename`: 파일이름
-    - `label` : 이미지 라벨
+    - <mark style="background-color:#D7D0FF">img_path</mark>: 이미지 경로
+    - <mark style="background-color:#D7D0FF">filename</mark>: 파일이름
+    - <mark style="background-color:#D7D0FF">label</mark> : 이미지 라벨
 
 ## __2. 이미지 수치화 모델 생성__
 
-이전 단계에서 확인한 `mnist_dataset` 데이터를 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 `mnist_model`이라는 이름의 모델을 만듭니다.
+이전 단계에서 확인한 <mark style="background-color:#FFEC92">mnist_dataset</mark>` 테이블을 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD">mnist_model</mark>이라는 이름의 모델을 만듭니다.
 
 ```sql
 %%thanosql
@@ -77,7 +79,10 @@ FROM mnist_dataset
 ```
 
 !!! note "쿼리 세부정보" 
-    "__BUILD MODEL__" 쿼리 구문을 사용하여 `mnist_model` 이라는 모델을 만들고 학습시킵니다. <br> "__OPTIONS__"는 모델 생성 및 학습에 필요한 변수값들을 정의합니다. 이미지 수치화를 위해서 `SimCLR`이라는 베이스 모델을 사용합니다. <br> 이미지 수치화 모델을 생성하기 위해서 학습횟수(`max_epochs`), 이미지 칼럼 이름(`image_col`), 파일 이름(`fname`), 그리고 목표값(`target`)이 되는 컬럼의 이름을 적어줍니다.   
+    - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD">mnist_model</mark> 이라는 모델을 만들고 학습시킵니다.
+    - "__USING__" 쿼리 구문을 통해 베이스 모델로 <mark style="background-color:#E9D7FD">SimCLR</mark> 모델을 사용할 것을 명시합니다.
+    - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.  
+        -  "max_epochs" : 이미지 수치화 모델을 생성하기 위한 데이터 세트 학습 횟수, 이미지 칼럼 이름(`image_col`), 파일 이름(`fname`), 그리고 목표값(`target`)이 되는 컬럼의 이름을 적어줍니다.   
 
 
 아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `mnist_model`을 "__CONVERT__" 쿼리 구문을 사용하여 `mnist_dataset` 이미지들을 임베딩합니다. 

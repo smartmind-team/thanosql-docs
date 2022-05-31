@@ -9,7 +9,7 @@ ThanoSQL은 PostgreSQL을 기반으로 만들어졌으며, SQL 쿼리를 사용�
 !!! note "PostgreSQL이란?"
     PostgreSQL은 대용량의 복잡한 트랜잭션 처리를 위해 개발된 RDBMS입니다. PostgreSQL은 객체-관계형 데이터베이스 시스템(ORDBMS)으로, 과거 IBM에서 작성된 RDBMS의 화이트페이퍼를 기반으로 Oracle, DB2 그리고 PostgreSQL이 구현되었기 때문에 MySQL이나 mariaDB와 같은 오픈소스 제품과 달리 PostgreSQL의 경우 상용 RDBMS 급의 기능을 제공하는 오픈소스 DBMS입니다. 오픈소스라는 특성으로, 북미와 일본에서 인지도를 넓히고 있습니다. 
 
-이 가이드에서는 ThanoSQL이 제공하는 인공지능 알고리즘의 종류, 샘플 데이터 세트 그리고 ThanoSQL의 기능에 대해 소개합니다. 
+이 가이드에서는 ThanoSQL이 제공하는 인공지능 알고리즘의 종류, 샘플 데이터 세트 그리고 ThanoSQL의 쿼리 구문에 대해 소개합니다. 
 
 ## __1. ThanoSQL에서 제공하는 인공지능 알고리즘__ 
 

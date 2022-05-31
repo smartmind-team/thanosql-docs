@@ -67,7 +67,7 @@ OPTIONS (
   user_col='userid',   
   item_col='movieid',
   rating_col='rating',
-  description_col='title'
+  description='title'
   )
 AS 
 SELECT * 
@@ -79,7 +79,7 @@ FROM movielens_train
     "__OPTIONS__"에서는 3개의 컬럼(Column)이 사용합니다. "user_col"에는 사용자의 ID (<mark style="background-color:#D7D0FF ">userid</mark>), "item_col"에는 아이템의 ID가 들어갑니다. 본 튜토리얼에서는 <mark style="background-color:#D7D0FF ">movieid</mark>가 사용됩니다. "rating_col"에서는 예측하고자 하는 목표값이 되는 열의 이름(<mark style="background-color:#D7D0FF ">rating</mark>)을 적어줍니다.   
 
 !!! tip ""
-    "description_col"의 경우 모델의 학습에는 사용되지 않지만 결과값 확인의 편의성을 위해 "item" 컬럼의 설명(<mark style="background-color:#D7D0FF ">title</mark>)을 넣어 줄 수 있습니다. 
+    "description"의 경우 모델의 학습에는 사용되지 않지만 결과값 확인의 편의성을 위해 "item" 컬럼의 설명(<mark style="background-color:#D7D0FF ">title</mark>)을 넣어 줄 수 있습니다. 
 
 ## __3. 생성된 모델을 사용하여 추천 목록 생성__
 
