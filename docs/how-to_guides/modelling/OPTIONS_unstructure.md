@@ -646,22 +646,11 @@ FROM unsplash_data
 "__SEARCH IMAGE__" 쿼리 구문을 사용하여 임베딩을 생성한 테이블에서, 원하는 이미지를 검색할 수 있습니다.
 
 ``` sql
-SEARCH IMAGE USING [expression]
+SEARCH IMAGE [{text|texts|image|images}=expression]
 USING [사용할 인공지능 모델]
-OPTIONS (
-    {text|texts|image|images}=[, ...],
-)
-AS
-[사용할 데이터 세트]
+AS [사용할 데이터 세트]
 ```
 
-#### __OPTIONS 절__
-
-```sql
-OPTIONS(
-    {text|texts|image|images} = [, ...],
-)
-```
 text, texts, image, images 중 하나를 입력으로 받아야 합니다. text와 texts, image와 images는 각각 동일합니다. 입력은 string (예: 'a black cat', 'data/image/image01.jpg'), 또는 list of string (예: ['a black cat', 'a orange cat'], ['data/image/image01.jpg', 'data/image/image02.jpg']) 이어야 합니다.
 
 
