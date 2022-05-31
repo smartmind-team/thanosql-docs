@@ -52,7 +52,7 @@ LIMIT 5
     <mark style="background-color:#FFEC92">mnist_dataset</mark> 테이블은 아래와 같은 정보를 담고 있습니다. "18759.jpg" 이미지 파일은 숫자 0을 쓴 손글씨 이미지이고 "18566.jpg" 파일은 숫자 2를 쓴 손글씨 이미지 파일입니다.
 
     - <mark style="background-color:#D7D0FF">img_path</mark>: 이미지 경로
-    - <mark style="background-color:#D7D0FF">filename</mark>: 파일이름
+    - <mark style="background-color:#D7D0FF">filename</mark>: 파일 이름
     - <mark style="background-color:#D7D0FF">label</mark> : 이미지 라벨
 
 ## __2. 이미지 수치화 모델 생성__
@@ -64,6 +64,9 @@ LIMIT 5
 BUILD MODEL mnist_model
 USING SimCLR
 OPTIONS (
+    image_col="img_path",
+    file_name="filename",
+    label="label",
     max_epochs=5
     )
 AS 
@@ -75,6 +78,9 @@ FROM mnist_dataset
     - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD">mnist_model</mark> 이라는 모델을 만들고 학습시킵니다.
     - "__USING__" 쿼리 구문을 통해 베이스 모델로 <mark style="background-color:#E9D7FD">SimCLR</mark> 모델을 사용할 것을 명시합니다.
     - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.  
+        -  "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼 (Default : "path")
+        -  "file_name" : 데이터 테이블에서 이미지 파일 이름을 담은 컬럼
+        -  "label" : 이미지 라벨을 담은 컬럼
         -  "max_epochs" : 이미지 수치화 모델을 생성하기 위한 데이터 세트 학습 횟수
 
 아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `mnist_model`을 "__CONVERT USING__" 쿼리 구문을 사용하여 `mnist_dataset` 이미지들을 임베딩합니다. 

@@ -213,7 +213,7 @@ query_statement:
 
 EVALUATE USING [expression] 
 OPTIONS (
-    target = 'survived',
+    target = 'survived'
     )
 AS 
 (query_expr)
@@ -223,7 +223,7 @@ AS
 
 ```sql
 OPTIONS(
-    (target = column_name),
+    (target = column_name)
     )
 ```
 
@@ -443,7 +443,7 @@ AS
 
 ```sql
 OPTIONS(
-    (target = column_name),
+    (target = column_name)
     )
 ```
 
@@ -574,7 +574,7 @@ query_statement:
 
 PREDICT USING [expression]
 OPTIONS (
-    expression,
+    expression
     )
 AS
 (query_expr)
@@ -620,7 +620,7 @@ query_statement:
 
 EVALUATE USING [expression]
 OPTIONS (
-    expression,
+    expression
     )
 AS
 (query_expr)
@@ -1060,7 +1060,7 @@ FROM movielens_train
 
 ### __PREDICT USING 쿼리 구문__
 
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다. "__PREDICT USING__" 표현식은"__AS__"뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다. "__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 
 ``` sql
@@ -1120,7 +1120,7 @@ FROM movielens_train
 ### __BUILD MODEL 쿼리 구문__ 
 ​
 이 "__BUILD MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 개발할 수 있습니다. 
-"__BUILD MODEL__" 표현식은"__AS__"뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
+"__BUILD MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
 ​
 ``` sql
 
@@ -1137,6 +1137,9 @@ __OPTIONS 절__
 ​
 ```sql
 OPTIONS(
+    (image_col = VALUE),
+    [file_name = VALUE],
+    [label = VALUE],
     [max_epochs = VALUE],    
     [batch_size = VALUE]    
 )
@@ -1144,9 +1147,11 @@ OPTIONS(
 ​
 "__OPTIONS__" 절은 SimCLR 수치화 모델의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.  
 
-
-- "max_epochs" : 모델학습 횟수를 설정합니다. (DEFAULT: 5)  
-- "batch_size" : 학습 때 사용되어지는 데이터 묶음 속의 데이터 수를 설정합니다. (DEFAULT: 256)
+- "image_col" : 데이터 테이블에서 이미지의 경로를 설정합니다. (DEFAULT : "path")
+- "file_name" : 데이터 테이블에서 이미지 파일 이름을 담은 컬럼을 설정합니다. (DEFAULT : "file_name")
+- "label" : 이미지 라벨을 담은 컬럼입니다. (DEFAULT : "label")
+- "max_epochs" : 모델 학습 횟수를 설정합니다. (DEFAULT : 5)  
+- "batch_size" : 학습 때 사용되어지는 데이터 묶음 속의 데이터 수를 설정합니다. (DEFAULT : 256)
 ​
 
 __BUILD MODEL 쿼리 구문 예시__  
@@ -1157,7 +1162,12 @@ __BUILD MODEL 쿼리 구문 예시__
 %%thanosql
 BUILD MODEL mnist_model
 USING SimCLR
-OPTIONS (max_epochs=5)
+OPTIONS (
+    image_col="img_path",
+    file_name="filename",
+    label="label",
+    max_epochs=5
+    )
 AS 
 SELECT * 
 FROM mnist_dataset
