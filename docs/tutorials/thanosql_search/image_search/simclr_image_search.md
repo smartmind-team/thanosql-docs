@@ -1,6 +1,6 @@
-# __이미지로 유사한 이미지 검색하기__ 
+# __이미지로 이미지 검색하기__ 
 
-**[이전 문서 - 키워드로 이미지 검색하기](/tutorials/thanosql_search/image_search/select_image_query/)** <br>**[다음 문서 - 텍스트로 원하는 이미지 검색하기](/tutorials/thanosql_search/image_search/clip_image_search/)**
+**[이전 문서 - 키워드로 이미지 검색하기](/tutorials/thanosql_search/image_search/select_image_query/)** <br>**[다음 문서 - 텍스트로 이미지 검색하기](/tutorials/thanosql_search/image_search/clip_image_search/)**
 
 ## 시작 전 사전정보
 
@@ -191,7 +191,7 @@ AS (
     
 
 
-## 6. 튜토리얼을 마치며
+## 5. 튜토리얼을 마치며
 
 이번 튜토리얼에서는 `MNIST` 손글씨 데이터 세트를 사용하여 이미지 수치화와 수치화 결과를 바탕으로한 유사 이미지 검색까지 진행해 보았습니다. 이번 튜토리얼에서는 이미지 유사도의 정확도보다는 작동 위주의 설명으로 진행하였습니다. 이미지 수치화 모델은 각 이미지 데이터 세트에 맞는 정밀한 튜닝과 소량의 정답을 학습 시에 추가하여 정확도를 향상 시킬 수 있습니다. 나만의 이미지 수치화 모델을 만들어 다양한 형태의 비정형 데이터 세트에 검색 기능을 추가하고 Auto-ML 기법을 이용한 나만의 모델을 배포할 수 있습니다.
 <br>

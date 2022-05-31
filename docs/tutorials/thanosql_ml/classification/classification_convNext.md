@@ -1,7 +1,7 @@
-# __고양이와 강아지 분류하는 이미지 분류 모델 만들기__
+# __이미지 분류 모델 만들기__
 
-**[이전 문서 - Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)** <br>
-**[다음 문서 - 영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)**
+**[이전 문서 - Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)** <br>
+**[다음 문서 - 텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)**
 
 ## 시작 전 사전 정보
 

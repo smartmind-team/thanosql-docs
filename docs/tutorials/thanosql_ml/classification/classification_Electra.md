@@ -1,7 +1,7 @@
-# __영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기__
+# __텍스트 분류 모델 만들기__
 
-**[이전 문서 - 고양이와 강아지를 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext/)** <br>
-**[다음 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)**
+**[이전 문서 - 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext/)** <br>
+**[다음 문서 - Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)**
 
 ## 시작 전 사전 정보
 

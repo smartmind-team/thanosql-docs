@@ -23,7 +23,7 @@ __표기법 규칙__
 ### __BUILD MODEL 쿼리 구문__ 
 
 이 "__BUILD MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 개발할 수 있습니다. 
-"__BUILD MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
+"__BUILD MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
 
 ``` sql
 query_statement:
@@ -33,7 +33,7 @@ BUILD MODEL [expression]
 USING AutomlClassifier
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS 
 (query_expr)
 ``` 
@@ -48,7 +48,7 @@ OPTIONS(
     [datetime_attribs = [column_name, ...]],
     [outlier_method = {"pca" | "iso" | "knn"}],
     [time_left_for_this_task = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 AutomlClassifier의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
@@ -87,7 +87,7 @@ FROM titanic_train
 
 ### __FIT MODEL 쿼리 구문__
 
-이 "__FIT MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 재학습할 수 있습니다. "__FIT MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 재학습할 수 있습니다.
+이 "__FIT MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 재학습할 수 있습니다. "__FIT MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 재학습할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -97,7 +97,7 @@ FIT MODEL [expression]
 USING [expression]
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS 
 (query_expr)
 ``` 
@@ -112,7 +112,7 @@ OPTIONS(
     [datetime_attribs = [column_name, ...]],
     [outlier_method = {"pca" | "iso" | "knn"}],
     [time_left_for_this_task = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 AutomlClassifier의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
@@ -150,7 +150,7 @@ FROM titanic_train
 
 ### __TRANSFORM USING 쿼리 구문__
 
-이 "__TRANSFORM MODEL__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델 생성시 사용한 동일한 전처리 방법을 적용할 수 있습니다."__TRANSFORM MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__TRANSFORM MODEL__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델 생성시 사용한 동일한 전처리 방법을 적용할 수 있습니다."__TRANSFORM MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -174,7 +174,7 @@ FROM titanic_test
 
 ### __PREDICT USING 쿼리 구문__
 
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -197,7 +197,7 @@ FROM titanic_test
 ```
 ### __EVALUATE USING 쿼리 구문__
 
-이 "__EVALUATE USING__" 쿼리 구문을 사용하여 인공지능 모델에 대한 평가 작업을 수행할 수 있습니다. "__EVALUATE USING__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 평가합니다.
+이 "__EVALUATE USING__" 쿼리 구문을 사용하여 인공지능 모델에 대한 평가 작업을 수행할 수 있습니다. "__EVALUATE USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 평가합니다.
 
 ``` sql
 query_statement:
@@ -241,7 +241,7 @@ FROM titanic_train
 ### __BUILD MODEL 쿼리 구문__ 
 
 이 "__BUILD MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 개발할 수 있습니다. 
-"__BUILD MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
+"__BUILD MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
 
 ``` sql
 query_statement:
@@ -251,7 +251,7 @@ BUILD MODEL [expression]
 USING AutomlRegressor
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS 
 (query_expr)
 ``` 
@@ -266,7 +266,7 @@ OPTIONS(
     [datetime_attribs = [column_name, ...]],
     [outlier_method = {"pca" | "iso" | "knn"}],
     [time_left_for_this_task = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 AutomlRegressor 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
@@ -293,10 +293,10 @@ __BUILD MODEL 쿼리 구문 예시__
 BUILD MODEL bike_regression
 USING AutomlRegressor
 OPTIONS (
- target='count', 
- impute_type='simple', 
- datetime_attribs=['datetime']
- ) 
+    target='count', 
+    impute_type='simple', 
+    datetime_attribs=['datetime']
+    ) 
 AS
 SELECT *
 FROM bike_sharing
@@ -304,7 +304,7 @@ FROM bike_sharing
 
 ### __FIT MODEL 쿼리 구문__
 
-이 "__FIT MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 재학습할 수 있습니다. "__FIT MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 재학습할 수 있습니다.
+이 "__FIT MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 재학습할 수 있습니다. "__FIT MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 재학습할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -314,7 +314,7 @@ FIT MODEL [expression]
 USING [expression]
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS 
 (query_expr)
 ``` 
@@ -329,7 +329,7 @@ OPTIONS(
     [datetime_attribs = [column_name, ...]],
     [outlier_method = {"pca" | "iso" | "knn"}],
     [time_left_for_this_task = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 AutomlRegressor 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
@@ -367,7 +367,7 @@ FROM titanic_train
 
 ### __TRANSFORM USING 쿼리 구문__
 
-이 "__TRANSFORM MODEL__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델 생성시 사용한 동일한 전처리 방법을 적용할 수 있습니다."__TRANSFORM MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__TRANSFORM MODEL__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델 생성시 사용한 동일한 전처리 방법을 적용할 수 있습니다."__TRANSFORM MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -391,7 +391,7 @@ FROM titanic_test
 
 ### __PREDICT USING 쿼리 구문__
 
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -414,7 +414,7 @@ FROM bike_sharing_test
 ```
 ### __EVALUATE USING 쿼리 구문__
 
-이 "__EVALUATE USING__" 쿼리 구문을 사용하여 인공지능 모델에 대한 평가 작업을 수행할 수 있습니다. "__EVALUATE USING__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 평가합니다.
+이 "__EVALUATE USING__" 쿼리 구문을 사용하여 인공지능 모델에 대한 평가 작업을 수행할 수 있습니다. "__EVALUATE USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 평가합니다.
 
 ``` sql
 query_statement:
@@ -447,8 +447,8 @@ OPTIONS(
 %%thanosql
 EVALUATE USING bike_regression 
 OPTIONS (
-  target='count'
-  ) 
+    target='count'
+    ) 
 AS
 SELECT *
 FROM bike_sharing
@@ -459,7 +459,7 @@ FROM bike_sharing
 ### __BUILD MODEL 쿼리 구문__
 
 이 "__BUILD MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 개발할 수 있습니다.
-"__BUILD MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다.
+"__BUILD MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -469,7 +469,7 @@ BUILD MODEL [expression]
 USING { ConvNeXt_Tiny | ConvNeXt_Base | EfficientNetV2S | EfficientNetV2M }
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS
 (query_expr)
 ```
@@ -483,7 +483,7 @@ OPTIONS(
     [batch_size = VALUE],
     [epochs = VALUE],
     [learning_rate = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
@@ -504,10 +504,10 @@ OPTIONS(
 BUILD MODEL my_image_classifier
 USING ConvNeXt_Tiny
 OPTIONS (
-  image_col='image',
-  label_col='label',
-  epochs=1
-  )
+    image_col='image',
+    label_col='label',
+    epochs=1
+    )
 AS
 SELECT *
 FROM cat_and_dog_train
@@ -515,7 +515,7 @@ FROM cat_and_dog_train
 
 ### __FIT MODEL 쿼리 구문__
 
-이 "__FIT MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 재학습할 수 있습니다. "__FIT MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 재학습할 수 있습니다. 이 때, 재학습에 사용하는 데이터의 라벨은 기존에 학습했을 때 사용한 라벨과 같아야 합니다.
+이 "__FIT MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 재학습할 수 있습니다. "__FIT MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 재학습할 수 있습니다. 이 때, 재학습에 사용하는 데이터의 라벨은 기존에 학습했을 때 사용한 라벨과 같아야 합니다.
 
 ``` sql
 query_statement:
@@ -525,7 +525,7 @@ FIT MODEL [expression]
 USING [expression]
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS
 (query_expr)
 ```
@@ -538,8 +538,8 @@ OPTIONS(
     (label_col = column_name),
     [batch_size = VALUE],
     [epochs = VALUE],
-    [learning_rate = VALUE]
-)
+    [learning_rate = VALUE] 
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
@@ -554,7 +554,7 @@ OPTIONS(
 
 ### __PREDICT USING 쿼리 구문__
 
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다. "__PREDICT USING__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다. "__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -574,7 +574,7 @@ __OPTIONS 절__
 OPTIONS(
     (image_col = column_name),
     [batch_size = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
@@ -584,6 +584,7 @@ OPTIONS(
 
 
  __PREDICT USING 쿼리 구문 예시__
+
 [고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
@@ -599,7 +600,7 @@ FROM cat_and_dog_test
 
 ### __EVALUATE USING 쿼리 구문__
 
-이 "__EVALUATE USING__" 쿼리 구문을 사용하여 인공지능 모델에 대한 평가 작업을 수행할 수 있습니다. "__EVALUATE USING__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 평가합니다.
+이 "__EVALUATE USING__" 쿼리 구문을 사용하여 인공지능 모델에 대한 평가 작업을 수행할 수 있습니다. "__EVALUATE USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 평가합니다.
 
 ``` sql
 query_statement:
@@ -620,7 +621,7 @@ OPTIONS(
     (image_col = column_name),
     (label_col = column_name),
     [batch_size = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
@@ -635,7 +636,7 @@ OPTIONS(
 ### __BUILD MODEL 쿼리 구문__
 
 이 "__BUILD MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 개발할 수 있습니다.
-"__BUILD MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다.
+"__BUILD MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -645,7 +646,7 @@ BUILD MODEL [expression]
 USING {AlbertKo | AlbertEn | ElectraKo | ElectraEn}
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS
 (query_expr)
 ```
@@ -659,7 +660,7 @@ OPTIONS(
     [batch_size = VALUE],
     [epochs = VALUE],
     [learning_rate = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
@@ -680,11 +681,11 @@ OPTIONS(
 BUILD MODEL my_movie_review_classifier
 USING ElectraEn
 OPTIONS (
-  text_col='review',
-  label_col='sentiment',
-  epochs=1,
-  batch_size=4
-  )
+    text_col='review',
+    label_col='sentiment',
+    epochs=1,
+    batch_size=4
+    )
 AS
 SELECT *
 FROM imdb_train
@@ -692,7 +693,7 @@ FROM imdb_train
 
 ### __FIT MODEL 쿼리 구문__
 
-이 "__FIT MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 재학습할 수 있습니다. "__FIT MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 재학습할 수 있습니다. 이 때, 재학습에 사용하는 데이터의 라벨은 기존에 학습했을 때 사용한 라벨과 같아야 합니다.
+이 "__FIT MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 재학습할 수 있습니다. "__FIT MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 재학습할 수 있습니다. 이 때, 재학습에 사용하는 데이터의 라벨은 기존에 학습했을 때 사용한 라벨과 같아야 합니다.
 
 ``` sql
 query_statement:
@@ -702,7 +703,7 @@ FIT MODEL [expression]
 USING [expression]
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS
 (query_expr)
 ```
@@ -716,7 +717,7 @@ OPTIONS(
     [batch_size = VALUE],
     [epochs = VALUE],
     [learning_rate = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
@@ -733,7 +734,7 @@ OPTIONS(
 OPTIONS(
     (text_col = column_name),
     [batch_size = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
@@ -744,7 +745,7 @@ OPTIONS(
 
 ### __PREDICT USING 쿼리 구문__
 
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -753,7 +754,7 @@ query_statement:
 PREDICT USING [expression]
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS
 (query_expr)
 ```
@@ -776,7 +777,7 @@ FROM imdb_test
 
 ### __EVALUATE USING 쿼리 구문__
 
-이 "__EVALUATE USING__" 쿼리 구문을 사용하여 인공지능 모델에 대한 평가 작업을 수행할 수 있습니다. "__EVALUATE USING__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 평가합니다.
+이 "__EVALUATE USING__" 쿼리 구문을 사용하여 인공지능 모델에 대한 평가 작업을 수행할 수 있습니다. "__EVALUATE USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 평가합니다.
 
 ``` sql
 query_statement:
@@ -785,7 +786,7 @@ query_statement:
 EVALUATE USING [expression]
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS
 (query_expr)
 ```
@@ -797,7 +798,7 @@ OPTIONS(
     (text_col = column_name),
     (label_col = column_name),
     [batch_size = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
@@ -813,7 +814,7 @@ OPTIONS(
 ### __BUILD MODEL 쿼리 구문__
 
 이 "__BUILD MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 개발할 수 있습니다.
-"__BUILD MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다.
+"__BUILD MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -823,7 +824,7 @@ BUILD MODEL [expression]
 USING { Wav2Vec2Ko | Wav2Vec2En }
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS
 (query_expr)
 ```
@@ -837,7 +838,7 @@ OPTIONS(
     [batch_size = VALUE],
     [epochs = VALUE],
     [learning_rate = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
@@ -861,7 +862,8 @@ OPTIONS (
     audio_col='audio',
     text_col='text',
     epochs=1,
-    batch_size=8)
+    batch_size=8
+    )
 AS
 SELECT *
 FROM librispeech_train
@@ -869,7 +871,7 @@ FROM librispeech_train
 
 ### __FIT MODEL 쿼리 구문__
 
-이 "__FIT MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 재학습할 수 있습니다. "__FIT MODEL__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 재학습할 수 있습니다.
+이 "__FIT MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 재학습할 수 있습니다. "__FIT MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 재학습할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -879,7 +881,7 @@ FIT MODEL [expression]
 USING [expression]
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS
 (query_expr)
 ```
@@ -893,7 +895,7 @@ OPTIONS(
     [batch_size = VALUE],
     [epochs = VALUE],
     [learning_rate = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
@@ -908,7 +910,7 @@ OPTIONS(
 
 ### __PREDICT USING 쿼리 구문__
 
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
+이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다."__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
 
 ``` sql
 query_statement:
@@ -917,7 +919,7 @@ query_statement:
 PREDICT USING [expression]
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS
 (query_expr)
 ```
@@ -927,7 +929,7 @@ AS
 OPTIONS(
     (audio_col = column_name),
     [batch_size = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
@@ -953,7 +955,7 @@ FROM librispeech_test
 
 ### __EVALUATE USING 쿼리 구문__
 
-이 "__EVALUATE USING__" 쿼리 구문을 사용하여 인공지능 모델에 대한 평가 작업을 수행할 수 있습니다. "__EVALUATE USING__" 표현식은 AS 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 평가합니다.
+이 "__EVALUATE USING__" 쿼리 구문을 사용하여 인공지능 모델에 대한 평가 작업을 수행할 수 있습니다. "__EVALUATE USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 평가합니다.
 
 ``` sql
 query_statement:
@@ -962,7 +964,7 @@ query_statement:
 EVALUATE USING [expression]
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS
 (query_expr)
 ```
@@ -974,7 +976,7 @@ OPTIONS(
     (audio_col = column_name),
     (text_col = column_name),
     [batch_size = VALUE]
-)
+    )
 ```
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.

@@ -54,30 +54,28 @@ nav:
       - 음성 인식 모델 만들기:
           - 오디오 파일을 받아쓰는 음성 인식 모델 만들기: tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec.md
   
-  - ThanoSQL 연결하기:
+  - ThanoSQL Syntax: how-to_guides/syntax_list.md
+  - ThanoSQL REST API 다루기:
       - 데이터 불러오기: how-to_guides/ThanoSQL_connecting/data_upload.md
       - REST API 사용하기: 
           - 인증 가능한 토큰 만들기 : how-to_guides/thanosql_api/rest_api_token.md
-          - ThanoSQL 구문 사용하기 : how-to_guides/thanosql_api/rest_api_thanosql_query.md
-          - ThanoSQL 인서트 사용하기 : how-to_guides/thanosql_api/rest_api_thanosql_insert.md
+          - ThanoSQL 구문 활용하기 : how-to_guides/thanosql_api/rest_api_thanosql_query.md
+          - ThanoSQL DB 업로드하기 : how-to_guides/thanosql_api/rest_api_thanosql_insert.md
           - ThanoSQL 서치 사용하기 : how-to_guides/thanosql_api/rest_api_thanosql_search.md
-
-  - ThanoSQL Syntax:
-      - Quick Start: how-to_guides/quick_start.md
-      - 모든 안내 가이드: how-to_guides/syntax_list.md
-      - 모델 다루기:
-          - 모델 학습하기: how-to_guides/modelling/BUILD_MODEL_SYNTAX.md
-          - 모델 평가하기: how-to_guides/modelling/EVALUATE_MODEL_SYNTAX.md
-          - 모델 재학습하기: how-to_guides/modelling/FIT_MODEL_SYNTAX.md
-          - 모델 적용을 위해 데이터 전처리하기: how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX.md
-          - 모델 적용하기: how-to_guides/modelling/PREDICT_MODEL_SYNTAX.md
-          - 모델 삭제하기: how-to_guides/modelling/DELETE_MODEL_SYNTAX.md
-          - 저장한 모델 확인하기: how-to_guides/modelling/LIST_SYNTAX.md
-          - 비정형 데이터 변환하기: how-to_guides/modelling/CREATE_TABLE_SYNTAX.md
-          - 비정형 특성 추가하기: how-to_guides/modelling/CONVERT_USING_SYNTAX.md
-          - 비정형 데이터 검색하기: how-to_guides/modelling/SEARCH_SYNTAX.md
-          - 결과 출력하기: how-to_guides/modelling/PRINT_SYNTAX.md
-      - ThanoSQL 알고리즘 쿼리 구문: how-to_guides/modelling/OPTIONS.md
+  - ThanoSQL ML 다루기:
+      - 모델 학습하기: how-to_guides/modelling/BUILD_MODEL_SYNTAX.md
+      - 모델 평가하기: how-to_guides/modelling/EVALUATE_MODEL_SYNTAX.md
+      - 모델 재학습하기: how-to_guides/modelling/FIT_MODEL_SYNTAX.md
+      - 모델 적용을 위해 데이터 전처리하기: how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX.md
+      - 모델 적용하기: how-to_guides/modelling/PREDICT_MODEL_SYNTAX.md
+      - 모델 삭제하기: how-to_guides/modelling/DELETE_MODEL_SYNTAX.md
+  - ThanoSQL Query 다루기:
+      - 저장한 모델 확인하기: how-to_guides/modelling/LIST_SYNTAX.md
+      - 비정형 데이터 변환하기: how-to_guides/modelling/CREATE_TABLE_SYNTAX.md
+      - 비정형 특성 추가하기: how-to_guides/modelling/CONVERT_USING_SYNTAX.md
+      - 비정형 데이터 검색하기: how-to_guides/modelling/SEARCH_SYNTAX.md
+      - 결과 출력하기: how-to_guides/modelling/PRINT_SYNTAX.md
+  - ThanoSQL 알고리즘 쿼리 구문: how-to_guides/modelling/OPTIONS.md
   
 
 extra_css:

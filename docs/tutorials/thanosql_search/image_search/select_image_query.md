@@ -1,6 +1,6 @@
 # __키워드로 이미지 검색하기__ 
 
-**[이전 문서 - 안내 가이드](/quick_start/algorithm_list/)** <br>**[다음 문서 - 이미지로 유사한 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)**
+**[이전 문서 - 안내 가이드](/quick_start/algorithm_list/)** <br>**[다음 문서 - 이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)**
 
 ## 시작 전 사전 정보 
 
@@ -96,7 +96,7 @@ FROM diet
     - "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">diet_image_classification</mark> 모델을 예측에 사용합니다.
     - "__SELECT__" <mark style="background-color:#D7D0FF">images</mark> 컬럼에서 'img_path'를 image로, 'category'를 label로 선택합니다.
 
-## __4.생성된 모델을 이용한 검색__ 
+## __4. 생성된 모델을 이용한 검색__ 
 
 이제 "__PREDICT USING__", "__SELECT__", "__WHERE__" 쿼리 구문을 사용하여 특정 조건의 데이터만을 검색합니다. <mark style="background-color:#E9D7FD ">label</mark>이 '사과파이'이고, 예측 결과 또한 '사과파이'인 데이터만을 검색하고 다음처럼 쿼리 구문을 작성할 수 있습니다.
 
