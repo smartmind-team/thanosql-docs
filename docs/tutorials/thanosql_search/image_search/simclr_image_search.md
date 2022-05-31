@@ -71,11 +71,11 @@ LIMIT 5
 
 ## __2. 이미지 수치화 모델 생성__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD">my_mnist_model</mark>이라는 이름의 모델을 만듭니다.
+이전 단계에서 확인한 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD">my_image_search_model</mark>이라는 이름의 모델을 만듭니다.
 
 ```sql
 %%thanosql
-BUILD MODEL my_mnist_model
+BUILD MODEL my_image_search_model
 USING SimCLR
 OPTIONS (
     max_epochs=5
@@ -91,11 +91,11 @@ FROM mnist_train
     - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.  
         -  "max_epochs" : 이미지 수치화 모델을 생성하기 위한 데이터 세트 학습 횟수
 
-아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `my_mnist_model`을 "__CONVERT USING__" 쿼리 구문을 사용하여 `mnist_test` 이미지들을 임베딩합니다. 
+아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `my_image_search_model`을 "__CONVERT USING__" 쿼리 구문을 사용하여 `mnist_test` 이미지들을 임베딩합니다. 
 
 ```sql
 %%thanosql
-CONVERT USING my_mnist_model
+CONVERT USING my_image_search_model
 OPTIONS (
     image_col='img_path',
     file_name='filename',
@@ -110,7 +110,7 @@ FROM mnist_test
 ![4](/img/thanosql_search/simclr_search/simclr_img3.png) <br>
 
 !!! note "쿼리 세부정보" 
-    - "__CONVERT USING__" 쿼리 구문은 `my_mnist_model`을 이미지 수치화를 위한 알고리즘으로 사용합니다.   
+    - "__CONVERT USING__" 쿼리 구문은 `my_image_search_model`을 이미지 수치화를 위한 알고리즘으로 사용합니다.   
     - "__OPTIONS__" 쿼리 구문을 통해 이미지 수치화 시 필요한 변수들을 정의합니다. 
         - "table_name" : ThanoSQL DB 내에 저장될 테이블 이름을 정의합니다. 
 
@@ -124,7 +124,7 @@ FROM mnist_test
 ```sql
 %%thanosql
 CREATE TABLE mnist_embds
-USING my_mnist_model 
+USING my_image_search_model 
 OPTIONS(
     path_type='folder', 
     data_type='image',
@@ -157,7 +157,7 @@ LIMIT 5
 
 ## __4. 이미지 수치화 모델을 사용해서 유사 이미지 검색하기__
 
-이번 단계에서는 `my_mnist_model` 이미지 수치화 모델과 `mnist_embds` 수치화 테이블을 사용하여 "35322.jpg" 이미지 파일(손글씨 6)과 유사한 이미지를 검색합니다. <br>
+이번 단계에서는 `my_image_search_model` 이미지 수치화 모델과 `mnist_embds` 수치화 테이블을 사용하여 "35322.jpg" 이미지 파일(손글씨 6)과 유사한 이미지를 검색합니다. <br>
 
 ![image](/img/thanosql_search/simclr_search/simclr_img8.png) 
 
@@ -167,7 +167,7 @@ LIMIT 5
 ```sql
 %%thanosql
 SEARCH IMAGE images='/data/development-model/data/mnist/MNIST_DATASET/test/35322.jpg' 
-USING my_mnist_model 
+USING my_image_search_model 
 AS 
 SELECT * 
 FROM mnist_embds
@@ -192,7 +192,7 @@ AS (
     AS image, my_mnist_model_sinclr_similarity1 
     FROM (
         SEARCH IMAGE images='/data/development-model/data/mnist/MNIST_DATASET/train_data/35322.jpg' 
-        USING my_mnist_model 
+        USING my_image_search_model 
         AS 
         SELECT * 
         FROM mnist_embds
