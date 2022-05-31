@@ -67,7 +67,12 @@ LIMIT 5
 ```sql
 %%thanosql
 PREDICT USING tutorial_text_classification
-AS SELECT * FROM imdb_test
+OPTIONS (
+  text_col='review',
+  label_col='sentiment')
+AS
+SELECT *
+FROM imdb_test
 ```
 
 ![IMAGE](/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_1.png)
@@ -116,8 +121,8 @@ FROM imdb_test
 
 !!! note "쿼리 세부 정보"
     "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark> 모델을 예측에 사용합니다.
-    "__OPTIONS__"를 통해 예측에 사용할 옵션을 지정합니다. (<mark style="background-color:#D7D0FF">review</mark>는 예측에 사용할 텍스트를 담은 열의 이름입니다.
-    예측 결과는 (<mark style="background-color:#D7D0FF">predicted</mark> 열에 저장되어 반환됩니다.
+    "__OPTIONS__"를 통해 예측에 사용할 옵션을 지정합니다. <mark style="background-color:#D7D0FF">review</mark>는 예측에 사용할 텍스트를 담은 열의 이름입니다.
+    예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 열에 저장되어 반환됩니다.
 
 
 ## __5. 튜토리얼을 마치며__

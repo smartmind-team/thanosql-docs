@@ -1,6 +1,6 @@
 # __오디오 파일을 받아쓰는 음성 인식 모델 만들기__
 
-**[이전 문서 - 영화 평점 데이터를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)**  
+**[이전 문서 - 영화 평점 데이터를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)**
 **[다음 문서 - ThanoSQL Syntax](/how-to_guides/syntax_list/)**
 
 ## 시작 전 사전 정보
@@ -72,8 +72,7 @@ LIMIT 3
 
 ```sql
 %%thanosql
-BUILD MODEL tutorial_audio_recognition
-USING Wav2Vec2En
+PREDICT USING tutorial_audio_recognition
 OPTIONS (audio_col='audio', text_col='text', epochs=1, batch_size=8)
 AS SELECT * FROM librispeech_train
 ```
