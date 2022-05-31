@@ -3,10 +3,10 @@
 **[이전 문서 - 비정형 특성 추가하기](/how-to_guides/modelling/CONVERT_USING_SYNTAX/)**  
 **[다음 문서 - 결과 출력하기](/how-to_guides/modelling/PRINT_SYNTAX/)**
 
-## __1.SEARCH 구문 개요__
+## __1. SEARCH 구문 개요__
 "__SEARCH__" 쿼리 구문은 비정형 데이터에서 내용이나 의미 또는 유사도 등을 검색합니다.
 
-## __2.SEARCH 구문__
+## __2. SEARCH 구문__
 
 ```sql
 %%thanosql
@@ -16,7 +16,7 @@ USING [사용할 인공지능 모델]
 AS [사용할 데이터 세트]
 ```
 
-## __3.SEARCH 쿼리 구문 예시__
+## __3. SEARCH 쿼리 구문 예시__
 
 아래 쿼리는 이미지 임베딩 인공지능 모델인 `Color_Descriptor`를 사용하여 유사 이미지에 대한 검색을 진행합니다. 
 

@@ -1,6 +1,6 @@
 # __Auto-ML을 사용하여 분류 모델 만들기__ 
 
-**[이전 문서 - 텍스트로 원하는 이미지 검색하기](/tutorials/thanosql_search/image_search/clip_image_search/)** &nbsp;&nbsp; <br>
+**[이전 문서 - 텍스트로 이미지 검색하기](/tutorials/thanosql_search/image_search/clip_image_search/)** &nbsp;&nbsp; <br>
 **[다음 문서 - 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext/)**
 
 
