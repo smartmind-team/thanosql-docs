@@ -1,4 +1,4 @@
-# 결과 출력하기 (PRINT)
+# __결과 출력하기 (PRINT)__
 
 **[이전 문서 - 비정형 데이터 검색하기](/how-to_guides/modelling/SEARCH_SYNTAX/)**  
 **[다음 문서 - 모델 Options](/how-to_guides/modelling/OPTIONS/)**

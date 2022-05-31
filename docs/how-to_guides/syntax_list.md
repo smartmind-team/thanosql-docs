@@ -85,7 +85,7 @@
       <a href="../modelling/BUILD_MODEL_SYNTAX/">
         <h3>모델 학습하기</h3>
         <p>
-            ThanoSQL 모델을 학습하는 방법을 알아봅니다.
+            ThanoSQL 모델을 학습시키는 방법을 알아봅니다.
         </p>
       </a>
     </li>
@@ -101,7 +101,7 @@
       <a href="../modelling/FIT_MODEL_SYNTAX/">
         <h3>모델 재학습하기</h3>
         <p>
-            ThanoSQL 모델을 재학습하는 방법을 알아봅니다.
+            ThanoSQL 모델을 재학습시키는 방법을 알아봅니다.
         </p>
       </a>
     </li>
@@ -109,7 +109,7 @@
       <a href="../modelling/TRANSFORM_MODEL_SYNTAX/">
         <h3>모델 적용을 위한 데이터 전처리하기</h3>
         <p>
-            배포를 위해, 학습한 ThanoSQL 모델을 통해 전처리하는 방법을 알아봅니다.
+            예측을 위해, 학습한 ThanoSQL 모델을 통해 전처리하는 방법을 알아봅니다.
         </p>
       </a>
     </li>
@@ -117,7 +117,7 @@
       <a href="../modelling/PREDICT_MODEL_SYNTAX/">
         <h3>모델 적용하기</h3>
         <p>
-            학습한 ThanoSQL 모델을 이용하여 배포하는 방법을 알아봅니다. 
+            학습한 ThanoSQL 모델을 이용하여 예측하는 방법을 알아봅니다. 
         </p>
       </a>
     </li>    

@@ -38,9 +38,9 @@ nav:
       - 안내 가이드: quick_start/algorithm_list.md
 
   - Query 무작정 따라하기:
-      - DB에서 내가 원하는 데이터 검색하기: tutorials/thanosql_search/image_search/select_image_query.md
+      - 키워드로 이미지 검색하기: tutorials/thanosql_search/image_search/select_image_query.md
       - 이미지로 이미지 검색하기: tutorials/thanosql_search/image_search/simclr_image_search.md
-      - 키워드로 이미지 검색하기: tutorials/thanosql_search/image_search/clip_image_search.md
+      - 텍스트로 이미지 검색하기: tutorials/thanosql_search/image_search/clip_image_search.md
 
   - ML 무작정 따라하기:
       - 분류 모델 만들기:
@@ -77,7 +77,7 @@ nav:
           - 비정형 특성 추가하기: how-to_guides/modelling/CONVERT_USING_SYNTAX.md
           - 비정형 데이터 검색하기: how-to_guides/modelling/SEARCH_SYNTAX.md
           - 결과 출력하기: how-to_guides/modelling/PRINT_SYNTAX.md
-      - 모델 Options: how-to_guides/modelling/OPTIONS.md
+      - ThanoSQL 알고리즘 쿼리 구문: how-to_guides/modelling/OPTIONS.md
   
 
 extra_css:

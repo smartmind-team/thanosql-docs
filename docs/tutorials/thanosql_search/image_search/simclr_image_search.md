@@ -1,6 +1,6 @@
 # __이미지로 유사한 이미지 검색하기__ 
 
-**[이전 문서 - DB에서 내가 원하는 데이터 검색하기](/tutorials/thanosql_search/image_search/select_image_query/)** <br>**[다음 문서 - 텍스트로 원하는 이미지 검색하기](/tutorials/thanosql_search/image_search/clip_image_search/)**
+**[이전 문서 - 키워드로 이미지 검색하기](/tutorials/thanosql_search/image_search/select_image_query/)** <br>**[다음 문서 - 텍스트로 원하는 이미지 검색하기](/tutorials/thanosql_search/image_search/clip_image_search/)**
 
 ## 시작 전 사전정보
 
@@ -17,7 +17,7 @@
 
 이미지의 유사도를 정의하는 방법은 여러가지가 있습니다. 색상이 비슷하거나, 이미지 내의 사물이 비슷하거나, 손글씨처럼 의미가 동일할 수도 있습니다. 유사한 이미지에 대한 정확한 정의를 내리기 어렵지만 이미지가 보유하고 있는 일반적인 특징을 인공지능은 학습하고 수치화합니다.
 
-ThanoSQL에서는 이미지를 입력하고 DB에서 유사한 이미지를 검색하기 위해 [자가학습모델(Self-Supervised Model)](https://en.wikipedia.org/wiki/Self-supervised_learning)을 사용합니다. 사용자가 보유하고 있는 이미지들을 ThanoSQL의 DB에 올리면 인공지능 알고리즘을 통해 비슷한 이미지는 가깝게 다른 이미지들은 멀리 배치하며 스스로 학습을 진행합니다. 정답이 없는 데이터셋에서 이미지의 일반적인 표현을 학습하고 소량의 목표값(Target)이 있는 이미지로 미세 조정하여 분류나 회귀 작업에 활용할 수 있습니다. 
+ThanoSQL에서는 이미지를 입력하고 DB에서 유사한 이미지를 검색하기 위해 [자가학습모델(Self-Supervised Learning Model)](https://en.wikipedia.org/wiki/Self-supervised_learning)을 사용합니다. 사용자가 보유하고 있는 이미지들을 ThanoSQL의 DB에 올리면 인공지능 알고리즘을 통해 비슷한 이미지는 가깝게 다른 이미지들은 멀리 배치하며 스스로 학습을 진행합니다. 정답이 없는 데이터셋에서 이미지의 일반적인 표현을 학습하고 소량의 목표값(Target)이 있는 이미지로 미세 조정하여 분류나 회귀 작업에 활용할 수 있습니다. 
 
 또한, ThanoSQL은 인공지능 알고리즘을 이용해서 데이터 세트를 수치화 합니다. 이렇게 수치화 된 데이터는 DB의 컬럼 내에 저장되고, 이미지 간 유사도(거리) 계산을 통해 비슷한 이미지를 검색하는데 사용됩니다.
 
