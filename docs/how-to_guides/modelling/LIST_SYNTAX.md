@@ -1,4 +1,4 @@
-# __저장한 모델 확인하기(LIST)__
+# __저장한 모델 확인하기 (LIST)__
 
 **[이전 문서 - 모델 삭제하기](/how-to_guides/modelling/DELETE_MODEL_SYNTAX/)**  
 **[다음 문서 - 비정형 데이터 변환하기](/how-to_guides/modelling/CREATE_TABLE_SYNTAX/)**
