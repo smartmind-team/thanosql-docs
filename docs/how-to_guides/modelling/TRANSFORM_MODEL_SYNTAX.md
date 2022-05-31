@@ -1,5 +1,8 @@
 # __모델 적용을 위해 데이터 전처리하기 (TRANSFORM USING)__
 
+**[이전 문서 - 모델 재학습하기](/how-to_guides/modelling/FIT_MODEL_SYNTAX/)**  
+**[다음 문서 - 모델 적용하기](/how-to_guides/modelling/PREDICT_MODEL_SYNTAX/)**
+
 ## __1.TRANSFORM USING 구문 개요__
 
 사용자는 "__TRANSFORM USING__" 구문을 사용하여 테스트 데이터 세트에 인공지능 모델 생성시 사용한 동일한 전처리 방법을 적용할 수 있습니다. 

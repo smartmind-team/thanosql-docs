@@ -1,14 +1,14 @@
-# __오디오 파일을 받아쓰는 음성 인식 모델 만들기__ 
+# __오디오 파일을 받아쓰는 음성 인식 모델 만들기__
 
-**[이전 문서 - Microsoft 뉴스 데이터 세트를 사용하여 뉴스 추천 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/recommendation/recommendation_lda/)**  
-**[다음 문서 - ]()**
+**[이전 문서 - Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)**  
+**[다음 문서 - 데이터 불러오기](/how-to_guides/ThanoSQL_connecting/data_upload/)**
+
 
 ## 시작 전 사전 정보
 
 - 튜토리얼 난이도: ★☆☆☆☆
 - 읽는데 걸리는 시간: 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 예제 파일 : 
 - 참고문서: [LibriSpeech 데이터 세트](http://www.openslr.org/12), [wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations](https://arxiv.org/abs/2006.11477)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -21,20 +21,20 @@
     일반적으로 음성 인식(Voice Recognition)과 혼동 될 수 있는데, 음성 인식은 개별 사용자의 목소리를 식별하는 데만 집중합니다.
 
 
-오늘날 음성 인식 기술은 다양한 산업 분야에서 응용되고 있습니다. 음성 인식 기술의 발전은 단순 여행용 자동 통역에서 난이도가 높은 비즈니스 회의 통역까지 확대되고 있습니다. 또한, 음성 인식 기술은 음성 합성 기술로 발전하여 가상 안내원이나 비서 역할을 수행하기도 하고 특정 연예인이나 유명인의 목소리를 흉내내어 정해진 지문을 목소리로 변환하기도 하며 응용되고 있습니다. 
+오늘날 음성 인식 기술은 다양한 산업 분야에서 응용되고 있습니다. 음성 인식 기술의 발전은 단순 여행용 자동 통역에서 난이도가 높은 비즈니스 회의 통역까지 확대되고 있습니다. 또한, 음성 인식 기술은 음성 합성 기술로 발전하여 가상 안내원이나 비서 역할을 수행하기도 하고 특정 연예인이나 유명인의 목소리를 흉내내어 정해진 지문을 목소리로 변환하기도 하며 응용되고 있습니다.
 
 __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
 
-- 음성 인식 기술은 전화 상담 데이터를 텍스트로 변환하여 고객의 감정 분석이나 상담 트렌드 분석 등을 가능하게 합니다. 상담자는 음성 인식 기술을 통해, 고객의 문의에 대한 답변이 되는 정보나 과거의 유사 사례 등을 빠르게 제공받아 고객 상담을 개선할 수 있습니다.  
-또한, 상담 종료 후에는 음성으로 저장되어 있는 데이터를 활용하여 감정 분석을 통해 고객의 만족도 등을 간접적으로 측정하여 트렌드 별 고객의 만족도 를 확인할 수 있습니다. 
+- 음성 인식 기술은 전화 상담 데이터를 텍스트로 변환하여 고객의 감정 분석이나 상담 트렌드 분석 등을 가능하게 합니다. 상담자는 음성 인식 기술을 통해, 고객의 문의에 대한 답변이 되는 정보나 과거의 유사 사례 등을 빠르게 제공받아 고객 상담을 개선할 수 있습니다.
+또한, 상담 종료 후에는 음성으로 저장되어 있는 데이터를 활용하여 감정 분석을 통해 고객의 만족도 등을 간접적으로 측정하여 트렌드 별 고객의 만족도 를 확인할 수 있습니다.
 
 - 음성 인식 기술을 사용하면 키보드로 작성하는 메모보다 빠르게 작성이 가능하고, 긴 음성 파일에서도 빠르게 특정 키워드를 검색 할 수 있습니다.
 
-!!! note "본 튜토리얼에서는" 
-    :point_right: Librispeech [Panayotov et al. 2015]는 음성인식 연구에 있어서 가장 널리 사용되는 대규모 영어 음성 데이터 중 하나로 사용자 참여형 오디오북 프로젝트인 [LibriVox project](https://librivox.org/)의 결과물입니다. 16kHz로 샘플링된 약 1,000시간 분량의 녹음된 오디오북 데이터를 가공하여 만들었습니다. 튜토리얼을 위한 대상 테이블은 미리 업로드 된 음성 파일의 경로와 스크립트로 구성되어 있습니다. 본 튜토리얼은 음성 파일을 텍스트로 변환하는 것을 목표로 하고 있습니다. 오디오 형식의 파일을 DB에 직접 저장하는 방식은 [비정형 데이터 변환]() 튜토리얼을 참조하세요. 
+!!! note "본 튜토리얼에서는"
+    :point_right: Librispeech [Panayotov et al. 2015]는 음성인식 연구에 있어서 가장 널리 사용되는 대규모 영어 음성 데이터 중 하나로 사용자 참여형 오디오북 프로젝트인 [LibriVox project](https://librivox.org/)의 결과물입니다. 16kHz로 샘플링된 약 1,000시간 분량의 녹음된 오디오북 데이터를 가공하여 만들었습니다. 튜토리얼을 위한 대상 테이블은 미리 업로드 된 음성 파일의 경로와 스크립트로 구성되어 있습니다. 본 튜토리얼은 음성 파일을 텍스트로 변환하는 것을 목표로 하고 있습니다. 오디오 형식의 파일을 DB에 직접 저장하는 방식은 [비정형 데이터 변환]() 튜토리얼을 참조하세요.
 
 !!! warning "튜토리얼 주의 사항"
-    - ThanoSQL에서 현재 지원하는 오디오 파일의 형식은 '.wav', '.flac' 입니다. 
+    - ThanoSQL에서 현재 지원하는 오디오 파일의 형식은 '.wav', '.flac' 입니다.
     - 오디오 파일 경로를 나타내는 컬럼(Column)과 목표값(Target)에 해당하는 텍스트를 나타내는 컬럼이 테이블에 존재해야 합니다.
     - 해당 음성 인식 모델의 베이스 모델(`Wav2Vec2En`)은 GPU를 사용합니다. 사용한 모델의 크기와 배치 사이즈에 따라 GPU 메모리가 부족할 수 있습니다. 이 경우, 더 작은 모델을 사용하시거나 배치 사이즈를 줄여보십시오.
 
@@ -45,22 +45,43 @@ __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
 
 ```sql
 %%thanosql
-SELECT * 
-FROM librispeech_train 
+SELECT *
+FROM librispeech_train
 LIMIT 5
 ```
 
-![IMAGE](/img/audio_recognition_wav2vec_img1.png)
+![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png)
 
 !!! note "데이터 이해하기"
     - <mark style="background-color:#D7D0FF ">audio</mark>: 음성 파일의 위치 경로
-    - <mark style="background-color:#D7D0FF ">text</mark>: 해당 음성의 목표값(Target, 스크립트) 
+    - <mark style="background-color:#D7D0FF ">text</mark>: 해당 음성의 목표값(Target, 스크립트)
 
-> (향후 내용 추가 필요) PRINT를 이용한 음성 듣기 샘플 출력 <br>
+
+```sql
+%%thanosql
+PRINT AUDIO AS
+SELECT audio
+FROM librispeech_train
+LIMIT 3
+```
+
+![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png)
 
 ## __2. 사전 학습된 모델을 사용하여 음성 인식 결과 예측__
 
-> (향후 내용 추가 필요) 사전에 학습을 오랜 시간동안 해 둔 음성 인식 예측 모델(`------_classifier`)을 사용해서 특정 리뷰(학습에 이용되지 않은 데이터 테이블, `imdb_test`)의 목표값(감정)을 예측해 봅니다. <br>
+먼저 저희가 미리 준비해둔 모델로 바로 결과를 예측해보겠습니다. 다음 쿼리문을 실행하면, 사전 학습된 음성인식 모델인 <mark style="background-color:#E9D7FD ">tutorial_image_classification</mark>모델을 사용하여 결과를 예측해볼 수 있습니다.
+
+```sql
+%%thanosql
+BUILD MODEL tutorial_audio_recognition
+USING Wav2Vec2En
+OPTIONS (audio_col='audio', text_col='text', epochs=1, batch_size=8)
+AS SELECT * FROM librispeech_train
+```
+
+![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png)
+
+<br>
 
 
 ## __3. 음성 인식 모델 만들기__
@@ -72,50 +93,50 @@ LIMIT 5
 BUILD MODEL my_speech_recognition_model
 USING Wav2Vec2En
 OPTIONS (
-  audio_col='audio', 
-  text_col='text', 
-  epochs=1, 
+  audio_col='audio',
+  text_col='text',
+  epochs=1,
   batch_size=4
   )
-AS 
-SELECT * 
+AS
+SELECT *
 FROM librispeech_train
 ```
 
-!!! note "쿼리 세부 정보" 
-    - "__BUILD MODEL__" 쿼리 구문을 사용하여  <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark> 모델을 만들고 학습시킵니다.   
-    - "__USING__" 쿼리 구문을 통해 베이스 모델로 `Wav2Vec2En`을 사용할 것을 명시합니다.   
-    - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.  
-        - "audio_col" : 학습에 사용할 오디오 경로를 담은 열의 이름  
-        - "text_col" :  오디오의 스크립트 정보를 담은 열의 이름  
-        - "epochs" : 모든 학습 데이터 세트를 학습하는 횟수 
-        
+!!! note "쿼리 세부 정보"
+    - "__BUILD MODEL__" 쿼리 구문을 사용하여  <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark> 모델을 만들고 학습시킵니다.
+    - "__USING__" 쿼리 구문을 통해 베이스 모델로 `Wav2Vec2En`을 사용할 것을 명시합니다.
+    - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
+        - "audio_col" : 학습에 사용할 오디오 경로를 담은 열의 이름
+        - "text_col" :  오디오의 스크립트 정보를 담은 열의 이름
+        - "epochs" : 모든 학습 데이터 세트를 학습하는 횟수
+
 !!! tip ""
     여기서는 빠르게 학습하기 위해 "epochs"를 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산 시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다.
 
 ## __4. 만든 모델을 사용하여 음성 인식 결과 예측__
 
-이전 단계에서 만든 음성 인식 모델을 사용해서 특정 음성(학습에 이용되지 않은 데이터 테이블,  <mark style="background-color:#FFEC92 ">librispeech_test</mark>)의 목표값(스크립트)를 예측해 봅니다. 아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 열에 저장되어 반환됩니다. 
+이전 단계에서 만든 음성 인식 모델을 사용해서 특정 음성(학습에 이용되지 않은 데이터 테이블,  <mark style="background-color:#FFEC92 ">librispeech_test</mark>)의 목표값(스크립트)를 예측해 봅니다. 아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 열에 저장되어 반환됩니다.
 
 ```sql
 %%thanosql
 PREDICT USING my_speech_recognition_model
 OPTIONS (audio_col='audio')
-AS 
-SELECT * 
+AS
+SELECT *
 FROM librispeech_test
 ```
 
-![IMAGE](/img/audio_recognition_wav2vec_img2.png)
+![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png)
 
 
 !!! note "쿼리 세부 정보"
-    - "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark> 모델을 예측에 사용합니다.  
+    - "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark> 모델을 예측에 사용합니다.
     - "__OPTIONS__" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
         - "audio_col" : 예측에 사용할 오디오 경로를 담은 열의 이름
-         
 
-> (향후 내용 추가 필요) PRINT를 이용한 오디오 샘플 출력
+
+<br>
 
 ## __5. 튜토리얼을 마치며__
 
@@ -123,10 +144,10 @@ FROM librispeech_test
 
 다음 단계인 [중급 음성 인식 모델 만들기](comingsoon) 튜토리얼에서는 음성 인식 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 음성 인식 모델 구축 방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요. <br>
 
-* [나만의 데이터 업로드하기](comingsoon)  
-* [중급 음성 인식 모델 만들기](comingsoon)   
-* [나만의 음성 인식 모델 배포하기](comingsoon)  
-  
+* [나만의 데이터 업로드하기](comingsoon)
+* [중급 음성 인식 모델 만들기](comingsoon)
+* [나만의 음성 인식 모델 배포하기](comingsoon)
+
 
 !!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"
     ThanoSQL을 활용해 나만의 모델을 만들거나, 나의 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊

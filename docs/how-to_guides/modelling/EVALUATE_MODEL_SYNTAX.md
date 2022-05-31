@@ -1,5 +1,8 @@
 # __모델 평가하기 (EVALUATE USING)__
 
+**[이전 문서 - 모든 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)**  
+**[다음 문서 - 모델 재학습하기](/how-to_guides/modelling/FIT_MODEL_SYNTAX/)**
+
 ## __1.EVALUATE USING 구문 개요__
 
 사용자는 "__EVALUATE USING__" 구문을 사용하여 인공지능 모델에 대한 성능을 평가할 수 있습니다.  

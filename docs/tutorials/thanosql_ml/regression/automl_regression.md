@@ -7,7 +7,6 @@
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는 시간 : 5분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 예제 파일 : [AutoML_Regressor.ipynb](http://35.222.17.152:8888/lab/tree/thanos_AI_team/AutoML_Regressor.ipynb)
 - 참고 문서 : [(캐글) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
 - 마지막 수정날짜 : 2022-06-01
 
