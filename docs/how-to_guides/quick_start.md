@@ -1,5 +1,8 @@
-
 # __모델 설명__
+
+**[이전 문서 - ThanoSQL 서치 사용하기](/how-to_guides/thanosql_api/rest_api_thanosql_search/)**  
+**[다음 문서 - 모든 안내 가이드](/how-to_guides/syntax_list/)**  
+
 |모델\구문|BUILD MODEL|FIT MODEL|TRANSFORM|PREDICT|EVALUATE|
 |---|---|---|---|---|---|
 |ConvNeXt_Tiny|O|O|X|O|O|

@@ -1,14 +1,13 @@
-# __고양이와 강아지 분류하는 이미지 분류 모델 만들기__
+# __이미지 분류 모델 만들기__
 
-**[이전 문서 - Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/classification/automl_classification/)** <br>
-**[다음 문서 - 영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/classification/classification_Electra/)**
+**[이전 문서 - Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)** <br>
+**[다음 문서 - 텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)**
 
 ## 시작 전 사전 정보
 
 - 튜토리얼 난이도: ★☆☆☆☆
 - 읽는 시간 : 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 예제 파일 :
 - 참고 문서: [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
 - 마지막 수정날짜 : 2022-06-01
 

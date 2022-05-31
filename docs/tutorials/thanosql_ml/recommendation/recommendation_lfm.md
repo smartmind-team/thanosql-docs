@@ -1,17 +1,15 @@
 
-# __Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기__
+# __영화 평점 데이터를 사용하여 영화 추천 모델 만들기__
 
-**[이전 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/regression/automl_regression/)** <br>
-**[다음 문서 - Microsoft 뉴스 데이터 세트를 사용하여 뉴스 추천 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/recommendation/recommendation_lda/)**
+**[이전 문서 - Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)** <br>
+**[다음 문서 - 오디오 파일을 받아쓰는 음성 인식 모델 만들기](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/)**
 
 ## 시작 전 사전정보
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는 시간 : 7분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 예제 파일 : [Movie_Recommender.ipynb](http://35.222.17.152:8888/lab/tree/indoo/techdoc/lfm/lfm_kor_lv1.ipynb) 
 - 참고 문서 : [Movielens 데이터 세트 페이지](https://grouplens.org/datasets/movielens/), [LightFM 알고리즘 기술문서](https://making.lyst.com/lightfm/docs/home.html)
 - 마지막 수정날짜 : 2022-06-01
-
 
 ## 튜토리얼 소개
 
@@ -69,7 +67,7 @@ OPTIONS (
   user_col='userid',   
   item_col='movieid',
   rating_col='rating',
-  description_col='title'
+  description='title'
   )
 AS 
 SELECT * 
@@ -81,7 +79,7 @@ FROM movielens_train
     "__OPTIONS__"에서는 3개의 컬럼(Column)이 사용합니다. "user_col"에는 사용자의 ID (<mark style="background-color:#D7D0FF ">userid</mark>), "item_col"에는 아이템의 ID가 들어갑니다. 본 튜토리얼에서는 <mark style="background-color:#D7D0FF ">movieid</mark>가 사용됩니다. "rating_col"에서는 예측하고자 하는 목표값이 되는 열의 이름(<mark style="background-color:#D7D0FF ">rating</mark>)을 적어줍니다.   
 
 !!! tip ""
-    "description_col"의 경우 모델의 학습에는 사용되지 않지만 결과값 확인의 편의성을 위해 "item" 컬럼의 설명(<mark style="background-color:#D7D0FF ">title</mark>)을 넣어 줄 수 있습니다. 
+    "description"의 경우 모델의 학습에는 사용되지 않지만 결과값 확인의 편의성을 위해 "item" 컬럼의 설명(<mark style="background-color:#D7D0FF ">title</mark>)을 넣어 줄 수 있습니다. 
 
 ## __3. 생성된 모델을 사용하여 추천 목록 생성__
 
@@ -109,7 +107,7 @@ FROM movielens_train
     "__OPTIONS__"와 관련 있는 추가적인 옵션값들은 [중급 추천 시스템 만들기](comingsoon) 튜토리얼에서 다루게 됩니다.
 
 
-## __4.튜토리얼을 마치며__ 
+## __4. 튜토리얼을 마치며__ 
 
 이번 튜토리얼에서는 <mark style="background-color:#FFD79C">Movielens</mark> 데이터 세트를 사용하여 영화 평점기반 추천 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. <br>
 다음단계인  [중급 추천 모델 만들기](comingsoon) 튜토리얼에서는 추천 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 추천 모델 구축방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요. <br>

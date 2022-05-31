@@ -1,10 +1,13 @@
 # __모델 평가하기 (EVALUATE USING)__
 
-## __1.EVALUATE USING 구문 개요__
+**[이전 문서 - 모든 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)**  
+**[다음 문서 - 모델 재학습하기](/how-to_guides/modelling/FIT_MODEL_SYNTAX/)**
+
+## __1. EVALUATE USING 구문 개요__
 
 사용자는 "__EVALUATE USING__" 구문을 사용하여 인공지능 모델에 대한 성능을 평가할 수 있습니다.  
 
-## __2.EVALUATE USING 구문__ 
+## __2. EVALUATE USING 구문__ 
 ```sql
 %%thanosql
 EVALUATE USING [기존 학습한 모델 이름]
@@ -15,7 +18,7 @@ AS
 !!! warning
     사용할 데이터 세트에 목표값(target)이 없을 경우, 모델에 대한 성능을 평가할 수 없습니다. 
 
-## __3.EVALUATE USING 구문 예시__ 
+## __3. EVALUATE USING 구문 예시__ 
 아래 예는 "__EVALUATE USING__" 구문을 사용하여 사용자가 [모델 학습하기]()에서 만들었던 <mark style="background-color:#E9D7FD ">test_classifier</mark> 분류 모델을 평가합니다.
 
 ```sql

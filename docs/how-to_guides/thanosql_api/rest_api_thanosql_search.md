@@ -1,7 +1,11 @@
-# __ThanosQL 서치 사용하기__
-REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으로 ThanoSQL 데이터베이스 상의 유사한 이미지를 조회하고 받을 수 있습니다. 
+# __ThanoSQL 서치 사용하기__
 
-## __이미지로 이미지 서치 하기__
+**[이전 문서 - ThanoSQL DB 업로드하기](/how-to_guides/thanosql_api/rest_api_thanosql_insert/)**  
+**[다음 문서 - 모델 학습하기](/how-to_guides/modelling/BUILD_mODEL_SYNTAX/)**
+
+REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으로 ThanoSQL DB 상의 유사한 이미지를 조회하고 받을 수 있습니다. 
+
+## __이미지로 이미지 검색하기__
 
 === "Python"
 
@@ -42,7 +46,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
       -F 'file=@이미지 파일 경로;type=image/이미지 파일 타입'
     ```
 
-## __텍스트로 이미지 서치 하기__ 
+## __텍스트로 이미지 검색하기__ 
 
 === "Python"
 

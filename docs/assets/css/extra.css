@@ -4,6 +4,7 @@
 
 .card {
   /* Add shadows to create the "card" effect */
+  margin-bottom: 32px;
   box-shadow: 0 1px 2px 0 rgb(60 64 67 / 5%), 0 1px 3px 1px rgb(60 64 67 / 15%);
   border: none;
   transition: box-shadow 0.28s ease-in-out;

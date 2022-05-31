@@ -1,0 +1,134 @@
+# __키워드로 이미지 검색하기__ 
+
+**[이전 문서 - 안내 가이드](/quick_start/algorithm_list/)** <br>**[다음 문서 - 이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)**
+
+## 시작 전 사전 정보 
+
+- 튜토리얼 난이도 : ★☆☆☆☆
+- 읽는데 걸리는 시간 : 10분
+- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 참고 문서 : [음식 이미지 및 영양정보 텍스트 소개 데이터 세트](https://aihub.or.kr/aidata/30747)
+- 마지막 수정날짜 : 2022-06-01
+
+## 튜토리얼 소개 
+
+!!! note "키워드-이미지 검색 서비스 이해하기" 
+    ThanoSQL에서는 키워드를 통해 이미지를 결과로 돌려받을 수 있는 검색 기능을 제공합니다. 이미지 분류 모델 등을 이용해서 사용자가 원하는 키워드를 목표값(Target)으로 설정하고, 학습 된 모델을 사용해서 업데이트 되는 이미지를 색인한 컬럼을 추가합니다. 텍스트-이미지 검색 기능이 이미지로부터 의미를 분석하고 유사한 이미지를 제공한다면, 키워드-이미지 검색은 원하는 목표값(범주)에 해당하는 이미지를 찾아줍니다. 
+
+검색은 "책이나 컴퓨터에서 목적에 따라 필요한 자료들을 찾아내는 일"이라는 사전적인 의미를 가지고 있습니다. ThanoSQL 키워드-이미지 검색은 특정 단어(키워드)의 포함 여부로 DB 내의 정보를 검색하는 방식과는 조금 다르게 작동합니다. 키워드 기반 이미지 검색은 이미지의 특징으로부터 단어를 미리 학습하고 예측하는 모델을 만들고, 해당 모델을 통해 특정 키워드에 포함 될 확률이 가장 높은 이미지를 제공합니다. 
+
+**아래는 ThanoSQL 키워드 이미지 검색 알고리즘의 활용 및 예시 입니다.**
+
+- 쇼핑 카테고리의 범주 등을 학습 데이터로 활용하여 학습모델을 만들고 이를 이용해서 기존/신규 이미지에 색인 컬럼을 만듭니다. 해당 색인 컬럼은 이미지 등록일자 등과 같은 수치형 특성들과 결합해서 더욱 정교한 검색을 제공합니다.  
+- 이어지는 튜토리얼에서 다루는 유사 이미지 검색 결과나 텍스트-이미지 검색 결과 등 다양한 결과를 같이 활용해서 나만의 이미지 검색 서비스를 만들 수 있습니다.
+
+
+!!! note "본 튜토리얼에서는" 
+    :point_right: ThanoSQL에서 제공하는 비정형 데이터 검색 구문인 "__SEARCH__" 쿼리 구문과 기존 PostgreSQL에서 제공하는 정형 데이터 검색 구문인 "__SELECT__" 쿼리 구문을 같이 사용하여 특정 키워드를 이용해 원하는 이미지 검색을 진행합니다. 
+
+
+!!! tip "데이터 세트 설명" 
+    `음식 이미지 및 영양정보 텍스트 소개` 데이터 세트는 과학기술정보통신부가 주관하고 한국지능정보사회진흥원이 지원하는 '인공지능 학습용 데이터 구축사업'으로 구축된 데이터로 한국인 다빈도 섭취 외식 메뉴와 한식메뉴 400종을 선정하여 양질의 이미지 데이터로 구성이 되어 있습니다. 842,000 장의 이미지로 구성되어 있으며, 본 튜토리얼에서는 해당 데이터 세트에서 일부(10종, 1,190장)의 사진만을 사용합니다. 
+
+## __1. 데이터 세트 확인__
+
+키워드-이미지 검색 모델을 만들기 위해 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92">diet</mark> 테이블을 사용합니다. 아래의 쿼리 구문을 실행하고 테이블의 내용을 확인합니다.
+
+```sql
+%%thanosql
+SELECT * 
+FROM diet
+```
+
+![IMAGE](/img/thanosql_search/base_search/select_img1.png)
+
+!!! note "데이터 테이블 이해하기" 
+    <mark style="background-color:#FFEC92">diet</mark> 테이블은 아래와 같은 정보를 담고 있습니다. 본 튜토리얼에서는 <mark style="background-color:#D7D0FF">diet_id</mark>, <mark style="background-color:#D7D0FF">description</mark>, <mark style="background-color:#D7D0FF">user_id</mark> 컬럼은 사용하지 않습니다.
+
+    -  <mark style="background-color:#D7D0FF">images</mark>: 이미지 경로 및 파일 이름 ([json 형식](https://ko.wikipedia.org/wiki/JSON)으로 저장되어 있으며 "img_path"와 "category" 값만을 이용합니다)
+
+## __2. 키워드 검색 모델 생성__ 
+
+이미지 검색을 위해서는 기존 데이터 테이블을 학습하여 추후 검색의 기준을 만들어줘야 합니다. 이를 위해서 이전 단계에서 확인한 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여  <mark style="background-color:#E9D7FD ">diet_image_classification</mark>이라는 이름의 모델을 만듭니다. 
+
+```sql
+%%thanosql
+BUILD MODEL diet_image_classification
+USING ConvNeXt_Tiny
+OPTIONS (
+    image_col='image', 
+    label_col='label', 
+    epochs=1
+    )
+AS 
+SELECT images ->> 'img_path' image, images ->> 'category' label 
+FROM diet
+```
+
+    Success
+
+!!! note "쿼리 세부 정보"
+    - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">diet_image_classification</mark> 모델을 만들고 학습시킵니다.
+    - "__USING__" 쿼리 구문을 통해 베이스 모델로 `ConvNeXt_Tiny`를 사용할 것을 명시합니다.
+    - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
+        - "image_col" : 이미지 경로를 담은 컬럼의 이름
+        - "label_col" : 목표값의 정보를 담은 컬럼의 이름
+        - "epochs" : 모든 학습 데이터 세트를 학습하는 횟수
+    - "__SELECT__" 쿼리 구문을 이용해서 **<mark style="background-color:#D7D0FF">images</mark> 컬럼 내에서 'img_path' 키(Key)**를 "image"로, **<mark style="background-color:#D7D0FF">images</mark> 컬럼 내에서 'category' 키**를 "label"로 선택합니다. ( images ->> 'img_path', images ->> 'category' )
+
+
+## __3. 생성된 모델을 사용하여 키워드-이미지 검색 모델 확인__
+
+이전 단계에서 만든 이미지 예측 모델(<mark style="background-color:#E9D7FD ">diet_image_classification</mark>)을 사용해서 특정 이미지의 목표값을 예측해 봅니다. 아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
+
+```sql
+%%thanosql
+PREDICT USING diet_image_classification
+AS 
+SELECT user_id, images ->> 'img_path' image, images ->> 'category' label 
+FROM diet
+```
+
+![IMAGE](/img/thanosql_search/base_search/select_img2.png)
+
+
+!!! note "__쿼리 세부 정보__"
+    - "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">diet_image_classification</mark> 모델을 예측에 사용합니다.
+    - "__SELECT__" <mark style="background-color:#D7D0FF">images</mark> 컬럼에서 'img_path'를 image로, 'category'를 label로 선택합니다.
+
+## __4. 생성된 모델을 이용한 검색__ 
+
+이제 "__PREDICT USING__", "__SELECT__", "__WHERE__" 쿼리 구문을 사용하여 특정 조건의 데이터만을 검색합니다. <mark style="background-color:#E9D7FD ">label</mark>이 '사과파이'이고, 예측 결과 또한 '사과파이'인 데이터만을 검색하고 다음처럼 쿼리 구문을 작성할 수 있습니다.
+
+```sql
+%%thanosql
+SELECT * 
+FROM (
+    PREDICT USING diet_image_classification
+    AS 
+    SELECT user_id, images ->> 'img_path' image, images ->> 'category' label 
+    FROM diet
+    )
+WHERE label == predicted
+AND label LIKE '사과파이'
+LIMIT 10
+```
+
+![IMAGE](/img/thanosql_search/base_search/select_img3.png)
+
+
+!!! note "__쿼리 세부 정보__"
+    - "__SELECT * FROM (...)__" 쿼리 구문을 통해 PREDICT로 시작하는 쿼리문의 결과를 모두 선택합니다.
+    - "__WHERE__" 쿼리 구문을 통해 조건을 설정합니다. 이 조건은 AND를 통해 이어집니다.
+        - "label = predicted" : label 컬럼과 predicted 컬럼이 같은 데이터만 선택합니다.
+        - "label = '사과파이'" : label 컬럼이 '사과파이'인 데이터만 선택합니다.
+
+
+## __5. 튜토리얼을 마치며__
+
+이번 튜토리얼에서는 `음식 이미지 및 영양정보 텍스트 소개` 데이터 세트에서 이미지 예측 결과를 "__WHERE__" 쿼리 구문을 사용해서 검색해 보았습니다. 이번 튜토리얼은 간단한 예제였지만, ThanoSQL의 비정형 예측과 일반 SQL문법을 결합하면, 훨씬 더 많은 것이 가능합니다. 이어지는 튜토리얼에서 이미지를 활용한 유사 이미지 검색과 텍스트 설명을 이용한 이미지 검색 결과를 확인하고 나만의 다양한 검색 서비스를 만들어 보세요.
+
+!!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"
+    ThanoSQL을 활용해 나만의 모델을 만들거나, 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊
+
+    키워드-이미지 검색 모델 구축 관련 문의: contact@smartmind.team

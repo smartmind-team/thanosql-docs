@@ -1,10 +1,14 @@
 # __모델 적용하기 (PREDICT USING)__
 
-## __1.PREDICT USING 구문 개요__
+**[이전 문서 - 모델 적용을 위해 데이터 전처리하기](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/)**  
+**[다음 문서 - 모델 삭제하기](/how-to_guides/modelling/DELETE_MODEL_SYNTAX/)**
+
+
+## __1. PREDICT USING 구문 개요__
 
 사용자는 "__PREDICT USING__" 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다.  
 
-## __2.PREDICT USING 구문__ 
+## __2. PREDICT USING 구문__ 
 ```sql
 %%thanosql
 PREDICT USING [기존 학습한 모델 이름]
@@ -13,7 +17,7 @@ AS
 [사용할 테스트 데이터 세트]
 ```
 
-## __3.PREDICT USING 구문 예시__ 
+## __3. PREDICT USING 구문 예시__ 
 아래 예는 "__PREDICT USING__" 구문을 사용하여 사용자가 [모델 학습하기]()에서 만들었던 <mark style="background-color:#E9D7FD ">user_rec</mark> 추천 모델을 사용하여 사용자 ID의 값이 31인 사용자가 좋아할 만한 영화 목록을 추천합니다.
 
 ```sql

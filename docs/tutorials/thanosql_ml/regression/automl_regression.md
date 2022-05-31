@@ -1,13 +1,12 @@
-# __Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기__ 
+# __Auto-ML을 사용하여 예측 모델 만들기__ 
 
-**[이전 문서 - 영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/classification/classification_Electra/)** <br> **[다음 문서 - Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/recommendation/recommendation_lfm/)**
+**[이전 문서 - 텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)** <br> **[다음 문서 - 영화 평점 데이터를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)**
 
 ## 시작 전 사전정보
 
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는 시간 : 5분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 예제 파일 : [AutoML_Regressor.ipynb](http://35.222.17.152:8888/lab/tree/thanos_AI_team/AutoML_Regressor.ipynb)
 - 참고 문서 : [(캐글) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
 - 마지막 수정날짜 : 2022-06-01
 

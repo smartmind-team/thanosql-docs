@@ -1,4 +1,8 @@
-# __ThanoSQL 쿼리 사용하기__
+# __ThanoSQL 구문 활용하기__
+
+**[이전 문서 - 인증 가능한 토큰 만들기](/how-to_guides/thanosql_api/rest_api_token/)**  
+**[다음 문서 - ThanoSQL DB 업로드하기](/how-to_guides/thanosql_api/rest_api_thanosql_insert/)**
+
 REST API를 사용하여 ThanoSQL 콘솔상에서 사용하던 쿼리들을 사용할수 있습니다. 
 
 === "Python"

@@ -1,14 +1,13 @@
-# __영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기__
+# __텍스트 분류 모델 만들기__
 
-**[이전 문서 - 고양이와 강아지를 분류하는 이미지 분류 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/classification/classification_convNext/)** <br>
-**[다음 문서 - Auto-ML을 사용하여 자전거 수요 예측 회귀 모델 만들기](http://127.0.0.1:8000/tutorials/thanosql_ml/regression/automl_regression/)**
+**[이전 문서 - 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext/)** <br>
+**[다음 문서 - Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)**
 
 ## 시작 전 사전 정보
 
 - 튜토리얼 난이도: ★☆☆☆☆
 - 읽는 시간 : 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 예제 파일 :
 - 참고 문서: [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -20,7 +19,7 @@
 [자연어 처리(NLP, Natural Language Processing)](https://ko.wikipedia.org/wiki/%EC%9E%90%EC%97%B0%EC%96%B4_%EC%B2%98%EB%A6%AC)는 인공지능의 한 분야로서 머신러닝을 사용하여 텍스트 기반 데이터를 처리하고 해석합니다.
 
 !!! tip "[자연어 처리(NLP, Natural Language Processing)](https://ko.wikipedia.org/wiki/%EC%9E%90%EC%97%B0%EC%96%B4_%EC%B2%98%EB%A6%AC)란"
-    NLP는 작업의 목적에 따라 자연어 이해(NLU,Natural Language Understanding)와 자연어 생성(NLG,Natural Language Generation)으로 분류할 수 있습니다. 자연어 이해는 사람이 이해하는 자연어를 컴퓨터가 이해할 수 있는 값으로 바꾸는 처리를 의미합니다. 반면에 자연어 생성은 더 나아가 컴퓨터가 이해할 수 있는 값을 사람이 이해하도록 자연어로 바꾸는 과정을 의미합니다.
+    NLP는 작업의 목적에 따라 자연어 이해(NLU, Natural Language Understanding)와 자연어 생성(NLG, Natural Language Generation)으로 분류할 수 있습니다. 자연어 이해는 사람이 이해하는 자연어를 컴퓨터가 이해할 수 있는 값으로 바꾸는 처리를 의미합니다. 반면에 자연어 생성은 더 나아가 컴퓨터가 이해할 수 있는 값을 사람이 이해하도록 자연어로 바꾸는 과정을 의미합니다.
 
  최근 [BERT](https://en.wikipedia.org/wiki/BERT_(language_model)), [GPT-3](https://en.wikipedia.org/wiki/GPT-3) 등 사전 훈련 기술의 발전으로 많은 양의 목표값(Target)이 없는 텍스트를 활용하여 감정 분석이나 질의 응답과 같은 특정 NLP 작업에 대해 미세 조정하기 전에 언어 이해의 일반적인 모델 구축을 가능하게 합니다.
 
