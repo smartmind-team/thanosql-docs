@@ -36,7 +36,19 @@ __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
     - 오디오 파일 경로를 나타내는 컬럼(Column)과 목표값(Target)에 해당하는 텍스트를 나타내는 컬럼이 테이블에 존재해야 합니다.
     - 해당 음성 인식 모델의 베이스 모델(`Wav2Vec2En`)은 GPU를 사용합니다. 사용한 모델의 크기와 배치 사이즈에 따라 GPU 메모리가 부족할 수 있습니다. 이 경우, 더 작은 모델을 사용하시거나 배치 사이즈를 줄여보십시오.
 
-
+## __0. 데이터 세트 준비__
+```sql
+%load_ext thanosql
+%thanosql API_TOKEN={발급 받은 개인 토큰}
+```
+```sql
+%%thanosql
+COPY librispeech_train FROM "tutorial_data/librispeech_data/librispeech_train.csv"
+```
+```sql
+%%thanosql
+COPY librispeech_test FROM "tutorial_data/librispeech_data/librispeech_test.csv"
+```
 ## __1. 데이터 세트 확인__
 
 본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는  <mark style="background-color:#FFEC92 ">librispeech_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
