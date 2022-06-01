@@ -134,8 +134,8 @@ LIMIT 10
 !!! note "__쿼리 세부 정보__"
     - "__SELECT * FROM (...)__" 쿼리 구문을 통해  "__PREDICT USING__"으로 시작하는 쿼리 구문의 결과를 모두 선택합니다.
     - "__WHERE__" 쿼리 구문을 통해 조건을 설정합니다. 이 조건은 "__AND__"를 통해 이어집니다.
-        - "label = predicted" : label 컬럼과 predicted 컬럼의 값이 같은 데이터만 선택합니다.
-        - "label = '사과파이'" : label 컬럼이 '사과파이'인 데이터만 선택합니다.
+        - "label = predicted" : label 컬럼과 predicted 컬럼의 값이 같은 데이터만 추출합니다.
+        - "label = '사과파이'" : label 컬럼이 '사과파이'인 데이터만 추출합니다.
 
 
 ## __5. 튜토리얼을 마치며__
