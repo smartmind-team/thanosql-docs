@@ -34,17 +34,17 @@ AS
 
 ```sql
 %%thanosql
-BUILD MODEL user_rec
+BUILD MODEL my_movie_rec
 USING Light_FM
 OPTIONS (
-    user='userid',
-    item='movieid',
-    target='rating',
-    description='title' 
-    )
+  user_col='userid',   
+  item_col='movieid',
+  rating_col='rating',
+  description='title'
+  )
 AS 
 SELECT * 
-FROM movielens_train 
+FROM movielens_data
 ```
 !!! tip
     "__OPTIONS__"에 따로 옵션값을 할당하지 않으면 기본값으로 알고리즘 모델이 학습됩니다. 알고리즘 모델에서 사용 가능한 옵션들에 대한 추가적인 설명은 [참조 페이지](https://making.lyst.com/lightfm/docs/lightfm.html)를 통해 확인할 수 있습니다. 

@@ -5,8 +5,9 @@
 ## 시작 전 사전 정보 
 
 - 튜토리얼 난이도 : ★☆☆☆☆
-- 읽는데 걸리는 시간 : 10분
+- 읽는데 걸리는 시간 : 10분  
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : tutorial/query/키워드로 이미지 검색하기.ipynb  
 - 참고 문서 : [음식 이미지 및 영양정보 텍스트 소개 데이터 세트](https://aihub.or.kr/aidata/30747)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -30,6 +31,20 @@
 !!! tip "데이터 세트 설명" 
     `음식 이미지 및 영양정보 텍스트 소개` 데이터 세트는 과학기술정보통신부가 주관하고 한국지능정보사회진흥원이 지원하는 '인공지능 학습용 데이터 구축사업'으로 구축된 데이터로 한국인 다빈도 섭취 외식 메뉴와 한식메뉴 400종을 선정하여 양질의 이미지 데이터로 구성이 되어 있습니다. 842,000 장의 이미지로 구성되어 있으며, 본 튜토리얼에서는 해당 데이터 세트에서 일부(10종, 1,190장)의 사진만을 사용합니다. 
 
+## __0. 데이터 세트 준비__
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
+```sql
+%load_ext thanosql
+%thanosql API_TOKEN={발급받은 개인 토큰}
+```
+```sql
+%%thanosql
+COPY diet FROM "tutorial_data/diet_data/diet.csv"
+```
+!!! note ""
+    COPY expression FROM [테이블 위치]  
+    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다.
+
 ## __1. 데이터 세트 확인__
 
 키워드-이미지 검색 모델을 만들기 위해 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92">diet</mark> 테이블을 사용합니다. 아래의 쿼리 구문을 실행하고 테이블의 내용을 확인합니다.
@@ -43,9 +58,10 @@ FROM diet
 ![IMAGE](/img/thanosql_search/base_search/select_img1.png)
 
 !!! note "데이터 테이블 이해하기" 
-    <mark style="background-color:#FFEC92">diet</mark> 테이블은 아래와 같은 정보를 담고 있습니다. 본 튜토리얼에서는 <mark style="background-color:#D7D0FF">diet_id</mark>, <mark style="background-color:#D7D0FF">description</mark>, <mark style="background-color:#D7D0FF">user_id</mark> 컬럼은 사용하지 않습니다.
+    <mark style="background-color:#FFEC92">diet</mark> 테이블은 아래와 같은 정보를 담고 있습니다.   
 
-    -  <mark style="background-color:#D7D0FF">images</mark>: 이미지 경로 및 파일 이름 ([json 형식](https://ko.wikipedia.org/wiki/JSON)으로 저장되어 있으며 "img_path"와 "category" 값만을 이용합니다)
+    -  <mark style="background-color:#D7D0FF">image</mark> : 이미지 경로 
+    -  <mark style="background-color:#D7D0FF">label</mark> : 파일 이름
 
 ## __2. 키워드 검색 모델 생성__ 
 
@@ -61,7 +77,7 @@ OPTIONS (
     epochs=1
     )
 AS 
-SELECT images ->> 'img_path' image, images ->> 'category' label 
+SELECT *
 FROM diet
 ```
 
@@ -74,7 +90,6 @@ FROM diet
         - "image_col" : 이미지 경로를 담은 컬럼의 이름
         - "label_col" : 목표값의 정보를 담은 컬럼의 이름
         - "epochs" : 모든 학습 데이터 세트를 학습하는 횟수
-    - "__SELECT__" 쿼리 구문을 이용해서 **<mark style="background-color:#D7D0FF">images</mark> 컬럼 내에서 'img_path' 키(Key)**를 "image"로, **<mark style="background-color:#D7D0FF">images</mark> 컬럼 내에서 'category' 키**를 "label"로 선택합니다. ( images ->> 'img_path', images ->> 'category' )
 
 
 ## __3. 생성된 모델을 사용하여 키워드-이미지 검색 모델 확인__
@@ -85,7 +100,7 @@ FROM diet
 %%thanosql
 PREDICT USING diet_image_classification
 AS 
-SELECT user_id, images ->> 'img_path' image, images ->> 'category' label 
+SELECT *
 FROM diet
 ```
 
@@ -94,7 +109,6 @@ FROM diet
 
 !!! note "__쿼리 세부 정보__"
     - "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">diet_image_classification</mark> 모델을 예측에 사용합니다.
-    - "__SELECT__" <mark style="background-color:#D7D0FF">images</mark> 컬럼에서 'img_path'를 image로, 'category'를 label로 선택합니다.
 
 ## __4. 생성된 모델을 이용한 검색__ 
 
@@ -106,10 +120,10 @@ SELECT *
 FROM (
     PREDICT USING diet_image_classification
     AS 
-    SELECT user_id, images ->> 'img_path' image, images ->> 'category' label 
+    SELECT *
     FROM diet
     )
-WHERE label == predicted
+WHERE label = predicted
 AND label LIKE '사과파이'
 LIMIT 10
 ```

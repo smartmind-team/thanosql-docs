@@ -7,6 +7,7 @@
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는 시간 : 5분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : tutorial/ml/회귀 모델 만들기/Auto-ML을 사용하여 예측 모델 만들기.ipynb
 - 참고 문서 : [(캐글) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -39,21 +40,43 @@ ThanoSQL에서는 자동화된 머신러닝(__Auto-ML__)을 도구로 제공합�
 
 이제부터 ThanoSQL을 사용하여 간단하게 자전거 대여 수량을 예측하는 회귀 모델을 만들어 봅니다. 
 
+## __0. 데이터 세트 준비__
+
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
+
+```sql
+%load_ext thanosql
+%thanosql API_TOKEN={발급 받은 개인 토큰}
+```
+```sql
+%%thanosql
+COPY bike_sharing_train FROM "tutorial_data/bike_sharing_data/bike_sharing_train.csv"
+```
+```sql
+%%thanosql
+COPY bike_sharing_test FROM "tutorial_data/bike_sharing_data/bike_sharing_test.csv"
+```
+
+!!! note "" 
+    COPY expression FROM [테이블 위치]  
+    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
+
+
 
 ## __1. 데이터 세트 확인__
 
-본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">bike_sharing</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
+본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">bike_sharing_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 ```sql
 %%thanosql
 SELECT * 
-FROM bike_sharing 
+FROM bike_sharing_train 
 LIMIT 5
 ```
 ![IMAGE](/img/automl_regression_img1.png)
 
 !!! note "__데이터 이해하기__"
-    <mark style="background-color:#FFEC92 ">__bike_sharing__</mark> 데이터 세트에는 2011년 1월부터 2012년 12월까지 날짜와 시간, 기온, 습도, 풍속 등의 정보를 기반으로 1시간 간격 동안의 자전거 대여 횟수에 대한 정보를 담고 있습니다.  
+    <mark style="background-color:#FFEC92 ">__bike_sharing_train__</mark> 데이터 세트에는 2011년 1월부터 2012년 12월까지 날짜와 시간, 기온, 습도, 풍속 등의 정보를 기반으로 1시간 간격 동안의 자전거 대여 횟수에 대한 정보를 담고 있습니다.  
     - <mark style="background-color:#D7D0FF ">datetime</mark> : 시간별 날짜  
     - <mark style="background-color:#D7D0FF ">season</mark> : 계절(1 = 봄, 2 = 여름, 3 = 가을, 4 = 겨울)  
     - <mark style="background-color:#D7D0FF ">holiday</mark> : 휴일(0 = 휴일이 아닌 날, 1 = 주말을 제외한 국경일 등의 휴일)  
@@ -67,7 +90,7 @@ LIMIT 5
 
 ## __2. 회귀 모델 생성__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">__bike_sharing__</mark> 데이터 세트를 사용하여 자전거 수요 예측 회귀 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>이라는 이름의 모델을 만듭니다.
+이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">__bike_sharing_train__</mark> 데이터 세트를 사용하여 자전거 수요 예측 회귀 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>이라는 이름의 모델을 만듭니다.
 
 ```sql
 %%thanosql
@@ -76,11 +99,12 @@ USING AutomlRegressor
 OPTIONS (
  target='count', 
  impute_type='simple', 
- datetime_attribs=['datetime']
+ datetime_attribs=['datetime'],
+ time_left_for_this_task = 30
  ) 
 AS
 SELECT *
-FROM bike_sharing
+FROM bike_sharing_train
 ```
 
 !!! note "__쿼리 세부 정보__"
@@ -98,7 +122,7 @@ OPTIONS (
   ) 
 AS
 SELECT *
-FROM bike_sharing
+FROM bike_sharing_train
 ```
 
 ![IMAGE](/img/automl_regression_img2.png)

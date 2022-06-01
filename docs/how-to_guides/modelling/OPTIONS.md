@@ -1108,7 +1108,7 @@ __PREDICT USING 쿼리 구문 예시__
 PREDICT USING movie_rec
 OPTIONS (
     predict_type='user', 
-    user_col=31, 
+    user_id=31, 
     nrec=10
     )
 AS 

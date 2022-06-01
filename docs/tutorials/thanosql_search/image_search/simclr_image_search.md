@@ -7,6 +7,7 @@
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는데 걸리는 시간 : 7분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : tutorial/query/이미지로 이미지 검색하기.ipynb   
 - 참고 문서 : [MNIST 데이터 세트](http://yann.lecun.com/exdb/mnist/), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -35,12 +36,10 @@ ThanoSQL을 사용하여 손글씨 데이터를 입력하고 DB 내에서 입력
 ![MNIST 데이터](/img/thanosql_search/simclr_search/simclr_img7.png) 
 
 ## __0. 데이터 세트 준비__
-
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
-
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급 받은 개인 토큰}
+%thanosql API_TOKEN={발급받은 개인 토큰}
 ```
 ```sql
 %%thanosql
@@ -52,8 +51,8 @@ COPY mnist_test FROM "tutorial_data/mnist_data/mnist_test.csv"
 ```
 
 !!! note "" 
-    COPY expression FROM [테이블 위치]
-    - 위의 커리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
+    COPY expression FROM [테이블 위치]  
+    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
     
 
 ## __1. 데이터 세트 확인__
@@ -88,8 +87,7 @@ USING SimCLR
 OPTIONS (
     image_col="img_path",
     file_name="filename",
-    label="label",
-    max_epochs=5
+    max_epochs=1
     )
 AS 
 SELECT * 
@@ -102,7 +100,6 @@ FROM mnist_train
     - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.  
         -  "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼 (Default : "path")
         -  "file_name" : 데이터 테이블에서 이미지 파일 이름을 담은 컬럼
-        -  "label" : 이미지 라벨을 담은 컬럼
         -  "max_epochs" : 이미지 수치화 모델을 생성하기 위한 데이터 세트 학습 횟수
 
 아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `my_image_search_model`을 "__CONVERT USING__" 쿼리 구문을 사용하여 `mnist_test` 이미지들을 임베딩합니다. 
@@ -111,9 +108,7 @@ FROM mnist_train
 %%thanosql
 CONVERT USING my_image_search_model
 OPTIONS (
-    image_col='img_path',
-    file_name='filename',
-    max_epochs=1
+    table_name= "mnist_test"
     )
 AS 
 SELECT * 
@@ -129,7 +124,7 @@ FROM mnist_test
         - "table_name" : ThanoSQL DB 내에 저장될 테이블 이름을 정의합니다. 
 
 !!! note "" 
-    `mnist_test` 테이블에 `my_mnist_model_sinclr`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
+    `mnist_test` 테이블에 `my_image_search_model_sinclr`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
 
 ## __3. (이미지 폴더로부터) 이미지 수치화 결과 저장__
 
@@ -180,7 +175,7 @@ LIMIT 5
 
 ```sql
 %%thanosql
-SEARCH IMAGE images='/data/development-model/data/mnist/MNIST_DATASET/test/35322.jpg' 
+SEARCH IMAGE images='tutorial_data/mnist_data/train/1.jpg' 
 USING my_image_search_model 
 AS 
 SELECT * 
@@ -203,15 +198,15 @@ FROM mnist_embds
 PRINT IMAGE 
 AS (
     SELECT image 
-    AS image, my_mnist_model_sinclr_similarity1 
+    AS image, my_image_search_model_sinclr_similarity1 
     FROM (
-        SEARCH IMAGE images='/data/development-model/data/mnist/MNIST_DATASET/train_data/35322.jpg' 
+        SEARCH IMAGE images='tutorial_data/mnist_data/train/1.jpg' 
         USING my_image_search_model 
         AS 
         SELECT * 
         FROM mnist_embds
         )
-    ORDER BY my_mnist_model_sinclr_similarity1 DESC 
+    ORDER BY my_image_search_model_sinclr_similarity1 DESC 
     LIMIT 4
     )
 ```

@@ -8,6 +8,7 @@
 - 튜토리얼 난이도 : ★★☆☆☆
 - 읽는데 걸리는 시간 : 7분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : tutorial/query/텍스트로 이미지 검색하기.ipynb  
 - 참고 문서 : [Unsplash Dataset - Lite](https://unsplash.com/data), [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -31,11 +32,20 @@ __아래는 ThanoSQL 텍스트-이미지 검색 알고리즘의 활용 및 예�
     
 이번 튜토리얼에서는 텍스트-이미지 검색 모델을 사용하여, ThanoSQL DB의 `Unsplash Dataset - Lite` 데이터 세트의 25,000 장의 이미지 중에서 텍스트로 원하는 이미지를 검색해 봅니다. 
 
-## __0. ThanoSQL 접속하기__ 
-
+## __0. 데이터 세트 준비__
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 ```sql
 %load_ext thanosql
+%thanosql API_TOKEN={발급받은 개인 토큰}
 ```
+```sql
+%%thanosql
+COPY unsplash_data FROM "tutorial_data/unsplash_data/unsplash.csv"
+```
+
+!!! note "" 
+    COPY expression FROM [테이블 위치]  
+    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다.
 
 ## __1. 데이터 세트 확인__
 
@@ -74,11 +84,11 @@ LIMIT 5
 ## __2. 텍스트 검색을 위한 이미지 수치화 모델 생성하기__
 
 !!! danger "참고 사항"
-    텍스트-이미지 검색 알고리즘은 학습에 오랜 시간이 걸리고 총 4억 개의 데이터 세트로 사전 학습된 모델을 사용하기 때문에 "__BUILD MODEL__" 쿼리 구문을 이용한 학습 과정을 본 튜토리얼에서는 생략합니다. `clip_en` 모델은 베이스 알고리즘으로 `CLIPEn`을 사용한 사전학습 된 모델을 가져와서 사용하게 됩니다. "__CONVERT USING__" 쿼리 구문을 실행하게 되면 "모델명(`clip_en`)_베이스 알고리즘명(`CLIPEn`)"으로 이미지가 수치화 된 컬럼이 자동으로 생성이 되며, "__SEARCH IMAGE__" 쿼리 구문을 실행하게 되면 "모델명(`clip_en`)_베이스 알고리즘 명(`CLIPEn`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 됩니다. 여기수 "수"는 검색에 사용한 텍스트의 갯수를 의미합니다. 2개 이상의 텍스트로 검색이 이루어 질 경우 순서에 따라 컬럼의 수가 순차적으로 증가되어 생성 됩니다. 자세한 사항은 아래 내용을 참고하세요.
+    텍스트-이미지 검색 알고리즘은 학습에 오랜 시간이 걸리고 총 4억 개의 데이터 세트로 사전 학습된 모델을 사용하기 때문에 "__BUILD MODEL__" 쿼리 구문을 이용한 학습 과정을 본 튜토리얼에서는 생략합니다. `tutorial_search_clip` 모델은 베이스 알고리즘으로 `clipen`을 사용한 사전학습 된 모델을 가져와서 사용하게 됩니다. "__CONVERT USING__" 쿼리 구문을 실행하게 되면 "모델명(`tutorial_search_clip`)_베이스 알고리즘명(`clipen`)"으로 이미지가 수치화 된 컬럼이 자동으로 생성이 되며, "__SEARCH IMAGE__" 쿼리 구문을 실행하게 되면 "모델명(`tutorial_search_clip`)_베이스 알고리즘 명(`clipen`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 됩니다. 여기수 "수"는 검색에 사용한 텍스트의 갯수를 의미합니다. 2개 이상의 텍스트로 검색이 이루어 질 경우 순서에 따라 컬럼의 수가 순차적으로 증가되어 생성 됩니다. 자세한 사항은 아래 내용을 참고하세요.
 
 ```sql
 %%thanosql
-CONVERT USING clip_en
+CONVERT USING tutorial_search_clip
 OPTIONS (
     image_col="filepath", 
     table_name="unsplash_data", 
@@ -91,7 +101,7 @@ FROM unsplash_data
 
 !!! note "쿼리 세부 정보"
 
-    "__CONVERT USING__" 쿼리 구문은 `clip_en` 모델을 이미지 수치화를 위한 알고리즘으로 사용합니다.
+    "__CONVERT USING__" 쿼리 구문은 `tutorial_search_clip` 모델을 이미지 수치화를 위한 알고리즘으로 사용합니다.
     "__OPTIONS__" 쿼리 구문은 이미지 수치화 시 필요한 변수들을 정의합니다. ThanoSQL DB 내에 저장될 테이블 이름("table_name")을 정의합니다. 이미지의 저장 경로를 저장한 컬럼 명을 "image_col"에서 정의합니다. 본 튜토리얼에서는 `filepath`를 사용합니다. "batch_size"는 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. 논문에 따르면 클 수록 학습 성능이 증가하지만 메모리의 크기를 고려하여 128을 사용합니다. 
 
 ```sql
@@ -103,18 +113,18 @@ LIMIT 5
 
 ![IMAGE](/img/thanosql_search/clip_search/select_data_with_embedding.png)
 
-`CONVERT` 쿼리의 결과로 `clip_en_CLIPEn` 열이 생성된 것을 볼 수 있습니다. `{model_name}_{base_model_name}`이라는 이름으로 임베딩 값을 담은 열이 추가되게 됩니다.
+`CONVERT` 쿼리의 결과로 `tutorial_search_clip_clipen` 열이 생성된 것을 볼 수 있습니다. `{model_name}_{base_model_name}`이라는 이름으로 임베딩 값을 담은 열이 추가되게 됩니다.
 
 <br>
 
 ## __3. 텍스트로 이미지 검색하기__
 
-"__SEARCH IMAGE__" 쿼리 구문과 생성한 이미지 수치화 모델(`clip_en`)을 이용하여 이미지를 검색할 수 있습니다. 우선 하나의 텍스트로 검색하고 결과를 확인합니다. "모델명(`clip_en`)_베이스 알고리즘 명(`CLIPEn`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 된 것을 확인할 수 있습니다.
+"__SEARCH IMAGE__" 쿼리 구문과 생성한 이미지 수치화 모델(`tutorial_search_clip`)을 이용하여 이미지를 검색할 수 있습니다. 우선 하나의 텍스트로 검색하고 결과를 확인합니다. "모델명(`tutorial_search_clip`)_베이스 알고리즘 명(`clipen`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 된 것을 확인할 수 있습니다.
 
 ```sql
 %%thanosql
 SEARCH IMAGE text="a black cat"
-USING clip_en
+USING tutorial_search_clip
 AS 
 SELECT * 
 FROM unsplash_data
@@ -125,22 +135,22 @@ FROM unsplash_data
 !!! note "쿼리 세부 정보"
 
     - "__SEARCH IMAGE__" 쿼리 구문을 사용하여 이미지를 찾을 것임을 명시합니다. "text" 변수를 이용해서 찾고자 하는 이미지의 텍스트 내용을 입력합니다. 
-    - "__USING__" 쿼리 구문을 통해 검색에 사용할 모델로 `clip_en`을 사용할 것을 명시합니다.
+    - "__USING__" 쿼리 구문을 통해 검색에 사용할 모델로 `tutorial_search_clip`을 사용할 것을 명시합니다.
 
-쿼리 구문의 결과로 `clip_en_CLIPEn_similarity1` 행이 생성된 것을 볼 수 있습니다. 검색 알고리즘으로 사용하기 위해서는 유사도 계산 결과를 이용해서 가장 유사한 이미지를 선별해서 확인해야 합니다. 아래 쿼리 구문을 수행하여 DB에서 해당 텍스트와 가장 유사한 이미지 5개를 확인합니다.
+쿼리 구문의 결과로 `tutorial_search_clip_clipen_similarity1` 행이 생성된 것을 볼 수 있습니다. 검색 알고리즘으로 사용하기 위해서는 유사도 계산 결과를 이용해서 가장 유사한 이미지를 선별해서 확인해야 합니다. 아래 쿼리 구문을 수행하여 DB에서 해당 텍스트와 가장 유사한 이미지 5개를 확인합니다.
 
 ```sql
 %%thanosql
 SELECT filepath 
-AS image, "clip_en_CLIPEn_similarity1" 
+AS image, tutorial_search_clip_clipen_similarity1 
 FROM (
     SEARCH IMAGE text="a black cat"
-    USING clip_en
+    USING tutorial_search_clip
     AS 
     SELECT * 
     FROM unsplash_data
     )
-ORDER BY "clip_en_CLIPEn_similarity1" DESC 
+ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
 LIMIT 5
 ```
 
@@ -149,8 +159,8 @@ LIMIT 5
 !!! note "쿼리 세부 정보"
     
     - "__SEARCH IMAGE__" 쿼리 구문은 입력한 텍스트와 이미지 사이의 유사도를 계산하여 반환합니다.
-    - 첫 번째 "__SELECT__" 쿼리 구문은 괄호 안의 쿼리 결과에서 "filepath" 컬럼과 `clip_en_CLIPEn_similarity1` 컬럼을 선택합니다. 이 때, `filepath` 컬럼은 `image`라는 컬럼 이름으로 변경합니다.
-    - "__ORDER BY__" 쿼리 구문은 결과를 `clip_en_CLIPEn_similarity1` 컬럼의 값을 기준으로 정렬하는데, 정렬은 내림차순("__DESC__")이며, 그 중 상위 5개("__LIMIT__" 5)의 결과를 출력합니다.
+    - 첫 번째 "__SELECT__" 쿼리 구문은 괄호 안의 쿼리 결과에서 "filepath" 컬럼과 `tutorial_search_clip_clipen_similarity1` 컬럼을 선택합니다. 이 때, `filepath` 컬럼은 `image`라는 컬럼 이름으로 변경합니다.
+    - "__ORDER BY__" 쿼리 구문은 결과를 `tutorial_search_clip_clipen_similarity1` 컬럼의 값을 기준으로 정렬하는데, 정렬은 내림차순("__DESC__")이며, 그 중 상위 5개("__LIMIT__" 5)의 결과를 출력합니다.
 
 
 이제 입력한 텍스트 'a black cat'과 가장 유사한 이미지가 순서대로 정렬되어 보여집니다. 이 쿼리 구문을 "__PRINT__"문과 같이 사용한다면, 결과 이미지를 바로 확인할 수 있습니다.
@@ -160,15 +170,15 @@ LIMIT 5
 PRINT IMAGE 
 AS (
     SELECT filepath 
-    AS image, "clip_en_CLIPEn_similarity1" 
+    AS image, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="a black cat"
-        USING clip_en
+        USING tutorial_search_clip
         AS 
         SELECT * 
         FROM unsplash_data
         )
-    ORDER BY "clip_en_CLIPEn_similarity1" DESC 
+    ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
     LIMIT 5
     )
 ```
@@ -187,15 +197,15 @@ AS (
 PRINT IMAGE 
 AS (
     SELECT filepath 
-    AS image, "clip_en_CLIPEn_similarity1" 
+    AS image, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="a dog on a chair"
-        USING clip_en
+        USING tutorial_search_clip
         AS 
         SELECT * 
         FROM unsplash_data
         )
-    ORDER BY "clip_en_CLIPEn_similarity1" DESC 
+    ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
     LIMIT 5
     )
 ```
@@ -207,15 +217,15 @@ AS (
 PRINT IMAGE 
 AS (
     SELECT filepath 
-    AS image, "clip_en_CLIPEn_similarity1" 
+    AS image, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="gloomy photos"
-        USING clip_en
+        USING tutorial_search_clip
         AS 
         SELECT * 
         FROM unsplash_data
         )
-    ORDER BY "clip_en_CLIPEn_similarity1" DESC 
+    ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
     LIMIT 5
     )
 ```
@@ -227,15 +237,15 @@ AS (
 PRINT IMAGE 
 AS (
     SELECT filepath 
-    AS image, "clip_en_CLIPEn_similarity1" 
+    AS image, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="the feeling when your program finally works"
-        USING clip_en
+        USING tutorial_search_clip
         AS 
         SELECT * 
         FROM unsplash_data
         )
-    ORDER BY "clip_en_CLIPEn_similarity1" DESC 
+    ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
     LIMIT 5
     )
 ```

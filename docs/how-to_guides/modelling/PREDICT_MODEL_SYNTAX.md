@@ -22,19 +22,19 @@ AS
 ```
 
 ## __3. PREDICT USING 구문 예시__ 
-아래 예는 "__PREDICT USING__" 구문을 사용하여 사용자가 [모델 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)에서 만들었던 <mark style="background-color:#E9D7FD ">user_rec</mark> 추천 모델을 사용하여 사용자 ID의 값이 31인 사용자가 좋아할 만한 영화 목록을 추천합니다.
+아래 예는 "__PREDICT USING__" 구문을 사용하여 사용자가 [모델 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)에서 만들었던 <mark style="background-color:#E9D7FD ">my_movie_rec</mark> 추천 모델을 사용하여 사용자 ID의 값이 31인 사용자가 좋아할 만한 영화 목록을 추천합니다.
 
 ```sql
 %%thanosql
-PREDICT USING user_rec
+PREDICT USING my_movie_rec
 OPTIONS (
   predict_type='user', 
-  user=31, 
+  user_id=31, 
   nrec=10
   )
 AS 
 SELECT * 
-FROM movielens_train
+FROM movielens_data
 ```
 
 !!! note "__쿼리 세부 정보__" 
