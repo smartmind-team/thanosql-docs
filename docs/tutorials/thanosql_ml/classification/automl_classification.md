@@ -48,7 +48,7 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](
 
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급 받은 개인 토큰}
+%thanosql API_TOKEN={발급받은_API_TOKEN}
 ```
 ```sql
 %%thanosql

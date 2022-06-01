@@ -40,7 +40,7 @@ __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
 ## __0. 데이터 세트 준비__
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급 받은 개인 토큰}
+%thanosql API_TOKEN={발급받은_API_TOKEN}
 ```
 ```sql
 %%thanosql
