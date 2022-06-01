@@ -58,11 +58,11 @@
 
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN = {발급 받은 개인 토큰}
+%thanosql API_TOKEN = { 발급 받은 개인 토큰 }
 
 ```
 
 ![image](/img/how_to_use_ThanoSQL/img6.png)
 
-!!! note "" 
+!!! danger  
       ThanoSQL 콘솔 상에서 ThanoSQL 문법을 사용하기 위해서는 파일 상단에서 항상 위 쿼리를 실행시켜야 합니다. 

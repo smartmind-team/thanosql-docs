@@ -5,8 +5,9 @@
 ## 시작 전 사전 정보 
 
 - 튜토리얼 난이도 : ★☆☆☆☆
-- 읽는데 걸리는 시간 : 10분
+- 읽는데 걸리는 시간 : 10분  
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : tutorial/query/키워드로 이미지 검색하기.ipynb  
 - 참고 문서 : [음식 이미지 및 영양정보 텍스트 소개 데이터 세트](https://aihub.or.kr/aidata/30747)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -41,7 +42,7 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](
 COPY diet FROM "tutorial_data/diet_data/diet.csv"
 ```
 !!! note ""
-    COPY expression FROM [테이블 위치]
+    COPY expression FROM [테이블 위치]  
     - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다.
 
 ## __1. 데이터 세트 확인__
@@ -57,9 +58,10 @@ FROM diet
 ![IMAGE](/img/thanosql_search/base_search/select_img1.png)
 
 !!! note "데이터 테이블 이해하기" 
-    <mark style="background-color:#FFEC92">diet</mark> 테이블은 아래와 같은 정보를 담고 있습니다. 본 튜토리얼에서는 <mark style="background-color:#D7D0FF">diet_id</mark>, <mark style="background-color:#D7D0FF">description</mark>, <mark style="background-color:#D7D0FF">user_id</mark> 컬럼은 사용하지 않습니다.
+    <mark style="background-color:#FFEC92">diet</mark> 테이블은 아래와 같은 정보를 담고 있습니다.   
 
-    -  <mark style="background-color:#D7D0FF">images</mark>: 이미지 경로 및 파일 이름 ([json 형식](https://ko.wikipedia.org/wiki/JSON)으로 저장되어 있으며 "img_path"와 "category" 값만을 이용합니다)
+    -  <mark style="background-color:#D7D0FF">image</mark> : 이미지 경로 
+    -  <mark style="background-color:#D7D0FF">label</mark> : 파일 이름
 
 ## __2. 키워드 검색 모델 생성__ 
 
@@ -113,7 +115,6 @@ FROM diet
 이제 "__PREDICT USING__", "__SELECT__", "__WHERE__" 쿼리 구문을 사용하여 특정 조건의 데이터만을 검색합니다. <mark style="background-color:#E9D7FD ">label</mark>이 '사과파이'이고, 예측 결과 또한 '사과파이'인 데이터만을 검색하고 다음처럼 쿼리 구문을 작성할 수 있습니다.
 
 ```sql
-%%thanosql
 %%thanosql
 SELECT * 
 FROM (

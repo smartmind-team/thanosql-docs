@@ -7,6 +7,7 @@
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는데 걸리는 시간 : 7분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : tutorial/query/이미지로 이미지 검색하기.ipynb   
 - 참고 문서 : [MNIST 데이터 세트](http://yann.lecun.com/exdb/mnist/), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -48,9 +49,11 @@ COPY mnist_train FROM "tutorial_data/mnist_data/mnist_train.csv"
 %%thanosql
 COPY mnist_test FROM "tutorial_data/mnist_data/mnist_test.csv"
 ```
-!!! note ""
-    COPY expression FROM [테이블 위치]
-    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다.
+
+!!! note "" 
+    COPY expression FROM [테이블 위치]  
+    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
+    
 
 ## __1. 데이터 세트 확인__
 
@@ -84,8 +87,7 @@ USING SimCLR
 OPTIONS (
     image_col="img_path",
     file_name="filename",
-    label="label",
-    max_epochs=5
+    max_epochs=1
     )
 AS 
 SELECT * 
@@ -98,7 +100,6 @@ FROM mnist_train
     - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.  
         -  "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼 (Default : "path")
         -  "file_name" : 데이터 테이블에서 이미지 파일 이름을 담은 컬럼
-        -  "label" : 이미지 라벨을 담은 컬럼
         -  "max_epochs" : 이미지 수치화 모델을 생성하기 위한 데이터 세트 학습 횟수
 
 아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `my_image_search_model`을 "__CONVERT USING__" 쿼리 구문을 사용하여 `mnist_test` 이미지들을 임베딩합니다. 
@@ -107,9 +108,7 @@ FROM mnist_train
 %%thanosql
 CONVERT USING my_image_search_model
 OPTIONS (
-    image_col='img_path',
-    file_name='filename',
-    max_epochs=1
+    table_name= "mnist_test"
     )
 AS 
 SELECT * 

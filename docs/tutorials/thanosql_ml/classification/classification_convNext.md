@@ -8,6 +8,7 @@
 - 튜토리얼 난이도: ★☆☆☆☆
 - 읽는데 걸리는 시간 : 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : tutorial/ml/분류 모델 만들기/이미지 분류 모델 만들기.ipynb 
 - 참고 문서 : [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -45,6 +46,28 @@ __아래는 ThanoSQL 이미지 분류 모델의 활용 및 예시입니다.__
     - 이미지 분류 모델은 하나의 이미지에서 하나의 목표값(Target, 범주/레이블/라벨)를 예측하는 용도로 사용할 수 있습니다.
     - 이미지의 경로를 나타내는 컬럼(Column)과, 이미지의 목표값을 나타내는 컬럼이 존재해야 합니다.
     - 해당 이미지 분류 모델의 베이스 모델(`CONVNEXT`)은 GPU를 사용합니다. 사용한 모델의 크기와 배치 사이즈에 따라 GPU 메모리가 부족할 수 있습니다. 이 경우, 더 작은 모델을 사용하시거나 배치 사이즈를 줄여보십시오.
+
+## __0. 데이터 세트 준비__
+
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
+
+```sql
+%load_ext thanosql
+%thanosql API_TOKEN={발급 받은 개인 토큰}
+```
+```sql
+%%thanosql
+COPY cat_and_dog_train FROM "tutorial_data/cat_and_dog_data/cat_and_dog_train.csv"
+```
+```sql
+%%thanosql
+COPY cat_and_dog_test FROM "tutorial_data/cat_and_dog_data/cat_and_dog_test.csv"
+```
+
+!!! note "" 
+    COPY expression FROM [테이블 위치]  
+    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
+
 
 ## __1. 데이터 세트 확인__
 
@@ -124,7 +147,9 @@ FROM cat_and_dog_train
 ```sql
 %%thanosql
 PREDICT USING my_image_classifier
-OPTIONS (image_col='image')
+OPTIONS (
+    image_col='image'
+    )
 AS
 SELECT *
 FROM cat_and_dog_test

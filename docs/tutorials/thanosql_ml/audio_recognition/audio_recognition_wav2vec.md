@@ -8,6 +8,7 @@
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는데 걸리는 시간 : 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : tutorial/ml/음성 인식 모델 만들기/오디오 파일을 받아쓰는 음성 인식 모델 만들기.ipynb
 - 참고 문서 : [LibriSpeech 데이터 세트](http://www.openslr.org/12), [wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations](https://arxiv.org/abs/2006.11477)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -49,6 +50,12 @@ COPY librispeech_train FROM "tutorial_data/librispeech_data/librispeech_train.cs
 %%thanosql
 COPY librispeech_test FROM "tutorial_data/librispeech_data/librispeech_test.csv"
 ```
+
+!!! note "" 
+    COPY expression FROM [테이블 위치]  
+    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
+
+
 ## __1. 데이터 세트 확인__
 
 본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는  <mark style="background-color:#FFEC92 ">librispeech_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.

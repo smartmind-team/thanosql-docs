@@ -8,6 +8,7 @@
 - 튜토리얼 난이도: ★☆☆☆☆
 - 읽는데 걸리는 시간 : 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : tutorial/ml/분류 모델 만들기/텍스트 분류 모델 만들기.ipynb  
 - 참고 문서 : [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -43,14 +44,37 @@ __아래는 ThanoSQL 텍스트 분류 모델의 활용 및 예시입니다.__
     - 해당 텍스트 분류 모델의 베이스 모델(`ELECTRA`)은 GPU를 사용합니다. 사용한 모델의 크기와 배치 사이즈에 따라 GPU 메모리가 부족할 수 있습니다. 이 경우, 더 작은 모델을 사용하시거나 배치 사이즈를 줄여보십시오.
 
 
+## __0. 데이터 세트 준비__
+
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
+
+```sql
+%load_ext thanosql
+%thanosql API_TOKEN={발급 받은 개인 토큰}
+```
+```sql
+%%thanosql
+COPY movie_review_train FROM "tutorial_data/movie_review_data/movie_review_train.csv"
+```
+```sql
+%%thanosql
+COPY movie_review_test FROM "tutorial_data/movie_review_data/movie_review_test.csv"
+```
+
+!!! note "" 
+    COPY expression FROM [테이블 위치]  
+    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
+
+
+
 ## __1. 데이터 세트 확인__
 
-영화 리뷰 감정 분류 모델을 만들기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">imdb_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
+영화 리뷰 감정 분류 모델을 만들기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 ```sql
 %%thanosql
 SELECT *
-FROM imdb_train
+FROM movie_review_train
 LIMIT 5
 ```
 ![IMAGE](/img/thanosql_ml/classification/classification_Electra/train_data.png)
@@ -73,14 +97,14 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM imdb_test
+FROM movie_review_test
 ```
 
 ![IMAGE](/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_1.png)
 
 ## __3. 텍스트 분류 모델 만들기__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">imdb_train</mark> 데이터 세트를 사용하여 텍스트 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>라는 이름의 모델을 만듭니다.
+이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 데이터 세트를 사용하여 텍스트 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>라는 이름의 모델을 만듭니다.
 
 ```sql
 %%thanosql
@@ -95,7 +119,7 @@ OPTIONS (
   )
 AS
 SELECT *
-FROM imdb_train
+FROM movie_review_train
 ```
 
 !!! note "쿼리 세부 정보"
@@ -107,7 +131,7 @@ FROM imdb_train
 
 ## __4. 생성된 모델을 사용하여 영화 리뷰 감정 분류 결과 예측__
 
-이전 단계에서 만든 텍스트 분류 예측 모델을 사용해서 특정 리뷰(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#FFEC92 ">imdb_test</mark>)의 목표값을 예측해 봅니다.
+이전 단계에서 만든 텍스트 분류 예측 모델을 사용해서 특정 리뷰(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#FFEC92 ">movie_review_test</mark>)의 목표값을 예측해 봅니다.
 
 ```sql
 %%thanosql
@@ -117,7 +141,7 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM imdb_test
+FROM movie_review_test
 ```
 
 ![IMAGE](/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_2.png)

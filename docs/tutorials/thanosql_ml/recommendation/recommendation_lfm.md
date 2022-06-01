@@ -8,6 +8,7 @@
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는데 걸리는 시간 : 7분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : tutorial/ml/추천시스템 만들기/영화 평점 데이터를 사용하여 영화 추천 모델 만들기.ipynb
 - 참고 문서 : [Movielens 데이터 세트](https://grouplens.org/datasets/movielens/), [LightFM](https://making.lyst.com/lightfm/docs/home.html)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -28,7 +29,25 @@ __아래는 ThanoSQL (영화) 추천 모델의 활용 및 기대효과 예시입
 
 !!! note "본 튜토리얼에서는"
     :point_right: 사용자가 콘텐츠에 부여한 평점 데이터를 사용하여 간단하게 사용자가 좋아할만한 영화 목록을 추천해주는 추천시스템을 구축합니다. 이를 위해, <mark style="background-color:#FFD79C">__Movielens__</mark> 영화 평점 데이터 세트를 사용합니다. <mark style="background-color:#FFD79C">__Movielens__</mark> 데이터 세트는 사용자가 특정 영화에 대해서 평점을 준 것을 모아놓은 데이터 세트입니다. <br>
-    
+
+## __0. 데이터 세트 준비__
+
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
+
+```sql
+%load_ext thanosql
+%thanosql API_TOKEN={발급 받은 개인 토큰}
+```
+```sql
+%%thanosql
+COPY movielens_data FROM "tutorial_data/movielens_data/movielens.csv"
+```
+
+!!! note "" 
+    COPY expression FROM [테이블 위치]  
+    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
+
+
 
 ## __1. 데이터 세트 확인__
 
@@ -53,12 +72,12 @@ LIMIT 5
 
 ## __2. 추천 모델 생성__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">movielens_data</mark> 데이터를 사용하여 영화 추천 모델을 만듭니다. 다음 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">movie_rec</mark> 이름의 모델을 만듭니다. 
+이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">movielens_data</mark> 데이터를 사용하여 영화 추천 모델을 만듭니다. 다음 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_movie_rec</mark> 이름의 모델을 만듭니다. 
 
 
 ```sql
 %%thanosql
-BUILD MODEL movie_rec
+BUILD MODEL my_movie_rec
 USING Light_FM
 OPTIONS (
   user_col='userid',   
@@ -72,7 +91,7 @@ FROM movielens_data
 ```
 
 !!! note "__쿼리 세부 정보__"
-    "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">movie_rec</mark> 이라는 모델을 만들고 학습시킵니다. <br>
+    "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">my_movie_rec</mark> 이라는 모델을 만들고 학습시킵니다. <br>
     "__OPTIONS__"에서는 3개의 컬럼(Column)이 사용합니다. "user_col"에는 사용자의 ID (<mark style="background-color:#D7D0FF ">userid</mark>), "item_col"에는 아이템의 ID가 들어갑니다. 본 튜토리얼에서는 <mark style="background-color:#D7D0FF ">movieid</mark>가 사용됩니다. "rating_col"에서는 예측하고자 하는 목표값이 되는 열의 이름(<mark style="background-color:#D7D0FF ">rating</mark>)을 적어줍니다.   
 
 !!! tip ""
@@ -84,7 +103,7 @@ FROM movielens_data
 
 ```sql
 %%thanosql
-PREDICT USING movie_rec
+PREDICT USING my_movie_rec
 OPTIONS (
   predict_type='user', 
   user_id=31, 
@@ -97,7 +116,7 @@ FROM movielens_data
 ![IMAGE](/img/recommendation_lfm_img2.png)
 
 !!! note "__쿼리 세부 정보__" 
-    __"PREDICT USING"__ 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">movie_rec</mark> 모델을 예측에 사용합니다. 
+    __"PREDICT USING"__ 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_movie_rec</mark> 모델을 예측에 사용합니다. 
     추천 모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. "predict_type"은 예측 결과를 정렬할 대상 기준을 설정합니다. 이번 튜토리얼에서는 특정 사용자(<mark style="background-color:#D7D0FF ">userid</mark>의 값이 31)에게 추천할 영화 목록을 보려고 하기 때문에 "itemid"를 적어주며 "itemid"는 보고자 하는 특정 사용자의 <mark style="background-color:#D7D0FF ">userid</mark>값인 31을 입력합니다. "nrec"는 추천하는 아이템의 개수를 의미합니다. 
 
 !!! warning

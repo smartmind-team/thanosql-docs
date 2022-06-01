@@ -9,6 +9,7 @@
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는데 걸리는 시간 : 4 분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치 : tutorial/ml/분류 모델 만들기/Auto-ML을 사용하여 분류 모델 만들기.ipynb 
 - 참고 문서 : [(캐글) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
 - 마지막 수정날짜 : 2022-06-01
 
@@ -59,8 +60,8 @@ COPY titanic_test FROM "tutorial_data/titanic_data/titanic_test.csv"
 ```
 
 !!! note "" 
-    COPY expression FROM [테이블 위치]
-    - 위의 커리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
+    COPY expression FROM [테이블 위치]  
+    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
 
 
 ## __1. 데이터 세트 확인__
@@ -94,16 +95,17 @@ LIMIT 5
 
 ## __2. 분류 모델 생성__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">titanic_train</mark> 데이터를 사용하여 생존자 예측 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행시켜 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 이름의 모델을 만들어 봅니다.
+이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">titanic_train</mark> 데이터를 사용하여 생존자 예측 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행시켜 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark> 이름의 모델을 만들어 봅니다.
 
 ```sql
 %%thanosql
-BUILD MODEL titanic_classification 
+BUILD MODEL tutorial_automl_classification 
 USING AutomlClassifier 
 OPTIONS (
     target='survived', 
     impute_type='iterative',  
-    features_to_drop=["name", 'ticket', 'passengerid', 'cabin']
+    features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
+    time_left_for_this_task = 30
     ) 
 AS 
 SELECT * 
@@ -111,7 +113,7 @@ FROM titanic_train
 ```
 
 !!! note "__쿼리 세부 정보__"  
-    "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">titanic_classification</mark>이라는 모델을 만들고 학습시킵니다.  
+    "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 만들고 학습시킵니다.  
     "__OPTIONS__"의 "target"에는 분류 예측 모델에 목표값이 되는 컬럼(Column)의 이름을 적어줍니다. "impute_type"의 경우에는 데이터 세트의 빈 값에 대한 처리를 의미합니다. "features_to_drop"은 학습에 이용하지 않을 데이터를 적어주면 머신러닝 모델 생성을 진행할 수 있습니다.  
 
 
@@ -120,7 +122,7 @@ FROM titanic_train
 
 ```sql
 %%thanosql 
-EVALUATE USING titanic_classification 
+EVALUATE USING tutorial_automl_classification 
 OPTIONS (
     target = 'survived'
     )
@@ -131,7 +133,7 @@ FROM titanic_train
 ![IMAGE](/img/automl_classification_img2.png)
 
 !!! note "__쿼리 세부 정보__"   
-    "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_classification</mark>이라는 모델을 평가합니다. "__OPTIONS__"의 "target"에는 분류 예측 모델에 목표값이 되는 컬럼의 이름(<mark style="background-color:#D7D0FF">survived</mark>)을 적어줍니다.
+    "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 평가합니다. "__OPTIONS__"의 "target"에는 분류 예측 모델에 목표값이 되는 컬럼의 이름(<mark style="background-color:#D7D0FF">survived</mark>)을 적어줍니다.
 
 
 ## __4. 생성된 모델을 사용하여 생존자 예측__ 
@@ -140,7 +142,7 @@ FROM titanic_train
 
 ```sql
 %%thanosql 
-PREDICT USING titanic_classification
+PREDICT USING tutorial_automl_classification
 AS 
 SELECT * 
 FROM titanic_test
@@ -148,7 +150,7 @@ FROM titanic_test
 ![IMAGE](/img/automl_classification_img3.png)
 
 !!! note "__쿼리 세부 정보__" 
-    "__PREDICT USING__" 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 모델을 예측에 사용합니다. "__PREDICT__"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 처리가 필요없습니다. 
+    "__PREDICT USING__" 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">tutorial_automl_classification</mark> 모델을 예측에 사용합니다. "__PREDICT__"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 처리가 필요없습니다. 
 
 ## __5. 튜토리얼을 마치며__ 
 
