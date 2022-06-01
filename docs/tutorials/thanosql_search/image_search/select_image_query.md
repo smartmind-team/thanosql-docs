@@ -42,7 +42,7 @@ COPY diet FROM "tutorial_data/diet_data/diet.csv"
 ```
 !!! note ""
     COPY expression FROM [테이블 위치]
-    - 위의 커리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다.
+    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다.
 
 ## __1. 데이터 세트 확인__
 
