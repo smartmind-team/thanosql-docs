@@ -44,8 +44,8 @@ COPY movielens_data FROM "tutorial_data/movielens_data/movielens.csv"
 ```
 
 !!! note "" 
-    COPY expression FROM [테이블 위치]  
-    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
+    COPY [테이블 명] FROM [csv 파일]  
+    - 위의 쿼리는 csv 파일 데이터 세트를 ThanoSQL DB의 테이블로 만들어 줍니다.
 
 
 
