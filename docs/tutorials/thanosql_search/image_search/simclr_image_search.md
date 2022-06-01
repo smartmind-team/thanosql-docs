@@ -55,6 +55,19 @@ COPY mnist_test FROM "tutorial_data/mnist_data/mnist_test.csv"
     COPY expression FROM [테이블 위치]
     - 위의 커리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
     
+## __0. 데이터 세트 준비__
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
+```sql
+%load_ext thanosql
+%thanosql API_TOKEN={발급받은 개인 토큰}
+```
+```sql
+%%thanosql
+COPY diet FROM "tutorial_data/diet_data/diet.csv"
+```
+!!! note ""
+    COPY expression FROM [테이블 위치]
+    - 위의 커리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다.
 
 ## __1. 데이터 세트 확인__
 
