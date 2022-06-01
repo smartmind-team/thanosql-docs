@@ -61,7 +61,7 @@ OPTIONS (
     epochs=1
     )
 AS 
-SELECT images ->> 'img_path' image, images ->> 'category' label 
+SELECT *
 FROM diet
 ```
 
@@ -74,7 +74,6 @@ FROM diet
         - "image_col" : 이미지 경로를 담은 컬럼의 이름
         - "label_col" : 목표값의 정보를 담은 컬럼의 이름
         - "epochs" : 모든 학습 데이터 세트를 학습하는 횟수
-    - "__SELECT__" 쿼리 구문을 이용해서 **<mark style="background-color:#D7D0FF">images</mark> 컬럼 내에서 'img_path' 키(Key)**를 "image"로, **<mark style="background-color:#D7D0FF">images</mark> 컬럼 내에서 'category' 키**를 "label"로 선택합니다. ( images ->> 'img_path', images ->> 'category' )
 
 
 ## __3. 생성된 모델을 사용하여 키워드-이미지 검색 모델 확인__
@@ -85,7 +84,7 @@ FROM diet
 %%thanosql
 PREDICT USING diet_image_classification
 AS 
-SELECT user_id, images ->> 'img_path' image, images ->> 'category' label 
+SELECT *
 FROM diet
 ```
 
@@ -94,7 +93,6 @@ FROM diet
 
 !!! note "__쿼리 세부 정보__"
     - "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">diet_image_classification</mark> 모델을 예측에 사용합니다.
-    - "__SELECT__" <mark style="background-color:#D7D0FF">images</mark> 컬럼에서 'img_path'를 image로, 'category'를 label로 선택합니다.
 
 ## __4. 생성된 모델을 이용한 검색__ 
 
@@ -102,14 +100,15 @@ FROM diet
 
 ```sql
 %%thanosql
+%%thanosql
 SELECT * 
 FROM (
     PREDICT USING diet_image_classification
     AS 
-    SELECT user_id, images ->> 'img_path' image, images ->> 'category' label 
+    SELECT *
     FROM diet
     )
-WHERE label == predicted
+WHERE label = predicted
 AND label LIKE '사과파이'
 LIMIT 10
 ```
