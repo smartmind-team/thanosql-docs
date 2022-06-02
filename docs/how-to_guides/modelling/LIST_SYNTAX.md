@@ -16,6 +16,7 @@
 "__LIST MODEL__" 구문은 사용자가 만든 모델들의 리스트를 확인합니다.
 
 ```sql
+%%thanosql
 LIST MODEL
 ```
 ![.1](/img/LIST_img1.png) <br>
@@ -24,7 +25,8 @@ LIST MODEL
 "__LIST THANOSQL MODEL__" 구문은 ThanoSQL의 Pre-built 모델들의 리스트를 확인합니다.
 
 ```sql
-LIST TAHNOSQL MODEL
+%%thanosql
+LIST THANOSQL MODEL
 ```
 
 ![.1](/img/LIST_img2.png) <br>
