@@ -28,7 +28,7 @@ ThanoSQL 워크스페이스에 로컬 데이터 세트를 업로드하려면 다
 !!! note "SFTP(Secure File Transfer Protocol)란?"
     FTP(File Transfer Protocol)와 유사한 사용자 인터페이스가 있는 대화식 파일 전송 프로그램을 의미합니다. 하지만 SFTP는 SSH FTP(File Transfer Protocol)를 사용하여 서버에 대한 보안 연결을 만듭니다. 
 
-!!! warning ""
+!!! danger ""
     - SFTP는 Ubuntu와 Linux 환경만 지원합니다  
     - 명령으로 사용할 수 있는 옵션 중 일부는 SFTP 명령에 포함되어 있지 않지만 대부분의 명령이 포함되어 있습니다.
 
