@@ -10,7 +10,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/분류 모델 만들기/이미지 분류 모델 만들기.ipynb 
 - 참고 문서 : [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : 2022-06-08
 
 
 ## 튜토리얼 소개
@@ -57,11 +57,13 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](
 ```
 ```sql
 %%thanosql
-COPY cat_and_dog_train FROM "tutorial_data/cat_and_dog_data/cat_and_dog_train.csv"
+COPY cat_and_dog_train 
+FROM "tutorial_data/cat_and_dog_data/cat_and_dog_train.csv"
 ```
 ```sql
 %%thanosql
-COPY cat_and_dog_test FROM "tutorial_data/cat_and_dog_data/cat_and_dog_test.csv"
+COPY cat_and_dog_test 
+FROM "tutorial_data/cat_and_dog_data/cat_and_dog_test.csv"
 ```
 
 !!! note "" 

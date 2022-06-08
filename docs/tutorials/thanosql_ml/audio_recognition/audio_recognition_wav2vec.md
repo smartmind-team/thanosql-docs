@@ -10,7 +10,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/음성 인식 모델 만들기/오디오 파일을 받아쓰는 음성 인식 모델 만들기.ipynb
 - 참고 문서 : [LibriSpeech 데이터 세트](http://www.openslr.org/12), [wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations](https://arxiv.org/abs/2006.11477)
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : 2022-06-08
 
 ## 튜토리얼 소개
 !!! note "음성 인식 기술 이해하기"
@@ -44,11 +44,13 @@ __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
 ```
 ```sql
 %%thanosql
-COPY librispeech_train FROM "tutorial_data/librispeech_data/librispeech_train.csv"
+COPY librispeech_train 
+FROM "tutorial_data/librispeech_data/librispeech_train.csv"
 ```
 ```sql
 %%thanosql
-COPY librispeech_test FROM "tutorial_data/librispeech_data/librispeech_test.csv"
+COPY librispeech_test 
+FROM "tutorial_data/librispeech_data/librispeech_test.csv"
 ```
 
 !!! note "" 

@@ -9,7 +9,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/query/이미지로 이미지 검색하기.ipynb   
 - 참고 문서 : [MNIST 데이터 세트](http://yann.lecun.com/exdb/mnist/), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : 2022-06-08
 
 ## 튜토리얼 소개
 
@@ -43,15 +43,17 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](
 ```
 ```sql
 %%thanosql
-COPY mnist_train FROM "tutorial_data/mnist_data/mnist_train.csv"
+COPY mnist_train 
+FROM "tutorial_data/mnist_data/mnist_train.csv"
 ```
 ```sql
 %%thanosql
-COPY mnist_test FROM "tutorial_data/mnist_data/mnist_test.csv"
+COPY mnist_test 
+FROM "tutorial_data/mnist_data/mnist_test.csv"
 ```
 
 !!! note "" 
-    COPY [테이블 명] FROM [csv 파일]  
+    COPY [테이블 명] FROM [csv 파일]   
     - 위의 쿼리는 csv 파일 데이터 세트를 ThanoSQL DB의 테이블로 만들어 줍니다.
     
 
@@ -70,7 +72,7 @@ LIMIT 5
 
 
 !!! note "데이터 테이블 이해하기" 
-    <mark style="background-color:#FFEC92">mnist_train</mark> 테이블은 아래와 같은 정보를 담고 있습니다. "18759.jpg" 이미지 파일은 숫자 0을 쓴 손글씨 이미지이고 "18566.jpg" 파일은 숫자 2를 쓴 손글씨 이미지 파일입니다.
+    <mark style="background-color:#FFEC92">mnist_train</mark> 테이블은 아래와 같은 정보를 담고 있습니다. "6782.jpg" 이미지 파일은 숫자 5를 쓴 손글씨 이미지입니다.
 
     - <mark style="background-color:#D7D0FF">img_path</mark>: 이미지 경로
     - <mark style="background-color:#D7D0FF">filename</mark>: 파일 이름
@@ -166,11 +168,11 @@ LIMIT 5
 
 ## __4. 이미지 수치화 모델을 사용해서 유사 이미지 검색하기__
 
-이번 단계에서는 `my_image_search_model` 이미지 수치화 모델과 `mnist_embds` 수치화 테이블을 사용하여 "35322.jpg" 이미지 파일(손글씨 6)과 유사한 이미지를 검색합니다. <br>
+이번 단계에서는 `my_image_search_model` 이미지 수치화 모델과 `mnist_embds` 수치화 테이블을 사용하여 "1.jpg" 이미지 파일(손글씨 0)과 유사한 이미지를 검색합니다. <br>
 
 ![image](/img/thanosql_search/simclr_search/simclr_img8.png) 
 
-35322.jpg 이미지파일
+1.jpg 이미지파일
 
 
 ```sql
