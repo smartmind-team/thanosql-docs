@@ -10,7 +10,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/분류 모델 만들기/텍스트 분류 모델 만들기.ipynb  
 - 참고 문서 : [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : 2022-06-08
 
 ## 튜토리얼 소개
 
@@ -54,11 +54,13 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](
 ```
 ```sql
 %%thanosql
-COPY movie_review_train FROM "tutorial_data/movie_review_data/movie_review_train.csv"
+COPY movie_review_train 
+FROM "tutorial_data/movie_review_data/movie_review_train.csv"
 ```
 ```sql
 %%thanosql
-COPY movie_review_test FROM "tutorial_data/movie_review_data/movie_review_test.csv"
+COPY movie_review_test 
+FROM "tutorial_data/movie_review_data/movie_review_test.csv"
 ```
 
 !!! note "" 

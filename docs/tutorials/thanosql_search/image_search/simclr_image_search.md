@@ -9,7 +9,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/query/이미지로 이미지 검색하기.ipynb   
 - 참고 문서 : [MNIST 데이터 세트](http://yann.lecun.com/exdb/mnist/), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : 2022-06-08
 
 ## 튜토리얼 소개
 
@@ -43,15 +43,17 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](
 ```
 ```sql
 %%thanosql
-COPY mnist_train FROM "tutorial_data/mnist_data/mnist_train.csv"
+COPY mnist_train 
+FROM "tutorial_data/mnist_data/mnist_train.csv"
 ```
 ```sql
 %%thanosql
-COPY mnist_test FROM "tutorial_data/mnist_data/mnist_test.csv"
+COPY mnist_test 
+FROM "tutorial_data/mnist_data/mnist_test.csv"
 ```
 
 !!! note "" 
-    COPY [테이블 명] FROM [csv 파일]  
+    COPY [테이블 명] FROM [csv 파일]   
     - 위의 쿼리는 csv 파일 데이터 세트를 ThanoSQL DB의 테이블로 만들어 줍니다.
     
 

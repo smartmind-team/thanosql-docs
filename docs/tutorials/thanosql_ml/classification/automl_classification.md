@@ -11,7 +11,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/분류 모델 만들기/Auto-ML을 사용하여 분류 모델 만들기.ipynb 
 - 참고 문서 : [(캐글) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : 2022-06-08
 
 ## 튜토리얼 소개
 
@@ -52,11 +52,13 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](
 ```
 ```sql
 %%thanosql
-COPY titanic_train FROM "tutorial_data/titanic_data/titanic_train.csv"
+COPY titanic_train 
+FROM "tutorial_data/titanic_data/titanic_train.csv"
 ```
 ```sql
 %%thanosql
-COPY titanic_test FROM "tutorial_data/titanic_data/titanic_test.csv"
+COPY titanic_test 
+FROM "tutorial_data/titanic_data/titanic_test.csv"
 ```
 
 !!! note "" 
