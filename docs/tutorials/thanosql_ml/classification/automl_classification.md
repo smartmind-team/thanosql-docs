@@ -11,7 +11,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/분류 모델 만들기/Auto-ML을 사용하여 분류 모델 만들기.ipynb 
 - 참고 문서 : [(캐글) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : 2022-06-08
 
 ## 튜토리얼 소개
 
@@ -48,20 +48,22 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](
 
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급 받은 개인 토큰}
+%thanosql API_TOKEN={발급받은_API_TOKEN}
 ```
 ```sql
 %%thanosql
-COPY titanic_train FROM "tutorial_data/titanic_data/titanic_train.csv"
+COPY titanic_train 
+FROM "tutorial_data/titanic_data/titanic_train.csv"
 ```
 ```sql
 %%thanosql
-COPY titanic_test FROM "tutorial_data/titanic_data/titanic_test.csv"
+COPY titanic_test 
+FROM "tutorial_data/titanic_data/titanic_test.csv"
 ```
 
 !!! note "" 
-    COPY expression FROM [테이블 위치]  
-    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다. 
+    COPY [테이블 명] FROM [csv 파일]  
+    - 위의 쿼리는 csv 파일 데이터 세트를 ThanoSQL DB의 테이블로 만들어 줍니다.
 
 
 ## __1. 데이터 세트 확인__

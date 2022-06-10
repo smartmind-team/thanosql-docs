@@ -13,7 +13,7 @@ ThanoSQL의 REST API를 사용하기 위해서는 자신만의 토큰을 발행�
 
 ![IMAGE](/img/thanosql_api/restapi_token_img1.png) </br>
 
-자신의 워크스페이스에서 오른쪽 상단에 보이는 GET API_TOKEN 버튼을 누르면 자동으로 API 토큰이 생성 될것 입니다. 생성된 API 토큰을 이용하여 ThanoSQL의 모든 REST API를 사용하실수 있습니다. 
+자신의 워크스페이스에서 오른쪽 상단에 보이는 GET API_TOKEN 버튼을 누르면 자동으로 API 토큰이 생성 되어 클립보드에 복사 됩니다. 생성된 API 토큰을 이용하여 ThanoSQL의 모든 REST API를 사용하실수 있습니다. 
 
 ![IMAGE](/img/thanosql_api/restapi_token_img2.jpg) </br>
 

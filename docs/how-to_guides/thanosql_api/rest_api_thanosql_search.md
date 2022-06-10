@@ -17,7 +17,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
     import requests
     import json
 
-    api_token = "발급받은 API TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url="http://engine.thanosql.ai/api/v1/search/file"
     table_name = "테이블 명"
     model_name = "모델 명"
@@ -45,7 +45,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
     curl -X 'POST' \
       'https://engine.thanosql.ai/api/v1/search/file/?table_name=테이블 명&model_name=모델 명&column_name=컬럼 명' \
       -H 'accept: application/json' \
-      -H 'Authorization: Bearer 발급받은 API TOKEN' \
+      -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
       -F 'file=@이미지 파일 경로;type=image/이미지 파일 타입'
     ```
@@ -58,7 +58,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
     import requests
     import json
 
-    api_token = "발급받은 API TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url="http://engine.thanosql.ai/api/v1/search/text"
     table_name = "테이블 명"
     model_name = "모델 명"
@@ -87,6 +87,6 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
     curl -X 'POST' \
       'https://engine.thanosql.ai/api/v1/search/text/?table_name=테이블 명&model_name=모델 명&column_name=컬럼 명&text=서치할 텍스트' \
       -H 'accept: application/json' \
-      -H 'Authorization: Bearer 발급받은 API TOKEN' \
+      -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -d ''
     ```

@@ -15,7 +15,7 @@ REST API를 사용하여 ThanoSQL 콘솔상에서 사용하던 쿼리들을 사�
     import requests
     import json
 
-    api_token = "발급받은 API TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url="http://engine.thanosql.ai/api/v1/query"
     query="요청할 쿼리"
 
@@ -40,6 +40,6 @@ REST API를 사용하여 ThanoSQL 콘솔상에서 사용하던 쿼리들을 사�
     curl -X 'POST' \
       'https://engine.thanosql.ai/api/v1/query/?table_name=테이블 명&column_name=컬럼 명' \
       -H 'accept: application/json' \
-      -H 'Authorization: Bearer 발급받은 API TOKEN' \
+      -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -d '{"query_string": query}'
     ```

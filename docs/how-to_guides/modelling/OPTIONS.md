@@ -48,7 +48,7 @@ AS
 
 ```sql
 OPTIONS(
-    (target = column_name),
+    target = column_name,
     [impute_type = {"simple" | "iterative"}],
     [features_to_drop = [column_name, ...]],
     [datetime_attribs = [column_name, ...]],
@@ -112,7 +112,7 @@ AS
 
 ```sql
 OPTIONS(
-    (target = column_name),
+    target = column_name,
     [impute_type = {"simple" | "iterative"}],
     [features_to_drop = [column_name, ...]],
     [datetime_attribs = [column_name, ...]],
@@ -223,7 +223,7 @@ AS
 
 ```sql
 OPTIONS(
-    (target = column_name)
+    target = column_name
     )
 ```
 
@@ -269,7 +269,7 @@ __OPTIONS 절__
 
 ```sql
 OPTIONS(
-    (target = column_name),
+    target = column_name,
     [impute_type = {"simple" | "iterative"}],
     [features_to_drop = [column_name, ...]],
     [datetime_attribs = [column_name, ...]],
@@ -332,7 +332,7 @@ AS
 
 ```sql
 OPTIONS(
-    (target = column_name),
+    target = column_name,
     [impute_type = {"simple" | "iterative"}],
     [features_to_drop = [column_name, ...]],
     [datetime_attribs = [column_name, ...]],
@@ -443,7 +443,7 @@ AS
 
 ```sql
 OPTIONS(
-    (target = column_name)
+    target = column_name
     )
 ```
 
