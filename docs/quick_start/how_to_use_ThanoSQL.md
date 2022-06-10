@@ -58,7 +58,7 @@
 
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급받은_API_TOKEN}
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ex) %thanosql API_TOKEN=eyAQjasfn1bizd2badf
 
 ```
