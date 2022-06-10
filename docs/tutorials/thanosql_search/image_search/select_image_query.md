@@ -32,10 +32,12 @@
     `음식 이미지 및 영양정보 텍스트 소개` 데이터 세트는 과학기술정보통신부가 주관하고 한국지능정보사회진흥원이 지원하는 '인공지능 학습용 데이터 구축사업'으로 구축된 데이터로 한국인 다빈도 섭취 외식 메뉴와 한식메뉴 400종을 선정하여 양질의 이미지 데이터로 구성이 되어 있습니다. 842,000 장의 이미지로 구성되어 있으며, 본 튜토리얼에서는 해당 데이터 세트에서 일부(10종, 1,190장)의 사진만을 사용합니다. 
 
 ## __0. 데이터 세트 준비__
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스 사용](/quick_start/how_to_use_ThanoSQL/#5-thanosql)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급받은_API_TOKEN}
+```
+```sql
+%thanosql API_TOKEN<발급받은_API_TOKEN>
 ```
 ```sql
 %%thanosql
