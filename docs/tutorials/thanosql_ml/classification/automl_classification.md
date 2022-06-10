@@ -110,7 +110,7 @@ OPTIONS (
     target='survived', 
     impute_type='iterative',  
     features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
-    time_left_for_this_task = 30
+    time_left_for_this_task = 300
     ) 
 AS 
 SELECT * 

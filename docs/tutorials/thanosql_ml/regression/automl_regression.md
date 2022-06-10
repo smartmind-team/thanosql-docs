@@ -105,7 +105,7 @@ OPTIONS (
  target='count', 
  impute_type='simple', 
  datetime_attribs=['datetime'],
- time_left_for_this_task = 30
+ time_left_for_this_task = 300
  ) 
 AS
 SELECT *
