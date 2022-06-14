@@ -37,7 +37,7 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 %load_ext thanosql
 ```
 ```sql
-%thanosql API_TOKEN<발급받은_API_TOKEN>
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
 %%thanosql
