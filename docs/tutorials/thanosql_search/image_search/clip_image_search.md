@@ -38,11 +38,10 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 ```sql
 %load_ext thanosql
 ```
-```
+```sql
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 COPY unsplash_data 
 FROM "tutorial_data/unsplash_data/unsplash.csv"
@@ -59,7 +58,6 @@ FROM "tutorial_data/unsplash_data/unsplash.csv"
 <br>
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 SELECT photo_id, filepath, photo_image_url, photo_description, ai_description
 FROM unsplash_data
@@ -76,7 +74,6 @@ LIMIT 5
     - `ai_description` AI가 생성해낸 해당 이미지에 대한 설명을 나타내는 컬럼 명
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 PRINT IMAGE 
 AS
@@ -92,9 +89,9 @@ LIMIT 5
 
 !!! danger "참고 사항"
     텍스트-이미지 검색 알고리즘은 학습에 오랜 시간이 걸리고 총 4억 개의 데이터 세트로 사전 학습된 모델을 사용하기 때문에 "__BUILD MODEL__" 쿼리 구문을 이용한 학습 과정을 본 튜토리얼에서는 생략합니다. `tutorial_search_clip` 모델은 베이스 알고리즘으로 `clipen`을 사용한 사전학습 된 모델을 가져와서 사용하게 됩니다. "__CONVERT USING__" 쿼리 구문을 실행하게 되면 "모델명(`tutorial_search_clip`)_베이스 알고리즘명(`clipen`)"으로 이미지가 수치화 된 컬럼이 자동으로 생성이 되며, "__SEARCH IMAGE__" 쿼리 구문을 실행하게 되면 "모델명(`tutorial_search_clip`)_베이스 알고리즘 명(`clipen`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 됩니다. 여기수 "수"는 검색에 사용한 텍스트의 갯수를 의미합니다. 2개 이상의 텍스트로 검색이 이루어 질 경우 순서에 따라 컬럼의 수가 순차적으로 증가되어 생성 됩니다. 자세한 사항은 아래 내용을 참고하세요.
+(쿼리 실행 시 예상 소요 시간: 3 min)  
 
 ```sql
-# 예상 소요 시간: 3 min
 %%thanosql
 CONVERT USING tutorial_search_clip
 OPTIONS (
@@ -113,7 +110,6 @@ FROM unsplash_data
     "__OPTIONS__" 쿼리 구문은 이미지 수치화 시 필요한 변수들을 정의합니다. ThanoSQL DB 내에 저장될 테이블 이름("table_name")을 정의합니다. 이미지의 저장 경로를 저장한 컬럼 명을 "image_col"에서 정의합니다. 본 튜토리얼에서는 `filepath`를 사용합니다. "batch_size"는 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. 논문에 따르면 클 수록 학습 성능이 증가하지만 메모리의 크기를 고려하여 128을 사용합니다. 
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 SELECT *
 FROM unsplash_data
@@ -131,7 +127,6 @@ LIMIT 5
 "__SEARCH IMAGE__" 쿼리 구문과 생성한 이미지 수치화 모델(`tutorial_search_clip`)을 이용하여 이미지를 검색할 수 있습니다. 우선 하나의 텍스트로 검색하고 결과를 확인합니다. "모델명(`tutorial_search_clip`)_베이스 알고리즘 명(`clipen`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 된 것을 확인할 수 있습니다.
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 SEARCH IMAGE text="a black cat"
 USING tutorial_search_clip
@@ -150,7 +145,6 @@ FROM unsplash_data
 쿼리 구문의 결과로 `tutorial_search_clip_clipen_similarity1` 행이 생성된 것을 볼 수 있습니다. 검색 알고리즘으로 사용하기 위해서는 유사도 계산 결과를 이용해서 가장 유사한 이미지를 선별해서 확인해야 합니다. 아래 쿼리 구문을 수행하여 DB에서 해당 텍스트와 가장 유사한 이미지 5개를 확인합니다.
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 SELECT filepath 
 AS image, tutorial_search_clip_clipen_similarity1 
@@ -177,7 +171,6 @@ LIMIT 5
 이제 입력한 텍스트 'a black cat'과 가장 유사한 이미지가 순서대로 정렬되어 보여집니다. 이 쿼리 구문을 "__PRINT__"문과 같이 사용한다면, 결과 이미지를 바로 확인할 수 있습니다.
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 PRINT IMAGE 
 AS (
@@ -205,7 +198,6 @@ AS (
     - "__PRINT IMAGE__" 쿼리 구문을 사용하여 해당 이미지를 출력합니다.
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 PRINT IMAGE 
 AS (
@@ -226,7 +218,6 @@ AS (
 ![a dog on a chair](/img/thanosql_search/clip_search/result_dog_on_chair.png)
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 PRINT IMAGE 
 AS (
@@ -247,7 +238,6 @@ AS (
 ![gloomy photos](/img/thanosql_search/clip_search/result_gloomy.png)
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 PRINT IMAGE 
 AS (

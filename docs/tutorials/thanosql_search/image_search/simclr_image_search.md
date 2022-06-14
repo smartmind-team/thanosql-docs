@@ -45,13 +45,11 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 COPY mnist_train 
 FROM "tutorial_data/mnist_data/mnist_train.csv"
 ```
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 COPY mnist_test 
 FROM "tutorial_data/mnist_data/mnist_test.csv"
@@ -68,7 +66,6 @@ FROM "tutorial_data/mnist_data/mnist_test.csv"
 
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 SELECT * 
 FROM mnist_train 
@@ -86,10 +83,9 @@ LIMIT 5
 
 ## __2. 이미지 수치화 모델 생성__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD">my_image_search_model</mark>이라는 이름의 모델을 만듭니다.
-
+이전 단계에서 확인한 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD">my_image_search_model</mark>이라는 이름의 모델을 만듭니다.  
+(쿼리 실행 시 예상 소요 시간 : 1 min)
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 BUILD MODEL my_image_search_model
 USING SimCLR
@@ -114,7 +110,6 @@ FROM mnist_train
 아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `my_image_search_model`을 "__CONVERT USING__" 쿼리 구문을 사용하여 `mnist_test` 이미지들을 임베딩합니다. 
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 CONVERT USING my_image_search_model
 OPTIONS (
@@ -141,7 +136,6 @@ FROM mnist_test
 아래의 쿼리 구문을 실행하여 특정 폴더 내의 전체 이미지를 기존에 학습해 둔 모델을 사용해서 수치화 합니다. 위의 쿼리와 같은 역할을 하지만 학습을 위한 입력 데이터의 구조가 다릅니다.
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 CREATE TABLE mnist_embds
 USING my_image_search_model 
@@ -167,7 +161,6 @@ FROM 'tutorial_data/mnist_data/test/'
 각 이미지들마다 수치화 된 값들이 추가 되어있는 것을 확인할 수 있습니다.
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 SELECT * 
 FROM mnist_embds 
@@ -186,7 +179,6 @@ LIMIT 5
 
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 SEARCH IMAGE images='tutorial_data/mnist_data/train/1.jpg' 
 USING my_image_search_model 
@@ -207,7 +199,6 @@ FROM mnist_embds
 
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 PRINT IMAGE 
 AS (

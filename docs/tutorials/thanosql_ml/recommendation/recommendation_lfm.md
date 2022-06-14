@@ -42,7 +42,6 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 COPY movielens_data 
 FROM "tutorial_data/movielens_data/movielens.csv"
@@ -59,7 +58,6 @@ FROM "tutorial_data/movielens_data/movielens.csv"
 영화 평점 데이터를 이용한 영화 추천 모델을 만들기 위해 ThanoSQL [DB](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 <mark style="background-color:#FFEC92 ">movielens_data</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql 
 SELECT * 
 FROM movielens_data 
@@ -78,11 +76,10 @@ LIMIT 5
 
 ## __2. 추천 모델 생성__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">movielens_data</mark> 데이터를 사용하여 영화 추천 모델을 만듭니다. 다음 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_movie_rec</mark> 이름의 모델을 만듭니다. 
-
+이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">movielens_data</mark> 데이터를 사용하여 영화 추천 모델을 만듭니다. 다음 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_movie_rec</mark> 이름의 모델을 만듭니다.  
+(쿼리 실행 시 예상 소요 시간 : 1 min)
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 BUILD MODEL my_movie_rec
 USING Light_FM
@@ -109,7 +106,6 @@ FROM movielens_data
 이전 단계에서 생성한 영화 추천 모델을 사용해서 특정 사용자가 좋아할만한 아이템(영화) 목록을 10개 생성합니다.
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 PREDICT USING my_movie_rec
 OPTIONS (

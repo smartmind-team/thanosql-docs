@@ -56,13 +56,11 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 COPY movie_review_train 
 FROM "tutorial_data/movie_review_data/movie_review_train.csv"
 ```
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 COPY movie_review_test 
 FROM "tutorial_data/movie_review_data/movie_review_test.csv"
@@ -79,7 +77,6 @@ FROM "tutorial_data/movie_review_data/movie_review_test.csv"
 영화 리뷰 감정 분류 모델을 만들기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 SELECT *
 FROM movie_review_train
@@ -97,7 +94,6 @@ LIMIT 5
 먼저 저희가 사전에 학습해둔 모델로 바로 결과를 예측해보겠습니다. 다음 쿼리문을 실행하면 <mark style="background-color:#E9D7FD ">tutorial_text_classification</mark>모델을 사용하여 영화 리뷰 분류 결과를 예측해볼 수 있습니다.
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 PREDICT USING tutorial_text_classification
 OPTIONS (
@@ -113,10 +109,10 @@ FROM movie_review_test
 
 ## __3. 텍스트 분류 모델 만들기__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 데이터 세트를 사용하여 텍스트 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>라는 이름의 모델을 만듭니다.
+이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 데이터 세트를 사용하여 텍스트 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>라는 이름의 모델을 만듭니다.  
+(쿼리 실행 시 예상 소요 시간 : 3 min)
 
 ```sql
-# 예상 소요 시간: 3 min
 %%thanosql
 BUILD MODEL my_movie_review_classifier
 USING ElectraEn
@@ -143,7 +139,6 @@ FROM movie_review_train
 이전 단계에서 만든 텍스트 분류 예측 모델을 사용해서 특정 리뷰(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#FFEC92 ">movie_review_test</mark>)의 목표값을 예측해 봅니다.
 
 ```sql
-# 예상 소요 시간: 1 min
 %%thanosql
 PREDICT USING my_movie_review_classifier
 OPTIONS (
