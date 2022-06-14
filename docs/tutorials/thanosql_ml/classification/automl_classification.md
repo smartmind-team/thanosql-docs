@@ -54,11 +54,13 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 COPY titanic_train 
 FROM "tutorial_data/titanic_data/titanic_train.csv"
 ```
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 COPY titanic_test 
 FROM "tutorial_data/titanic_data/titanic_test.csv"
@@ -74,6 +76,7 @@ FROM "tutorial_data/titanic_data/titanic_test.csv"
 생존자 예측 분류 모델을 만들기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">__titanic_train__</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하면서 테이블 내용을 확인합니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 SELECT * 
 FROM titanic_train 
@@ -103,6 +106,7 @@ LIMIT 5
 이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">titanic_train</mark> 데이터를 사용하여 생존자 예측 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행시켜 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark> 이름의 모델을 만들어 봅니다.
 
 ```sql
+# 예상 소요 시간: 8 min
 %%thanosql
 BUILD MODEL tutorial_automl_classification 
 USING AutomlClassifier 
@@ -126,6 +130,7 @@ FROM titanic_train
 아래의 쿼리문을 실행하여 이전 단계에서 만든 예측 모델의 성능을 평가합니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql 
 EVALUATE USING tutorial_automl_classification 
 OPTIONS (
@@ -146,6 +151,7 @@ FROM titanic_train
 이전 단계에서 생성한 생존자 예측 모델을 사용해 탑승 승객 정보에 따른 생존 여부를 예측해 봅니다. 테스트용 데이터 세트(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#FFEC92 ">__titanic_test__</mark>)를 사용합니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql 
 PREDICT USING tutorial_automl_classification
 AS 

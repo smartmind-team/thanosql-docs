@@ -52,11 +52,13 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 COPY bike_sharing_train 
 FROM "tutorial_data/bike_sharing_data/bike_sharing_train.csv"
 ```
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 COPY bike_sharing_test 
 FROM "tutorial_data/bike_sharing_data/bike_sharing_test.csv"
@@ -73,6 +75,7 @@ FROM "tutorial_data/bike_sharing_data/bike_sharing_test.csv"
 본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">bike_sharing_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 SELECT * 
 FROM bike_sharing_train 
@@ -98,6 +101,7 @@ LIMIT 5
 이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">__bike_sharing_train__</mark> 데이터 세트를 사용하여 자전거 수요 예측 회귀 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>이라는 이름의 모델을 만듭니다.
 
 ```sql
+# 예상 소요 시간: 8 min
 %%thanosql
 BUILD MODEL bike_regression
 USING AutomlRegressor
@@ -120,6 +124,7 @@ FROM bike_sharing_train
 아래의 쿼리문을 실행하여 이전 단계에서 만든 예측 모델의 성능을 평가합니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 EVALUATE USING bike_regression 
 OPTIONS (
@@ -140,6 +145,7 @@ FROM bike_sharing_train
 이전 단계에서 만든 수요 예측 모델로 테스트용 데이터 세트(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#FFEC92 ">bike_shaing_test</mark>)에 있는 10개의 데이터에 대한 자전거 대여 수량을 예측해 봅니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 PREDICT USING bike_regression 
 AS

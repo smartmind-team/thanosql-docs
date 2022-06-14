@@ -59,11 +59,13 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 COPY cat_and_dog_train 
 FROM "tutorial_data/cat_and_dog_data/cat_and_dog_train.csv"
 ```
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 COPY cat_and_dog_test 
 FROM "tutorial_data/cat_and_dog_data/cat_and_dog_test.csv"
@@ -79,6 +81,7 @@ FROM "tutorial_data/cat_and_dog_data/cat_and_dog_test.csv"
 본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는  <mark style="background-color:#FFEC92 ">cat_and_dog_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 SELECT *
 FROM cat_and_dog_train
@@ -91,6 +94,7 @@ LIMIT 5
     -  <mark style="background-color:#D7D0FF ">label</mark>: 해당 이미지의 목표값(Target)
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 PRINT IMAGE 
 AS
@@ -106,6 +110,7 @@ LIMIT 5
 먼저 저희가 미리 준비해둔 모델로 바로 결과를 예측해보겠습니다. 다음 쿼리문을 실행하면, 사전에 학습을 해 둔 고양이, 개 이미지 분류모델, <mark style="background-color:#E9D7FD ">tutorial_image_classification</mark>모델을 사용하여 결과를 예측해볼 수 있습니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 PREDICT USING tutorial_image_classification
 AS 
@@ -121,6 +126,7 @@ FROM cat_and_dog_test
 
 ```sql
 %%thanosql
+# 예상 소요 시간: 5 min
 BUILD MODEL my_image_classifier
 USING ConvNeXt_Tiny
 OPTIONS (
@@ -150,6 +156,7 @@ FROM cat_and_dog_train
 이전 단계에서 만든 이미지 예측 모델(<mark style="background-color:#FFEC92 ">my_image_classifier</mark>)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#D7D0FF">cat_and_dog_test</mark>)의 목표값을 예측해 봅니다.  아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 PREDICT USING my_image_classifier
 OPTIONS (

@@ -43,11 +43,13 @@ __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 COPY librispeech_train 
 FROM "tutorial_data/librispeech_data/librispeech_train.csv"
 ```
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 COPY librispeech_test 
 FROM "tutorial_data/librispeech_data/librispeech_test.csv"
@@ -63,6 +65,7 @@ FROM "tutorial_data/librispeech_data/librispeech_test.csv"
 본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는  <mark style="background-color:#FFEC92 ">librispeech_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 SELECT *
 FROM librispeech_train
@@ -77,6 +80,7 @@ LIMIT 5
 
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 PRINT AUDIO 
 AS
@@ -92,6 +96,7 @@ LIMIT 3
 먼저 저희가 미리 준비해둔 모델로 바로 결과를 예측해보겠습니다. 다음 쿼리문을 실행하면, 사전 학습된 음성인식 모델인 <mark style="background-color:#E9D7FD ">tutorial_image_classification</mark>모델을 사용하여 결과를 예측해볼 수 있습니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 PREDICT USING tutorial_audio_recognition
 OPTIONS (
@@ -112,6 +117,7 @@ FROM librispeech_train
 이전 단계에서 확인한  <mark style="background-color:#FFEC92 ">librispeech_train</mark> 데이터 세트를 사용하여 음성 인식 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark>이라는 이름의 모델을 만듭니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 BUILD MODEL my_speech_recognition_model
 USING Wav2Vec2En
@@ -142,6 +148,7 @@ FROM librispeech_train
 이전 단계에서 만든 음성 인식 모델을 사용해서 특정 음성(학습에 이용되지 않은 데이터 테이블,  <mark style="background-color:#FFEC92 ">librispeech_test</mark>)의 목표값(스크립트)를 예측해 봅니다. 아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 PREDICT USING my_speech_recognition_model
 OPTIONS (

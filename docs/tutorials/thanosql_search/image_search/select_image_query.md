@@ -39,7 +39,9 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 ```sql
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
+
 ```sql
+# 예상 소요 시간: 1 min 
 %%thanosql
 COPY diet 
 FROM "tutorial_data/diet_data/diet.csv"
@@ -68,9 +70,11 @@ FROM diet
 
 ## __2. 키워드 검색 모델 생성__ 
 
-이미지 검색을 위해서는 기존 데이터 테이블을 학습하여 추후 검색의 기준을 만들어줘야 합니다. 이를 위해서 이전 단계에서 확인한 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여  <mark style="background-color:#E9D7FD ">diet_image_classification</mark>이라는 이름의 모델을 만듭니다. 
+이미지 검색을 위해서는 기존 데이터 테이블을 학습하여 추후 검색의 기준을 만들어줘야 합니다. 이를 위해서 이전 단계에서 확인한 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여  <mark style="background-color:#E9D7FD ">diet_image_classification</mark>이라는 이름의 모델을 만듭니다.   
 
-```sql
+
+``` sql
+# 예상 소요 시간: 3 min
 %%thanosql
 BUILD MODEL diet_image_classification
 USING ConvNeXt_Tiny
@@ -100,6 +104,7 @@ FROM diet
 이전 단계에서 만든 이미지 예측 모델(<mark style="background-color:#E9D7FD ">diet_image_classification</mark>)을 사용해서 특정 이미지의 목표값을 예측해 봅니다. 아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 PREDICT USING diet_image_classification
 AS 
@@ -118,6 +123,7 @@ FROM diet
 이제 "__PREDICT USING__", "__SELECT__", "__WHERE__" 쿼리 구문을 사용하여 특정 조건의 데이터만을 검색합니다. <mark style="background-color:#E9D7FD ">label</mark>이 '사과파이'이고, 예측 결과 또한 '사과파이'인 데이터만을 검색하고 다음처럼 쿼리 구문을 작성할 수 있습니다.
 
 ```sql
+# 예상 소요 시간: 1 min
 %%thanosql
 SELECT * 
 FROM (
