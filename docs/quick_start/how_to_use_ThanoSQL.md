@@ -56,7 +56,7 @@
 
 - 자신의 워크 스페이스에서 오른쪽 상단에 보이는 GET API_TOKEN 버튼을 누르면 자동으로 API 토큰이 생성되며 클립보드에 복사 됩니다. 아래의 쿼리를 통해 정상적으로 서비스를 사용할 수 있습니다. 
 
-- 전반적인 워크스페이스 사용법은 [ThanoSQL 워크스페이스 사용법](/quick_start/hello_ThanoSQL/#thanosql_1/)에서 확인할 수 있습니다.
+- 전반적인 워크스페이스 사용법은 [ThanoSQL 워크스페이스 사용법](/quick_start/hello_ThanoSQL/)에서 확인할 수 있습니다.
 
 ```sql
 %load_ext thanosql

@@ -2,16 +2,6 @@
 
 **[이전 문서 - ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)** <br>**[다음 문서 - 안내 가이드](/quick_start/algorithm_list/)**
 
-## __Hello ThanoSQL!__
-
-ThanoSQL은 정형과 비정형 데이터 모두 SQL 만으로 쿼리(Query, 질의)와 AI(인공지능) 모델링이 가능한 통합 플랫폼입니다. RDB(Relational DataBase, 관계형 데이터베이스), AI 그리고 BIg Data Platform의 기능을 하나의 플랫폼에서 적용할 수 있으며, AI 기반의 디지털 전환시 발생하는 비효율성을 획기적으로 줄일 수 있습니다. 
-
-!!! summary "" 
-    - ThanoSQL은 정형과 비정형 데이터 모두 SQL만으로 쿼리가 가능하며, 빠른 AI 모델링을 가능하게 합니다. 
-    - 람다 아키텍쳐 기반의 비정형 빅데이터 플랫폼을 ThanoSQL 하나로 대체하여 개발, 배포 그리고 운영을 하나의 프로세스로 가능하게 합니다. 
-    - 빅데이터 처리 및 분선 병렬처리 기술을 기반으로 기존 대비 2배 이상 빠르게 데이터 처리를 가능하게 합니다. 
-
-## __ThanoSQL 워크스페이스 사용법__ 
 
 ThanoSQL의 워크스페이스는 [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)을 기반으로 하는 웹 기반 컴퓨팅 환경입니다.
 
