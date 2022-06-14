@@ -1,6 +1,6 @@
-# __ThanoSQL 웹 서비스 사용법__ 
+# __ThanoSQL 웹 사용법__ 
 
-**[이전 문서 - What is ThanoSQL?](/)** <br>**[다음 문서 - 안내 가이드](/quick_start/algorithm_list/)**
+**[이전 문서 - What is ThanoSQL?](/)** <br>**[다음 문서 - ThanoSQL 워크스페이스 사용법](/quick_start/hello_ThanoSQL/)**
 
 ## 시작 전 사전 정보
 
@@ -51,10 +51,12 @@
 
 ![image](/img/how_to_use_ThanoSQL/img4.png)
 
-## __5. ThanoSQL 워크 스페이스 사용__
+## __5. ThanoSQL 워크스페이스__
 - ThanoSQL 서비스를 이용하기 위해서는 API 토큰을 사용해야 합니다. API 토큰은 새롭게 발급 받을수 있지만 새롭게 발급 받으면 이전에 발급 받은 토큰은 더 이상 사용 할수 없는 점 유의하시기 바랍니다. 
 
 - 자신의 워크 스페이스에서 오른쪽 상단에 보이는 GET API_TOKEN 버튼을 누르면 자동으로 API 토큰이 생성되며 클립보드에 복사 됩니다. 아래의 쿼리를 통해 정상적으로 서비스를 사용할 수 있습니다. 
+
+- 전반적인 워크스페이스 사용법은 [ThanoSQL 워크스페이스 사용법](/quick_start/hello_ThanoSQL/#thanosql_1/)에서 확인할 수 있습니다.
 
 ```sql
 %load_ext thanosql
