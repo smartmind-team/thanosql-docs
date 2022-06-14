@@ -45,8 +45,8 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
-%%thanosql
 # 예상 소요 시간: 1 min
+%%thanosql
 COPY mnist_train 
 FROM "tutorial_data/mnist_data/mnist_train.csv"
 ```

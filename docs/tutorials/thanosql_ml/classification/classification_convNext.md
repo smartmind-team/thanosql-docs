@@ -125,8 +125,8 @@ FROM cat_and_dog_test
 이전 단계에서 확인한  <mark style="background-color:#FFEC92 ">cat_and_dog_train</mark> 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_image_classifier</mark>이라는 이름의 모델을 만듭니다.
 
 ```sql
-%%thanosql
 # 예상 소요 시간: 5 min
+%%thanosql
 BUILD MODEL my_image_classifier
 USING ConvNeXt_Tiny
 OPTIONS (
