@@ -139,7 +139,8 @@ FROM titanic_train
 ![IMAGE](/img/automl_classification_img2.png)
 
 !!! note "__쿼리 세부 정보__"   
-    "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 평가합니다. "__OPTIONS__"의 "target"에는 분류 예측 모델에 목표값이 되는 컬럼의 이름(<mark style="background-color:#D7D0FF">survived</mark>)을 적어줍니다.
+    - "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 평가합니다. 
+    - "__OPTIONS__"의 "target"에는 분류 예측 모델에 목표값이 되는 컬럼의 이름(<mark style="background-color:#D7D0FF">survived</mark>)을 적어줍니다.
 
 
 ## __4. 생성된 모델을 사용하여 생존자 예측__ 
