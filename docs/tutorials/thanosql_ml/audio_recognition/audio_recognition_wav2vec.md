@@ -38,9 +38,13 @@ __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
     - 해당 음성 인식 모델의 베이스 모델(`Wav2Vec2En`)은 GPU를 사용합니다. 사용한 모델의 크기와 배치 사이즈에 따라 GPU 메모리가 부족할 수 있습니다. 이 경우, 더 작은 모델을 사용하시거나 배치 사이즈를 줄여보십시오.
 
 ## __0. 데이터 세트 준비__
+
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
+에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
+
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급받은_API_TOKEN}
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
 %%thanosql
@@ -109,8 +113,8 @@ FROM librispeech_train
 
 ## __3. 음성 인식 모델 만들기__
 
-이전 단계에서 확인한  <mark style="background-color:#FFEC92 ">librispeech_train</mark> 데이터 세트를 사용하여 음성 인식 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark>이라는 이름의 모델을 만듭니다.
-
+이전 단계에서 확인한  <mark style="background-color:#FFEC92 ">librispeech_train</mark> 데이터 세트를 사용하여 음성 인식 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark>이라는 이름의 모델을 만듭니다.  
+(쿼리 실행 시 예상 소요 시간 : 1 min)
 ```sql
 %%thanosql
 BUILD MODEL my_speech_recognition_model

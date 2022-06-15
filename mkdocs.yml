@@ -35,6 +35,7 @@ nav:
   - What is ThanoSQL? : index.md
   - 빠른 시작 (Quick Start):
       - ThanoSQL 웹 사용법: quick_start/how_to_use_ThanoSQL.md
+      - ThanoSQL 워크스페이스 사용법: quick_start/hello_ThanoSQL.md
       - 안내 가이드: quick_start/algorithm_list.md
 
   - Query 무작정 따라하기:
