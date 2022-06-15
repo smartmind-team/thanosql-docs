@@ -38,6 +38,10 @@ __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
     - 해당 음성 인식 모델의 베이스 모델(`Wav2Vec2En`)은 GPU를 사용합니다. 사용한 모델의 크기와 배치 사이즈에 따라 GPU 메모리가 부족할 수 있습니다. 이 경우, 더 작은 모델을 사용하시거나 배치 사이즈를 줄여보십시오.
 
 ## __0. 데이터 세트 준비__
+
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
+에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
+
 ```sql
 %load_ext thanosql
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
