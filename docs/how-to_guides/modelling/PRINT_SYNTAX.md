@@ -19,13 +19,12 @@ PRINT IMAGE | AUDIO | VIDEO
 AS 
 [출력할 데이터 세트]
 ```
-서브쿼리 사용한 "__PRINT__" 구문
+OPTIONS 사용한 "__PRINT__" 구문
 ```sql
 %%thanosql
 PRINT IMAGE | AUDIO | VIDEO
 OPTIONS( 
-    base_dir = [주피터 서버 루트 경로],
-    image_column | audio_column | video_column = [이미지 경로 열 이름]
+    image_col | audio_col | video_col = [이미지 경로 열 이름]
     ) 
 AS 
 [출력할 데이터 세트]
@@ -39,8 +38,7 @@ AS
 %%thanosql
 PRINT IMAGE 
 OPTIONS (
-    base_dir='/',
-    image_column='image' 
+    image_col='image' 
     )
 AS 
 SELECT * 
@@ -58,8 +56,7 @@ FROM junyong_img
 %%thanosql
 PRINT AUDIO
 OPTIONS (
-    base_dir='/',
-    audio_column='audio' 
+    audio_col='audio' 
     )
 AS 
 SELECT * 
@@ -79,8 +76,7 @@ FROM junyong_aud
 %%thanosql
 PRINT VIDEO
 OPTIONS (
-    base_dir='/',
-    video_column='video' 
+    video_col='video' 
     )
 AS 
 SELECT * 
@@ -91,7 +87,7 @@ FROM junyong_vid
 
 ### __3.4 서브 쿼리를 사용하여 출력하기__
 
-다음 쿼리는 이전 [SEARCH 쿼리](/how-to_guides/modelling/SEARCH_SYNTAX.md)에서 만들었던 "__SEARCH__" 쿼리문을 "__PRINT__" 구문의 서브 쿼리로 사용하여 "__SEARCH__"의 결과 테이블을 바로 출력합니다.
+다음 쿼리는 이전 [SEARCH 쿼리](/how-to_guides/modelling/SEARCH_SYNTAX)에서 만들었던 "__SEARCH__" 쿼리문을 "__PRINT__" 구문의 서브 쿼리로 사용하여 "__SEARCH__"의 결과 테이블을 바로 출력합니다.
 
 ```sql
 %%thanosql
