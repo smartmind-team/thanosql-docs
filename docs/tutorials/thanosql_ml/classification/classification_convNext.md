@@ -87,7 +87,7 @@ LIMIT 5
 ![IMAGE](/img/thanosql_ml/classification/classification_convNext/train_data_limit_5.png)
 
 !!! note "__데이터 이해하기__"
-    -  <mark style="background-color:#D7D0FF ">image</mark>: 각 이미지의 파일의 위치 정보
+    -  <mark style="background-color:#D7D0FF ">image_path</mark>: 각 이미지의 파일의 위치 정보
     -  <mark style="background-color:#D7D0FF ">label</mark>: 해당 이미지의 목표값(Target)
 
 ```sql

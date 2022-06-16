@@ -76,7 +76,7 @@ LIMIT 5
 ![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png)
 
 !!! note "데이터 이해하기"
-    - <mark style="background-color:#D7D0FF ">audio</mark>: 음성 파일의 위치 경로
+    - <mark style="background-color:#D7D0FF ">audio_path</mark>: 음성 파일의 위치 경로
     - <mark style="background-color:#D7D0FF ">text</mark>: 해당 음성의 목표값(Target, 스크립트)
 
 
@@ -84,7 +84,7 @@ LIMIT 5
 %%thanosql
 PRINT AUDIO 
 AS
-SELECT audio
+SELECT audio_path
 FROM librispeech_train
 LIMIT 3
 ```
@@ -99,7 +99,7 @@ LIMIT 3
 %%thanosql
 PREDICT USING tutorial_audio_recognition
 OPTIONS (
-  audio_col='audio',
+  audio_col='audio_path',
   text_col='text', 
   epochs=1, 
   batch_size=8
@@ -120,7 +120,7 @@ FROM librispeech_train
 BUILD MODEL my_speech_recognition_model
 USING Wav2Vec2En
 OPTIONS (
-  audio_col='audio',  
+  audio_col='audio_path',  
   text_col='text',  
   epochs=1,  
   batch_size=4  
@@ -150,7 +150,7 @@ FROM librispeech_train
 %%thanosql
 PREDICT USING my_speech_recognition_model
 OPTIONS (
-  audio_col='audio'
+  audio_col='audio_path'
   )
 AS
 SELECT *
