@@ -24,7 +24,7 @@
 
 ![image](/img/how_to_use_ThanoSQL/img1.png)
 
-- 회원가입 진행을 위해 이메일 인증과 비밀번호 입력을 완료 후, 동의 약관 항목에 체크 후 계정 만든다면 회원가입이 완료됩니다. 
+- 회원가입 진행을 위해서는 이메일 인증과 비밀번호 입력 후, 동의 약관 항목에 체크해야 합니다. 
 
 ![image](/img/how_to_use_ThanoSQL/img2.png)  
 
