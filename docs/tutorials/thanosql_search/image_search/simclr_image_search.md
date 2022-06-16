@@ -202,8 +202,7 @@ FROM mnist_embds
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT image_path 
-    AS image, my_image_search_model_sinclr_similarity1 
+    SELECT image_path, my_image_search_model_sinclr_similarity1 
     FROM (
         SEARCH IMAGE images='tutorial_data/mnist_data/test/923.jpg' 
         USING my_image_search_model 

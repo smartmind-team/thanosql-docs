@@ -59,7 +59,7 @@ FROM "tutorial_data/unsplash_data/unsplash.csv"
 
 ```sql
 %%thanosql
-SELECT photo_id, filepath, photo_image_url, photo_description, ai_description
+SELECT photo_id, image_path, photo_image_url, photo_description, ai_description
 FROM unsplash_data
 LIMIT 5
 ```
@@ -68,7 +68,7 @@ LIMIT 5
 
 !!! note "데이터 이해하기"
     - `photo_id` 이미지의 고유 id 컬럼 명
-    - `filepath` 이미지가 위치한 경로의 컬럼 명
+    - `image_path` 이미지가 위치한 경로의 컬럼 명
     - `photo_image_url` 웹사이트 unsplash에서의 원본 이미지 주소를 나타내는 컬럼 명
     - `photo_description` 해당 이미지에 대해 사람이 작성한 짧은 설명을 나타내는 컬럼 명
     - `ai_description` AI가 생성해낸 해당 이미지에 대한 설명을 나타내는 컬럼 명
@@ -77,8 +77,7 @@ LIMIT 5
 %%thanosql
 PRINT IMAGE 
 AS
-SELECT filepath 
-AS image 
+SELECT image_path 
 FROM unsplash_data 
 LIMIT 5
 ```
@@ -95,7 +94,7 @@ LIMIT 5
 %%thanosql
 CONVERT USING tutorial_search_clip
 OPTIONS (
-    image_col="filepath", 
+    image_col="image_path", 
     table_name="unsplash_data", 
     batch_size=128
     )
@@ -107,7 +106,7 @@ FROM unsplash_data
 !!! note "쿼리 세부 정보"
 
     - "__CONVERT USING__" 쿼리 구문은 `tutorial_search_clip` 모델을 이미지 수치화를 위한 알고리즘으로 사용합니다.  
-    - "__OPTIONS__" 쿼리 구문은 이미지 수치화 시 필요한 변수들을 정의합니다. ThanoSQL DB 내에 저장될 테이블 이름("table_name")을 정의합니다. 이미지의 저장 경로를 저장한 컬럼 명을 "image_col"에서 정의합니다. 본 튜토리얼에서는 `filepath`를 사용합니다. "batch_size"는 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. 논문에 따르면 클 수록 학습 성능이 증가하지만 메모리의 크기를 고려하여 128을 사용합니다. 
+    - "__OPTIONS__" 쿼리 구문은 이미지 수치화 시 필요한 변수들을 정의합니다. ThanoSQL DB 내에 저장될 테이블 이름("table_name")을 정의합니다. 이미지의 저장 경로를 저장한 컬럼 명을 "image_col"에서 정의합니다. 본 튜토리얼에서는 `image_path`를 사용합니다. "batch_size"는 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. 논문에 따르면 클 수록 학습 성능이 증가하지만 메모리의 크기를 고려하여 128을 사용합니다. 
 
 ```sql
 %%thanosql
@@ -146,8 +145,7 @@ FROM unsplash_data
 
 ```sql
 %%thanosql
-SELECT filepath 
-AS image, tutorial_search_clip_clipen_similarity1 
+SELECT image_path, tutorial_search_clip_clipen_similarity1 
 FROM (
     SEARCH IMAGE text="a black cat"
     USING tutorial_search_clip
@@ -164,7 +162,7 @@ LIMIT 5
 !!! note "쿼리 세부 정보"
     
     - "__SEARCH IMAGE__" 쿼리 구문은 입력한 텍스트와 이미지 사이의 유사도를 계산하여 반환합니다.
-    - 첫 번째 "__SELECT__" 쿼리 구문은 괄호 안의 쿼리 결과에서 "filepath" 컬럼과 `tutorial_search_clip_clipen_similarity1` 컬럼을 선택합니다. 이 때, `filepath` 컬럼은 `image`라는 컬럼 이름으로 변경합니다.
+    - 첫 번째 "__SELECT__" 쿼리 구문은 괄호 안의 쿼리 결과에서 "image_path" 컬럼과 `tutorial_search_clip_clipen_similarity1` 컬럼을 선택합니다.
     - "__ORDER BY__" 쿼리 구문은 결과를 `tutorial_search_clip_clipen_similarity1` 컬럼의 값을 기준으로 정렬하는데, 정렬은 내림차순("__DESC__")이며, 그 중 상위 5개("__LIMIT__" 5)의 결과를 출력합니다.
 
 
@@ -174,8 +172,7 @@ LIMIT 5
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT filepath 
-    AS image, tutorial_search_clip_clipen_similarity1 
+    SELECT image_path, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="a black cat"
         USING tutorial_search_clip
@@ -201,8 +198,7 @@ AS (
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT filepath 
-    AS image, tutorial_search_clip_clipen_similarity1 
+    SELECT image_path, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="a dog on a chair"
         USING tutorial_search_clip
@@ -221,8 +217,7 @@ AS (
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT filepath 
-    AS image, tutorial_search_clip_clipen_similarity1 
+    SELECT image_path, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="gloomy photos"
         USING tutorial_search_clip
@@ -241,8 +236,7 @@ AS (
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT filepath 
-    AS image, tutorial_search_clip_clipen_similarity1 
+    SELECT image_path, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="the feeling when your program finally works"
         USING tutorial_search_clip
