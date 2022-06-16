@@ -36,7 +36,7 @@ ThanoSQL을 사용하여 손글씨 데이터를 입력하고 DB 내에서 입력
 ![MNIST 데이터](/img/thanosql_search/simclr_search/simclr_img7.png) 
 
 ## __0. 데이터 세트 준비__
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스 사용](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
 에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 ```sql
 %load_ext thanosql
@@ -83,8 +83,8 @@ LIMIT 5
 
 ## __2. 이미지 수치화 모델 생성__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD">my_image_search_model</mark>이라는 이름의 모델을 만듭니다.
-
+이전 단계에서 확인한 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD">my_image_search_model</mark>이라는 이름의 모델을 만듭니다.  
+(쿼리 실행 시 예상 소요 시간 : 1 min)
 ```sql
 %%thanosql
 BUILD MODEL my_image_search_model
@@ -191,9 +191,9 @@ FROM mnist_embds
 
 
 !!! note "쿼리 세부정보" 
-    "__SEARCH IMAGE [images|audio|videos]__" 쿼리 구문은 검색하고자 하는 이미지|오디오|비디오 파일을 정의합니다.  <br>
-    "__USING__"은 이미지 수치화에 사용할 모델을 정의합니다.<br>
-    "__AS__" 쿼리 구문은 검색에 사용할 임베딩 테이블을 정의합니다. `mnist_embds` 테이블을 사용합니다 
+    - "__SEARCH IMAGE [images|audio|videos]__" 쿼리 구문은 검색하고자 하는 이미지|오디오|비디오 파일을 정의합니다.  <br>
+    - "__USING__"은 이미지 수치화에 사용할 모델을 정의합니다.<br>
+    - "__AS__" 쿼리 구문은 검색에 사용할 임베딩 테이블을 정의합니다. `mnist_embds` 테이블을 사용합니다 
 
 다음 쿼리를 실행하여 "__SEARCH__" 결과를 ThanoSQL의 "__PRINT__" 쿼리 구문을 활용하여 가장 유사한 상위 4개를 출력합니다. 학습을 조금 밖에 진행하지 않았지만 6과 비슷한 이미지를 출력하는 것을 확인할 수 있습니다.
 
