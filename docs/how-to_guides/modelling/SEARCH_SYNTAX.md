@@ -26,7 +26,7 @@ AS [사용할 데이터 세트]
 
 ```sql
 %%thanosql
-SEARCH IMAGE images='/data/thanosAlgo/image_search/junyoung_test/20150617_132435.jpg' 
+SEARCH IMAGE images='tutorial/image_search/images/20150617_132435.jpg' 
 USING Color_Descriptor 
 AS 
 SELECT * 
