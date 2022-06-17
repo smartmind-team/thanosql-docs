@@ -9,7 +9,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/회귀 모델 만들기/Auto-ML을 사용하여 예측 모델 만들기.ipynb
 - 참고 문서 : [(캐글) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
-- 마지막 수정날짜 : 2022-06-16
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## 튜토리얼 소개
 

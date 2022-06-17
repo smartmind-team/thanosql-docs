@@ -8,6 +8,10 @@ theme:
   favicon: assets/images/favicon.png
   features:
     - navigation.top
+plugins:
+  - search
+  - git-revision-date-localized:
+      type: iso_date
 markdown_extensions:
   - admonition
   - attr_list

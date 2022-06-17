@@ -5,7 +5,7 @@
 
 ## 시작 전 사전 정보
 
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으로 ThanoSQL DB 상의 유사한 이미지를 조회하고 받을 수 있습니다. 
 

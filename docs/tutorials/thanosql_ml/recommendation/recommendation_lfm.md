@@ -10,7 +10,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/추천시스템 만들기/영화 평점 데이터를 사용하여 영화 추천 모델 만들기.ipynb
 - 참고 문서 : [Movielens 데이터 세트](https://grouplens.org/datasets/movielens/), [LightFM](https://making.lyst.com/lightfm/docs/home.html)
-- 마지막 수정날짜 : 2022-06-16
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## 튜토리얼 소개
 
