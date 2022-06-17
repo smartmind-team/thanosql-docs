@@ -11,7 +11,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/분류 모델 만들기/Auto-ML을 사용하여 분류 모델 만들기.ipynb 
 - 참고 문서 : [(캐글) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
-- 마지막 수정날짜 : 2022-06-09
+- 마지막 수정날짜 : 2022-06-16
 
 ## 튜토리얼 소개
 
