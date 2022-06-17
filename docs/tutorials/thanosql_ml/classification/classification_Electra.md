@@ -10,7 +10,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/분류 모델 만들기/텍스트 분류 모델 만들기.ipynb  
 - 참고 문서 : [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
-- 마지막 수정날짜 : 2022-06-09
+- 마지막 수정날짜 : 2022-06-16
 
 ## 튜토리얼 소개
 
