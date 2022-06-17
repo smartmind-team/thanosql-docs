@@ -78,5 +78,10 @@ nav:
       - 결과 출력하기: how-to_guides/modelling/PRINT_SYNTAX.md
   - ThanoSQL 알고리즘 쿼리 구문: how-to_guides/modelling/OPTIONS.md
 
+extra:
+  analytics:
+    provider: google
+    property: G-8KVG4NMMFK
+
 extra_css:
   - /assets/css/extra.css
