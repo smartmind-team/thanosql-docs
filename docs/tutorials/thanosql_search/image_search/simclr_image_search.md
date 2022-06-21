@@ -129,7 +129,7 @@ FROM mnist_test
         - "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼(default: "image_path")
 
 !!! note "" 
-    `mnist_test` 테이블에 `my_image_search_model_sinclr`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
+    `mnist_test` 테이블에 `my_image_search_model_simclr`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
 
 ## __3. (이미지 폴더로부터) 이미지 수치화 결과 저장__
 
@@ -148,7 +148,7 @@ FROM 'tutorial_data/mnist_data/test/'
 ```
 
 !!! note "쿼리 세부정보" 
-    - "__CREATE TABLEL__" 쿼리 구문을 사용하여 이미지 수치화 테이블(`mnist_embds`)을 만듭니다.  
+    - "__CREATE TABLE__" 쿼리 구문을 사용하여 이미지 수치화 테이블(`mnist_embds`)을 만듭니다.  
     - "__USING__"은 이미지 수치화에 사용할 모델을 정의합니다.
     - "__OPTIONS__"는 이미지 수치화를 위한 이미지 파일의 속성값들을 정의합니다.
         - "path_type" :  데이터가 저장되어 있는 파일 경로의 타입(folder|file)  
@@ -202,7 +202,7 @@ FROM mnist_embds
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT image_path, my_image_search_model_sinclr_similarity1 
+    SELECT image_path, my_image_search_model_simclr_similarity1 
     FROM (
         SEARCH IMAGE images='tutorial_data/mnist_data/test/923.jpg' 
         USING my_image_search_model 
@@ -210,7 +210,7 @@ AS (
         SELECT * 
         FROM mnist_embds
         )
-    ORDER BY my_image_search_model_sinclr_similarity1 DESC 
+    ORDER BY my_image_search_model_simclr_similarity1 DESC 
     LIMIT 4
     )
 ```
