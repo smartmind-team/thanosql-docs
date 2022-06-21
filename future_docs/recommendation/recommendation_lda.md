@@ -10,7 +10,7 @@
 * 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 * 실행 예제 파일 : [News_Recommender.ipynb](http://35.222.17.152:8888/lab/workspaces/auto-t/tree/indoo/techdoc/lda/lda_kor_lv1.ipynb)
 * 참고 문서 : [Latent Dirichlet Allocation 공식 논문](https://www.jmlr.org/papers/volume3/blei03a/blei03a.pdf), [Gensim Github](https://github.com/RaRe-Technologies/gensim)
-* 마지막 수정날짜 : 2022-06-01
+* 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 
 ## 튜토리얼 소개 
