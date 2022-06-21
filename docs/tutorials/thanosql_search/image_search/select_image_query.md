@@ -64,7 +64,7 @@ FROM diet
 !!! note "데이터 테이블 이해하기" 
     <mark style="background-color:#FFEC92">diet</mark> 테이블은 아래와 같은 정보를 담고 있습니다.   
 
-    -  <mark style="background-color:#D7D0FF">image</mark> : 이미지 경로 
+    -  <mark style="background-color:#D7D0FF">image_path</mark> : 이미지 경로 
     -  <mark style="background-color:#D7D0FF">label</mark> : 파일 이름
 
 ## __2. 키워드 검색 모델 생성__ 
@@ -78,13 +78,13 @@ FROM diet
 BUILD MODEL diet_image_classification
 USING ConvNeXt_Tiny
 OPTIONS (
-    image_col='image', 
+    image_col='image_path', 
     label_col='label', 
     epochs=1
     )
 AS 
 SELECT *
-FROM diet
+FROM diet 
 ```
 
     Success
@@ -122,15 +122,15 @@ FROM diet
 
 ```sql
 %%thanosql
-SELECT * 
-FROM (
-    PREDICT USING diet_image_classification
-    AS 
-    SELECT *
-    FROM diet
-    )
-WHERE label = predicted
-AND label LIKE '사과파이'
+SELECT A.image_path, A.label, B.predicted 
+FROM diet A
+LEFT JOIN (
+    SELECT * 
+    FROM (PREDICT USING diet_image_classification 
+    AS SELECT * FROM diet)) B 
+ON A.image_path = B.image_path
+WHERE A.label = B.predicted
+AND A.label LIKE '사과파이'
 LIMIT 10
 ```
 
