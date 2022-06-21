@@ -94,7 +94,7 @@ LIMIT 5
 %%thanosql
 PRINT IMAGE 
 AS
-SELECT image 
+SELECT image_path 
 FROM cat_and_dog_train
 LIMIT 5
 ```
@@ -125,7 +125,7 @@ FROM cat_and_dog_test
 BUILD MODEL my_image_classifier
 USING ConvNeXt_Tiny
 OPTIONS (
-  image_col='image',
+  image_col='image_path',
   label_col='label',
   epochs=1
   )
@@ -154,7 +154,7 @@ FROM cat_and_dog_train
 %%thanosql
 PREDICT USING my_image_classifier
 OPTIONS (
-    image_col='image'
+    image_col='image_path'
     )
 AS
 SELECT *
