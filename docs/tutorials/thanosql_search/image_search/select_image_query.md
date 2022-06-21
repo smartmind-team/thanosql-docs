@@ -9,7 +9,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/query/키워드로 이미지 검색하기.ipynb  
 - 참고 문서 : [음식 이미지 및 영양정보 텍스트 소개 데이터 세트](https://aihub.or.kr/aidata/30747)
-- 마지막 수정날짜 : 2022-06-08
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## 튜토리얼 소개 
 
@@ -32,11 +32,14 @@
     `음식 이미지 및 영양정보 텍스트 소개` 데이터 세트는 과학기술정보통신부가 주관하고 한국지능정보사회진흥원이 지원하는 '인공지능 학습용 데이터 구축사업'으로 구축된 데이터로 한국인 다빈도 섭취 외식 메뉴와 한식메뉴 400종을 선정하여 양질의 이미지 데이터로 구성이 되어 있습니다. 842,000 장의 이미지로 구성되어 있으며, 본 튜토리얼에서는 해당 데이터 세트에서 일부(10종, 1,190장)의 사진만을 사용합니다. 
 
 ## __0. 데이터 세트 준비__
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/quick_start/how_to_use_ThanoSQL/#5-thanosql)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급받은_API_TOKEN}
 ```
+```sql
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
+```
+
 ```sql
 %%thanosql
 COPY diet 
@@ -66,9 +69,11 @@ FROM diet
 
 ## __2. 키워드 검색 모델 생성__ 
 
-이미지 검색을 위해서는 기존 데이터 테이블을 학습하여 추후 검색의 기준을 만들어줘야 합니다. 이를 위해서 이전 단계에서 확인한 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여  <mark style="background-color:#E9D7FD ">diet_image_classification</mark>이라는 이름의 모델을 만듭니다. 
+이미지 검색을 위해서는 기존 데이터 테이블을 학습하여 추후 검색의 기준을 만들어줘야 합니다. 이를 위해서 이전 단계에서 확인한 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여  <mark style="background-color:#E9D7FD ">diet_image_classification</mark>이라는 이름의 모델을 만듭니다.  
+(쿼리 실행 시 예상 소요 시간: 3 min)  
 
-```sql
+
+``` sql
 %%thanosql
 BUILD MODEL diet_image_classification
 USING ConvNeXt_Tiny

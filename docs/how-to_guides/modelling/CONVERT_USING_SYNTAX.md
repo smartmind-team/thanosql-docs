@@ -5,7 +5,7 @@
 
 ## 시작 전 사전 정보
 
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## __1. CONVERT USING 쿼리 구문 개요__
 
@@ -25,7 +25,7 @@ AS
 ## __3. CONVERT USING 쿼리 구문 예시__ 
 
 ### __3.1 `Color_descriptor` 알고리즘을 사용한 이미지 수치화__ 
-아래 예는 [비정형 데이터 변환하기(CREATE TABLE)](/how-to_guides/modelling/CREATE_TABLE_SYNTAX/)에서 만들었던 색 특징 추출 모델을 사용하여 수치화한 결과를 "color_descriptor_table_test" 이름으로 ThanoSQL DB상에 저장합니다.
+아래 예는 [비정형 데이터 변환하기(CREATE TABLE)](/how-to_guides/modelling/CREATE_TABLE_SYNTAX/)에서 만들었던 색 특징 추출 모델을 사용하여 수치화한 결과를 ThanoSQL DB 에 저장되어 있는 "color_descriptor_table_test" 테이블에 새로운 칼럼을 추가하여 저장합니다.
 
 ```sql
 %%thanosql
@@ -41,7 +41,7 @@ FROM color_descriptor_table_test
 ![image](/img/CONVERT_USING_img1.png) <br>
 
 ### __3.2 `clip_en` 알고리즘을 사용한 이미지 수치화__
-아래 예는 `clip_en` 알고리즘을 사용하여 수치화한 결과를 "mnist_dataset" 이름으로 ThanoSQL DB상에 저장합니다.
+아래 예는 `clip_en` 알고리즘을 사용하여 수치화한 결과를 ThanoSQL DB 상에 저장된 "mnist_dataset" 테이블에 새로운 칼럼을 추가하여 저장합니다.
 ```sql
 %%thanosql
 CONVERT USING clip_en

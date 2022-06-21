@@ -5,7 +5,7 @@
 
 ## 시작 전 사전 정보
 
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## __1. EVALUATE USING 구문 개요__
 

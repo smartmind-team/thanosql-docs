@@ -10,7 +10,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/분류 모델 만들기/텍스트 분류 모델 만들기.ipynb  
 - 참고 문서 : [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
-- 마지막 수정날짜 : 2022-06-08
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## 튜토리얼 소개
 
@@ -46,11 +46,14 @@ __아래는 ThanoSQL 텍스트 분류 모델의 활용 및 예시입니다.__
 
 ## __0. 데이터 세트 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스 사용](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
+에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
 
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급받은_API_TOKEN}
+```
+```sql
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
 %%thanosql
@@ -106,11 +109,11 @@ FROM movie_review_test
 
 ## __3. 텍스트 분류 모델 만들기__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 데이터 세트를 사용하여 텍스트 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>라는 이름의 모델을 만듭니다.
+이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 데이터 세트를 사용하여 텍스트 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>라는 이름의 모델을 만듭니다.  
+(쿼리 실행 시 예상 소요 시간 : 3 min)
 
 ```sql
 %%thanosql
-
 BUILD MODEL my_movie_review_classifier
 USING ElectraEn
 OPTIONS (
@@ -125,7 +128,9 @@ FROM movie_review_train
 ```
 
 !!! note "쿼리 세부 정보"
-    "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>라는 모델을 만들고 학습시킵니다. "__USING__" 쿼리 구문을 통해 베이스 모델로 `ElectraEn`을 사용할 것을 명시합니다. "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다. "text_col"은 학습에 사용할 텍스트를 담은 컬럼의 이름이며, "label_col"은 목표값의 정보를 담은 컬럼의 이름입니다. "epochs"를 통해 몇 번의 학습을 반복할 지를 지정합니다. "batch_size"는 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다.
+    - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>라는 모델을 만들고 학습시킵니다. 
+    - "__USING__" 쿼리 구문을 통해 베이스 모델로 `ElectraEn`을 사용할 것을 명시합니다. 
+    - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다. "text_col"은 학습에 사용할 텍스트를 담은 컬럼의 이름이며, "label_col"은 목표값의 정보를 담은 컬럼의 이름입니다. "epochs"를 통해 몇 번의 학습을 반복할 지를 지정합니다. "batch_size"는 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다.
 
 !!! tip ""
     여기서는 빠르게 학습하기 위해 "epochs"를 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산 시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다.

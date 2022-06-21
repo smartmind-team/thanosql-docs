@@ -5,7 +5,7 @@
 
 ## 시작 전 사전 정보
 
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 REST API를 사용하여 ThanoSQL 콘솔상에서 사용하던 쿼리들을 사용할수 있습니다. 
 

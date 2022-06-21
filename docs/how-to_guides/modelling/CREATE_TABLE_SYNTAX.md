@@ -5,7 +5,7 @@
 
 ## 시작 전 사전 정보
 
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## __1. CREATE TABLE 쿼리 구문 개요__ 
 
@@ -22,7 +22,7 @@ AS [사용할 데이터 세트]
 
 ## __3. CREATE TABLE 구문 예시__ 
 
-아래 예는 '/data/thanosAlgo/image_search/junyoung_test/' `Color_descriptor`라는 속성 추출 인공지능 모델을 사용하여 경로에 존재하는 이미지 파일들을 사용자가 지정한 이름인 `color_descriptor_table_test` 라는 데이터 테이블로 ThanoSQL DB 내에 생성합니다. 
+아래 예는 'data/thanosAlgo/image_search/junyoung_test/' `Color_descriptor`라는 속성 추출 인공지능 모델을 사용하여 경로에 존재하는 이미지 파일들을 사용자가 지정한 이름인 `color_descriptor_table_test` 라는 데이터 테이블로 ThanoSQL DB 내에 생성합니다. 
 
 ```sql
 %%thanosql
@@ -32,5 +32,5 @@ OPTIONS (
     data_type='image',
     file_type=['.jpg']
     ) 
-FROM '/data/thanosAlgo/image_search/junyoung_test/'
+FROM 'data/thanosAlgo/image_search/junyoung_test/'
 ```

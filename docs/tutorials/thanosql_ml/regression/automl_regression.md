@@ -9,7 +9,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/회귀 모델 만들기/Auto-ML을 사용하여 예측 모델 만들기.ipynb
 - 참고 문서 : [(캐글) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
-- 마지막 수정날짜 : 2022-06-08
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## 튜토리얼 소개
 
@@ -42,11 +42,14 @@ ThanoSQL에서는 자동화된 머신러닝(__Auto-ML__)을 도구로 제공합�
 
 ## __0. 데이터 세트 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스 사용](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
+에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
 
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급받은_API_TOKEN}
+```
+```sql
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
 %%thanosql
@@ -92,7 +95,8 @@ LIMIT 5
 
 ## __2. 회귀 모델 생성__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">__bike_sharing_train__</mark> 데이터 세트를 사용하여 자전거 수요 예측 회귀 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>이라는 이름의 모델을 만듭니다.
+이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">__bike_sharing_train__</mark> 데이터 세트를 사용하여 자전거 수요 예측 회귀 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>이라는 이름의 모델을 만듭니다.  
+(쿼리 실행 시 예상 소요 시간 : 8 min)
 
 ```sql
 %%thanosql
@@ -102,7 +106,7 @@ OPTIONS (
  target='count', 
  impute_type='simple', 
  datetime_attribs=['datetime'],
- time_left_for_this_task = 30
+ time_left_for_this_task = 300
  ) 
 AS
 SELECT *
@@ -110,7 +114,8 @@ FROM bike_sharing_train
 ```
 
 !!! note "__쿼리 세부 정보__"
-    "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>라는 모델을 만들고 학습시킵니다. "__OPTIONS__"의 "target"에는 회귀 예측 모델의 목표값이 되는 열의 이름을 적어줍니다. "impute_type"의 경우에는 데이터 세트의 빈 값에 대한 처리를 의미합니다. "datetime_attribs"에는 날짜 형식의 데이터를 적어주면 머신러닝 모델 생성을 진행할 수 있습니다.
+    - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>라는 모델을 만들고 학습시킵니다. 
+    - "__OPTIONS__"의 "target"에는 회귀 예측 모델의 목표값이 되는 열의 이름을 적어줍니다. "impute_type"의 경우에는 데이터 세트의 빈 값에 대한 처리를 의미합니다. "datetime_attribs"에는 날짜 형식의 데이터를 적어주면 머신러닝 모델 생성을 진행할 수 있습니다.
 
 ## __3. 생성된 모델 평가__
 
@@ -130,7 +135,8 @@ FROM bike_sharing_train
 ![IMAGE](/img/automl_regression_img2.png)
 
 !!! note "__쿼리 세부 정보__"
-    "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 평가합니다. "__OPTIONS__"의 "target"에는 회귀 예측 모델의 목표값이 되는 열(Column)의 이름(<mark style="background-color:#D7D0FF">count</mark>)을 적어줍니다.
+    - "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 평가합니다. 
+    - "__OPTIONS__"의 "target"에는 회귀 예측 모델의 목표값이 되는 열(Column)의 이름(<mark style="background-color:#D7D0FF">count</mark>)을 적어줍니다.
 
 ## __4. 생성된 모델을 사용하여 자전거 대여 수량 예측__
 
@@ -146,8 +152,9 @@ LIMIT 10
 ```
 ![IMAGE](/img/automl_regression_img3.png)
 
-!!! note "__쿼리 세부 정부__"  
-    "__PREDICT USING__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 예측에 사용합니다. "__PREDICT__"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 처리가 필요없습니다.
+!!! note "__쿼리 세부 정보__"  
+    - "__PREDICT USING__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 예측에 사용합니다. 
+    - "__PREDICT__"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 처리가 필요없습니다.
 
 <br>
 
@@ -157,8 +164,10 @@ LIMIT 10
 
 다음 [중급 회귀 작업 모델 만들기] 튜토리얼에서는 정확도 향상을 위한 "__OPTIONS__"에 대해 더욱 심도있게 다뤄보겠습니다. 중급, 고급 단계를 마치고 나만의 서비스/프로덕트를 위한 회귀 예측 모델을 만들어 보세요. 중급 단계에서는 ThanoSQL의 Auto-ML이 제공하는 다양한 "__OPTIONS__"를 활용하여 정교한 회귀 예측 모델을 만들어 볼 예정입니다. 또한, 중급 단계를 마치신 이후 고급 단계에서는 비정형 데이터를 수치화시킨 후 Auto-ML의 학습 요소로 포함하여 회귀 예측 모델을 만들 수 있습니다.
 
-- [중급 회귀 예측 모델 만들기]
-- [고급 회귀 예측 모델 만들기]
+* [나만의 데이터 업로드하기](/how-to_guides/ThanoSQL_connecting/data_upload/)
+* [중급 이미지 분류 모델 만들기]
+* [이미지 변환과 Auto-ML을 이용한 나만의 모델 만들기]
+* [나만의 이미지 분류 모델 배포하기](/how-to_guides/thanosql_api/rest_api_thanosql_query/)
 
 !!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"
     ThanoSQL을 활용해 나만의 모델을 만들거나, 나의 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊

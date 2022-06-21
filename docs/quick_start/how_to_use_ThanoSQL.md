@@ -1,11 +1,11 @@
-# __ThanoSQL 웹 서비스 사용법__ 
+# __ThanoSQL 웹 사용법__ 
 
-**[이전 문서 - What is ThanoSQL?](/)** <br>**[다음 문서 - 안내 가이드](/quick_start/algorithm_list/)**
+**[이전 문서 - What is ThanoSQL?](/)** <br>**[다음 문서 - ThanoSQL 워크스페이스 사용법](/quick_start/hello_ThanoSQL/)**
 
 ## 시작 전 사전 정보
 
 - 읽는데 걸리는 시간 : 3분
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## __1. ThanoSQL Web 에 접속하기__
 
@@ -24,7 +24,7 @@
 
 ![image](/img/how_to_use_ThanoSQL/img1.png)
 
-- 회원가입 진행을 위해 이메일 인증과 비밀번호 입력을 완료 후, 동의 약관 항목에 체크 후 계정 만든다면 회원가입이 완료됩니다. 
+- 회원가입 진행을 위해서는 이메일 인증과 비밀번호 입력 후, 동의 약관 항목에 체크해야 합니다. 
 
 ![image](/img/how_to_use_ThanoSQL/img2.png)  
 
@@ -51,14 +51,16 @@
 
 ![image](/img/how_to_use_ThanoSQL/img4.png)
 
-## __5. ThanoSQL 워크 스페이스 사용__
+## __5. ThanoSQL 워크스페이스__
 - ThanoSQL 서비스를 이용하기 위해서는 API 토큰을 사용해야 합니다. API 토큰은 새롭게 발급 받을수 있지만 새롭게 발급 받으면 이전에 발급 받은 토큰은 더 이상 사용 할수 없는 점 유의하시기 바랍니다. 
 
 - 자신의 워크 스페이스에서 오른쪽 상단에 보이는 GET API_TOKEN 버튼을 누르면 자동으로 API 토큰이 생성되며 클립보드에 복사 됩니다. 아래의 쿼리를 통해 정상적으로 서비스를 사용할 수 있습니다. 
 
+- 전반적인 워크스페이스 사용법은 [ThanoSQL 워크스페이스 사용법](/quick_start/hello_ThanoSQL/)에서 확인할 수 있습니다.
+
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급받은_API_TOKEN}
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ex) %thanosql API_TOKEN=eyAQjasfn1bizd2badf
 
 ```

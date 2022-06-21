@@ -4,7 +4,7 @@
 
 ## 시작 전 사전 정보
 
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 
 쿼리 구문은 표현식을 한 개 이상 검색하고 계산된 결과 테이블을 반환합니다. 이 페이지에서는 ThanoSQL에서 사용하는 알고리즘 쿼리에 관한 구문을 설명합니다.
@@ -213,7 +213,7 @@ query_statement:
 
 EVALUATE USING [expression] 
 OPTIONS (
-    target = 'survived'
+    target = expression
     )
 AS 
 (query_expr)
@@ -447,7 +447,7 @@ OPTIONS(
     )
 ```
 
-"__OPTIONS__" 절은 AutomlClassifier의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
+"__OPTIONS__" 절은 AutomlRegressor의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
 
 - "target" : 데이터 테이블에서 분류 예측 모델에 목표값이 되는 컬럼을 설정합니다.
 
@@ -631,7 +631,6 @@ AS
 ```sql
 OPTIONS(
     (image_col = column_name),
-    (label_col = column_name),
     [batch_size = VALUE]
     )
 ```
@@ -639,7 +638,6 @@ OPTIONS(
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
 - "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "image")
-- "label_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "label")
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 
 
@@ -740,20 +738,6 @@ OPTIONS(
 - "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (DEFAULT : 3)
 - "learning_rate" : 모델의 학습률입니다. (DEFAULT : 0.0001)
 
- __OPTIONS 절__
-
-```sql
-OPTIONS(
-    (text_col = column_name),
-    [batch_size = VALUE]
-    )
-```
-
-"__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
-
-- "text_col" : 데이터 테이블에서 분류의 대상이 될 텍스트를 담은 컬럼을 설정합니다. (DEFAULT : "text")
-- "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
-
 
 ### __PREDICT USING 쿼리 구문__
 
@@ -786,6 +770,20 @@ SELECT *
 FROM imdb_test
 ```
 
+ __OPTIONS 절__
+
+```sql
+OPTIONS(
+    (text_col = column_name),
+    )
+```
+
+"__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
+
+- "text_col" : 데이터 테이블에서 분류의 대상이 될 텍스트를 담은 컬럼을 설정합니다. (DEFAULT : "text")
+
+
+
 ### __EVALUATE USING 쿼리 구문__
 
 이 "__EVALUATE USING__" 쿼리 구문을 사용하여 인공지능 모델에 대한 평가 작업을 수행할 수 있습니다. "__EVALUATE USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 평가합니다.
@@ -807,7 +805,6 @@ AS
 ```sql
 OPTIONS(
     (text_col = column_name),
-    (label_col = column_name),
     [batch_size = VALUE]
     )
 ```
@@ -815,7 +812,7 @@ OPTIONS(
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
 - "text_col" : 데이터 테이블에서 분류의 대상이 될 텍스트를 담은 컬럼을 설정합니다. (DEFAULT : "text")
-- "label_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "label")
+
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 
 
@@ -853,10 +850,10 @@ OPTIONS(
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "audio_col" : 데이터 테이블에서 오디오 파일들의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "audio")
+- "audio_col" : 데이터 테이블에서 오디오 파일들의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "audio_path")
 - "text_col" : 데이터 테이블에서 오디오의 스크립트를 담은 컬럼을 설정합니다. (DEFAULT : "text")
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
-- "epochs" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 5)
+- "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (DEFAULT : 5)
 - "learning_rate" : 모델의 학습률입니다. (DEFAULT : 0.0001)
 
 
@@ -910,10 +907,10 @@ OPTIONS(
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "audio_col" : 데이터 테이블에서 오디오 파일들의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "audio")
+- "audio_col" : 데이터 테이블에서 오디오 파일들의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "audio_path")
 - "text_col" : 데이터 테이블에서 오디오의 스크립트를 담은 컬럼을 설정합니다. (DEFAULT : "text")
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
-- "epochs" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 5)
+- "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (DEFAULT : 5)
 - "learning_rate" : 모델의 학습률입니다. (DEFAULT : 0.0001)
 
 
@@ -992,7 +989,7 @@ OPTIONS(
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "audio_col" : 데이터 테이블에서 오디오 파일들의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "audio")
+- "audio_col" : 데이터 테이블에서 오디오 파일들의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "audio_path")
 - "text_col" : 데이터 테이블에서 오디오의 스크립트를 담은 컬럼을 설정합니다. (DEFAULT : "text")
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 
@@ -1021,7 +1018,7 @@ OPTIONS(
     (user_col = column_name),
     (item_col = column_name),
     (rating_col = column_name),
-    [description = column_name],
+    [description_col = column_name],
     [norm = {True | False}],
     [threshhold =  (required if norm = True) VALUE]
     )
@@ -1032,7 +1029,7 @@ OPTIONS(
 - "user_col" : 데이터 테이블에서 사용자 ID 정보가 담겨있는 컬럼명을 설정합니다. (DEFAULT: "userid")
 - "item_col" : 데이터 테이블에서 아이템 ID 정보가 담겨있는 컬럼명을 설정합니다. (DEFAULT: "itemid")
 - "rating_col" : 데이터 테이블에서 평점 정보가 담겨있는 컬럼명을 설정합니다. (DEFAULT: "rating")
-- "description" : 데이터 테이블에서 아이템 이름이 담겨있는 컬럼명을 설정합니다.(DEFAULT: None) 
+- "description_col" : 데이터 테이블에서 아이템 이름이 담겨있는 컬럼명을 설정합니다.(DEFAULT: None) 
 - "norm" : 평점에 정규화가 필요하다면 True, 필요없다면 False로 설정합니다. (DEFAULT : False)
 - "threshhold" : 평점이 정규화가 되었다면 임의의 임계값(0-1)을 설정합니다. 설정된 임계값 이상은 긍정으로 판단 (DEFAULT: None)
 - "epoch" : 모델 학습 횟수를 설정합니다. (DEFAULT: 30)
@@ -1051,7 +1048,7 @@ OPTIONS (
   user_col='userid',   
   item_col='movieid',
   rating_col='rating',
-  description='title'
+  description_col='title'
   )
 AS 
 SELECT * 
@@ -1138,8 +1135,8 @@ __OPTIONS 절__
 ```sql
 OPTIONS(
     (image_col = VALUE),
-    (file_name = VALUE),
-    [label = VALUE],
+    (filename_col = VALUE),
+    [label_col = VALUE],
     [max_epochs = VALUE],    
     [batch_size = VALUE]    
 )
@@ -1148,8 +1145,8 @@ OPTIONS(
 "__OPTIONS__" 절은 SimCLR 수치화 모델의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.  
 
 - "image_col" : 데이터 테이블에서 이미지의 경로를 설정합니다. (DEFAULT : "path")
-- "file_name" : 데이터 테이블에서 이미지 파일 이름을 담은 컬럼을 설정합니다. (DEFAULT : "file_name")
-- "label" : 이미지 라벨을 담은 컬럼입니다. (DEFAULT : "label")
+- "filename_col" : 데이터 테이블에서 이미지 파일 이름을 담은 컬럼을 설정합니다. (DEFAULT : "file_name")
+- "label_col" : 이미지 라벨을 담은 컬럼입니다. (DEFAULT : "label")
 - "max_epochs" : 모델 학습 횟수를 설정합니다. (DEFAULT : 5)  
 - "batch_size" : 학습 때 사용되어지는 데이터 묶음 속의 데이터 수를 설정합니다. (DEFAULT : 256)
 ​
@@ -1210,6 +1207,7 @@ OPTIONS(
 
 __CREATE TABLE 쿼리 구문 예시__
 ​
+
 [이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 ​
 ```sql
@@ -1255,7 +1253,8 @@ __CONVERT USING 쿼리 구문 예시__
 %%thanosql
 CONVERT USING mnist_model
 OPTIONS(
-    table_name= "mnist_dataset"
+    table_name = "mnist_dataset",
+    image_col = "image_path"
     )
 AS 
 SELECT * 
@@ -1317,7 +1316,7 @@ OPTIONS(
 
 "__OPTIONS__" 절은 CLIP의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "path_type" : 데이터 테이블에서 오디오 파일들의 경로를 담은 컬럼을 설정합니다. (DEFAULT: "audio")
+- "path_type" : 데이터 테이블에서 오디오 파일들의 경로를 담은 컬럼을 설정합니다. (DEFAULT: "audio_path")
 - "data_type" : 데이터의 형식입니다.
 - "file_type" : 이미지의 확장자 형식입니다.
 - "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
@@ -1365,13 +1364,13 @@ OPTIONS(
 "__OPTIONS__" 절은 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
 - "table_name" : 새로 만들어질 테이블의 이름입니다.
-- "image_col" : 테이블에서 이미지의 경로를 담고 있는 컬럼의 이름입니다. (DEFAULT : 'image')
+- "image_col" : 테이블에서 이미지의 경로를 담고 있는 컬럼의 이름입니다. (DEFAULT : 'image_path')
 - "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 
 
 __CONVERT TABLE 구문 예시__
 
-[텍스트로 이미지 검색하기](/tutorials/thanosql_search/clip_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 이미지 검색하기](/tutorials/thanosql_search/image_search/clip_image_search)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 
 ```sql
@@ -1403,7 +1402,7 @@ AS
 
 __SEARCH IMAGE 구문 예시__
 
-[텍스트로 이미지 검색하기](/tutorials/thanosql_ml/classification/classification_Electra/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 이미지 검색하기](/tutorials/thanosql_search/image_search/clip_image_search)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

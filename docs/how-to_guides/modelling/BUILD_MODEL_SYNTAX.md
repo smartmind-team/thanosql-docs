@@ -5,7 +5,7 @@
 
 ## 시작 전 사전 정보
 
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## __1. BUILD MODEL 구문 개요__
 
@@ -17,7 +17,7 @@
 %%thanosql
 BUILD MODEL [사용자 지정 모델 이름]
 USING [사용할 인공지능 모델]
-OPTIONS ([,인공지능 모델을 만들 때 필요한 옵션값])
+OPTIONS ([인공지능 모델을 만들 때 필요한 옵션값])
 AS 
 [사용할 데이터 세트]
 
@@ -30,7 +30,7 @@ AS
 
 ### __3-1. 추천 모델 생성을 위한 "Light_FM" 인공지능 모델 사용__ 
 
-아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">user_rec</mark> 모델을 ["__Light_FM__"](https://arxiv.org/pdf/1507.08439.pdf)이라는 인공지능 모델을 사용하여 추천 모델을 만듭니다. 전체 과정이 궁금하다면, [Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)를 진행해 보세요.
+아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">my_movie_rec</mark> 모델을 ["__Light_FM__"](https://arxiv.org/pdf/1507.08439.pdf)이라는 인공지능 모델을 사용하여 추천 모델을 만듭니다. 전체 과정이 궁금하다면, [Movielens 영화 평점 데이터 세트를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)를 진행해 보세요.
 
 ```sql
 %%thanosql
@@ -40,7 +40,7 @@ OPTIONS (
   user_col='userid',   
   item_col='movieid',
   rating_col='rating',
-  description='title'
+  description_col='title'
   )
 AS 
 SELECT * 
@@ -51,7 +51,7 @@ FROM movielens_data
 
 ### __3-2. 분류 모델 생성을 위한 Auto_ML 모델 사용__
 
-아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">test_classifier</mark> 모델을 ThanoSQL에서 제공하는 ["AutomlClassifier"](https://www.google.com/search?q=automl&oq=automl&aqs=chrome.0.69i59j35i39j0i512j69i60l5.3258j0j4&sourceid=chrome&ie=UTF-8) 모델을 사용하여 분류 모델을 만듭니다. 전체 과정이 궁금하다면, [Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)를 진행해 보세요.
+아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 모델을 ThanoSQL에서 제공하는 ["AutomlClassifier"](https://www.automl.org/automl/) 모델을 사용하여 분류 모델을 만듭니다. 전체 과정이 궁금하다면, [Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)를 진행해 보세요.
 
 ```sql
 %%thanosql

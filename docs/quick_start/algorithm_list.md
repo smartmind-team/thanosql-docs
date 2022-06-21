@@ -1,11 +1,11 @@
 # __안내 가이드__ 
 
-**[이전 문서 - ThanoSQL 웹 서비스 사용법](/quick_start/how_to_use_ThanoSQL/)** <br>**[다음 문서 - 키워드로 이미지 검색하기](/tutorials/thanosql_search/image_search/select_image_query/)**
+**[이전 문서 - ThanoSQL 워크스페이스 사용법](/quick_start/hello_ThanoSQL/)** <br>**[다음 문서 - 키워드로 이미지 검색하기](/tutorials/thanosql_search/image_search/select_image_query/)**
 
 ## 시작 전 사전 정보
 
 - 읽는데 걸리는 시간 : 3분
-- 마지막 수정날짜 : 2022-06-01
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## 시작하기 전에
 

@@ -10,7 +10,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/분류 모델 만들기/이미지 분류 모델 만들기.ipynb 
 - 참고 문서 : [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
-- 마지막 수정날짜 : 2022-06-08
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 
 ## 튜토리얼 소개
@@ -49,11 +49,14 @@ __아래는 ThanoSQL 이미지 분류 모델의 활용 및 예시입니다.__
 
 ## __0. 데이터 세트 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스 사용](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
+에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
 
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급받은_API_TOKEN}
+```
+```sql
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
 %%thanosql
@@ -84,7 +87,7 @@ LIMIT 5
 ![IMAGE](/img/thanosql_ml/classification/classification_convNext/train_data_limit_5.png)
 
 !!! note "__데이터 이해하기__"
-    -  <mark style="background-color:#D7D0FF ">image</mark>: 각 이미지의 파일의 위치 정보
+    -  <mark style="background-color:#D7D0FF ">image_path</mark>: 각 이미지의 파일의 위치 정보
     -  <mark style="background-color:#D7D0FF ">label</mark>: 해당 이미지의 목표값(Target)
 
 ```sql
@@ -114,7 +117,8 @@ FROM cat_and_dog_test
 
 ## __3. 이미지 분류 모델 생성__
 
-이전 단계에서 확인한  <mark style="background-color:#FFEC92 ">cat_and_dog_train</mark> 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_image_classifier</mark>이라는 이름의 모델을 만듭니다.
+이전 단계에서 확인한  <mark style="background-color:#FFEC92 ">cat_and_dog_train</mark> 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_image_classifier</mark>이라는 이름의 모델을 만듭니다.   
+(쿼리 실행 시 예상 소요 시간: 5 min)  
 
 ```sql
 %%thanosql

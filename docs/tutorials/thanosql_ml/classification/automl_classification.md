@@ -11,7 +11,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/분류 모델 만들기/Auto-ML을 사용하여 분류 모델 만들기.ipynb 
 - 참고 문서 : [(캐글) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
-- 마지막 수정날짜 : 2022-06-08
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## 튜토리얼 소개
 
@@ -44,11 +44,14 @@ ThanoSQL에서는 자동화된 머신러닝(__Auto-ML__) 도구를 제공합니�
 
 ## __0. 데이터 세트 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스 사용](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
+에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
 
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급받은_API_TOKEN}
+```
+```sql
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
 %%thanosql
@@ -97,7 +100,8 @@ LIMIT 5
 
 ## __2. 분류 모델 생성__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">titanic_train</mark> 데이터를 사용하여 생존자 예측 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행시켜 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark> 이름의 모델을 만들어 봅니다.
+이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">titanic_train</mark> 데이터를 사용하여 생존자 예측 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행시켜 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark> 이름의 모델을 만들어 봅니다.  
+(쿼리 실행 시 예상 소요 시간: 8 min)  
 
 ```sql
 %%thanosql
@@ -107,7 +111,7 @@ OPTIONS (
     target='survived', 
     impute_type='iterative',  
     features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
-    time_left_for_this_task = 30
+    time_left_for_this_task = 300
     ) 
 AS 
 SELECT * 
@@ -135,7 +139,8 @@ FROM titanic_train
 ![IMAGE](/img/automl_classification_img2.png)
 
 !!! note "__쿼리 세부 정보__"   
-    "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 평가합니다. "__OPTIONS__"의 "target"에는 분류 예측 모델에 목표값이 되는 컬럼의 이름(<mark style="background-color:#D7D0FF">survived</mark>)을 적어줍니다.
+    - "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 평가합니다. 
+    - "__OPTIONS__"의 "target"에는 분류 예측 모델에 목표값이 되는 컬럼의 이름(<mark style="background-color:#D7D0FF">survived</mark>)을 적어줍니다.
 
 
 ## __4. 생성된 모델을 사용하여 생존자 예측__ 
@@ -158,10 +163,12 @@ FROM titanic_test
 
 이번 튜토리얼에서는 [캐글](https://www.kaggle.com/)의 <mark style="background-color:#FFD79C"> __Titanic: Machine Learning from Disaster__</mark> 데이터를 사용하여 타이타닉 생존자 분류 예측 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정보다는 전반적인 프로세스 위주의 설명으로 진행 하였습니다. 향상 된 분류 모델 구축에 대해 자세히 알고 싶다면 중급 튜토리얼을 진행해 볼 것을 권장드립니다.
 
-다음 [중급 분류 예측 모델 만들기] 튜토리얼에서는 정확도 향상을 위한 "__OPTIONS__"에 대해 더욱 심도있게 다뤄보겠습니다. 중급,고급 단계를 마치고 나만의 서비스/프로덕트를 위한 분류 예측 모델을 만들어 보세요. 중급 단계에서는 ThanoSQL의 AutoML이 제공하는 다양한 "__OPTIONS__"를 활용하여 정교한 분류 예측 모델을 만들어 볼 예정입니다. 또한, 중급 단계를 마치신 이후 고급 단계에서는 비정형 데이터를 수치화시킨 후 AutoML의 학습 요소로 포함하여 분류 예측 모델을 만들 수 있습니다. 
+다음 [중급 분류 예측 모델 만들기] 튜토리얼에서는 정확도 향상을 위한 "__OPTIONS__"에 대해 더욱 심도있게 다뤄보겠습니다. 중급,고급 단계를 마치고 나만의 서비스/프로덕트를 위한 분류 예측 모델을 만들어 보세요. 중급 단계에서는 ThanoSQL의 AutoML이 제공하는 다양한 "__OPTIONS__"를 활용하여 정교한 분류 예측 모델을 만들어 볼 예정입니다. 또한, 중급 단계를 마치신 이후 고급 단계에서는 비정형 데이터를 수치화시킨 후 AutoML의 학습 요소로 포함하여 분류 예측 모델을 만들 수 있습니다.
 
-* [중급 분류 예측 모델 만들기]
-* [고급 분류 예측 모델 만들기]
+* [나만의 데이터 업로드하기](/how-to_guides/ThanoSQL_connecting/data_upload/)
+* [중급 이미지 분류 모델 만들기]
+* [이미지 변환과 Auto-ML을 이용한 나만의 모델 만들기]
+* [나만의 이미지 분류 모델 배포하기](/how-to_guides/thanosql_api/rest_api_thanosql_query/)
 
 !!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"
     ThanoSQL을 활용해 나만의 모델을 만들거나, 나의 서비스에 적용하는데 어려움이 있다면 언제든 아래로 문의주세요😊

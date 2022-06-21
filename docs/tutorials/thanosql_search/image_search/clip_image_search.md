@@ -10,7 +10,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/query/텍스트로 이미지 검색하기.ipynb  
 - 참고 문서 : [Unsplash Dataset - Lite](https://unsplash.com/data), [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
-- 마지막 수정날짜 : 2022-06-08
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## 튜토리얼 소개
 
@@ -33,10 +33,13 @@ __아래는 ThanoSQL 텍스트-이미지 검색 알고리즘의 활용 및 예�
 이번 튜토리얼에서는 텍스트-이미지 검색 모델을 사용하여, ThanoSQL DB의 `Unsplash Dataset - Lite` 데이터 세트의 25,000 장의 이미지 중에서 텍스트로 원하는 이미지를 검색해 봅니다. 
 
 ## __0. 데이터 세트 준비__
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
+에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급받은_API_TOKEN}
+```
+```sql
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
 %%thanosql
@@ -56,7 +59,7 @@ FROM "tutorial_data/unsplash_data/unsplash.csv"
 
 ```sql
 %%thanosql
-SELECT photo_id, filepath, photo_image_url, photo_description, ai_description
+SELECT photo_id, image_path, photo_image_url, photo_description, ai_description
 FROM unsplash_data
 LIMIT 5
 ```
@@ -65,7 +68,7 @@ LIMIT 5
 
 !!! note "데이터 이해하기"
     - `photo_id` 이미지의 고유 id 컬럼 명
-    - `filepath` 이미지가 위치한 경로의 컬럼 명
+    - `image_path` 이미지가 위치한 경로의 컬럼 명
     - `photo_image_url` 웹사이트 unsplash에서의 원본 이미지 주소를 나타내는 컬럼 명
     - `photo_description` 해당 이미지에 대해 사람이 작성한 짧은 설명을 나타내는 컬럼 명
     - `ai_description` AI가 생성해낸 해당 이미지에 대한 설명을 나타내는 컬럼 명
@@ -74,8 +77,7 @@ LIMIT 5
 %%thanosql
 PRINT IMAGE 
 AS
-SELECT filepath 
-AS image 
+SELECT image_path 
 FROM unsplash_data 
 LIMIT 5
 ```
@@ -86,12 +88,13 @@ LIMIT 5
 
 !!! danger "참고 사항"
     텍스트-이미지 검색 알고리즘은 학습에 오랜 시간이 걸리고 총 4억 개의 데이터 세트로 사전 학습된 모델을 사용하기 때문에 "__BUILD MODEL__" 쿼리 구문을 이용한 학습 과정을 본 튜토리얼에서는 생략합니다. `tutorial_search_clip` 모델은 베이스 알고리즘으로 `clipen`을 사용한 사전학습 된 모델을 가져와서 사용하게 됩니다. "__CONVERT USING__" 쿼리 구문을 실행하게 되면 "모델명(`tutorial_search_clip`)_베이스 알고리즘명(`clipen`)"으로 이미지가 수치화 된 컬럼이 자동으로 생성이 되며, "__SEARCH IMAGE__" 쿼리 구문을 실행하게 되면 "모델명(`tutorial_search_clip`)_베이스 알고리즘 명(`clipen`)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 됩니다. 여기수 "수"는 검색에 사용한 텍스트의 갯수를 의미합니다. 2개 이상의 텍스트로 검색이 이루어 질 경우 순서에 따라 컬럼의 수가 순차적으로 증가되어 생성 됩니다. 자세한 사항은 아래 내용을 참고하세요.
+(쿼리 실행 시 예상 소요 시간: 3 min)  
 
 ```sql
 %%thanosql
 CONVERT USING tutorial_search_clip
 OPTIONS (
-    image_col="filepath", 
+    image_col="image_path", 
     table_name="unsplash_data", 
     batch_size=128
     )
@@ -102,8 +105,8 @@ FROM unsplash_data
 
 !!! note "쿼리 세부 정보"
 
-    "__CONVERT USING__" 쿼리 구문은 `tutorial_search_clip` 모델을 이미지 수치화를 위한 알고리즘으로 사용합니다.
-    "__OPTIONS__" 쿼리 구문은 이미지 수치화 시 필요한 변수들을 정의합니다. ThanoSQL DB 내에 저장될 테이블 이름("table_name")을 정의합니다. 이미지의 저장 경로를 저장한 컬럼 명을 "image_col"에서 정의합니다. 본 튜토리얼에서는 `filepath`를 사용합니다. "batch_size"는 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. 논문에 따르면 클 수록 학습 성능이 증가하지만 메모리의 크기를 고려하여 128을 사용합니다. 
+    - "__CONVERT USING__" 쿼리 구문은 `tutorial_search_clip` 모델을 이미지 수치화를 위한 알고리즘으로 사용합니다.  
+    - "__OPTIONS__" 쿼리 구문은 이미지 수치화 시 필요한 변수들을 정의합니다. ThanoSQL DB 내에 저장될 테이블 이름("table_name")을 정의합니다. 이미지의 저장 경로를 저장한 컬럼 명을 "image_col"에서 정의합니다. 본 튜토리얼에서는 `image_path`를 사용합니다. "batch_size"는 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. 논문에 따르면 클 수록 학습 성능이 증가하지만 메모리의 크기를 고려하여 128을 사용합니다. 
 
 ```sql
 %%thanosql
@@ -142,8 +145,7 @@ FROM unsplash_data
 
 ```sql
 %%thanosql
-SELECT filepath 
-AS image, tutorial_search_clip_clipen_similarity1 
+SELECT image_path, tutorial_search_clip_clipen_similarity1 
 FROM (
     SEARCH IMAGE text="a black cat"
     USING tutorial_search_clip
@@ -160,7 +162,7 @@ LIMIT 5
 !!! note "쿼리 세부 정보"
     
     - "__SEARCH IMAGE__" 쿼리 구문은 입력한 텍스트와 이미지 사이의 유사도를 계산하여 반환합니다.
-    - 첫 번째 "__SELECT__" 쿼리 구문은 괄호 안의 쿼리 결과에서 "filepath" 컬럼과 `tutorial_search_clip_clipen_similarity1` 컬럼을 선택합니다. 이 때, `filepath` 컬럼은 `image`라는 컬럼 이름으로 변경합니다.
+    - 첫 번째 "__SELECT__" 쿼리 구문은 괄호 안의 쿼리 결과에서 "image_path" 컬럼과 `tutorial_search_clip_clipen_similarity1` 컬럼을 선택합니다.
     - "__ORDER BY__" 쿼리 구문은 결과를 `tutorial_search_clip_clipen_similarity1` 컬럼의 값을 기준으로 정렬하는데, 정렬은 내림차순("__DESC__")이며, 그 중 상위 5개("__LIMIT__" 5)의 결과를 출력합니다.
 
 
@@ -170,8 +172,7 @@ LIMIT 5
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT filepath 
-    AS image, tutorial_search_clip_clipen_similarity1 
+    SELECT image_path, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="a black cat"
         USING tutorial_search_clip
@@ -197,8 +198,7 @@ AS (
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT filepath 
-    AS image, tutorial_search_clip_clipen_similarity1 
+    SELECT image_path, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="a dog on a chair"
         USING tutorial_search_clip
@@ -217,8 +217,7 @@ AS (
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT filepath 
-    AS image, tutorial_search_clip_clipen_similarity1 
+    SELECT image_path, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="gloomy photos"
         USING tutorial_search_clip
@@ -237,8 +236,7 @@ AS (
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT filepath 
-    AS image, tutorial_search_clip_clipen_similarity1 
+    SELECT image_path, tutorial_search_clip_clipen_similarity1 
     FROM (
         SEARCH IMAGE text="the feeling when your program finally works"
         USING tutorial_search_clip

@@ -9,7 +9,7 @@
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/query/이미지로 이미지 검색하기.ipynb   
 - 참고 문서 : [MNIST 데이터 세트](http://yann.lecun.com/exdb/mnist/), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
-- 마지막 수정날짜 : 2022-06-08
+- 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 ## 튜토리얼 소개
 
@@ -29,17 +29,20 @@ __아래는 ThanoSQL 유사 이미지 검색 알고리즘의 활용 및 예시 �
 - 이미지의 수치화 된 값을 ThanoSQL의 DB에 저장하고, ThanoSQL Auto-ML 회귀/분류 예측 모델을 이용해서 나만의 검색 엔진이나 인공지능 모델을 만들 수 있습니다. <br>
  
 !!! note "본 튜토리얼에서는" 
-    :point_right: 이번 튜토리얼에서는 <mark style="background-color:#FFD79C">MNIST 손글씨 데이터 세트</mark>를 사용합니다. 각 이미지는 0~1 사이의 값을 갖는 고정 크기(28x28 = 784 픽셀) 이며, 여러 사람들이 손으로 쓴 0~9까지 숫자를 정답과 함께 제공합니다. 60,000 개의 학습용 데이터 세트와 10,000개의 테스트용 데이터 세트로 이루어져 있습니다. <br> 
+    :point_right: 이번 튜토리얼에서는 <mark style="background-color:#FFD79C">MNIST 손글씨 데이터 세트</mark>를 사용합니다. 각 이미지는 0~1 사이의 값을 갖는 고정 크기(28x28 = 784 픽셀) 이며, 여러 사람들이 손으로 쓴 0~9까지 숫자를 정답과 함께 제공합니다. 1,000개의 학습용 데이터 세트와 200개의 테스트용 데이터 세트로 이루어져 있습니다. <br> 
     
 ThanoSQL을 사용하여 손글씨 데이터를 입력하고 DB 내에서 입력 이미지와 유사한 이미지를 검색해주는 모델을 만들어 봅니다. 
 
 ![MNIST 데이터](/img/thanosql_search/simclr_search/simclr_img7.png) 
 
 ## __0. 데이터 세트 준비__
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
+에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN={발급받은_API_TOKEN}
+```
+```sql
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 ```sql
 %%thanosql
@@ -80,15 +83,14 @@ LIMIT 5
 
 ## __2. 이미지 수치화 모델 생성__
 
-이전 단계에서 확인한 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD">my_image_search_model</mark>이라는 이름의 모델을 만듭니다.
-
+이전 단계에서 확인한 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용하여 이미지 수치화 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD">my_image_search_model</mark>이라는 이름의 모델을 만듭니다.  
+(쿼리 실행 시 예상 소요 시간 : 1 min)
 ```sql
 %%thanosql
 BUILD MODEL my_image_search_model
 USING SimCLR
 OPTIONS (
     image_col="img_path",
-    file_name="filename",
     max_epochs=1
     )
 AS 
@@ -100,8 +102,7 @@ FROM mnist_train
     - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD">mnist_model</mark> 이라는 모델을 만들고 학습시킵니다.
     - "__USING__" 쿼리 구문을 통해 베이스 모델로 <mark style="background-color:#E9D7FD">SimCLR</mark> 모델을 사용할 것을 명시합니다.
     - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.  
-        -  "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼 (Default : "path")
-        -  "file_name" : 데이터 테이블에서 이미지 파일 이름을 담은 컬럼
+        -  "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼 (Default : "image_path")
         -  "max_epochs" : 이미지 수치화 모델을 생성하기 위한 데이터 세트 학습 횟수
 
 아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `my_image_search_model`을 "__CONVERT USING__" 쿼리 구문을 사용하여 `mnist_test` 이미지들을 임베딩합니다. 
@@ -110,7 +111,8 @@ FROM mnist_train
 %%thanosql
 CONVERT USING my_image_search_model
 OPTIONS (
-    table_name= "mnist_test"
+    table_name= "mnist_test",
+    image_col="img_path"
     )
 AS 
 SELECT * 
@@ -124,9 +126,10 @@ FROM mnist_test
     - "__CONVERT USING__" 쿼리 구문은 `my_image_search_model`을 이미지 수치화를 위한 알고리즘으로 사용합니다.   
     - "__OPTIONS__" 쿼리 구문을 통해 이미지 수치화 시 필요한 변수들을 정의합니다. 
         - "table_name" : ThanoSQL DB 내에 저장될 테이블 이름을 정의합니다. 
+        - "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼(default: "image_path")
 
 !!! note "" 
-    `mnist_test` 테이블에 `my_image_search_model_sinclr`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
+    `mnist_test` 테이블에 `my_image_search_model_simclr`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
 
 ## __3. (이미지 폴더로부터) 이미지 수치화 결과 저장__
 
@@ -145,7 +148,7 @@ FROM 'tutorial_data/mnist_data/test/'
 ```
 
 !!! note "쿼리 세부정보" 
-    - "__CREATE TABLEL__" 쿼리 구문을 사용하여 이미지 수치화 테이블(`mnist_embds`)을 만듭니다.  
+    - "__CREATE TABLE__" 쿼리 구문을 사용하여 이미지 수치화 테이블(`mnist_embds`)을 만듭니다.  
     - "__USING__"은 이미지 수치화에 사용할 모델을 정의합니다.
     - "__OPTIONS__"는 이미지 수치화를 위한 이미지 파일의 속성값들을 정의합니다.
         - "path_type" :  데이터가 저장되어 있는 파일 경로의 타입(folder|file)  
@@ -168,16 +171,16 @@ LIMIT 5
 
 ## __4. 이미지 수치화 모델을 사용해서 유사 이미지 검색하기__
 
-이번 단계에서는 `my_image_search_model` 이미지 수치화 모델과 `mnist_embds` 수치화 테이블을 사용하여 "1.jpg" 이미지 파일(손글씨 0)과 유사한 이미지를 검색합니다. <br>
+이번 단계에서는 `my_image_search_model` 이미지 수치화 모델과 `mnist_embds` 수치화 테이블을 사용하여 "923.jpg" 이미지 파일(손글씨 8)과 유사한 이미지를 검색합니다. <br>
 
 ![image](/img/thanosql_search/simclr_search/simclr_img8.png) 
 
-1.jpg 이미지파일
+923.jpg 이미지파일
 
 
 ```sql
 %%thanosql
-SEARCH IMAGE images='tutorial_data/mnist_data/train/1.jpg' 
+SEARCH IMAGE images='tutorial_data/mnist_data/test/923.jpg' 
 USING my_image_search_model 
 AS 
 SELECT * 
@@ -188,27 +191,26 @@ FROM mnist_embds
 
 
 !!! note "쿼리 세부정보" 
-    "__SEARCH IMAGE [images|audio|videos]__" 쿼리 구문은 검색하고자 하는 이미지|오디오|비디오 파일을 정의합니다.  <br>
-    "__USING__"은 이미지 수치화에 사용할 모델을 정의합니다.<br>
-    "__AS__" 쿼리 구문은 검색에 사용할 임베딩 테이블을 정의합니다. `mnist_embds` 테이블을 사용합니다 
+    - "__SEARCH IMAGE [images|audio|videos]__" 쿼리 구문은 검색하고자 하는 이미지|오디오|비디오 파일을 정의합니다.  <br>
+    - "__USING__"은 이미지 수치화에 사용할 모델을 정의합니다.<br>
+    - "__AS__" 쿼리 구문은 검색에 사용할 임베딩 테이블을 정의합니다. `mnist_embds` 테이블을 사용합니다 
 
-다음 쿼리를 실행하여 "__SEARCH__" 결과를 ThanoSQL의 "__PRINT__" 쿼리 구문을 활용하여 가장 유사한 상위 4개를 출력합니다. 학습을 조금 밖에 진행하지 않았지만 6과 비슷한 이미지를 출력하는 것을 확인할 수 있습니다.
+다음 쿼리를 실행하여 "__SEARCH__" 결과를 ThanoSQL의 "__PRINT__" 쿼리 구문을 활용하여 가장 유사한 상위 4개를 출력합니다. 학습을 조금 밖에 진행하지 않았지만 8과 비슷한 이미지를 출력하는 것을 확인할 수 있습니다.
 
 
 ```sql
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT image 
-    AS image, my_image_search_model_sinclr_similarity1 
+    SELECT image_path, my_image_search_model_simclr_similarity1 
     FROM (
-        SEARCH IMAGE images='tutorial_data/mnist_data/train/1.jpg' 
+        SEARCH IMAGE images='tutorial_data/mnist_data/test/923.jpg' 
         USING my_image_search_model 
         AS 
         SELECT * 
         FROM mnist_embds
         )
-    ORDER BY my_image_search_model_sinclr_similarity1 DESC 
+    ORDER BY my_image_search_model_simclr_similarity1 DESC 
     LIMIT 4
     )
 ```
