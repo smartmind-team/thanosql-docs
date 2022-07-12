@@ -9,7 +9,7 @@
 - 읽는데 걸리는 시간 : 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/ml/분류 모델 만들기/이미지 분류 모델 만들기.ipynb
-- 참고 문서 : [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
+- 참고 문서 : [(AI-Hub) 상품이미지 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=64), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
 - 마지막 수정날짜 : {{ git_revision_date_localized }}
 
 
@@ -40,7 +40,11 @@ __아래는 ThanoSQL 이미지 분류 모델의 활용 및 예시입니다.__
 
 
 !!! note "본 튜토리얼에서는"
-    :point_right: 대표적인 머신러닝 경진대회 플랫폼인 [캐글](https://www.kaggle.com/)의 `Cat and Dog` 데이터 세트를 사용하여 고양이와 강아지를 분류하는 모델을 만듭니다. 이 데이터 세트는 25,000장의 훈련 데이터와 12,500장의 테스트 데이터로 구성되어 있습니다. 직관적으로 이해하기 쉽고 각 이미지의 크기가 크지 않아 이미지 분류 모델의 정확도를 판단하기 위해 널리 사용됩니다. 본 튜토리얼에서는 ThanoSQL의 사용방법을 익히고 빠른 결과 확인을 위해, 훈련용 데이터 8,000장과 테스트 데이터 2,000장만을 사용합니다. <br>
+    :point_right: 대표적인 AI 오픈데이터 공유 플랫폼인 [AI-Hub](https://aihub.or.kr/)의 `상품 이미지` 데이터 세트를 사용하여 10,000종 이상의 상품을 분류하는 모델을 구축합니다. 구축된 모델은 스마트물류창고, 무인 스토어등에서 탐지, 식별 솔루션으로 활용이 가능합니다. 데이터 세트는 일반적으로 이미지 분류 기술의 학습에 활용하는 이미지 및 라벨(정답)쌍의 약 10,000 종 이상의 상품 데이터 세트로 구성되어 있고 총 1,440,000 장의 이미지가 포함되어 있습니다. 본 튜토리얼에서는 ThanoSQL의 사용방법을 익히고 빠른 결과 확인을 위해, 훈련용 데이터 1,800장과 테스트 데이터 200장만을 사용합니다. <br>
+    
+![상품 이미지 예시](/img/thanosql_ml/classification/classification_convNext/classification_convNext_data_intro.png)  
+
+  
 
 !!! warning "튜토리얼 주의 사항"
     - 이미지 분류 모델은 하나의 이미지에서 하나의 목표값(Target, 범주/레이블/라벨)를 예측하는 용도로 사용할 수 있습니다.
@@ -101,9 +105,9 @@ LIMIT 5
 
 ![IMAGE](/img/thanosql_ml/classification/classification_convNext/print_image_train_data.png)
 
-## __2. 사전 학습된 모델을 사용하여 강아지와 고양이 이미지 분류 결과 예측__
+## __2. 사전 학습된 모델을 사용하여 상품 이미지 분류 결과 예측__
 
-먼저 저희가 미리 준비해둔 모델로 바로 결과를 예측해보겠습니다. 다음 쿼리문을 실행하면, 사전에 학습을 해 둔 고양이, 개 이미지 분류모델, <mark style="background-color:#E9D7FD ">tutorial_product_classifier</mark>모델을 사용하여 결과를 예측해볼 수 있습니다.
+다음 쿼리문을 실행하면, 사전에 학습을 해 둔 상품 이미지 분류모델, <mark style="background-color:#E9D7FD ">tutorial_product_classifier</mark>모델을 사용하여 결과를 빠르게 예측해볼 수 있습니다.
 
 ```sql
 %%thanosql
@@ -146,9 +150,9 @@ FROM product_image_train
     여기서는 빠르게 학습하기 위해 "epochs"를 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산 시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다.
 
 
-## __4. 생성된 모델을 사용하여 강아지와 고양이 이미지 분류 결과 예측__
+## __4. 생성된 모델을 사용하여 상품 이미지 분류 결과 예측__
 
-이전 단계에서 만든 이미지 예측 모델(<mark style="background-color:#FFEC92 ">my_product_classifier</mark>)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#D7D0FF">product_image_test</mark>)의 목표값을 예측해 봅니다.  아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
+이전 단계에서 만든 상품 이미지 분류 모델(<mark style="background-color:#FFEC92 ">my_product_classifier</mark>)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#D7D0FF">product_image_test</mark>)의 목표값을 예측해 봅니다.  아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
 
 ```sql
 %%thanosql
@@ -172,7 +176,7 @@ FROM product_image_test
 
 ## __5. 튜토리얼을 마치며__
 
-이번 튜토리얼에서는 <mark style="background-color:#FFD79C">Cat and Dog</mark> 데이터 세트를 사용하여 이미지 분류 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. 이미지 분류 모델은 각 플랫폼이나 서비스에 맞는 정밀한 튜닝을 통해 정확도를 향상 시킬 수 있고 적은 양의 데이터 라벨링만으로도 대부분 만족스러운 결과를 얻을 수 있습니다. 나만의 데이터를 이용해서 베이스 모델을 학습하거나, 자가학습(Self-supervised) 모델 등을 이용해 나의 데이터를 수치화하여 변환한 후 자동화 된 머신러닝(Auto-ML) 기법을 이용한 배포도 가능합니다. 다양한 비정형 데이터(오디오, 비디오, 텍스트 등)와 수치형 데이터들을 결합하여 나만의 모델을 만들고 경쟁력있는 서비스를 제공해 보세요.
+이번 튜토리얼에서는 <mark style="background-color:#FFD79C">상품 이미지</mark> 데이터 세트를 사용하여 이미지 분류 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. 이미지 분류 모델은 각 플랫폼이나 서비스에 맞는 정밀한 튜닝을 통해 정확도를 향상 시킬 수 있고 적은 양의 데이터 라벨링만으로도 대부분 만족스러운 결과를 얻을 수 있습니다. 나만의 데이터를 이용해서 베이스 모델을 학습하거나, 자가학습(Self-supervised) 모델 등을 이용해 나의 데이터를 수치화하여 변환한 후 자동화 된 머신러닝(Auto-ML) 기법을 이용한 배포도 가능합니다. 다양한 비정형 데이터(오디오, 비디오, 텍스트 등)와 수치형 데이터들을 결합하여 나만의 모델을 만들고 경쟁력있는 서비스를 제공해 보세요.
 
 다음 단계인  [중급 이미지 분류 모델 만들기] 튜토리얼에서는 이미지 분류 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 이미지 분류 모델 구축방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요.
 
