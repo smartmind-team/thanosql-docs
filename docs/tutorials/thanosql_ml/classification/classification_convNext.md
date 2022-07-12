@@ -8,7 +8,7 @@
 - 튜토리얼 난이도: ★☆☆☆☆
 - 읽는데 걸리는 시간 : 10분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 파일 위치 : tutorial/ml/분류 모델 만들기/이미지 분류 모델 만들기.ipynb 
+- 실행 파일 위치 : tutorial/ml/분류 모델 만들기/이미지 분류 모델 만들기.ipynb
 - 참고 문서 : [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
 - 마지막 수정날짜 : {{ git_revision_date_localized }}
 
@@ -50,7 +50,7 @@ __아래는 ThanoSQL 이미지 분류 모델의 활용 및 예시입니다.__
 ## __0. 데이터 세트 준비__
 
 ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스 사용](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
-에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
+에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 
 ```sql
 %load_ext thanosql
@@ -60,28 +60,28 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 ```
 ```sql
 %%thanosql
-COPY cat_and_dog_train 
-FROM "tutorial_data/cat_and_dog_data/cat_and_dog_train.csv"
+COPY product_image_train
+FROM "tutorial_data/product_image/product_image_train.csv"
 ```
 ```sql
 %%thanosql
-COPY cat_and_dog_test 
-FROM "tutorial_data/cat_and_dog_data/cat_and_dog_test.csv"
+COPY product_image_test
+FROM "tutorial_data/product_image/product_image_test.csv"
 ```
 
-!!! note "" 
-    COPY [테이블 명] FROM [csv 파일]  
+!!! note ""
+    COPY [테이블 명] FROM [csv 파일]
     - 위의 쿼리는 csv 파일 데이터 세트를 ThanoSQL DB의 테이블로 만들어 줍니다.
 
 
 ## __1. 데이터 세트 확인__
 
-본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는  <mark style="background-color:#FFEC92 ">cat_and_dog_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
+본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는  <mark style="background-color:#FFEC92 ">product_image_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 ```sql
 %%thanosql
 SELECT *
-FROM cat_and_dog_train
+FROM product_image_train
 LIMIT 5
 ```
 ![IMAGE](/img/thanosql_ml/classification/classification_convNext/train_data_limit_5.png)
@@ -92,10 +92,10 @@ LIMIT 5
 
 ```sql
 %%thanosql
-PRINT IMAGE 
+PRINT IMAGE
 AS
-SELECT image_path 
-FROM cat_and_dog_train
+SELECT image_path
+FROM product_image_train
 LIMIT 5
 ```
 
@@ -103,39 +103,39 @@ LIMIT 5
 
 ## __2. 사전 학습된 모델을 사용하여 강아지와 고양이 이미지 분류 결과 예측__
 
-먼저 저희가 미리 준비해둔 모델로 바로 결과를 예측해보겠습니다. 다음 쿼리문을 실행하면, 사전에 학습을 해 둔 고양이, 개 이미지 분류모델, <mark style="background-color:#E9D7FD ">tutorial_image_classification</mark>모델을 사용하여 결과를 예측해볼 수 있습니다.
+먼저 저희가 미리 준비해둔 모델로 바로 결과를 예측해보겠습니다. 다음 쿼리문을 실행하면, 사전에 학습을 해 둔 고양이, 개 이미지 분류모델, <mark style="background-color:#E9D7FD ">tutorial_product_classifier</mark>모델을 사용하여 결과를 예측해볼 수 있습니다.
 
 ```sql
 %%thanosql
-PREDICT USING tutorial_image_classification
-AS 
-SELECT * 
-FROM cat_and_dog_test
+PREDICT USING tutorial_product_classifier
+AS
+SELECT *
+FROM product_image_test
 ```
 
 ![IMAGE](/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_1.png)
 
 ## __3. 이미지 분류 모델 생성__
 
-이전 단계에서 확인한  <mark style="background-color:#FFEC92 ">cat_and_dog_train</mark> 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_image_classifier</mark>이라는 이름의 모델을 만듭니다.   
-(쿼리 실행 시 예상 소요 시간: 5 min)  
+이전 단계에서 확인한  <mark style="background-color:#FFEC92 ">product_image_train</mark> 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_product_classifier</mark>이라는 이름의 모델을 만듭니다.
+(쿼리 실행 시 예상 소요 시간: 5 min)
 
 ```sql
 %%thanosql
-BUILD MODEL my_image_classifier
+BUILD MODEL my_product_classifier
 USING ConvNeXt_Tiny
 OPTIONS (
   image_col='image_path',
-  label_col='label',
+  label_col='div_l',
   epochs=1
   )
 AS
 SELECT *
-FROM cat_and_dog_train
+FROM product_image_train
 ```
 
 !!! note "쿼리 세부 정보"
-    - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">my_image_classifier</mark> 모델을 만들고 학습시킵니다.
+    - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">my_product_classifier</mark> 모델을 만들고 학습시킵니다.
     - "__USING__" 쿼리 구문을 통해 베이스 모델로 `ConvNeXt_Tiny`를 사용할 것을 명시합니다.
     - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
         - "image_col" : 이미지 경로를 담은 컬럼의 이름
@@ -148,23 +148,23 @@ FROM cat_and_dog_train
 
 ## __4. 생성된 모델을 사용하여 강아지와 고양이 이미지 분류 결과 예측__
 
-이전 단계에서 만든 이미지 예측 모델(<mark style="background-color:#FFEC92 ">my_image_classifier</mark>)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#D7D0FF">cat_and_dog_test</mark>)의 목표값을 예측해 봅니다.  아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
+이전 단계에서 만든 이미지 예측 모델(<mark style="background-color:#FFEC92 ">my_product_classifier</mark>)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#D7D0FF">product_image_test</mark>)의 목표값을 예측해 봅니다.  아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
 
 ```sql
 %%thanosql
-PREDICT USING my_image_classifier
+PREDICT USING my_product_classifier
 OPTIONS (
     image_col='image_path'
     )
 AS
 SELECT *
-FROM cat_and_dog_test
+FROM product_image_test
 ```
 
 ![IMAGE](/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_2.png)
 
 !!! note "__쿼리 세부 정보__"
-    - "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_image_classifier</mark> 모델을 예측에 사용합니다.
+    - "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_product_classifier</mark> 모델을 예측에 사용합니다.
     - "__OPTIONS__" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
         - "image_col" : 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름
 
