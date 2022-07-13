@@ -65,12 +65,12 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 ```sql
 %%thanosql
 COPY product_image_train
-FROM "tutorial_data/product_image/product_image_train.csv"
+FROM "tutorial_data/product_image_data/product_image_train.csv"
 ```
 ```sql
 %%thanosql
 COPY product_image_test
-FROM "tutorial_data/product_image/product_image_test.csv"
+FROM "tutorial_data/product_image_data/product_image_test.csv"
 ```
 
 !!! note ""
