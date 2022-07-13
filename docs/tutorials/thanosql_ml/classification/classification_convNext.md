@@ -41,10 +41,10 @@ __아래는 ThanoSQL 이미지 분류 모델의 활용 및 예시입니다.__
 
 !!! note "본 튜토리얼에서는"
     :point_right: 대표적인 AI 오픈데이터 공유 플랫폼인 [AI-Hub](https://aihub.or.kr/)의 `상품 이미지` 데이터 세트를 사용하여 10,000종 이상의 상품을 분류하는 모델을 구축합니다. 구축된 모델은 스마트물류창고, 무인 스토어등에서 탐지, 식별 솔루션으로 활용이 가능합니다. 데이터 세트는 일반적으로 이미지 분류 기술의 학습에 활용하는 이미지 및 라벨(정답)쌍의 약 10,000 종 이상의 상품 데이터 세트로 구성되어 있고 총 1,440,000 장의 이미지가 포함되어 있습니다. 본 튜토리얼에서는 ThanoSQL의 사용방법을 익히고 빠른 결과 확인을 위해, 훈련용 데이터 1,800장과 테스트 데이터 200장만을 사용합니다. <br>
-    
-![상품 이미지 예시](/img/thanosql_ml/classification/classification_convNext/classification_convNext_data_intro.png)  
 
-  
+![상품 이미지 예시](/img/thanosql_ml/classification/classification_convNext/classification_convNext_data_intro.png)
+
+
 
 !!! warning "튜토리얼 주의 사항"
     - 이미지 분류 모델은 하나의 이미지에서 하나의 목표값(Target, 범주/레이블/라벨)를 예측하는 용도로 사용할 수 있습니다.
@@ -92,7 +92,13 @@ LIMIT 5
 
 !!! note "__데이터 이해하기__"
     -  <mark style="background-color:#D7D0FF ">image_path</mark>: 각 이미지의 파일의 위치 정보
-    -  <mark style="background-color:#D7D0FF ">label</mark>: 해당 이미지의 목표값(Target)
+    -  <mark style="background-color:#D7D0FF ">div_l</mark> : 상품의 대분류
+    -  <mark style="background-color:#D7D0FF ">div_m</mark> : 상품의 중분류
+    -  <mark style="background-color:#D7D0FF ">div_s</mark> : 상품의 소분류
+    -  <mark style="background-color:#D7D0FF ">div_n</mark> : 상품의 세분류
+    -  <mark style="background-color:#D7D0FF ">comp_nm</mark> : 제조사
+    -  <mark style="background-color:#D7D0FF ">img_prod_nm</mark> : 상품명(이미지상)
+    -  <mark style="background-color:#D7D0FF ">multi</mark> : 복수 상품 이미지인지 여부
 
 ```sql
 %%thanosql
