@@ -91,15 +91,17 @@ sftp -i [pem 파일 절대경로] [워크스페이스 이름]@engine.thanosql.ai
 
 연결되면 아래와 같은 화면을 확인하실 수 있습니다.
 
-![IMAGE](/img/data_upload_img1.png)
+<a href = "/img/thanosql_syntax/connecting/img1.png">
+    <img src = "/img/thanosql_syntax/connecting/img1.png"></img>
+</a>
 
 ### __STEP 5. 데이터 파일 접속하기__
 
 SFTP 접속이 완료되었다면 현재 위치를 파악하고 권한이 부여된 'drive' 폴더에 접속합니다. ('drive' 폴더 외에는 권한이 부여되지 않아 접속이 불가합니다.)
 
 ```bash
-    sftp> pwd
-    sftp> cd /drive
+sftp> pwd
+sftp> cd /drive
 ```
 
 ### __STEP 6. 폴더나 파일 전송하기__
@@ -107,7 +109,7 @@ SFTP 접속이 완료되었다면 현재 위치를 파악하고 권한이 부여
 원격 작업 디렉토리와 로컬 작업 디렉토리를 확인하고 파일을 전송합니다.
 
 ```bash
-    put image_folder
+put image_folder
 ```
 
 위 단계들을 거쳐 원격 작업 디렉토리인 `/drive`에 로컬 작업 디렉토리인 `image_folder` 안에 있는 이미지 파일들을 전송할 수 있습니다. 
