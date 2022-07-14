@@ -35,9 +35,9 @@ ThanoSQL의 인공지능 알고리즘은 다양한 사전학습 모델을 제공
 ThanoSQL의 인공지능 알고리즘을 적용해보기 위해 아래와 같은 샘플 데이터 세트를 지원합니다.  
 
 - [(캐글) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)    
-- [(캐글) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)  
-- [(캐글) Cat and Dog 데이터 세트](https://www.kaggle.com/datasets/tongpython/cat-and-dog)    
-- [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data)  
+- [(캐글) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)     
+- [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data)
+- [(AI-Hub) 상품이미지 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=64)  
 - [LibriSpeech 데이터 세트](http://www.openslr.org/12)  
 - [Movielens 데이터 세트](https://grouplens.org/datasets/movielens/)  
 - [Unsplash 데이터 세트](https://unsplash.com/data)  
@@ -53,7 +53,7 @@ ThanoSQL의 인공지능 알고리즘을 적용해보기 위해 아래와 같은
 - "__TRANSFORM USING__" : 예측을 위해 학습한 ThanoSQL 모델을 통해 전처리합니다.
 - "__PREDICT USING__" : 학습한 ThanoSQL 모델을 이용하여 예측을 진행합니다.
 - "__DELETE MODEL__" : 모델 관리를 위해 학습한 ThanoSQL 모델을 삭제합니다.
-- "__LIST__" : ThanoSQL에 저장한 모델을 조회합니다. 
+- "__LIST__" : ThanoSQL DB에 저장되어 있는 모델과 데이터 테이블을 조회합니다. 
 - "__CREATE TABLE__" : 이미지, 음성, 비디오 등 비정형 데이터를 수치화하여 데이터 테이블을 생성합니다. 
 - "__CONVERT USING__" : 이미지, 음성, 비디오 등 비정형 데이터를 수치화하고 사용할 데이터 테이블에 추가합니다. 
 - "__SEARCH__" : 이미지, 음성, 비디오 등 비정형 데이터를 검색합니다. 
