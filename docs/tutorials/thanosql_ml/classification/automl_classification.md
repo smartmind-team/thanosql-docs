@@ -56,17 +56,19 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 ```sql
 %%thanosql
 COPY titanic_train 
+OPTIONS(overwrite=True)
 FROM "tutorial_data/titanic_data/titanic_train.csv"
 ```
 ```sql
 %%thanosql
-COPY titanic_test 
+COPY titanic_test
+OPTIONS(overwrite=True) 
 FROM "tutorial_data/titanic_data/titanic_test.csv"
 ```
 
-!!! note "" 
-    COPY [테이블 명] FROM [csv 파일]  
-    - 위의 쿼리는 csv 파일 데이터 세트를 ThanoSQL DB의 테이블로 만들어 줍니다.
+!!! note "__OPTIONS__"
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
 
 
 ## __1. 데이터 세트 확인__
@@ -79,7 +81,9 @@ SELECT *
 FROM titanic_train 
 LIMIT 5 
 ```
-![IMAGE](/img/automl_classification_img1.png)
+<a href ="/img/thanosql_ml/classification/automl/img1.png">
+    <img src = "/img/thanosql_ml/classification/automl/img1.png"></img>
+</a>
 
 !!! note "__데이터 이해하기__"
     <mark style="background-color:#FFEC92 ">__tianic_train__</mark> 데이터 세트는 다음과 같은 정보를 담고 있습니다.  
@@ -111,7 +115,8 @@ OPTIONS (
     target='survived', 
     impute_type='iterative',  
     features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
-    time_left_for_this_task = 300
+    time_left_for_this_task = 300,
+    overwrite = True
     ) 
 AS 
 SELECT * 
@@ -121,6 +126,10 @@ FROM titanic_train
 !!! note "__쿼리 세부 정보__"  
     "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 만들고 학습시킵니다.  
     "__OPTIONS__"의 "target"에는 분류 예측 모델에 목표값이 되는 컬럼(Column)의 이름을 적어줍니다. "impute_type"의 경우에는 데이터 세트의 빈 값에 대한 처리를 의미합니다. "features_to_drop"은 학습에 이용하지 않을 데이터를 적어주면 머신러닝 모델 생성을 진행할 수 있습니다.  
+
+!!! note ""
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
 
 
 ## __3. 생성된 모델 평가__ 
@@ -132,11 +141,13 @@ EVALUATE USING tutorial_automl_classification
 OPTIONS (
     target = 'survived'
     )
-AS 
-SELECT * 
+AS
+SELECT *
 FROM titanic_train
 ```
-![IMAGE](/img/automl_classification_img2.png)
+<a href ="/img/thanosql_ml/classification/automl/img2.png">
+    <img src = "/img/thanosql_ml/classification/automl/img2.png"></img>
+</a>
 
 !!! note "__쿼리 세부 정보__"   
     - "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 평가합니다. 
@@ -154,7 +165,10 @@ AS
 SELECT * 
 FROM titanic_test
 ```
-![IMAGE](/img/automl_classification_img3.png)
+
+<a href ="/img/thanosql_ml/classification/automl/img3.png">
+    <img src = "/img/thanosql_ml/classification/automl/img3.png"></img>
+</a>
 
 !!! note "__쿼리 세부 정보__" 
     "__PREDICT USING__" 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">tutorial_automl_classification</mark> 모델을 예측에 사용합니다. "__PREDICT__"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 처리가 필요없습니다. 
@@ -178,5 +192,3 @@ FROM titanic_test
 
 
 
-
-    
