@@ -22,24 +22,22 @@ AS
 ```
 
 ## __3. PREDICT USING 구문 예시__ 
-아래 예는 "__PREDICT USING__" 구문을 사용하여 사용자가 [모델 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)에서 만들었던 <mark style="background-color:#E9D7FD ">my_movie_rec</mark> 추천 모델을 사용하여 사용자 ID의 값이 31인 사용자가 좋아할 만한 영화 목록을 추천합니다.
+[텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
-PREDICT USING my_movie_rec
+PREDICT USING my_movie_review_classifier
 OPTIONS (
-  predict_type='user', 
-  user_id=31, 
-  nrec=10
-  )
-AS 
-SELECT * 
-FROM movielens_data
+    text_col='review'
+    )
+AS
+SELECT *
+FROM movie_review_test```
 ```
 
 !!! note "__쿼리 세부 정보__" 
-    __"PREDICT USING"__ 구문을 사용하여 [모델 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)에서 만든 <mark style="background-color:#E9D7FD ">my_movie_rec</mark> 모델을 예측에 사용합니다. 
-    추천 모델에서는 예측 단계에서도 "__OPTIONS__"를 사용합니다. "predict_type"은 예측 결과를 정렬할 대상 기준을 설정합니다.  
-    예시에서는 특정 사용자(<mark style="background-color:#D7D0FF ">userid</mark>의 값이 31)에게 추천할 영화 목록을 보려고 하기 때문에 "user"를 적어주며 "user"는 보고자 하는 특정 사용자의 <mark style="background-color:#D7D0FF ">userid</mark>값인 31을 입력합니다. "nrec"는 추천하는 아이템의 개수를 의미합니다. 
+
+    "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
+    - "text_col" : 데이터 테이블에서 분류의 대상이 될 텍스트를 담은 컬럼을 설정합니다. (DEFAULT : "text")
 
 
