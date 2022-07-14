@@ -33,7 +33,7 @@ __아래는 ThanoSQL 유사 이미지 검색 알고리즘의 활용 및 예시 �
     
 ThanoSQL을 사용하여 손글씨 데이터를 입력하고 DB 내에서 입력 이미지와 유사한 이미지를 검색해주는 모델을 만들어 봅니다. 
 
-![MNIST 데이터](/img/thanosql_search/simclr_search/simclr_img7.png) 
+<img src = "/img/thanosql_search/simclr_search/simclr_img7.png" title = "MNIST 데이터">
 
 ## __0. 데이터 세트 준비__
 ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
@@ -46,18 +46,20 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 ```
 ```sql
 %%thanosql
-COPY mnist_train 
+COPY mnist_train
+OPTIONS(overwrite=True)
 FROM "tutorial_data/mnist_data/mnist_train.csv"
 ```
 ```sql
 %%thanosql
-COPY mnist_test 
+COPY mnist_test
+OPTIONS(overwrite=True) 
 FROM "tutorial_data/mnist_data/mnist_test.csv"
 ```
 
-!!! note "" 
-    COPY [테이블 명] FROM [csv 파일]   
-    - 위의 쿼리는 csv 파일 데이터 세트를 ThanoSQL DB의 테이블로 만들어 줍니다.
+!!! note "__OPTIONS 설명__"
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
     
 
 ## __1. 데이터 세트 확인__
@@ -71,7 +73,8 @@ SELECT *
 FROM mnist_train 
 LIMIT 5
 ```
-![1](/img/thanosql_search/simclr_search/simclr_img1.png) <br>
+
+<img src = "/img/thanosql_search/simclr_search/simclr_img1.png" >
 
 
 !!! note "데이터 테이블 이해하기" 
@@ -90,8 +93,9 @@ LIMIT 5
 BUILD MODEL my_image_search_model
 USING SimCLR
 OPTIONS (
-    image_col="img_path",
-    max_epochs=1
+    image_col="image_path",
+    max_epochs=1,
+    overwrite=True
     )
 AS 
 SELECT * 
@@ -105,6 +109,11 @@ FROM mnist_train
         -  "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼 (Default : "image_path")
         -  "max_epochs" : 이미지 수치화 모델을 생성하기 위한 데이터 세트 학습 횟수
 
+!!! note ""
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
+
+
 아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `my_image_search_model`을 "__CONVERT USING__" 쿼리 구문을 사용하여 `mnist_test` 이미지들을 임베딩합니다. 
 
 ```sql
@@ -112,7 +121,7 @@ FROM mnist_train
 CONVERT USING my_image_search_model
 OPTIONS (
     table_name= "mnist_test",
-    image_col="img_path"
+    image_col="image_path"
     )
 AS 
 SELECT * 
@@ -120,7 +129,7 @@ FROM mnist_test
 
 ```
 
-![4](/img/thanosql_search/simclr_search/simclr_img3.png) <br>
+<img src = "/img/thanosql_search/simclr_search/simclr_img3.png"></img>
 
 !!! note "쿼리 세부정보" 
     - "__CONVERT USING__" 쿼리 구문은 `my_image_search_model`을 이미지 수치화를 위한 알고리즘으로 사용합니다.   
@@ -131,51 +140,14 @@ FROM mnist_test
 !!! note "" 
     `mnist_test` 테이블에 `my_image_search_model_simclr`이라는 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
 
-## __3. (이미지 폴더로부터) 이미지 수치화 결과 저장__
 
-아래의 쿼리 구문을 실행하여 특정 폴더 내의 전체 이미지를 기존에 학습해 둔 모델을 사용해서 수치화 합니다. 위의 쿼리와 같은 역할을 하지만 학습을 위한 입력 데이터의 구조가 다릅니다.
+## __3. 이미지 수치화 모델을 사용해서 유사 이미지 검색하기__
 
-```sql
-%%thanosql
-CREATE TABLE mnist_embds
-USING my_image_search_model 
-OPTIONS(
-    path_type='folder', 
-    data_type='image',
-    file_type=['.jpg']
-    ) 
-FROM 'tutorial_data/mnist_data/test/'
-```
+이번 단계에서는 `my_image_search_model` 이미지 수치화 모델과 테스트 테이블을 사용하여 "923.jpg" 이미지 파일(손글씨 8)과 유사한 이미지를 검색합니다. <br>
 
-!!! note "쿼리 세부정보" 
-    - "__CREATE TABLE__" 쿼리 구문을 사용하여 이미지 수치화 테이블(`mnist_embds`)을 만듭니다.  
-    - "__USING__"은 이미지 수치화에 사용할 모델을 정의합니다.
-    - "__OPTIONS__"는 이미지 수치화를 위한 이미지 파일의 속성값들을 정의합니다.
-        - "path_type" :  데이터가 저장되어 있는 파일 경로의 타입(folder|file)  
-        - "data_type" :  입력하는 비정형 데이터의 종류(image|audio|video)  
-        - "file_type" : 대상 파일의 확장자   
-    - "__FROM__" 쿼리 구문을 사용하여 이미지 파일들이 들어있는 폴더의 경로를 적어줍니다.
+<img src ="/img/thanosql_search/simclr_search/simclr_img8.png" width = "100px"></img>
 
-
-아래 쿼리 구문을 사용하여 생성한 이미지 수치화 결과 테이블을 확인합니다.
-각 이미지들마다 수치화 된 값들이 추가 되어있는 것을 확인할 수 있습니다.
-
-```sql
-%%thanosql
-SELECT * 
-FROM mnist_embds 
-LIMIT 5
-```
-
-![image](/img/thanosql_search/simclr_search/simclr_img2.png) 
-
-## __4. 이미지 수치화 모델을 사용해서 유사 이미지 검색하기__
-
-이번 단계에서는 `my_image_search_model` 이미지 수치화 모델과 `mnist_embds` 수치화 테이블을 사용하여 "923.jpg" 이미지 파일(손글씨 8)과 유사한 이미지를 검색합니다. <br>
-
-![image](/img/thanosql_search/simclr_search/simclr_img8.png) 
-
-923.jpg 이미지파일
+<p style = "text-align:center">923.jpg 이미지파일</p>
 
 
 ```sql
@@ -184,10 +156,10 @@ SEARCH IMAGE images='tutorial_data/mnist_data/test/923.jpg'
 USING my_image_search_model 
 AS 
 SELECT * 
-FROM mnist_embds
+FROM mnist_test
 ```
 
-![5](/img/thanosql_search/simclr_search/simclr_img4.png) <br>
+<img src ="/img/thanosql_search/simclr_search/simclr_img4.png"></img>
 
 
 !!! note "쿼리 세부정보" 
@@ -208,21 +180,20 @@ AS (
         USING my_image_search_model 
         AS 
         SELECT * 
-        FROM mnist_embds
+        FROM mnist_test
         )
     ORDER BY my_image_search_model_simclr_similarity1 DESC 
     LIMIT 4
     )
 ```
 
-
-![5_1](/img/thanosql_search/simclr_search/simclr_img5.png) <br>
+<img src ="/img/thanosql_search/simclr_search/simclr_img5.png"></img>
 
 !!! danger "참고 사항"
     이미지 유사도 검색 알고리즘의 기본 학습 옵션은 이미지의 좌우상하 반전, 색상의 변화 등에 관계없이 모두 같은 이미지로 인식하도록 학습이 진행 됩니다. 강아지의 사진은 뒤집히거나 색이 변해도 강아지로 인식되어야 하기 때문입니다. 의류 이미지 등과 같이 색의 변화가 중요하거나 숫자 처럼 상하, 좌우 반전이 중요한 경우 학습 시 옵션을 변경해 주어야 합니다. 본 튜토리얼에서는 이러한 이미지 유사도 검색의 특징을 보여주고 있습니다.
 
 
-## __5. 튜토리얼을 마치며__
+## __4. 튜토리얼을 마치며__
 
 이번 튜토리얼에서는 `MNIST` 손글씨 데이터 세트를 사용하여 이미지 수치화와 수치화 결과를 바탕으로한 유사 이미지 검색까지 진행해 보았습니다. 이번 튜토리얼에서는 이미지 유사도의 정확도보다도 작동 위주의 설명으로 진행하였습니다. 이미지 수치화 모델은 각 이미지 데이터 세트에 맞는 정밀한 튜닝과 소량의 정답을 학습 시에 추가하여 정확도를 향상 시킬 수 있습니다. 나만의 이미지 수치화 모델을 만들어 다양한 형태의 비정형 데이터 세트에 검색 기능을 추가하고 Auto-ML 기법을 이용한 나만의 모델을 배포할 수 있습니다.
 <br>

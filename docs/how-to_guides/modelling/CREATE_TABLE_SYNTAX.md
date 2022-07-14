@@ -16,8 +16,15 @@
 ```sql
 CREATE TABLE [사용자 지정 데이터 테이블 이름]
 USING [사용할 인공지능 모델]
-AS [사용할 데이터 세트]
+OPTIONS (overwrite=True) -- default:False
+FROM [사용할 데이터 세트]
 ```
+
+!!!tip ""
+    __OPTIONS__ : 
+
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
 
 
 ## __3. CREATE TABLE 구문 예시__ 
@@ -30,7 +37,8 @@ CREATE TABLE color_descriptor_table_test
 USING Color_Descriptor 
 OPTIONS (
     data_type='image',
-    file_type=['.jpg']
+    file_type=['.jpg'],
+    overwrite = True
     ) 
 FROM 'data/thanosAlgo/image_search/junyoung_test/'
 ```

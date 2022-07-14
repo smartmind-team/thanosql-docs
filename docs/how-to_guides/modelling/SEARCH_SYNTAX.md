@@ -32,5 +32,7 @@ AS
 SELECT * 
 FROM color_descriptor_table_test
 ```
-![COLOR_DESCRIPTOR](/img/SEARCH_img1.png)
+<a href = "/img/thanosql_syntax/query/SEARCH/SEARCH_img1.png">
+    <img src = "/img/thanosql_syntax/query/SEARCH/SEARCH_img1.png"></img>
+</a>
 
