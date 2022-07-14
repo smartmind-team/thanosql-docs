@@ -25,7 +25,6 @@ ThanoSQL의 인공지능 알고리즘은 다양한 사전학습 모델을 제공
 - [이미지 분류을 위한 ConvNeXt](/tutorials/thanosql_ml/classification/classification_convNext)
 - [텍스트 분류을 위한 ELECTRA](/tutorials/thanosql_ml/classification/classification_Electra/)
 - [음성 인식을 위한 wav2vec](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/)
-- [제품 추천 시스템을 위한 LFM](/tutorials/thanosql_ml/recommendation/recommendation_lfm/) 
 - [키워드를 통한 이미지 검색을 위한 CLIP](/tutorials/thanosql_search/image_search/clip_image_search/)
 - [이미지 유사도 기반 검색을 위한 SimCLR](/tutorials/thanosql_search/image_search/simclr_image_search/) 
 
@@ -36,7 +35,6 @@ ThanoSQL의 인공지능 알고리즘을 적용해보기 위해 아래와 같은
 
 - [(캐글) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)    
 - [(캐글) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)     
-- [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data)
 - [(AI-Hub) 상품이미지 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=64)  
 - [LibriSpeech 데이터 세트](http://www.openslr.org/12)  
 - [Movielens 데이터 세트](https://grouplens.org/datasets/movielens/)  
