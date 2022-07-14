@@ -15,12 +15,16 @@
 
 "__LIST MODEL__" 구문은 사용자가 만든 모델들의 리스트를 확인합니다.
 
+!!! Failure "Caution"
+    단, 저장한 모델이 없는 경우에는 오류가 발생합니다.
+
 ```sql
 %%thanosql
 LIST MODEL
 ```
-![.1](/img/LIST_img1.png) <br>
-
+<a href = "/img/thanosql_syntax/query/LIST/img1.png">
+    <img src = "/img/thanosql_syntax/query/LIST/img1.png"> </img>
+</a>
 
 "__LIST THANOSQL MODEL__" 구문은 ThanoSQL의 Pre-built 모델들의 리스트를 확인합니다.
 
@@ -28,6 +32,7 @@ LIST MODEL
 %%thanosql
 LIST THANOSQL MODEL
 ```
-
-![.1](/img/LIST_img2.png) <br>
+<a href = "/img/thanosql_syntax/query/LIST/img2.png">
+    <img src = "/img/thanosql_syntax/query/LIST/img2.png"> </img>
+</a>
 
