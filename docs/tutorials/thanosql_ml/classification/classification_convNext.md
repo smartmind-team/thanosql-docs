@@ -65,17 +65,20 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 ```sql
 %%thanosql
 COPY product_image_train
+OPTIONS(overwrite = True)
 FROM "tutorial_data/product_image_data/product_image_train.csv"
 ```
 ```sql
 %%thanosql
 COPY product_image_test
+OPTIONS(overwrite = True)
 FROM "tutorial_data/product_image_data/product_image_test.csv"
 ```
 
-!!! note ""
-    COPY [테이블 명] FROM [csv 파일]
-    - 위의 쿼리는 csv 파일 데이터 세트를 ThanoSQL DB의 테이블로 만들어 줍니다.
+!!! note "__OPTIONS__"
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
+
 
 
 ## __1. 데이터 세트 확인__
@@ -88,7 +91,9 @@ SELECT *
 FROM product_image_train
 LIMIT 5
 ```
-![IMAGE](/img/thanosql_ml/classification/classification_convNext/train_data_limit_5.png)
+<a href ="/img/thanosql_ml/classification/classification_convNext/train_data_limit_5.png">
+    <img src = "/img/thanosql_ml/classification/classification_convNext/train_data_limit_5.png"></img>
+</a>
 
 !!! note "__데이터 이해하기__"
     -  <mark style="background-color:#D7D0FF ">image_path</mark>: 각 이미지의 파일의 위치 정보
@@ -108,8 +113,9 @@ SELECT image_path
 FROM product_image_train
 LIMIT 5
 ```
-
-![IMAGE](/img/thanosql_ml/classification/classification_convNext/print_image_train_data.png)
+<a href ="/img/thanosql_ml/classification/classification_convNext/print_image_train_data.png">
+    <img src = "/img/thanosql_ml/classification/classification_convNext/print_image_train_data.png"></img>
+</a>
 
 ## __2. 사전 학습된 모델을 사용하여 상품 이미지 분류 결과 예측__
 
@@ -122,8 +128,9 @@ AS
 SELECT *
 FROM product_image_test
 ```
-
-![IMAGE](/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_1.png)
+<a href ="/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_1.png">
+    <img src = "/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_1.png"></img>
+</a>
 
 ## __3. 이미지 분류 모델 생성__
 
@@ -137,7 +144,8 @@ USING ConvNeXt_Tiny
 OPTIONS (
   image_col='image_path',
   label_col='div_l',
-  epochs=1
+  epochs=1,
+  overwrite=True
   )
 AS
 SELECT *
@@ -155,6 +163,9 @@ FROM product_image_train
 !!! tip ""
     여기서는 빠르게 학습하기 위해 "epochs"를 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산 시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다.
 
+!!! note ""
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
 
 ## __4. 생성된 모델을 사용하여 상품 이미지 분류 결과 예측__
 
@@ -170,8 +181,9 @@ AS
 SELECT *
 FROM product_image_test
 ```
-
-![IMAGE](/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_2.png)
+<a href ="/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_2.png">
+    <img src = "/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_2.png"></img>
+</a>
 
 !!! note "__쿼리 세부 정보__"
     - "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_product_classifier</mark> 모델을 예측에 사용합니다.
