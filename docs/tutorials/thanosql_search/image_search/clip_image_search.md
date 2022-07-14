@@ -44,12 +44,13 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 ```sql
 %%thanosql
 COPY unsplash_data 
+OPTIONS(overwrite=True)
 FROM "tutorial_data/unsplash_data/unsplash.csv"
 ```
 
-!!! note "" 
-    COPY [테이블 명] FROM [csv 파일]  
-    - 위의 쿼리는 csv 파일 데이터 세트를 ThanoSQL DB의 테이블로 만들어 줍니다.
+!!! note "__OPTIONS__" 
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
 
 ## __1. 데이터 세트 확인__
 
@@ -63,8 +64,7 @@ SELECT photo_id, image_path, photo_image_url, photo_description, ai_description
 FROM unsplash_data
 LIMIT 5
 ```
-
-![IMAGE](/img/thanosql_search/clip_search/select_data.png)
+<img src = "/img/thanosql_search/clip_search/select_data.png"></img>
 
 !!! note "데이터 이해하기"
     - `photo_id` 이미지의 고유 id 컬럼 명
@@ -81,8 +81,9 @@ SELECT image_path
 FROM unsplash_data 
 LIMIT 5
 ```
-
-![IMAGE](/img/thanosql_search/clip_search/print_dataset_image.png)
+<a href = "/img/thanosql_search/clip_search/print_dataset_image.png">
+    <img src = "/img/thanosql_search/clip_search/print_dataset_image.png"></img>
+</a>
 
 ## __2. 텍스트 검색을 위한 이미지 수치화 모델 생성하기__
 
@@ -114,8 +115,7 @@ SELECT *
 FROM unsplash_data
 LIMIT 5
 ```
-
-![IMAGE](/img/thanosql_search/clip_search/select_data_with_embedding.png)
+<img src = "/img/thanosql_search/clip_search/select_data_with_embedding.png"></img>
 
 `CONVERT` 쿼리의 결과로 `tutorial_search_clip_clipen` 열이 생성된 것을 볼 수 있습니다. `{model_name}_{base_model_name}`이라는 이름으로 임베딩 값을 담은 열이 추가되게 됩니다.
 
@@ -133,8 +133,10 @@ AS
 SELECT * 
 FROM unsplash_data
 ```
+<a href = "/img/thanosql_search/clip_search/search_result_raw.png">
+    <img src = "/img/thanosql_search/clip_search/search_result_raw.png"></img>
+</a>
 
-![IMAGE](/img/thanosql_search/clip_search/search_result_raw.png)
 
 !!! note "쿼리 세부 정보"
 
@@ -156,8 +158,9 @@ FROM (
 ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
 LIMIT 5
 ```
-
-![IMAGE](/img/thanosql_search/clip_search/search_result_sorted.png)
+<a href = "/img/thanosql_search/clip_search/search_result_sorted.png">
+    <img src = "/img/thanosql_search/clip_search/search_result_sorted.png"></img>
+</a>
 
 !!! note "쿼리 세부 정보"
     
@@ -185,7 +188,10 @@ AS (
     )
 ```
 
-![a black cat](/img/thanosql_search/clip_search/result_black_cat.png)
+<a href = "/img/thanosql_search/clip_search/result_black_cat.png">
+    <img src = "/img/thanosql_search/clip_search/result_black_cat.png"></img>
+</a>
+
 
 !!! note "쿼리 세부 정보"
     이 쿼리는 위의 쿼리와 합쳐 세 단계로 구성됩니다.  
@@ -211,7 +217,9 @@ AS (
     )
 ```
 
-![a dog on a chair](/img/thanosql_search/clip_search/result_dog_on_chair.png)
+<a href = "/img/thanosql_search/clip_search/result_dog_on_chair.png">
+    <img src = "/img/thanosql_search/clip_search/result_dog_on_chair.png"></img>
+</a>
 
 ```sql
 %%thanosql
@@ -230,7 +238,10 @@ AS (
     )
 ```
 
-![gloomy photos](/img/thanosql_search/clip_search/result_gloomy.png)
+<a href = "/img/thanosql_search/clip_search/result_gloomy.png">
+    <img src = "/img/thanosql_search/clip_search/result_gloomy.png"></img>
+</a>
+
 
 ```sql
 %%thanosql
@@ -249,7 +260,9 @@ AS (
     )
 ```
 
-![finally works](/img/thanosql_search/clip_search/result_happy.png)
+<a href = "/img/thanosql_search/clip_search/result_happy.png">
+    <img src = "/img/thanosql_search/clip_search/result_happy.png"></img>
+</a>
 
 ## __4. 튜토리얼을 마치며__
 
