@@ -53,7 +53,8 @@ OPTIONS(
     [features_to_drop = [column_name, ...]],
     [datetime_attribs = [column_name, ...]],
     [outlier_method = {"pca" | "iso" | "knn"}],
-    [time_left_for_this_task = VALUE]
+    [time_left_for_this_task = VALUE],
+    [overwrite = {True | False}]
     )
 ```
 
@@ -70,6 +71,7 @@ OPTIONS(
   "iso" : 주어진 데이터 테이블에 대해서 Isolation Forest를 사용하여 트리 기반으로 랜덤하게 데이터 테이블을 분기하며 모든 관측치를 고립시키며 비정상 샘플을 검출합니다. (변수가 많은 데이터 세트에서도 효율적으로 작동합니다)  
   "knn" : K-NN 기반 접근법으로 각 데이터 사이의 거리를 기반으로 비정상 샘플을 검출합니다.
 - "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다. 값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300)
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
 
  __BUILD MODEL 쿼리 구문 예시__
@@ -84,7 +86,8 @@ OPTIONS (
     target='survived', 
     impute_type='iterative',  
     features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
-    outlier_method = 'pca'
+    outlier_method = 'pca',
+    overwrite = True
     ) 
 AS 
 SELECT * 
@@ -117,7 +120,9 @@ OPTIONS(
     [features_to_drop = [column_name, ...]],
     [datetime_attribs = [column_name, ...]],
     [outlier_method = {"pca" | "iso" | "knn"}],
-    [time_left_for_this_task = VALUE]
+    [time_left_for_this_task = VALUE],
+    [overwrite = {True | False}]
+
     )
 ```
 
@@ -134,6 +139,7 @@ OPTIONS(
   "iso" : 주어진 데이터 테이블에 대해서 Isolation Forest를 사용하여 트리 기반으로 랜덤하게 데이터 테이블을 분기하며 모든 관측치를 고립시키며 비정상 샘플을 검출합니다. (변수가 많은 데이터 세트에서도 효율적으로 작동합니다)  
   "knn" : K-NN 기반 접근법으로 각 데이터 사이의 거리를 기반으로 비정상 샘플을 검출합니다.
 - "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다. 값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300)
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
 
  __FIT MODEL 쿼리 구문 예시__
@@ -147,7 +153,8 @@ USING test_classifier
 OPTIONS (
     target = 'survived',
     impute_type='simple',
-    features_to_drop=["name", 'ticket', 'passengerid', 'cabin']
+    features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
+    overwrite=True
     )
 AS
 SELECT *
@@ -274,7 +281,8 @@ OPTIONS(
     [features_to_drop = [column_name, ...]],
     [datetime_attribs = [column_name, ...]],
     [outlier_method = {"pca" | "iso" | "knn"}],
-    [time_left_for_this_task = VALUE]
+    [time_left_for_this_task = VALUE],
+    [overwrite = {True | False}]
     )
 ```
 
@@ -291,6 +299,7 @@ OPTIONS(
   "iso" : 주어진 데이터 테이블에 대해서 Isolation Forest를 사용하여 트리 기반으로 랜덤하게 데이터 테이블을 분기하며 모든 관측치를 고립시키며 비정상 샘플을 검출합니다. (변수가 많은 데이터 세트에서도 효율적으로 작동합니다)  
   "knn" : K-NN 기반 접근법으로 각 데이터 사이의 거리를 기반으로 비정상 샘플을 검출합니다.
 - "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다. 값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300)
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
 
 __BUILD MODEL 쿼리 구문 예시__
@@ -304,7 +313,8 @@ USING AutomlRegressor
 OPTIONS (
     target='count', 
     impute_type='simple', 
-    datetime_attribs=['datetime']
+    datetime_attribs=['datetime'],
+    overwrite = True
     ) 
 AS
 SELECT *
@@ -337,7 +347,8 @@ OPTIONS(
     [features_to_drop = [column_name, ...]],
     [datetime_attribs = [column_name, ...]],
     [outlier_method = {"pca" | "iso" | "knn"}],
-    [time_left_for_this_task = VALUE]
+    [time_left_for_this_task = VALUE],
+    [overwrite = {True | False}]
     )
 ```
 
@@ -354,6 +365,7 @@ OPTIONS(
   "iso" : 주어진 데이터 테이블에 대해서 Isolation Forest를 사용하여 트리 기반으로 랜덤하게 데이터 테이블을 분기하며 모든 관측치를 고립시키며 비정상 샘플을 검출합니다. (변수가 많은 데이터 세트에서도 효율적으로 작동합니다)  
   "knn" : K-NN 기반 접근법으로 각 데이터 사이의 거리를 기반으로 비정상 샘플을 검출합니다.
 - "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간을 의미합니다. 값이 클수록 적합한 모델을 찾을 가능성이 커집니다.(DEFAULT : 300)
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
 
  __FIT MODEL 쿼리 구문 예시__
@@ -367,7 +379,9 @@ USING test_classifier
 OPTIONS (
     target = 'survived',
     impute_type='simple',
-    features_to_drop=["name", 'ticket', 'passengerid', 'cabin']
+    features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
+    overwrite = True
+
     )
 AS
 SELECT *
@@ -494,7 +508,8 @@ OPTIONS(
     (label_col = column_name),
     [batch_size = VALUE],
     [epochs = VALUE],
-    [learning_rate = VALUE]
+    [learning_rate = VALUE],
+    [overwrite = {True | False}]
     )
 ```
 
@@ -505,6 +520,7 @@ OPTIONS(
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 - "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (DEFAULT : 3)
 - "learning_rate" : 모델의 학습률입니다. (DEFAULT : ConvNeXt=0.0001, EfficientNetV2=0.001)
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
 
  __BUILD MODEL 쿼리 구문 예시__
@@ -513,16 +529,17 @@ OPTIONS(
 
 ```sql
 %%thanosql
-BUILD MODEL my_image_classifier
+BUILD MODEL my_product_classifier
 USING ConvNeXt_Tiny
 OPTIONS (
-    image_col='image',
-    label_col='label',
-    epochs=1
-    )
+  image_col='image_path',
+  label_col='div_l',
+  epochs=1,
+  overwrite=True
+  )
 AS
 SELECT *
-FROM cat_and_dog_train
+FROM product_image_train
 ```
 
 ### __FIT MODEL 쿼리 구문__
@@ -550,7 +567,8 @@ OPTIONS(
     (label_col = column_name),
     [batch_size = VALUE],
     [epochs = VALUE],
-    [learning_rate = VALUE] 
+    [learning_rate = VALUE],
+    [overwrite = {True | False}] 
     )
 ```
 
@@ -561,7 +579,7 @@ OPTIONS(
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 - "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (DEFAULT : 3)
 - "learning_rate" : 모델의 학습률입니다. (DEFAULT : ConvNeXt=0.0001, EfficientNetV2=0.001)
-
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
 
 ### __PREDICT USING 쿼리 구문__
@@ -601,13 +619,13 @@ OPTIONS(
 
 ```sql
 %%thanosql
-PREDICT USING my_image_classifier
+PREDICT USING my_product_classifier
 OPTIONS (
-    image_col='image'
+    image_col='image_path'
     )
 AS
 SELECT *
-FROM cat_and_dog_test
+FROM product_image_test
 ```
 
 ### __EVALUATE USING 쿼리 구문__
@@ -669,7 +687,8 @@ OPTIONS(
     (label_col = column_name),
     [batch_size = VALUE],
     [epochs = VALUE],
-    [learning_rate = VALUE]
+    [learning_rate = VALUE],
+    [overwrite = {True | False}]
     )
 ```
 
@@ -680,6 +699,7 @@ OPTIONS(
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 - "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (DEFAULT : 3)
 - "learning_rate" : 모델의 학습률입니다. (DEFAULT : 0.0001)
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
 
  __BUILD MODEL 쿼리 구문 예시__
@@ -691,14 +711,15 @@ OPTIONS(
 BUILD MODEL my_movie_review_classifier
 USING ElectraEn
 OPTIONS (
-    text_col='review',
-    label_col='sentiment',
-    epochs=1,
-    batch_size=4
-    )
+  text_col='review',
+  label_col='sentiment',
+  epochs=1,
+  batch_size=4,
+  overwrite = True
+  )
 AS
 SELECT *
-FROM imdb_train
+FROM movie_review_train
 ```
 
 ### __FIT MODEL 쿼리 구문__
@@ -726,7 +747,8 @@ OPTIONS(
     (label_col = column_name),
     [batch_size = VALUE],
     [epochs = VALUE],
-    [learning_rate = VALUE]
+    [learning_rate = VALUE],
+    [overwrite = {True | False}]
     )
 ```
 
@@ -737,7 +759,7 @@ OPTIONS(
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 - "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (DEFAULT : 3)
 - "learning_rate" : 모델의 학습률입니다. (DEFAULT : 0.0001)
-
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
 ### __PREDICT USING 쿼리 구문__
 
@@ -767,8 +789,7 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM imdb_test
-```
+FROM movie_review_test```
 
  __OPTIONS 절__
 
@@ -844,7 +865,8 @@ OPTIONS(
     (text_col = column_name),
     [batch_size = VALUE],
     [epochs = VALUE],
-    [learning_rate = VALUE]
+    [learning_rate = VALUE],
+    [overwrite = {True | False}]
     )
 ```
 
@@ -855,22 +877,24 @@ OPTIONS(
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 - "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (DEFAULT : 5)
 - "learning_rate" : 모델의 학습률입니다. (DEFAULT : 0.0001)
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
 
  __BUILD MODEL 쿼리 구문 예시__
 
-[텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[음성 인식 모델 만들기](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
-BUILD MODEL tutorial_audio_recognition
+BUILD MODEL my_speech_recognition_model
 USING Wav2Vec2En
 OPTIONS (
-    audio_col='audio',
-    text_col='text',
-    epochs=1,
-    batch_size=8
-    )
+  audio_col='audio_path',  
+  text_col='text',  
+  epochs=1,  
+  batch_size=4 ,
+  overwrite=True 
+  )
 AS
 SELECT *
 FROM librispeech_train
@@ -901,7 +925,8 @@ OPTIONS(
     (text_col = column_name),
     [batch_size = VALUE],
     [epochs = VALUE],
-    [learning_rate = VALUE]
+    [learning_rate = VALUE],
+    [overwrite = {True | False}]
     )
 ```
 
@@ -912,7 +937,7 @@ OPTIONS(
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 - "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (DEFAULT : 5)
 - "learning_rate" : 모델의 학습률입니다. (DEFAULT : 0.0001)
-
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
 
 ### __PREDICT USING 쿼리 구문__
@@ -947,14 +972,14 @@ OPTIONS(
 
  __PREDICT USING 쿼리 구문 예시__
 
-[텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[음성 인식 모델 만들기](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
 PREDICT USING my_speech_recognition_model
 OPTIONS (
-    audio_col='audio'
-    )
+  audio_col='audio_path'
+  )
 AS
 SELECT *
 FROM librispeech_test
@@ -993,127 +1018,7 @@ OPTIONS(
 - "text_col" : 데이터 테이블에서 오디오의 스크립트를 담은 컬럼을 설정합니다. (DEFAULT : "text")
 - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 
-## __6. LFM 모델__
-
-### __BUILD MODEL 쿼리 구문__ 
-
-이 "__BUILD MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 개발할 수 있습니다. 
-"__BUILD MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
-
-``` sql
-
-BUILD MODEL [expression] 
-USING Light_FM
-OPTIONS (
-    expression [ , ...]
-    )
-AS 
-(query_expr)
-``` 
-
-__OPTIONS 절__
-
-```sql
-OPTIONS(
-    (user_col = column_name),
-    (item_col = column_name),
-    (rating_col = column_name),
-    [description_col = column_name],
-    [norm = {True | False}],
-    [threshhold =  (required if norm = True) VALUE]
-    )
-```
-
-"__OPTIONS__" 절은 Light_FM 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
-
-- "user_col" : 데이터 테이블에서 사용자 ID 정보가 담겨있는 컬럼명을 설정합니다. (DEFAULT: "userid")
-- "item_col" : 데이터 테이블에서 아이템 ID 정보가 담겨있는 컬럼명을 설정합니다. (DEFAULT: "itemid")
-- "rating_col" : 데이터 테이블에서 평점 정보가 담겨있는 컬럼명을 설정합니다. (DEFAULT: "rating")
-- "description_col" : 데이터 테이블에서 아이템 이름이 담겨있는 컬럼명을 설정합니다.(DEFAULT: None) 
-- "norm" : 평점에 정규화가 필요하다면 True, 필요없다면 False로 설정합니다. (DEFAULT : False)
-- "threshhold" : 평점이 정규화가 되었다면 임의의 임계값(0-1)을 설정합니다. 설정된 임계값 이상은 긍정으로 판단 (DEFAULT: None)
-- "epoch" : 모델 학습 횟수를 설정합니다. (DEFAULT: 30)
-- "n_jobs" : 학습때 사용할 코어수를 설정합니다 (DEFAULT: 4)  
-
-
-__BUILD MODEL 쿼리 구문 예시__
-
-[영화 평점 데이터를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
-
-```sql
-%%thanosql
-BUILD MODEL movie_rec
-USING Light_FM
-OPTIONS (
-  user_col='userid',   
-  item_col='movieid',
-  rating_col='rating',
-  description_col='title'
-  )
-AS 
-SELECT * 
-FROM movielens_train
-```
-
-### __PREDICT USING 쿼리 구문__
-
-이 "__PREDICT USING__" 쿼리 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다. "__PREDICT USING__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
-
-
-``` sql
-
-PREDICT USING [expression] 
-OPTIONS (
-    expression [ , ...]
-    )
-AS 
-(query_expr)
-``` 
-
-__OPTIONS 절__
-
-```sql
-OPTIONS(
-    (predict_type = {'user' | 'item' | 'simitem'}),
-    ({user_id | item_id}  = VALUE),
-    [nrec = VALUE],
-    [show= {True | False}],
-    [threshold = VALUE] 
-)
-```
-
-"__OPTIONS__" 절은 Light_FM  매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다. 
-
-- "predict_type" : 평점 예측 종류를 설정합니다. 
-> 'user': 특정 사용자 ID가 좋아할 아이템 목록을 예상하여 출력 합니다.  
-> 'item': 아이템 ID를 기준으로 선택한 아이템을 좋아할만한 사용자 목록을 예상하여 출력합니다.  
-> 'simitem': 특정 아이템 ID를 기준으로 유사한 아이템 목록을 예상하여 출력합니다.    
-- "user_id | item_id" : "predict_type"에 따라 달라지는 변수입니다.  
-> "user_id": "predict_type" 이 'user'일때 추천 대상 사용자 ID를 설정합니다.  
-> "item_id":"predict_type" 이 'item' 또는 'simitem' 일때 좋아할 사용자 추천 또는 유사한 아이템 추천을 하고자하는 아이템 ID를 설정합니다.  
-- "nrec" : 추천받을 아이템 갯수를 설정합니다. (DEFAULT : 10)  
-- "show" : "predict_type" 이 'user' 일때 기존에 사용자가 소비한 아이템 목록을 함께 출력 되도록 설정합니다. (DEFAULT : False)   
-
-
-
-__PREDICT USING 쿼리 구문 예시__
-
-[영화 평점 데이터를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
-
-```sql
-%%thanosql
-PREDICT USING movie_rec
-OPTIONS (
-    predict_type='user', 
-    user_id=31, 
-    nrec=10
-    )
-AS 
-SELECT * 
-FROM movielens_train
-```
-
-## __7. SimCLR 모델__
+## __6. SimCLR 모델__
 ### __BUILD MODEL 쿼리 구문__ 
 ​
 이 "__BUILD MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 개발할 수 있습니다. 
@@ -1138,7 +1043,8 @@ OPTIONS(
     (filename_col = VALUE),
     [label_col = VALUE],
     [max_epochs = VALUE],    
-    [batch_size = VALUE]    
+    [batch_size = VALUE],
+    [overwrite = {True | False}]    
 )
 ```
 ​
@@ -1149,7 +1055,8 @@ OPTIONS(
 - "label_col" : 이미지 라벨을 담은 컬럼입니다. (DEFAULT : "label")
 - "max_epochs" : 모델 학습 횟수를 설정합니다. (DEFAULT : 5)  
 - "batch_size" : 학습 때 사용되어지는 데이터 묶음 속의 데이터 수를 설정합니다. (DEFAULT : 256)
-​
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
+
 
 __BUILD MODEL 쿼리 구문 예시__  
 
@@ -1157,17 +1064,16 @@ __BUILD MODEL 쿼리 구문 예시__
 ​
 ```sql
 %%thanosql
-BUILD MODEL mnist_model
+BUILD MODEL my_image_search_model
 USING SimCLR
 OPTIONS (
-    image_col="img_path",
-    file_name="filename",
-    label="label",
-    max_epochs=5
+    image_col="image_path",
+    max_epochs=1,
+    overwrite=True
     )
 AS 
 SELECT * 
-FROM mnist_dataset
+FROM mnist_train
 ```
 ​
 ### __CREATE TABLE 쿼리 구문__
@@ -1192,7 +1098,9 @@ __OPTIONS 절__
 OPTIONS(
     (path_type = {'folder'|'file'}),    
     (data_type = {'image'|'audio'|'video'}),
-    (file_type = LIST)    
+    (file_type = LIST),
+    [overwrite = {True | False}]
+
     )
 ```
 ​
@@ -1204,23 +1112,8 @@ OPTIONS(
 
 - "file_type" : 대상 파일의 확장자를 리스트로 정의하여 줍니다. (ex. ['.jpg'], ['.png'])
 ​
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
-__CREATE TABLE 쿼리 구문 예시__
-​
-
-[이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
-​
-```sql
-%%thanosql
-CREATE TABLE mnist_embds
-USING mnist_model 
-OPTIONS(
-    path_type='folder', 
-    data_type='image',
-    file_type=['.jpg']
-    ) 
-FROM '/data/development-model/data/mnist/MNIST_DATASET/train_data/'
-```
 ### __CONVERT USING 쿼리 구문__
 
 이 "__CONVERT USING__" 쿼리 구문을 사용하여 기존 이미지들의 경로가 포함되어 있는 데이터 세트를 사용하여 수치화 된 결과를 기존의 데이터셋에 새로운 컬럼으로 저장합니다. 새로운 수치화 모델을 사용할때마다 새로운 수치화 컬럼이 추가되어 수치화 결과 별 비교가 용이합니다.  
@@ -1251,14 +1144,14 @@ __CONVERT USING 쿼리 구문 예시__
 ​
 ```sql
 %%thanosql
-CONVERT USING mnist_model
-OPTIONS(
-    table_name = "mnist_dataset",
-    image_col = "image_path"
+CONVERT USING my_image_search_model
+OPTIONS (
+    table_name= "mnist_test",
+    image_col="image_path"
     )
 AS 
 SELECT * 
-FROM mnist_dataset
+FROM mnist_test
 ```
 
 ### __SEARCH IMAGE 쿼리 구문__
@@ -1280,14 +1173,14 @@ __SEARCH IMAGE 구문 예시__
 
 ```sql
 %%thanosql
-SEARCH IMAGE images='/data/development-model/data/mnist/MNIST_DATASET/test/35322.jpg' 
-USING mnist_model 
+SEARCH IMAGE images='tutorial_data/mnist_data/test/923.jpg' 
+USING my_image_search_model 
 AS 
 SELECT * 
-FROM mnist_embds
+FROM mnist_test
 ```
 
-## __8. CLIP 모델__
+## __7. CLIP 모델__
 
 ### __CREATE TABLE 쿼리 구문__
 
@@ -1311,6 +1204,7 @@ OPTIONS(
     (data_type = column_name),
     [file_type = VALUE],
     [batch_size = VALUE],
+    [overwrite = {True | False}]
     )
 ```
 
@@ -1320,21 +1214,7 @@ OPTIONS(
 - "data_type" : 데이터의 형식입니다.
 - "file_type" : 이미지의 확장자 형식입니다.
 - "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
-
-
-__CREATE TABLE 구문 예시__
-
-```sql
-%%thanosql
-CREATE TABLE unsplash_data
-USING clip_en
-OPTIONS (
-    path_type='folder',
-    data_type='image',
-    file_type=['.jpg']
- )
-FROM '/data/tutorial/unsplash_data'
-```
+- "overwrite" : True일 경우, 사용자는 이전 생성했던 인공지능 모델과 같은 이름의 인공지능 모델을 생성할 수 있습니다 (DEFAULT : False)
 
 ### __CONVERT USING 쿼리 구문__
 
@@ -1375,14 +1255,14 @@ __CONVERT TABLE 구문 예시__
 
 ```sql
 %%thanosql
-CONVERT USING clip_en
-OPTIONS(
-    image_col="filepath",
-    table_name="unsplash_data",
+CONVERT USING tutorial_search_clip
+OPTIONS (
+    image_col="image_path", 
+    table_name="unsplash_data", 
     batch_size=128
     )
-AS
-SELECT *
+AS 
+SELECT * 
 FROM unsplash_data
 ```
 
@@ -1407,7 +1287,7 @@ __SEARCH IMAGE 구문 예시__
 ```sql
 %%thanosql
 SEARCH IMAGE text="a black cat"
-USING clip_en
+USING tutorial_search_clip
 AS 
 SELECT * 
 FROM unsplash_data
