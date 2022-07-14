@@ -36,7 +36,8 @@ USING test_classifier
 OPTIONS (
     target = 'survived',
     impute_type='simple',
-    features_to_drop=["name", 'ticket', 'passengerid', 'cabin']
+    features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
+    overwrite = True
     )
 AS
 SELECT *
