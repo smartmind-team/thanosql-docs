@@ -43,11 +43,14 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 ```sql
 %%thanosql
 COPY diet 
+OPTIONS(overwrite=True)
 FROM "tutorial_data/diet_data/diet.csv"
 ```
-!!! note ""
-    COPY expression FROM [테이블 위치]
-    - 위의 쿼리는 테이블 위치에 있는 csv 파일 데이터 세트를 ThanoSQL DB로 보내는 역할을 합니다.
+
+!!! note "__OPTIONS 설명__"
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
+
 
 ## __1. 데이터 세트 확인__
 
@@ -59,7 +62,7 @@ SELECT *
 FROM diet
 ```
 
-![IMAGE](/img/thanosql_search/base_search/select_img1.png)
+<img src = "/img/thanosql_search/base_search/select_img1.png"></img>
 
 !!! note "데이터 테이블 이해하기" 
     <mark style="background-color:#FFEC92">diet</mark> 테이블은 아래와 같은 정보를 담고 있습니다.   
@@ -80,7 +83,8 @@ USING ConvNeXt_Tiny
 OPTIONS (
     image_col='image_path', 
     label_col='label', 
-    epochs=1
+    epochs=1,
+    overwrite=True
     )
 AS 
 SELECT *
@@ -97,6 +101,9 @@ FROM diet
         - "label_col" : 목표값의 정보를 담은 컬럼의 이름
         - "epochs" : 모든 학습 데이터 세트를 학습하는 횟수
 
+__overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
+
 
 ## __3. 생성된 모델을 사용하여 키워드-이미지 검색 모델 확인__
 
@@ -110,8 +117,7 @@ SELECT *
 FROM diet
 ```
 
-![IMAGE](/img/thanosql_search/base_search/select_img2.png)
-
+<img src = "/img/thanosql_search/base_search/select_img2.png"></img>
 
 !!! note "__쿼리 세부 정보__"
     - "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">diet_image_classification</mark> 모델을 예측에 사용합니다.
@@ -134,8 +140,7 @@ AND A.label LIKE '사과파이'
 LIMIT 10
 ```
 
-![IMAGE](/img/thanosql_search/base_search/select_img3.png)
-
+<img src = "/img/thanosql_search/base_search/select_img3.png"></img>
 
 !!! note "__쿼리 세부 정보__"
     - "__SELECT * FROM (...)__" 쿼리 구문을 통해  "__PREDICT USING__"으로 시작하는 쿼리 구문의 결과를 모두 선택합니다.
