@@ -1,6 +1,7 @@
 # __Auto-ML을 사용하여 예측 모델 만들기__ 
 
-**[이전 문서 - 텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)** <br> **[다음 문서 - 영화 평점 데이터를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)**
+**[이전 문서 - 텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)** <br> 
+**[다음 문서 - 오디오 파일을 받아쓰는 음성 인식 모델 만들기](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/)**
 
 ## 시작 전 사전정보
 
@@ -54,17 +55,19 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 ```sql
 %%thanosql
 COPY bike_sharing_train 
+OPTIONS(overwrite = True)
 FROM "tutorial_data/bike_sharing_data/bike_sharing_train.csv"
 ```
 ```sql
 %%thanosql
 COPY bike_sharing_test 
+OPTIONS(overwrite = True)
 FROM "tutorial_data/bike_sharing_data/bike_sharing_test.csv"
 ```
 
-!!! note "" 
-    COPY [테이블 명] FROM [csv 파일]  
-    - 위의 쿼리는 csv 파일 데이터 세트를 ThanoSQL DB의 테이블로 만들어 줍니다.
+!!! note "__OPTIONS__"
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
 
 
 
@@ -78,7 +81,9 @@ SELECT *
 FROM bike_sharing_train 
 LIMIT 5
 ```
-![IMAGE](/img/automl_regression_img1.png)
+<a href = "/img/thanosql_ml/regression/img1.png">
+    <img src = "/img/thanosql_ml/regression/img1.png"></img>
+</a>
 
 !!! note "__데이터 이해하기__"
     <mark style="background-color:#FFEC92 ">__bike_sharing_train__</mark> 데이터 세트에는 2011년 1월부터 2012년 12월까지 날짜와 시간, 기온, 습도, 풍속 등의 정보를 기반으로 1시간 간격 동안의 자전거 대여 횟수에 대한 정보를 담고 있습니다.  
@@ -106,7 +111,8 @@ OPTIONS (
  target='count', 
  impute_type='simple', 
  datetime_attribs=['datetime'],
- time_left_for_this_task = 300
+ time_left_for_this_task = 300,
+ overwrite=True
  ) 
 AS
 SELECT *
@@ -116,6 +122,11 @@ FROM bike_sharing_train
 !!! note "__쿼리 세부 정보__"
     - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>라는 모델을 만들고 학습시킵니다. 
     - "__OPTIONS__"의 "target"에는 회귀 예측 모델의 목표값이 되는 열의 이름을 적어줍니다. "impute_type"의 경우에는 데이터 세트의 빈 값에 대한 처리를 의미합니다. "datetime_attribs"에는 날짜 형식의 데이터를 적어주면 머신러닝 모델 생성을 진행할 수 있습니다.
+
+!!! note ""
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
+
 
 ## __3. 생성된 모델 평가__
 
@@ -132,7 +143,9 @@ SELECT *
 FROM bike_sharing_train
 ```
 
-![IMAGE](/img/automl_regression_img2.png)
+<a href = "/img/thanosql_ml/regression/img2.png">
+    <img src = "/img/thanosql_ml/regression/img2.png"></img>
+</a>
 
 !!! note "__쿼리 세부 정보__"
     - "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 평가합니다. 
@@ -150,8 +163,9 @@ SELECT *
 FROM bike_sharing_test
 LIMIT 10
 ```
-![IMAGE](/img/automl_regression_img3.png)
-
+<a href = "/img/thanosql_ml/regression/img3.png">
+    <img src = "/img/thanosql_ml/regression/img3.png"></img>
+</a>
 !!! note "__쿼리 세부 정보__"  
     - "__PREDICT USING__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 예측에 사용합니다. 
     - "__PREDICT__"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 처리가 필요없습니다.
