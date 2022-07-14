@@ -1,6 +1,6 @@
 # __오디오 파일을 받아쓰는 음성 인식 모델 만들기__
 
-**[이전 문서 - 영화 평점 데이터를 사용하여 영화 추천 모델 만들기](/tutorials/thanosql_ml/recommendation/recommendation_lfm/)**  
+**[이전 문서 - Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)** <br>
 **[다음 문서 - ThanoSQL Syntax](/how-to_guides/syntax_list/)**
 
 ## 시작 전 사전 정보
@@ -49,17 +49,19 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 ```sql
 %%thanosql
 COPY librispeech_train 
+OPTIONS(overwrite = True)
 FROM "tutorial_data/librispeech_data/librispeech_train.csv"
 ```
 ```sql
 %%thanosql
 COPY librispeech_test 
+OPTIONS(overwrite = True)
 FROM "tutorial_data/librispeech_data/librispeech_test.csv"
 ```
 
-!!! note "" 
-    COPY [테이블 명] FROM [csv 파일]  
-    - 위의 쿼리는 csv 파일 데이터 세트를 ThanoSQL DB의 테이블로 만들어 줍니다.
+!!! note "__OPTIONS__"
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
 
 
 ## __1. 데이터 세트 확인__
@@ -73,7 +75,10 @@ FROM librispeech_train
 LIMIT 5
 ```
 
-![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png)
+<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png">
+    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png"></img>
+</a>
+
 
 !!! note "데이터 이해하기"
     - <mark style="background-color:#D7D0FF ">audio_path</mark>: 음성 파일의 위치 경로
@@ -89,7 +94,9 @@ FROM librispeech_train
 LIMIT 3
 ```
 
-![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png)
+<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png">
+    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png" width = 400px></img>
+</a>
 
 ## __2. 사전 학습된 모델을 사용하여 음성 인식 결과 예측__
 
@@ -109,7 +116,9 @@ SELECT *
 FROM librispeech_train
 ```
 
-![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png)
+<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png">
+    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png"></img>
+</a>
 
 ## __3. 음성 인식 모델 만들기__
 
@@ -123,7 +132,8 @@ OPTIONS (
   audio_col='audio_path',  
   text_col='text',  
   epochs=1,  
-  batch_size=4  
+  batch_size=4 ,
+  overwrite=True 
   )
 AS
 SELECT *
@@ -142,6 +152,10 @@ FROM librispeech_train
 !!! tip ""
     여기서는 빠르게 학습하기 위해 "epochs"를 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산 시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다.
 
+!!! note ""
+    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
+    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
+
 ## __4. 만든 모델을 사용하여 음성 인식 결과 예측__
 
 이전 단계에서 만든 음성 인식 모델을 사용해서 특정 음성(학습에 이용되지 않은 데이터 테이블,  <mark style="background-color:#FFEC92 ">librispeech_test</mark>)의 목표값(스크립트)를 예측해 봅니다. 아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
@@ -156,8 +170,9 @@ AS
 SELECT *
 FROM librispeech_test
 ```
-
-![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png)
+<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png">
+    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png"></img>
+</a>
 
 
 !!! note "쿼리 세부 정보"
