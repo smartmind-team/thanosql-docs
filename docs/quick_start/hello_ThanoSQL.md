@@ -24,13 +24,36 @@ ThanoSQL의 워크스페이스는 [Jupyter Lab](https://github.com/jupyterlab/ju
 
 **ThanoSQL**을 사용할 모든 준비가 끝났습니다.
 
-아래 ThanoSQL문을 실행시키면 Pre-built된 ThanoSQL 모델 목록을 확인 할 수 있습니다.
+아래 ThanoSQL문을 실행시키면 Pre-built된 ThanoSQL 모델 목록을 확인할 수 있습니다.
 
 ```sql
 %%thanosql
 LIST THANOSQL MODEL
 ```
 
-![image](/img/how_to_use_ThanoSQL/img6.png)
+<a href = "/img/quick_start/img6.png">
+    <img src = "/img/quick_start/img6.png"></img>
+</a>
 
-더 많은 ThanoSQL 사용법과 Tutorial은 [ThanoSQL 기술 문서](https://docs.thanosql.ai)에서 확인하세요.
+아래 ThanoSQL문을 실행시키면 [ThanoSQL 기술 문서](https://docs.thanosql.ai)에 있는 튜토리얼 목록을 확인할 수 있습니다.
+
+```sql
+%%thanosql
+LIST THANOSQL TUTORIAL
+```
+
+<a href = "/img/quick_start/img9.png">
+    <img src = "/img/quick_start/img9.png"></img>
+</a>
+
+
+아래 ThanoSQL문을 실행시키면 [ThanoSQL 기술 문서](https://docs.thanosql.ai)에 있는 튜토리얼에서 사용된 데이터 테이블 리스트를 확인할 수 있습니다.
+
+```sql
+%%thanosql
+LIST THANOSQL DATASET
+```
+
+<a href = "/img/quick_start/img10.png">
+    <img src = "/img/quick_start/img10.png"></img>
+</a>
