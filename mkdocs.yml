@@ -81,6 +81,13 @@ nav:
   - ThanoSQL 알고리즘 쿼리 구문: how-to_guides/modelling/OPTIONS.md
 
 extra:
+  alternate:
+    - name: English
+      link: /en/
+      lang: en
+    - name: 한국어
+      link: /
+      lang: ko
   analytics:
     provider: google
     property: G-8KVG4NMMFK
