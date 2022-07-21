@@ -17,10 +17,14 @@ ThanoSQL의 워크스페이스는 [Jupyter Lab](https://github.com/jupyterlab/ju
 
 ```sql
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
-
-예시)
-%thanosql API_TOKEN=eyJhbGciOiJIUzI1NiIsInR..
 ```
+
+ex)
+
+```sql
+%thanosql API_TOKEN=eyGVFDdfafddvczs
+```
+
 
 **ThanoSQL**을 사용할 모든 준비가 끝났습니다.
 

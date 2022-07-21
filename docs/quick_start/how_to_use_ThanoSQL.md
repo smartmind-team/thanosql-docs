@@ -34,6 +34,12 @@
       <img src = "/img/quick_start/img2.png" width=350px></img>
 </a>
 
+- 이메일 인증 후 "계정 만들기"를 클릭해 회원가입을 완료합니다.
+
+<a href = "/img/quick_start/signup_complete.png">
+      <img src = "/img/quick_start/signup_complete.png" width=350px></img>
+</a>
+
 ## __3. ThanoSQL Console 사용__
 
 - 회원가입을 완료한 후 로그인 페이지로 돌아가 이메일과 비밀번호를 입력해 로그인합니다.
@@ -47,7 +53,7 @@
 </a>
 
 !!! warning "워크 스페이스 생성시 주의사항" 
-      워크 스페이스 생성시 아이디를 20자 이하의 영어 소문자와 숫자를 조합하여 사용할 수 있으며, 타인의 워크스페이스와 이름이 중복될 경우에는 생성되지 않습니다
+      워크 스페이스 생성시 이름을 20자 이하의 영어 소문자와 숫자를 조합하여 사용할 수 있으며, 타인의 워크스페이스와 이름이 중복될 경우에는 생성되지 않습니다. 워크 스페이스 이름의 첫 글자는 반드시 소문자 영어로 시작해야 합니다.
 
 ## __4. 워크 스페이스 생성__
 
@@ -73,9 +79,15 @@
 ```sql
 %load_ext thanosql
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
-ex) %thanosql API_TOKEN=eyAQjasfn1bizd2badf
-
 ```
+
+ex)
+
+```sql
+%load_ext thanosql
+%thanosql API_TOKEN=eyGVFDdfafddvczs
+```
+
 <a href = "/img/quick_start/img6.png">
       <img src = "/img/quick_start/img6.png"></img>
 </a>
