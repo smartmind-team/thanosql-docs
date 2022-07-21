@@ -34,6 +34,12 @@
       <img src = "/img/quick_start/img2.png" width=350px></img>
 </a>
 
+- 이메일 인증 후 "계정 만들기"를 클릭해 회원가입을 완료합니다.
+
+<a href = "/img/quick_start/signup_complete.png">
+      <img src = "/img/quick_start/signup_complete.png" width=350px></img>
+</a>
+
 ## __3. ThanoSQL Console 사용__
 
 - 회원가입을 완료한 후 로그인 페이지로 돌아가 이메일과 비밀번호를 입력해 로그인합니다.

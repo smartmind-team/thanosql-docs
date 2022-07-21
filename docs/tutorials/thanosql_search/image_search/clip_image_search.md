@@ -117,7 +117,7 @@ LIMIT 5
 ```
 <img src = "/img/thanosql_search/clip_search/select_data_with_embedding.png"></img>
 
-`CONVERT` 쿼리의 결과로 `tutorial_search_clip_clipen` 열이 생성된 것을 볼 수 있습니다. `{model_name}_{base_model_name}`이라는 이름으로 임베딩 값을 담은 열이 추가되게 됩니다.
+`CONVERT` 쿼리의 결과로 `tutorial_search_clip_clipen` 열이 생성된 것을 볼 수 있습니다. `{model_name}_{base_model_name}`이라는 이름으로 수치화 된 값을 담은 열이 추가되게 됩니다.
 
 <br>
 
