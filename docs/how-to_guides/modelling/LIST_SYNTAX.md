@@ -36,3 +36,35 @@ LIST THANOSQL MODEL
     <img src = "/img/thanosql_syntax/query/LIST/img2.png"> </img>
 </a>
 
+"__LIST THANOSQL TUTORIAL__" 구문은 ThanoSQL에 저장되어 있는 Tutorial들의 리스트를 확인합니다.
+
+```sql
+%%thanosql
+LIST THANOSQL TUTORIAL
+```
+<a href = "/img/thanosql_syntax/query/LIST/img3.png">
+    <img src = "/img/thanosql_syntax/query/LIST/img3.png"> </img>
+</a>
+
+"__LIST THANOSQL DATASET__" 구문은 ThanoSQL의 Dataset들의 리스트를 확인합니다.
+
+```sql
+%%thanosql
+LIST THANOSQL DATASET
+```
+<a href = "/img/thanosql_syntax/query/LIST/img4.png">
+    <img src = "/img/thanosql_syntax/query/LIST/img4.png"> </img>
+</a>
+
+"__LIST TABLE__" 구문은 사용자가 만든 테이블들의 리스트를 확인합니다.
+
+!!! Failure "Caution"
+    단, 생성된 테이블이 없는 경우에는 오류가 발생합니다.
+
+```sql
+%%thanosql
+LIST TABLE
+```
+<a href = "/img/thanosql_syntax/query/LIST/img5.png">
+    <img src = "/img/thanosql_syntax/query/LIST/img5.png"> </img>
+</a>
