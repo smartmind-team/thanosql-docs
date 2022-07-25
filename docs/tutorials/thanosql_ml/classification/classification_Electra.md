@@ -68,9 +68,10 @@ OPTIONS(overwrite = True)
 FROM "tutorial_data/movie_review_data/movie_review_test.csv"
 ```
 
-!!! note "__OPTIONS__"
-    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
-    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
+!!! note "__쿼리 세부 정보__"
+    - "__COPY__" 쿼리 구문을 사용하여 DB에 저장 할 데이터 세트명을 지정합니다. 
+    - "__OPTIONS__" 쿼리 구문을 통해 __COPY__ 에 사용할 옵션을 지정합니다.
+        - "overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) 
 
 
 

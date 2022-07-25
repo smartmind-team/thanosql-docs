@@ -59,9 +59,10 @@ OPTIONS(overwrite = True)
 FROM "tutorial_data/librispeech_data/librispeech_test.csv"
 ```
 
-!!! note "__OPTIONS__"
-    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
-    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
+!!! note "__쿼리 세부 정보__"
+    - "__COPY__" 쿼리 구문을 사용하여 DB에 저장 할 데이터 세트명을 지정합니다. 
+    - "__OPTIONS__" 쿼리 구문을 통해 __COPY__ 에 사용할 옵션을 지정합니다.
+        - "overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) 
 
 
 ## __1. 데이터 세트 확인__
@@ -100,7 +101,8 @@ LIMIT 3
 
 ## __2. 사전 학습된 모델을 사용하여 음성 인식 결과 예측__
 
-먼저 저희가 미리 준비해둔 모델로 바로 결과를 예측해보겠습니다. 다음 쿼리문을 실행하면, 사전 학습된 음성인식 모델인 <mark style="background-color:#E9D7FD ">tutorial_image_classification</mark>모델을 사용하여 결과를 예측해볼 수 있습니다.
+다음 쿼리 구문을 실행하여 사전 학습된 음성인식 모델인 <mark style="background-color:#E9D7FD ">tutorial_image_classification</mark>을 사용하여 
+결과를 예측합니다. 
 
 ```sql
 %%thanosql
@@ -148,13 +150,10 @@ FROM librispeech_train
         - "text_col" :  오디오의 스크립트 정보를 담은 컬럼의 이름
         - "epochs" : 모든 학습 데이터 세트를 학습하는 횟수
         - "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기
+        - "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, DEFAULT : False)
 
 !!! tip ""
     여기서는 빠르게 학습하기 위해 "epochs"를 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산 시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다.
-
-!!! note ""
-    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
-    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
 
 ## __4. 만든 모델을 사용하여 음성 인식 결과 예측__
 

@@ -57,9 +57,10 @@ OPTIONS(overwrite=True)
 FROM "tutorial_data/mnist_data/mnist_test.csv"
 ```
 
-!!! note "__OPTIONS 설명__"
-    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
-    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
+!!! note "__쿼리 세부 정보__"
+    - "__COPY__" 쿼리 구문을 사용하여 DB에 저장 할 데이터 세트명을 지정합니다. 
+    - "__OPTIONS__" 쿼리 구문을 통해 __COPY__ 에 사용할 옵션을 지정합니다.
+        - "overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) 
     
 
 ## __1. 데이터 세트 확인__
@@ -80,7 +81,7 @@ LIMIT 5
 !!! note "데이터 테이블 이해하기" 
     <mark style="background-color:#FFEC92">mnist_train</mark> 테이블은 아래와 같은 정보를 담고 있습니다. "6782.jpg" 이미지 파일은 숫자 5를 쓴 손글씨 이미지입니다.
 
-    - <mark style="background-color:#D7D0FF">img_path</mark>: 이미지 경로
+    - <mark style="background-color:#D7D0FF">image_path</mark>: 이미지 경로
     - <mark style="background-color:#D7D0FF">filename</mark>: 파일 이름
     - <mark style="background-color:#D7D0FF">label</mark> : 이미지 라벨
 
@@ -102,19 +103,17 @@ SELECT *
 FROM mnist_train
 ```
 
-!!! note "쿼리 세부정보" 
+!!! note "쿼리 세부 정보" 
     - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD">mnist_model</mark> 이라는 모델을 만들고 학습시킵니다.
     - "__USING__" 쿼리 구문을 통해 베이스 모델로 <mark style="background-color:#E9D7FD">SimCLR</mark> 모델을 사용할 것을 명시합니다.
     - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.  
         -  "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼 (Default : "<mark style="background-color:#D7D0FF ">image_path</mark>")
         -  "max_epochs" : 이미지 수치화 모델을 생성하기 위한 데이터 세트 학습 횟수
-
-!!! note ""
-    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
-    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
+        - "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, DEFAULT : False) 
 
 
-아래 쿼리 구문을 사용하여 이미지 수치화 결과를 확인합니다. `my_image_search_model`을 "__CONVERT USING__" 쿼리 구문을 사용하여 `mnist_test` 이미지들을 수치화 합니다. 
+
+다음 "__CONVERT USING__ " 쿼리 구문을 실행하여 `mnist_test` 이미지들을 수치화 합니다. 수치화 된 결과는 `mnist_test` 테이블에 <mark style="background-color:#D7D0FF ">my_image_search_model_simclr</mark>이라는 새로운 이름의 컬럼에 저장됩니다.
 
 ```sql
 %%thanosql
@@ -136,9 +135,6 @@ FROM mnist_test
     - "__OPTIONS__" 쿼리 구문을 통해 이미지 수치화 시 필요한 변수들을 정의합니다. 
         - "table_name" : ThanoSQL DB 내에 저장될 테이블 이름을 정의합니다. 
         - "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼(default: "image_path")
-
-!!! note "" 
-    `mnist_test` 테이블에 <mark style="background-color:#D7D0FF ">my_image_search_model_simclr</mark>이라는 이름의 컬럼을 새롭게 생성하고 수치화 결과를 저장합니다.
 
 
 ## __3. 이미지 수치화 모델을 사용해서 유사 이미지 검색하기__
