@@ -16,9 +16,9 @@
 ## 튜토리얼 소개
 
 !!! note "분류 작업 이해하기" 
-    분류 작업은 목표값(Target)이 속한 범주(Category 또는 Class)를 예측하기 위해 사용하는 [머신러닝(기계학습/Machine Learning)](https://ko.wikipedia.org/wiki/%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5)의 한 형태입니다. 예를 들어, 남성 또는 여성을 분류하는 이진 분류와 동물의 종(개, 고양이, 토끼 등)을 예측하는 다중 분류 모두 분류 작업에 포함됩니다. <br>
+    분류 작업은 목푯값(Target)이 속한 범주(Category 또는 Class)를 예측하기 위해 사용하는 [머신러닝(기계학습/Machine Learning)](https://ko.wikipedia.org/wiki/%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5)의 한 형태입니다. 예를 들어, 남성 또는 여성을 분류하는 이진 분류와 동물의 종(개, 고양이, 토끼 등)을 예측하는 다중 분류 모두 분류 작업에 포함됩니다. <br>
 
-기업의 특정 마케팅 프로모션에 대해 잠재고객이 긍정적인 반응을 보일 것인지 아닌지를 예측하기 위해서는 고객의 [CRM(Customer Relationship Management)](https://ko.wikipedia.org/wiki/%EA%B3%A0%EA%B0%9D_%EA%B4%80%EA%B3%84_%EA%B4%80%EB%A6%AC) 데이터(인구 통계학 정보, 고객의 행동/검색 데이터 등)를 이용할 수 있습니다. 이 경우 CRM 데이터에서 표현되는 [특성(Feature)](https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%A7%95_(%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5))이 입력 데이터로 사용되며, 예측하고자 하는 값인 목표값은 프로모션에 대한 대상 고객의 반응이 긍정(1 또는 True) 또는 부정(0 또는 False)일지 여부입니다. 이러한 분류 모델을 이용해서, 마케팅에 노출되지 않은 고객들의 프로모션에 대한 반응을 미리 예측하고 적절한 고객에게 마케팅을 노출함으로써 마케팅 효율을 지속적으로 높일 수 있습니다. 
+기업의 특정 마케팅 프로모션에 대해 잠재고객이 긍정적인 반응을 보일 것인지 아닌지를 예측하기 위해서는 고객의 [CRM(Customer Relationship Management)](https://ko.wikipedia.org/wiki/%EA%B3%A0%EA%B0%9D_%EA%B4%80%EA%B3%84_%EA%B4%80%EB%A6%AC) 데이터(인구 통계학 정보, 고객의 행동/검색 데이터 등)를 이용할 수 있습니다. 이 경우 CRM 데이터에서 표현되는 [특성(Feature)](https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%A7%95_(%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5))이 입력 데이터로 사용되며, 예측하고자 하는 값인 목푯값은 프로모션에 대한 대상 고객의 반응이 긍정(1 또는 True) 또는 부정(0 또는 False)일지 여부입니다. 이러한 분류 모델을 이용해서, 마케팅에 노출되지 않은 고객들의 프로모션에 대한 반응을 미리 예측하고 적절한 고객에게 마케팅을 노출함으로써 마케팅 효율을 지속적으로 높일 수 있습니다. 
 
 __아래는 ThanoSQL 분류 모델의 활용 및 예시입니다.__  
 
@@ -129,7 +129,7 @@ FROM titanic_train
 !!! note "__쿼리 세부 정보__" 
     - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 만들고 학습시킵니다.
     - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
-        - "target" : 분류 모델의 목표값이 담겨 있는 컬럼명
+        - "target" : 분류 모델의 목푯값이 담겨 있는 컬럼명
         - "impute_type" : 데이터 테이블의 빈 값(NaN)을 처리하는 방법 설정 ('simple'|'iterative' , DEFAULT : 'simple')        
         - "features_to_drop" : 데이터 테이블에서 학습에 이용하지 못하는 컬럼명 리스트
         - "time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간 (DEFAULT : 300)
@@ -160,7 +160,7 @@ FROM titanic_train
 !!! note "__쿼리 세부 정보__"   
     - "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 평가합니다. 
     - "__OPTIONS__" 쿼리 구문을 통해 모델 평가에 사용할 옵션을 지정합니다.
-        - "target" : 분류 예측 모델에 목표값이 되는 컬럼의 이름
+        - "target" : 분류 예측 모델에 목푯값이 되는 컬럼의 이름
          
          
 ## __4. 생성된 모델을 사용하여 생존자 예측__ 

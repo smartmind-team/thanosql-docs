@@ -15,7 +15,7 @@
 ## 튜토리얼 소개
 
 !!! note "회귀 작업 이해하기"
-    회귀 작업은 목표값(Target)이 연속성을 지닌 숫자를 예측하기 위해 사용하는 [머신러닝(기계학습/Machine Learning)](https://ko.wikipedia.org/wiki/%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5)의 한 형태입니다. 예를 들어, 기상 데이터가 주어졌을 때 내일 기온을 예측하거나, 특정지역의 집값을 예측할 때 사용할 수 있습니다. 
+    회귀 작업은 목푯값(Target)이 연속성을 지닌 숫자를 예측하기 위해 사용하는 [머신러닝(기계학습/Machine Learning)](https://ko.wikipedia.org/wiki/%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5)의 한 형태입니다. 예를 들어, 기상 데이터가 주어졌을 때 내일 기온을 예측하거나, 특정지역의 집값을 예측할 때 사용할 수 있습니다. 
 
 기업이 특정 금액을 광고에 사용할 경우 과거의 유사한 사례의 판매 성과 데이터를 활용하여 광고의 성과를 예측할 수 있습니다. 광고하고자 하는 제품에 대한 특성부터 제품을 판매하는 시기, 주변 시장 정보, 경쟁사의 판매량 정보, 대상 고객군에 대한 정의, 산업군의 시장 트렌드 등 데이터화 할 수 있는 모든 [특성(Feature)](https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%A7%95_(%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5))이 입력자료가 될 수 있습니다. 입력 데이터에서 통제 가능한 정보를 바꿔가면서 최적의 판매성과를 예측해 볼 수 있고 예측성과에 따라 광고에 소비할 비용을 조정할 수도 있습니다. 이러한 회귀 모델을 이용해서 광고 성과를 향상시키고 판매량을 지속적으로 늘릴 수 있습니다. 
 
@@ -123,7 +123,7 @@ FROM bike_sharing_train
 !!! note "__쿼리 세부 정보__"
     - "__BUILD MODEL__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>라는 모델을 만들고 학습시킵니다. 
     - "__OPTIONS__" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다. 
-        - "target" : 회귀 예측 모델의 목표값이 담겨 있는 컬럼명
+        - "target" : 회귀 예측 모델의 목푯값이 담겨 있는 컬럼명
         - "impute_type" : 데이터 테이블의 빈 값(NaN)을 처리하는 방법 설정 ('simple'|'iterative' , DEFAULT : 'simple')        
         - "datetime_attribs" : 날짜 형식의 데이터가 담겨 있는 컬럼명 리스트
         - "time_left_for_this_task" : 적합한 회귀 예측 모델을 찾는데 소요되는 시간 (DEFAULT : 300)
@@ -155,7 +155,7 @@ FROM bike_sharing_train
 !!! note "__쿼리 세부 정보__"
     - "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 평가합니다. 
     - "__OPTIONS__" 쿼리 구문을 사용하여 평가에 사용할 옵션을 지정합니다.
-        - "target" : 회귀 예측 모델의 목표값이 담겨있는 컬럼명
+        - "target" : 회귀 예측 모델의 목푯값이 담겨있는 컬럼명
 
 ## __4. 생성된 모델을 사용하여 자전거 대여 수량 예측__
 

@@ -34,7 +34,7 @@ __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
 
 !!! warning "튜토리얼 주의 사항"
     - ThanoSQL에서 현재 지원하는 오디오 파일의 형식은 '.wav', '.flac' 입니다.
-    - 오디오 파일 경로를 나타내는 컬럼(Column)과 목표값(Target)에 해당하는 텍스트를 나타내는 컬럼이 테이블에 존재해야 합니다.
+    - 오디오 파일 경로를 나타내는 컬럼(Column)과 목푯값(Target)에 해당하는 텍스트를 나타내는 컬럼이 테이블에 존재해야 합니다.
     - 해당 음성 인식 모델의 베이스 모델(`Wav2Vec2En`)은 GPU를 사용합니다. 사용한 모델의 크기와 배치 사이즈에 따라 GPU 메모리가 부족할 수 있습니다. 이 경우, 더 작은 모델을 사용하시거나 배치 사이즈를 줄여보십시오.
 
 ## __0. 데이터 세트 준비__
@@ -83,7 +83,7 @@ LIMIT 5
 
 !!! note "데이터 이해하기"
     - <mark style="background-color:#D7D0FF ">audio_path</mark>: 음성 파일의 위치 경로
-    - <mark style="background-color:#D7D0FF ">text</mark>: 해당 음성의 목표값(Target, 스크립트)
+    - <mark style="background-color:#D7D0FF ">text</mark>: 해당 음성의 목푯값(Target, 스크립트)
 
 
 ```sql
@@ -157,7 +157,7 @@ FROM librispeech_train
 
 ## __4. 만든 모델을 사용하여 음성 인식 결과 예측__
 
-이전 단계에서 만든 음성 인식 모델을 사용해서 특정 음성(학습에 이용되지 않은 데이터 테이블,  <mark style="background-color:#FFEC92 ">librispeech_test</mark>)의 목표값(스크립트)를 예측해 봅니다. 아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
+이전 단계에서 만든 음성 인식 모델을 사용해서 특정 음성(학습에 이용되지 않은 데이터 테이블,  <mark style="background-color:#FFEC92 ">librispeech_test</mark>)의 목푯값(스크립트)를 예측해 봅니다. 아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
 
 ```sql
 %%thanosql
