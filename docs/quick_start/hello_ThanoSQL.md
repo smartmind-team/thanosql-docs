@@ -10,9 +10,13 @@ ThanoSQL의 워크스페이스는 [Jupyter Lab](https://github.com/jupyterlab/ju
 !!! tip ""
     상단의 실행 버튼을 누르거나, **Ctrl + Enter** 혹은 **Shift + Enter** 단축키로도 실행할 수 있습니다.
 
+## __1. ThanoSQL cell magic 불러오기__
+
 ```sql
 %load_ext thanosql
 ```
+## __2. API_TOKEN 설정하기__
+
 다음으로, 각 사용자의 워크스페이스 API_TOKEN 설정을 위해 브라우저 상단의 **GET API_TOKEN** 버튼을 누른 후 붙여넣기하여 설정해줍니다. 
 
 ```sql
@@ -25,6 +29,7 @@ ex)
 %thanosql API_TOKEN=eyGVFDdfafddvczs
 ```
 
+## __3. LIST 쿼리 구문으로 ThanoSQL 모델/튜토리얼 목록 확인하기__
 
 **ThanoSQL**을 사용할 모든 준비가 끝났습니다.
 

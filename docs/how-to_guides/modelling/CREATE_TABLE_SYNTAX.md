@@ -20,11 +20,9 @@ OPTIONS (overwrite=True) -- default:False
 FROM [사용할 데이터 세트]
 ```
 
-!!!tip ""
-    __OPTIONS__ : 
-
-    __overwrite가 True일 때__, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.  
-    반면, __overwrite가 False일 때__, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.
+!!! note "__쿼리 세부 정보__"    
+    - "__OPTIONS__" 쿼리 구문을 통해 __CREATE TABLE__ 에 사용할 옵션을 지정합니다.  
+        - "overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) 
 
 
 ## __3. CREATE TABLE 구문 예시__ 
