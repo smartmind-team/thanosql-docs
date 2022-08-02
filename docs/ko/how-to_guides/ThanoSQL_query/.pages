@@ -1,0 +1,7 @@
+title: ThanoSQL Query 다루기
+nav:
+    - 저장한 모델 확인하기: LIST_SYNTAX.md
+    - 비정형 데이터 변환하기: CREATE_TABLE_SYNTAX.md
+    - 비정형 특성 추가하기: CONVERT_USING_SYNTAX.md
+    - 비정형 데이터 검색하기: SEARCH_SYNTAX.md
+    - 결과 출력하기: PRINT_SYNTAX.md
