@@ -1,3 +1,7 @@
+---
+title: 모델 학습하기
+---
+
 # __모델 학습하기 (BUILD MODEL)__ 
 
 **[이전 문서 - ThanoSQL 서치 사용하기](/how-to_guides/thanosql_api/rest_api_thanosql_search/)**  

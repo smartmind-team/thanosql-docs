@@ -1,3 +1,7 @@
+---
+title: 이미지로 이미지 검색하기
+---
+
 # __이미지로 이미지 검색하기__ 
 
 **[이전 문서 - 키워드로 이미지 검색하기](/tutorials/thanosql_search/image_search/select_image_query/)** <br>**[다음 문서 - 텍스트로 이미지 검색하기](/tutorials/thanosql_search/image_search/clip_image_search/)**

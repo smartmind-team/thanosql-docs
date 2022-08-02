@@ -1,3 +1,7 @@
+---
+title: ThanoSQL 구문 활용하기
+---
+
 # __ThanoSQL 구문 활용하기__
 
 **[이전 문서 - 인증 가능한 토큰 만들기](/how-to_guides/thanosql_api/rest_api_token/)**  

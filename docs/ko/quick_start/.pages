@@ -1,6 +1,5 @@
-title: 개요
+title: 빠른 시작
 nav:
-    - 빠른 시작 (Quick Start):
-        - ThanoSQL 웹 사용법: how_to_use_ThanoSQL.md
-        - ThanoSQL 워크스페이스 사용법: hello_ThanoSQL.md
-        - 안내 가이드: algorithm_list.md
+    - how_to_use_ThanoSQL.md
+    - hello_ThanoSQL.md
+    - algorithm_list.md

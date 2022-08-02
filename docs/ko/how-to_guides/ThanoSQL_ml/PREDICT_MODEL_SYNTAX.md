@@ -1,3 +1,7 @@
+---
+title: 모델 적용하기
+---
+
 # __모델 적용하기 (PREDICT USING)__
 
 **[이전 문서 - 모델 적용을 위해 데이터 전처리하기](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/)**  

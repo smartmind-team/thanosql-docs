@@ -1,3 +1,7 @@
+---
+title: ThanoSQL DB 업로드하기
+---
+
 # __ThanoSQL DB 업로드하기__
 
 **[이전 문서 - ThanoSQL 구문 활용하기](/how-to_guides/thanosql_api/rest_api_thanosql_query/)**  

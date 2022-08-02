@@ -1,3 +1,7 @@
+---
+title: 키워드로 이미지 검색하기
+---
+
 # __키워드로 이미지 검색하기__ 
 
 **[이전 문서 - 안내 가이드](/quick_start/algorithm_list/)** <br>**[다음 문서 - 이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)**

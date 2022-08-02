@@ -1,3 +1,7 @@
+---
+title: 비정형 특성 추가하기
+---
+
 # __비정형 특성 추가하기 (CONVERT USING)__
 
 **[이전 문서 - 비정형 데이터 변환하기](/how-to_guides/modelling/CREATE_TABLE_SYNTAX/)**  

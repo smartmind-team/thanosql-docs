@@ -1,3 +1,7 @@
+---
+title: ThanoSQL 워크스페이스 사용법
+---
+
 # __ThanoSQL 워크스페이스 사용법__ 
 
 **[이전 문서 - ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)** <br>**[다음 문서 - 안내 가이드](/quick_start/algorithm_list/)**

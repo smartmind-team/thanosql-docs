@@ -1,3 +1,7 @@
+---
+title: 모델 재학습하기
+---
+
 # __모델 재학습하기 (FIT MODEL)__
 
 **[이전 문서 - 모델 평가하기](/how-to_guides/modelling/EVALUATE_MODEL_SYNTAX/)**  

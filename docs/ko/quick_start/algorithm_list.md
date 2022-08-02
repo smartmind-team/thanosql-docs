@@ -1,3 +1,7 @@
+---
+title: 안내 가이드
+---
+
 # __안내 가이드__ 
 
 **[이전 문서 - ThanoSQL 워크스페이스 사용법](/quick_start/hello_ThanoSQL/)** <br>**[다음 문서 - 키워드로 이미지 검색하기](/tutorials/thanosql_search/image_search/select_image_query/)**

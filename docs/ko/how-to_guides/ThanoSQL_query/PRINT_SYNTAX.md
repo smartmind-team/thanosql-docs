@@ -1,3 +1,7 @@
+---
+title: 결과 출력하기
+---
+
 # __결과 출력하기 (PRINT)__
 
 **[이전 문서 - 비정형 데이터 검색하기](/how-to_guides/modelling/SEARCH_SYNTAX/)**  

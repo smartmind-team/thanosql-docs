@@ -1,3 +1,7 @@
+---
+title: Auto-ML을 사용하여 예측 모델 만들기
+---
+
 # __Auto-ML을 사용하여 예측 모델 만들기__ 
 
 **[이전 문서 - 텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra/)** <br> 

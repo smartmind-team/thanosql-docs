@@ -1,3 +1,7 @@
+---
+title: 데이터 불러오기
+---
+
 # __데이터 불러오기__ 
 
 **[이전 문서 - ThanoSQL Syntax](/how-to_guides/syntax_list/)**  

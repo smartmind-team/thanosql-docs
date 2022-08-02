@@ -1,3 +1,7 @@
+---
+title: 모델 적용을 위해 데이터 전처리하기
+---
+
 # __모델 적용을 위해 데이터 전처리하기 (TRANSFORM USING)__
 
 **[이전 문서 - 모델 재학습하기](/how-to_guides/modelling/FIT_MODEL_SYNTAX/)**  

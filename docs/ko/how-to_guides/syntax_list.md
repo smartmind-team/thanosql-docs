@@ -1,3 +1,7 @@
+---
+title: ThanoSQL Syntax
+---
+
 # __ThanoSQL Syntax__
 
 **[이전 문서 - 오디오 파일을 받아쓰는 음성 인식 모델 만들기](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/)**  

@@ -1,3 +1,7 @@
+---
+title: 오디오 파일을 받아쓰는 음성 인식 모델 만들기
+---
+
 # __오디오 파일을 받아쓰는 음성 인식 모델 만들기__
 
 **[이전 문서 - Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)** <br>

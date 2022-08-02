@@ -1,3 +1,7 @@
+---
+title: 텍스트 분류 모델 만들기
+---
+
 # __텍스트 분류 모델 만들기__
 
 **[이전 문서 - 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext/)** <br>

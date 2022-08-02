@@ -1,3 +1,7 @@
+---
+title: ThanoSQL 알고리즘 쿼리 구문
+---
+
 # __ThanoSQL 알고리즘 쿼리 구문__
 
 **[이전 문서 - 결과 출력하기](/how-to_guides/modelling/PRINT_SYNTAX/)**  

@@ -1,3 +1,7 @@
+---
+title: ThanoSQL 서치 사용하기
+---
+
 # __ThanoSQL 서치 사용하기__
 
 **[이전 문서 - ThanoSQL DB 업로드하기](/how-to_guides/thanosql_api/rest_api_thanosql_insert/)**  

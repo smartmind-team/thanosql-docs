@@ -1,3 +1,7 @@
+---
+title: 모델 삭제하기
+---
+
 # __모델 삭제하기 (DELETE MODEL)__
 
 **[이전 문서 - 모델 적용하기](/how-to_guides/modelling/PREDICT_MODEL_SYNTAX/)**  

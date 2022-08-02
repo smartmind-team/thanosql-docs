@@ -1,8 +1,8 @@
 title: ThanoSQL ML 다루기
 nav:
-    - 모델 학습하기: BUILD_MODEL_SYNTAX.md
-    - 모델 평가하기: EVALUATE_MODEL_SYNTAX.md
-    - 모델 재학습하기: FIT_MODEL_SYNTAX.md
-    - 모델 적용을 위해 데이터 전처리하기: TRANSFORM_MODEL_SYNTAX.md
-    - 모델 적용하기: PREDICT_MODEL_SYNTAX.md
-    - 모델 삭제하기: DELETE_MODEL_SYNTAX.md
+    - BUILD_MODEL_SYNTAX.md
+    - EVALUATE_MODEL_SYNTAX.md
+    - FIT_MODEL_SYNTAX.md
+    - TRANSFORM_MODEL_SYNTAX.md
+    - PREDICT_MODEL_SYNTAX.md
+    - DELETE_MODEL_SYNTAX.md

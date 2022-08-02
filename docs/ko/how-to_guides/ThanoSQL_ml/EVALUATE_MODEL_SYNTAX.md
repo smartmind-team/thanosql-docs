@@ -1,3 +1,7 @@
+---
+title: 모델 평가하기
+---
+
 # __모델 평가하기 (EVALUATE USING)__
 
 **[이전 문서 - 모델 학습하기](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/)**  

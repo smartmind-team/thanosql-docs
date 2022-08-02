@@ -1,3 +1,7 @@
+---
+title: 비정형 데이터 변환하기
+---
+
 # __비정형 데이터 변환하기 (CREATE TABLE)__
 
 **[이전 문서 - 저장한 모델 확인하기](/how-to_guides/modelling/LIST_SYNTAX/)**  

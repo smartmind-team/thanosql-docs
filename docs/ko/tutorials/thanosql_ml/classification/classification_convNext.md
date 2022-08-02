@@ -1,3 +1,7 @@
+---
+title: 이미지 분류 모델 만들기
+---
+
 # __이미지 분류 모델 만들기__
 
 **[이전 문서 - Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)** <br>

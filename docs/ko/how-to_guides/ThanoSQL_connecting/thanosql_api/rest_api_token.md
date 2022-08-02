@@ -1,3 +1,7 @@
+---
+title: 인증 가능한 토큰 만들기
+---
+
 # __인증 가능한 토큰 만들기__
 
 **[이전 문서 - 데이터 불러오기](/how-to_guides/ThanoSQL_connecting/data_upload/)**  
