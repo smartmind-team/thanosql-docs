@@ -1,5 +1,5 @@
 title: ML 무작정 따라하기
-arrange:
+nav:
     - classification
     - regression
     - audio_recognition
