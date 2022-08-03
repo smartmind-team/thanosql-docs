@@ -4,8 +4,6 @@ title: What is ThanoSQL?
 
 # __ThanoSQL__
 
-**[다음 문서 - ThanoSQL 웹 서비스 사용법](/quick_start/how_to_use_ThanoSQL/)**
-
 ## 시작 전 사전 정보
 
 - 읽는데 걸리는 시간 : 3분

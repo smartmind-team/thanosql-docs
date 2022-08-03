@@ -4,9 +4,6 @@ title: ThanoSQL Syntax
 
 # __ThanoSQL Syntax__
 
-**[이전 문서 - 오디오 파일을 받아쓰는 음성 인식 모델 만들기](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/)**  
-**[다음 문서 - 데이터 불러오기](/how-to_guides/ThanoSQL_connecting/data_upload/)**  
-
 ## 시작 전 사전 정보
 
 - 마지막 수정날짜 : {{ git_revision_date_localized }}

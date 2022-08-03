@@ -4,9 +4,6 @@ title: 모델 적용하기
 
 # __모델 적용하기 (PREDICT USING)__
 
-**[이전 문서 - 모델 적용을 위해 데이터 전처리하기](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/)**  
-**[다음 문서 - 모델 삭제하기](/how-to_guides/modelling/DELETE_MODEL_SYNTAX/)**
-
 ## 시작 전 사전 정보
 
 - 마지막 수정날짜 : {{ git_revision_date_localized }}

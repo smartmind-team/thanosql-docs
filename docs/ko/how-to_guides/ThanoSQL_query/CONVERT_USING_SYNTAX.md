@@ -4,9 +4,6 @@ title: 비정형 특성 추가하기
 
 # __비정형 특성 추가하기 (CONVERT USING)__
 
-**[이전 문서 - 비정형 데이터 변환하기](/how-to_guides/modelling/CREATE_TABLE_SYNTAX/)**  
-**[다음 문서 - 비정형 데이터 검색하기](/how-to_guides/modelling/SEARCH_SYNTAX/)**
-
 ## 시작 전 사전 정보
 
 - 마지막 수정날짜 : {{ git_revision_date_localized }}

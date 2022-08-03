@@ -4,9 +4,6 @@ title: 결과 출력하기
 
 # __결과 출력하기 (PRINT)__
 
-**[이전 문서 - 비정형 데이터 검색하기](/how-to_guides/modelling/SEARCH_SYNTAX/)**  
-**[다음 문서 - ThanoSQL 알고리즘 쿼리 구문](/how-to_guides/modelling/OPTIONS/)**
-
 ## 시작 전 사전 정보
 
 - 마지막 수정날짜 : {{ git_revision_date_localized }}

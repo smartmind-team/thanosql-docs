@@ -4,9 +4,6 @@ title: 모델 적용을 위해 데이터 전처리하기
 
 # __모델 적용을 위해 데이터 전처리하기 (TRANSFORM USING)__
 
-**[이전 문서 - 모델 재학습하기](/how-to_guides/modelling/FIT_MODEL_SYNTAX/)**  
-**[다음 문서 - 모델 적용하기](/how-to_guides/modelling/PREDICT_MODEL_SYNTAX/)**
-
 ## 시작 전 사전 정보
 
 - 마지막 수정날짜 : {{ git_revision_date_localized }}

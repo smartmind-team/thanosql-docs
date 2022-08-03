@@ -4,8 +4,6 @@ title: ThanoSQL 알고리즘 쿼리 구문
 
 # __ThanoSQL 알고리즘 쿼리 구문__
 
-**[이전 문서 - 결과 출력하기](/how-to_guides/modelling/PRINT_SYNTAX/)**  
-
 ## 시작 전 사전 정보
 
 - 마지막 수정날짜 : {{ git_revision_date_localized }}

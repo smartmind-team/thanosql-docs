@@ -4,9 +4,6 @@ title: ThanoSQL 워크스페이스 사용법
 
 # __ThanoSQL 워크스페이스 사용법__ 
 
-**[이전 문서 - ThanoSQL 웹 사용법](/quick_start/how_to_use_ThanoSQL/)** <br>**[다음 문서 - 안내 가이드](/quick_start/algorithm_list/)**
-
-
 ThanoSQL의 워크스페이스는 [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)을 기반으로 하는 웹 기반 컴퓨팅 환경입니다.
 
 이 환경에서 **ThanoSQL**을 본격적으로 사용하기 위해서는 먼저 **thanosql** cell magic을 불러와야 합니다.

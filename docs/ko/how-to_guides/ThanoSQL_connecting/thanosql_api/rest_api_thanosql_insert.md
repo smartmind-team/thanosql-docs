@@ -4,9 +4,6 @@ title: ThanoSQL DB 업로드하기
 
 # __ThanoSQL DB 업로드하기__
 
-**[이전 문서 - ThanoSQL 구문 활용하기](/how-to_guides/thanosql_api/rest_api_thanosql_query/)**  
-**[다음 문서 - ThanoSQL 서치 사용하기](/how-to_guides/thanosql_api/rest_api_thanosql_search/)**
-
 ## 시작 전 사전 정보
 
 - 마지막 수정날짜 : {{ git_revision_date_localized }}

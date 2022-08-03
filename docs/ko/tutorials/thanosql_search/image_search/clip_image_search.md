@@ -4,9 +4,6 @@ title: 텍스트로 이미지 검색하기
 
 # __텍스트로 이미지 검색하기__
 
-
-**[이전 문서 - 이미지로 이미지 검색하기](/tutorials/thanosql_search/image_search/simclr_image_search/)** <br> **[다음 문서 - Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)**
-
 ## 시작 전 사전 정보
 
 - 튜토리얼 난이도 : ★★☆☆☆

@@ -4,9 +4,6 @@ title: 모델 학습하기
 
 # __모델 학습하기 (BUILD MODEL)__ 
 
-**[이전 문서 - ThanoSQL 서치 사용하기](/how-to_guides/thanosql_api/rest_api_thanosql_search/)**  
-**[다음 문서 - 모델 평가하기](/how-to_guides/modelling/EVALUATE_MODEL_SYNTAX/)**
-
 ## 시작 전 사전 정보
 
 - 마지막 수정날짜 : {{ git_revision_date_localized }}
