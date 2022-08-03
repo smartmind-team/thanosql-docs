@@ -1,4 +1,3 @@
-title: REST API 사용하기
 nav:
     - rest_api_token.md
     - rest_api_thanosql_query.md

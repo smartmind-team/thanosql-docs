@@ -1,5 +1,5 @@
 ---
-title: What is ThanoSQL?
+title: Intro
 ---
 
 # __ThanoSQL__
