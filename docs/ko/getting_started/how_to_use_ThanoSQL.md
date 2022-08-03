@@ -13,8 +13,8 @@ title: ThanoSQL 웹 사용법
 
 - [ThanoSQL](https://www.thanosql.ai/)에 접속하셔서 Login 버튼을 클릭하시면 로그인 화면으로의 진입이 가능합니다.
 
-<a href = "/img/quick_start/img0.png">
-      <img src = "/img/quick_start/img0.png"></img>
+<a href = "/img/getting_started/img0.png">
+      <img src = "/img/getting_started/img0.png"></img>
 </a>
 
 !!! note ""
@@ -26,20 +26,20 @@ title: ThanoSQL 웹 사용법
 
 - 회원이 아닌 사용자께서는 ThanoSQL 로그인 화면에서 "회원가입 하기"를 클릭해 회원가입을 진행합니다.
 
-<a href = "/img/quick_start/img1.png">
-      <img src = "/img/quick_start/img1.png" width = 350px></img>
+<a href = "/img/getting_started/img1.png">
+      <img src = "/img/getting_started/img1.png" width = 350px></img>
 </a>
 
 - 회원가입 진행을 위해서는 이메일 인증과 비밀번호 입력 후, 동의 약관 항목에 체크해야 합니다. 
 
-<a href = "/img/quick_start/img2.png">
-      <img src = "/img/quick_start/img2.png" width=350px></img>
+<a href = "/img/getting_started/img2.png">
+      <img src = "/img/getting_started/img2.png" width=350px></img>
 </a>
 
 - 이메일 인증 후 "계정 만들기"를 클릭해 회원가입을 완료합니다.
 
-<a href = "/img/quick_start/signup_complete.png">
-      <img src = "/img/quick_start/signup_complete.png" width=350px></img>
+<a href = "/img/getting_started/signup_complete.png">
+      <img src = "/img/getting_started/signup_complete.png" width=350px></img>
 </a>
 
 ## __3. ThanoSQL Console 사용__
@@ -50,8 +50,8 @@ title: ThanoSQL 웹 사용법
 !!! note ""
       프로모션 기간 동안에는 계정 당 한개의 워크 스페이스로 제한됩니다.
 
-<a href = "/img/quick_start/img3.png">
-      <img src = "/img/quick_start/img3.png" width = 400px></img>
+<a href = "/img/getting_started/img3.png">
+      <img src = "/img/getting_started/img3.png" width = 400px></img>
 </a>
 
 !!! warning "워크 스페이스 생성시 주의사항" 
@@ -61,14 +61,14 @@ title: ThanoSQL 웹 사용법
 
 - 워크 스페이스를 생성하시고 나면 아래와 같이 입력하신 아이디와 함께 워크 스페이스를 확인하실 수 있습니다. 
 
-<a href = "/img/quick_start/img7.png">
-      <img src = "/img/quick_start/img7.png" width = 400px></img>
+<a href = "/img/getting_started/img7.png">
+      <img src = "/img/getting_started/img7.png" width = 400px></img>
 </a>
 
 - 생성 후, 워크 스페이스 페이지 내에서 열기 버튼을 통해 ThanoSQL Console 내부로 들어갈 수 있습니다.
 
-<a href = "/img/quick_start/img4.png">
-      <img src = "/img/quick_start/img4.png"></img>
+<a href = "/img/getting_started/img4.png">
+      <img src = "/img/getting_started/img4.png"></img>
 </a>
 
 ## __5. ThanoSQL 워크스페이스__
@@ -76,7 +76,7 @@ title: ThanoSQL 웹 사용법
 
 - 자신의 워크 스페이스에서 오른쪽 상단에 보이는 GET API_TOKEN 버튼을 누르면 자동으로 API 토큰이 생성되며 클립보드에 복사 됩니다. 아래의 쿼리를 통해 정상적으로 서비스를 사용할 수 있습니다. 
 
-- 전반적인 워크스페이스 사용법은 [ThanoSQL 워크스페이스 사용법](/quick_start/hello_ThanoSQL/)에서 확인할 수 있습니다.
+- 전반적인 워크스페이스 사용법은 [ThanoSQL 워크스페이스 사용법](/getting_started/hello_ThanoSQL/)에서 확인할 수 있습니다.
 
 ```sql
 %load_ext thanosql
@@ -90,8 +90,8 @@ ex)
 %thanosql API_TOKEN=eyGVFDdfafddvczs
 ```
 
-<a href = "/img/quick_start/img6.png">
-      <img src = "/img/quick_start/img6.png"></img>
+<a href = "/img/getting_started/img6.png">
+      <img src = "/img/getting_started/img6.png"></img>
 </a>
 
 !!! danger  

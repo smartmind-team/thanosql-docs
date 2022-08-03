@@ -38,7 +38,7 @@ ThanoSQL을 사용하여 손글씨 데이터를 입력하고 DB 내에서 입력
 <img src = "/img/thanosql_search/simclr_search/simclr_img7.png" title = "MNIST 데이터">
 
 ## __0. 데이터 세트 준비__
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/quick_start/how_to_use_ThanoSQL/#5-thanosql)
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/getting_started/how_to_use_ThanoSQL/#5-thanosql)
 에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 ```sql
 %load_ext thanosql

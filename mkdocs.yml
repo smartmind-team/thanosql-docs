@@ -29,7 +29,7 @@ plugins:
         en: English
       nav_translations: # manage directory names
         ko:
-          Quick start: 시작하기
+          Getting started: 시작하기
           Tutorials: 사용해보기
           Image search: Query 무작정 따라하기
           Thanosql ml: ML 무작정 따라하기
@@ -43,7 +43,7 @@ plugins:
           Thanosql api: REST API 사용하기
           FAQ: 자주 묻는 질문
         en:
-          Quick start: Getting Started
+          Getting started: Getting Started
           Tutorials: Tutorials
           How to guides: Guides
           FAQ: FAQ
