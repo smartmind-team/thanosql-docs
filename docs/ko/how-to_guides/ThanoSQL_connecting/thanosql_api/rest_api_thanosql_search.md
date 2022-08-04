@@ -36,8 +36,8 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
     with requests.post(api_url, headers = header, files=files, stream=True) as r:
         r.raise_for_status()
         with open("저장할 zip 파일 경로", 'wb') as f:
-        for chunk in r.iter_content(chunk_size=8192):
-            f.write(chunk)
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
     ```
 
 === "cURL"
@@ -78,8 +78,8 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
     with requests.post(api_url, headers = header, stream=True) as r:
         r.raise_for_status()
         with open("저장할 zip 파일 경로", 'wb') as f:
-        for chunk in r.iter_content(chunk_size=8192):
-            f.write(chunk)
+            for chunk in r.iter_content(chunk_size=8192):
+                f.write(chunk)
     ```
 
 === "cURL"
@@ -91,3 +91,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -d ''
     ```
+
+!!! faq "FAQ" 
+    - ThanoSQL 서치는 한 번의 API Call 당 하나의 이미지나 텍스트를 서치할 수 있습니다.
+    - Jupyter 내부의 path를 조회하기 위해서는 앞에 /home/jovyan 을 붙여야 합니다.

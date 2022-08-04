@@ -43,3 +43,6 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 이미
       -H 'Content-Type: multipart/form-data' \
       -F 'file=@이미지 파일 경로;type=image/이미지 파일 타입'
     ```
+
+!!! faq "FAQ" 
+    - Jupyter 내부의 path를 조회하기 위해서는 앞에 /home/jovyan 을 붙여야 합니다.
