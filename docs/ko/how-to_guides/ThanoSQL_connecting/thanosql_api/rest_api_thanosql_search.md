@@ -93,5 +93,5 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
     ```
 
 !!! faq "FAQ" 
-    - ThanoSQL 서치를 사용할때 서치할수 있는 이미지나 텍스트의 수는 한번의 API Call당 하나 입니다. 
-    - Jupyter 내부의 path를 조회하기 위해서는 앞에 /home/jovyan 이 들어가야 합니다. 
+    - ThanoSQL 서치는 한 번의 API Call 당 하나의 이미지나 텍스트를 서치할 수 있습니다.
+    - Jupyter 내부의 path를 조회하기 위해서는 앞에 /home/jovyan 을 붙여야 합니다.

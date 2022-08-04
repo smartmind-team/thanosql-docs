@@ -45,4 +45,4 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 이미
     ```
 
 !!! faq "FAQ" 
-    - Jupyter 내부의 path를 조회하기 위해서는 앞에 /home/jovyan 이 들어가야 합니다. 
+    - Jupyter 내부의 path를 조회하기 위해서는 앞에 /home/jovyan 을 붙여야 합니다.
