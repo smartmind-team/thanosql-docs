@@ -37,7 +37,7 @@ __표기법 규칙__
 query_statement:
     query_expr
 
-BUILD MODEL [expression] 
+BUILD MODEL (model_name_expression) 
 USING AutomlClassifier
 OPTIONS (
     expression [ , ...]
@@ -45,6 +45,9 @@ OPTIONS (
 AS 
 (query_expr)
 ``` 
+
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 베이스 인공지능 모델을 model_name_expression 이름으로 저장합니다. 
 
  __OPTIONS 절__
 
@@ -104,14 +107,17 @@ FROM titanic_train
 query_statement:
     query_expr
 
-FIT MODEL [expression] 
-USING [expression]
+FIT MODEL (model_name_expression) 
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
 AS 
 (query_expr)
 ``` 
+
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나온 인공지능 모델을 model_name_expression 이름으로 저장하고 같은 이름에 새로운 모델을 저장합니다. 
 
  __OPTIONS 절__
 
@@ -171,10 +177,12 @@ FROM titanic_train
 query_statement:
     query_expr
 
-TRANSFORM USING [expression] 
+TRANSFORM USING (model_name_expression) 
 AS 
 (query_expr)
 ``` 
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델인 model_name_expression 을 사용합니다. 
 
  __TRANSFORM USING 쿼리 구문 예시__
 
@@ -196,10 +204,13 @@ FROM titanic_test
 query_statement:
     query_expr
 
-PREDICT USING [expression] 
+PREDICT USING (model_name_expression) 
 AS 
 (query_expr)
 ``` 
+
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델을 사용합니다.
 
 __PREDICT USING 쿼리 구문 예시__
 
@@ -220,13 +231,16 @@ FROM titanic_test
 query_statement:
     query_expr
 
-EVALUATE USING [expression] 
+EVALUATE USING (model_name_expression) 
 OPTIONS (
     target = expression
     )
 AS 
 (query_expr)
 ``` 
+
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델을 사용합니다. 
 
  __OPTIONS 절__
 
@@ -265,7 +279,7 @@ FROM titanic_train
 query_statement:
     query_expr
 
-BUILD MODEL [expression] 
+BUILD MODEL (model_name_expression) 
 USING AutomlRegressor
 OPTIONS (
     expression [ , ...]
@@ -273,6 +287,10 @@ OPTIONS (
 AS 
 (query_expr)
 ``` 
+
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 베이스 인공지능 모델을 model_name_expression 이름으로 저장합니다. 
+
 
 __OPTIONS 절__
 
@@ -331,14 +349,17 @@ FROM bike_sharing
 query_statement:
     query_expr
 
-FIT MODEL [expression] 
-USING [expression]
+FIT MODEL (model_name_expression) 
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
 AS 
 (query_expr)
 ``` 
+
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나온 인공지능 모델을 model_name_expression 이름으로 저장하고 같은 이름에 새로운 모델을 저장합니다.
 
  __OPTIONS 절__
 
@@ -398,10 +419,13 @@ FROM titanic_train
 query_statement:
     query_expr
 
-TRANSFORM USING [expression] 
+TRANSFORM USING (model_name_expression) 
 AS 
 (query_expr)
 ``` 
+
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델인 model_name_expression 을 사용합니다.
 
  __TRANSFORM USING 쿼리 구문 예시__
 
@@ -423,10 +447,12 @@ FROM titanic_test
 query_statement:
     query_expr
 
-PREDICT USING [expression] 
+PREDICT USING (model_name_expression) 
 AS 
 (query_expr)
 ``` 
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델을 사용합니다.
 
  __PREDICT USING 쿼리 구문 예시__
 
@@ -447,13 +473,16 @@ FROM bike_sharing_test
 query_statement:
     query_expr
 
-EVALUATE USING [expression] 
+EVALUATE USING (model_name_expression) 
 OPTIONS (
     expression
     )
 AS 
 (query_expr)
 ``` 
+
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델을 사용합니다.
 
  __OPTIONS 절__
 
@@ -493,7 +522,7 @@ FROM bike_sharing
 query_statement:
     query_expr
 
-BUILD MODEL [expression]
+BUILD MODEL (model_name_expression)
 USING { ConvNeXt_Tiny | ConvNeXt_Base | EfficientNetV2S | EfficientNetV2M }
 OPTIONS (
     expression [ , ...]
@@ -501,6 +530,9 @@ OPTIONS (
 AS
 (query_expr)
 ```
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 베이스 인공지능 모델을 model_name_expression 이름으로 저장합니다.
+
 
  __OPTIONS 절__
 
@@ -552,14 +584,17 @@ FROM product_image_train
 query_statement:
     query_expr
 
-FIT MODEL [expression]
-USING [expression]
+FIT MODEL (model_name_expression)
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
 AS
 (query_expr)
 ```
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나온 인공지능 모델을 model_name_expression 이름으로 저장하고 같은 이름에 새로운 모델을 저장합니다.
+
 
  __OPTIONS 절__
 
@@ -592,13 +627,16 @@ OPTIONS(
 query_statement:
     query_expr
 
-PREDICT USING [expression]
+PREDICT USING (model_name_expression)
 OPTIONS (
     expression
     )
 AS
 (query_expr)
 ```
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델을 사용합니다.
+
 
 __OPTIONS 절__
 
@@ -641,7 +679,7 @@ FROM product_image_test
 query_statement:
     query_expr
 
-BUILD MODEL [expression]
+BUILD MODEL (model_name_expression)
 USING {AlbertKo | AlbertEn | ElectraKo | ElectraEn}
 OPTIONS (
     expression [ , ...]
@@ -649,6 +687,9 @@ OPTIONS (
 AS
 (query_expr)
 ```
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 베이스 인공지능 모델을 model_name_expression 이름으로 저장합니다.
+
 
  __OPTIONS 절__
 
@@ -701,14 +742,16 @@ FROM movie_review_train
 query_statement:
     query_expr
 
-FIT MODEL [expression]
-USING [expression]
+FIT MODEL (model_name_expression)
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
 AS
 (query_expr)
 ```
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나온 인공지능 모델을 model_name_expression 이름으로 저장하고 같은 이름에 새로운 모델을 저장합니다.
 
  __OPTIONS 절__
 
@@ -740,13 +783,15 @@ OPTIONS(
 query_statement:
     query_expr
 
-PREDICT USING [expression]
+PREDICT USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
 AS
 (query_expr)
 ```
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델을 사용합니다.
 
  __PREDICT USING 쿼리 구문 예시__
 
@@ -785,7 +830,7 @@ OPTIONS(
 query_statement:
     query_expr
 
-BUILD MODEL [expression]
+BUILD MODEL (model_name_expression)
 USING { Wav2Vec2Ko | Wav2Vec2En }
 OPTIONS (
     expression [ , ...]
@@ -793,6 +838,8 @@ OPTIONS (
 AS
 (query_expr)
 ```
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 베이스 인공지능 모델을 model_name_expression 이름으로 저장합니다.
 
  __OPTIONS 절__
 
@@ -845,14 +892,16 @@ FROM librispeech_train
 query_statement:
     query_expr
 
-FIT MODEL [expression]
-USING [expression]
+FIT MODEL (model_name_expression)
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
 AS
 (query_expr)
 ```
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나온 인공지능 모델을 model_name_expression 이름으로 저장하고 같은 이름에 새로운 모델을 저장합니다.
 
  __OPTIONS 절__
 
@@ -885,13 +934,16 @@ OPTIONS(
 query_statement:
     query_expr
 
-PREDICT USING [expression]
+PREDICT USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
 AS
 (query_expr)
 ```
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델을 사용합니다.
+
  __OPTIONS 절__
 
 ```sql
@@ -930,7 +982,7 @@ FROM librispeech_test
 ​
 ``` sql
 
-BUILD MODEL [expression] 
+BUILD MODEL (model_name_expression)
 USING SimCLR
 OPTIONS (
     expression [ , ...]
@@ -938,6 +990,10 @@ OPTIONS (
 AS 
 (query_expr)
 ``` 
+
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나오는 베이스 인공지능 모델을 model_name_expression 이름으로 저장합니다.
+
 ​
 __OPTIONS 절__
 ​
@@ -982,19 +1038,22 @@ FROM mnist_train
 ​
 ### __CREATE TABLE 쿼리 구문__
 
-이 "__CREATE TABLE__" 쿼리 구문을 사용하여 이미지별 폴더경로 정보가 포함되어 있는 테이블 없이도 이미지 폴더 경로를 사용하여 수치화 변환이 가능합니다. 
+이 "__CREATE TABLE__" 쿼리 구문을 사용하여 이미지별 폴더 경로 정보가 포함되어 있는 테이블 없이도 이미지 폴더 경로를 사용하여 수치화 변환이 가능합니다. 
 "__CREATE TABLE__" 표현식은 "__FROM__" 뒤에 나오는 이미지 폴더 경로의 이미지 파일들을 수치화하여 테이블로 저장합니다. 
 ​
 ``` sql
 ​
-CREATE TABLE [expression] 
-USING [expression]
+CREATE TABLE (table_name_expression) 
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
 FROM
 (query_expr)
 ``` 
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나온 SimCLR 모델을 사용하여 도출된 수치화 벡터를 CREATE TABLE 뒤에 나온 table_name_expression 이름으로 저장합니다.
+
 ​
 __OPTIONS 절__
 ​
@@ -1004,7 +1063,6 @@ OPTIONS(
     (data_type = {'image'|'audio'|'video'}),
     (file_type = LIST),
     [overwrite = {True | False}]
-
     )
 ```
 ​
@@ -1023,13 +1081,17 @@ OPTIONS(
 이 "__CONVERT USING__" 쿼리 구문을 사용하여 기존 이미지들의 경로가 포함되어 있는 데이터 세트를 사용하여 수치화 된 결과를 기존의 데이터셋에 새로운 컬럼으로 저장합니다. 새로운 수치화 모델을 사용할때마다 새로운 수치화 컬럼이 추가되어 수치화 결과 별 비교가 용이합니다.  
 ​
 ```sql
-CONVERT USING [expression]
+CONVERT USING (model_name_expression)
 OPTIONS(
     expression [ , ...] 
     )
 AS 
 (query_expr)
 ``` 
+
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나온 모델인 model_name_expression을 사용합니다.
+
 __OPTIONS 절__
 
 ```sql
@@ -1063,13 +1125,17 @@ FROM mnist_test
 "__SEARCH IMAGE__" 쿼리 구문을 사용하여 수치화을 생성한 테이블에서 원하는 이미지를 검색할 수 있습니다.
 
 ``` sql
-SEARCH IMAGE [images = expression]
-USING [expression]
+SEARCH IMAGE (images = expression)
+USING (model_name_expression)
 AS 
 (query_expr)
 ```
 !!! note ""
     사용자로부터 images를 입력으로 받아야 합니다. 입력은 string (예: 'a black cat', 'data/image/image01.jpg')이어야 합니다.
+
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나온 모델인 model_name_expression을 사용합니다.
+
 
 __SEARCH IMAGE 구문 예시__
 
@@ -1091,7 +1157,7 @@ FROM mnist_test
 "__CREATE TABLE__" 구문을 사용하여 이미지 데이터의 수치화 벡터를 포함한 데이터 테이블을 생성할 수 있습니다.
 
 ```sql
-CREATE TABLE [expression]
+CREATE TABLE (table_name_expression)
 USING clip_en
 OPTIONS (
     expression [ , ...]
@@ -1099,6 +1165,10 @@ OPTIONS (
 FROM
 (query_expresison)
 ```
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나온 clip_en 모델을 사용하여 도출된 수치화 벡터를 CREATE TABLE 뒤에 나온 table_name_expression 이름으로 저장합니다.
+
+
 
 __OPTIONS 절__
 
@@ -1135,6 +1205,9 @@ AS
 (query_expr)
 ```
 
+!!!faq ""
+    본 쿼리를 통해서 USING 뒤에 나온 모델인 clip_en을 사용합니다. clip의 경우 현재 Build를 제공하지 않기 때문에 베이스 모델인 clip_en을 사용합니다.
+
 __OPTIONS 절__
 
 ```sql
@@ -1152,7 +1225,7 @@ OPTIONS(
 - "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 
 
-__CONVERT TABLE 구문 예시__
+__CONVERT USING 구문 예시__
 
 [텍스트로 이미지 검색하기](/tutorials/thanosql_search/image_search/clip_image_search)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
@@ -1175,7 +1248,7 @@ FROM unsplash_data
 "__SEARCH IMAGE__" 쿼리 구문을 사용하여 수치화을 생성한 테이블에서 원하는 이미지를 검색할 수 있습니다.
 
 ``` sql
-SEARCH IMAGE [{text|texts|image|images} = expression]
+SEARCH IMAGE ({text|texts|image|images} = expression)
 USING clip_en
 AS 
 (query_expr)
@@ -1183,6 +1256,8 @@ AS
 !!! note ""
     text, texts, image, images 중 하나를 입력으로 받아야 합니다. text와 texts, image와 images는 각각 동일합니다. 입력은 string (예: 'a black cat', 'data/image/image01.jpg'), 또는 list of string (예: ['a black cat', 'a orange cat'], ['data/image/image01.jpg', 'data/image/image02.jpg']) 이어야 합니다.
 
+!!! faq ""
+    본 쿼리를 통해서 USING 뒤에 나온 모델인 clip_en을 사용합니다. clip의 경우 현재 Build를 제공하지 않기 때문에 베이스 모델인 clip_en을 사용합니다.
 
 __SEARCH IMAGE 구문 예시__
 
