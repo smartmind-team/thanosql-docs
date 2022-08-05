@@ -90,7 +90,7 @@ LIMIT 5
 !!! note "__데이터 이해하기__"
     <mark style="background-color:#FFEC92 ">__tianic_train__</mark> 데이터 세트는 다음과 같은 정보를 담고 있습니다.  
     - <mark style="background-color:#D7D0FF ">passengerid</mark> : 탑승승객 아이디  
-    - <mark style="background-color:#D7D0FF ">survived</mark> : 탑승승객  
+    - <mark style="background-color:#D7D0FF ">survived</mark> : 탑승승객  생존 여부
     - <mark style="background-color:#D7D0FF ">pclass</mark> : 탑승승객 티켓 등급  
     - <mark style="background-color:#D7D0FF ">name</mark> : 탑승승객 이름  
     - <mark style="background-color:#D7D0FF ">sex</mark> : 탑승승객 성별  
@@ -161,6 +161,9 @@ FROM titanic_train
     - "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 평가합니다. 
     - "__OPTIONS__" 쿼리 구문을 통해 모델 평가에 사용할 옵션을 지정합니다.
         - "target" : 분류 예측 모델에 목푯값이 되는 컬럼의 이름
+
+!!! warning "__평가용 데이터 세트__"
+    평가용 데이터 세트는 학습 데이터 세트의 일부를 분리하여 학습에 사용되지 않아야 하나 튜토리얼에서는 편의상 학습 데이터를 사용합니다
          
          
 ## __4. 생성된 모델을 사용하여 생존자 예측__ 
