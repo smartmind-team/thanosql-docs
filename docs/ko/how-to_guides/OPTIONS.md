@@ -805,7 +805,8 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM movie_review_test```
+FROM movie_review_test
+```
 
  __OPTIONS 절__
 
@@ -981,7 +982,6 @@ FROM librispeech_test
 "__BUILD MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
 ​
 ``` sql
-
 BUILD MODEL (model_name_expression)
 USING SimCLR
 OPTIONS (
@@ -1035,14 +1035,13 @@ AS
 SELECT * 
 FROM mnist_train
 ```
-​
+
 ### __CREATE TABLE 쿼리 구문__
 
 이 "__CREATE TABLE__" 쿼리 구문을 사용하여 이미지별 폴더 경로 정보가 포함되어 있는 테이블 없이도 이미지 폴더 경로를 사용하여 수치화 변환이 가능합니다. 
 "__CREATE TABLE__" 표현식은 "__FROM__" 뒤에 나오는 이미지 폴더 경로의 이미지 파일들을 수치화하여 테이블로 저장합니다. 
 ​
 ``` sql
-​
 CREATE TABLE (table_name_expression) 
 USING (model_name_expression)
 OPTIONS (

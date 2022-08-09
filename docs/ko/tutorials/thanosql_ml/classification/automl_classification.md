@@ -89,17 +89,17 @@ LIMIT 5
 
 !!! note "__데이터 이해하기__"
     <mark style="background-color:#FFEC92 ">__tianic_train__</mark> 데이터 세트는 다음과 같은 정보를 담고 있습니다.  
-    - <mark style="background-color:#D7D0FF ">passengerid</mark> : 탑승승객 아이디  
-    - <mark style="background-color:#D7D0FF ">survived</mark> : 탑승승객  생존 여부
-    - <mark style="background-color:#D7D0FF ">pclass</mark> : 탑승승객 티켓 등급  
-    - <mark style="background-color:#D7D0FF ">name</mark> : 탑승승객 이름  
-    - <mark style="background-color:#D7D0FF ">sex</mark> : 탑승승객 성별  
-    - <mark style="background-color:#D7D0FF ">age</mark> : 탑승승객 나이  
-    - <mark style="background-color:#D7D0FF ">sibsp</mark> : 탑승한 형제 자매 또는 배우자 수   
-    - <mark style="background-color:#D7D0FF ">parch</mark> : 탑승한 부모 또는 자녀의 수  
-    - <mark style="background-color:#D7D0FF ">ticket</mark> : 티켓 번호  
-    - <mark style="background-color:#D7D0FF ">fare</mark> : 요금  
-    - <mark style="background-color:#D7D0FF ">cabin</mark> : 선실  
+    - <mark style="background-color:#D7D0FF">passengerid</mark> : 탑승승객 아이디  
+    - <mark style="background-color:#D7D0FF">survived</mark> : 탑승승객  생존 여부  
+    - <mark style="background-color:#D7D0FF">pclass</mark> : 탑승승객 티켓 등급  
+    - <mark style="background-color:#D7D0FF">name</mark> : 탑승승객 이름  
+    - <mark style="background-color:#D7D0FF">sex</mark> : 탑승승객 성별  
+    - <mark style="background-color:#D7D0FF">age</mark> : 탑승승객 나이  
+    - <mark style="background-color:#D7D0FF">sibsp</mark> : 탑승한 형제 자매 또는 배우자 수   
+    - <mark style="background-color:#D7D0FF">parch</mark> : 탑승한 부모 또는 자녀의 수  
+    - <mark style="background-color:#D7D0FF">ticket</mark> : 티켓 번호  
+    - <mark style="background-color:#D7D0FF">fare</mark> : 요금  
+    - <mark style="background-color:#D7D0FF">cabin</mark> : 선실  
     - <mark style="background-color:#D7D0FF">embarked</mark> : 승선지 또는 항구   
  
 이번 튜토리얼에서는 추가적인 쿼리문을 이용한 데이터 전처리가 필요한
