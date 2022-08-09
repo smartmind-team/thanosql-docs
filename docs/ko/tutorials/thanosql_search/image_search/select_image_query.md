@@ -147,7 +147,6 @@ LIMIT 10
         - "label = predicted" : <mark style="background-color:#D7D0FF ">label</mark> 컬럼과 <mark style="background-color:#D7D0FF ">predicted</mark> 컬럼의 값이 같은 데이터만 추출합니다.
         - "label = '사과파이'" : <mark style="background-color:#D7D0FF ">label</mark> 컬럼이 '사과파이'인 데이터만 추출합니다.
 
-
 ## __5. 튜토리얼을 마치며__
 
 이번 튜토리얼에서는 `음식 이미지 데이터세트`를 사용해 키워드와 관련된 음식 이미지를 검색하는 모델을 구축하고 활용까지 해보았습니다. 이번 튜토리얼에서는 정확도 보다는 작동위주로 빠르게 진행되었습니다. 빌드 옵션의 학습 횟수, 데이터 수등 다양한 옵션들을 조절하여 모델의 정확도를 향상시킬 수 있습니다. 이어지는 유사이미지 검색모델, 텍스트 설명을 이용한 이미지 검색 튜토리얼을 진행하고 나만의 다양한 검색 서비스를 만들어 보세요.

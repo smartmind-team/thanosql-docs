@@ -180,8 +180,6 @@ LIMIT 10
     - "__PREDICT USING__" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 예측에 사용합니다. 
     - "__PREDICT__"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 옵션값이 필요없습니다.
 
-<br>
-
 ## __5. 튜토리얼을 마치며__
 
 이번 튜토리얼에서는 [캐글](https://www.kaggle.com)의 <mark style="background-color:#FFD79C">Bike Sharing Demand</mark> 데이터 세트를 사용하여 자전거 수요 예측 회귀 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정보다는 전반적인 프로세스 위주의 설명으로 진행 하였습니다. 향상 된 회귀 모델 구축에 대해 자세히 알고 싶다면 중급 튜토리얼을 진행해 볼 것을 권장드립니다.
