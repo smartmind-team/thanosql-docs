@@ -6,7 +6,7 @@ title: Transform Unstructured Data
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## **1. CREATE TABLE Query Syntax overview**
 

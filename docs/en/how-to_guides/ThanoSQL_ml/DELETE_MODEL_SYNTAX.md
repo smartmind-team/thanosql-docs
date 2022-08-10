@@ -6,7 +6,7 @@ title: Deleting a model
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## **1. DELETE MODEL Syntax Overview**
 

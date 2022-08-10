@@ -6,7 +6,7 @@ title: Preprocessing data for model application
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## **1. TRANSFORM USING Syntax overview**
 

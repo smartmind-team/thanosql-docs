@@ -6,7 +6,7 @@ title: Add unstructured properties
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## **1. CONVERT USING Query Syntax Overview**
 

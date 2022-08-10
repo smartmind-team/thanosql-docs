@@ -7,11 +7,11 @@ title: Search for images by image
 ## Preface
 
 - Tutorial Difficulty : ★☆☆☆☆
-- Time took to read : 7 minutes
+- 7 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - File location : tutorial/query/이미지로 이미지 검색하기.ipynb
 - References : [MNIST Data Set](http://yann.lecun.com/exdb/mnist/), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## Tutorial Introduction
 

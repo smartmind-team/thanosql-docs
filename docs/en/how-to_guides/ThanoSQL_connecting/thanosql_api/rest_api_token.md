@@ -6,7 +6,7 @@ title: Create an Authenticable Token
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 To use ThanoSQL's REST API, you must issue your own token.
 To issue a token, [ThanoSQL web page] (https://thanosql.ai) and simply follow the procedure below.

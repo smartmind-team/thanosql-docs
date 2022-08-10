@@ -7,11 +7,11 @@ title: How to search for images by text
 ## Preface
 
 - Tutorial Difficulty : ★★☆☆☆
-- Time took to read : 7 minutes
+- 7 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - File location : tutorial/query/텍스트로 이미지 검색하기.ipynb
 - References : [Unsplash Dataset - Lite](https://unsplash.com/data), [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## Tutorial Introduction
 

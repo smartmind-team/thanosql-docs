@@ -6,7 +6,7 @@ title: ThanoSQL Syntax
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 !!! tip ""
 ** You can check the function and usage of the grammar used in ThanoSQL. Create and distribute models using the guide.**

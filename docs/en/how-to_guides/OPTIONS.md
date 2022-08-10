@@ -6,7 +6,7 @@ title: ThanoSQL Algorithm Query Syntax
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 The query syntax retrieves one or more expressions and returns a table of calculated results. This page describes the syntax for the algorithm query used by ThanoSQL.
 

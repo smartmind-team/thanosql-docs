@@ -6,7 +6,7 @@ title: Searching for unstructured data
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## **1. SEARCH Syntax Overview**
 

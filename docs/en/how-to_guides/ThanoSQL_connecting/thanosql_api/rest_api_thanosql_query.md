@@ -6,7 +6,7 @@ title: How to use ThanoSQL syntax
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 You can use the REST API to use queries that were used on the ThanoSQL console.
 

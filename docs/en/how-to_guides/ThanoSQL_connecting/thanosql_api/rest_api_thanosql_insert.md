@@ -6,7 +6,7 @@ title: How to Upload to ThanoSQL DB
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 You can use the REST API to remotely send images to your ThanoSQL storage and place them in any DB table.
 

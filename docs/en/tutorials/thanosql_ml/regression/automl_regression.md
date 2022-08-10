@@ -7,11 +7,11 @@ title: Create predictive models using Auto-ML
 ## Preface
 
 - Tutorial Difficulty : ★☆☆☆☆
-- Time took to read : 5 minutes
+- 5 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - File location : tutorial/ml/회귀 모델 만들기/Auto-ML을 사용하여 예측 모델 만들기.ipynb
 - References : [(Kaggle) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## Tutorial Introduction
 

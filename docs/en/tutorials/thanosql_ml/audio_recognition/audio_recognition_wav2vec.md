@@ -7,11 +7,11 @@ title: Create a speech recognition model to dictate an audio file
 ## Preface
 
 - Tutorial Difficulty : ★☆☆☆☆
-- Time took to read : 10 minutes
+- 10 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - File location : tutorial/ml/음성 인식 모델 만들기/오디오 파일을 받아쓰는 음성 인식 모델 만들기.ipynb
 - References : [LibriSpeech Data Set](http://www.openslr.org/12), [wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations](https://arxiv.org/abs/2006.11477)
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## Tutorial Introduction
 

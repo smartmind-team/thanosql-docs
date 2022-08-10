@@ -7,11 +7,11 @@ title: Creating a Classification Model with Auto-ML
 ## Preface
 
 - Tutorial Difficulty : ★☆☆☆☆
-- Time took to read : 4 minutes
+- 4 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - File location : tutorial/ml/분류 모델 만들기/Auto-ML을 사용하여 분류 모델 만들기.ipynb
 - References : [(Kaggle) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## Tutorial Introduction
 

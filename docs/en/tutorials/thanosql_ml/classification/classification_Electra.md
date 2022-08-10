@@ -7,11 +7,11 @@ title: Creating a Text Classification Model
 ## Preface
 
 - Tutorial Difficulty: ★☆☆☆☆
-- Time took to read : 10 minutes
+- 10 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - File location : tutorial/ml/분류 모델 만들기/텍스트 분류 모델 만들기.ipynb
 - References : [(Kaggle) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## Tutorial Introduction
 

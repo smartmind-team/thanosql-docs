@@ -6,8 +6,8 @@ title: Intro
 
 ## Preface
 
-- Time took to read : 3 minutes
-- Last Modified Date : {{ git_revision_date_localized }}
+- 3 min read
+- Updated Date : {{ git_revision_date_localized }}
 
 ## **Definition of ThanoSQL**
 

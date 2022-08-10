@@ -7,7 +7,7 @@ Retrain the model
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## **1. FIT MODEL Syntax Overview**
 

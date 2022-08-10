@@ -6,8 +6,8 @@ title: How to use ThanoSQL
 
 ## Preface
 
-- Time took to read : 3 minutes
-- Last Modified Date : {{ git_revision_date_localized }}
+- 3 min read
+- Updated Date : {{ git_revision_date_localized }}
 
 ## **1. Access the ThanoSQL Web**
 

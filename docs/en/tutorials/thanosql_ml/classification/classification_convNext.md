@@ -7,11 +7,11 @@ title: Creating an Image Classification Model
 ## Preface
 
 - Tutorial Difficulty: ★☆☆☆☆
-- Time took to read : 10 minutes
+- 10 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - File location : tutorial/ml/분류 모델 만들기/이미지 분류 모델 만들기.ipynb
 - References : [(AI-Hub) Product image data](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=64), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 ## Tutorial Introduction
 

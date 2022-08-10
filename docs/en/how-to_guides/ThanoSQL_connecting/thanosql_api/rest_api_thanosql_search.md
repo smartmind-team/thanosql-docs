@@ -6,7 +6,7 @@ title: How to Use ThanoSQL Search
 
 ## Preface
 
-- Last Modified Date : {{ git_revision_date_localized }}
+- Updated Date : {{ git_revision_date_localized }}
 
 Using the REST API, you can query and receive similar images on the ThanoSQL DB based on images or text and BUILD models.
 
