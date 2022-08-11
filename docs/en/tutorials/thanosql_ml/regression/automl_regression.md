@@ -1,15 +1,15 @@
 ---
-title: Create predictive models using Auto-ML
+title: Create a regression model using AutoML
 ---
 
-# **Create predictive models using Auto-ML**
+# **Create a regression model using AutoML**
 
 ## Preface
 
 - Tutorial Difficulty : ★☆☆☆☆
 - 5 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- File location : tutorial/ml/회귀 모델 만들기/Auto-ML을 사용하여 예측 모델 만들기.ipynb
+- File location : tutorial/tutorial_en/ml/regression_model/automl_regression_model_en.ipynb
 - References : [(Kaggle) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
 - Updated Date : {{ git_revision_date_localized }}
 
