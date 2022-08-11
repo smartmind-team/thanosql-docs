@@ -20,7 +20,7 @@ ThanoSQL은 PostgreSQL을 기반으로 만들어졌으며, SQL 쿼리를 사용�
 
 ## __1. ThanoSQL에서 제공하는 인공지능 알고리즘__ 
 
-ThanoSQL의 인공지능 알고리즘은 다양한 사전학습 모델을 제공합니다. 아래 튜토리얼을 통해 다양한 알고리즘을 적용하여 나만의 모델을 만들어 보세요. 사전학습 모델을 계속해서 업데이트 될 예정입니다. 모델에 대한 자세한 설명은 [다음 문서](/how-to_guides/modelling/OPTIONS/)를 확인하세요.
+ThanoSQL의 인공지능 알고리즘은 다양한 사전학습 모델을 제공합니다. 아래 튜토리얼을 통해 다양한 알고리즘을 적용하여 나만의 모델을 만들어 보세요. 사전학습 모델을 계속해서 업데이트 될 예정입니다. 모델에 대한 자세한 설명은 [다음 문서](/how-to_guides/OPTIONS/)를 확인하세요.
 
 - [분류 작업을 위한  Auto-ML(자동화된 머신러닝)](/tutorials/thanosql_ml/classification/automl_classification/) 
 - [예측 작업을 위한 Auto-ML(자동화된 머신러닝)](/tutorials/thanosql_ml/regression/automl_regression/)

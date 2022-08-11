@@ -50,7 +50,7 @@ ThanoSQL offers a variety of pre-trained artificial intelligence models that all
 
 ## **0. Data Set Preparation**
 
-To use the query syntax of ThanoSQL, you must create an API token and run the query below, as mentioned in [Using the ThanoSQL Workspace](/en/getting_started/how_to_use_ThanoSQL/#5-thanosql-workspace).
+To use the query syntax of ThanoSQL, you must create an API token and run the query below, as mentioned in [ThanoSQL Workspace](/en/getting_started/how_to_use_ThanoSQL/#5-thanosql-workspace).
 
 ```sql
 %load_ext thanosql

@@ -102,7 +102,7 @@ LIMIT 3
 
 ## __2. 사전 학습된 모델을 사용하여 음성 인식 결과 예측__
 
-다음 쿼리 구문을 실행하여 사전 학습된 음성인식 모델인 <mark style="background-color:#E9D7FD ">tutorial_image_classification</mark>을 사용하여 
+다음 쿼리 구문을 실행하여 사전 학습된 음성인식 모델인 <mark style="background-color:#E9D7FD ">tutorial_audio_recognition</mark>을 사용하여 
 결과를 예측합니다. 
 
 ```sql
@@ -188,7 +188,7 @@ FROM librispeech_test
 
 * [나만의 데이터 업로드하기](/how-to_guides/ThanoSQL_connecting/data_upload/)
 * [중급 음성 인식 모델 만들기]
-* [나만의 음성 인식 모델 배포하기](/how-to_guides/thanosql_api/rest_api_thanosql_query/)
+* [나만의 음성 인식 모델 배포하기](/how-to_guides/ThanoSQL_connecting/thanosql_api/rest_api_thanosql_query/)
 
 
 !!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"

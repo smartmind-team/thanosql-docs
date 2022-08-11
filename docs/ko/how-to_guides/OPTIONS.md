@@ -152,7 +152,7 @@ OPTIONS(
 
  __FIT MODEL 쿼리 구문 예시__
 
-[모델 재학습하기](/how-to_guides/modelling/FIT_MODEL_SYNTAX/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[모델 재학습하기](/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -186,7 +186,7 @@ AS
 
  __TRANSFORM USING 쿼리 구문 예시__
 
-[모델 적용을 위해 데이터 전처리하기](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[모델 적용을 위해 데이터 전처리하기](/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -393,7 +393,7 @@ OPTIONS(
 
  __FIT MODEL 쿼리 구문 예시__
 
-[모델 재학습하기](/how-to_guides/modelling/FIT_MODEL_SYNTAX/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[모델 재학습하기](/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -429,7 +429,7 @@ AS
 
  __TRANSFORM USING 쿼리 구문 예시__
 
-[모델 적용을 위해 데이터 전처리하기](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[모델 적용을 위해 데이터 전처리하기](/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql

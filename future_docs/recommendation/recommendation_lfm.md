@@ -29,7 +29,7 @@ __아래는 ThanoSQL (영화) 추천 모델의 활용 및 기대효과 예시입
 
 ## __0. 데이터 세트 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스 사용](/getting_started/how_to_use_ThanoSQL/#5-thanosql)
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/getting_started/how_to_use_ThanoSQL/#5-thanosql)
 에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
 
 ```sql
@@ -131,7 +131,7 @@ FROM movielens_data
 
 * [나만의 데이터 업로드하기](/how-to_guides/ThanoSQL_connecting/data_upload/)
 * [중급 추천 모델 만들기]
-* [나만의 추천 분류 모델 배포하기](/how-to_guides/thanosql_api/rest_api_thanosql_query/)
+* [나만의 추천 분류 모델 배포하기](/how-to_guides/ThanoSQL_connecting/thanosql_api/rest_api_thanosql_query/)
 
    
 !!! tip "__나만의 서비스를 위한 모델 배포 관련 문의__"

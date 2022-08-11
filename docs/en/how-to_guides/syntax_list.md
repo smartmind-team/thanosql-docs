@@ -19,14 +19,46 @@ title: ThanoSQL Syntax
 
 <div class="card">
   <header>
-    <h2 id="card-h2"> Using ThanoSQL Rest API</h2>
+    <h2 id="card-h2">Using ThanoSQL Query</h2>
   </header>
   <ul class="fullclick">
     <li>
-      <a href="../thanosql_api/rest_api_token/">
-        <h3>Using the REST API</h3>
+      <a href="../ThanoSQL_query/LIST_SYNTAX/">
+        <h3>Check the saved model</h3>
         <p>
-            Learn how to use ThanoSQL using the REST API.
+          Learn how to query a model stored in ThanoSQL.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../ThanoSQL_query/CREATE_TABLE_SYNTAX/">
+        <h3>Transform Unstructured Data</h3>
+        <p>
+          Learn how to quantify unstructured data (images, audio, video) through artificial intelligence models to create data tables.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../ThanoSQL_query/CONVERT_USING_SYNTAX/">
+        <h3>Add unstructured properties</h3>
+        <p>
+      Learn how to digitize information from unstructured data (image, audio, video) through artificial intelligence models and add it to the table of data to be used.
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../ThanoSQL_query/SEARCH_SYNTAX/">
+        <h3>Searching for unstructured data</h3>
+        <p>
+        Learn how to search for content, meaning, or similarity in unstructured data (image, audio, video).
+        </p>
+      </a>
+    </li>
+    <li>
+      <a href="../ThanoSQL_query/PRINT_SYNTAX/">
+        <h3>Output results</h3>
+        <p>
+          Learn how to output unstructured data (image, audio, video).
         </p>
       </a>
     </li>
@@ -39,7 +71,7 @@ title: ThanoSQL Syntax
   </header>
   <ul class="fullclick">
     <li>
-      <a href="../modelling/BUILD_MODEL_SYNTAX/">
+      <a href="../ThanoSQL_ml/BUILD_MODEL_SYNTAX/">
         <h3>Training the model</h3>
         <p>
             Learn how to train the ThanoSQL model.
@@ -47,7 +79,7 @@ title: ThanoSQL Syntax
       </a>
     </li>
     <li>
-      <a href="../modelling/EVALUATE_MODEL_SYNTAX/">
+      <a href="../ThanoSQL_ml/EVALUATE_MODEL_SYNTAX/">
         <h3>Evaluate the model</h3>
         <p>
             Learn how to evaluate the ThanoSQL model.
@@ -55,7 +87,7 @@ title: ThanoSQL Syntax
       </a>
     </li>
     <li>
-      <a href="../modelling/FIT_MODEL_SYNTAX/">
+      <a href="../ThanoSQL_ml/FIT_MODEL_SYNTAX/">
         <h3>Retrain the model</h3>
         <p>
            Learn how to re-learn the ThanoSQL model.
@@ -63,7 +95,7 @@ title: ThanoSQL Syntax
       </a>
     </li>
     <li>
-      <a href="../modelling/TRANSFORM_MODEL_SYNTAX/">
+      <a href="../ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/">
         <h3>Preprocessing data for model application</h3>
         <p>
             Learn how to preprocess with the ThanoSQL model you learned for prediction.
@@ -71,7 +103,7 @@ title: ThanoSQL Syntax
       </a>
     </li>
     <li>
-      <a href="../modelling/PREDICT_MODEL_SYNTAX/">
+      <a href="../ThanoSQL_ml/PREDICT_MODEL_SYNTAX/">
         <h3>Apply the model</h3>
         <p>
             Learn how to make predictions using the ThanoSQL model you have learned.
@@ -79,7 +111,7 @@ title: ThanoSQL Syntax
       </a>
     </li>    
     <li>
-      <a href="../modelling/DELETE_MODEL_SYNTAX/">
+      <a href="../ThanoSQL_ml/DELETE_MODEL_SYNTAX/">
         <h3>Deleting a model</h3>
         <p>
             Learn how to delete the ThanoSQL model you learned for model management.
@@ -91,46 +123,14 @@ title: ThanoSQL Syntax
 
 <div class="card">
   <header>
-    <h2 id="card-h2">Using ThanoSQL Query</h2>
+    <h2 id="card-h2"> Using ThanoSQL Rest API</h2>
   </header>
   <ul class="fullclick">
     <li>
-      <a href="../modelling/LIST_SYNTAX/">
-        <h3>Check the saved model</h3>
+      <a href="../ThanoSQL_connecting/thanosql_api/rest_api_token/">
+        <h3>Using the REST API</h3>
         <p>
-          Learn how to query a model stored in ThanoSQL.
-        </p>
-      </a>
-    </li>
-    <li>
-      <a href="../modelling/CREATE_TABLE_SYNTAX/">
-        <h3>Transform Unstructured Data</h3>
-        <p>
-          Learn how to quantify unstructured data (images, audio, video) through artificial intelligence models to create data tables.
-        </p>
-      </a>
-    </li>
-    <li>
-      <a href="../modelling/CONVERT_USING_SYNTAX/">
-        <h3>Add unstructured properties</h3>
-        <p>
-      Learn how to digitize information from unstructured data (image, audio, video) through artificial intelligence models and add it to the table of data to be used.
-        </p>
-      </a>
-    </li>
-    <li>
-      <a href="../modelling/SEARCH_SYNTAX/">
-        <h3>Searching for unstructured data</h3>
-        <p>
-        Learn how to search for content, meaning, or similarity in unstructured data (image, audio, video).
-        </p>
-      </a>
-    </li>
-    <li>
-      <a href="../modelling/PRINT_SYNTAX/">
-        <h3>Output results</h3>
-        <p>
-          Learn how to output unstructured data (image, audio, video).
+            Learn how to use ThanoSQL using the REST API.
         </p>
       </a>
     </li>

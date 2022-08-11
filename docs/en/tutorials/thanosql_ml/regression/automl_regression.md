@@ -44,7 +44,7 @@ Now let's create a regression model that uses ThanoSQL to simply predict bicycle
 
 ## **0. Data Set Preparation**
 
-To use the query syntax of ThanoSQL, you must create an API token and run the query below, as mentioned in [Using the ThanoSQL Workspace](/getting_started/how_to_use_ThanoSQL/#5-thanosql).
+To use the query syntax of ThanoSQL, you must create an API token and run the query below, as mentioned in [ThanoSQL Workspace](/en/getting_started/how_to_use_ThanoSQL/#5-thanosql-workspace).
 
 ```sql
 %load_ext thanosql
@@ -125,7 +125,7 @@ FROM bike_sharing_train
 - "datetime_attribs" : A list of column names containing data in date format - "time_left_for_this_task" : Time taken to find a suitable regression prediction model (DEFAULT : 300) - "overwrite" : If a model with the same name exists, it can be overwritten. If True, the old model is replaced with the new model. (True|False, DEFAULT : False)
 
 !!! warning
-When generating the Auto-ML regression prediction model, if you use any parameter other than the one specified in [OPTIONS](/how-to_guides/modelling/OPTIONS/#2-automlregressor), the model can be generated, but all the values set are ignored.
+When generating the Auto-ML regression prediction model, if you use any parameter other than the one specified in [OPTIONS](/en/how-to_guides/OPTIONS/#2-automlregressor-algorithm), the model can be generated, but all the values set are ignored.
 
 ## **3. Evaluating Generated Models**
 
@@ -176,10 +176,10 @@ In this tutorial, we used the <mark style="background-color:#FFD79C">Bike Sharin
 
 In the next [Create Intermediate Regression Task Model] tutorial, we'll discuss "**OPTIONS**" to improve accuracy. Complete the intermediate and advanced phases and create a regression prediction model for your own service/product. In the intermediate phase, we will leverage the various "**OPTIONS**" provided by Auto-ML of ThanoSQL to create sophisticated regression prediction models. In addition, after completing the intermediate stage, the advanced stage can quantify unstructured data and include it as a learning element in Auto-ML to create a regression prediction model.
 
-- [How to Upload to ThanoSQL DB](/how-to_guides/ThanoSQL_connecting/data_upload/)
+- [How to Upload to ThanoSQL DB](/en/how-to_guides/ThanoSQL_connecting/data_upload/)
 - [Creating an Intermediate Image Classification Model]
 - [Image conversion and creating My model using Auto-ML]
-- [Deploy My image classification model](/how-to_guides/thanosql_api/rest_api_thanosql_query/)
+- [Deploy My image classification model](/en/how-to_guides/ThanoSQL_connecting/thanosql_api/rest_api_thanosql_query/)
 
 !!! tip "**Inquiries on model distribution for 'my own' service**"
 If you have difficulty creating your own model using ThanoSQL or applying it to service, please feel free to contact me below😊
