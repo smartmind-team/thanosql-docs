@@ -8,10 +8,12 @@ title: ThanoSQL Syntax
 
 - Updated Date : {{ git_revision_date_localized }}
 
-!!! tip ""
-** You can check the function and usage of the grammar used in ThanoSQL. Create and distribute models using the guide.**
 
-    - ThanoSQL complies with the [ANSI/ISO standard] (https://en.wikipedia.org/wiki/SQL_syntax) and is compatible with most standard SQL query syntax.
+!!! tip ""
+    ** You can check the function and usage of the grammar used in ThanoSQL.  
+    Create and distribute models using the guide.**
+
+    - ThanoSQL complies with the [ANSI/ISO standard](https://en.wikipedia.org/wiki/SQL_syntax) and is compatible with most standard SQL query syntax.
     - ThanoSQL's unique query function allows you to search for content within images/video.
     - With ThanoSQL's unique query function, artificial intelligence algorithms such as image classification models, regression prediction, classification prediction, and recommendation models can be easily and simply made into SQL query syntax.
 

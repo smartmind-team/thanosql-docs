@@ -11,10 +11,10 @@ title: Intro
 
 ## **Definition of ThanoSQL**
 
-ThanoSQL is an integrated platform that is capable of [query](https://en.wikipedia.org/wiki/Query) and AI (artificial intelligence) modeling both structured and unstructured data with only SQL. You can apply the functions of RDB (Relational Database), AI, and Big Data Platform within one platform and significantly reduce inefficiencies that occur during AI-based digital transformation.
+ThanoSQL is an integrated platform that is capable of [query](https://en.wikipedia.org/wiki/Query) and AI (artificial intelligence) modeling both structured and unstructured data with only ^^SQL^^. You can apply the functions of ^^RDB (Relational Database)^^, AI, and Big Data Platform within one platform and significantly reduce inefficiencies that occur during AI-based digital transformation.
 
 !!! tip ""
-Free experience of ThanoSQL features during the 3-month promotion period (June 1-August 31, 2022).
+    Free experience of ThanoSQL features during the 3-month promotion period (June 1-August 31, 2022).
 
 [Try for free](https://www.thanosql.ai){.md-button .md-button--primary}
 
@@ -23,7 +23,7 @@ Free experience of ThanoSQL features during the 3-month promotion period (June 1
 - Based on big data processing and distributed parallel processing technology, data processing is more than twice as fast as before.
 
 !!! note "Key Terminology Description"
-**RDB(Relational DataBase)** : It refers to a database based on a relational data model. Relational data models represent all data in a two-dimensional table as one of the necessary ways to organize the data. Typically, you can only handle structured data.<br>
+    **RDB(Relational DataBase)** : It refers to a database based on a relational data model. Relational data models represent all data in a two-dimensional table as one of the necessary ways to organize the data. Typically, you can only handle structured data.<br>
 
     __SQL__ : It is a special purpose programming language designed to process data from the Relational Data Base Management System (RDBMS) and is also called a query language.
 
@@ -50,4 +50,4 @@ This means that developers (or data engineers) who can use ThanoSQL will inevita
 
 Experience the innovative results of ThanoSQL now.
 
-[Getting Started](https://www.thanosql.ai/){.md-button .md-button--primary}
+[Getting Started](https://www.thanosql.ai/en){.md-button .md-button--primary}

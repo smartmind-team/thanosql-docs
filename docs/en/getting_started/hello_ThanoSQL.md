@@ -4,12 +4,12 @@ title: How to use the ThanoSQL workspace
 
 # **How to use the ThanoSQL Workspace**
 
-ThanoSQL's workspace is a web-based computing environment based on [Jupyter Lab] (https://github.com/jupyterlab/jupyterlab).
+ThanoSQL's workspace is a web-based computing environment based on [Jupyter Lab](https://github.com/jupyterlab/jupyterlab).
 
 To use **ThanoSQL** in this environment, you must first load the **thanosql** cell magic.
 
 !!! tip ""
-You can press the run button at the top, or you can run it with **Ctrl + Enter** or **Shift + Enter** shortcuts.
+    You can press the run button at the top, or you can run it with **Ctrl + Enter** or **Shift + Enter** shortcuts.
 
 ## **1. Call up ThanoSQL cell magic**
 
@@ -46,7 +46,7 @@ LIST THANOSQL MODEL
     <img src = "/img/getting_started/img6.png"></img>
 </a>
 
-If you run the ThanoSQL statement below, you can view the tutorial list in the [ThanoSQL Technical Documentation] at (https://docs.thanosql.ai).
+If you run the ThanoSQL statement below, you can view the tutorial list in the [ThanoSQL Technical Documentation](https://docs.thanosql.ai/en/).
 
 ```sql
 %%thanosql
@@ -57,7 +57,7 @@ LIST THANOSQL TUTORIAL
     <img src = "/img/getting_started/img9.png"></img>
 </a>
 
-If you run the ThanoSQL statement below, you can see the list of data tables used in the tutorial in the [ThanoSQL Technical Documentation] (https://docs.thanosql.ai).
+If you run the ThanoSQL statement below, you can see the list of data tables used in the tutorial in the [ThanoSQL Technical Documentation](https://docs.thanosql.ai/en/).
 
 ```sql
 %%thanosql

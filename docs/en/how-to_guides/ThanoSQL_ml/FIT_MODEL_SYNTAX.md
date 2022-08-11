@@ -1,6 +1,5 @@
 ---
-title: 
-Retrain the model
+title: Retrain the model
 ---
 
 # **Retrain the model (FIT MODEL)**

@@ -11,15 +11,14 @@ title: How to use ThanoSQL
 
 ## **1. Access the ThanoSQL Web**
 
-- After accessing [ThanoSQL](https://www.thanosql.ai), you can access the login screen by clicking the Login button.
+- After accessing [ThanoSQL](https://www.thanosql.ai/en), you can access the login screen by clicking the Login button.
   <a href = "/img/getting_started/img0.png">
   <img src = "/img/getting_started/img0.png"></img>
   </a>
 
 !!! note ""
-ThanoSQL is available free of charge to everyone during the promotion period from June 1st to August 31st.
-
-ThanoSQL users must sign up to use the console.
+      ThanoSQL is available free of charge to everyone during the promotion period from June 1st to August 31st.
+      ThanoSQL users must sign up to use the console.
 
 ## **2. Create Account**
 
@@ -46,15 +45,14 @@ ThanoSQL users must sign up to use the console.
 - After completing your membership, return to the login page and enter your email and password to log in. If you are logged in for the first time, you can use the service by creating a workspace.
 
 !!! note ""
-During the promotion period, you are limited to one workspace per account.
+      During the promotion period, you are limited to one workspace per account.
 
 <a href = "/img/getting_started/img3.png">
       <img src = "/img/getting_started/img3.png" width = 400px></img>
 </a>
 
 !!! warning "Caution when creating workspace"
-
-When creating a workspace, the name can be used in combination with English lowercase letters and numbers of up to 20 characters, and it is not generated if the name overlaps with another person's workspace. The first letter of the workspace name must begin in lowercase English.
+      When creating a workspace, the name can be used in combination with English lowercase letters and numbers of up to 20 characters, and it is not generated if the name overlaps with another person's workspace. The first letter of the workspace name must begin in lowercase English.
 
 ## **4. Create Workspace**
 
@@ -76,7 +74,7 @@ When creating a workspace, the name can be used in combination with English lowe
 
 - Pressing the GET API_TOKEN button in the upper right corner of your workspace automatically generates an API token and copies it to the clipboard. You can use the service normally through the query below.
 
-- The overall workspace usage can be found in [How to Use ThanoSQL Workspace](/getting_started/hello_ThanoSQL/)
+- The overall workspace usage can be found in [How to Use ThanoSQL Workspace](/en/getting_started/hello_ThanoSQL/)
 
 ```sql
 %load_ext thanosql
@@ -95,4 +93,4 @@ ex)
 </a>
 
 !!! danger  
-To use ThanoSQL grammar on the ThanoSQL workspace, you must always run the above query at the top of the file.
+      To use ThanoSQL grammar on the ThanoSQL workspace, you must always run the above query at the top of the file.
