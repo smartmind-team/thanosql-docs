@@ -46,7 +46,7 @@ Now let's use ThanoSQL to create a classification model that predicts passengers
 
 ## **0. Data set preparation**
 
-To use the query syntax of ThanoSQL, you must create an API token and run the query below, as mentioned in [Using the ThanoSQL Workspace](/en/getting_started/how_to_use_ThanoSQL/#5-thanosql-workspace).
+To use the query syntax of ThanoSQL, you must create an API token and run the query below, as mentioned in [ThanoSQL Workspace](/en/getting_started/how_to_use_ThanoSQL/#5-thanosql-workspace).
 
 ```sql
 %load_ext thanosql

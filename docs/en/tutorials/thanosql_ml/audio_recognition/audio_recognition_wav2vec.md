@@ -37,7 +37,7 @@ Today, speech recognition technology is being applied in various industries. Adv
 
 ## **0. Data set preparation**
 
-To use ThanoSQL's query syntax, [ThanoSQL Workspace](/getting_started/how_to_use_ThanoSQL/#5-thanosql)
+To use ThanoSQL's query syntax, [ThanoSQL Workspace](/en/getting_started/how_to_use_ThanoSQL/#5-thanosql-workspace)
 As mentioned in , you need to generate an API token and run the query below.
 
 ```sql
@@ -168,9 +168,9 @@ In this tutorial, we created a speech recognition model using the <mark style="b
 
 The next step, the [Creating an Intermediate Speech Recognition Model] tutorial, takes a deeper dive into the speech recognition model. If you want to learn more about how to build your own speech recognition model for your service, try the following tutorials. <br>
 
-- [How to Upload to ThanoSQL DB](/how-to_guides/ThanoSQL_connecting/data_upload/)
+- [How to Upload to ThanoSQL DB](/en/how-to_guides/ThanoSQL_connecting/data_upload/)
 - [Creating an Intermediate Speech Recognition Model]
-- [Deploying My Speech Recognition Models](/how-to_guides/thanosql_api/rest_api_thanosql_query/)
+- [Deploying My Speech Recognition Models](/en/how-to_guides/ThanoSQL_connecting/thanosql_api/rest_api_thanosql_query/)
 
 !!! tip "**Inquiries on model distribution for 'my own' service**"
 If you have difficulty creating your own model using ThanoSQL or applying it to service, please feel free to contact me below😊

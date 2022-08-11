@@ -27,7 +27,7 @@ AS
 
 ### **3.1 `Color_descriptor` Image quantification using algorithms**
 
-The example below uses the color feature extraction model created in [Transform Unstructured Data(CREATE TABLE)](/how-to_guides/modelling/CREATE_TABLE_SYNTAX/) to store the quantized results by adding a new column to the "color_descriptor_table_test" table stored in the ThanoSQL DB.
+The example below uses the color feature extraction model created in [Transform Unstructured Data(CREATE TABLE)](/en/how-to_guides/ThanoSQL_query/CREATE_TABLE_SYNTAX/) to store the quantized results by adding a new column to the "color_descriptor_table_test" table stored in the ThanoSQL DB.
 
 ```sql
 %%thanosql

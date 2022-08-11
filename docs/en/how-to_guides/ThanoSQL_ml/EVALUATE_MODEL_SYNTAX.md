@@ -27,7 +27,7 @@ If the data set you want to use does not have a target, you cannot evaluate the 
 
 ## **3. EVALUATE USING Syntax example**
 
-The example below uses the syntax "**EVALUATE USING**" to evaluate the <mark style="background-color:#E9D7FD ">test_classifier</mark> classification model that you created in [BUILD MODEL](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/).
+The example below uses the syntax "**EVALUATE USING**" to evaluate the <mark style="background-color:#E9D7FD ">test_classifier</mark> classification model that you created in [BUILD MODEL](/en/how-to_guides/ThanoSQL_ml/BUILD_MODEL_SYNTAX/).
 
 ```sql
 %%thanosql

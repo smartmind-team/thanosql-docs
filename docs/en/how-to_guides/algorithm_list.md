@@ -24,15 +24,15 @@ This guide introduces the types of artificial intelligence algorithms that Thano
 
 ThanoSQL's artificial intelligence algorithm provides a variety of pre-learning models. Create your own model by applying various algorithms through the tutorial below. The pre-learning model will continue to be updated.
 
-For a detailed description of the model, check [the options documentation page](/how-to_guides/modelling/OPTIONS/).
+For a detailed description of the model, check [the options documentation page](/en/how-to_guides/OPTIONS/).
 
-- [Auto-ML (automated machine learning) for classification tasks](/tutorials/thanosql_ml/classification/automl_classification/)
-- [Auto-ML (Automated Machine Learning) for Predictive Tasks](/tutorials/thanosql_ml/regression/automl_regression/)
-- [ConvNeXt for image classification](/tutorials/thanosql_ml/classification/classification_convNext)
-- [ELECTRA for text classification](/tutorials/thanosql_ml/classification/classification_Electra/)
-- [wav2vec for speech recognition](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/)
-- [CLIP for image search by keyword](/tutorials/thanosql_search/image_search/clip_image_search/)
-- [SimCLR for Image Similarity Based Search](/tutorials/thanosql_search/image_search/simclr_image_search/)
+- [Auto-ML (automated machine learning) for classification tasks](/en/tutorials/thanosql_ml/classification/automl_classification/)
+- [Auto-ML (Automated Machine Learning) for Predictive Tasks](/en/tutorials/thanosql_ml/regression/automl_regression/)
+- [ConvNeXt for image classification](/en/tutorials/thanosql_ml/classification/classification_convNext)
+- [ELECTRA for text classification](/en/tutorials/thanosql_ml/classification/classification_Electra/)
+- [wav2vec for speech recognition](/en/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/)
+- [CLIP for image search by keyword](/en/tutorials/thanosql_search/image_search/clip_image_search/)
+- [SimCLR for Image Similarity Based Search](/en/tutorials/thanosql_search/image_search/simclr_image_search/)
 
 ## **2. Sample data set provided by ThanoSQL**
 
@@ -50,7 +50,7 @@ To apply ThanoSQL's artificial intelligence algorithm, we support the following 
 
 The query syntax retrieves one or more expressions and returns a table of calculated results. ThanoSQL provides the following query syntax.
 
-For a detailed description of the query syntax, check [the options documentation page](/how-to_guides/syntax_list/).
+For a detailed description of the query syntax, check [the options documentation page](/en/how-to_guides/syntax_list/).
 
 - "**BUILD MODEL**" : Train the model using ThanoSQL.
 - "**FIT MODEL**" : Retrain the ThanoSQL model.

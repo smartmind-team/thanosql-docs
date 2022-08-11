@@ -73,7 +73,7 @@ The "**OPTIONS**" clause allows you to change the value of the parameters in the
 
 **BUILD MODEL Query Syntax example**
 
-You can find examples of using the algorithm query syntax in the [Creating a classification model using Auto-ML](/tutorials/thanosql_ml/classification/automl_classification/).
+You can find examples of using the algorithm query syntax in the [Creating a classification model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql
@@ -141,7 +141,7 @@ The "**OPTIONS**" clause allows you to change the value of the parameters in the
 
 **FIT MODEL Query Syntax example**
 
-You can find examples of using the algorithm query syntax in [Retrain the model](/how-to_guides/modelling/FIT_MODEL_SYNTAX/)
+You can find examples of using the algorithm query syntax in [Retrain the model](/en/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)
 
 ```sql
 %%thanosql
@@ -173,7 +173,7 @@ AS
 
 **TRANSFORM USING Query Syntax eaxmple**
 
-An example of using the algorithm query syntax can be found in [Preprocessing data for model application](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/).
+An example of using the algorithm query syntax can be found in [Preprocessing data for model application](/en/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/).
 
 ```sql
 %%thanosql
@@ -198,7 +198,7 @@ AS
 
 **PREDICT USING Query Syntax example**
 
-You can find examples of using the algorithm query syntax in [Create Classification Model using Auto-ML](/tutorials/thanosql_ml/classification/automl_classification/).
+You can find examples of using the algorithm query syntax in [Create Classification Model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql
@@ -238,7 +238,7 @@ The "**OPTIONS**" clause allows you to change the value of the parameters in the
 
 **EVALUATE USING Query Syntax example**
 
-You can find examples of using the algorithm query syntax in [Create Classification Model using Auto-ML](/tutorials/thanosql_ml/classification/automl_classification/).
+You can find examples of using the algorithm query syntax in [Create Classification Model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql
@@ -251,7 +251,7 @@ SELECT *
 FROM titanic_train
 ```
 
-## **2. AutomlRegressor Algorithms**
+## **2. AutomlRegressor Algorithm**
 
 ### **BUILD MODEL Query Syntax**
 
@@ -302,7 +302,7 @@ The "**OPTIONS**" clause allows you to change the value of the AutomlRegressor p
 
 **BUILD MODEL Query Syntax Example**
 
-An example of using the algorithm query syntax can be found in [Create a prediction model using Auto-ML](/tutorials/thanosql_ml/regression/automl_regression/).
+An example of using the algorithm query syntax can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -367,7 +367,7 @@ The "**OPTIONS**" clause allows you to change the value of the AutomlRegressor p
 
 **FIT MODEL Query Syntax Example**
 
-An example of using the algorithm query syntax can be found in [Re-learning the model](/how-to_guides/modelling/FIT_MODEL_SYNTAX/)
+An example of using the algorithm query syntax can be found in [Re-learning the model](/en/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)
 
 ```sql
 %%thanosql
@@ -400,7 +400,7 @@ AS
 
 **TRANSFORM USING Query Syntax example**
 
-An example of using the algorithm query syntax can be found in [Preprocessing data for model application](/how-to_guides/modelling/TRANSFORM_MODEL_SYNTAX/).
+An example of using the algorithm query syntax can be found in [Preprocessing data for model application](/en/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/).
 
 ```sql
 %%thanosql
@@ -426,7 +426,7 @@ AS
 
 **Example PREDICT USING Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create a prediction model using Auto-ML](/tutorials/thanosql_ml/regression/automl_regression/).
+An example of using the algorithm query syntax can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -466,7 +466,7 @@ The "**OPTIONS**" clause allows you to change the value of the parameters in the
 
 **Example EVALUATE USING Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create a prediction model using Auto-ML](/tutorials/thanosql_ml/regression/automl_regression/).
+An example of using the algorithm query syntax can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -523,7 +523,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example BUILD MODEL Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Image Classification Model](/tutorials/thanosql_ml/classification/classification_convNext/).
+An example of using the algorithm query syntax can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/classification_convNext/).
 
 ```sql
 %%thanosql
@@ -611,7 +611,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example PREDICT USING Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Image Classification Model](/tutorials/thanosql_ml/classification/classification_convNext/).
+An example of using the algorithm query syntax can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/classification_convNext/).
 
 ```sql
 %%thanosql
@@ -698,7 +698,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **BUILD MODEL Query Syntax Example**
 
-An example of using the algorithm query syntax can be found in [Create a Text Classification Model](/tutorials/thanosql_ml/classification/classification_Electra/).
+An example of using the algorithm query syntax can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_Electra/).
 
 ```sql
 %%thanosql
@@ -773,7 +773,7 @@ AS
 
 **Example PREDICT USING Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Text Classification Model](/tutorials/thanosql_ml/classification/classification_Electra/).
+An example of using the algorithm query syntax can be found in [Create Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_Electra/).
 
 ````sql
 %%thanosql
@@ -872,7 +872,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example BUILD MODEL Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec).
+An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec).
 
 ```sql
 %%thanosql
@@ -961,7 +961,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example PREDICT USING Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec).
+An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec).
 
 ```sql
 %%thanosql
@@ -1051,7 +1051,7 @@ The "**OPTIONS**" clause allows you to change the values of parameters in the Si
 
 **Example BUILD MODEL Query Syntax**
 
-You can find examples of using the algorithm query syntax in [Search Image as Image](/tutorials/thanosql_search/image_search/).
+You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/).
 ​
 
 ```sql
@@ -1141,7 +1141,7 @@ The "**OPTIONS**" clause allows you to change the values of parameters in the Si
 
 **Example of CONVERT USING query syntax**
 
-You can find examples of using the algorithm query syntax in [Search Image as Image](/tutorials/thanosql_search/image_search/).
+You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/).
 ​
 
 ```sql
@@ -1252,7 +1252,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example of CONVERT TABLE syntax**
 
-You can find examples of using the algorithm query syntax in [search by text](/tutorials/thanosql_search/image_search).
+You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search).
 
 ```sql
 %%thanosql
@@ -1283,7 +1283,7 @@ You must receive one of text, textts, images, and images as input. Text and text
 
 **Example SEARCH IMAGE Syntax**
 
-You can find examples of using the algorithm query syntax in [search by text](/tutorials/thanosql_search/image_search).
+You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search).
 
 ```sql
 %%thanosql

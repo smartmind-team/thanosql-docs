@@ -25,7 +25,7 @@ AS
 ```
 
 !!! NOTE
-"The option values used by **OPTIONS**" apply differently depending on the AI model you are using. The "**OPTIONS**" for each AI model is available [in the options documentation page.](/how-to_guides/modelling/OPTIONS/)
+"The option values used by **OPTIONS**" apply differently depending on the AI model you are using. The "**OPTIONS**" for each AI model is available [in the options documentation page.](/en/how-to_guides/OPTIONS/)
 
 ## **3. BUILD MODEL Syntax example**
 
@@ -33,7 +33,7 @@ AS
 
 The example below uses the syntax "**BUILD MODEL**" to create a classification model using a user-defined <mark style="background-color:#E9D7FD ">Titanic_classification</mark> model provided by ThanoSQL.
 
-If you're curious about the whole process, try [Creating a Titanic Survivor Classification Model using Auto-ML](/tutorials/thanosql_ml/classification/automl_classification/).
+If you're curious about the whole process, try [Creating a Titanic Survivor Classification Model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql

@@ -21,7 +21,7 @@ DELETE MODEL [Model_name_to_delete]
 
 ## **3. DELETE MODEL Syntax example**
 
-The example below uses the syntax "**DELETE MODEL**" to delete the <mark style="background-color:#E9D7FD ">titanic_classification</mark> classification model from the database that you created in [BUILD MODEL](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/).
+The example below uses the syntax "**DELETE MODEL**" to delete the <mark style="background-color:#E9D7FD ">titanic_classification</mark> classification model from the database that you created in [BUILD MODEL](/en/how-to_guides/ThanoSQL_ml/BUILD_MODEL_SYNTAX/).
 
 ```sql
 %%thanosql

@@ -43,7 +43,7 @@ ThanoSQL offers a variety of pre-trained artificial intelligence models, and fea
 
 ## **0. Data Set Preparation**
 
-To use the query syntax of ThanoSQL, you must create an API token and run the query below, as mentioned in [Using the ThanoSQL Workspace](/getting_started/how_to_use_ThanoSQL/#5-thanosql).
+To use the query syntax of ThanoSQL, you must create an API token and run the query below, as mentioned in [ThanoSQL Workspace](/en/getting_started/how_to_use_ThanoSQL/#5-thanosql-workspace).
 
 ```sql
 %load_ext thanosql
@@ -167,10 +167,10 @@ In this tutorial, we created a text classification model using the <mark style="
 
 The next step, the Create Intermediate Text Classification Model tutorial, is to take a deeper look at the text classification model. If you want to learn more about how to build your own text classification model for my services, go ahead with the following tutorials:
 
-- [How to Upload to ThanoSQL DB](/how-to_guides/ThanoSQL_connecting/data_upload/)
+- [How to Upload to ThanoSQL DB](/en/how-to_guides/ThanoSQL_connecting/data_upload/)
 - [Creating an Intermediate Text Classification Model]
 - [Create My model using text conversion and Auto-ML]
-- [Deploy My text classification model](/how-to_guides/thanosql_api/rest_api_thanosql_query/)
+- [Deploy My text classification model](/en/how-to_guides/ThanoSQL_connecting/thanosql_api/rest_api_thanosql_query/)
 
 !!! tip "**Inquiries on model distribution for 'my own' service**"
 If you have difficulty creating your own model using ThanoSQL or applying it to service, please feel free to contact me below😊

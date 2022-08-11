@@ -94,7 +94,7 @@ FROM junyong_vid
 
 ### **3.4 Printing using subqueries**
 
-The following query immediately outputs the result table of "**SEARCH**" using the "**SEARCH**" query statement created in the previous [SEARCH query](/how-to_guides/modelling/SEARCH_SYNTAX) as a subquery of the "**PRINT**" syntax.
+The following query immediately outputs the result table of "**SEARCH**" using the "**SEARCH**" query statement created in the previous [SEARCH query](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX) as a subquery of the "**PRINT**" syntax.
 
 ```sql
 %%thanosql

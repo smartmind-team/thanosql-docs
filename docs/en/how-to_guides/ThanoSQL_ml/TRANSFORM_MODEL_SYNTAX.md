@@ -23,7 +23,7 @@ AS
 
 ## **3. TRANSFORM USING Syntax eample**
 
-The example below uses the syntax "**TRANSFORM USING**" to apply the same processing to the <mark style="background-color:#FFEC92 ">titanic_test</mark> dataset as the <mark style="background-color:#E9D7FD ">test_classifier</mark> classification model that you created in [Learning Models](/how-to_guides/modelling/BUILD_MODEL_SYNTAX/).
+The example below uses the syntax "**TRANSFORM USING**" to apply the same processing to the <mark style="background-color:#FFEC92 ">titanic_test</mark> dataset as the <mark style="background-color:#E9D7FD ">test_classifier</mark> classification model that you created in [Learning Models](/en/how-to_guides/ThanoSQL_ml/BUILD_MODEL_SYNTAX/).
 
 ```sql
 %%thanosql
