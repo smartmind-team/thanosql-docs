@@ -1,15 +1,15 @@
 ---
-title: Search for images with keywords
+title: Search image by keyword
 ---
 
-# **Search for images with keywords**
+# **Search image by keyword**
 
 ## Preface
 
 - Tutorial Difficulty : ★☆☆☆☆
 - 10 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- File location : tutorial/query/키워드로 이미지 검색하기.ipynb
+- File location : tutorial/tutorial_en/query/search_image_by_keyword_en.ipynb
 - References : [Food Image and Nutrition Text Introduction Dataset](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=74)
 - Updated Date : {{ git_revision_date_localized }}
 

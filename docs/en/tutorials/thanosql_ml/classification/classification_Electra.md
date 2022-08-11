@@ -1,15 +1,15 @@
 ---
-title: Creating a Text Classification Model
+title: Create a text classification model
 ---
 
-# **Creating a Text Classification Model**
+# **Create a text classification model**
 
 ## Preface
 
 - Tutorial Difficulty: ★☆☆☆☆
 - 10 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- File location : tutorial/ml/분류 모델 만들기/텍스트 분류 모델 만들기.ipynb
+- File location : tutorial/tutorial_en/ml/classification_model/text_classification_en.ipynb
 - References : [(Kaggle) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
 - Updated Date : {{ git_revision_date_localized }}
 

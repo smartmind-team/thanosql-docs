@@ -1,15 +1,15 @@
 ---
-title: Creating a Classification Model with Auto-ML
+title: Create a classification model using AutoML
 ---
 
-# **Creating a Classification Model with Auto-ML**
+# **Create a classification model using AutoML**
 
 ## Preface
 
 - Tutorial Difficulty : ★☆☆☆☆
 - 4 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- File location : tutorial/ml/분류 모델 만들기/Auto-ML을 사용하여 분류 모델 만들기.ipynb
+- File location : tutorial/tutorial_en/ml/classification_model/automl_classification_en.ipynb
 - References : [(Kaggle) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
 - Updated Date : {{ git_revision_date_localized }}
 
