@@ -19,7 +19,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url="http://engine.thanosql.ai/api/v1/search/file"
+    base_url="https://engine.thanosql.ai/api/v1/search/file/"
     table_name = "테이블 명"
     model_name = "모델 명"
     column_name = "컬럼 명"
@@ -60,7 +60,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url="http://engine.thanosql.ai/api/v1/search/text"
+    base_url="https://engine.thanosql.ai/api/v1/search/text/"
     table_name = "테이블 명"
     model_name = "모델 명"
     column_name = "컬럼 명"

@@ -17,7 +17,7 @@ You can use the REST API to remotely send images to your ThanoSQL storage and pl
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url="http://engine.thanosql.ai/api/v1/insert"
+    base_url="https://engine.thanosql.ai/api/v1/insert/"
     table_name = "Table Name"
     column_name = "Column Name"
 

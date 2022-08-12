@@ -17,7 +17,7 @@ You can use the REST API to use queries that were used on the ThanoSQL console.
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url="http://engine.thanosql.ai/api/v1/query"
+    api_url="https://engine.thanosql.ai/api/v1/query/"
     query="Query to request"
 
     header = {
@@ -39,7 +39,7 @@ You can use the REST API to use queries that were used on the ThanoSQL console.
 
     ``` shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/query/?table_name=Table Name&column_name=Column Name' \
+      'https://engine.thanosql.ai/api/v1/query/' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -d '{"query_string": query}'

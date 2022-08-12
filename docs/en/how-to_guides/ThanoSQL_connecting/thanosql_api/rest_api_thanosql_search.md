@@ -19,7 +19,7 @@ Using the REST API, you can query and receive similar images on the ThanoSQL DB 
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url="http://engine.thanosql.ai/api/v1/search/file"
+    base_url="https://engine.thanosql.ai/api/v1/search/file/"
     table_name = "Table Name"
     model_name = "Model Name"
     column_name = "Column Name"
@@ -60,7 +60,7 @@ Using the REST API, you can query and receive similar images on the ThanoSQL DB 
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url="http://engine.thanosql.ai/api/v1/search/text"
+    base_url="https://engine.thanosql.ai/api/v1/search/text/"
     table_name = "Table Name"
     model_name = "Model Name"
     column_name = "Column Name"
