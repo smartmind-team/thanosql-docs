@@ -19,7 +19,8 @@ ThanoSQL에서 제공하는 파라미터 외의 값을 넣으면 자체적으로
 ThanoSQL은  Image와 audio 데이터에 대해 아래의 확장자를 지원합니다.
 
 - Image :  "jpg", "png"  
-- Audio : "wav", "flac", "mp3" 
+- Audio : "wav", "flac", "mp3"
+- Video : "mp4"
 
 !!! notice ""
     반면 Text 데이터의 경우, 따로 특별한 확장자를 요구하지 않습니다. 
