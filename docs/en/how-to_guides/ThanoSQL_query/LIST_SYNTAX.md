@@ -10,14 +10,14 @@ title: Check the saved model
 
 ## **1. LIST Syntax Overview**
 
-The "**LIST**" syntax allows the user to view the pre-built models ("THANOSQL MODEL") of current ThanoSQL and the models "MODEL" created by the user.
+The "**LIST**" syntax allows the user to view the pre-built models ("THANOSQL MODEL") of current ThanoSQL and the models ("MODEL") created by the user.
 
 ## **2. LIST Syntax**
 
 The "**LIST MODEL**" syntax checks the list of models you have created.
 
 !!! Failure "Caution"
-However, if there is no saved model, an error occurs.
+    However, if there is no saved model, an error occurs.
 
 ```sql
 %%thanosql
@@ -64,7 +64,7 @@ LIST THANOSQL DATASET
 The "**LIST TABLE**" syntax checks the list of tables you created.
 
 !!! Failure "Caution"
-However, if the created table does not exist, an error occurs.
+    However, if the created table does not exist, an error occurs.
 
 ```sql
 %%thanosql
