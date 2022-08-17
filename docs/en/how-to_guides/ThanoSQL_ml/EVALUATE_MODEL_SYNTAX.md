@@ -23,7 +23,7 @@ AS
 ```
 
 !!! warning
-If the data set you want to use does not have a target, you cannot evaluate the performance of the model.
+    If the data set you want to use does not have a target, you cannot evaluate the performance of the model.
 
 ## **3. EVALUATE USING Syntax example**
 
@@ -43,5 +43,5 @@ FROM titanic_train
 ![IMAGE](/img/thanosql_ml/classification/automl/img2.png)
 
 !!! note "**Query Details**"  
-Evaluate a model called <mark style="background-color:#E9D7FD ">titanic_classification</mark> built using the "EVALUATE USING" query syntax.
-For "target" in "**OPTIONS**", write down the name of the column(<mark style="background-color:#D7D0FF">survived</mark>) being the target value in the classification prediction model.
+    Evaluate a model called <mark style="background-color:#E9D7FD ">titanic_classification</mark> built using the "**EVALUATE USING**" query syntax.
+    For "target" in "**OPTIONS**", write down the name of the column(<mark style="background-color:#D7D0FF">survived</mark>) being the target value in the classification prediction model.

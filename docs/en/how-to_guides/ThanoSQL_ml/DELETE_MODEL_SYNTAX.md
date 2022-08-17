@@ -1,8 +1,8 @@
 ---
-title: Deleting a model
+title: Delete the model
 ---
 
-# **Deleting a model (DELETE MODEL)**
+# **Delete the model (DELETE MODEL)**
 
 ## Preface
 

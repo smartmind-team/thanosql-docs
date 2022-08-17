@@ -12,15 +12,16 @@ The query syntax retrieves one or more expressions and returns a table of calcul
 
 **Notation Conventions**
 
-- Parentheses `()` indicate ^^ literal ^^ parentheses.
+- Parentheses `()` indicate ^^literal^^ parentheses.
 - Braces {} are used to bind combinations of options.
 - The square bracket `[]` indicates an optional clause.
-- An ellipsis following a comma in square brackets [, ...] means that the preceding item can be repeated as a comma-separated list.
+- An ellipsis following a comma in square brackets [ , ... ] means that the preceding item can be repeated as a comma-separated list.
 - The vertical bar `|` represents the logic `OR`.
 - VALUE means a value.
 
 !!! note ""
-**literal** : A fixed or unchangeable value, also known as Constant. > Each literal has a special data type, such as a column, in the table.
+    **literal** : A fixed or unchangeable value, also known as Constant.
+    > Each literal has a special data type, such as a column, in the table.
 
 ## **1. AutomlClassifier Algorithm**
 
@@ -33,7 +34,7 @@ The "**BUILD MODEL**" expression allows you to learn defined data sets through q
 query_statement:
     query_expr
 
-BUILD MODEL [expression]
+BUILD MODEL (model_name_expression)
 USING AutomlClassifier
 OPTIONS (
     expression [ , ...]
@@ -60,14 +61,14 @@ The "**OPTIONS**" clause allows you to change the value of the parameters in the
 
 - "target" : Set the column that is the target value for the classification prediction model in the data table.
 - "impute_type" : Sets how empty values are handled in the data table.(DEFAULT : "simple")
-  > "simple" : For empty values, categorical variables are treated as the least value and continuous variables as the mean.
-  > "iterative" : For empty values, process by applying an algorithm that predicts through the remaining properties.
+> "simple" : For empty values, categorical variables are treated as the least value and continuous variables as the mean.  
+> "iterative" : For empty values, process by applying an algorithm that predicts through the remaining properties.
 - "features_to_drop" : Sets the columns that are not available for learning in the data table.
 - "datetime_attribs" : Sets the column corresponding to the date in the data table.
 - "outlier_method" : Sets how outliers are handled in the data table.(DEFAULT : "iso")
-  > "pca" : Detect abnormal samples by reducing and restoring dimensions using Principal Component Analysis (PCA) for a given data table.
-  > "iso" : For a given data table, use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (It works efficiently on data sets with many variables.)  
-  >  "knn" : A K-NN-based approach detects abnormal samples based on the distance between each data.
+> "pca" : Detect abnormal samples by reducing and restoring dimensions using Principal Component Analysis (PCA) for a given data table.  
+> "iso" : For a given data table, use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (It works efficiently on data sets with many variables.)  
+>  "knn" : A K-NN-based approach detects abnormal samples based on the distance between each data.
 - "time_left_for_this_task" : Indicates the time it takes to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
 - "overwrite" :Sets the presence or absence of an overwriteable model with the same name if it exists. If true, the existing model will be replaced with the new model. (DEFAULT : False)
 
@@ -99,8 +100,8 @@ This "**FIT MODEL**" query syntax lets you re-learn artificial intelligence mode
 query_statement:
     query_expr
 
-FIT MODEL [expression]
-USING [expression]
+FIT MODEL (model_name_expression)
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -128,14 +129,14 @@ The "**OPTIONS**" clause allows you to change the value of the parameters in the
 - "target" : In the data table, set the columns that target the classification prediction model.
 - "impute_type" : Sets how the data table handles empty values.
   (DEFAULT : "simple")
-  > "simple" : For empty values, categorical variables are treated as the least value and continuous variables as the mean.
-  > "iterative" : For empty values, process by applying an algorithm that predicts through the remaining properties.
+> "simple" : For empty values, categorical variables are treated as the least value and continuous variables as the mean.  
+> "iterative" : For empty values, process by applying an algorithm that predicts through the remaining properties.
 - "features_to_drop" : Sets the columns that are not available for learning in the data table.
 - "datetime_attribs" : Sets the column corresponding to the date in the data table.
 - "outlier_method" : Sets how outliers are handled in the data table. (DEFAULT : "iso")
-  > "pca" : Detect abnormal samples by reducing and restoring dimensions using Principal Component Analysis (PCA) for a given data table.
-  > "iso" : For a given data table, Isolation Forest is used to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples (even on a data set with many variables)
-  > "knn" :A K-NN-based approach detects abnormal samples based on the distance between each data.
+> "pca" : Detect abnormal samples by reducing and restoring dimensions using Principal Component Analysis (PCA) for a given data table.  
+> "iso" : For a given data table, Isolation Forest is used to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples (even on a data set with many variables)  
+> "knn" :A K-NN-based approach detects abnormal samples based on the distance between each data.
 - "time_left_for_this_task" : Indicates the time it takes to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
 - "overwrite" : Sets the presence or absence of an overwriteable model with the same name if it exists. If true, the existing model will be replaced with the new model. (DEFAULT : False)
 
@@ -166,7 +167,7 @@ This "**TRANSFORM MODEL**" query syntax can be used to apply the same preprocess
 query_statement:
     query_expr
 
-TRANSFORM USING [expression]
+TRANSFORM USING (model_name_expression)
 AS
 (query_expr)
 ```
@@ -191,7 +192,7 @@ Use this "**PREDICT USING**" query syntax to apply artificial intelligence model
 query_statement:
     query_expr
 
-PREDICT USING [expression]
+PREDICT USING (model_name_expression)
 AS
 (query_expr)
 ```
@@ -216,7 +217,7 @@ You can use this "**EVALUATE USING**" query syntax to perform evaluation on the 
 query_statement:
     query_expr
 
-EVALUATE USING [expression]
+EVALUATE USING (model_name_expression)
 OPTIONS (
     target = expression
     )
@@ -262,7 +263,7 @@ The "**BUILD MODEL**" expression allows you to learn defined data sets through q
 query_statement:
     query_expr
 
-BUILD MODEL [expression]
+BUILD MODEL (model_name_expression)
 USING AutomlRegressor
 OPTIONS (
     expression [ , ...]
@@ -288,15 +289,15 @@ OPTIONS(
 The "**OPTIONS**" clause allows you to change the value of the AutomlRegressor parameter from its default value. The meaning of each parameter is as follows.
 
 - "target" : Sets the column in the data table to target the regression prediction model.
-- "imput_type" : Sets how the data table handles empty values. (DEFAULT: "simple")
-  > "simple" : For empty values, categorical variables are treated as the least value and continuous variables as the mean.
-  > "iterative" : applies an algorithm that predicts through the remaining properties for empty values.
+- "impute_type" : Sets how the data table handles empty values. (DEFAULT: "simple")
+> "simple" : For empty values, categorical variables are treated as the least value and continuous variables as the mean.  
+> "iterative" : applies an algorithm that predicts through the remaining properties for empty values.
 - "features_to_drop" : Sets columns not available for learning in the data table.
 - "datetime_attribs" : Sets the column corresponding to the date in the data table.
 - "outlier_method" : Sets how the data table handles outliers. (DEFAULT: "iso")
-  > "pca" : Detect abnormal samples by reducing and restoring dimensions using Principal Component Analysis (PCA) for a given data table.  
-  > "iso" : For a given data table, we use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (It works efficiently on a data set with many variables)  
-  > "knn" : A K-NN-based approach detects abnormal samples based on the distance between each data.
+> "pca" : Detect abnormal samples by reducing and restoring dimensions using Principal Component Analysis (PCA) for a given data table.  
+> "iso" : For a given data table, we use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (It works efficiently on a data set with many variables)  
+> "knn" : A K-NN-based approach detects abnormal samples based on the distance between each data.
 - "time_left_for_this_task" : means the time it takes to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
 - "overwrite" : Sets whether or not a model with the same name can be overwritten if it exists. If true, the existing model will be changed to the new model. (DEFAULT: False)
 
@@ -327,8 +328,8 @@ This "**FIT MODEL**" query syntax lets you re-learn artificial intelligence mode
 query_statement:
     query_expr
 
-FIT MODEL [expression]
-USING [expression]
+FIT MODEL (model_name_expression)
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -353,15 +354,15 @@ OPTIONS(
 The "**OPTIONS**" clause allows you to change the value of the AutomlRegressor parameter from its default value. The meaning of each parameter is as follows.
 
 - "target" : Sets the column in the data table to target the regression prediction model.
-- "imput_type" : Sets how the data table handles empty values. (DEFAULT: "simple")
-  > "simple" : For empty values, categorical variables are treated as the least value and continuous variables as the mean.
-  > "iterative" : applies an algorithm that predicts through the remaining properties for empty values.
+- "impute_type" : Sets how the data table handles empty values. (DEFAULT: "simple")
+> "simple" : For empty values, categorical variables are treated as the least value and continuous variables as the mean.  
+> "iterative" : applies an algorithm that predicts through the remaining properties for empty values.  
 - "features_to_drop" : Sets columns not available for learning in the data table.
 - "datetime_attribs" : Sets the column corresponding to the date in the data table.
 - "outlier_method" : Sets how the data table handles outliers. (DEFAULT: "iso")
-  > "pca" : Detect abnormal samples by reducing and restoring dimensions using Principal Component Analysis (PCA) for a given data table.  
-  > "iso" : For a given data table, we use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (It works efficiently on a data set with many variables)  
-  > "knn" : A K-NN-based approach detects abnormal samples based on the distance between each data.
+> "pca" : Detect abnormal samples by reducing and restoring dimensions using Principal Component Analysis (PCA) for a given data table.  
+> "iso" : For a given data table, we use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (It works efficiently on a data set with many variables)  
+> "knn" : A K-NN-based approach detects abnormal samples based on the distance between each data.
 - "time_left_for_this_task" : means the time it takes to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
 - "overwrite" : Sets whether or not a model with the same name can be overwritten if it exists. If true, the existing model will be changed to the new model. (DEFAULT: False)
 
@@ -393,7 +394,7 @@ This "**TRANSFORM MODEL**" query syntax can be used to apply the same preprocess
 query_statement:
     query_expr
 
-TRANSFORM USING [expression]
+TRANSFORM USING (model_name_expression)
 AS
 (query_expr)
 ```
@@ -419,7 +420,7 @@ The "**PREDICT USING**" expression can preprocess the dataset defined by query_e
 query_statement:
     query_expr
 
-PREDICT USING [expression]
+PREDICT USING (model_name_expression)
 AS
 (query_expr)
 ```
@@ -444,7 +445,7 @@ You can use this "**EVALUATE USING**" query syntax to perform evaluation on the 
 query_statement:
     query_expr
 
-EVALUATE USING [expression]
+EVALUATE USING (model_name_expression)
 OPTIONS (
     expression
     )
@@ -490,7 +491,7 @@ The "**BUILD MODEL**" expression allows you to learn defined data sets through q
 query_statement:
     query_expr
 
-BUILD MODEL [expression]
+BUILD MODEL (model_name_expression)
 USING { ConvNeXt_Tiny | ConvNeXt_Base | EfficientNetV2S | EfficientNetV2M }
 OPTIONS (
     expression [ , ...]
@@ -548,8 +549,8 @@ This "**FIT MODEL**" query syntax lets you re-learn artificial intelligence mode
 query_statement:
     query_expr
 
-FIT MODEL [expression]
-USING [expression]
+FIT MODEL (model_name_expression)
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -587,7 +588,7 @@ Use this "**PREDICT USING**" query syntax to apply artificial intelligence model
 query_statement:
     query_expr
 
-PREDICT USING [expression]
+PREDICT USING (model_name_expression)
 OPTIONS (
     expression
     )
@@ -632,7 +633,7 @@ You can use this "**EVALUATE USING**" query syntax to perform evaluation on the 
 query_statement:
     query_expr
 
-EVALUATE USING [expression]
+EVALUATE USING (model_name_expression)
 OPTIONS (
     expression
     )
@@ -665,7 +666,7 @@ The "**BUILD MODEL**" expression allows you to learn defined data sets through q
 query_statement:
     query_expr
 
-BUILD MODEL [expression]
+BUILD MODEL (model_name_expression)
 USING {AlbertKo | AlbertEn | ElectraKo | ElectraEn}
 OPTIONS (
     expression [ , ...]
@@ -724,8 +725,8 @@ This "**FIT MODEL**" query syntax lets you re-learn artificial intelligence mode
 query_statement:
     query_expr
 
-FIT MODEL [expression]
-USING [expression]
+FIT MODEL (model_name_expression)
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -763,7 +764,7 @@ Use this "**PREDICT USING**" query syntax to apply artificial intelligence model
 query_statement:
     query_expr
 
-PREDICT USING [expression]
+PREDICT USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -775,7 +776,7 @@ AS
 
 An example of using the algorithm query syntax can be found in [Create Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_Electra/).
 
-````sql
+```sql
 %%thanosql
 PREDICT USING my_movie_review_classifier
 OPTIONS (
@@ -783,7 +784,8 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM movie_review_test```
+FROM movie_review_test
+```
 
  __OPTIONS Clause__
 
@@ -791,7 +793,7 @@ FROM movie_review_test```
 OPTIONS(
     (text_col = column_name),
     )
-````
+```
 
 The "**OPTIONS**" clause allows you to change the value of a parameter from its default value in an image model. The meaning of each parameter is as follows.
 
@@ -805,7 +807,7 @@ You can use this "**EVALUATE USING**" query syntax to perform evaluation on the 
 query_statement:
     query_expr
 
-EVALUATE USING [expression]
+EVALUATE USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -839,7 +841,7 @@ The "**BUILD MODEL**" expression allows you to learn defined data sets through q
 query_statement:
     query_expr
 
-BUILD MODEL [expression]
+BUILD MODEL (model_name_expression)
 USING { Wav2Vec2Ko | Wav2Vec2En }
 OPTIONS (
     expression [ , ...]
@@ -872,7 +874,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example BUILD MODEL Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec).
+An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/).
 
 ```sql
 %%thanosql
@@ -898,8 +900,8 @@ This "**FIT MODEL**" query syntax lets you re-learn artificial intelligence mode
 query_statement:
     query_expr
 
-FIT MODEL [expression]
-USING [expression]
+FIT MODEL (model_name_expression)
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -937,7 +939,7 @@ Use this "**PREDICT USING**" query syntax to apply artificial intelligence model
 query_statement:
     query_expr
 
-PREDICT USING [expression]
+PREDICT USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -961,7 +963,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example PREDICT USING Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec).
+An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/).
 
 ```sql
 %%thanosql
@@ -982,7 +984,7 @@ You can use this "**EVALUATE USING**" query syntax to perform evaluation on the 
 query_statement:
     query_expr
 
-EVALUATE USING [expression]
+EVALUATE USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -1015,7 +1017,7 @@ The "**BUILD MODEL**" expression allows you to learn defined data sets through q
 ​
 
 ```sql
-BUILD MODEL [expression]
+BUILD MODEL (model_name_expression)
 USING SimCLR
 OPTIONS (
     expression [ , ...]
@@ -1051,7 +1053,7 @@ The "**OPTIONS**" clause allows you to change the values of parameters in the Si
 
 **Example BUILD MODEL Query Syntax**
 
-You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/).
+You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/simclr_image_search/).
 ​
 
 ```sql
@@ -1068,8 +1070,6 @@ SELECT *
 FROM mnist_train
 ```
 
-​
-
 ### **CREATE TABLE Query Syntax**
 
 This "**CREATE TABLE**" query syntax enables digitization conversion using image folder paths without a table containing image-specific folder path information.
@@ -1078,8 +1078,8 @@ The "**CREATE TABLE**" expression quantifies the image files in the image folder
 
 ```sql
 ​
-CREATE TABLE [expression]
-USING [expression]
+CREATE TABLE (table_name_expression) 
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -1112,13 +1112,13 @@ OPTIONS(
   ​
 - "overwrite" : Sets whether or not a model with the same name can be overwritten if it exists. If true, the existing model will be changed to the new model. (DEFAULT: False)
 
-### **CONNECT USING Query Syntax**
+### **CONVERT USING Query Syntax**
 
 Use this "**CONVERT USING**" query syntax to store the digitized results as a new column in the existing dataset using a dataset containing the paths of existing images. Each time a new quantization model is used, a new quantization column is added to facilitate comparison by quantification results.
 ​
 
 ```sql
-CONVERT USING [expression]
+CONVERT USING (model_name_expression)
 OPTIONS(
     expression [ , ...]
     )
@@ -1137,11 +1137,11 @@ OPTIONS(
 The "**OPTIONS**" clause allows you to change the values of parameters in the SimCLR quantization model from their default values. The meaning of each parameter is as follows.
 ​
 
-- "table_name" : Sets the name of the table to store the new digitization results (DEFAULT: 5)
+- "table_name" : Sets the name of the table to store the new digitization results
 
 **Example of CONVERT USING query syntax**
 
-You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/).
+You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/simclr_image_search/).
 ​
 
 ```sql
@@ -1161,18 +1161,18 @@ FROM mnist_test
 You can use the "**SEARCH IMAGE**" query syntax to retrieve the desired image from the table that generated the digitization.
 
 ```sql
-SEARCH IMAGE [images = expression]
-USING [expression]
+SEARCH IMAGE (images = expression)
+USING (model_name_expression)
 AS
 (query_expr)
 ```
 
 !!! note ""
-You must receive images as input from the user. The input must be a string (for example, 'a black cat', 'data/image/image01.jpg')
+    You must receive images as input from the user. The input must be a string (for example, 'a black cat', 'data/image/image01.jpg')
 
 **Example SEARCH IMAGE Syntax**
 
-You can find examples of using the algorithm query syntax in [Search Image as Image] (/tutorials/thanosql_search/image_search/).
+You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/simclr_image_search/).
 
 ```sql
 %%thanosql
@@ -1190,7 +1190,7 @@ FROM mnist_test
 You can use the syntax "**CREATE TABLE**" to generate a data table containing the quantization vectors of the image data.
 
 ```sql
-CREATE TABLE [expression]
+CREATE TABLE (table_name_expression)
 USING clip_en
 OPTIONS (
     expression [ , ...]
@@ -1219,7 +1219,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter in CLIP f
 - "batch_size" : The size of a bundle of data sets read from one prediction. (DEFAULT : 16)
 - "overwrite" : Sets whether or not a model with the same name can be overwritten if it exists. If true, the existing model will be changed to the new model. (DEFAULT: False)
 
-### **CONNECT USING Query Syntax**
+### **CONVERT USING Query Syntax**
 
 The "**CONVERT USING**" query syntax converts image data from an existing table into a quantized vector and adds it to the data table to use.
 
@@ -1250,9 +1250,9 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 - "image_col" : The name of the column containing the path of the image in the table. (DEFAULT : 'image_path')
 - "batch_size" : The size of a bundle of data sets read from one prediction. (DEFAULT : 16)
 
-**Example of CONVERT TABLE syntax**
+**Example of CONVERT USING syntax**
 
-You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search).
+You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search/clip_image_search/).
 
 ```sql
 %%thanosql
@@ -1272,18 +1272,18 @@ FROM unsplash_data
 You can use the "**SEARCH IMAGE**" query syntax to retrieve the desired image from the table that generated the digitization.
 
 ```sql
-SEARCH IMAGE [{text|texts|image|images} = expression]
+SEARCH IMAGE ({text|texts|image|images} = expression)
 USING clip_en
 AS
 (query_expr)
 ```
 
 !!! note ""
-You must receive one of text, textts, images, and images as input. Text and textts, images, and images are the same. The input must be string (e.g., 'a black cat', 'data/image/image01.jpg') or list of strings (e.g., ['a black cat', 'a orange cat', ['data/image/image01.jpg', 'data/image/image02.jpg').
+    You must receive one of text, texts, image, and images as input. Text and texts, image, and images are the same. The input must be string (e.g., 'a black cat', 'data/image/image01.jpg') or list of strings (e.g., ['a black cat', 'a orange cat'], ['data/image/image01.jpg', 'data/image/image02.jpg']).
 
 **Example SEARCH IMAGE Syntax**
 
-You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search).
+You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search/clip_image_search/).
 
 ```sql
 %%thanosql

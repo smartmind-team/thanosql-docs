@@ -88,17 +88,18 @@ LIMIT 5
 </a>
 
 !!! note "__데이터 이해하기__"
-    <mark style="background-color:#FFEC92 ">__bike_sharing_train__</mark> 데이터 세트에는 2011년 1월부터 2012년 12월까지 날짜와 시간, 기온, 습도, 풍속 등의 정보를 기반으로 1시간 간격 동안의 자전거 대여 횟수에 대한 정보를 담고 있습니다.  
-    - <mark style="background-color:#D7D0FF ">datetime</mark> : 시간별 날짜  
-    - <mark style="background-color:#D7D0FF ">season</mark> : 계절(1 = 봄, 2 = 여름, 3 = 가을, 4 = 겨울)  
-    - <mark style="background-color:#D7D0FF ">holiday</mark> : 휴일(0 = 휴일이 아닌 날, 1 = 주말을 제외한 국경일 등의 휴일)  
-    - <mark style="background-color:#D7D0FF ">workingday</mark> : 작업일(0 = 주말 및 휴일, 1 = 주말 및 휴일이 아닌 주중)  
-    - <mark style="background-color:#D7D0FF ">weather</mark> : 날씨  
-    - <mark style="background-color:#D7D0FF ">temp</mark> : 온도  
-    - <mark style="background-color:#D7D0FF ">atemp</mark> : 체감온도  
-    - <mark style="background-color:#D7D0FF ">humidity</mark> : 상대습도  
-    - <mark style="background-color:#D7D0FF ">windspeed</mark> : 풍속  
-    - <mark style="background-color:#D7D0FF ">count</mark> : 대여 횟수  
+    <mark style="background-color:#FFEC92 ">__bike_sharing_train__</mark> 데이터 세트에는 2011년 1월부터 2012년 12월까지 날짜와 시간, 기온, 습도, 풍속 등의 정보를 기반으로 1시간 간격 동안의 자전거 대여 횟수에 대한 정보를 담고 있습니다.
+
+    - <mark style="background-color:#D7D0FF ">datetime</mark> : 시간별 날짜
+    - <mark style="background-color:#D7D0FF ">season</mark> : 계절(1 = 봄, 2 = 여름, 3 = 가을, 4 = 겨울)
+    - <mark style="background-color:#D7D0FF ">holiday</mark> : 휴일(0 = 휴일이 아닌 날, 1 = 주말을 제외한 국경일 등의 휴일)
+    - <mark style="background-color:#D7D0FF ">workingday</mark> : 작업일(0 = 주말 및 휴일, 1 = 주말 및 휴일이 아닌 주중)
+    - <mark style="background-color:#D7D0FF ">weather</mark> : 날씨
+    - <mark style="background-color:#D7D0FF ">temp</mark> : 온도
+    - <mark style="background-color:#D7D0FF ">atemp</mark> : 체감온도
+    - <mark style="background-color:#D7D0FF ">humidity</mark> : 상대습도
+    - <mark style="background-color:#D7D0FF ">windspeed</mark> : 풍속
+    - <mark style="background-color:#D7D0FF ">count</mark> : 대여 횟수
 
 ## __2. 회귀 모델 생성__
 

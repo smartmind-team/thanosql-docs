@@ -41,10 +41,5 @@ You can use the REST API to remotely send images to your ThanoSQL storage and pl
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
-      -F 'file=@Image File Path;type=image/Image File Type
-
-'
-
-```
-
-```
+      -F 'file=@Image File Path;type=image/Image File Type'
+    ```

@@ -22,9 +22,8 @@ FROM [data_set_to_use]
 ```
 
 !!! note "**Query Details**"
-
-- Specify the options to use for **CREATE TABLE** with the query syntax "**OPTIONS**".
-- "overwrite" : Set whether or not a data set with the same name can be overwritten when it exists on the DB. If True, the existing dataset is changed to the new dataset (True|False, DEFAULT: False)
+    - Specify the options to use for **CREATE TABLE** with the query syntax "**OPTIONS**".
+        - "overwrite" : Set whether or not a data set with the same name can be overwritten when it exists on the DB. If True, the existing dataset is changed to the new dataset (True|False, DEFAULT: False)
 
 ## **3. CREATE TABLE Syntax example**
 
