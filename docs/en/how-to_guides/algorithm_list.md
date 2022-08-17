@@ -15,8 +15,7 @@ ThanoSQL is built on PostgreSQL and features the ability to create and run machi
 The primary goal is to replace the Lambda architecture-based unstructured big data platform with one ThanoSQL to enable development, deployment, and operation.
 
 !!! note "What is PostgreSQL?"
-
-PostgreSQL is an RDBMS developed for high-capacity, complex transaction processing. PostgreSQL is an object-relational database system (ORDBMS), an open-source DBMS that provides commercial RDBMS-class functionality, unlike open-source products such as MySQL or MariaDB, because Oracle, DB2, and PostgreSQL were implemented based on RDBMS white papers written by IBM in the past. It is expanding its recognition in North America and Japan due to its characteristic of open source.
+    PostgreSQL is an RDBMS developed for high-capacity, complex transaction processing. PostgreSQL is an object-relational database system (ORDBMS), an open-source DBMS that provides commercial RDBMS-class functionality, unlike open-source products such as MySQL or MariaDB, because Oracle, DB2, and PostgreSQL were implemented based on RDBMS white papers written by IBM in the past. It is expanding its recognition in North America and Japan due to its characteristic of open source.
 
 This guide introduces the types of artificial intelligence algorithms that ThanoSQL provides, sample datasets, and query syntax for ThanoSQL.
 

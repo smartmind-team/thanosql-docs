@@ -56,7 +56,7 @@ title: ThanoSQL Syntax
     </li>
     <li>
       <a href="../ThanoSQL_query/PRINT_SYNTAX/">
-        <h3>Output results</h3>
+        <h3>Print the result</h3>
         <p>
           Learn how to output unstructured data (image, audio, video).
         </p>
@@ -72,7 +72,7 @@ title: ThanoSQL Syntax
   <ul class="fullclick">
     <li>
       <a href="../ThanoSQL_ml/BUILD_MODEL_SYNTAX/">
-        <h3>Training the model</h3>
+        <h3>Train the model</h3>
         <p>
             Learn how to train the ThanoSQL model.
         </p>
@@ -112,7 +112,7 @@ title: ThanoSQL Syntax
     </li>    
     <li>
       <a href="../ThanoSQL_ml/DELETE_MODEL_SYNTAX/">
-        <h3>Deleting a model</h3>
+        <h3>Delete the model</h3>
         <p>
             Learn how to delete the ThanoSQL model you learned for model management.
         </p>

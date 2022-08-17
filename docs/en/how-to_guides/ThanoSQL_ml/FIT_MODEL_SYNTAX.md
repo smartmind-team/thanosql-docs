@@ -24,10 +24,10 @@ AS
 ```
 
 !!! NOTE
-The option values used by "**OPTIONS**" apply differently depending on the AI model to be used. The "**OPTIONS**" for each AI model is available [in the options documentation page.](/en/how-to_guides/OPTIONS/).
+    The option values used by "**OPTIONS**" apply differently depending on the AI model to be used. The "**OPTIONS**" for each AI model is available [in the options documentation page.](/en/how-to_guides/OPTIONS/).
 
 !!! warning
-However, in the case of the Auto-ML model, the model is made according to the option value used in **OPTIONS** by changing only the dataset, not using the parameter value that the existing AI model had.
+    However, in the case of the Auto-ML model, the model is made according to the option value used in **OPTIONS** by changing only the dataset, not using the parameter value that the existing AI model had.
 
 ## **3. FIT MODEL Syntax example**
 

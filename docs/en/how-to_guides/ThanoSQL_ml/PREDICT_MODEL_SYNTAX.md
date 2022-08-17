@@ -1,8 +1,8 @@
 ---
-title: Applying a Model
+title: Apply the Model
 ---
 
-# **Applying a Model (PREDICT USING)**
+# **Apply the Model (PREDICT USING)**
 
 ## Preface
 
@@ -38,6 +38,5 @@ FROM movie_review_test```
 ````
 
 !!! note "**Query Details**"
-
-    "__OPTIONS__" A clause can change the value of a parameter from its default value in an image model. The meaning of each parameter is as follows.
-    - "text_col" : Sets the column containing the text to be classified in the data table.(DEFAULT : "text")
+    - "__OPTIONS__" A clause can change the value of a parameter from its default value in an image model. The meaning of each parameter is as follows.
+        - "text_col" : Sets the column containing the text to be classified in the data table.(DEFAULT : "text")

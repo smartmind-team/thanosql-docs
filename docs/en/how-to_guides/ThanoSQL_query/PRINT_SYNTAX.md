@@ -52,7 +52,8 @@ SELECT *
 FROM junyong_img
 ```
 
-!!! note "" - `junyong_img` : Data table containing image file paths
+!!! note ""
+    - `junyong_img` : Data table containing image file paths
 
 ### **3.2 Audio Print**
 
@@ -73,7 +74,8 @@ FROM junyong_aud
     <img src = "/img/thanosql_syntax/query/PRINT/PRINT_img1.png"></img>
 </a>
 
-!!! note "" - `junyong_aud` : Data table containing audio file paths
+!!! note ""
+    - `junyong_aud` : Data table containing audio file paths
 
 ### **3.3 Video Print**
 
@@ -90,7 +92,8 @@ SELECT *
 FROM junyong_vid
 ```
 
-!!! note "" - `junyong_vid` : Data table containing video file paths
+!!! note ""
+    - `junyong_vid` : Data table containing video file paths
 
 ### **3.4 Printing using subqueries**
 

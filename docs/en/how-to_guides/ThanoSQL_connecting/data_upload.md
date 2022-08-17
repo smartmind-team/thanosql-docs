@@ -12,33 +12,35 @@ title: How to import data
 
 Users can import data in two ways:
 
-!!! note "How to load a dataset" 1. Upload a local dataset from a workspace environment 2. Use a private key to connect SFTP to load a local dataset
+!!! note "How to load a dataset"
+    1. Upload a local dataset from a workspace environment
+    2. Use a private key to connect SFTP to load a local dataset
 
 ## **1. Loading data into the workspace environment**
 
-To upload a local data set to the ThanoSQL workspace, follow these steps:
-!!! note "" 1. Log in to the ThanoSQL console. 2. Click the Upload button. (same as the Jupyter Lab method) 3. Select a file to upload.
+To upload a local data set to the ThanoSQL workspace, follow these steps.
+!!! note "" 
+    1. Log in to the ThanoSQL console.
+    2. Click the Upload button. (same as the Jupyter Lab method)
+    3. Select a file to upload.
 
 ## **2. How to access and retrieve data from a remote system(SFTP)**
 
 !!! note "SFTP(Secure File Transfer Protocol)?"
-Indicates an interactive file transfer program with a user interface similar to File Transfer Protocol (FTP).
+    Indicates an interactive file transfer program with a user interface similar to File Transfer Protocol (FTP). However, SFTP uses SSH File Transfer Protocol (FTP) to create a secure connection to the server.
 
-However, SFTP uses SSH File Transfer Protocol (FTP) to create a secure connection to the server.
-
-!!! danger "" - SFTP supports Ubuntu and Linux environments only.
-
-- Some of the options available as commands are not included in SFTP commands, but most commands are included.
+!!! danger ""
+    - SFTP supports Ubuntu and Linux environments only.
+    - Some of the options available as commands are not included in SFTP commands, but most commands are included.
 
 Follow these steps to access and retrieve data from a remote system.
 
 ### **STEP 1. How to verify your private key and ID**
 
-SFTP connection requires a private key and ID. You can verify or reissue your private key by typing 'My Profile' at the top of the web page.
-
+SFTP connection requires a private key and ID. You can verify or reissue your private key by typing `My Profile` at the top of the web page.
 Enter the workspace name for the ID required for the SFTP connection.
 
-The private key consists of the following types:
+The private key consists of the following types.
 
 ```pem
 -----BEGIN OPENSSH PRIVATE KEY-----
@@ -86,7 +88,7 @@ $ chmod 400 key.pem
 
 Connect to SFTP when file permissions are completely changed in your local environment.
 !!! warning ""
-To access SFTP, you need the absolute path and workspace name of the pem file that you verified in step 1.
+    To access SFTP, you need the absolute path and workspace name of the pem file that you verified in step 1.
 
 ```bash
 sftp -i [Absolute path to the pem file] [Workspace Name]@engine.thanosql.ai
@@ -116,7 +118,7 @@ Check the remote and local working directories and transfer the file.
 put image_folder
 ```
 
-The steps above allow you to transfer image files from the local working directory 'image_folder' to the remote working directory '/drive'.
+The steps above allow you to transfer image files from the local working directory `image_folder` to the remote working directory `/drive`.
 
 ### **(Optional) SFTP Command Table**
 

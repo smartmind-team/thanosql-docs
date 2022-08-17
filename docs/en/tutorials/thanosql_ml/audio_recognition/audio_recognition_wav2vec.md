@@ -16,10 +16,10 @@ title: Create a speech recognition model to dictate an audio file
 ## Tutorial Introduction
 
 !!! note "Understanding Speech Recognition Technology"
-Speech recognition technology, also called computer speech recognition or speech-to-text, allows programs to process human speech into text format. Recently, it is being used in a wide range of fields including automobiles, medical fields, and everyday life using artificial intelligence speakers or smartphones. Recently [Machine Learning](https://en.wikipedia.org/wiki/%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5) Speech recognition technology using algorithms integrates the grammar, syntax, structure, and construction of audio and speech signals to understand and process speech.
+    Speech recognition technology, also called computer speech recognition or speech-to-text, allows programs to process human speech into text format. Recently, it is being used in a wide range of fields including automobiles, medical fields, and everyday life using artificial intelligence speakers or smartphones. Recently [Machine Learning](https://en.wikipedia.org/wiki/%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5) Speech recognition technology using algorithms integrates the grammar, syntax, structure, and construction of audio and speech signals to understand and process speech.
 
 !!! warning ""
-In general, it can be confused with Voice Recognition, which focuses only on identifying individual users' voices.
+    In general, it can be confused with Voice Recognition, which focuses only on identifying individual users' voices.
 
 Today, speech recognition technology is being applied in various industries. Advances in speech recognition technology are expanding from automatic interpretation for simple travel to interpreting difficult business meetings. In addition, voice recognition technology has developed into speech synthesis technology, which acts as a virtual guide or secretary, and is also applied by mimicking the voice of a specific entertainer or celebrity and converting a predetermined fingerprint into a voice.
 
@@ -31,9 +31,12 @@ Today, speech recognition technology is being applied in various industries. Adv
 - Using voice recognition technology, you can write faster than notes written with a keyboard, and you can quickly search for specific keywords even in long voice files.
 
 !!! note "In this tutorial"
-:point_right: Librispeech [Panayotov et al. 2015] is one of the most widely used large-scale English voice data in speech recognition research, and it is the result of [LibriVox project] (https://libribox.org/), a user-participating audiobook project. It was created by processing approximately 1,000 hours of recorded audiobook data sampled at 16 kHz. The target table for the tutorial consists of the pre-uploaded audio file path and script. This tutorial aims to convert audio files to text.
+    :point_right: Librispeech [Panayotov et al. 2015] is one of the most widely used large-scale English voice data in speech recognition research, and it is the result of [LibriVox project](https://libribox.org/), a user-participating audiobook project. It was created by processing approximately 1,000 hours of recorded audiobook data sampled at 16 kHz. The target table for the tutorial consists of the pre-uploaded audio file path and script. This tutorial aims to convert audio files to text.
 
-!!! warning "Tutorial Notes" - Audio file formats currently supported by ThanoSQL are '.wav', '.flac'. - A column indicating the audio file path and a column indicating the text corresponding to the target value must exist in the table. - The base model of the speech recognition model (`Wav2Vec2En`) uses GPU. Depending on the size of the model used and the batch size, you may run out of GPU memory. In this case, try using a smaller model or reduce the batch size.
+!!! warning "Tutorial Notes"
+    - Audio file formats currently supported by ThanoSQL are '.wav', '.flac'.
+    - A column indicating the audio file path and a column indicating the text corresponding to the target value must exist in the table.
+    - The base model of the speech recognition model (`Wav2Vec2En`) uses GPU. Depending on the size of the model used and the batch size, you may run out of GPU memory. In this case, try using a smaller model or reduce the batch size.
 
 ## **0. Data set preparation**
 
@@ -59,9 +62,12 @@ OPTIONS(overwrite = True)
 FROM "tutorial_data/librispeech_data/librispeech_test.csv"
 ```
 
-!!! note "**Query Details**" - Use the "**COPY**" query syntax to specify the name of the data set to be stored in the DB. - Specify the options to use for **COPY** via the "**OPTIONS**" query syntax. - "overwrite": If a data set with the same name exists in the DB, it can be overwritten. If True, the old data set is replaced with the new data set (True|False, DEFAULT : False)
+!!! note "**Query Details**"
+    - Use the "**COPY**" query syntax to specify the name of the data set to be stored in the DB.
+    - Specify the options to use for **COPY** via the "**OPTIONS**" query syntax.
+        - "overwrite": If a data set with the same name exists in the DB, it can be overwritten. If True, the old data set is replaced with the new data set (True|False, DEFAULT : False)
 
-## **One. Check data set**
+## **1. Check data set**
 
 For this tutorial, we use the <mark style="background-color:#FFEC92 ">librispeech_train</mark> table stored in ThanoSQL DB. Execute the query statement below to check the table contents.
 
@@ -76,7 +82,9 @@ LIMIT 5
     <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png"></img>
 </a>
 
-!!! note "Understanding data" - <mark style="background-color:#D7D0FF ">audio_path</mark>: location path of audio file - <mark style="background-color:#D7D0FF ">text</mark> : Target value of the corresponding voice (Target, script)
+!!! note "Understanding data"
+    - <mark style="background-color:#D7D0FF ">audio_path</mark>: location path of audio file
+    - <mark style="background-color:#D7D0FF ">text</mark> : Target value of the corresponding voice (Target, script)
 
 ```sql
 %%thanosql
@@ -93,7 +101,7 @@ LIMIT 3
 
 ## **2. Predict Speech Recognition Results Using Pretrained Models**
 
-Using the pre-trained speech recognition model <mark style="background-color:#E9D7FD ">tutorial_image_classification</mark> by running the following query syntax:
+Using the pre-trained speech recognition model <mark style="background-color:#E9D7FD ">tutorial_audio_recognition</mark> by running the following query syntax:
 Predict the outcome.
 
 ```sql
@@ -116,7 +124,7 @@ FROM librispeech_train
 
 ## **3. Create a speech recognition model**
 
-Create a speech recognition model using the <mark style="background-color:#FFEC92 ">librispeech_train</mark> dataset from the previous step. Execute the query syntax below to create a model named <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark>.
+Create a speech recognition model using the <mark style="background-color:#FFEC92 ">librispeech_train</mark> dataset from the previous step. Execute the query syntax below to create a model named <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark>.  
 (Estimated time required for query execution: 1 min)
 
 ```sql
@@ -135,9 +143,18 @@ SELECT *
 FROM librispeech_train
 ```
 
-!!! note "Query Details" - Use the "**BUILD MODEL**" query syntax to create and train a <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark> model. - Specify to use `Wav2Vec2En` as the base model through the "**USING**" query syntax. - Specify the options to use for model creation via the "**OPTIONS**" query syntax. - "audio_col" : the name of the column containing the audio path to be used for training - "text_col" : the name of the column containing the audio script information - "epochs" : the number of times to train all training data sets - "batch_size" : one training The size of the data set bundle read from - "overwrite": Set whether overwriting is possible if a model with the same name exists. If True, the old model is changed to the new model (True|False, DEFAULT : False)
+!!! note "Query Details"
+    - Use the "**BUILD MODEL**" query syntax to create and train a <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark> model.
+    - Specify to use `Wav2Vec2En` as the base model through the "**USING**" query syntax.
+    - Specify the options to use for model creation via the "**OPTIONS**" query syntax.
+        - "audio_col" : the name of the column containing the audio path to be used for training
+        - "text_col" : the name of the column containing the audio script information
+        - "epochs" : the number of times to train all training data sets
+        - "batch_size" : one training The size of the data set bundle read from
+        - "overwrite": Set whether overwriting is possible if a model with the same name exists. If True, the old model is changed to the new model (True|False, DEFAULT : False)
+
 !!! tip ""
-Here, we set "epochs" to 1 to learn quickly. In general, larger numbers take more computation time, but predictive performance increases as training progresses.
+    Here, we set "epochs" to 1 to learn quickly. In general, larger numbers take more computation time, but predictive performance increases as training progresses.
 
 ## **4. Predict speech recognition results using the model you created**
 
@@ -158,9 +175,10 @@ FROM librispeech_test
     <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png"></img>
 </a>
 
-!!! "Query Details" - Use the <mark style="background-color:#E9D7FD">my_speech_recognition_model</mark> model created in the previous step with the "**PREDICT USING**" query syntax. - Specify the options to use for prediction via the "**OPTIONS**" query syntax. - "audio_col" : The name of the column containing the audio path to be used for prediction
-
-<br>
+!!! note "Query Details"
+    - Use the <mark style="background-color:#E9D7FD">my_speech_recognition_model</mark> model created in the previous step with the "**PREDICT USING**" query syntax.
+    - Specify the options to use for prediction via the "**OPTIONS**" query syntax.
+        - "audio_col" : The name of the column containing the audio path to be used for prediction
 
 ## **5. In conclusion**
 
@@ -173,6 +191,6 @@ The next step, the [Creating an Intermediate Speech Recognition Model] tutorial,
 - [Deploying My Speech Recognition Models](/en/how-to_guides/ThanoSQL_connecting/thanosql_api/rest_api_thanosql_query/)
 
 !!! tip "**Inquiries on model distribution for 'my own' service**"
-If you have difficulty creating your own model using ThanoSQL or applying it to service, please feel free to contact me below😊
+    If you have difficulty creating your own model using ThanoSQL or applying it to service, please feel free to contact me below😊
 
-Inquiries about building a speech recognition model: contact@smartmind.team
+    Inquiries about building a speech recognition model: contact@smartmind.team
