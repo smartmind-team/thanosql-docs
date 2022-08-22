@@ -40,9 +40,7 @@ SmartMind significantly shortens the development period and eliminates inefficie
 
 The figure below is a data engineering ecosystem map; it shows technologies for building data science and big data analysis systems at a glance. You can see that more than 60 tech stacks are used.
 
-<a href = "img/index/img1.png">
-    <img src = "img/index/img1.png"></img>
-</a>
+[![IMAGE](/img/index/img1.png)](/img/index/img1.png)
 
 Using ThanoSQL, you don't need to know all of the tech stacks which are shown in the picture above. Using only SQL and Python, you can consistently produce good results much faster than developers (or data engineers) who know all of the tech stacks.
 

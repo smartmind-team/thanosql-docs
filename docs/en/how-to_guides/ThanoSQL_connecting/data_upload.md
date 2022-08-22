@@ -96,9 +96,7 @@ sftp -i [Absolute path to the pem file] [Workspace Name]@engine.thanosql.ai
 
 Once connected, you can check the screen below.
 
-<a href = "/img/thanosql_syntax/connecting/img1.png">
-    <img src = "/img/thanosql_syntax/connecting/img1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_syntax/connecting/img1.png)](/img/thanosql_syntax/connecting/img1.png)
 
 ### **STEP 5. Accessing data files**
 

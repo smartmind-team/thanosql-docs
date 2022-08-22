@@ -38,9 +38,7 @@ AS
 SELECT * 
 FROM color_descriptor_table_test
 ```
-<a href ="/img/thanosql_syntax/query/CONVERT/img1.png">
-    <img src = "/img/thanosql_syntax/query/CONVERT/img1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_syntax/query/CONVERT/img1.png)](/img/thanosql_syntax/query/CONVERT/img1.png)
 
 ### __3.2 `clip_en` 알고리즘을 사용한 이미지 수치화__
 아래 예는 `clip_en` 알고리즘을 사용하여 수치화한 결과를 ThanoSQL DB 상에 저장된 "mnist_dataset" 테이블에 새로운 칼럼을 추가하여 저장합니다.

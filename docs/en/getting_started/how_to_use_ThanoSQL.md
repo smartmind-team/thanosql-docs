@@ -12,9 +12,7 @@ title: How to use ThanoSQL
 ## **1. Access the ThanoSQL Web**
 
 - After accessing [ThanoSQL](https://www.thanosql.ai/en), you can access the login screen by clicking the Login button.
-  <a href = "/en/img/getting_started/img0.png">
-  <img src = "/en/img/getting_started/img0.png"></img>
-  </a>
+[![IMAGE](/en/img/getting_started/img0.png)](/en/img/getting_started/img0.png)
 
 !!! note ""
       ThanoSQL is available free of charge to everyone during the promotion period from June 1st to August 31st.
@@ -24,21 +22,15 @@ title: How to use ThanoSQL
 
 - Non-members proceed with their membership by clicking "Register Membership" on the ThanoSQL login screen.
 
-<a href = "/en/img/getting_started/img1.png">
-      <img src = "/en/img/getting_started/img1.png" width = 350px></img>
-</a>
+[![IMAGE](/en/img/getting_started/img1.png){: style="width:450px"}](/en/img/getting_started/img1.png)
 
 - To proceed with membership, you must enter your email authentication and password and confirm the terms and conditions.
 
-<a href = "/en/img/getting_started/img2.png">
-      <img src = "/en/img/getting_started/img2.png" width=350px></img>
-</a>
+[![IMAGE](/en/img/getting_started/img2.png){: style="width:450px"}](/en/img/getting_started/img2.png)
 
 - After authenticating your email, click "Create an account" to complete your membership.
 
-<a href = "/en/img/getting_started/signup_complete.png">
-      <img src = "/en/img/getting_started/signup_complete.png" width=350px></img>
-</a>
+[![IMAGE](/en/img/getting_started/signup_complete.png){: style="width:450px"}](/en/img/getting_started/signup_complete.png)
 
 ## **3. Using the ThanoSQL Console**
 
@@ -47,9 +39,7 @@ title: How to use ThanoSQL
 !!! note ""
       During the promotion period, you are limited to one workspace per account.
 
-<a href = "/en/img/getting_started/img3.png">
-      <img src = "/en/img/getting_started/img3.png" width = 400px></img>
-</a>
+[![IMAGE](/en/img/getting_started/img3.png){: style="width:450px"}](/en/img/getting_started/img3.png)
 
 !!! warning "Caution when creating workspace"
       When creating a workspace, the name can be used in combination with English lowercase letters and numbers of up to 20 characters, and it is not generated if the name overlaps with another person's workspace. The first letter of the workspace name must begin in lowercase English.
@@ -58,15 +48,11 @@ title: How to use ThanoSQL
 
 - Once you have created the workspace, you can check the workspace with the ID you entered as below.
 
-<a href = "/en/img/getting_started/img7.png">
-      <img src = "/en/img/getting_started/img7.png" width = 400px></img>
-</a>
+[![IMAGE](/en/img/getting_started/img7.png)](/en/img/getting_started/img7.png)
 
 - After creation, you can enter the ThanoSQL Console through the Open button within the workspace page.
 
-<a href = "/img/getting_started/img4.png">
-      <img src = "/img/getting_started/img4.png"></img>
-</a>
+[![IMAGE](/img/getting_started/img4.png)](/img/getting_started/img4.png)
 
 ## **5. ThanoSQL Workspace**
 
@@ -88,9 +74,7 @@ ex)
 %thanosql API_TOKEN=eyGVFDdfafddvczs
 ```
 
-<a href = "/img/getting_started/img6.png">
-      <img src = "/img/getting_started/img6.png"></img>
-</a>
+[![IMAGE](/img/getting_started/img6.png)](/img/getting_started/img6.png)
 
 !!! danger  
       To use ThanoSQL grammar on the ThanoSQL workspace, you must always run the above query at the top of the file.
