@@ -40,9 +40,7 @@ SELECT *
 FROM color_descriptor_table_test
 ```
 
-<a href ="/img/thanosql_syntax/query/CONVERT/img1.png">
-    <img src = "/img/thanosql_syntax/query/CONVERT/img1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_syntax/query/CONVERT/img1.png)](/img/thanosql_syntax/query/CONVERT/img1.png)
 
 ### **3.2 `clip_en` Image digitization using algorithms**
 

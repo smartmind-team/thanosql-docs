@@ -78,9 +78,7 @@ FROM librispeech_train
 LIMIT 5
 ```
 
-<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png">
-    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png)](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png)
 
 !!! note "Understanding data"
     - <mark style="background-color:#D7D0FF ">audio_path</mark>: location path of audio file
@@ -95,9 +93,7 @@ FROM librispeech_train
 LIMIT 3
 ```
 
-<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png">
-    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png" width = 400px></img>
-</a>
+[![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png){: style="width:400px"}](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png)
 
 ## **2. Predict Speech Recognition Results Using Pretrained Models**
 
@@ -118,9 +114,7 @@ SELECT *
 FROM librispeech_train
 ```
 
-<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png">
-    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png)](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png)
 
 ## **3. Create a speech recognition model**
 
@@ -171,9 +165,7 @@ SELECT *
 FROM librispeech_test
 ```
 
-<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png">
-    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png)](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png)
 
 !!! note "Query Details"
     - Use the <mark style="background-color:#E9D7FD">my_speech_recognition_model</mark> model created in the previous step with the "**PREDICT USING**" query syntax.

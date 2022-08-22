@@ -87,9 +87,7 @@ SELECT *
 FROM movie_review_train
 LIMIT 5
 ```
-<a href = "/img/thanosql_ml/classification/classification_Electra/train_data.png">
-    <img src = "/img/thanosql_ml/classification/classification_Electra/train_data.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/classification_Electra/train_data.png)](/img/thanosql_ml/classification/classification_Electra/train_data.png)
 
 !!! note "__데이터 이해하기__"
     - <mark style="background-color:#D7D0FF ">review</mark> : 영화 리뷰 텍스트
@@ -112,9 +110,7 @@ SELECT *
 FROM movie_review_test
 ```
 
-<a href = "/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_1.png">
-    <img src = "/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_1.png)](/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_1.png)
 
 
 ## __3. 텍스트 분류 모델 만들기__
@@ -165,9 +161,7 @@ SELECT *
 FROM movie_review_test
 ```
 
-<a href = "/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_2.png">
-    <img src = "/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_2.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_2.png)](/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_2.png)
 
 !!! note "쿼리 세부 정보"
     "__PREDICT USING__" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark> 모델을 예측에 사용합니다.

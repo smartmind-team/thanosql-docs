@@ -48,9 +48,7 @@ ex)
 LIST THANOSQL MODEL
 ```
 
-<a href = "/img/getting_started/img6.png">
-    <img src = "/img/getting_started/img6.png"></img>
-</a>
+[![IMAGE](/img/getting_started/img6.png)](/img/getting_started/img6.png)
 
 아래 ThanoSQL문을 실행시키면 [ThanoSQL 기술 문서](https://docs.thanosql.ai)에 있는 튜토리얼 목록을 확인할 수 있습니다.
 
@@ -59,9 +57,7 @@ LIST THANOSQL MODEL
 LIST THANOSQL TUTORIAL
 ```
 
-<a href = "/img/getting_started/img9.png">
-    <img src = "/img/getting_started/img9.png"></img>
-</a>
+[![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
 
 
 아래 ThanoSQL문을 실행시키면 [ThanoSQL 기술 문서](https://docs.thanosql.ai)에 있는 튜토리얼에서 사용된 데이터 테이블 리스트를 확인할 수 있습니다.
@@ -71,6 +67,4 @@ LIST THANOSQL TUTORIAL
 LIST THANOSQL DATASET
 ```
 
-<a href = "/img/getting_started/img10.png">
-    <img src = "/img/getting_started/img10.png"></img>
-</a>
+[![IMAGE](/img/getting_started/img10.png)](/img/getting_started/img10.png)

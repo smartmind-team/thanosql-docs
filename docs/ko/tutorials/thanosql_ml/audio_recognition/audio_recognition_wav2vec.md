@@ -77,9 +77,7 @@ FROM librispeech_train
 LIMIT 5
 ```
 
-<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png">
-    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png)](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/train_data.png)
 
 
 !!! note "데이터 이해하기"
@@ -96,9 +94,7 @@ FROM librispeech_train
 LIMIT 3
 ```
 
-<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png">
-    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png" width = 400px></img>
-</a>
+[![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png){: style="width:400px"}](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/print_audio.png)
 
 ## __2. 사전 학습된 모델을 사용하여 음성 인식 결과 예측__
 
@@ -119,9 +115,7 @@ SELECT *
 FROM librispeech_train
 ```
 
-<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png">
-    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png)](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_1.png)
 
 ## __3. 음성 인식 모델 만들기__
 
@@ -170,9 +164,7 @@ AS
 SELECT *
 FROM librispeech_test
 ```
-<a href = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png">
-    <img src = "/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png)](/img/thanosql_ml/audio_recognition/audio_recognition_wav2vec/predict_on_test_data_2.png)
 
 
 !!! note "쿼리 세부 정보"

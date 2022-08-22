@@ -86,9 +86,7 @@ FROM movie_review_train
 LIMIT 5
 ```
 
-<a href = "/img/thanosql_ml/classification/classification_Electra/train_data.png">
-    <img src = "/img/thanosql_ml/classification/classification_Electra/train_data.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/classification_Electra/train_data.png)](/img/thanosql_ml/classification/classification_Electra/train_data.png)
 
 !!! note "**Understand data**"
     - <mark style="background-color:#D7D0FF">review</mark> : movie review text
@@ -110,9 +108,7 @@ SELECT *
 FROM movie_review_test
 ```
 
-<a href = "/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_1.png">
-    <img src = "/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_1.png)](/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_1.png)
 
 ## **3. Creating a Text Classification Model**
 
@@ -162,9 +158,7 @@ SELECT *
 FROM movie_review_test
 ```
 
-<a href = "/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_2.png">
-    <img src = "/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_2.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_2.png)](/img/thanosql_ml/classification/classification_Electra/predict_on_test_data_2.png)
 
 !!! note "Query Details"
     Use the <mark style="background-color:#E9D7FD">my_movie_review_classifier</mark> model created in the previous step with the "**PREDICT USING**" query syntax for prediction.
