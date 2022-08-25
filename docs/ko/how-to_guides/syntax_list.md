@@ -31,9 +31,9 @@ title: ThanoSQL Syntax
     </li>
     <li>
       <a href="../ThanoSQL_query/GET_SYNTAX/">
-        <h3>저장한 모델 확인하기</h3>
+        <h3>모델 및 튜토리얼 데이터 세트 가져오기</h3>
         <p>
-          ThanoSQL 모델 및 튜토리얼 데이터 세트 가져오는 방법을 알아봅니다. 
+          ThanoSQL Pre-built 모델 및 튜토리얼 데이터 세트 가져오는 방법을 알아봅니다. 
         </p>
       </a>
     </li>
