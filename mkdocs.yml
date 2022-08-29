@@ -47,10 +47,13 @@ plugins:
           Tutorials: Tutorials
           How to guides: Guides
           FAQ: FAQ
-  - awesome-pages # Omits nav and control over page
+  - awesome-pages: # Omits nav and control over page
+      strict: false # For ipynb tutorial folder
   # Adding the date of last update
   - git-revision-date-localized:
       type: iso_date # Format yyyy-mm-dd
+  - mkdocs-jupyter:
+      include_source: True # Enable download ipynb files
 
 # Extensions
 markdown_extensions:
