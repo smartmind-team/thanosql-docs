@@ -2,19 +2,22 @@
 
 ThanoSQL 기술 문서 - https://docs.thanosql.ai
 
-## Setup
+## Run development server
+
+### Prerequisites
+
+- [pipenv](https://github.com/pypa/pipenv)
+
+### Setup
 
 ```bash
 pipenv install
 ```
 
+### Local Run
+
 ```bash
 pipenv shell
-```
-
-## Local Run
-
-```bash
 mkdocs serve
 ```
 
