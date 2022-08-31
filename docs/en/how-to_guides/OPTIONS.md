@@ -524,7 +524,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example BUILD MODEL Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/classification_convNext/).
+An example of using the algorithm query syntax can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/classification_convnext/).
 
 ```sql
 %%thanosql
@@ -612,7 +612,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example PREDICT USING Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/classification_convNext/).
+An example of using the algorithm query syntax can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/classification_convnext/).
 
 ```sql
 %%thanosql
@@ -699,7 +699,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **BUILD MODEL Query Syntax Example**
 
-An example of using the algorithm query syntax can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_Electra/).
+An example of using the algorithm query syntax can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_electra/).
 
 ```sql
 %%thanosql
@@ -774,7 +774,7 @@ AS
 
 **Example PREDICT USING Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_Electra/).
+An example of using the algorithm query syntax can be found in [Create Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_electra/).
 
 ```sql
 %%thanosql
