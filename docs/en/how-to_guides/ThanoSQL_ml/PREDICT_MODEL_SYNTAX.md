@@ -24,7 +24,7 @@ AS
 
 ## **3. PREDICT USING Syntax example**
 
-You can find examples of using the algorithm query syntax in the [Create a text classification model](/en/tutorials/thanosql_ml/classification/classification_Electra/).
+You can find examples of using the algorithm query syntax in the [Create a text classification model](/en/tutorials/thanosql_ml/classification/classification_electra/).
 
 ````sql
 %%thanosql
