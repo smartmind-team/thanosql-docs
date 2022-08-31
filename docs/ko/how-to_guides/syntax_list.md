@@ -30,6 +30,14 @@ title: ThanoSQL Syntax
       </a>
     </li>
     <li>
+      <a href="../ThanoSQL_query/UPLOAD_SYNTAX/">
+        <h3>모델 업로드 하기</h3>
+        <p>
+          직접 만든 모델을 업로드하여 ThanoSQL 내부에서 사용하는 방법을 알아봅니다.
+        </p>
+      </a>
+    </li>
+    <li>
       <a href="../ThanoSQL_query/GET_SYNTAX/">
         <h3>모델 및 튜토리얼 데이터 세트 가져오기</h3>
         <p>
