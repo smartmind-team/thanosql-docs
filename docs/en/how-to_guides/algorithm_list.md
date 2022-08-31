@@ -49,8 +49,6 @@ To apply ThanoSQL's artificial intelligence algorithm, we support the following 
 
 The query syntax retrieves one or more expressions and returns a table of calculated results. ThanoSQL provides the following query syntax.
 
-For a detailed description of the query syntax, check [the options documentation page](/en/how-to_guides/syntax_list/).
-
 - "**BUILD MODEL**" : Train the model using ThanoSQL.
 - "**FIT MODEL**" : Retrain the ThanoSQL model.
 - "**EVALUATE USING**" : Evaluate the trained ThanoSQL model.
