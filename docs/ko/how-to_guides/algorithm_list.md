@@ -22,13 +22,13 @@ ThanoSQL은 PostgreSQL을 기반으로 만들어졌으며, SQL 쿼리를 사용�
 
 ThanoSQL의 인공지능 알고리즘은 다양한 사전학습 모델을 제공합니다. 아래 튜토리얼을 통해 다양한 알고리즘을 적용하여 나만의 모델을 만들어 보세요. 사전학습 모델을 계속해서 업데이트 될 예정입니다. 모델에 대한 자세한 설명은 [다음 문서](/how-to_guides/OPTIONS/)를 확인하세요.
 
-- [분류 작업을 위한  Auto-ML(자동화된 머신러닝)](/tutorials/thanosql_ml/classification/automl_classification/) 
-- [예측 작업을 위한 Auto-ML(자동화된 머신러닝)](/tutorials/thanosql_ml/regression/automl_regression/)
-- [이미지 분류을 위한 ConvNeXt](/tutorials/thanosql_ml/classification/classification_convnext)
-- [텍스트 분류을 위한 ELECTRA](/tutorials/thanosql_ml/classification/classification_electra/)
-- [음성 인식을 위한 wav2vec](/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/)
-- [키워드를 통한 이미지 검색을 위한 CLIP](/tutorials/thanosql_search/image_search/clip_image_search/)
-- [이미지 유사도 기반 검색을 위한 SimCLR](/tutorials/thanosql_search/image_search/simclr_image_search/) 
+- [분류 작업을 위한  Auto-ML(자동화된 머신러닝)](/ko/tutorials/thanosql_ml/classification/automl_classification.ipynb/) 
+- [예측 작업을 위한 Auto-ML(자동화된 머신러닝)](/ko/tutorials/thanosql_ml/regression/automl_regression.ipynb/)
+- [이미지 분류을 위한 ConvNeXt](/ko/tutorials/thanosql_ml/classification/image_classification.ipynb/)
+- [텍스트 분류을 위한 ELECTRA](/ko/tutorials/thanosql_ml/classification/text_classification.ipynb/)
+- [음성 인식을 위한 wav2vec](/ko/tutorials/thanosql_ml/audio_recognition/speech_recognition.ipynb/)
+- [키워드를 통한 이미지 검색을 위한 CLIP](/ko/tutorials/thanosql_search/search_image_by_text.ipynb/)
+- [이미지 유사도 기반 검색을 위한 SimCLR](/ko/tutorials/thanosql_search/search_image_by_image.ipynb/) 
 
 
 ## __2. ThanoSQL에서 제공하는 샘플 데이터 세트__ 

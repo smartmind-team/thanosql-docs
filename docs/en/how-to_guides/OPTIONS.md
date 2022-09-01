@@ -524,7 +524,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example BUILD MODEL Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/classification_convnext/).
+An example of using the algorithm query syntax can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/image_classification/).
 
 ```sql
 %%thanosql
@@ -612,7 +612,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example PREDICT USING Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/classification_convnext/).
+An example of using the algorithm query syntax can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/image_classification/).
 
 ```sql
 %%thanosql
@@ -874,7 +874,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example BUILD MODEL Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/).
+An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
 
 ```sql
 %%thanosql
@@ -963,7 +963,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example PREDICT USING Query Syntax**
 
-An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/).
+An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
 
 ```sql
 %%thanosql
@@ -1053,7 +1053,7 @@ The "**OPTIONS**" clause allows you to change the values of parameters in the Si
 
 **Example BUILD MODEL Query Syntax**
 
-You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/simclr_image_search/).
+You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 ​
 
 ```sql
@@ -1141,7 +1141,7 @@ The "**OPTIONS**" clause allows you to change the values of parameters in the Si
 
 **Example of CONVERT USING query syntax**
 
-You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/simclr_image_search/).
+You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 ​
 
 ```sql
@@ -1172,7 +1172,7 @@ AS
 
 **Example SEARCH IMAGE Syntax**
 
-You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/simclr_image_search/).
+You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 
 ```sql
 %%thanosql
@@ -1252,7 +1252,7 @@ The "**OPTIONS**" clause allows you to change the value of a parameter from its 
 
 **Example of CONVERT USING syntax**
 
-You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search/clip_image_search/).
+You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
 
 ```sql
 %%thanosql
@@ -1283,7 +1283,7 @@ AS
 
 **Example SEARCH IMAGE Syntax**
 
-You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search/clip_image_search/).
+You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
 
 ```sql
 %%thanosql
