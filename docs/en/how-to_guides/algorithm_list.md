@@ -30,8 +30,8 @@ For a detailed description of the model, check [the options documentation page](
 - [ConvNeXt for image classification](/en/tutorials/thanosql_ml/classification/image_classification)
 - [ELECTRA for text classification](/en/tutorials/thanosql_ml/classification/classification_electra/)
 - [wav2vec for speech recognition](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/)
-- [CLIP for image search by keyword](/en/tutorials/thanosql_search/image_search/search_image_by_text/)
-- [SimCLR for Image Similarity Based Search](/en/tutorials/thanosql_search/image_search/search_image_by_image/)
+- [CLIP for image search by keyword](/en/tutorials/thanosql_search/image_search/search_image_by_keyword/)
+- [SimCLR for image similarity based search](/en/tutorials/thanosql_search/image_search/search_image_by_image/)
 
 ## **2. Sample data set provided by ThanoSQL**
 
