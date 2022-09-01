@@ -86,7 +86,7 @@ FROM movie_review_train
 LIMIT 5
 ```
 
-[![IMAGE](/img/thanosql_ml/classification/classification_electra/train_data.png)](/img/thanosql_ml/classification/classification_electra/train_data.png)
+[![IMAGE](/img/thanosql_ml/classification/text_classification/train_data.png)](/img/thanosql_ml/classification/text_classification/train_data.png)
 
 !!! note "**Understand data**"
     - <mark style="background-color:#D7D0FF">review</mark> : movie review text
@@ -108,7 +108,7 @@ SELECT *
 FROM movie_review_test
 ```
 
-[![IMAGE](/img/thanosql_ml/classification/classification_electra/predict_on_test_data_1.png)](/img/thanosql_ml/classification/classification_electra/predict_on_test_data_1.png)
+[![IMAGE](/img/thanosql_ml/classification/text_classification/predict_on_test_data_1.png)](/img/thanosql_ml/classification/text_classification/predict_on_test_data_1.png)
 
 ## **3. Creating a Text Classification Model**
 
@@ -158,7 +158,7 @@ SELECT *
 FROM movie_review_test
 ```
 
-[![IMAGE](/img/thanosql_ml/classification/classification_electra/predict_on_test_data_2.png)](/img/thanosql_ml/classification/classification_electra/predict_on_test_data_2.png)
+[![IMAGE](/img/thanosql_ml/classification/text_classification/predict_on_test_data_2.png)](/img/thanosql_ml/classification/text_classification/predict_on_test_data_2.png)
 
 !!! note "Query Details"
     Use the <mark style="background-color:#E9D7FD">my_movie_review_classifier</mark> model created in the previous step with the "**PREDICT USING**" query syntax for prediction.

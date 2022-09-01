@@ -70,7 +70,7 @@ FROM unsplash_data
 LIMIT 5
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/select_data.png)](/img/thanosql_search/clip_search/select_data.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/select_data.png)](/img/thanosql_search/search_image_by_text/select_data.png)
 
 !!! note "Understanding Data"
     - Unique id column name for image `photo_id`
@@ -88,7 +88,7 @@ FROM unsplash_data
 LIMIT 5
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/print_dataset_image.png)](/img/thanosql_search/clip_search/print_dataset_image.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/print_dataset_image.png)](/img/thanosql_search/search_image_by_text/print_dataset_image.png)
 
 ## **2. Create an image quantization model for text search**
 
@@ -119,7 +119,7 @@ FROM unsplash_data
         - "image_col" : the column name containing the image path
         - "batch_size" : The size of the set of data sets to be read in one learning. According to the paper, the larger the learning performance increases, but we use 128 considering the size of the memory. (DEFAULT : 16)
 
-[![IMAGE](/img/thanosql_search/clip_search/select_data_with_embedding.png)](/img/thanosql_search/clip_search/select_data_with_embedding.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/select_data_with_embedding.png)](/img/thanosql_search/search_image_by_text/select_data_with_embedding.png)
 
 <br>
 
@@ -136,7 +136,7 @@ SELECT *
 FROM unsplash_data
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/search_result_raw.png)](/img/thanosql_search/clip_search/search_result_raw.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/search_result_raw.png)](/img/thanosql_search/search_image_by_text/search_result_raw.png)
 
 !!! note "Query Details"
     - State that you will use the "**SEARCH IMAGE**" query syntax to locate the image. Use the "text" variable to enter the text content of the image you want to find.
@@ -158,7 +158,7 @@ ORDER BY tutorial_search_clip_clipen_similarity1 DESC
 LIMIT 5
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/search_result_sorted.png)](/img/thanosql_search/clip_search/search_result_sorted.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/search_result_sorted.png)](/img/thanosql_search/search_image_by_text/search_result_sorted.png)
 
 !!! note "Query Details"
     - The "**SEARCH IMAGE**" query syntax calculates and returns the similarity between the entered text and the image.
@@ -184,7 +184,7 @@ AS (
     )
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/result_black_cat.png)](/img/thanosql_search/clip_search/result_black_cat.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/result_black_cat.png)](/img/thanosql_search/search_image_by_text/result_black_cat.png)
 
 !!! note "Query Details"
     This query consists of three steps, combined with the above query.
@@ -209,7 +209,7 @@ AS (
     )
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/result_dog_on_chair.png)](/img/thanosql_search/clip_search/result_dog_on_chair.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/result_dog_on_chair.png)](/img/thanosql_search/search_image_by_text/result_dog_on_chair.png)
 
 ```sql
 %%thanosql
@@ -228,7 +228,7 @@ AS (
     )
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/result_gloomy.png)](/img/thanosql_search/clip_search/result_gloomy.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/result_gloomy.png)](/img/thanosql_search/search_image_by_text/result_gloomy.png)
 
 ```sql
 %%thanosql
@@ -247,7 +247,7 @@ AS (
     )
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/result_happy.png)](/img/thanosql_search/clip_search/result_happy.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/result_happy.png)](/img/thanosql_search/search_image_by_text/result_happy.png)
 
 ## **4. In Conclusion**
 

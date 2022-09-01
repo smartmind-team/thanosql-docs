@@ -65,7 +65,7 @@ SELECT *
 FROM diet
 ```
 
-[![IMAGE](/img/thanosql_search/base_search/select_img1.png)](/img/thanosql_search/base_search/select_img1.png)
+[![IMAGE](/img/thanosql_search/search_image_by_keyword/select_img1.png)](/img/thanosql_search/search_image_by_keyword/select_img1.png)
 
 !!! note "Understanding Data Tables"
     <mark style="background-color:#FFEC92">diet</mark> The table contains the following information.
@@ -114,7 +114,7 @@ SELECT *
 FROM diet
 ```
 
-[![IMAGE](/img/thanosql_search/base_search/select_img2.png)](/img/thanosql_search/base_search/select_img2.png)
+[![IMAGE](/img/thanosql_search/search_image_by_keyword/select_img2.png)](/img/thanosql_search/search_image_by_keyword/select_img2.png)
 
 !!! note "**Query Details**"
     - Use the <mark style="background-color:#E9D7FD">diet_image_classification</mark> model created in the previous step with the query syntax "**PREDICT USING**".
@@ -137,7 +137,7 @@ AND A.label LIKE 'apple_pie'
 LIMIT 10
 ```
 
-[![IMAGE](/img/thanosql_search/base_search/select_img3.png)](/img/thanosql_search/base_search/select_img3.png)
+[![IMAGE](/img/thanosql_search/search_image_by_keyword/select_img3.png)](/img/thanosql_search/search_image_by_keyword/select_img3.png)
 
 !!! note "**Query Details**"
     - "**SELECT \* FROM (...)**" Select all results of the query syntax starting with "**PREDICT USING**".
