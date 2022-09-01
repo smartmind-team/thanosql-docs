@@ -95,9 +95,7 @@ sftp -i [pem 파일 절대경로] [워크스페이스 이름]@engine.thanosql.ai
 
 연결되면 아래와 같은 화면을 확인하실 수 있습니다.
 
-<a href = "/img/thanosql_syntax/connecting/img1.png">
-    <img src = "/img/thanosql_syntax/connecting/img1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_syntax/connecting/img1.png)](/img/thanosql_syntax/connecting/img1.png)
 
 ### __STEP 5. 데이터 파일 접속하기__
 

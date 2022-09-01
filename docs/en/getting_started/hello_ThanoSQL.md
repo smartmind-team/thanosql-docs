@@ -42,9 +42,7 @@ To view a list of prebuilt ThanoSQL models, run the TanoSQL statement below.
 LIST THANOSQL MODEL
 ```
 
-<a href = "/img/getting_started/img6.png">
-    <img src = "/img/getting_started/img6.png"></img>
-</a>
+[![IMAGE](/img/getting_started/img6.png)](/img/getting_started/img6.png)
 
 If you run the ThanoSQL statement below, you can view the tutorial list in the [ThanoSQL Technical Documentation](https://docs.thanosql.ai/en/).
 
@@ -53,9 +51,7 @@ If you run the ThanoSQL statement below, you can view the tutorial list in the [
 LIST THANOSQL TUTORIAL
 ```
 
-<a href = "/img/getting_started/img9.png">
-    <img src = "/img/getting_started/img9.png"></img>
-</a>
+[![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
 
 If you run the ThanoSQL statement below, you can see the list of data tables used in the tutorial in the [ThanoSQL Technical Documentation](https://docs.thanosql.ai/en/).
 
@@ -64,6 +60,4 @@ If you run the ThanoSQL statement below, you can see the list of data tables use
 LIST THANOSQL DATASET
 ```
 
-<a href = "/img/getting_started/img10.png">
-    <img src = "/img/getting_started/img10.png"></img>
-</a>
+[![IMAGE](/img/getting_started/img10.png)](/img/getting_started/img10.png)

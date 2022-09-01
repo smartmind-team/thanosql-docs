@@ -40,7 +40,7 @@ SELECT *
 FROM titanic_train
 ```
 
-![IMAGE](/img/thanosql_ml/classification/automl/img2.png)
+[![IMAGE](/img/thanosql_ml/classification/automl/img2.png)](/img/thanosql_ml/classification/automl/img2.png)
 
 !!! note "**Query Details**"  
     Evaluate a model called <mark style="background-color:#E9D7FD ">titanic_classification</mark> built using the "**EVALUATE USING**" query syntax.

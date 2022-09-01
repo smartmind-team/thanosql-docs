@@ -70,9 +70,7 @@ SELECT *
 FROM junyong_aud
 ```
 
-<a href = "/img/thanosql_syntax/query/PRINT/PRINT_img1.png">
-    <img src = "/img/thanosql_syntax/query/PRINT/PRINT_img1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
     - `junyong_aud` : Data table containing audio file paths

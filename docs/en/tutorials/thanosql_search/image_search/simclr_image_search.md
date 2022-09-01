@@ -35,7 +35,7 @@ In addition, ThanoSQL uses artificial intelligence algorithms to quantify data s
 
 Let's create a model that uses ThanoSQL to enter handwriting data and search for images similar to the input image within the DB.
 
-<img src = "/img/thanosql_search/simclr_search/simclr_img7.png" title = "MNIST 데이터">
+[![IMAGE](/img/thanosql_search/simclr_search/simclr_img7.png "MNIST data")](/img/thanosql_search/simclr_search/simclr_img7.png)
 
 ## **0. Data Set Preparation**
 
@@ -79,7 +79,7 @@ FROM mnist_train
 LIMIT 5
 ```
 
-<img src = "/img/thanosql_search/simclr_search/simclr_img1.png" >
+[![IMAGE](/img/thanosql_search/simclr_search/simclr_img1.png)](/img/thanosql_search/simclr_search/simclr_img1.png)
 
 !!! note "Understanding Data Tables"
     The <mark style="background-color:#FFEC92">mnist_train</mark> table contains the following information: The "6782.jpg" image file is a handwritten image with the number 5.
@@ -130,7 +130,7 @@ FROM mnist_test
 
 ```
 
-<img src = "/img/thanosql_search/simclr_search/simclr_img3.png"></img>
+[![IMAGE](/img/thanosql_search/simclr_search/simclr_img3.png)](/img/thanosql_search/simclr_search/simclr_img3.png)
 
 !!! note "Query Details"
     - The "**CONVERT USING**" query syntax uses 'my_image_search_model' as an algorithm for image quantification.
@@ -142,7 +142,7 @@ FROM mnist_test
 
 This step uses the `my_image_search_model` image quantization model and the test table to search for images similar to the "923.jpg" image file (handwriting 8).<br>
 
-<img src ="/img/thanosql_search/simclr_search/simclr_img8.png" width = "100px"></img>
+[![IMAGE](/img/thanosql_search/simclr_search/simclr_img8.png){: style="width:100px"}](/img/thanosql_search/simclr_search/simclr_img8.png)
 
 <p style = "text-align:center">923.jpg Image file</p>
 
@@ -155,7 +155,7 @@ SELECT *
 FROM mnist_test
 ```
 
-<img src ="/img/thanosql_search/simclr_search/simclr_img4.png"></img>
+[![IMAGE](/img/thanosql_search/simclr_search/simclr_img4.png)](/img/thanosql_search/simclr_search/simclr_img4.png)
 
 !!! note "Query Details"
     - "**SEARCH IMAGE [images|audio|video]**" query syntax defines the image|audio|video file you want to search for. <br>
@@ -181,7 +181,7 @@ AS (
     )
 ```
 
-<img src ="/img/thanosql_search/simclr_search/simclr_img5.png"></img>
+[![IMAGE](/img/thanosql_search/simclr_search/simclr_img5.png)](/img/thanosql_search/simclr_search/simclr_img5.png)
 
 !!! danger "Notes for reference"
     The basic learning options of the image similarity search algorithm are learned to recognize the image as the same regardless of the image's left-right inversion, color change, etc. This is because a dog's picture should be recognized as a dog even if it is flipped or changed in color. If color changes are important, such as clothing images, or if vertical and horizontal twists are important, such as numbers, the options should be changed when learning. This tutorial shows the characteristics of these image similarity searches.

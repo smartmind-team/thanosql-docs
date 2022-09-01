@@ -83,9 +83,7 @@ SELECT *
 FROM titanic_train 
 LIMIT 5 
 ```
-<a href ="/img/thanosql_ml/classification/automl/img1.png">
-    <img src = "/img/thanosql_ml/classification/automl/img1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/automl/img1.png)](/img/thanosql_ml/classification/automl/img1.png)
 
 !!! note "__데이터 이해하기__"
     <mark style="background-color:#FFEC92 ">__tianic_train__</mark> 데이터 세트는 다음과 같은 정보를 담고 있습니다.
@@ -154,9 +152,7 @@ AS
 SELECT *
 FROM titanic_train
 ```
-<a href ="/img/thanosql_ml/classification/automl/img2.png">
-    <img src = "/img/thanosql_ml/classification/automl/img2.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/automl/img2.png)](/img/thanosql_ml/classification/automl/img2.png)
 
 !!! note "__쿼리 세부 정보__"   
     - "__EVALUATE USING__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 평가합니다. 
@@ -179,9 +175,7 @@ SELECT *
 FROM titanic_test
 ```
 
-<a href ="/img/thanosql_ml/classification/automl/img3.png">
-    <img src = "/img/thanosql_ml/classification/automl/img3.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/automl/img3.png)](/img/thanosql_ml/classification/automl/img3.png)
 
 !!! note "__쿼리 세부 정보__" 
     "__PREDICT USING__" 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark> 모델을 예측에 사용합니다. "__PREDICT__"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 옵션이 필요없습니다. 

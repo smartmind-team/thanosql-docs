@@ -41,7 +41,7 @@ ThanoSQL offers a variety of pre-trained artificial intelligence models that all
 !!! note "In this tutorial"
     :point_right: Build a model that classifies more than 10,000 products using the `Product Image` dataset from [AI-Hub](https://aihub.or.kr/), a leading AI open data sharing platform. The built model can be used as a detection and identification solution in smart logistics warehouses and unmanned stores. Datasets typically consist of over 10,000 commodity datasets of images and label (correct) pairs used to learn image classification techniques, and contain a total of 1,440,000 images. In this tutorial, you will only use 1,800 sheets of training data and 200 sheets of test data to learn how to use ThanoSQL and to check results quickly. <br>
 
-![Product Image Example](/img/thanosql_ml/classification/classification_convNext/classification_convNext_data_intro.png)
+[![Product Image Example](/img/thanosql_ml/classification/classification_convnext/classification_convnext_data_intro.png)](/img/thanosql_ml/classification/classification_convnext/classification_convnext_data_intro.png)
 
 !!! warning "Tutorial Precautions"
     - The image classification model can be used to predict one target (Target, Category/Label/Label) from one image.
@@ -90,9 +90,7 @@ FROM product_image_train
 LIMIT 5
 ```
 
-<a href ="/img/thanosql_ml/classification/classification_convNext/train_data_limit_5.png">
-    <img src = "/img/thanosql_ml/classification/classification_convNext/train_data_limit_5.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/classification_convnext/train_data_limit_5.png)](/img/thanosql_ml/classification/classification_convnext/train_data_limit_5.png)
 
 !!! note "**Understanding Data**"
     - <mark style="background-color:#D7D0FF ">image_path</mark>: Location information of each image's file
@@ -113,9 +111,7 @@ FROM product_image_train
 LIMIT 5
 ```
 
-<a href ="/img/thanosql_ml/classification/classification_convNext/print_image_train_data.png">
-    <img src = "/img/thanosql_ml/classification/classification_convNext/print_image_train_data.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/classification_convnext/print_image_train_data.png)](/img/thanosql_ml/classification/classification_convnext/print_image_train_data.png)
 
 ## **2. Predict product image classification results using pre-trained models**
 
@@ -129,9 +125,7 @@ SELECT *
 FROM product_image_test
 ```
 
-<a href ="/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_1.png">
-    <img src = "/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/classification_convnext/predict_on_test_data_1.png)](/img/thanosql_ml/classification/classification_convnext/predict_on_test_data_1.png)
 
 ## **3. Create an image classification model**
 
@@ -183,9 +177,7 @@ SELECT *
 FROM product_image_test
 ```
 
-<a href ="/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_2.png">
-    <img src = "/img/thanosql_ml/classification/classification_convNext/predict_on_test_data_2.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/classification_convnext/predict_on_test_data_2.png)](/img/thanosql_ml/classification/classification_convnext/predict_on_test_data_2.png)
 
 !!! note "**Query Details**"
     - Use the <mark style="background-color:#E9D7FD">my_product_classifier</mark> model created in the previous step with the query syntax "**PREDICT USING**".

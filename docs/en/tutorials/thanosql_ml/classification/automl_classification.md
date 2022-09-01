@@ -86,9 +86,7 @@ FROM titanic_train
 LIMIT 5
 ```
 
-<a href ="/img/thanosql_ml/classification/automl/img1.png">
-    <img src = "/img/thanosql_ml/classification/automl/img1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/automl/img1.png)](/img/thanosql_ml/classification/automl/img1.png)
 
 !!! note "**Understanding Data**"
     The <mark style="background-color:#FFEC92 ">**tianic_train**</mark> data set contains the following information.
@@ -155,9 +153,7 @@ SELECT *
 FROM titanic_train
 ```
 
-<a href ="/img/thanosql_ml/classification/automl/img2.png">
-    <img src = "/img/thanosql_ml/classification/automl/img2.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/automl/img2.png)](/img/thanosql_ml/classification/automl/img2.png)
 
 !!! note "**Query Details**"
     - Evaluate the model <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark> built using the query syntax "**EVALUATE USING**".
@@ -176,9 +172,7 @@ SELECT *
 FROM titanic_test
 ```
 
-<a href ="/img/thanosql_ml/classification/automl/img3.png">
-    <img src = "/img/thanosql_ml/classification/automl/img3.png"></img>
-</a>
+[![IMAGE](/img/thanosql_ml/classification/automl/img3.png)](/img/thanosql_ml/classification/automl/img3.png)
 
 !!! note "**Query Details**"
     Use the <mark style="background-color:#E9D7FD ">titanic_automl_classification </mark>model created in the previous step for prediction using the **"PREDICT USING" **query syntax.

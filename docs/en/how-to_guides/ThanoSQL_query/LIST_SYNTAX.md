@@ -24,9 +24,7 @@ The "**LIST MODEL**" syntax checks the list of models you have created.
 LIST MODEL
 ```
 
-<a href = "/img/thanosql_syntax/query/LIST/img1.png">
-    <img src = "/img/thanosql_syntax/query/LIST/img1.png"> </img>
-</a>
+[![IMAGE](/img/thanosql_syntax/query/LIST/img1.png)](/img/thanosql_syntax/query/LIST/img1.png)
 
 The syntax "**LIST THANOSQL MODEL**" checks the list of pre-built models in ThanoSQL.
 
@@ -35,9 +33,7 @@ The syntax "**LIST THANOSQL MODEL**" checks the list of pre-built models in Than
 LIST THANOSQL MODEL
 ```
 
-<a href = "/img/thanosql_syntax/query/LIST/img2.png">
-    <img src = "/img/thanosql_syntax/query/LIST/img2.png"> </img>
-</a>
+[![IMAGE](/img/thanosql_syntax/query/LIST/img2.png)](/img/thanosql_syntax/query/LIST/img2.png)
 
 The syntax "**LIST THANOSQL TUTORIAL**" checks the list of Tutorials stored in ThanoSQL.
 
@@ -46,9 +42,7 @@ The syntax "**LIST THANOSQL TUTORIAL**" checks the list of Tutorials stored in T
 LIST THANOSQL TUTORIAL
 ```
 
-<a href = "/img/thanosql_syntax/query/LIST/img3.png">
-    <img src = "/img/thanosql_syntax/query/LIST/img3.png"> </img>
-</a>
+[![IMAGE](/img/thanosql_syntax/query/LIST/img3.png)](/img/thanosql_syntax/query/LIST/img3.png)
 
 The syntax "**LIST THANOSQL DATASET**" checks the list of Datasets in ThanoSQL.
 
@@ -57,9 +51,7 @@ The syntax "**LIST THANOSQL DATASET**" checks the list of Datasets in ThanoSQL.
 LIST THANOSQL DATASET
 ```
 
-<a href = "/img/thanosql_syntax/query/LIST/img4.png">
-    <img src = "/img/thanosql_syntax/query/LIST/img4.png"> </img>
-</a>
+[![IMAGE](/img/thanosql_syntax/query/LIST/img4.png)](/img/thanosql_syntax/query/LIST/img4.png)
 
 The "**LIST TABLE**" syntax checks the list of tables you created.
 
@@ -71,6 +63,4 @@ The "**LIST TABLE**" syntax checks the list of tables you created.
 LIST TABLE
 ```
 
-<a href = "/img/thanosql_syntax/query/LIST/img5.png">
-    <img src = "/img/thanosql_syntax/query/LIST/img5.png"> </img>
-</a>
+[![IMAGE](/img/thanosql_syntax/query/LIST/img5.png)](/img/thanosql_syntax/query/LIST/img5.png)

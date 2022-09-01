@@ -27,8 +27,8 @@ For a detailed description of the model, check [the options documentation page](
 
 - [Auto-ML (automated machine learning) for classification tasks](/en/tutorials/thanosql_ml/classification/automl_classification/)
 - [Auto-ML (Automated Machine Learning) for Predictive Tasks](/en/tutorials/thanosql_ml/regression/automl_regression/)
-- [ConvNeXt for image classification](/en/tutorials/thanosql_ml/classification/classification_convNext)
-- [ELECTRA for text classification](/en/tutorials/thanosql_ml/classification/classification_Electra/)
+- [ConvNeXt for image classification](/en/tutorials/thanosql_ml/classification/classification_convnext)
+- [ELECTRA for text classification](/en/tutorials/thanosql_ml/classification/classification_electra/)
 - [wav2vec for speech recognition](/en/tutorials/thanosql_ml/audio_recognition/audio_recognition_wav2vec/)
 - [CLIP for image search by keyword](/en/tutorials/thanosql_search/image_search/clip_image_search/)
 - [SimCLR for Image Similarity Based Search](/en/tutorials/thanosql_search/image_search/simclr_image_search/)
@@ -48,8 +48,6 @@ To apply ThanoSQL's artificial intelligence algorithm, we support the following 
 ## **3. Query syntax for ThanoSQL**
 
 The query syntax retrieves one or more expressions and returns a table of calculated results. ThanoSQL provides the following query syntax.
-
-For a detailed description of the query syntax, check [the options documentation page](/en/how-to_guides/syntax_list/).
 
 - "**BUILD MODEL**" : Train the model using ThanoSQL.
 - "**FIT MODEL**" : Retrain the ThanoSQL model.

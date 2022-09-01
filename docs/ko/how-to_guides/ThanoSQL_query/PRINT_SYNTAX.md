@@ -63,9 +63,7 @@ AS
 SELECT * 
 FROM junyong_aud
 ```
-<a href = "/img/thanosql_syntax/query/PRINT/PRINT_img1.png">
-    <img src = "/img/thanosql_syntax/query/PRINT/PRINT_img1.png"></img>
-</a>
+[![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
     - `junyong_aud` : 오디오 파일 경로가 저장되어 있는 데이터 테이블
