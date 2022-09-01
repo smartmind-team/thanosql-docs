@@ -59,7 +59,7 @@ OPTIONS(
 
 #### __BUILD MODEL 쿼리 구문 예시__
 
-[고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/image_classification.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -131,7 +131,7 @@ AS
 ```
 
 #### __PREDICT USING 쿼리 구문 예시__
-[고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/image_classification.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
