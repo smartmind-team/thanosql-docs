@@ -66,7 +66,7 @@ SELECT photo_id, image_path, photo_image_url, photo_description, ai_description
 FROM unsplash_data
 LIMIT 5
 ```
-[![IMAGE](/img/thanosql_search/clip_search/select_data.png)](/img/thanosql_search/clip_search/select_data.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/select_data.png)](/img/thanosql_search/search_image_by_text/select_data.png)
 
 !!! note "데이터 이해하기"
     - `photo_id` 이미지의 고유 id 컬럼 명
@@ -83,7 +83,7 @@ SELECT image_path
 FROM unsplash_data 
 LIMIT 5
 ```
-[![IMAGE](/img/thanosql_search/clip_search/print_dataset_image.png)](/img/thanosql_search/clip_search/print_dataset_image.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/print_dataset_image.png)](/img/thanosql_search/search_image_by_text/print_dataset_image.png)
 
 ## __2. 텍스트 검색을 위한 이미지 수치화 모델 생성하기__
 
@@ -113,7 +113,7 @@ FROM unsplash_data
         - "image_col" : 이미지 경로를 담고 있는 컬럼 명
         - "batch_size" : 한번의 학습에서 읽는 데이터 세트 묶음의 크기. 논문에 따르면 클 수록 학습 성능이 증가하지만 메모리의 크기를 고려하여 128을 사용합니다. (DEFAULT : 16)  
            
-[![IMAGE](/img/thanosql_search/clip_search/select_data_with_embedding.png)](/img/thanosql_search/clip_search/select_data_with_embedding.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/select_data_with_embedding.png)](/img/thanosql_search/search_image_by_text/select_data_with_embedding.png)
 
 <br>
 
@@ -133,7 +133,7 @@ AS
 SELECT * 
 FROM unsplash_data
 ```
-[![IMAGE](/img/thanosql_search/clip_search/search_result_raw.png)](/img/thanosql_search/clip_search/search_result_raw.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/search_result_raw.png)](/img/thanosql_search/search_image_by_text/search_result_raw.png)
 
 !!! note "쿼리 세부 정보"
     - "__SEARCH IMAGE__" 쿼리 구문을 사용하여 이미지를 찾을 것임을 명시합니다. "text" 변수를 이용해서 찾고자 하는 이미지의 텍스트 내용을 입력합니다. 
@@ -154,7 +154,7 @@ FROM (
 ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
 LIMIT 5
 ```
-[![IMAGE](/img/thanosql_search/clip_search/search_result_sorted.png)](/img/thanosql_search/clip_search/search_result_sorted.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/search_result_sorted.png)](/img/thanosql_search/search_image_by_text/search_result_sorted.png)
 
 !!! note "쿼리 세부 정보"    
     - "__SEARCH IMAGE__" 쿼리 구문은 입력한 텍스트와 이미지 사이의 유사도를 계산하여 반환합니다.
@@ -181,7 +181,7 @@ AS (
     )
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/result_black_cat.png)](/img/thanosql_search/clip_search/result_black_cat.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/result_black_cat.png)](/img/thanosql_search/search_image_by_text/result_black_cat.png)
 
 
 !!! note "쿼리 세부 정보"
@@ -207,7 +207,7 @@ AS (
     )
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/result_dog_on_chair.png)](/img/thanosql_search/clip_search/result_dog_on_chair.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/result_dog_on_chair.png)](/img/thanosql_search/search_image_by_text/result_dog_on_chair.png)
 
 ```sql
 %%thanosql
@@ -226,7 +226,7 @@ AS (
     )
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/result_gloomy.png)](/img/thanosql_search/clip_search/result_gloomy.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/result_gloomy.png)](/img/thanosql_search/search_image_by_text/result_gloomy.png)
 
 
 ```sql
@@ -246,7 +246,7 @@ AS (
     )
 ```
 
-[![IMAGE](/img/thanosql_search/clip_search/result_happy.png)](/img/thanosql_search/clip_search/result_happy.png)
+[![IMAGE](/img/thanosql_search/search_image_by_text/result_happy.png)](/img/thanosql_search/search_image_by_text/result_happy.png)
 
 ## __4. 튜토리얼을 마치며__
 

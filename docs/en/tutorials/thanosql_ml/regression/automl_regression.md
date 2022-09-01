@@ -84,7 +84,7 @@ FROM bike_sharing_train
 LIMIT 5
 ```
 
-[![IMAGE](/img/thanosql_ml/regression/img1.png)](/img/thanosql_ml/regression/img1.png)
+[![IMAGE](/img/thanosql_ml/regression/automl_regression/img1.png)](/img/thanosql_ml/regression/automl_regression/img1.png)
 
 !!! note "**Understanding Data**"
     <mark style="background-color:#FFEC92 ">**bike_sharing_train**</mark> The dataset contains information on the number of bicycle rental cycles during the one-hour interval based on date and time, temperature, humidity, and wind speed from January 2011 to December 2012.
@@ -146,7 +146,7 @@ SELECT *
 FROM bike_sharing_train
 ```
 
-[![IMAGE](/img/thanosql_ml/regression/img2.png)](/img/thanosql_ml/regression/img2.png)
+[![IMAGE](/img/thanosql_ml/regression/automl_regression/img2.png)](/img/thanosql_ml/regression/automl_regression/img2.png)
 
 !!! note "**Query Details**" 
     - Evaluate the <mark style="background-color:#E9D7FD">bike_regression</mark> model built using the "**EVALUATE USING**" query syntax.
@@ -166,7 +166,7 @@ FROM bike_sharing_test
 LIMIT 10
 ```
 
-[![IMAGE](/img/thanosql_ml/regression/img3.png)](/img/thanosql_ml/regression/img3.png)
+[![IMAGE](/img/thanosql_ml/regression/automl_regression/img3.png)](/img/thanosql_ml/regression/automl_regression/img3.png)
 !!! note "__Query Details__"  
     - Use the "__PREDICT USING__" query syntax to use the <mark style="background-color:#E9D7FD">bike_regression</mark> model for prediction. 
     - For "__PREDICT__", you do not need any special option values because you follow the procedure of the generated model.

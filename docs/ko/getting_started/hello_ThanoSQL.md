@@ -68,3 +68,25 @@ LIST THANOSQL DATASET
 ```
 
 [![IMAGE](/img/getting_started/img10.png)](/img/getting_started/img10.png)
+
+
+
+
+## __4. 튜토리얼 가져오기__
+
+아래 문을 실행시키면 ThanoSQL의 전체 튜토리얼들을 자신의 워크스페이스에 가지고 올 수 있습니다. 
+
+```sql
+! git clone https://github.com/smartmind-team/thanosql-tutorial.git
+```
+
+특정 튜토리얼을 가지고 오고 싶다면 아래의 문을 실행시키면 됩니다. 가져올 튜토리얼의 Github URL은 아래의 링크를 통해 확인할 수 있습니다. 
+
+<br>
+
+튜토리얼 Github URL 리스트
+
+```sql
+! wget [가져올 tutorial의 Github URL]
+```
+

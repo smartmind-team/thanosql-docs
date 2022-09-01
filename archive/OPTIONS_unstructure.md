@@ -59,7 +59,7 @@ OPTIONS(
 
 #### __BUILD MODEL 쿼리 구문 예시__
 
-[고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/image_classification.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -131,7 +131,7 @@ AS
 ```
 
 #### __PREDICT USING 쿼리 구문 예시__
-[고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_convNext.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[고양이와 강아지 분류하는 이미지 분류 모델 만들기](/tutorials/thanosql_ml/classification/image_classification.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -234,7 +234,7 @@ OPTIONS(
 
 #### __BUILD MODEL 쿼리 구문 예시__
 
-[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/text_classification.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -307,7 +307,7 @@ AS
 ```
 
 #### __PREDICT USING 쿼리 구문 예시__
-[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/text_classification.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -410,7 +410,7 @@ OPTIONS(
 
 #### __BUILD MODEL 쿼리 구문 예시__
 
-[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/text_classification.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -482,7 +482,7 @@ AS
 ```
 
 #### __PREDICT USING 쿼리 구문 예시__
-[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[영화 리뷰에 내포된 감정(긍정 또는 부정) 분류 모델 만들기](/tutorials/thanosql_ml/classification/text_classification.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -624,7 +624,7 @@ OPTIONS(
 #### __CONVERT TABLE 구문 예시__
 
 
-[CLIP을 통한 의미 검색](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[CLIP을 통한 의미 검색](/tutorials/thanosql_ml/classification/text_classification.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 
 ```sql
@@ -654,7 +654,7 @@ text, texts, image, images 중 하나를 입력으로 받아야 합니다. text�
 
 #### __SEARCH IMAGE 구문 예시__
 
-[CLIP을 통한 의미 검색](/tutorials/thanosql_ml/classification/classification_Electra.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[CLIP을 통한 의미 검색](/tutorials/thanosql_ml/classification/text_classification.md)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
