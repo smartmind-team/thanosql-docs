@@ -30,7 +30,7 @@ AS
 ## __3. BUILD MODEL 구문 예시__
 ### __3-1. 분류 모델 생성을 위한 Auto_ML 모델 사용__
 
-아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 모델을 ThanoSQL에서 제공하는 ["AutomlClassifier"](https://www.automl.org/automl/) 모델을 사용하여 분류 모델을 만듭니다. 전체 과정이 궁금하다면, [Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)를 진행해 보세요.
+아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 모델을 ThanoSQL에서 제공하는 ["AutomlClassifier"](https://www.automl.org/automl/) 모델을 사용하여 분류 모델을 만듭니다. 전체 과정이 궁금하다면, [Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/ko/tutorials/thanosql_ml/classification/automl_classification.ipynb/)를 진행해 보세요.
 
 ```sql
 %%thanosql
