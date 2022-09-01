@@ -1,4 +1,4 @@
 nav:
     - automl_classification.ipynb
-    - classification_convnext.ipynb
+    - image_classification.ipynb
     - classification_electra.ipynb

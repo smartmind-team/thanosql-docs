@@ -1,4 +1,4 @@
 nav:
-    - select_image_query.md
-    - simclr_image_search.md
-    - clip_image_search.md
+    - search_image_by_keyword.md
+    - search_image_by_image.md
+    - search_image_by_text.md
