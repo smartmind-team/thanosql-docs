@@ -15,7 +15,6 @@ title: How to use ThanoSQL
 [![IMAGE](/en/img/getting_started/img0.png)](/en/img/getting_started/img0.png)
 
 !!! note ""
-      ThanoSQL is available free of charge to everyone during the promotion period from June 1st to August 31st.
       ThanoSQL users must sign up to use the console.
 
 ## **2. Create Account**

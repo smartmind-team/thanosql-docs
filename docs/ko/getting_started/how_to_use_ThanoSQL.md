@@ -16,7 +16,6 @@ title: ThanoSQL 웹 사용법
 [![IMAGE](/img/getting_started/img0.png)](/img/getting_started/img0.png)
 
 !!! note ""
-      ThanoSQL은 6월 1일부터 8월 31일 프로모션 기한 동안 제한 없이 모든 사람들이 무료로 이용할 수 있습니다.
       ThanoSQL 사용자들은 콘솔을 사용 하기 위해서는 필수로 회원가입을 진행해야 합니다.
 
 
