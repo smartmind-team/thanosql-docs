@@ -13,8 +13,6 @@ title: Intro
 
 ThanoSQL은 정형과 비정형 데이터 모두 ^^SQL^^ 만으로 [쿼리(Query, 질의)](https://ko.wikipedia.org/wiki/%EC%BF%BC%EB%A6%AC)와 AI(인공지능) 모델링이 가능한 통합 플랫폼입니다. ^^RDB(Relational DataBase, 관계형 데이터베이스)^^, AI 그리고 Big Data Platform의 기능을 하나의 플랫폼에서 적용할 수 있으며 AI 기반의 디지털 전환 시 발생하는 비효율성을 획기적으로 줄일 수 있습니다. 
 
-[ThanoSQL 사용해보기](https://www.thanosql.ai){.md-button .md-button--primary}
-
 - ThanoSQL은 정형과 ^^비정형 데이터^^ 모두 SQL만으로 쿼리가 가능하며, 빠른 AI 모델링이 가능합니다.   
 - ^^람다 아키텍처^^ 기반의 비정형 빅데이터 플랫폼을 ThanoSQL 하나로 대체하여 개발, 배포 그리고 운영을 하나의 프로세스로 가능하게 합니다.  
 - 빅데이터 처리 및 분산 병렬처리 기술을 기반으로 하여 기존 대비 2배 이상 빠르게 데이터 처리가 가능합니다.
@@ -45,4 +43,4 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
 
 ThanoSQL의 혁신적인 결과를 지금 체험해보세요
 
-[시작해보기](https://www.thanosql.ai/){.md-button .md-button--primary}
+[ThanoSQL 사용해보기](https://www.thanosql.ai){.md-button .md-button--primary}

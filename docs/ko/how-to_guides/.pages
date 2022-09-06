@@ -1,4 +1,5 @@
 nav:
+    - reference.md
     - algorithm_list.md
     - ThanoSQL_query
     - ThanoSQL_ml
