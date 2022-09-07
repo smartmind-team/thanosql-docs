@@ -1,8 +1,8 @@
 ---
-title: 비정형 특성 추가하기
+title: CONVERT
 ---
 
-# __비정형 특성 추가하기 (CONVERT USING)__
+# __CONVERT__
 
 ## 시작 전 사전 정보
 

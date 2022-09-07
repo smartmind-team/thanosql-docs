@@ -1,8 +1,8 @@
 ---
-title: 모델 업로드 하기 
+title: UPLOAD MODEL
 ---
 
-# __모델 업로드 하기 (UPLOAD)__
+# __UPLOAD MODEL__
 
 ## 시작 전 사전 정보
 

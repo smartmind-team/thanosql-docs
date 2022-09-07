@@ -1,8 +1,8 @@
 ---
-title: 모델 삭제하기
+title: DELETE MODEL
 ---
 
-# __모델 삭제하기 (DELETE MODEL)__
+# __DELETE MODEL__
 
 ## 시작 전 사전 정보
 

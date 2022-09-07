@@ -1,8 +1,8 @@
 ---
-title: 모델 재학습하기
+title: FIT MODEL
 ---
 
-# __모델 재학습하기 (FIT MODEL)__
+# __FIT MODEL__
 
 ## 시작 전 사전 정보
 

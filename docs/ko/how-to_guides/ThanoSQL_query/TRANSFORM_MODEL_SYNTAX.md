@@ -1,8 +1,8 @@
 ---
-title: 모델 적용을 위해 데이터 전처리하기
+title: TRANSFORM
 ---
 
-# __모델 적용을 위해 데이터 전처리하기 (TRANSFORM USING)__
+# __TRANSFORM__
 
 ## 시작 전 사전 정보
 

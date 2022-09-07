@@ -1,5 +1,5 @@
 ---
-title: Intro
+title: 개요
 ---
 
 # __ThanoSQL__

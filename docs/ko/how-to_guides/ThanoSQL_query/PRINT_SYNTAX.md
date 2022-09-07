@@ -1,8 +1,8 @@
 ---
-title: 결과 출력하기
+title: PRINT
 ---
 
-# __결과 출력하기 (PRINT)__
+# __PRINT__
 
 ## 시작 전 사전 정보
 

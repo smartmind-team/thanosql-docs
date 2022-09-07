@@ -1,8 +1,8 @@
 ---
-title: 모델 적용하기
+title: PREDICT
 ---
 
-# __모델 적용하기 (PREDICT USING)__
+# __PREDICT__
 
 ## 시작 전 사전 정보
 

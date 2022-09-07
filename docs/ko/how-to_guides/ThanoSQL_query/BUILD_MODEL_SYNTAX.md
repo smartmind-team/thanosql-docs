@@ -1,8 +1,8 @@
 ---
-title: 모델 학습하기
+title: BUILD MODEL
 ---
 
-# __모델 학습하기 (BUILD MODEL)__ 
+# __BUILD MODEL__ 
 
 ## 시작 전 사전 정보
 

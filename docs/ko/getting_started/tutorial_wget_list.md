@@ -1,19 +1,19 @@
 ---
-title: 원하는 Tutorial 가져오기
+title: 원하는 튜토리얼 가져오기
 ---
 
-# __원하는 Tutorial 가져오기__ 
+# __원하는 튜토리얼 가져오기__ 
 
-특정 Tutorial만 자신의 워크스페이스로 가지고 오고 싶다면 아래와 같이 wget 메서드를 사용하면 됩니다. 
+특정 튜토리얼만 자신의 워크스페이스로 가지고 오고 싶다면 아래와 같이 wget 메서드를 사용하면 됩니다. 
 
 ## __1. Jupyter 노트북 상에서 wget 사용 방법__
 
 ```
-!wget [가져올 Tutorial의 Github URL]
+!wget [가져올 튜토리얼의 Github URL]
 ```
-## __2. Tutorial별 Github URL__
+## __2. 튜토리얼별 Github URL__
 
-| Tutorial      | URL                          |
+| 튜토리얼      | URL                          |
 | :---------: | :----------------------------------: |
 | `키워드로 이미지 검색하기`       | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial/thanosql_search/search_image_by_keyword.ipynb |
 | `이미지로 이미지 검색하기`       | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial/thanosql_search/search_image_by_image.ipynb  |

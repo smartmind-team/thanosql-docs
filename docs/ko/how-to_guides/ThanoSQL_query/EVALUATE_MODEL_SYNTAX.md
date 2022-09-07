@@ -1,8 +1,8 @@
 ---
-title: 모델 평가하기
+title: EVALUATE
 ---
 
-# __모델 평가하기 (EVALUATE USING)__
+# __EVALUATE__
 
 ## 시작 전 사전 정보
 

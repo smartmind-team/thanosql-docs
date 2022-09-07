@@ -1,8 +1,8 @@
 ---
-title: 비정형 데이터 변환하기
+title: CREATE TABLE
 ---
 
-# __비정형 데이터 변환하기 (CREATE TABLE)__
+# __CREATE TABLE__
 
 ## 시작 전 사전 정보
 
