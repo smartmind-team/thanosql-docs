@@ -30,7 +30,7 @@ plugins:
       nav_translations: # manage directory names
         ko:
           Getting started: 시작하기
-          Tutorials: 사용해보기
+          Tutorials: 튜토리얼
           Image search: Query 무작정 따라하기
           Thanosql ml: ML 무작정 따라하기
           Classification: 분류 모델 만들기
