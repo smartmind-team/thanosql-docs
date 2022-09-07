@@ -1,4 +1,5 @@
 nav:
+    - algorithm_list.md
     - hello_thanosql.ipynb
     - tutorial_wget_list.md
     - thanosql_search
