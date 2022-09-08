@@ -35,8 +35,6 @@ title: 개요
 
 ### __ThanoSQL Rest API Reference__ 
 
-- [__데이터 불러오기__](/ko/how-to_guide/ThanoSQL_connecting/data_upload/)
-- [__인증 가능한 토큰 생성__](/ko/how-to_guides/ThanoSQL_connecting/rest_api_token/)
 - [__ThanoSQL 구문 활용__](/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_query/)
 - [__ThanoSQL DB 업로드__](/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_insert/)
 - [__ThanoSQL 서치 사용__](/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_search/)
