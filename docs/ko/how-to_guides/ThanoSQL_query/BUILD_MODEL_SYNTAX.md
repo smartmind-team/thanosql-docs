@@ -4,10 +4,6 @@ title: BUILD MODEL
 
 # __BUILD MODEL__ 
 
-## 시작 전 사전 정보
-
-- 마지막 수정날짜 : {{ git_revision_date_localized }}
-
 ## __1. BUILD MODEL 구문 개요__
 
 사용자는 데이터 과학(Data Science)에 대한 전문 지식이 없어도 간단하게 "__BUILD MODEL__" 구문을 사용하여 원하는 인공지능 모델을 개발할 수 있습니다.

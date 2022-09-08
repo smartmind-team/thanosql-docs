@@ -4,10 +4,6 @@ title: DELETE MODEL
 
 # __DELETE MODEL__
 
-## 시작 전 사전 정보
-
-- 마지막 수정날짜 : {{ git_revision_date_localized }}
-
 ## __1. DELETE MODEL 구문 개요__ 
 
 사용자는 "__DELETE MODEL__" 구문을 사용하여 데이터 베이스에 만들어진 모델을 삭제할 수 있습니다. 

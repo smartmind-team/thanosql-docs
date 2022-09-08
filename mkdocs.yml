@@ -39,6 +39,7 @@ plugins:
           How to guides: 참조
           ThanoSQL query: ThanoSQL Statement Reference
           ThanoSQL connecting: ThanoSQL REST API Reference
+          ThanoSQL model: ThanoSQL Pre-built Model Statement Reference
           Thanosql api: REST API 사용하기
           FAQ: 자주 묻는 질문
         en:

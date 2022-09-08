@@ -4,13 +4,9 @@ title: UPLOAD MODEL
 
 # __UPLOAD MODEL__
 
-## 시작 전 사전 정보
+## __1. UPLOAD MODEL 구문 개요__
 
-- 마지막 수정날짜 : {{ git_revision_date_localized }}
-
-## __1. UPLOAD 구문 개요__
-
-사용자는 "__UPLOAD__" 구문을 사용하여 직접 만든 모델들을 업로드하여 ThanoSQL 상에서 이용할 수 있습니다. 
+사용자는 "__UPLOAD MODEL__" 구문을 사용하여 직접 만든 모델들을 업로드하여 ThanoSQL 상에서 이용할 수 있습니다. 
 
 ## __2. UPLOAD MODEL 구문__
 ```sql

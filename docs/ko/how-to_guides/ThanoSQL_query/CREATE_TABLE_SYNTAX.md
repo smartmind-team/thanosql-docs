@@ -4,10 +4,6 @@ title: CREATE TABLE
 
 # __CREATE TABLE__
 
-## 시작 전 사전 정보
-
-- 마지막 수정날짜 : {{ git_revision_date_localized }}
-
 ## __1. CREATE TABLE 쿼리 구문 개요__ 
 
 사용자는 "__CREATE TABLE__" 구문을 사용하여 비정형 데이터 (이미지, 오디오, 비디오 등)를 수치화 알고리즘을 사용하여 벡터 형식으로 변환한 데이터 테이블을 생성할 수 있습니다.

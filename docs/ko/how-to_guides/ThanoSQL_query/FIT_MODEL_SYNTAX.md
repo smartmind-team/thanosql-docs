@@ -4,10 +4,6 @@ title: FIT MODEL
 
 # __FIT MODEL__
 
-## 시작 전 사전 정보
-
-- 마지막 수정날짜 : {{ git_revision_date_localized }}
-
 ## __1. FIT MODEL 구문 개요__ 
 
 사용자는 데이터 과학(Data Science)에 대한 전문 지식이 없어도 간단하게 "__FIT MODEL__" 구문을 사용하여 모델에 새롭게 추가된 데이터 세트를 사용하여 학습할 수 있습니다.
