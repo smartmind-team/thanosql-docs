@@ -96,14 +96,14 @@ If you want to import only certain tutorial into your workspace, use the wget me
 
 | Tutorial | URL |
 | :---------: |  :----------------------------------: |
-| `Search images with keywords` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial/thanosql_search/search_image_by_keyword.ipynb |
-| `Search images with images` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial/thanosql_search/search_image_by_image.ipynb |
-| `Search images with text` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial/thanosql_search/search_image_by_text.ipynb |
-| `Create classification model using Auto-ML` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial/thanosql_ml/classification/automl_classification.ipynb |
-| `Create Image Classification Model` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial/thanosql_ml/classification/image_classification.ipynb |
-| `Create text classification model` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial/thanosql_ml/classification/text_classification.ipynb |
-| `Create regression model using Auto-ML` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial/thanosql_ml/regression/automl_regression.ipynb |
-| `Create voice recognition model that dictates audio files` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial/thanosql_ml/audio_recognition/speech_recognition.ipynb |
-|`Use your model in ThanoSQL`| https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial/thanosql_ml/udm_tutorial.ipynb |
+| `Search images with keywords` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_keyword.ipynb |
+| `Search images with images` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_image.ipynb |
+| `Search images with text` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_text.ipynb |
+| `Create classification model using Auto-ML` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/classification/automl_classification.ipynb |
+| `Create Image Classification Model` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/classification/image_classification.ipynb |
+| `Create text classification model` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/classification/text_classification.ipynb |
+| `Create regression model using Auto-ML` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/regression/automl_regression.ipynb |
+| `Create voice recognition model that dictates audio files` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/audio_recognition/speech_recognition.ipynb |
+|`Use your model in ThanoSQL`| https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/udm_tutorial.ipynb |
 
 
