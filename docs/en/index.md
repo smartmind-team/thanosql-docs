@@ -13,7 +13,7 @@ title: Intro
 
 ThanoSQL is an integrated platform that is capable of [query](https://en.wikipedia.org/wiki/Query) and AI (artificial intelligence) modeling both structured and __unstructured data__[^1] with only __SQL__[^2]. You can apply the functions of __RDB (Relational Database)__[^3], AI, and Big Data Platform within one platform and significantly reduce inefficiencies that occur during AI-based digital transformation.
 
-- ThanoSQL can query both structured and ^^unstructured data^^ with SQL alone and enables rapid AI modeling.
+- ThanoSQL can query both structured and unstructured data with SQL alone and enables rapid AI modeling.
 - By replacing the __lambda architecture__[^4]-based unstructured big data platform with one ThanoSQL, development, deployment, and operation can be done in a single process.
 - Based on big data processing and distributed parallel processing technology, data processing is more than twice as fast as before.
 
