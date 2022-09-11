@@ -1,8 +1,8 @@
 ---
-title: How to use ThanoSQL
+title: How to use ThanoSQL Web
 ---
 
-# **How to use the ThanoSQL Web Service**
+# **How to use the ThanoSQL Web**
 
 ## Preface
 
@@ -34,9 +34,6 @@ title: How to use ThanoSQL
 ## **3. Using the ThanoSQL Console**
 
 - After completing your membership, return to the login page and enter your email and password to log in. If you are logged in for the first time, you can use the service by creating a workspace.
-
-!!! note ""
-      During the promotion period, you are limited to one workspace per account.
 
 [![IMAGE](/en/img/getting_started/img3.png){: style="width:450px"}](/en/img/getting_started/img3.png)
 
