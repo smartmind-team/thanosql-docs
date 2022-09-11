@@ -41,7 +41,7 @@ ThanoSQL의 혁신적인 결과를 지금 체험해보세요
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/ko/getting_started/how_to_use_ThanoSQL/">
+            <a href="/getting_started/how_to_use_ThanoSQL/">
                 <h3>
                     ThanoSQL 웹 사용법
                 </h3>
@@ -51,7 +51,7 @@ ThanoSQL의 혁신적인 결과를 지금 체험해보세요
             </a>
         </li>
         <li>
-            <a href="/ko/getting_started/hello_ThanoSQL/">
+            <a href="/getting_started/hello_ThanoSQL/">
                 <h3>
                     ThanoSQL 워크스페이스 사용법
                 </h3>
@@ -61,7 +61,7 @@ ThanoSQL의 혁신적인 결과를 지금 체험해보세요
             </a>
         </li>
         <li>
-            <a href="/ko/getting_started/data_upload/">
+            <a href="/getting_started/data_upload/">
                 <h3>
                     ThanoSQL 데이터 업로드하기
                 </h3>
@@ -80,7 +80,7 @@ ThanoSQL의 혁신적인 결과를 지금 체험해보세요
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/ko/tutorials/algorithm_list/">
+            <a href="/tutorials/algorithm_list/">
                 <h3>
                     ThanoSQL 튜토리얼
                 </h3>
@@ -98,7 +98,7 @@ ThanoSQL의 혁신적인 결과를 지금 체험해보세요
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/ko/how-to_guides/reference/">
+            <a href="/how-to_guides/reference/">
                 <h3>
                     ThanoSQL 참조
                 </h3>

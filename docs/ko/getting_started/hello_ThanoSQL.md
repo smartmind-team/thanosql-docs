@@ -24,7 +24,7 @@ ThanoSQL의 워크스페이스는 [Jupyter Lab](https://github.com/jupyterlab/ju
     API 토큰은 새롭게 발급 받을수 있지만 새롭게 발급 받으면 이전에 발급 받은 토큰은 더 이상 사용 할수 없는 점 유의하시기 바랍니다. 
 
 !!! tip "생성된 API 토큰을 이용하여 ThanoSQL의 모든 REST API를 사용하실수 있습니다"
-    ThanoSQL에서 REST API 사용에 대한 자세한 내용은 [참조 페이지의 __ThanoSQL REST API Reference__](/ko/how-to_guides/reference/#thanosql-rest-api-reference)에서 확인하세요.
+    ThanoSQL에서 REST API 사용에 대한 자세한 내용은 [참조 페이지의 __ThanoSQL REST API Reference__](/how-to_guides/reference/#thanosql-rest-api-reference)에서 확인하세요.
 
 ```sql
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
@@ -59,7 +59,7 @@ LIST THANOSQL MODEL
 
 [![IMAGE](/img/getting_started/img6.png)](/img/getting_started/img6.png)
 
-아래 ThanoSQL문을 실행시키면 [ThanoSQL 기술 문서에 있는 튜토리얼](/ko/tutorials/algorithm_list/)에 있는 튜토리얼 목록을 확인할 수 있습니다.
+아래 ThanoSQL문을 실행시키면 [ThanoSQL 기술 문서에 있는 튜토리얼](/tutorials/algorithm_list/)에 있는 튜토리얼 목록을 확인할 수 있습니다.
 
 ```sql
 %%thanosql
@@ -69,7 +69,7 @@ LIST THANOSQL TUTORIAL
 [![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
 
 
-아래 ThanoSQL문을 실행시키면 [ThanoSQL 기술 문서에 있는 튜토리얼](/ko/tutorials/algorithm_list/)에서 사용된 데이터 테이블 리스트를 확인할 수 있습니다.
+아래 ThanoSQL문을 실행시키면 [ThanoSQL 기술 문서에 있는 튜토리얼](/tutorials/algorithm_list/)에서 사용된 데이터 테이블 리스트를 확인할 수 있습니다.
 
 ```sql
 %%thanosql
