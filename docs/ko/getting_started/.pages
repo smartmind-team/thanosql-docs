@@ -1,6 +1,4 @@
 nav:
     - how_to_use_ThanoSQL.md
     - hello_ThanoSQL.md
-    - tutorial_wget_list.md
     - data_upload.md
-    - rest_api_token.md
