@@ -31,8 +31,8 @@ plugins:
         ko:
           Getting started: 시작하기
           Tutorials: 튜토리얼
-          Image search: Query 무작정 따라하기
-          Thanosql ml: ML 무작정 따라하기
+          Thanosql search: ThanoSQL Search
+          Thanosql ml: ThanoSQL ML
           Classification: 분류 모델 만들기
           Regression: 회귀 모델 만들기
           Audio recognition: 음성 인식 모델 만들기
