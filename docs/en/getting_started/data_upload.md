@@ -122,7 +122,7 @@ Through the above steps, you can transfer image files in the local working direc
 |sftp remote-system: file|Copy the named file from remote-system.|
 |bye|End the sftp session.|
 |help|List all sftp commands|
-|ls|Lists the contents of the remote working directory.|
+|ls|List the contents of the remote working directory.|
 |lls|List the contents of the local working directory.|
 |pwd|Display the name of the remote working directory.|
 |cd|Change the remote working directory.|
