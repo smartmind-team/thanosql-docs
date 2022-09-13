@@ -1,18 +1,14 @@
 ---
-title: Add unstructured properties
+title: CONVERT
 ---
 
-# **Add unstructured properties (CONVERT USING)**
+# __CONVERT__
 
-## Preface
+## __1. CONVERT Query Syntax Overview__
 
-- Updated Date : {{ git_revision_date_localized }}
+The "__CONVERT__" syntax uses information from unstructured data, such as images, videos, and voice, to convert to vector format using a quantization algorithm and add this value to the dataset you want to use.
 
-## **1. CONVERT USING Query Syntax Overview**
-
-The "**CONVERT USING**" syntax uses information from unstructured data, such as images, videos, and voice, to convert to vector format using a quantization algorithm and add this value to the dataset you want to use.
-
-## **2. CONVERT USING Query Syntax**
+## __2. CONVERT Query Syntax__
 
 ```sql
 CONVERT USING [AI_model_to_use]
@@ -23,9 +19,9 @@ AS
 [data_set_to_use]
 ```
 
-## **3. CONVERT USING Query Syntax example**
+## __3. CONVERT Query Syntax example__
 
-### **3.1 `Color_descriptor` Image quantification using algorithms**
+### __3.1 `Color_descriptor` Image quantification using algorithms__
 
 The example below uses the color feature extraction model created in [Transform Unstructured Data(CREATE TABLE)](/en/how-to_guides/ThanoSQL_query/CREATE_TABLE_SYNTAX/) to store the quantized results by adding a new column to the "color_descriptor_table_test" table stored in the ThanoSQL DB.
 
@@ -42,7 +38,7 @@ FROM color_descriptor_table_test
 
 [![IMAGE](/img/thanosql_syntax/query/CONVERT/img1.png)](/img/thanosql_syntax/query/CONVERT/img1.png)
 
-### **3.2 `clip_en` Image digitization using algorithms**
+### __3.2 `clip_en` Image digitization using algorithms__
 
 The example below stores the quantized results using the `clip_en` algorithm by adding a new column to the "mnist_dataset" table stored on the ThanoSQL DB.
 

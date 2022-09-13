@@ -45,7 +45,10 @@ plugins:
         en:
           Getting started: Getting Started
           Tutorials: Tutorials
-          How to guides: Guides
+          How to guides: Reference
+          ThanoSQL query: ThanoSQL Statement Reference
+          ThanoSQL connecting: ThanoSQL REST API Reference
+          ThanoSQL model: ThanoSQL Pre-built Model Statement Reference
           FAQ: FAQ
   - awesome-pages: # Omits nav and control over page
       strict: false # For ipynb tutorial folder
