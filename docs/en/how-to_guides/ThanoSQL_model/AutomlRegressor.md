@@ -14,13 +14,13 @@ __Notation Conventions__
 - VALUE means just value.
 
 !!! note ""
-    __literal__ : A fixed or unchangeable value, also known as Constant.
-    > Each literal has a special data type such as column, in the data table.
+    __literal__ : A fixed or unchangeable value, also known as a Constant.
+    > Each literal has a special data type such as column, in the table.
 
-## __BUILD MODEL Query Syntax__
+## __BUILD MODEL Query Statement__
 
-Use this "__BUILD MODEL__" query syntax to develop an AI model.
-The "__BUILD MODEL__" expression allows you to learn defined data sets through query_expr after "__AS__".
+Use the "__BUILD MODEL__" query statement to develop an AI model.
+The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -35,7 +35,7 @@ AS
 (query_expr)
 ```
 
-**OPTIONS 절**
+**OPTIONS Clause**
 
 ```sql
 OPTIONS(
@@ -49,24 +49,24 @@ OPTIONS(
     )
 ```
 
-The "**OPTIONS**" clause allows you to change the value of the AutomlRegressor parameter from its default value. The meaning of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlRegressor model. The definition of each parameter is as follows.
 
-- "target" : Sets the column in the data table to target the regression prediction model.
-- "impute_type" : Sets how the data table handles empty values. (DEFAULT: "simple")
-> "simple" : For empty values, categorical variables are treated as the least value and continuous variables as the mean.  
-> "iterative" : applies an algorithm that predicts through the remaining properties for empty values.
-- "features_to_drop" : Sets columns not available for learning in the data table.
-- "datetime_attribs" : Sets the column corresponding to the date in the data table.
-- "outlier_method" : Sets how the data table handles outliers. (DEFAULT: "iso")
-> "pca" : Detect abnormal samples by reducing and restoring dimensions using Principal Component Analysis (PCA) for a given data table.  
-> "iso" : For a given data table, we use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (It works efficiently on a data set with many variables)  
-> "knn" : A K-NN-based approach detects abnormal samples based on the distance between each data.
-- "time_left_for_this_task" : means the time it takes to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
-- "overwrite" : Sets whether or not a model with the same name can be overwritten if it exists. If true, the existing model will be changed to the new model. (DEFAULT: False)
+- "target" : Sets the name of the column that has the target value for the classification prediction model in the table.
+- "impute_type" : Determines how empty values are handled in the data table.(DEFAULT : "simple")
+> "simple" : For empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
+> "iterative" : Applies an algorithm that predicts empty values with the remaining properties.
+- "features_to_drop" : Selects columns that are not needed for training.
+- "datetime_attribs" : Selects columns corresponding to the date.
+- "outlier_method" : Determines how outliers are handled in the table.(DEFAULT : "iso")
+> "pca" : Detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA).  
+> "iso" : Use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (Works efficiently on datasets with many variables.)  
+>  "knn" : Use a K-NN-based approach to detect abnormal samples based on the distance between each data.
+- "time_left_for_this_task" : Indicates the time the regressor will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
+- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT : False)
 
-**BUILD MODEL Query Syntax Example**
+**BUILD MODEL Query Statement Example**
 
-An example of using the algorithm query syntax can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+An example can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -83,9 +83,9 @@ SELECT *
 FROM bike_sharing
 ```
 
-## **FIT MODEL Query Syntax**
+## **FIT MODEL Query Statement**
 
-This "**FIT MODEL**" query syntax lets you re-learn artificial intelligence models. The "**FIT MODEL**" expression allows you to re-learn defined data sets via query_expr after "**AS**".
+The "**FIT MODEL**" query statement lets you re-train artificial intelligence models. The "**FIT MODEL**" expression allows you to re-train datasets defined with the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -100,7 +100,7 @@ AS
 (query_expr)
 ```
 
-**OPTIONS 절**
+**OPTIONS Clause**
 
 ```sql
 OPTIONS(
@@ -114,24 +114,24 @@ OPTIONS(
     )
 ```
 
-The "**OPTIONS**" clause allows you to change the value of the AutomlRegressor parameter from its default value. The meaning of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlRegressor model. The definition of each parameter is as follows.
 
-- "target" : Sets the column in the data table to target the regression prediction model.
-- "impute_type" : Sets how the data table handles empty values. (DEFAULT: "simple")
-> "simple" : For empty values, categorical variables are treated as the least value and continuous variables as the mean.  
-> "iterative" : applies an algorithm that predicts through the remaining properties for empty values.  
-- "features_to_drop" : Sets columns not available for learning in the data table.
-- "datetime_attribs" : Sets the column corresponding to the date in the data table.
-- "outlier_method" : Sets how the data table handles outliers. (DEFAULT: "iso")
-> "pca" : Detect abnormal samples by reducing and restoring dimensions using Principal Component Analysis (PCA) for a given data table.  
-> "iso" : For a given data table, we use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (It works efficiently on a data set with many variables)  
-> "knn" : A K-NN-based approach detects abnormal samples based on the distance between each data.
-- "time_left_for_this_task" : means the time it takes to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
-- "overwrite" : Sets whether or not a model with the same name can be overwritten if it exists. If true, the existing model will be changed to the new model. (DEFAULT: False)
+- "target" : Sets the name of the column that has the target value for the classification prediction model in the table.
+- "impute_type" : Determines how empty values are handled in the data table.(DEFAULT : "simple")
+> "simple" : For empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
+> "iterative" : Applies an algorithm that predicts empty values with the remaining properties.
+- "features_to_drop" : Selects columns that are not needed for training.
+- "datetime_attribs" : Selects columns corresponding to the date.
+- "outlier_method" : Determines how outliers are handled in the table.(DEFAULT : "iso")
+> "pca" : Detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA).  
+> "iso" : Use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (Works efficiently on datasets with many variables.)  
+>  "knn" : Use a K-NN-based approach to detect abnormal samples based on the distance between each data.
+- "time_left_for_this_task" : Indicates the time the regressor will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
+- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT : False)
 
-**FIT MODEL Query Syntax Example**
+**FIT MODEL Query Statement Example**
 
-An example of using the algorithm query syntax can be found in [Re-learning the model](/en/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)
+An example can be found in [Re-learning the model](/en/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)
 
 ```sql
 %%thanosql
@@ -149,9 +149,9 @@ SELECT *
 FROM titanic_train
 ```
 
-## **TRANSFORM USING Query Syntax**
+## **TRANSFORM USING Query Statement**
 
-This "**TRANSFORM MODEL**" query syntax can be used to apply the same preprocessing method used to create AI models to test datasets. The "**TRANSFORM MODEL**" expression can preprocess the dataset defined by query_expr after "**AS**".
+The "__TRANSFORM MODEL__" query statement is used to apply the same preprocessing method used to create AI models on your test datasets. The "__TRANSFORM MODEL__" expression can preprocess the dataset defined by the query_expr that comes after the 
 
 ```sql
 query_statement:
@@ -162,9 +162,9 @@ AS
 (query_expr)
 ```
 
-**TRANSFORM USING Query Syntax example**
+**TRANSFORM USING Query Statement Example**
 
-An example of using the algorithm query syntax can be found in [Preprocessing data for model application](/en/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/).
+An example can be found in [Preprocessing data for model application](/en/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/).
 
 ```sql
 %%thanosql
@@ -174,10 +174,10 @@ SELECT *
 FROM titanic_test
 ```
 
-## **PREDICT USING Query Syntax**
+## **PREDICT USING Query Statement**
 
-Use this "**PREDICT USING**" query syntax to apply artificial intelligence models to test datasets to perform prediction, classification, recommendation, and more.
-The "**PREDICT USING**" expression can preprocess the dataset defined by query_expr after "**AS**".
+Use the "__PREDICT USING__" query statement to apply artificial intelligence models to test datasets to perform prediction, classification, recommendation, and more. 
+The "__PREDICT USING__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -188,9 +188,9 @@ AS
 (query_expr)
 ```
 
-**Example PREDICT USING Query Syntax**
+**Example PREDICT USING Query Statement**
 
-An example of using the algorithm query syntax can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+An example can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -200,9 +200,9 @@ SELECT *
 FROM bike_sharing_test
 ```
 
-## **EVALUATE USING Query Syntax**
+## **EVALUATE USING Query Statement**
 
-You can use this "**EVALUATE USING**" query syntax to perform evaluation on the AI model. The "**EVALUATE USING**" expression evaluates the dataset defined by query_expr after "**AS**".
+You can use the "__EVALUATE USING__" query statement to evaluate the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -224,13 +224,13 @@ OPTIONS(
     )
 ```
 
-The "**OPTIONS**" clause allows you to change the value of the parameters in the AutomlRegressor from their default values. The meaning of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlRegressor model. The definition of each parameter is as follows.
 
-- "target" : In the data table, set the columns that target the classification prediction model.
+- "target" : Sets the name of the column that has the target value for the classification prediction model in the table.
 
-**Example EVALUATE USING Query Syntax**
+**Example EVALUATE USING Query Statement**
 
-An example of using the algorithm query syntax can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+An example can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
