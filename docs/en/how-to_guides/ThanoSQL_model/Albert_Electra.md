@@ -9,7 +9,7 @@ __Notation Conventions__
 - Parentheses `()` indicate ^^literal^^ parentheses.
 - Braces `{}` are used to bind combinations of options.
 - The bracket `[]` indicates an optional clause.
-- An ellipsis following a comma in brackets [,...] means that the preceding item can be repeated as a comma-separated list
+- An ellipsis following a comma in brackets [,...] means that the preceding item can be repeated as a comma-separated list.
 - The vertical bar `|` represents the logic `OR`.
 - VALUE represents a regular value.
 
@@ -17,9 +17,9 @@ __Notation Conventions__
     __literal__ : A fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
-## __BUILD MODEL Query Statement__
+## __BUILD MODEL Query Syntax__
 
-Use the "__BUILD MODEL__" query statement to develop an AI model.
+Use the "__BUILD MODEL__" query to develop an AI model.
 The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
 
 ```sql
@@ -50,16 +50,16 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in an image model. The definition of each parameter is as follows.
 
-- "text_col" : Sets the name of the column containing the text to be classified in the table. (DEFAULT: "text")
-- "label_col" : Sets the name of the column containing the path of the label in the table. (DEFAULT : "label")
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "text_col" : Sets the name of the column containing the text to be classified. (DEFAULT: "text")
+- "label_col" : Sets the name of the column containing the path of the label. (DEFAULT : "label")
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 - "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 3)
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT: False)
 
-__BUILD MODEL Query Statement Example__
+__BUILD MODEL Query Example__
 
-An example can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_electra/).
+A sample BUILD MODEL query can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_electra/).
 
 ```sql
 %%thanosql
@@ -77,9 +77,9 @@ SELECT *
 FROM movie_review_train
 ```
 
-## __FIT MODEL Query Statement__
+## __FIT MODEL Query Syntax__
 
-The "__FIT MODEL__" query statement lets you re-train artificial intelligence models. The "__FIT MODEL__" statement allows you to re-train datasets defined with the query_expr that comes after the "__AS__" clause. In this case, the label of the data used for re-training should be the same as the label used for the previous training.
+The "__FIT MODEL__" query statement lets you retrain artificial intelligence models. The "__FIT MODEL__" statement allows you to retrain datasets defined with the query_expr that comes after the "__AS__" clause. In this case, the label of the data used for retraining should be the same as the label used for the previous training.
 
 ```sql
 query_statement:
@@ -109,14 +109,14 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in an image model. The definition of each parameter is as follows.
 
-- "text_col" : Sets the name of the column containing the text to be classified in the table. (DEFAULT: "text")
-- "label_col" : Sets the name of the column containing the path of the label in the table. (DEFAULT : "label")
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "text_col" : Sets the name of the column containing the text to be classified. (DEFAULT: "text")
+- "label_col" : Sets the name of the column containing the path of the label. (DEFAULT : "label")
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 - "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 3)
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
 - "overwrite" : Overwrite if a model with the same name exists in the DB. If True, the existing model is overwritten with the new model (DEFAULT: False)
 
-## __PREDICT USING Query Statement__
+## __PREDICT USING Query Syntax__
 
 Use the "__PREDICT USING__" query statement to apply artificial intelligence models to test datasets to perform prediction, classification, recommendation, and more. The "__PREDICT USING__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
 
@@ -132,9 +132,9 @@ AS
 (query_expr)
 ```
 
-__Example PREDICT USING Query Statement__
+__PREDICT USING Query Example__
 
-An example can be found in [Create Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_electra/).
+A sample PREDICT USING query can be found in [Create Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_electra/).
 
 ```sql
 %%thanosql
@@ -158,11 +158,11 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter in an image model. The definition of each parameter is as follows.
 
 
-- "text_col" : Sets the name of the column containing the text to be classified in the table. (DEFAULT: "text")
+- "text_col" : Sets the name of the column containing the text to be classified. (DEFAULT: "text")
 
-## __EVALUATE USING Query Statement__
+## __EVALUATE USING Query Syntax__
 
-You can use the "__EVALUATE USING__" query statement to perform evaluation on the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
+You can use the "__EVALUATE USING__" query statement to evaluate the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -187,6 +187,6 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in an image model. The definition of each parameter is as follows.
 
-- "text_col" : Sets the name of the column containing the text to be classified in the table. (DEFAULT: "text")
+- "text_col" : Sets the name of the column containing the text to be classified. (DEFAULT: "text")
 
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)

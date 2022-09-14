@@ -17,7 +17,7 @@ __Notation Conventions__
     __literal__ : A fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
-## __CREATE TABLE Query Statement__
+## __CREATE TABLE Query Syntax__
 
 You can use the "__CREATE TABLE__" statement to generate a table containing the vectors of the image data.
 
@@ -48,10 +48,10 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 - "path_type" : Sets the name of the column containing the audio files path (DEFAULT: "audio_path")
 - "data_type" : Type of data.
 - "file_type" : The extension type of the image.
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
 
-## __CONVERT USING Query Statement__
+## __CONVERT USING Query Syntax__
 
 The "__CONVERT USING__" query statement converts image data from an existing table into a vector and adds it to the table.
 
@@ -80,11 +80,11 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 - "table_name" : The name of the new table to be created.
 - "image_col" : The name of the column containing the image path. (DEFAULT : 'image_path')
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 
-__Example of CONVERT USING Statement__
+__CONVERT USING Query Example__
 
-Examples can be found in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
+Examples of CONVERT USING queries can be found in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
 
 ```sql
 %%thanosql
@@ -99,7 +99,7 @@ SELECT *
 FROM unsplash_data
 ```
 
-## __SEARCH IMAGE Query Statement__
+## __SEARCH IMAGE Query Syntax__
 
 You can use the "__SEARCH IMAGE__" query statement to retrieve the desired image from the table that generated the vectors.
 
@@ -113,9 +113,9 @@ AS
 !!! note ""
     You must choose one of (text | texts) or (image | images) as an input. The input must be a string (e.g., 'a black cat', 'data/image/image01.jpg') or a list of strings (e.g., ['a black cat', 'a orange cat'], ['data/image/image01.jpg', 'data/image/image02.jpg']).
 
-__Example SEARCH IMAGE Statement__
+__SEARCH IMAGE Query Example__
 
-Examples can be found in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
+Examples of SEARCH IMAGE queries can be found in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
 
 ```sql
 %%thanosql

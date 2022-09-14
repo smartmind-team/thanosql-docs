@@ -20,9 +20,9 @@ __Notation Conventions__
 
 
 
-## __BUILD MODEL Query Statement__
+## __BUILD MODEL Query Syntax__
 
-Use the "__BUILD MODEL__" query statement to develop an AI model.
+Use the "__BUILD MODEL__" query to develop an AI model.
 The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
 
 ``` sql
@@ -39,7 +39,7 @@ AS
 ``` 
 
 !!! faq ""
-    Use this query to save the base model that follows the USING clause as model_name_expression.
+    Use this query to save the base model that comes after the USING clause as model_name_expression.
 
  __OPTIONS clause__
 
@@ -57,7 +57,7 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlClassifier model. The definition of each parameter is as follows.
 
-- "target" : Sets the name of the column that has the target value for the classification prediction model in the table.
+- "target" : Sets the name of the column that has the target value for the classification prediction model.
 - "impute_type" : Determines how empty values are handled in the data table.(DEFAULT : "simple")
 > "simple" : For empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
 > "iterative" : Applies an algorithm that predicts empty values with the remaining properties.
@@ -70,9 +70,9 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 - "time_left_for_this_task" : Indicates the time the classifier will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT : False)
 
-__BUILD MODEL Query Statement example__
+__BUILD MODEL Query Example__
 
-Examples can be found in [Creating a classification model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
+Examples of BUILD MODEL queries can be found in [Creating a classification model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql
@@ -90,9 +90,9 @@ SELECT *
 FROM titanic_train
 ```
 
-## __FIT MODEL Query Statement__
+## __FIT MODEL Query Syntax__
 
-The "__FIT MODEL__" query statement lets you re-train artificial intelligence models. The "__FIT MODEL__" expression allows you to re-train datasets defined by the query_expr that comes after the "__AS__" clause.
+The "__FIT MODEL__" query statement lets you retrain artificial intelligence models. The "__FIT MODEL__" expression allows you to retrain datasets defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -124,7 +124,7 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlClassifier model. The definition of each parameter is as follows.
 
-- "target" : Sets the name of the column that has the target value for the classification prediction model in the table.
+- "target" : Sets the name of the column that has the target value for the classification prediction model.
 - "impute_type" : Determines how empty values are handled in the data table.(DEFAULT : "simple")
 > "simple" : For empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
 > "iterative" : Applies an algorithm that predicts empty values with the remaining properties.
@@ -139,7 +139,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 
 __FIT MODEL Query Statement example__
 
-Examples can be found in [Retrain the model](/en/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)
+Examples of FIT MODEL queries can be found in [Retrain the model](/en/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)
 
 ```sql
 %%thanosql
@@ -156,7 +156,7 @@ SELECT *
 FROM titanic_train
 ```
 
-## __TRANSFORM USING Query Statement__
+## __TRANSFORM USING Query Syntax__
 
 The "__TRANSFORM MODEL__" query statement is used to apply the same preprocessing method used to create AI models on your test datasets. The "__TRANSFORM MODEL__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
 
@@ -169,9 +169,9 @@ AS
 (query_expr)
 ```
 
-__TRANSFORM USING Query Statement example__
+__TRANSFORM USING Query Example__
 
-An example can be found in [Preprocessing data for model application](/en/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/).
+A sample TRANSFORM USING query can be found in [Preprocessing data for model application](/en/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/).
 
 ```sql
 %%thanosql
@@ -181,7 +181,7 @@ SELECT *
 FROM titanic_test
 ```
 
-## __PREDICT USING Query Statement__
+## __PREDICT USING Query Syntax__
 
 Use the "__PREDICT USING__" query statement to apply artificial intelligence models to test datasets to perform prediction, classification, recommendation, and more. The "__PREDICT USING__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
 
@@ -194,9 +194,9 @@ AS
 (query_expr)
 ```
 
-__PREDICT USING Query Statement Example__
+__PREDICT USING Query Example__
 
-Examples can be found in [Create Classification Model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
+Examples of PREDICT USING queries can be found in [Create Classification Model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql
@@ -206,7 +206,7 @@ SELECT *
 FROM titanic_test
 ```
 
-## __EVALUATE USING Query Statement__
+## __EVALUATE USING Query Syntax__
 
 You can use the "__EVALUATE USING__" query statement to evaluate the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
 
@@ -232,11 +232,11 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlClassifier model. The definition of each parameter is as follows.
 
-- "target" : Sets the name of the column that has the target value for the classification prediction model in the table.
+- "target" : Sets the name of the column that has the target value for the classification prediction model.
 
 __EVALUATE USING Query Statement Example__
 
-Examples can be found in [Create Classification Model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
+Examples of EVALUATE USING queries can be found in [Create Classification Model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql

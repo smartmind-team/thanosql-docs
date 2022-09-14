@@ -11,17 +11,17 @@ __Notation Conventions__
 - The bracket `[]` indicates an optional clause.
 - An ellipsis following a comma in brackets [,...] means that the preceding item can be repeated as a comma-separated list
 - The vertical bar `|` represents the logic `OR`.
-- VALUE means just value.
+- VALUE represents a regular value.
 
 !!! note ""
-    __literal__ : A fixed or unchangeable value, also known as Constant.
-    > Each literal has a special data type such as column, in the data table.
+    __literal__ : A fixed or unchangeable value, also known as a Constant.
+    > Each literal has a special data type such as column, in the table.
 
 
 ## __BUILD MODEL Query Syntax__
 
-Use this "__BUILD MODEL__" query syntax to develop an AI model.
-The "__BUILD MODEL__" expression allows you to learn defined data sets through query_expr after "__AS__".
+Use the "__BUILD MODEL__" query to develop an AI model.
+The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -49,18 +49,18 @@ OPTIONS(
     )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter from its default value in an image model. The meaning of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "audio_col" : Sets the column containing the path of the audio files in the data table (DEFAULT: "audio_path")
-- "text_col" : Sets the column containing the audio script in the data table. (DEFAULT: "text")
-- "batch_size" : The size of a bundle of data sets read in one learning. (DEFAULT : 16)
-- "epochs" : Sets how many times the data set is repeated in total. (DEFAULT : 5)
+- "audio_col" : Sets the name of the column containing the audio path. (DEFAULT: "audio_path")
+- "text_col" : Sets the name of the column containing the audio script. (DEFAULT : "text")
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
+- "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 5)
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
-- "overwrite" : Sets whether or not a model with the same name can be overwritten if it exists. If true, the existing model will be changed to the new model. (DEFAULT: False)
+- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT: False)
 
-__Example BUILD MODEL Query Syntax__
+__BUILD MODEL Query Example__
 
-An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
+A sample BUILD MODEL query can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
 
 ```sql
 %%thanosql
@@ -80,7 +80,7 @@ FROM librispeech_train
 
 ## __FIT MODEL Query Syntax__
 
-This "__FIT MODEL__" query syntax lets you re-learn artificial intelligence models. The "__FIT MODEL__" expression allows you to re-learn defined data sets via query_expr after "__AS__".
+The "__FIT MODEL__" query statement lets you retrain artificial intelligence models. The "__FIT MODEL__" expression allows you to retrain datasets defined with the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -108,14 +108,15 @@ OPTIONS(
     )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter from its default value in an image model. The meaning of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "audio_col" : Sets the column containing the path of the audio files in the data table (DEFAULT: "audio_path")
-- "text_col" : Sets the column containing the audio script in the data table. (DEFAULT: "text")
-- "batch_size" : The size of a bundle of data sets read in one learning. (DEFAULT : 16)
-- "epochs" : Sets how many times the data set is repeated in total. (DEFAULT : 5)
+- "audio_col" : Sets the name of the column containing the audio path. (DEFAULT: "audio_path")
+- "text_col" : Sets the name of the column containing the audio script. (DEFAULT : "text")
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
+- "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 5)
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
-- "overwrite" : Sets whether or not a model with the same name can be overwritten if it exists. If true, the existing model will be changed to the new model. (DEFAULT: False)
+- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT: False)
+
 
 ## __PREDICT USING Query Syntax__
 
@@ -142,14 +143,14 @@ OPTIONS(
     )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter from its default value in an image model. The meaning of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "audio_col" : Sets the column containing the path of the audio files in the data table (DEFAULT: "audio")
-- "batch_size" : The size of a bundle of data sets read in one learning. (DEFAULT : 16)
+- "audio_col" : Sets the name of the column containing the audio path. (DEFAULT: "audio_path")
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 
-__Example PREDICT USING Query Syntax__
+__PREDICT USING Query Example__
 
-An example of using the algorithm query syntax can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
+A sample PREDICT USING query can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
 
 ```sql
 %%thanosql
@@ -164,7 +165,7 @@ FROM librispeech_test
 
 ## __EVALUATE USING Query Syntax__
 
-You can use this "__EVALUATE USING__" query syntax to perform evaluation on the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by query_expr after "__AS__".
+You can use the "__EVALUATE USING__" query statement to evaluate on the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -188,8 +189,8 @@ OPTIONS(
     )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter from its default value in an image model. The meaning of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "audio_col" : Sets the column containing the path of the audio files in the data table (DEFAULT: "audio_path")
-- "text_col" : Sets the column containing the audio script in the data table. (DEFAULT: "text")
-- "batch_size" : The size of a bundle of data sets read in one learning. (DEFAULT : 16)
+- "audio_col" : Sets the name of the column containing the audio path. (DEFAULT: "audio_path")
+- "text_col" : Sets the name of the column containing the audio script. (DEFAULT : "text")
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
