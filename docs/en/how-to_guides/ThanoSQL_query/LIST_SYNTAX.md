@@ -1,20 +1,20 @@
 ---
-title: Check the saved model
+title: LIST
 ---
 
-# **Check the saved model (LIST)**
+# __LIST__
 
 ## Preface
 
 - Updated Date : {{ git_revision_date_localized }}
 
-## **1. LIST Syntax Overview**
+## __1. LIST Syntax Overview__
 
-The "**LIST**" syntax allows the user to view the pre-built models ("THANOSQL MODEL") of current ThanoSQL and the models ("MODEL") created by the user.
+The "__LIST__" syntax allows the user to view the pre-built models ("THANOSQL MODEL") of current ThanoSQL and the models ("MODEL") created by the user.
 
-## **2. LIST Syntax**
+## __2. LIST Syntax__
 
-The "**LIST MODEL**" syntax checks the list of models you have created.
+The "__LIST MODEL__" syntax checks the list of models you have created.
 
 !!! Failure "Caution"
     However, if there is no saved model, an error occurs.
@@ -26,7 +26,7 @@ LIST MODEL
 
 [![IMAGE](/img/thanosql_syntax/query/LIST/img1.png)](/img/thanosql_syntax/query/LIST/img1.png)
 
-The syntax "**LIST THANOSQL MODEL**" checks the list of pre-built models in ThanoSQL.
+The syntax "__LIST THANOSQL MODEL__" checks the list of pre-built models in ThanoSQL.
 
 ```sql
 %%thanosql
@@ -35,7 +35,7 @@ LIST THANOSQL MODEL
 
 [![IMAGE](/img/thanosql_syntax/query/LIST/img2.png)](/img/thanosql_syntax/query/LIST/img2.png)
 
-The syntax "**LIST THANOSQL TUTORIAL**" checks the list of Tutorials stored in ThanoSQL.
+The syntax "__LIST THANOSQL TUTORIAL__" checks the list of Tutorials stored in ThanoSQL.
 
 ```sql
 %%thanosql
@@ -44,7 +44,7 @@ LIST THANOSQL TUTORIAL
 
 [![IMAGE](/img/thanosql_syntax/query/LIST/img3.png)](/img/thanosql_syntax/query/LIST/img3.png)
 
-The syntax "**LIST THANOSQL DATASET**" checks the list of Datasets in ThanoSQL.
+The syntax "__LIST THANOSQL DATASET__" checks the list of Datasets in ThanoSQL.
 
 ```sql
 %%thanosql
@@ -53,7 +53,7 @@ LIST THANOSQL DATASET
 
 [![IMAGE](/img/thanosql_syntax/query/LIST/img4.png)](/img/thanosql_syntax/query/LIST/img4.png)
 
-The "**LIST TABLE**" syntax checks the list of tables you created.
+The "__LIST TABLE__" syntax checks the list of tables you created.
 
 !!! Failure "Caution"
     However, if the created table does not exist, an error occurs.

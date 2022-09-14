@@ -1,16 +1,12 @@
 ---
-title: Upload User Defined Model
+title: UPLOAD MODEL
 ---
 
-# __Upload User Defined Model (UPLOAD)__
+# __UPLOAD MODEL__
 
-## Preface
+## __1. UPLOAD  MODEL Syntax Overview__
 
-- Updated Date : {{ git_revision_date_localized }}
-
-## __1. UPLOAD Syntax Overview__
-
-Users can utilize "__UPLOAD__" query syntax to transfer their own models to ThanoSQL to be used within ThanoSQL environment. 
+Users can utilize "__UPLOAD MODEL__" query syntax to transfer their own models to ThanoSQL to be used within ThanoSQL environment. 
 
 ## __2. UPLOAD MODEL syntax__
 ```sql

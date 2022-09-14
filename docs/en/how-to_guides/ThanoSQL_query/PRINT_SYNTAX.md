@@ -1,20 +1,16 @@
 ---
-title: Print the result
+title: PRINT
 ---
 
-# **Print the result (PRINT)**
+# __PRINT__
 
-## Preface
+## __1. PRINT Syntax Overview__
 
-- Updated Date : {{ git_revision_date_localized }}
+Users can use the "__PRINT__" syntax to output images, audio, and video files. You can also use subqueries to immediately output results from the "__SEARCH__" syntax.
 
-## **1. PRINT Syntax Overview**
+## __2. PRINT Syntax__
 
-Users can use the "**PRINT**" syntax to output images, audio, and video files. You can also use subqueries to immediately output results from the "**SEARCH**" syntax.
-
-## **2. PRINT Syntax**
-
-"**PRINT**" Syntax
+"__PRINT__" Syntax
 
 ```sql
 %%thanosql
@@ -23,7 +19,7 @@ AS
 [data_set_to_output]
 ```
 
-"**PRINT**" syntax using OPTIONS
+"__PRINT__" syntax using OPTIONS
 
 ```sql
 %%thanosql
@@ -35,11 +31,11 @@ AS
 [data_set_to_output]
 ```
 
-## **3. PRINT Syntax example**
+## __3. PRINT Syntax example__
 
-### **3.1 Image Print**
+### __3.1 Image Print__
 
-Outputs image files in the data table using the "**PRINT**" query statement.
+Outputs image files in the data table using the "__PRINT__" query statement.
 
 ```sql
 %%thanosql
@@ -55,9 +51,9 @@ FROM junyong_img
 !!! note ""
     - `junyong_img` : Data table containing image file paths
 
-### **3.2 Audio Print**
+### __3.2 Audio Print__
 
-Outputs audio files in the data table using the "**PRINT**" query statement.
+Outputs audio files in the data table using the "__PRINT__" query statement.
 
 ```sql
 %%thanosql
@@ -75,9 +71,9 @@ FROM junyong_aud
 !!! note ""
     - `junyong_aud` : Data table containing audio file paths
 
-### **3.3 Video Print**
+### __3.3 Video Print__
 
-Outputs video files in the data table using the "**PRINT**" query statement.
+Outputs video files in the data table using the "__PRINT__" query statement.
 
 ```sql
 %%thanosql
@@ -93,9 +89,9 @@ FROM junyong_vid
 !!! note ""
     - `junyong_vid` : Data table containing video file paths
 
-### **3.4 Printing using subqueries**
+### __3.4 Printing using subqueries__
 
-The following query immediately outputs the result table of "**SEARCH**" using the "**SEARCH**" query statement created in the previous [SEARCH query](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX) as a subquery of the "**PRINT**" syntax.
+The following query immediately outputs the result table of "__SEARCH__" using the "__SEARCH__" query statement created in the previous [SEARCH query](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX) as a subquery of the "__PRINT__" syntax.
 
 ```sql
 %%thanosql

@@ -38,9 +38,6 @@ title: ThanoSQL 웹 사용법
 - 회원가입을 완료한 후 로그인 페이지로 돌아가 이메일과 비밀번호를 입력해 로그인합니다.
 처음 로그인을 진행한 경우, 워크 스페이스를 생성하면 서비스를 사용할 수 있습니다.
 
-!!! note ""
-      프로모션 기간 동안에는 계정 당 한개의 워크 스페이스로 제한됩니다.
-
 [![IMAGE](/img/getting_started/img3.png){: style="width:450px"}](/img/getting_started/img3.png)
 
 !!! warning "워크 스페이스 생성시 주의사항" 

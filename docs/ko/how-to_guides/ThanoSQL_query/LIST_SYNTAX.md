@@ -1,12 +1,8 @@
 ---
-title: 저장한 모델 확인하기
+title: LIST
 ---
 
-# __저장한 모델 확인하기 (LIST)__
-
-## 시작 전 사전 정보
-
-- 마지막 수정날짜 : {{ git_revision_date_localized }}
+# __LIST__
 
 ## __1. LIST 구문 개요__
 

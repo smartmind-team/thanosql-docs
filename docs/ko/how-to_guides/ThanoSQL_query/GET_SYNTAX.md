@@ -1,12 +1,8 @@
 ---
-title: 모델 및 튜토리얼 데이터 세트 가져오기
+title: GET
 ---
 
-# __ThanoSQL Pre-built 모델 및 튜토리얼 데이터 세트 가져오기 (GET)__
-
-## 시작 전 사전 정보
-
-- 마지막 수정날짜 : {{ git_revision_date_localized }}
+# __GET__
 
 ## __1. GET 구문 개요__
 

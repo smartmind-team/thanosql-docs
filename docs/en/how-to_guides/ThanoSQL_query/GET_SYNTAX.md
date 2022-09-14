@@ -1,12 +1,8 @@
 ---
-title: Get ThanoSQL pre-built models and tutorial datasets 
+title: GET
 ---
 
-# __Get ThanoSQL pre-built models and tutorial datasets (GET)__
-
-## Preface
-
-- Updated Date : {{ git_revision_date_localized }}
+# __GET__
 
 ## __1. GET Syntax Overview__
 

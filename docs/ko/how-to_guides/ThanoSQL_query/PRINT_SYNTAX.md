@@ -1,12 +1,8 @@
 ---
-title: 결과 출력하기
+title: PRINT
 ---
 
-# __결과 출력하기 (PRINT)__
-
-## 시작 전 사전 정보
-
-- 마지막 수정날짜 : {{ git_revision_date_localized }}
+# __PRINT__
 
 ## __1. PRINT 구문 개요__
 

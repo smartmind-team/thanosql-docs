@@ -1,12 +1,8 @@
 ---
-title: 비정형 데이터 변환하기
+title: CREATE TABLE
 ---
 
-# __비정형 데이터 변환하기 (CREATE TABLE)__
-
-## 시작 전 사전 정보
-
-- 마지막 수정날짜 : {{ git_revision_date_localized }}
+# __CREATE TABLE__
 
 ## __1. CREATE TABLE 쿼리 구문 개요__ 
 

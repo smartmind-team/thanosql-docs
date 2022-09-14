@@ -1,0 +1,54 @@
+---
+title: BUILD MODEL 
+---
+
+# __BUILD MODEL__
+
+## __1. Overview__
+
+The "__BUILD MODEL__" statement enables users to create a desired AI model without any expertise in data science. 
+
+## __2. Syntax__
+
+```sql
+%%thanosql
+BUILD MODEL [custom_model_name]
+USING [AI_model_to_use]
+OPTIONS ([option_values_​​required_when_creating_an_AI_model])
+AS
+[dataset_to_use]
+
+```
+
+!!! NOTE
+    Option values used in the "__OPTIONS__" clause are different for each AI model. Specific values needed for each model are listed [here](/en/how-to_guides/OPTIONS/).
+
+## __3. Example__
+
+### __3-1. Using the Auto_ML Model to Create a Classification Model__
+The example below demonstrates a method to use ThanoSQL's ["AutomlClassifier"](https://www.automl.org/automl/) and the "__BUILD MODEL__" statement to create a user-defined <mark style="background-color:#E9D7FD ">Titanic classification</mark> model. If you are interested in learning more about the entire procedure, check out [Creating a Titanic Survivor Classification Model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
+
+
+```sql
+%%thanosql
+BUILD MODEL titanic_classification
+USING AutomlClassifier
+OPTIONS (
+    target='survived',
+    impute_type='iterative',
+    features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
+    overwrite = True
+    )
+AS
+SELECT *
+FROM titanic_train
+```
+
+!!! note "AI models that can be used with '__BUILD MODEL__ statement'"
+    - Auto-ML Classification model - AutomlClassifier
+    - Auto-ML Regression model - AutomlRegressor
+    - ConvNeXT Model - ConvNeXt_Tiny , ConvNeXt_Base
+    - EfficientNet Model - EfficientNetV2S , EfficientV2M
+    - Albert Model - AlbertKo, AlbertEn
+    - Electra Model - ElectraKo , ElectraEn
+    - Wav2Vec2 Model - Wav2Vec2Ko , Wav2Vec2En
