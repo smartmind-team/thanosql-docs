@@ -4,10 +4,10 @@ title: PRINT
 
 # __PRINT__
 
-## __1. Overview__
+## __1. PRINT Statement__
 The "__PRINT__" statement allows users to to output images, audio, and video files.
 
-## __2. Syntax__
+## __2. PRINT Syntax__
 
 The "__PRINT__" syntax
 ```sql
@@ -29,7 +29,7 @@ AS
 [dataset_to_output]
 ```
 
-## __3. Example__
+## __3. PRINT Example__
 
 ### __3.1 Image Print__
 
@@ -87,7 +87,7 @@ FROM junyong_vid
 !!! note ""
     - `junyong_vid` : Table containing paths of the video files
 
-### __3.4 Print as a subquery__
+### __3.4 Print with a subquery__
 
 The following statement outputs the results of "__SEARCH__" statement created in the nested [SEARCH query](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX). 
 

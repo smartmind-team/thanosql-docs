@@ -4,11 +4,11 @@ title: EVALUATE
 
 # __EVALUATE__
 
-## __1. Overview__
+## __1. EVALUATE Statement__
 
 The "__EVALUATE__" statement allows users to evaluate performance of their models.
 
-## __2. Syntax__ 
+## __2. EVALUATE Syntax__ 
 
 ```sql
 %%thanosql
@@ -21,7 +21,7 @@ AS
 !!! warning
     If the dataset you want to use does not have a target, you cannot evaluate the performance of the model.
 
-## __3. Example__
+## __3. EVALUATE Example__
 The example below demonstrates how to use the "__EVALUATE__" statement to evaluate the <mark style="background-color:#E9D7FD ">test_classifier</mark> model built with the [BUILD MODEL](/en/how-to_guides/ThanoSQL_ml/BUILD_MODEL_SYNTAX/) statement.
 
 ```sql

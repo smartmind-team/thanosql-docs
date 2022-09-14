@@ -4,10 +4,10 @@ title: CONVERT
 
 # __CONVERT__
 
-## __1. Overview__
+## __1. CONVERT Statement__
 
 The "__CONVERT__" statement allows users to convert unstructured data such as images, videos, and audio to vector format using a vectorization algorithm and append it to the given data table. 
-## __2. Syntax__
+## __2. CONVERT Syntax__
 
 ```sql
 CONVERT USING [AI_model_to_use]
@@ -18,7 +18,7 @@ AS
 [dataset_to_use]
 ```
 
-## __3. Examples__
+## __3. CONVERT Examples__
 
 ### __3.1 Image vectorization using `Color_descriptor` algorithm__
 The example below uses the color feature extraction model created in [Transform Unstructured Data(CREATE TABLE)](/en/how-to_guides/ThanoSQL_query/CREATE_TABLE_SYNTAX/) to store the vectorized results as a new column to the "color_descriptor_table_test" table.

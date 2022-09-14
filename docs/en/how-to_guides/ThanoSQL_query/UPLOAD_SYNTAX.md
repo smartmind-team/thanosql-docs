@@ -4,10 +4,10 @@ title: UPLOAD MODEL
 
 # __UPLOAD MODEL__
 
-## __1. Overview__
+## __1. UPLOAD MODEL Statement__
 The "__UPLOAD MODEL__" statement allows users to transfer their custom models to be used within the ThanoSQL environment. 
 
-## __2. Syntax__
+## __2. UPLOAD MODEL Syntax__
 ```sql
 %%thanosql
 UPLOAD MODEL [user_defined_model_name] 

@@ -4,9 +4,9 @@ title: GET
 
 # __GET__
 
-## __1. Overview__
+## __1. GET Statement__
 The "__GET__" statement allows users to download the lastest ThanoSQL pre-built models and tutorial datasets. 
-## __2. Syntax__
+## __2. GET Syntax__
 
 The "__GET THANOSQL MODEL__" statement downloads the ThanoSQL pre-built models to the user's workspace. 
 

@@ -3,11 +3,11 @@ title: LIST
 ---
 
 # __LIST__
-## __1. Overview__
+## __1. LIST Statement__
 
 The "__LIST__" statement allows users to view the lastest pre-built models ("THANOSQL MODEL") and the models ("MODEL") created by the users.
 
-## __2. Syntax__
+## __2. LIST Syntax__
 
 The "__LIST MODEL__" statement outputs the models you have created.
 

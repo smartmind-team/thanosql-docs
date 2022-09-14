@@ -4,11 +4,11 @@ title: FIT MODEL
 
 # __FIT MODEL__
 
-## __1. Overview__
+## __1. FIT MODEL Statement__
 
 The "__FIT MODEL__" statement allows users to retrain a model with new data without having any expertise in data science.
 
-## __2. Syntax__
+## __2. FIT MODEL Syntax__
 
 ```sql
 %%thanosql
@@ -24,7 +24,7 @@ AS
 
 !!! warning
     The Auto-ML model is retrained by exclusively switching the dataset instead of changing the parameter values of the model to keep consistency with option values in the "__OPTIONS__" clause.
-## __3. Example__
+## __3. FIT MODEL Example__
 The example below demonstrates how to create a <mark style="background-color:#E9D7FD ">fit_test_classifier</mark> model by retraining the <mark style="background-color:#E9D7FD ">test_classifier</mark> model with a new dataset and a "__FIT_MODEL__" statement. 
 
 ```sql

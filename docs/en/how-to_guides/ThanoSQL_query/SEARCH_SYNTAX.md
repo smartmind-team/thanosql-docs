@@ -4,11 +4,11 @@ title: SEARCH
 
 # __SEARCH__
 
-## __1. Overview__
+## __1. SEARCH Statement__
 
 The "__SEARCH__" statement allows users to search for content, meaning, or similarity from the unstructured data table.
 
-## __2. Syntax__
+## __2. SEARCH Syntax__
 
 ```sql
 %%thanosql
@@ -17,7 +17,7 @@ USING [AI_model_to_use]
 AS [dataset_to_use]
 ```
 
-## __3. Example__
+## __3. SEARCH Example__
 The example below uses an attribute extraction model called `Color_descriptor` to search for similar images.
 
 ```sql

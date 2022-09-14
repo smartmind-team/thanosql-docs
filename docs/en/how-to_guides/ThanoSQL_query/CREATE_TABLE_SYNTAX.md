@@ -4,10 +4,10 @@ title: CREATE TABLE
 
 # __CREATE TABLE__
 
-## __1. Overview__
+## __1. CREATE TABLE Statement__
 The "__CREATE TABLE__" statement allows users to create a data table with unstructured data such as images, audio, video, and more by converting them into vector formats with a vectorization algorithm.
 
-## __2. Syntax__
+## __2. CREATE TABLE Syntax__
 
 ```sql
 CREATE TABLE [custom_data_table_name]
@@ -22,7 +22,7 @@ FROM [dataset_path_to_use]
     - Specify the options to use for the __CREATE TABLE__ statement with an "__OPTIONS__" clause.
         - "overwrite" : Overwrite if a dataset with the same name exists. If True, the existing dataset is overwritten with the new dataset. (True|False, DEFAULT: False)
 
-## __3. Example__
+## __3. CREATE TABLE Example__
 The example below uses an attribute extraction model called `Color_descriptor` to create a user-defined table named `color_descriptor_table_test` and store vectorized image files from the specified path.
 
 ```sql

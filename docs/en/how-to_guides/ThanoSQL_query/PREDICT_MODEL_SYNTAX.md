@@ -4,12 +4,12 @@ title: PREDICT
 
 # __PREDICT__
 
-## __1. Overview__
+## __1. PREDICT Statement__
 
 The "__PREDICT__" statement allows users to apply models to perform prediction, classification, recommendation, and more.
 
 
-## __2. Syntax__
+## __2. PREDICT Syntax__
 
 ```sql
 %%thanosql
@@ -19,7 +19,7 @@ AS
 [test_dataset_to_use]
 ```
 
-## __3. Example__
+## __3. PREDICT Example__
 You can find the example of the following query statement in the [Create a text classification model](/en/tutorials/thanosql_ml/classification/classification_electra/).
 
 ````sql
