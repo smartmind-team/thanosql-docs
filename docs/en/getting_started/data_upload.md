@@ -6,41 +6,41 @@ title: How to upload your data to ThanoSQL workspace
 
 ## __Preface__
 
-ThanoSQL workspace's users can upload data in two ways as below.
+ThanoSQL workspace's users can upload data using two ways as shown below.
 
 !!! note "To upload data"
-    1. Uploading your local data in a workspace environment
-    2. Uploading local data by connecting to SFTP server using a private key
+    1. Uploading your local data into your workspace environment
+    2. Uploading local data by SFTP server connection using a private key
 
 ## __1. Uploading your local data in a workspace environment__
 
 To upload local data to ThanoSQL workspace, follow these steps:
 
 !!! note ""
-    1. Log in to ThanoSQL console
-    2. Click the Upload button. (Same as the Jupiter Lab method)
-    3.  Select the file to upload.
+    1. Log into the ThanoSQL console
+    2. Click the Upload button. (Same as the Jupyter Lab method)
+    3. Select the file to upload.
 
 !!! warning "Uploading Precaution" 
-    Uploading a large number of files with multiple selections can cause problems because many connection requests occur at once. When processing large amounts of data, be sure to upload it as a zip file.
+    Uploading a large number of files with multiple selections can cause problems since multiple connection requests occur at once. When processing large amounts of data, be sure to upload it as a zip file.
 
-## __2. ta by connecting to SFTP server using a private key__
+## __2. Uploading local data by SFTP server connection using a private key__
 
 !!! note "What is SFTP(Secure File Transfer Protocol)?"
     An interactive file transfer program with a user interface similar to File Transfer Protocol (FTP). However, SFTP uses SSH File Transfer Protocol (FTP) to create a secure connection to the server.
 
 !!! danger ""
     - SFTP supports only ubuntu linux 
-    - Some of the options available for the command are not included in the SFTP command, but most commands are included.
+    - Though, most commands available for the linux cli are usable with SFTP, some commands are unavailable.
 
-Follow these steps to connect to a remote computer and upload data.
+Follow these steps to connect to the remote server and upload data.
 
 
 ### __STEP 1. Verify your private key and ID__
 
 SFTP connection requires a private key and ID. If you enter 'My Profile' at the top of the webpage, you can check or reissue your private key. Enter the workspace name for the ID required for SFTP connection.
 
-The private key is made up of the following formats:
+The private key follows the format below:
 
 ```pem
 -----BEGIN OPENSSH PRIVATE KEY-----
@@ -68,7 +68,7 @@ kp1GuW0kIgRvSHAAAAE3Jvb3RAdGVzdGluZy1zZXJ2ZXIBAgMEBQYHasdasdasdasdsdww
 ```
 ### __STEP 2. Register private key locally - creating a pem file__
 
-Create the file 'key.pem' using the vim command in your local environment. Paste the private key issued in the previous step into the generated file.
+Create a file called 'key.pem' using the vim command in your local environment. Paste the private key issued in the previous step to the generated file.
 
 ```bash
 $ vim key.pem
@@ -76,29 +76,29 @@ $ vim key.pem
 
 ### __STEP 3. Change the permission of the pem file__
 
-Change the permission of the pem file with private key registered in the local environment to read.
+Change the permission of the private key registered pem file in your local environment to read.
 
 ```bash
 $ chmod 400 key.pem
 ```
 
 ### __STEP 4. Connect to SFTP server__
-After changing the permission of the file from the local environment, Connec to SFTP server.
+After changing the permission of the file from your local environment, Connect to SFTP server.
 
 !!! warning ""
-    To connect SFTP server, you need the absolute path of the pem file and workspace name you checked in STEP 1.
+    To connect to the SFTP server, you need the absolute path of the pem file and workspace name you checked in STEP 1.
 
 ```bash
 sftp -i [the absolute path of the pem file] [name of workspace]@engine.thanosql.ai
 ```
 
-Once connected, you can check the screen below.
+Once connected, you will get a screen as shown below.
 
 [![IMAGE](/img/thanosql_syntax/connecting/img1.png)](/img/thanosql_syntax/connecting/img1.png)
 
 ### __STEP 5. Access data files__
 
-Once the SFTP connection is complete, locate the current location and access the authorized 'drive' folder. (You cannot access it because you are not authorized except for the 'drive' folder.)
+Once the SFTP connection is complete, locate the current location and access the authorized 'drive' folder. (You cannot access any other folder because you only have authority over the 'drive' folder.)
 
 ```bash
 sftp> pwd
@@ -113,7 +113,7 @@ Check the remote working directory and the local working directory, and transfer
 put image_folder
 ```
 
-Through the above steps, you can transfer image files in the local working directory 'image_folder' to the remote working directory '/drive'.
+By following the above steps, you can transfer image files in the local working directory 'image_folder' to the remote working directory '/drive'.
 
 ### __(Optional) SFTP Command table__
 |Command|description|

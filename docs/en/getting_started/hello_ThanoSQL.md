@@ -9,7 +9,7 @@ ThanoSQL`s workspace is a web-based computing environment based on [Jupyter Lab]
 To use **ThanoSQL** in this environment, you must first load the **thanosql** cell magic.
 
 !!! tip ""
-    You can press the run button at the top, or you can run it with **Ctrl + Enter** or **Shift + Enter** shortcuts.
+    You can press the run button at the top, or you can run it with either the **Ctrl + Enter** or **Shift + Enter** shortcuts.
 
 ## **1. Call up ThanoSQL cell magic**
 
@@ -19,13 +19,12 @@ To use **ThanoSQL** in this environment, you must first load the **thanosql** ce
 
 ## **2. Set API_TOKEN**
 
-Next, for each user`s workspace API_TOKEN setting, press and paste the **GET API_TOKEN** button at the top of the browser.
-
+Next, to set the workspace's API_TOKEN, press the **Get API_TOKEN** button at the top of the browser to copy the API Token then paste it into the cell as shown.
 !!! danger
-    You can get a new API token, but please note that if you get a new one, you can no longer use the previously issued token.
+    You can always get a new API token, but please note that when you get a new one, you can no longer use the previously issued token.
 
-!!! tip "With generated API token, you can use all of ThanoSQL`s REST APIs"
-    For more information about using the REST API in ThanoSQL, see [__ThanoSQL REST API Reference__](/en/how-to_guides/reference/#thanosql-rest-api-reference)
+!!! tip "With the generated API token, you can use all of ThanoSQL`s REST APIs"
+    For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](/en/how-to_guides/reference/#thanosql-rest-api-reference)
 
 ```sql
 %thanosql API_TOKEN=<Issued_API_TOKEN>
@@ -38,18 +37,18 @@ ex)
 ```
 [![IMAGE](/img/thanosql_api/restapi_token_img2.jpg)](/img/thanosql_api/restapi_token_img2.jpg) 
 
-!!! notice "How to create a query statement on ThanoSQL workspace" 
-    To create query statements in ThanoSQL, you can write query with one-line or multi-line.
+!!! notice "How to create a query statement in the ThanoSQL workspace" 
+    You can use either a one-line or multi-line format when writting ThanoSQL queries.
 
-    - For one-line syntax, this is primarily used when returning queries in table form and assigning tables to variables. It is also used to assign ThanoSQL cell magic and Token, as in Workspace Usage 1 and 2.
+    - One-line queries are primarily used when returning queries in table form and assigning tables to variables. It is also used to assign ThanoSQL cell magic and Token, as shown in step 1 and 2.
 
-    - Multi-line syntax provides the same user experience as using other DBMSs and is used to query tables or run ThanoSQL extended syntax.
+    - Multi-line queries provide the same user experience as other DBMSs and is used to query tables or run ThanoSQL's extended syntax.
 
 ## **3. Check the list of ThanoSQL models/tutorials using the LIST query syntax**
 
-All preparations are complete for using **ThanoSQL**.
+All preparations to use **ThanoSQL** are complete.
 
-To view a list of prebuilt ThanoSQL models, run the TanoSQL statement below.
+To view a list of prebuilt ThanoSQL models, run the ThanoSQL statement below.
 
 ```sql
 %%thanosql
@@ -58,7 +57,7 @@ LIST THANOSQL MODEL
 
 [![IMAGE](/img/getting_started/img6.png)](/img/getting_started/img6.png)
 
-If you run the ThanoSQL statement below, you can view the [tutorial in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/).
+If you run the ThanoSQL statement below, you can view the [tutorials in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/).
 
 ```sql
 %%thanosql
@@ -67,7 +66,7 @@ LIST THANOSQL TUTORIAL
 
 [![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
 
-If you run the ThanoSQL statement below, you can see the list of data tables used in the [tutorial in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/).
+If you run the ThanoSQL statement below, you can see the list of data tables used by the [tutorials in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/).
 
 ```sql
 %%thanosql
@@ -78,19 +77,19 @@ LIST THANOSQL DATASET
 
 ## __4. Get Tutorial__
 
-Running the statement below allows you to get the entire tutorial of ThanoSQL into your workspace.
+Running the statement below allows you to clone all ThanoSQL's tutorial into your workspace.
 
 ```sql
 !git clone https://github.com/smartmind-team/thanosql-tutorial.git
 ```
 
-If you want to import only certain tutorial into your workspace, use the wget method as shown below.
+If you want to import only certain tutorials into your workspace, use the wget method as shown below.
 
 !!!note "___Github URL of ThanoSQL tutorials___"
 
 ```python
 !wget [Tutorials' Github URL]
-# 예시 
+# Example 
 ## wget https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_keyword.ipynb
 ```
 

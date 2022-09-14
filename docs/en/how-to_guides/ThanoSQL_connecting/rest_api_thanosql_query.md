@@ -1,14 +1,14 @@
 ---
-title: How to use ThanoSQL syntax
+title: How to Query using ThanoSQL
 ---
 
-# **How to use ThanoSQL syntax**
+# **How to Query Using ThanoSQL**
 
 ## Preface
 
 - Updated Date : {{ git_revision_date_localized }}
 
-You can use the REST API to use queries that were used on the ThanoSQL console.
+You can run the same queries using ThanoSQL's REST API as you would on the ThanoSQL workspace.
 
 === "Python"
 
