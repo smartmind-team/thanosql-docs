@@ -4,7 +4,7 @@ title: PREDICT
 
 # __PREDICT__
 
-## __1. PREDICT 구문 개요__
+## __1. PREDICT 문__
 
 사용자는 "__PREDICT__" 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다.  
 
@@ -18,7 +18,7 @@ AS
 [사용할 테스트 데이터 세트]
 ```
 
-## __3. PREDICT 구문 예시__ 
+## __3. PREDICT 예시__ 
 [텍스트 분류 모델 만들기](/ko/tutorials/thanosql_ml/classification/text_classification.ipynb/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql

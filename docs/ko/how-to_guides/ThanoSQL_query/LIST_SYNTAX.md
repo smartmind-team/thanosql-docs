@@ -4,7 +4,7 @@ title: LIST
 
 # __LIST__
 
-## __1. LIST 구문 개요__
+## __1. LIST 문__
 
 사용자는 "__LIST__" 구문을 사용하여 현재 ThanoSQL의 Pre-built 모델들("THANOSQL MODEL")과 사용자가 만든 모델들("MODEL")을 확인할 수 있습니다. 
 

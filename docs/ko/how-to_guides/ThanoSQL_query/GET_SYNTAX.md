@@ -4,7 +4,7 @@ title: GET
 
 # __GET__
 
-## __1. GET 구문 개요__
+## __1. GET 문__
 
 사용자는 "__GET__" 구문을 사용하여 현재 ThanoSQL의 Pre-built 모델들("THANOSQL MODEL")과 튜토리얼 데이트 세트들을 받아올 수 있습니다. 
 
