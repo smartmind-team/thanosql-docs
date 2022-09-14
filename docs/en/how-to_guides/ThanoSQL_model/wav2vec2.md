@@ -53,14 +53,14 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 - "audio_col" : Sets the name of the column containing the audio path. (DEFAULT: "audio_path")
 - "text_col" : Sets the name of the column containing the audio script. (DEFAULT : "text")
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 - "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 5)
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT: False)
 
 __BUILD MODEL Query Example__
 
-An example can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
+A sample BUILD MODEL query can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
 
 ```sql
 %%thanosql
@@ -80,7 +80,7 @@ FROM librispeech_train
 
 ## __FIT MODEL Query Syntax__
 
-The "__FIT MODEL__" query statement lets you re-train artificial intelligence models. The "__FIT MODEL__" expression allows you to re-train datasets defined with the query_expr that comes after the "__AS__" clause.
+The "__FIT MODEL__" query statement lets you retrain artificial intelligence models. The "__FIT MODEL__" expression allows you to retrain datasets defined with the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -112,7 +112,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 - "audio_col" : Sets the name of the column containing the audio path. (DEFAULT: "audio_path")
 - "text_col" : Sets the name of the column containing the audio script. (DEFAULT : "text")
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 - "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 5)
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT: False)
@@ -146,11 +146,11 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
 - "audio_col" : Sets the name of the column containing the audio path. (DEFAULT: "audio_path")
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 
 __PREDICT USING Query Example__
 
-An example can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
+A sample PREDICT USING query can be found in [Create Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
 
 ```sql
 %%thanosql
@@ -165,7 +165,7 @@ FROM librispeech_test
 
 ## __EVALUATE USING Query Syntax__
 
-You can use the "__EVALUATE USING__" query statement to perform evaluation on the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
+You can use the "__EVALUATE USING__" query statement to evaluate on the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -193,4 +193,4 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 - "audio_col" : Sets the name of the column containing the audio path. (DEFAULT: "audio_path")
 - "text_col" : Sets the name of the column containing the audio script. (DEFAULT : "text")
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)

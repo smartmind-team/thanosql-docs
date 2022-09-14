@@ -56,12 +56,12 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 - "filename_col" : Sets the name of the column containing the image file name. (DEFAULT : "file_name")
 - "label_col" : Sets the name of the column containing the path of the label (DEFAULT : "label")
 - "max_epochs" : Sets how many times the dataset is trained in total. (DEFAULT : )
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT: 256)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT: 256)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
 
 __BUILD MODEL Query Example__
 
-Examples can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
+Examples of BUILD MODEL queries can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 ​
 
 ```sql
@@ -149,7 +149,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 __CONVERT USING Query Example__
 
-Examples can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
+Examples of CONVERT USING queries can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 ​
 
 ```sql
@@ -180,7 +180,7 @@ AS
 
 __SEARCH IMAGE Query Example__
 
-Examples can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
+Examples of SEARCH IMAGE queries can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 
 ```sql
 %%thanosql

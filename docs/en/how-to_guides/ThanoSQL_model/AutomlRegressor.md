@@ -51,7 +51,7 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlRegressor model. The definition of each parameter is as follows.
 
-- "target" : Sets the name of the column that has the target value for the classification prediction model in the table.
+- "target" : Sets the name of the column that has the target value for the classification prediction model.
 - "impute_type" : Determines how empty values are handled in the data table.(DEFAULT : "simple")
 > "simple" : For empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
 > "iterative" : Applies an algorithm that predicts empty values with the remaining properties.
@@ -66,7 +66,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 
 **BUILD MODEL Query Example**
 
-An example can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+A sample BUILD MODEL query can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -85,7 +85,7 @@ FROM bike_sharing
 
 ## **FIT MODEL Query Syntax**
 
-The "**FIT MODEL**" query statement lets you re-train artificial intelligence models. The "**FIT MODEL**" expression allows you to re-train datasets defined with the query_expr that comes after the "__AS__" clause.
+The "**FIT MODEL**" query statement lets you retrain artificial intelligence models. The "**FIT MODEL**" expression allows you to re-train datasets defined with the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -116,7 +116,7 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlRegressor model. The definition of each parameter is as follows.
 
-- "target" : Sets the name of the column that has the target value for the classification prediction model in the table.
+- "target" : Sets the name of the column that has the target value for the classification prediction model.
 - "impute_type" : Determines how empty values are handled in the data table.(DEFAULT : "simple")
 > "simple" : For empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
 > "iterative" : Applies an algorithm that predicts empty values with the remaining properties.
@@ -131,7 +131,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 
 **FIT MODEL Query Example**
 
-An example can be found in [Re-learning the model](/en/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)
+A sample FIT MODEL query can be found in [Re-learning the model](/en/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)
 
 ```sql
 %%thanosql
@@ -164,7 +164,7 @@ AS
 
 **TRANSFORM USING Query Example**
 
-An example can be found in [Preprocessing data for model application](/en/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/).
+A sample TRANSFORM USING query can be found in [Preprocessing data for model application](/en/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/).
 
 ```sql
 %%thanosql
@@ -190,7 +190,7 @@ AS
 
 **PREDICT USING Query Example**
 
-An example can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+A sample PREDICT USING query can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -226,11 +226,11 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlRegressor model. The definition of each parameter is as follows.
 
-- "target" : Sets the name of the column that has the target value for the classification prediction model in the table.
+- "target" : Sets the name of the column that has the target value for the classification prediction model.
 
 **EVALUATE USING Query Example**
 
-An example can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+A sample EVALUATE USING query can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql

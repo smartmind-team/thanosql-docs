@@ -48,7 +48,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 - "path_type" : Sets the name of the column containing the audio files path (DEFAULT: "audio_path")
 - "data_type" : Type of data.
 - "file_type" : The extension type of the image.
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
 
 ## __CONVERT USING Query Syntax__
@@ -80,11 +80,11 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 - "table_name" : The name of the new table to be created.
 - "image_col" : The name of the column containing the image path. (DEFAULT : 'image_path')
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 
 __CONVERT USING Query Example__
 
-Examples can be found in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
+Examples of CONVERT USING queries can be found in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
 
 ```sql
 %%thanosql
@@ -115,7 +115,7 @@ AS
 
 __SEARCH IMAGE Query Example__
 
-Examples can be found in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
+Examples of SEARCH IMAGE queries can be found in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
 
 ```sql
 %%thanosql

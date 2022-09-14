@@ -53,14 +53,14 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 - "image_col" : Sets the name of the column containing the image path. (DEFAULT: "image")
 - "label_col" : Sets the name of the column containing the path of the label. (DEFAULT : "label")
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 - "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 3)
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT: False)
 
 __BUILD MODEL Query Example__
 
-An example can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/image_classification/).
+A sample BUILD MODEL query can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/image_classification/).
 
 ```sql
 %%thanosql
@@ -79,7 +79,7 @@ FROM product_image_train
 
 ## __FIT MODEL Query Syntax__
 
-The "**FIT MODEL**" query statement lets you re-train artificial intelligence models. The "**FIT MODEL**" expression allows you to re-train datasets defined with the query_expr that comes after the "__AS__" clause. In this case, the label of the data used for retraining should be the same as the label used for the previous train.
+The "**FIT MODEL**" query statement lets you retrain artificial intelligence models. The "**FIT MODEL**" expression allows you to retrain datasets defined with the query_expr that comes after the "__AS__" clause. In this case, the label of the data used for retraining should be the same as the label used for the previous train.
 
 ```sql
 query_statement:
@@ -111,7 +111,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 - "image_col" : Sets the name of the column containing the image path. (DEFAULT: "image")
 - "label_col" : Sets the name of the column containing the path of the label (DEFAULT : "label")
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 - "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 3)
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT: False)
@@ -144,11 +144,11 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
 - "image_col" : Sets the name of the column containing the image path. (DEFAULT: "image")
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 
 __PREDICT USING Query Example__
 
-An example can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/image_classification/).
+A sample PREDICT USING query can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/image_classification/).
 
 ```sql
 %%thanosql
@@ -163,7 +163,7 @@ FROM product_image_test
 
 ## __EVALUATE USING Query Syntax__
 
-You can use the "__EVALUATE USING__" query statement to perform evaluation on the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
+You can use the "__EVALUATE USING__" query statement to evaluate the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -189,4 +189,4 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
 - "image_col" : Sets the name of the column containing the image path. (DEFAULT: "image")
-- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
