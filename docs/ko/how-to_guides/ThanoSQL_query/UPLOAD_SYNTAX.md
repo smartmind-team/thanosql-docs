@@ -4,7 +4,7 @@ title: UPLOAD MODEL
 
 # __UPLOAD MODEL__
 
-## __1. UPLOAD MODEL 구문 개요__
+## __1. UPLOAD MODEL 문__
 
 사용자는 "__UPLOAD MODEL__" 구문을 사용하여 직접 만든 모델들을 업로드하여 ThanoSQL 상에서 이용할 수 있습니다. 
 

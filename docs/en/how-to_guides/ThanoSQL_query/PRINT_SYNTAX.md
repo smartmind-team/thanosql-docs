@@ -4,38 +4,36 @@ title: PRINT
 
 # __PRINT__
 
-## __1. PRINT Syntax Overview__
-
-Users can use the "__PRINT__" syntax to output images, audio, and video files. You can also use subqueries to immediately output results from the "__SEARCH__" syntax.
+## __1. PRINT Statement__
+The "__PRINT__" statement allows users to to output images, audio, and video files.
 
 ## __2. PRINT Syntax__
 
-"__PRINT__" Syntax
-
+The "__PRINT__" syntax
 ```sql
 %%thanosql
 PRINT IMAGE | AUDIO | VIDEO
 AS
-[data_set_to_output]
+[dataset_to_output]
 ```
 
-"__PRINT__" syntax using OPTIONS
+The "__PRINT__" syntax with an "__OPTIONS__" clause.
 
 ```sql
 %%thanosql
 PRINT IMAGE | AUDIO | VIDEO
-OPTIONS(
+OPTIONS (
     image_col | audio_col | video_col = [image_path_column_name]
     )
 AS
-[data_set_to_output]
+[dataset_to_output]
 ```
 
-## __3. PRINT Syntax example__
+## __3. PRINT Example__
 
 ### __3.1 Image Print__
 
-Outputs image files in the data table using the "__PRINT__" query statement.
+Outputs image files from the table.
 
 ```sql
 %%thanosql
@@ -49,11 +47,11 @@ FROM junyong_img
 ```
 
 !!! note ""
-    - `junyong_img` : Data table containing image file paths
+    - `junyong_img` : Table containing paths of the image files
 
 ### __3.2 Audio Print__
 
-Outputs audio files in the data table using the "__PRINT__" query statement.
+Outputs audio files from the table.
 
 ```sql
 %%thanosql
@@ -69,11 +67,11 @@ FROM junyong_aud
 [![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
-    - `junyong_aud` : Data table containing audio file paths
+    - `junyong_aud` : Table containing paths of the audio files
 
 ### __3.3 Video Print__
 
-Outputs video files in the data table using the "__PRINT__" query statement.
+Outputs video files from the table.
 
 ```sql
 %%thanosql
@@ -87,11 +85,11 @@ FROM junyong_vid
 ```
 
 !!! note ""
-    - `junyong_vid` : Data table containing video file paths
+    - `junyong_vid` : Table containing paths of the video files
 
-### __3.4 Printing using subqueries__
+### __3.4 Print with a subquery__
 
-The following query immediately outputs the result table of "__SEARCH__" using the "__SEARCH__" query statement created in the previous [SEARCH query](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX) as a subquery of the "__PRINT__" syntax.
+The following statement outputs the results of "__SEARCH__" statement created in the nested [SEARCH query](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX). 
 
 ```sql
 %%thanosql
