@@ -19,9 +19,9 @@ __표기법 규칙__
     > 각 리터럴은 테이블에서 컬럼과 같은 특별한 자료형을 가지고 있습니다.
 
 
-## __BUILD MODEL 쿼리 구문__ 
+## __BUILD MODEL 구문__ 
 ​
-이 "__BUILD MODEL__" 쿼리 구문을 사용하여 인공지능 모델을 개발할 수 있습니다. 
+이 "__BUILD MODEL__" 구문을 사용하여 인공지능 모델을 개발할 수 있습니다. 
 "__BUILD MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
 ​
 ``` sql
@@ -61,9 +61,9 @@ OPTIONS(
 - "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (DEFAULT : False)
 
 
-__BUILD MODEL 쿼리 구문 예시__  
+__BUILD MODEL 예시__  
 
-[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image.ipynb/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image.ipynb/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 ​
 ```sql
 %%thanosql
@@ -79,9 +79,9 @@ SELECT *
 FROM mnist_train
 ```
 
-## __CREATE TABLE 쿼리 구문__
+## __CREATE TABLE 구문__
 
-이 "__CREATE TABLE__" 쿼리 구문을 사용하여 이미지별 폴더 경로 정보가 포함되어 있는 테이블 없이도 이미지 폴더 경로를 사용하여 수치화 변환이 가능합니다. 
+이 "__CREATE TABLE__" 구문을 사용하여 이미지별 폴더 경로 정보가 포함되어 있는 테이블 없이도 이미지 폴더 경로를 사용하여 수치화 변환이 가능합니다. 
 "__CREATE TABLE__" 표현식은 "__FROM__" 뒤에 나오는 이미지 폴더 경로의 이미지 파일들을 수치화하여 테이블로 저장합니다. 
 ​
 ``` sql
@@ -118,9 +118,9 @@ OPTIONS(
 ​
 - "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (DEFAULT : False)
 
-## __CONVERT USING 쿼리 구문__
+## __CONVERT 구문__
 
-이 "__CONVERT USING__" 쿼리 구문을 사용하여 기존 이미지들의 경로가 포함되어 있는 데이터 세트를 사용하여 수치화 된 결과를 기존의 데이터셋에 새로운 컬럼으로 저장합니다. 새로운 수치화 모델을 사용할때마다 새로운 수치화 컬럼이 추가되어 수치화 결과 별 비교가 용이합니다.  
+이 "__CONVERT__" 구문을 사용하여 기존 이미지들의 경로가 포함되어 있는 데이터 세트를 사용하여 수치화 된 결과를 기존의 데이터셋에 새로운 컬럼으로 저장합니다. 새로운 수치화 모델을 사용할때마다 새로운 수치화 컬럼이 추가되어 수치화 결과 별 비교가 용이합니다.  
 ​
 ```sql
 CONVERT USING (model_name_expression)
@@ -146,9 +146,9 @@ OPTIONS(
 
 - "table_name" : 새로운 수치화 결과를 저장할 테이블 이름을 설정합니다.
 
-__CONVERT USING 쿼리 구문 예시__
+__CONVERT 예시__
 
-[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image.ipynb/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다. 
+[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image.ipynb/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 ​
 ```sql
 %%thanosql
@@ -162,9 +162,9 @@ SELECT *
 FROM mnist_test
 ```
 
-## __SEARCH IMAGE 쿼리 구문__
+## __SEARCH 구문__
 
-"__SEARCH IMAGE__" 쿼리 구문을 사용하여 수치화을 생성한 테이블에서 원하는 이미지를 검색할 수 있습니다.
+"__SEARCH__" 구문을 사용하여 수치화을 생성한 테이블에서 원하는 이미지를 검색할 수 있습니다.
 
 ``` sql
 SEARCH IMAGE (images = expression)
@@ -179,9 +179,9 @@ AS
     본 쿼리를 통해서 USING 뒤에 나온 모델인 model_name_expression을 사용합니다.
 
 
-__SEARCH IMAGE 구문 예시__
+__SEARCH 예시__
 
-[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image.ipynb/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image.ipynb/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

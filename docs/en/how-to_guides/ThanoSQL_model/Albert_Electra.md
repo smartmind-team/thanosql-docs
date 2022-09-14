@@ -17,7 +17,7 @@ __Notation Conventions__
     __literal__ : A fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
-## __BUILD MODEL Query Syntax__
+## __BUILD MODEL Syntax__
 
 Use the "__BUILD MODEL__" query to develop an AI model.
 The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
@@ -57,9 +57,9 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in an ima
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT: False)
 
-__BUILD MODEL Query Example__
+__BUILD MODEL Example__
 
-A sample BUILD MODEL query can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_electra/).
+A sample BUILD MODEL query can be found in [Create a text classification model](/en/tutorials/thanosql_ml/classification/classification_electra/).
 
 ```sql
 %%thanosql
@@ -77,9 +77,9 @@ SELECT *
 FROM movie_review_train
 ```
 
-## __FIT MODEL Query Syntax__
+## __FIT MODEL Syntax__
 
-The "__FIT MODEL__" query statement lets you retrain artificial intelligence models. The "__FIT MODEL__" statement allows you to retrain datasets defined with the query_expr that comes after the "__AS__" clause. In this case, the label of the data used for retraining should be the same as the label used for the previous training.
+The "__FIT MODEL__" statement lets you retrain artificial intelligence models. The "__FIT MODEL__" statement allows you to retrain datasets defined with the query_expr that comes after the "__AS__" clause. In this case, the label of the data used for retraining should be the same as the label used for the previous training.
 
 ```sql
 query_statement:
@@ -116,9 +116,9 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in an ima
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
 - "overwrite" : Overwrite if a model with the same name exists in the DB. If True, the existing model is overwritten with the new model (DEFAULT: False)
 
-## __PREDICT USING Query Syntax__
+## __PREDICT Syntax__
 
-Use the "__PREDICT USING__" query statement to apply artificial intelligence models to test datasets to perform prediction, classification, recommendation, and more. The "__PREDICT USING__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
+Use the "__PREDICT__" statement to apply artificial intelligence models to test datasets to perform prediction, classification, recommendation, and more. The "__PREDICT__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -132,9 +132,9 @@ AS
 (query_expr)
 ```
 
-__PREDICT USING Query Example__
+__PREDICT Example__
 
-A sample PREDICT USING query can be found in [Create Text Classification Model](/en/tutorials/thanosql_ml/classification/classification_electra/).
+A sample PREDICT query can be found in [Create a text classification model](/en/tutorials/thanosql_ml/classification/classification_electra/).
 
 ```sql
 %%thanosql
@@ -160,9 +160,9 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in an ima
 
 - "text_col" : Sets the name of the column containing the text to be classified. (DEFAULT: "text")
 
-## __EVALUATE USING Query Syntax__
+## __EVALUATE Syntax__
 
-You can use the "__EVALUATE USING__" query statement to evaluate the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
+You can use the "__EVALUATE__" statement to evaluate the AI model. The "__EVALUATE__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:

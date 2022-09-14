@@ -17,7 +17,7 @@ __Notation Conventions__
     __literal__ : A fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
-## __BUILD MODEL Query Syntax__
+## __BUILD MODEL Syntax__
 
 Use the "__BUILD MODEL__" query to develop an AI model.
 The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
@@ -51,7 +51,7 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlRegressor model. The definition of each parameter is as follows.
 
-- "target" : Sets the name of the column that has the target value for the classification prediction model.
+- "target" : Sets the name of the column that has the target value for the regression model.
 - "impute_type" : Determines how empty values are handled in the data table.(DEFAULT : "simple")
 > "simple" : For empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
 > "iterative" : Applies an algorithm that predicts empty values with the remaining properties.
@@ -61,12 +61,12 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 > "pca" : Detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA).  
 > "iso" : Use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (Works efficiently on datasets with many variables.)  
 >  "knn" : Use a K-NN-based approach to detect abnormal samples based on the distance between each data.
-- "time_left_for_this_task" : Indicates the time the regressor will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
+- "time_left_for_this_task" : Indicates the time the regressor will take to find a suitable regression model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT : False)
 
-**BUILD MODEL Query Example**
+**BUILD MODEL Example**
 
-A sample BUILD MODEL query can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+A sample BUILD MODEL query can be found in [Create a regression model using AutoML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -76,16 +76,17 @@ OPTIONS (
     target='count',
     impute_type='simple',
     datetime_attribs=['datetime'],
+    time_left_for_this_task = 300,
     overwrite = True
     )
 AS
 SELECT *
-FROM bike_sharing
+FROM bike_sharing_train
 ```
 
-## **FIT MODEL Query Syntax**
+## **FIT MODEL Syntax**
 
-The "**FIT MODEL**" query statement lets you retrain artificial intelligence models. The "**FIT MODEL**" expression allows you to re-train datasets defined with the query_expr that comes after the "__AS__" clause.
+The "**FIT MODEL**" statement lets you retrain artificial intelligence models. The "**FIT MODEL**" expression allows you to re-train datasets defined with the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -116,7 +117,7 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlRegressor model. The definition of each parameter is as follows.
 
-- "target" : Sets the name of the column that has the target value for the classification prediction model.
+- "target" : Sets the name of the column that has the target value for the regression model.
 - "impute_type" : Determines how empty values are handled in the data table.(DEFAULT : "simple")
 > "simple" : For empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
 > "iterative" : Applies an algorithm that predicts empty values with the remaining properties.
@@ -126,32 +127,32 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 > "pca" : Detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA).  
 > "iso" : Use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (Works efficiently on datasets with many variables.)  
 >  "knn" : Use a K-NN-based approach to detect abnormal samples based on the distance between each data.
-- "time_left_for_this_task" : Indicates the time the regressor will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
+- "time_left_for_this_task" : Indicates the time the regressor will take to find a suitable regression model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT : False)
 
 **FIT MODEL Query Example**
 
-A sample FIT MODEL query can be found in [Re-learning the model](/en/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)
+A sample FIT MODEL query can be found in [FIT MODEL](/en/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/)
 
 ```sql
 %%thanosql
-FIT MODEL fit_test_classifier
-USING test_classifier
+FIT MODEL fit_test_regressor
+USING bike_regression
 OPTIONS (
-    target = 'survived',
+    target = 'count',
     impute_type='simple',
-    features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
+    datetime_attribs = ['datetime'],
+    time_left_for_this_task = 300,
     overwrite = True
-
     )
 AS
 SELECT *
-FROM titanic_train
+FROM bike_sharing_train
 ```
 
-## **TRANSFORM USING Query Syntax**
+## **TRANSFORM Syntax**
 
-The "__TRANSFORM MODEL__" query statement is used to apply the same preprocessing method used to create AI models on your test datasets. The "__TRANSFORM MODEL__" expression can preprocess the dataset defined by the query_expr that comes after the 
+The "__TRANSFORM__" statement is used to apply the same preprocessing method used to create AI models on your test datasets. The "__TRANSFORM__" expression can preprocess the dataset defined by the query_expr that comes after the 
 
 ```sql
 query_statement:
@@ -162,22 +163,22 @@ AS
 (query_expr)
 ```
 
-**TRANSFORM USING Query Example**
+**TRANSFORM Example**
 
-A sample TRANSFORM USING query can be found in [Preprocessing data for model application](/en/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/).
+A sample TRANSFORM query can be found in [TRANSFORM](/en/how-to_guides/ThanoSQL_query/TRANSFORM_MODEL_SYNTAX/).
 
 ```sql
 %%thanosql
-TRANSFORM USING test_classifier
+TRANSFORM USING bike_regression
 AS
 SELECT *
-FROM titanic_test
+FROM bike_sharing_test
 ```
 
-## **PREDICT USING Query Syntax**
+## **PREDICT Syntax**
 
-Use the "__PREDICT USING__" query statement to apply artificial intelligence models to test datasets to perform prediction, classification, recommendation, and more. 
-The "__PREDICT USING__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
+Use the "__PREDICT__" statement to apply artificial intelligence models to test datasets to perform prediction, classification, recommendation, and more. 
+The "__PREDICT__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -188,9 +189,9 @@ AS
 (query_expr)
 ```
 
-**PREDICT USING Query Example**
+**PREDICT Example**
 
-A sample PREDICT USING query can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+A sample PREDICT query can be found in [Create a regression model using AutoML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -200,9 +201,9 @@ SELECT *
 FROM bike_sharing_test
 ```
 
-## **EVALUATE USING Query Syntax**
+## **EVALUATE Syntax**
 
-You can use the "__EVALUATE USING__" query statement to evaluate the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
+You can use the "__EVALUATE__" statement to evaluate the AI model. The "__EVALUATE__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -226,11 +227,11 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlRegressor model. The definition of each parameter is as follows.
 
-- "target" : Sets the name of the column that has the target value for the classification prediction model.
+- "target" : Sets the name of the column that has the target value for the regression model.
 
-**EVALUATE USING Query Example**
+**EVALUATE Example**
 
-A sample EVALUATE USING query can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+A sample EVALUATE query can be found in [Create a regression model using AutoML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -240,5 +241,5 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM bike_sharing
+FROM bike_sharing_train
 ```
