@@ -4,22 +4,21 @@ title: TRANSFORM
 
 # __TRANSFORM__
 
-## __1. TRANSFORM Syntax overview__
+## __1. Overview__
 
-The "__TRANSFORM__" syntax allows the user to apply the same preprocessing method used to create an AI model to the test dataset.
+The "__TRANSFORM__" statement allows users to apply the same data preprocessing method used to create a model to the test dataset.
 
-## __2. TRANSFORM Syntax__
+## __2. Syntax__
 
 ```sql
 %%thanosql
-TRANSFORM USING [Existing_trained_model_name]
+TRANSFORM USING [built_model_name]
 AS
-[test data set to use]
+[test_dataset_to_use]
 ```
 
-## __3. TRANSFORM Syntax eample__
-
-The example below uses the syntax "__TRANSFORM__" to apply the same processing to the <mark style="background-color:#FFEC92 ">titanic_test</mark> dataset as the <mark style="background-color:#E9D7FD ">test_classifier</mark> classification model that you created in [Learning Models](/en/how-to_guides/ThanoSQL_ml/BUILD_MODEL_SYNTAX/).
+## __3. Example__
+The example below demonstrates how to use a "__TRANSFORM__" statement to apply the same data preprocessing to the <mark style="background-color:#FFEC92 ">titanic_test</mark> dataset as the <mark style="background-color:#E9D7FD ">test_classifier</mark>  model built in [Learning Models](/en/how-to_guides/ThanoSQL_ml/BUILD_MODEL_SYNTAX/).
 
 ```sql
 %%thanosql

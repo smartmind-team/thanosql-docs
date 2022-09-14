@@ -12,9 +12,6 @@ title: LIST
 
 "__LIST MODEL__" 구문은 사용자가 만든 모델들의 리스트를 확인합니다.
 
-!!! Failure "Caution"
-    단, 저장한 모델이 없는 경우에는 오류가 발생합니다.
-
 ```sql
 %%thanosql
 LIST MODEL
@@ -46,9 +43,6 @@ LIST THANOSQL DATASET
 [![IMAGE](/img/thanosql_syntax/query/LIST/img4.png)](/img/thanosql_syntax/query/LIST/img4.png)
 
 "__LIST TABLE__" 구문은 사용자가 만든 테이블들의 리스트를 확인합니다.
-
-!!! Failure "Caution"
-    단, 생성된 테이블이 없는 경우에는 오류가 발생합니다.
 
 ```sql
 %%thanosql

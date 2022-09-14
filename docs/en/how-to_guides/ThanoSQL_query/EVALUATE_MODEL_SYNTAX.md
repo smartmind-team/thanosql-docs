@@ -6,7 +6,7 @@ title: EVALUATE
 
 ## __1. Overview__
 
-The "__EVALUATE__" statement allows users to evaluate performance of AI models.
+The "__EVALUATE__" statement allows users to evaluate performance of their models.
 
 ## __2. Syntax__ 
 
@@ -19,10 +19,10 @@ AS
 ```
 
 !!! warning
-    If the data set you want to use does not have a target, you cannot evaluate the performance of the model.
+    If the dataset you want to use does not have a target, you cannot evaluate the performance of the model.
 
 ## __3. Example__
-The example below demonstrates a method to use a "__EVALUATE__" statement to evaluate the <mark style="background-color:#E9D7FD ">test_classifier</mark> model built with the [BUILD MODEL](/en/how-to_guides/ThanoSQL_ml/BUILD_MODEL_SYNTAX/).
+The example below demonstrates how to use the "__EVALUATE__" statement to evaluate the <mark style="background-color:#E9D7FD ">test_classifier</mark> model built with the [BUILD MODEL](/en/how-to_guides/ThanoSQL_ml/BUILD_MODEL_SYNTAX/) statement.
 
 ```sql
 %%thanosql
@@ -38,11 +38,10 @@ FROM titanic_train
 [![IMAGE](/img/thanosql_ml/classification/automl_classification/img2.png)](/img/thanosql_ml/classification/automl_classification/img2.png)
 
 !!! note "__Query Details__"  
-    Evaluate the <mark style="background-color:#E9D7FD ">titanic_classification</mark> model with a  "__EVALUATE__" statement.
-    For the "target" value in the "__OPTIONS__" clause, write down the name of the target column(<mark style="background-color:#D7D0FF">survived</mark>) of the classification model.
+    For the "target" value in the "__OPTIONS__" clause, specify the name of the target column(<mark style="background-color:#D7D0FF">survived</mark>) of the classification model.
 
 !!! faq "__Metrics__"
-     Depending on the situation, metrics can differ for each model. For classification, simple classification with two target values and multiple classification with three or more target values will use different evaluation metrics like listed below.
+     Depending on the situation, metrics can differ for each model. For example, simple classification with two target values and multiple classification with three or more target values will use different evaluation metrics such as the ones listed below.
 
 
 | Model      | Metrics                     |

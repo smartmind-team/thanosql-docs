@@ -4,23 +4,23 @@ title: PREDICT
 
 # __PREDICT__
 
-## __1. PREDICT Syntax overview__
+## __1. Overview__
 
-Using the "__PREDICT__" syntax, users can apply AI models to test datasets to perform prediction, classification, recommendation, and more.
+The "__PREDICT__" statement allows users to apply models to perform prediction, classification, recommendation, and more.
 
-## __2. PREDICT Syntax__
+
+## __2. Syntax__
 
 ```sql
 %%thanosql
-PREDICT USING [Existing_trained_model_name]
-OPTIONS ([Option_value_required_for_inference_by_model])
+PREDICT USING [built_model_name]
+OPTIONS ([option_values_required_for_inference])
 AS
-[test_data_set_to_use]
+[test_dataset_to_use]
 ```
 
-## __3. PREDICT Syntax example__
-
-You can find examples of using the algorithm query syntax in the [Create a text classification model](/en/tutorials/thanosql_ml/classification/classification_electra/).
+## __3. Example__
+You can find the example of the following query statement in the [Create a text classification model](/en/tutorials/thanosql_ml/classification/classification_electra/).
 
 ````sql
 %%thanosql
@@ -34,5 +34,5 @@ FROM movie_review_test```
 ````
 
 !!! note "__Query Details__"
-    - "__OPTIONS__" A clause can change the value of a parameter from its default value in an image model. The meaning of each parameter is as follows.
-        - "text_col" : Sets the column containing the text to be classified in the data table.(DEFAULT : "text")
+    - The "__OPTIONS__" clause can change the value of a parameter from the default value in an image model. The meaning of each parameter is as follows:
+        - "text_col" : Column containing the text to be classified by the model. (DEFAULT : "text")
