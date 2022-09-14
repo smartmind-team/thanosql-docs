@@ -11,16 +11,15 @@ __Notation Conventions__
 - The bracket `[]` indicates an optional clause.
 - An ellipsis following a comma in brackets [,...] means that the preceding item can be repeated as a comma-separated list
 - The vertical bar `|` represents the logic `OR`.
-- VALUE means just value.
+- VALUE represents a regular value.
 
 !!! note ""
-    __literal__ : A fixed or unchangeable value, also known as Constant.
-    > Each literal has a special data type such as column, in the data table.
+    __literal__ : A fixed or unchangeable value, also known as a Constant.
+    > Each literal has a special data type such as column, in the table.
 
+## __CREATE TABLE Query Statement__
 
-## __CREATE TABLE Query Syntax__
-
-You can use the syntax "__CREATE TABLE__" to generate a data table containing the quantization vectors of the image data.
+You can use the "__CREATE TABLE__" statement to generate a table containing the vectors of the image data.
 
 ```sql
 CREATE TABLE (table_name_expression)
@@ -44,17 +43,17 @@ OPTIONS(
     )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter in CLIP from its default value. The meaning of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "path_type" : Sets the column containing the path of the audio files in the data table (DEFAULT: "audio_path")
+- "path_type" : Sets the name of the column containing the audio files path (DEFAULT: "audio_path")
 - "data_type" : Type of data.
-- "file_type" : The format of the extension of the image.
-- "batch_size" : The size of a bundle of data sets read from one prediction. (DEFAULT : 16)
-- "overwrite" : Sets whether or not a model with the same name can be overwritten if it exists. If true, the existing model will be changed to the new model. (DEFAULT: False)
+- "file_type" : The extension type of the image.
+- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
+- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
 
-## __CONVERT USING Query Syntax__
+## __CONVERT USING Query Statement__
 
-The "__CONVERT USING__" query syntax converts image data from an existing table into a quantized vector and adds it to the data table to use.
+The "__CONVERT USING__" query statement converts image data from an existing table into a vector and adds it to the table.
 
 ```sql
 CONVERT USING clip_en
@@ -77,15 +76,15 @@ OPTIONS(
 )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter from its default value in the model. The meaning of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
 - "table_name" : The name of the new table to be created.
-- "image_col" : The name of the column containing the path of the image in the table. (DEFAULT : 'image_path')
-- "batch_size" : The size of a bundle of data sets read from one prediction. (DEFAULT : 16)
+- "image_col" : The name of the column containing the image path. (DEFAULT : 'image_path')
+- "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
 
-__Example of CONVERT USING syntax__
+__Example of CONVERT USING Statement__
 
-You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
+Examples can be found in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
 
 ```sql
 %%thanosql
@@ -100,9 +99,9 @@ SELECT *
 FROM unsplash_data
 ```
 
-## __SEARCH IMAGE Query Syntax__
+## __SEARCH IMAGE Query Statement__
 
-You can use the "__SEARCH IMAGE__" query syntax to retrieve the desired image from the table that generated the digitization.
+You can use the "__SEARCH IMAGE__" query statement to retrieve the desired image from the table that generated the vectors.
 
 ```sql
 SEARCH IMAGE ({text|texts|image|images} = expression)
@@ -112,11 +111,11 @@ AS
 ```
 
 !!! note ""
-    You must receive one of text, texts, image, and images as input. Text and texts, image, and images are the same. The input must be string (e.g., 'a black cat', 'data/image/image01.jpg') or list of strings (e.g., ['a black cat', 'a orange cat'], ['data/image/image01.jpg', 'data/image/image02.jpg']).
+    You must choose one of (text | texts) or (image | images) as an input. The input must be a string (e.g., 'a black cat', 'data/image/image01.jpg') or a list of strings (e.g., ['a black cat', 'a orange cat'], ['data/image/image01.jpg', 'data/image/image02.jpg']).
 
-__Example SEARCH IMAGE Syntax__
+__Example SEARCH IMAGE Statement__
 
-You can find examples of using the algorithm query syntax in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
+Examples can be found in [search by text](/en/tutorials/thanosql_search/image_search/search_image_by_text/).
 
 ```sql
 %%thanosql

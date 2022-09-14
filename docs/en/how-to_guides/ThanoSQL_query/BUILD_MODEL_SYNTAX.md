@@ -4,32 +4,30 @@ title: BUILD MODEL
 
 # __BUILD MODEL__
 
-## __1. BUILD MODEL Syntax Overview__
+## __1. Overview__
 
-Users can simply use the "__BUILD MODEL__" syntax to develop the desired AI model without the need for data science expertise.
+The "__BUILD MODEL__" statement enables users to create a desired AI model without any expertise in data science. 
 
-## __2. BUILD MODEL Syntax__
+## __2. Syntax__
 
 ```sql
 %%thanosql
-BUILD MODEL [Custom_Model_Name]
+BUILD MODEL [custom_model_name]
 USING [AI_model_to_use]
-OPTIONS ([Option_values_​​required_when_creating_an_AI_model])
+OPTIONS ([option_values_​​required_when_creating_an_AI_model])
 AS
-[data_set_to_use]
+[dataset_to_use]
 
 ```
 
 !!! NOTE
-    "The option values used by __OPTIONS__" apply differently depending on the AI model you are using. The "__OPTIONS__" for each AI model is available [in the options documentation page.](/en/how-to_guides/OPTIONS/)
+    Option values used in the "__OPTIONS__" clause are different for each AI model. Specific values needed for each model are listed [here](/en/how-to_guides/OPTIONS/).
 
-## __3. BUILD MODEL Syntax example__
+## __3. Example__
 
-### __3-1. Using Auto_ML Models to Create Classification Models__
+### __3-1. Using the Auto_ML Model to Create a Classification Model__
+The example below demonstrates a method to use ThanoSQL's ["AutomlClassifier"](https://www.automl.org/automl/) and the "__BUILD MODEL__" statement to create a user-defined <mark style="background-color:#E9D7FD ">Titanic classification</mark> model. If you are interested in learning more about the entire procedure, check out [Creating a Titanic Survivor Classification Model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
 
-The example below uses the syntax "__BUILD MODEL__" to create a classification model using a user-defined <mark style="background-color:#E9D7FD ">Titanic_classification</mark> model provided by ThanoSQL ["AutomlClassifier"](https://www.automl.org/automl/).
-
-If you're curious about the whole process, try [Creating a Titanic Survivor Classification Model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql
@@ -46,7 +44,7 @@ SELECT *
 FROM titanic_train
 ```
 
-!!! note "Artificial intelligence models available with '__BUILD MODEL__'"
+!!! note "AI models that can be used with '__BUILD MODEL__ statement'"
     - Auto-ML Classification model - AutomlClassifier
     - Auto-ML Regression model - AutomlRegressor
     - ConvNeXT Model - ConvNeXt_Tiny , ConvNeXt_Base
