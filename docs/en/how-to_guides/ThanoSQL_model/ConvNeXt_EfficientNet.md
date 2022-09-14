@@ -58,7 +58,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT: False)
 
-__Example BUILD MODEL Query__
+__BUILD MODEL Query Example__
 
 An example can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/image_classification/).
 
@@ -146,7 +146,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 - "image_col" : Sets the name of the column containing the image path. (DEFAULT: "image")
 - "batch_size" : The size of the dataset bundle read during one train. (DEFAULT : 16)
 
-__Example PREDICT USING Query Syntax__
+__PREDICT USING Query Example__
 
 An example can be found in [Create Image Classification Model](/en/tutorials/thanosql_ml/classification/image_classification/).
 

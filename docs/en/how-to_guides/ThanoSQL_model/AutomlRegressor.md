@@ -17,9 +17,9 @@ __Notation Conventions__
     __literal__ : A fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
-## __BUILD MODEL Query Statement__
+## __BUILD MODEL Query Syntax__
 
-Use the "__BUILD MODEL__" query statement to develop an AI model.
+Use the "__BUILD MODEL__" query to develop an AI model.
 The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
 
 ```sql
@@ -64,7 +64,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 - "time_left_for_this_task" : Indicates the time the regressor will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT : False)
 
-**BUILD MODEL Query Statement Example**
+**BUILD MODEL Query Example**
 
 An example can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
@@ -83,7 +83,7 @@ SELECT *
 FROM bike_sharing
 ```
 
-## **FIT MODEL Query Statement**
+## **FIT MODEL Query Syntax**
 
 The "**FIT MODEL**" query statement lets you re-train artificial intelligence models. The "**FIT MODEL**" expression allows you to re-train datasets defined with the query_expr that comes after the "__AS__" clause.
 
@@ -129,7 +129,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 - "time_left_for_this_task" : Indicates the time the regressor will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT : False)
 
-**FIT MODEL Query Statement Example**
+**FIT MODEL Query Example**
 
 An example can be found in [Re-learning the model](/en/how-to_guides/ThanoSQL_ml/FIT_MODEL_SYNTAX/)
 
@@ -149,7 +149,7 @@ SELECT *
 FROM titanic_train
 ```
 
-## **TRANSFORM USING Query Statement**
+## **TRANSFORM USING Query Syntax**
 
 The "__TRANSFORM MODEL__" query statement is used to apply the same preprocessing method used to create AI models on your test datasets. The "__TRANSFORM MODEL__" expression can preprocess the dataset defined by the query_expr that comes after the 
 
@@ -162,7 +162,7 @@ AS
 (query_expr)
 ```
 
-**TRANSFORM USING Query Statement Example**
+**TRANSFORM USING Query Example**
 
 An example can be found in [Preprocessing data for model application](/en/how-to_guides/ThanoSQL_ml/TRANSFORM_MODEL_SYNTAX/).
 
@@ -174,7 +174,7 @@ SELECT *
 FROM titanic_test
 ```
 
-## **PREDICT USING Query Statement**
+## **PREDICT USING Query Syntax**
 
 Use the "__PREDICT USING__" query statement to apply artificial intelligence models to test datasets to perform prediction, classification, recommendation, and more. 
 The "__PREDICT USING__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
@@ -188,7 +188,7 @@ AS
 (query_expr)
 ```
 
-**Example PREDICT USING Query Statement**
+**PREDICT USING Query Example**
 
 An example can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
@@ -200,7 +200,7 @@ SELECT *
 FROM bike_sharing_test
 ```
 
-## **EVALUATE USING Query Statement**
+## **EVALUATE USING Query Syntax**
 
 You can use the "__EVALUATE USING__" query statement to evaluate the AI model. The "__EVALUATE USING__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
 
@@ -228,7 +228,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 
 - "target" : Sets the name of the column that has the target value for the classification prediction model in the table.
 
-**Example EVALUATE USING Query Statement**
+**EVALUATE USING Query Example**
 
 An example can be found in [Create a prediction model using Auto-ML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 

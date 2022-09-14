@@ -20,7 +20,7 @@ __Notation Conventions__
 
 ## __BUILD MODEL Query Syntax__
 
-Use the "__BUILD MODEL__" query statement to develop an AI model.
+Use the "__BUILD MODEL__" query to develop an AI model.
 The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
 ​
 
@@ -59,7 +59,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 - "batch_size" : The size of the dataset bundle read during one train. (DEFAULT: 256)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
 
-__Example BUILD MODEL Query Syntax__
+__BUILD MODEL Query Example__
 
 Examples can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 ​
@@ -114,15 +114,15 @@ The "__OPTIONS__" clause defines the attribute values of the image file for imag
 
 - "path_type" : Sets the type of path where data is stored (folder|file)
 
-- "data_type" : Sets the type of unstructured data you enter. (image|audio|video)
+- "data_type" : Sets the type of unstructured data used. (image|audio|video)
 
-- "file_type" : Defines the extension of the destination file as a list (ex. ['.jpg'], '['.png'])
+- "file_type" : Sets the destination file extension type as a list (ex. ['.jpg'], '['.png'])
   ​
-- "overwrite" : Sets whether or not a model with the same name can be overwritten if it exists. If true, the existing model will be changed to the new model. (DEFAULT: False)
+- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
 
 ## __CONVERT USING Query Syntax__
 
-Use this "__CONVERT USING__" query syntax to store the digitized results as a new column in the existing dataset using a dataset containing the paths of existing images. Each time a new quantization model is used, a new quantization column is added to facilitate comparison by quantification results.
+Use the "__CONVERT USING__" query statement to store the vector results as a new column of the existing dataset using a dataset containing the paths of the existing images. Each time a new model is used, a new vector column is added for comparison of vectorization results.
 ​
 
 ```sql
@@ -142,14 +142,14 @@ OPTIONS(
     )
 ```
 
-The "__OPTIONS__" clause allows you to change the values of parameters in the SimCLR quantization model from their default values. The meaning of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 ​
 
-- "table_name" : Sets the name of the table to store the new digitization results
+- "table_name" : Sets the name of the table to store the new vector results
 
-__Example of CONVERT USING query syntax__
+__CONVERT USING Query Example__
 
-You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
+Examples can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 ​
 
 ```sql
@@ -166,7 +166,7 @@ FROM mnist_test
 
 ## __SEARCH IMAGE Query Syntax__
 
-You can use the "__SEARCH IMAGE__" query syntax to retrieve the desired image from the table that generated the digitization.
+You can use the "__SEARCH IMAGE__" query statement to search an image from the vector table.
 
 ```sql
 SEARCH IMAGE (images = expression)
@@ -176,11 +176,11 @@ AS
 ```
 
 !!! note ""
-    You must receive images as input from the user. The input must be a string (for example, 'a black cat', 'data/image/image01.jpg')
+    Images must be inputted as a string (for example, 'a black cat', 'data/image/image01.jpg').
 
-__Example SEARCH IMAGE Syntax__
+__SEARCH IMAGE Query Example__
 
-You can find examples of using the algorithm query syntax in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
+Examples can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 
 ```sql
 %%thanosql
