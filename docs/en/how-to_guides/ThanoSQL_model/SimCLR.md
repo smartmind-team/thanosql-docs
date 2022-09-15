@@ -18,7 +18,7 @@ __Notation Conventions__
     > Each literal has a special data type such as column, in the table.
 
 
-## __BUILD MODEL Query Syntax__
+## __BUILD MODEL Syntax__
 
 Use the "__BUILD MODEL__" query to develop an AI model.
 The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
@@ -59,9 +59,9 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 - "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT: 256)
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
 
-__BUILD MODEL Query Example__
+__BUILD MODEL Example__
 
-Examples of BUILD MODEL queries can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
+Examples of BUILD MODEL queries can be found in [Image search with image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 ​
 
 ```sql
@@ -78,7 +78,7 @@ SELECT *
 FROM mnist_train
 ```
 
-## __CREATE TABLE Query Syntax__
+## __CREATE TABLE Syntax__
 
 Using the syntax "__CREATE TABLE__", users can create a data table that converts unstructured data (image, audio, video, etc.) into vector formats using a quantization algorithm.
 The "__CREATE TABLE__" expression vectorizes the image files in the image folder path that comes after the "__FROM__" clause then creates and stores them as a table.
@@ -120,9 +120,9 @@ The "__OPTIONS__" clause defines the attribute values of the image file for imag
   ​
 - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
 
-## __CONVERT USING Query Syntax__
+## __CONVERT Syntax__
 
-Use the "__CONVERT USING__" query statement to store the vector results as a new column of the existing dataset using a dataset containing the paths of the existing images. Each time a new model is used, a new vector column is added for comparison of vectorization results.
+Use the "__CONVERT__" statement to store the vector results as a new column of the existing dataset using a dataset containing the paths of the existing images. Each time a new model is used, a new vector column is added for comparison of vectorization results.
 ​
 
 ```sql
@@ -147,9 +147,9 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 - "table_name" : Sets the name of the table to store the new vector results
 
-__CONVERT USING Query Example__
+__CONVERT Example__
 
-Examples of CONVERT USING queries can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
+Examples of CONVERT queries can be found in [Image search with image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 ​
 
 ```sql
@@ -164,9 +164,9 @@ SELECT *
 FROM mnist_test
 ```
 
-## __SEARCH IMAGE Query Syntax__
+## __SEARCH Syntax__
 
-You can use the "__SEARCH IMAGE__" query statement to search an image from the vector table.
+You can use the "__SEARCH__" statement to search an image from the vector table.
 
 ```sql
 SEARCH IMAGE (images = expression)
@@ -178,9 +178,9 @@ AS
 !!! note ""
     Images must be inputted as a string (for example, 'a black cat', 'data/image/image01.jpg').
 
-__SEARCH IMAGE Query Example__
+__SEARCH Example__
 
-Examples of SEARCH IMAGE queries can be found in [Search Image as Image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
+Examples of SEARCH queries can be found in [Image search with image](/en/tutorials/thanosql_search/image_search/search_image_by_image/).
 
 ```sql
 %%thanosql

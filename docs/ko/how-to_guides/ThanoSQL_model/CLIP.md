@@ -19,7 +19,7 @@ __표기법 규칙__
     > 각 리터럴은 테이블에서 컬럼과 같은 특별한 자료형을 가지고 있습니다.
 
 
-## __CREATE TABLE 쿼리 구문__
+## __CREATE TABLE 구문__
 
 "__CREATE TABLE__" 구문을 사용하여 이미지 데이터의 수치화 벡터를 포함한 데이터 테이블을 생성할 수 있습니다.
 
@@ -57,9 +57,9 @@ OPTIONS(
 - "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 - "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (DEFAULT : False)
 
-## __CONVERT USING 쿼리 구문__
+## __CONVERT 구문__
 
-"__CONVERT USING__" 쿼리 구문은 기존에 존재하던 테이블에서 이미지 데이터를 수치화한 벡터로 변환하고 이를 사용할 데이터 테이블에 추가합니다.
+"__CONVERT__" 구문은 기존에 존재하던 테이블에서 이미지 데이터를 수치화한 벡터로 변환하고 이를 사용할 데이터 테이블에 추가합니다.
 
 ```sql
 CONVERT USING clip_en
@@ -92,9 +92,9 @@ OPTIONS(
 - "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
 
 
-__CONVERT USING 구문 예시__
+__CONVERT 예시__
 
-[텍스트로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_text.ipynb/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_text.ipynb/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
 
 
 ```sql
@@ -110,9 +110,9 @@ SELECT *
 FROM unsplash_data
 ```
 
-## __SEARCH IMAGE 쿼리 구문__
+## __SEARCH 구문__
 
-"__SEARCH IMAGE__" 쿼리 구문을 사용하여 수치화을 생성한 테이블에서 원하는 이미지를 검색할 수 있습니다.
+"__SEARCH__" 구문을 사용하여 수치화을 생성한 테이블에서 원하는 이미지를 검색할 수 있습니다.
 
 ``` sql
 SEARCH IMAGE ({text|texts|image|images} = expression)
@@ -126,9 +126,9 @@ AS
 !!! faq ""
     본 쿼리를 통해서 USING 뒤에 나온 모델인 clip_en을 사용합니다. clip의 경우 현재 Build를 제공하지 않기 때문에 베이스 모델인 clip_en을 사용합니다.
 
-__SEARCH IMAGE 구문 예시__
+__SEARCH 예시__
 
-[텍스트로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_text.ipynb/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_text.ipynb/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

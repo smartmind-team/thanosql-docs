@@ -21,12 +21,12 @@ AS
 ```
 
 !!! NOTE
-    Option values used in the "__OPTIONS__" clause are different for each AI model. Specific values needed for each model are listed [here](/en/how-to_guides/OPTIONS/).
+    Option values used in the "__OPTIONS__" clause are different for each AI model. Specific values needed for each model are listed in [reference](/en/how-to_guides/reference/).
 
 ## __3. BUILD MODEL Example__
 
 ### __3-1. Using the Auto_ML Model to Create a Classification Model__
-The example below demonstrates how to use ThanoSQL's ["AutomlClassifier"](https://www.automl.org/automl/) and the "__BUILD MODEL__" statement to create a user-defined <mark style="background-color:#E9D7FD ">Titanic classification</mark> model. If you are interested in learning more about the entire procedure, check out [Creating a Titanic Survivor Classification Model using Auto-ML](/en/tutorials/thanosql_ml/classification/automl_classification/).
+The example below demonstrates how to use ThanoSQL's ["AutomlClassifier"](/en/how-to_guides/ThanoSQL_model/AutomlClassifier/) and the "__BUILD MODEL__" statement to create a user-defined <mark style="background-color:#E9D7FD ">Titanic classification</mark> model. If you are interested in learning more about the entire procedure, check out [Create a classification model using AutoML](/en/tutorials/thanosql_ml/classification/automl_classification/).
 
 
 ```sql

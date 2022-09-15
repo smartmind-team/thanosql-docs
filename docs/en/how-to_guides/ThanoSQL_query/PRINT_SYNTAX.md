@@ -89,7 +89,7 @@ FROM junyong_vid
 
 ### __3.4 Print with a subquery__
 
-The following statement outputs the results of "__SEARCH__" statement created in the nested [SEARCH query](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX). 
+The following statement outputs the results of "__SEARCH__" statement created in the nested [SEARCH](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX). 
 
 ```sql
 %%thanosql
