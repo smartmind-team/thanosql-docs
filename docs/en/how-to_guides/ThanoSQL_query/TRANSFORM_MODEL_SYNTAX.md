@@ -18,7 +18,7 @@ AS
 ```
 
 ## __3. TRANSFORM Example__
-The example below demonstrates how to use a "__TRANSFORM__" statement to apply the same data preprocessing to the <mark style="background-color:#FFEC92 ">titanic_test</mark> dataset as the <mark style="background-color:#E9D7FD ">test_classifier</mark>  model built in [Learning Models](/en/how-to_guides/ThanoSQL_ml/BUILD_MODEL_SYNTAX/).
+The example below demonstrates how to use a "__TRANSFORM__" statement to apply the same data preprocessing to the <mark style="background-color:#FFEC92 ">titanic_test</mark> dataset as the <mark style="background-color:#E9D7FD ">test_classifier</mark>  model built in [BUILD MODEL](/en/how-to_guides/ThanoSQL_query/BUILD_MODEL_SYNTAX/).
 
 ```sql
 %%thanosql

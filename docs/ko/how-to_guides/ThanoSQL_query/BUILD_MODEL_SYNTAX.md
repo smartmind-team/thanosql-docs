@@ -21,12 +21,12 @@ AS
 ```
 
 !!! NOTE
-    "__OPTIONS__"에서 사용하는 옵션값은 사용할 인공지능 모델에 따라 다르게 적용됩니다. 각 인공지능 모델에 대한 "__OPTIONS__"는 [다음 문서](/how-to_guides/OPTIONS/)에서 확인 가능합니다.
+    "__OPTIONS__"에서 사용하는 옵션값은 사용할 인공지능 모델에 따라 다르게 적용됩니다. 각 인공지능 모델에 대한 "__OPTIONS__"는 [참조 페이지](/how-to_guides/reference/)에서 확인 가능합니다.
 
 ## __3. BUILD MODEL 예시__
 ### __3-1. 분류 모델 생성을 위한 Auto_ML 모델 사용__
 
-아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 모델을 ThanoSQL에서 제공하는 ["AutomlClassifier"](https://www.automl.org/automl/) 모델을 사용하여 분류 모델을 만듭니다. 전체 과정이 궁금하다면, [Auto-ML을 사용하여 타이타닉 생존자 분류 모델 만들기](/ko/tutorials/thanosql_ml/classification/automl_classification.ipynb/)를 진행해 보세요.
+아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 모델을 ThanoSQL에서 제공하는 ["AutomlClassifier"](/how-to_guides/ThanoSQL_model/AutomlClassifier/) 모델을 사용하여 분류 모델을 만듭니다. 전체 과정이 궁금하다면, [Auto-ML을 사용하여 분류 모델 만들기](/ko/tutorials/thanosql_ml/classification/automl_classification.ipynb/)를 진행해 보세요.
 
 ```sql
 %%thanosql

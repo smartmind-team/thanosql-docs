@@ -20,7 +20,7 @@ AS
 ```
 
 !!! NOTE
-    Option values used in the "__OPTIONS__" clause are different for each model. Specific values needed for each model are listed [here](/en/how-to_guides/OPTIONS/). 
+    Option values used in the "__OPTIONS__" clause are different for each model. Specific values needed for each model are listed in [reference](/en/how-to_guides/reference/). 
 
 !!! warning
     The Auto-ML model is retrained by exclusively switching the dataset instead of changing the parameter values of the model to keep consistency with option values in the "__OPTIONS__" clause.

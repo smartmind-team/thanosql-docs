@@ -22,7 +22,7 @@ AS
     If the dataset you want to use does not have a target, you cannot evaluate the performance of the model.
 
 ## __3. EVALUATE Example__
-The example below demonstrates how to use the "__EVALUATE__" statement to evaluate the <mark style="background-color:#E9D7FD ">test_classifier</mark> model built with the [BUILD MODEL](/en/how-to_guides/ThanoSQL_ml/BUILD_MODEL_SYNTAX/) statement.
+The example below demonstrates how to use the "__EVALUATE__" statement to evaluate the <mark style="background-color:#E9D7FD ">test_classifier</mark> model built with the [BUILD MODEL](/en/how-to_guides/ThanoSQL_query/BUILD_MODEL_SYNTAX/) statement.
 
 ```sql
 %%thanosql

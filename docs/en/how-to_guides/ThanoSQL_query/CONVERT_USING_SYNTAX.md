@@ -21,7 +21,7 @@ AS
 ## __3. CONVERT Examples__
 
 ### __3.1 Image vectorization using `Color_descriptor` algorithm__
-The example below uses the color feature extraction model created in [Transform Unstructured Data(CREATE TABLE)](/en/how-to_guides/ThanoSQL_query/CREATE_TABLE_SYNTAX/) to store the vectorized results as a new column to the "color_descriptor_table_test" table.
+The example below uses the color feature extraction model created in [CREATE TABLE](/en/how-to_guides/ThanoSQL_query/CREATE_TABLE_SYNTAX/) to store the vectorized results as a new column to the "color_descriptor_table_test" table.
 
 ```sql
 %%thanosql
