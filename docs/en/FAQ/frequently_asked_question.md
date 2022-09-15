@@ -3,29 +3,25 @@ title: FAQs
 ---
 
 # __FAQs__
-## **1. Tutorial code stopped working after latest update.**
+## **1. Tutorial code stopped working after the latest update.**
 
-This can be occured when there is an update to ThanoSQL.  Please contact us via contact@smartmind.team if you have any futher questions.
+This might happen when there is an update to the ThanoSQL syntax. If you have any further questions about this issue, please contact us at contact@smartmind.team and we will look into it as soon as possible. 
 
-## **2. Got an error when using capital letter in ThanoSQL**
+## **2. I got an error when using capital letters in ThanoSQL.**
 
 ThanoSQL handles model/column names in lowercase letters. Please use only lowercase letters for model names or column names to call the appropriate model or column.
 
-## **3. Got an encoding error when reading csv file with COPY statement**
+## **3. When I used the COPY statement to read a csv file, I received an encoding error.**
 
-The ThanoSQL's COPY clause supports only the utf-8 encoding format. For csv files that contain Korean, use the COPY clause after utf-8 encoding.
+The COPY clause in ThanoSQL only supports the utf-8 encoding format. For csv files containing Korean, use the COPY clause after the appropriate utf-8 encoding.
 
-## **4. Types of unstructured data ThanoSQL could support**
+## **4. What types of unstructured data does ThanoSQL support?**
 
-ThanoSQL supports the following extensions for Image and Audio data:
+ThanoSQL supports the following extensions for image and audio data:
 
-- Image :  "jpg", "png"
+- Image :  "jpg", "png"
 - Audio : "wav", "flac", "mp3"
 - Video : "mp4"
 
 !!! notice ""
-    ThanoSQL does not require any special extension for text data.
-
-## **5. I was automatically logged out, but what happens to the query statement that was running?**
-
-If you were logged out, you don't have to worry because the query statement you initiated keeps working in the back of the system.
+    ThanoSQL does not require any special extensions for text data.
