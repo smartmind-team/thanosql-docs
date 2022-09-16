@@ -31,9 +31,7 @@ AI 기반 디지털 전환은 다양한 언어, 프레임 워크 그리고 람�
 
 ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 필요가 없으며, 오직 SQL과 Python만 사용해서 그 모든 기술 스택을 전부 아는 개발자(또는 데이터 엔지니어)들보다 빠르게 좋은 결과를 지속적으로 만들어낼 수 있습니다. 
 
-ThanoSQL의 혁신적인 결과를 지금 체험해보세요
-
-!!! note "ThanoSQL의 혁신적인 결과를 지금 체험해보세요"
+[ThanoSQL의 혁신적인 결과를 지금 체험해보세요](https://www.thanosql.ai/){ .md-button .md-button--primary }
 
 <div class="card">
     <header>

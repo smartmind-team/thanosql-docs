@@ -217,7 +217,7 @@ AS
 (query_expr)
 ```
 
-**OPTIONS 절**
+**OPTIONS Clause**
 
 ```sql
 OPTIONS(
