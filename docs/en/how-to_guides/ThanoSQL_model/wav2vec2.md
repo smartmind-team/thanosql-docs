@@ -95,7 +95,7 @@ AS
 (query_expr)
 ```
 
-__OPTIONS 절__
+__OPTIONS Clause__
 
 ```sql
 OPTIONS(
