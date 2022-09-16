@@ -45,6 +45,8 @@ plugins:
         en:
           Getting started: Getting Started
           Tutorials: Tutorials
+          Thanosql search: ThanoSQL Search
+          Thanosql ml: ThanoSQL ML
           How to guides: Reference
           ThanoSQL query: ThanoSQL Statement Reference
           ThanoSQL connecting: ThanoSQL REST API Reference
