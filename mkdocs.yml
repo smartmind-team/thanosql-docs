@@ -55,8 +55,8 @@ plugins:
   # Adding the date of last update
   - git-revision-date-localized:
       type: iso_date # Format yyyy-mm-dd
-  - mkdocs-jupyter:
-      include_source: True # Enable download ipynb files
+  # - mkdocs-jupyter: # Currently not using. If going to use, run pipenv install mkdocs-jupyter
+  #     include_source: True # Enable download ipynb files
 
 # Extensions
 markdown_extensions:

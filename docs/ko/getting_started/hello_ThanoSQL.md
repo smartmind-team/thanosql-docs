@@ -57,7 +57,7 @@ ex)
 LIST THANOSQL MODEL
 ```
 
-[![IMAGE](/img/getting_started/img6.png)](/img/getting_started/img6.png)
+[![IMAGE](/img/getting_started/img8.png)](/img/getting_started/img8.png)
 
 아래 ThanoSQL문을 실행시키면 [ThanoSQL 기술 문서에 있는 튜토리얼](/tutorials/algorithm_list/)에 있는 튜토리얼 목록을 확인할 수 있습니다.
 

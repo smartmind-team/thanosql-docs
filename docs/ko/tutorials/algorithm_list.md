@@ -10,7 +10,7 @@ title: ThanoSQL 모든 튜토리얼
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/ko/tutorials/thanosql_search/search_image_by_keyword.ipynb/">
+            <a href="/tutorials/thanosql_search/search_image_by_keyword/">
                 <h3>
                     키워드로 이미지 검색하기
                 </h3>
@@ -20,7 +20,7 @@ title: ThanoSQL 모든 튜토리얼
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_search/search_image_by_image.ipynb/">
+            <a href="/tutorials/thanosql_search/search_image_by_image/">
                 <h3>
                     이미지로 이미지 검색하기
                 </h3>
@@ -30,7 +30,7 @@ title: ThanoSQL 모든 튜토리얼
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_search/search_image_by_text.ipynb/">
+            <a href="/tutorials/thanosql_search/search_image_by_text/">
                 <h3>
                     텍스트로 이미지 검색하기 
                 </h3>
@@ -45,7 +45,7 @@ title: ThanoSQL 모든 튜토리얼
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/ko/tutorials/thanosql_ml/classification/automl_classification.ipynb/">
+            <a href="/tutorials/thanosql_ml/classification/automl_classification/">
                 <h3>
                     Auto-ML을 사용하여 분류 모델 만들기
                 </h3>
@@ -55,7 +55,7 @@ title: ThanoSQL 모든 튜토리얼
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_ml/classification/image_classification.ipynb/">
+            <a href="/tutorials/thanosql_ml/classification/image_classification/">
                 <h3>
                     이미지 분류 모델 만들기
                 </h3>
@@ -67,7 +67,7 @@ title: ThanoSQL 모든 튜토리얼
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_ml/classification/text_classification.ipynb/">
+            <a href="/tutorials/thanosql_ml/classification/text_classification/">
                 <h3>
                     텍스트 분류 모델 만들기
                 </h3>
@@ -79,7 +79,7 @@ title: ThanoSQL 모든 튜토리얼
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_ml/regression/automl_regression.ipynb/">
+            <a href="/tutorials/thanosql_ml/regression/automl_regression/">
                 <h3>
                     Auto-ML을 사용하여 예측 모델 만들기
                 </h3>
@@ -91,7 +91,7 @@ title: ThanoSQL 모든 튜토리얼
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_ml/audio_recognition/speech_recognition.ipynb/">
+            <a href="/tutorials/thanosql_ml/audio_recognition/speech_recognition/">
                 <h3>
                     오디오 파일을 받아쓰는 음성 인식 모델 만들기
                 </h3>
@@ -103,7 +103,7 @@ title: ThanoSQL 모든 튜토리얼
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_ml/udm_tutorial.ipynb/">
+            <a href="/tutorials/thanosql_ml/udm_tutorial/">
                 <h3>
                     User Defined Model in ThanoSQL
                 </h3>

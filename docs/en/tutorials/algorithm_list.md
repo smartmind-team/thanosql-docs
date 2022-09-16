@@ -10,9 +10,9 @@ title: ThanoSQL All Tutorials
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/ko/tutorials/thanosql_search/search_image_by_keyword.ipynb/">
+            <a href="/en/tutorials/thanosql_search/search_image_by_keyword/">
                 <h3>
-                    Image search with keyword
+                    Search Image by Keyword
                 </h3>
                 <p>
                     <br>Use ThanoSQL's keyword-image search model to search for the desired food image using specific keywords.</br>
@@ -20,9 +20,9 @@ title: ThanoSQL All Tutorials
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_search/search_image_by_image.ipynb/">
+            <a href="/en/tutorials/thanosql_search/search_image_by_image/">
                 <h3>
-                    Image search with image
+                    Search Image by Image
                 </h3>
                 <p>
                     <br>Use ThanoSQL's image-image search model to search for handwriting images similar to other images within the DB.</br>
@@ -30,9 +30,9 @@ title: ThanoSQL All Tutorials
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_search/search_image_by_text.ipynb/">
+            <a href="/en/tutorials/thanosql_search/search_image_by_text/">
                 <h3>
-                    Image search with text 
+                    Search Image by Text
                 </h3>
                 <p>
                     <br>Use ThanoSQL's text-to-image search model to search for the desired image in text.</br>
@@ -45,9 +45,9 @@ title: ThanoSQL All Tutorials
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/ko/tutorials/thanosql_ml/classification/automl_classification.ipynb/">
+            <a href="/en/tutorials/thanosql_ml/classification/automl_classification/">
                 <h3>
-                    Create a classification model using AutoML
+                    Create a Classification Model Using AutoML
                 </h3>
                 <p>
                     <br>Use ThanoSQL's Auto-ML to build classification model for survivors predictions.</br>
@@ -55,9 +55,9 @@ title: ThanoSQL All Tutorials
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_ml/classification/image_classification.ipynb/">
+            <a href="/en/tutorials/thanosql_ml/classification/image_classification/">
                 <h3>
-                    Create an image classification model
+                    Create an Image Classification Model
                 </h3>
                 <p>
                     <br>
@@ -67,9 +67,9 @@ title: ThanoSQL All Tutorials
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_ml/classification/text_classification.ipynb/">
+            <a href="/en/tutorials/thanosql_ml/classification/text_classification/">
                 <h3>
-                    Create a text classification model
+                    Create a Text Classification Model
                 </h3>
                 <p>
                     <br>
@@ -79,9 +79,9 @@ title: ThanoSQL All Tutorials
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_ml/regression/automl_regression.ipynb/">
+            <a href="/en/tutorials/thanosql_ml/regression/automl_regression/">
                 <h3>
-                    Create a regression model using AutoML
+                    Create a Regression Model Using AutoML
                 </h3>
                 <p>
                     <br>
@@ -91,9 +91,9 @@ title: ThanoSQL All Tutorials
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_ml/audio_recognition/speech_recognition.ipynb/">
+            <a href="/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/">
                 <h3>
-                    Create a speech recognition model to dictate an audio file
+                    Create a Speech Recognition Model
                 </h3>
                 <p>
                     <br>
@@ -103,7 +103,7 @@ title: ThanoSQL All Tutorials
             </a>
         </li>
         <li>
-            <a href="/ko/tutorials/thanosql_ml/udm_tutorial.ipynb/">
+            <a href="/en/tutorials/thanosql_ml/udm_tutorial/">
                 <h3>
                     User Defined Model in ThanoSQL
                 </h3>

@@ -1,4 +1,4 @@
 nav:
-    - search_image_by_keyword.ipynb
-    - search_image_by_image.ipynb
-    - search_image_by_text.ipynb
+    - search_image_by_keyword.md
+    - search_image_by_image.md
+    - search_image_by_text.md
