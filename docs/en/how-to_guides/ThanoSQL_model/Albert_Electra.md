@@ -59,7 +59,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in an ima
 
 __BUILD MODEL Example__
 
-A sample BUILD MODEL query can be found in [Create a text classification model](/en/tutorials/thanosql_ml/classification/classification_electra/).
+A sample BUILD MODEL query can be found in [Create a text classification model](/en/tutorials/thanosql_ml/classification/text_classification/).
 
 ```sql
 %%thanosql
@@ -134,7 +134,7 @@ AS
 
 __PREDICT Example__
 
-A sample PREDICT query can be found in [Create a text classification model](/en/tutorials/thanosql_ml/classification/classification_electra/).
+A sample PREDICT query can be found in [Create a text classification model](/en/tutorials/thanosql_ml/classification/text_classification/).
 
 ```sql
 %%thanosql

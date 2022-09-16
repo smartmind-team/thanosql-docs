@@ -63,7 +63,7 @@ OPTIONS(
 
 __BUILD MODEL 예시__  
 
-[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image.ipynb/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
+[이미지로 이미지 검색하기](/tutorials/thanosql_search/search_image_by_image/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 ​
 ```sql
 %%thanosql
@@ -148,7 +148,7 @@ OPTIONS(
 
 __CONVERT 예시__
 
-[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image.ipynb/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
+[이미지로 이미지 검색하기](/tutorials/thanosql_search/search_image_by_image/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 ​
 ```sql
 %%thanosql
@@ -181,7 +181,7 @@ AS
 
 __SEARCH 예시__
 
-[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image.ipynb/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
+[이미지로 이미지 검색하기](/tutorials/thanosql_search/search_image_by_image/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

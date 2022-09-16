@@ -72,7 +72,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 
 __BUILD MODEL Example__
 
-Examples of BUILD MODEL queries can be found in [Create a classification model using AutoML](/en/tutorials/ThanoSQL_query/classification/automl_classification/).
+Examples of BUILD MODEL queries can be found in [Create a classification model using AutoML](/en/tutorials/Thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql
@@ -196,7 +196,7 @@ AS
 
 __PREDICT Example__
 
-Examples of PREDICT queries can be found in [Create a classification model using AutoML](/en/tutorials/ThanoSQL_query/classification/automl_classification/).
+Examples of PREDICT queries can be found in [Create a classification model using AutoML](/en/tutorials/Thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql
@@ -236,7 +236,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 
 __EVALUATE Example__
 
-Examples of EVALUATE queries can be found in [Create a classification model using AutoML](/en/tutorials/ThanoSQL_query/classification/automl_classification/).
+Examples of EVALUATE queries can be found in [Create a classification model using AutoML](/en/tutorials/Thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql

@@ -20,7 +20,7 @@ AS
 ```
 
 ## __3. PREDICT Example__
-You can find the example of the following query statement in the [Create a text classification model](/en/tutorials/thanosql_ml/classification/classification_electra/).
+You can find the example of the following query statement in the [Create a text classification model](/en/tutorials/thanosql_ml/classification/text_classification/).
 
 ````sql
 %%thanosql

@@ -71,7 +71,7 @@ OPTIONS(
 
  __BUILD MODEL 예시__
 
-[Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification.ipynb/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
+[Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -204,7 +204,7 @@ AS
 
 __PREDICT 예시__
 
-[Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification.ipynb/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
+[Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -246,7 +246,7 @@ OPTIONS(
 
  __EVALUATE 예시__
 
-[Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification.ipynb/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
+[Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
