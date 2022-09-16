@@ -10,7 +10,6 @@ mkdocs-material = "*"
 pymdown-extensions = "*"
 mkdocs-static-i18n = "*"
 mkdocs-awesome-pages-plugin = "*"
-mkdocs-jupyter = "*"
 
 [dev-packages]
 

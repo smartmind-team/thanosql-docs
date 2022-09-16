@@ -1,46 +1,39 @@
 ---
-title: Get ThanoSQL pre-built models and tutorial datasets 
+title: GET
 ---
 
-# __Get ThanoSQL pre-built models and tutorial datasets (GET)__
+# __GET__
 
-## Preface
-
-- Updated Date : {{ git_revision_date_localized }}
-
-## __1. GET Syntax Overview__
-
-Users can utilize "__GET__" query syntax to download lastest ThanoSQL pre-built models and tutorial datasets. 
-
-
+## __1. GET Statement__
+The "__GET__" statement allows users to download the lastest ThanoSQL pre-built models and tutorial datasets. 
 ## __2. GET Syntax__
 
-"__GET THANOSQL MODEL__" query syntax downloads ThanoSQL pre-built models to one's workspace. 
+The "__GET THANOSQL MODEL__" statement downloads the ThanoSQL pre-built models to the user's workspace. 
 
 ```sql
 %%thanosql
-GET THANOSQL MODEL [ThanoSQL pre-built model name] 
+GET THANOSQL MODEL [ThanoSQL_pre-built_model_name] 
 OPTIONS (
     overwrite=True
 ) 
 AS 
-[Custom model name]
+[custom_model_name]
 ```
 
 !!! note "__Note__"    
-    One can use the LIST THANOSQL MODEL syntax to view a list of ThanoSQL pre-built models. There is only overwrite option in GET syntax and if not specified, the default value of the overwrite status would be False. If you do not include AS and custom model name when using GET syntax, pre-built models will be saved as the default names. 
+    You can use the `LIST THANOSQL MODEL` statement to view a list of the ThanoSQL pre-built models. There is only overwrite option in the `GET` statement and if not specified, the default value of the overwrite status will be set as False. If you do not include the `AS` clause and `custom_model_name`, pre-built models will be saved with default names. 
 
 
-"__GET THANOSQL DATASET__" query syntax downloads tutorial datasets to one's workspace. 
+The "__GET THANOSQL DATASET__" statement downloads the tutorial datasets to the user's workspace. 
 
 ```sql
 %%thanosql
-GET THANOSQL DATASET [ThanoSQL dataset name]
+GET THANOSQL DATASET [ThanoSQL_dataset_name]
 OPTIONS (
     overwrite=True 
 )
 ```
 
 !!! note "__Note__"    
-    One can use the LIST THANOSQL DATASET syntax to view a list of ThanoSQ datasets. There is only overwrite option in GET syntax and if not specified, the default value of the overwrite status would be False. Datasets cannot be renamed. 
+    You can use the `LIST THANOSQL DATASET` statement to view a list of the ThanoSQL datasets. There is only overwrite option in the `GET` statement and if not specified, the default value of the overwrite status will be set as False. Datasets cannot be renamed. 
 
