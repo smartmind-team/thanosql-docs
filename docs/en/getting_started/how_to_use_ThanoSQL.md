@@ -1,76 +1,109 @@
 ---
-title: How to use ThanoSQL Web
+title: ThanoSQL Web Manual
 ---
 
-# **How to use the ThanoSQL Website**
+# __ThanoSQL Web Manual__
 
-## Preface
+## __1. Connect to [ThanoSQL Web](https://www.thanosql.ai/en/){style="color:#604bcc" target="_blank"}__
 
-- 3 min read
-- Updated Date : {{ git_revision_date_localized }}
+Go to ThanoSQL and click on the **Login Button (or the start button at the homepage)** to go to the login page.
 
-## **1. Access the ThanoSQL Web**
-
-- After going to [ThanoSQL](https://www.thanosql.ai/en), you can get to the login screen by clicking the Login button.
 [![IMAGE](/en/img/getting_started/img0.png)](/en/img/getting_started/img0.png)
 
 !!! note ""
-      ThanoSQL users must sign up first to use the console.
+      To use the ThanoSQL console, please sign up first.
 
-## **2. Create Account**
+## __2. Sign Up__
 
-- Non-members must proceed with their account creation by clicking "Register as a member" on the ThanoSQL login screen.
+Click on the **Sign up Button** in the login page.
 
-[![IMAGE](/en/img/getting_started/img1.png){: style="width:450px"}](/en/img/getting_started/img1.png)
+[![IMAGE](/en/img/getting_started/img1.png)](/en/img/getting_started/img1.png)
 
-- To proceed, you must authenticate your email, set a new password, and agree to the terms and conditions.
+- Fill out the signup form and click on the **Create Account** button.
+- Verify your email address and agree to our Terms of Service and Privacy Policy to create an account.
 
-[![IMAGE](/en/img/getting_started/img2.png){: style="width:450px"}](/en/img/getting_started/img2.png)
+[![IMAGE](/en/img/getting_started/img2.png)](/en/img/getting_started/img2.png)
 
-- After authenticating your email, click "Create an account" to complete your registration.
+## __3. Use ThanoSQL Console__
 
-[![IMAGE](/en/img/getting_started/signup_complete.png){: style="width:450px"}](/en/img/getting_started/signup_complete.png)
+- Log in and click on the **Start Button** to create a new workspace.
 
-## **3. Using the ThanoSQL Console**
+[![IMAGE](/en/img/getting_started/img3.png)](/en/img/getting_started/img3.png)
 
-- After completing your registration, return to the login page and enter your email and password to log in. If you are logged in for the first time, you can use the service by creating a workspace.
+## __3-1. Plan Settings__
 
-[![IMAGE](/en/img/getting_started/img3.png){: style="width:450px"}](/en/img/getting_started/img3.png)
+[![IMAGE](/en/img/getting_started/img4.png)](/en/img/getting_started/img4.png)
 
-!!! warning "Caution when creating workspace"
-      When creating a new workspace, your workspace name must be unique and should start with a letter and can only be composed of lowercase letters and numbers.
+① **Plan**
 
-## **4. Create Workspace**
+- Choose a plan.
+- Click the Start Button to go to the next step.
 
-- Once you have created the workspace, you can see a workspace with the name you entered.
+② **Promotion Code**
 
-[![IMAGE](/en/img/getting_started/img7.png)](/en/img/getting_started/img7.png)
+- Enter a promotion code.
+- Click the Start Button after entering the code to go to the next step.
+!!! warning
+      - Promotion codes cannot be reused once they create a workspace.
 
-- You can enter the ThanoSQL Console by clicking the Open button on the workspace page.
+## __3-2. Application Form__
 
-[![IMAGE](/img/getting_started/img4.png)](/img/getting_started/img4.png)
+[![IMAGE](/en/img/getting_started/img5.png)](/en/img/getting_started/img5.png)
 
-## **5. ThanoSQL Workspace**
+① Create a workspace name
 
-- To use the ThanoSQL service, you must use the API token. Please note that API tokens can always be newly issued, but when they are newly issued, previous tokens can no longer be used.
+- Workspace names must be unique.
+- Workspace names must start with a letter and can only be composed of lowercase letters and numbers(example: myworkspace123)
 
-- Pressing the GET API_TOKEN button in the upper right corner of your workspace automatically generates an API token and copies it to your clipboard. You can use the service normally using the query below.
+② Selected Plan
 
-- A more detailed workspace usage guide can be found in [How to Use ThanoSQL Workspace](/en/getting_started/hello_ThanoSQL/)
+1. Check the Selected Plan
+      - Confirm the selected Plan Tier, Plan Name, and Price.
+2. Email
+      - Please input the email address that will recieve your invoice.
+      - **This field is mandatory.**
+3. Customer Name
+      - Please input the customer's full name.
+4. mobile phone number
+      - Please input your mobile phone number in case we cannot reach you via email.
+5. Inquiry
+      - Please input any inquiries you may have.
+!!! tip ""
+      workspace end-date changes, contact information change, etc...
 
+③ Complete Request
+
+- Click on the **Complete Button** to request / complete creating a new workspace.
+
+## __4. Create Workspace__
+
+① Workspace
+
+- Click on the **Open Button** to open the selected workspace.
+- Click on the More Button to download the SSH Key or update your workspace plan.
+
+② Create additional workspaces
+
+- Click on the **Create New Workspace** card to create additional workspaces.
+
+[![IMAGE](/en/img/getting_started/img6.png)](/en/img/getting_started/img6.png)
+
+## __5. ThanoSQL Workspace__
+
+Query and create AI models with both structured and unstructured data with SQL.
+
+① Get API Token
+
+- **Click on the "GET API_TOKEN" Button to get your API token (copied into your clipboard). Use the query below to connect to and start using ThanoSQL.**
+- You must use the given API token to use our services. Though, you can request for new API tokens, be aware that older tokens will automatically expire.
 ```sql
 %load_ext thanosql
 %thanosql API_TOKEN=<Issued_API_TOKEN>
 ```
+- The query above must be executed first to use ThanoSQL's syntax.
 
-ex)
+② Switching Workspaces
 
-```sql
-%load_ext thanosql
-%thanosql API_TOKEN=eyGVFDdfafddvczs
-```
+- Click on the workspace drop down list to switch between your workspaces.
 
-[![IMAGE](/img/getting_started/img6.png)](/img/getting_started/img6.png)
-
-!!! danger  
-      To run ThanoSQL queries in the ThanoSQL workspace, you must always include the above query at the top of the file.
+[![IMAGE](/en/img/getting_started/img7.png)](/en/img/getting_started/img7.png)

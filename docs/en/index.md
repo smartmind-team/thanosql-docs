@@ -41,7 +41,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
         <li>
             <a href="/en/getting_started/how_to_use_ThanoSQL/">
                 <h3>
-                    How to use ThanoSQL Web
+                    ThanoSQL Web Manual
                 </h3>
                 <p>
                     Describe the screens and features that are available for creating and managing accounts on ThanoSQL web. 
@@ -51,7 +51,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
         <li>
             <a href="/en/getting_started/hello_ThanoSQL/">
                 <h3>
-                    How to use ThanoSQL workspace
+                    ThanoSQL Workspace Manual
                 </h3>
                 <p>
                     Explain about the basic usage of ThanoSQL workspace.

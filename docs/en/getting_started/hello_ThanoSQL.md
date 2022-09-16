@@ -1,8 +1,8 @@
 ---
-title: How to use the ThanoSQL workspace
+title: ThanoSQL Workspace Manual
 ---
 
-# **How to use the ThanoSQL Workspace**
+# **ThanoSQL Workspace Manual**
 
 ThanoSQL`s workspace is a web-based computing environment based on [Jupyter Lab](https://github.com/jupyterlab/jupyterlab).
 
@@ -55,7 +55,7 @@ To view a list of prebuilt ThanoSQL models, run the ThanoSQL statement below.
 LIST THANOSQL MODEL
 ```
 
-[![IMAGE](/img/getting_started/img6.png)](/img/getting_started/img6.png)
+[![IMAGE](/img/getting_started/img8.png)](/img/getting_started/img8.png)
 
 If you run the ThanoSQL statement below, you can view the [tutorials in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/).
 
