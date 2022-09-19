@@ -31,7 +31,7 @@ Against this situation, ThanoSQL
 
 With ThanoSQL, you don't need to know many of the technology stacks in the figure above, and you can continue to produce better results, faster than developers (or data engineers) who know all of the technology stacks.
 
-[Experience the innovative results of ThanoSQL now](https://www.thanosql.ai/en/){ .md-button .md-button--primary }
+[Experience the innovative results of ThanoSQL now](https://www.thanosql.ai/en/){ .md-button .md-button--primary target="_blank"}
 
 <div class="card">
     <header>
