@@ -249,9 +249,6 @@ OPTIONS (overwrite=True)
 FROM "test/udm_tutorial/test_data.pkl"
 ```
 
-    Success
-
-
 
 ```python
 %%thanosql
@@ -344,8 +341,6 @@ UPLOAD MODEL beans_mobilevit
 OPTIONS (overwrite=True, framework="pytorch")
 FROM "test/udm_tutorial/trained_model.pth"
 ```
-
-    Success
 
 
 #### 업로드한 모델을 통한 예측

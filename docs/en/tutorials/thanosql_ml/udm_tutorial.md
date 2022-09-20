@@ -250,8 +250,6 @@ OPTIONS (overwrite=True)
 FROM "test/udm_tutorial/test_data.pkl"
 ```
 
-    Success
-
 
 <div class="admonition note">
     <h4 class="admonition-title">Query Details</h4>
@@ -363,8 +361,6 @@ UPLOAD MODEL beans_mobilevit
 OPTIONS (overwrite=True, framework="pytorch")
 FROM "test/udm_tutorial/trained_model.pth"
 ```
-
-    Success
 
 
 ## __3. Predict Using a Custom Model__
