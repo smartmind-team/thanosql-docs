@@ -4,8 +4,6 @@ title: Intro
 
 # **ThanoSQL**
 
-## Preface
-
 - 3 min read
 - Updated Date : {{ git_revision_date_localized }}
 
