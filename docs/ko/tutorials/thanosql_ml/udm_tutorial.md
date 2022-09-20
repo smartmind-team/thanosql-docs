@@ -237,12 +237,8 @@ df.to_pickle("test_data.pkl")
 
 ```python
 %load_ext thanosql
-%thanosql API_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3b3Jrc3BhY2VfaWQiOjQsImV4cCI6MTY4OTIxMjk4OH0.FCeDYuKD7a4tO0DfkpDE_sRc1C3DOnBsGiG9C0mkZQQ
-%thanosql ws://engine:8000/ws/v1/query
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
-
-    API Token is set as 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ3b3Jrc3BhY2VfaWQiOjQsImV4cCI6MTY4OTIxMjk4OH0.FCeDYuKD7a4tO0DfkpDE_sRc1C3DOnBsGiG9C0mkZQQ'
-    API URL is changed to ws://engine:8000/ws/v1/query
 
 
 

@@ -4,8 +4,6 @@ title: Auto-ML을 사용하여 예측 모델 만들기
 
 # __Auto-ML을 사용하여 예측 모델 만들기__
 
-## 시작 전 사전정보
-
 - 튜토리얼 난이도 : ★☆☆☆☆
 - 읽는 시간 : 5분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
