@@ -4,8 +4,6 @@ title: 개요
 
 # __ThanoSQL__
 
-## 시작 전 사전 정보
-
 - 읽는데 걸리는 시간 : 3분
 - 마지막 수정날짜 : {{ git_revision_date_localized }}
 
