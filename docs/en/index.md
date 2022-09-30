@@ -81,7 +81,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
                     ThanoSQL tutorial
                 </h3>
                 <p>
-                    Describe 9 examples of tutorials using ThanoSQL. 
+                    Describe examples of tutorials using ThanoSQL. 
                 </p>
             </a>
         </li>
