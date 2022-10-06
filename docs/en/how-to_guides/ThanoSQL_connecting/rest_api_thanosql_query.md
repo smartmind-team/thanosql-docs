@@ -42,5 +42,6 @@ You can run the same queries using ThanoSQL's REST API as you would on the Thano
       'https://engine.thanosql.ai/api/v1/query/' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
+      -H 'Content-Type: application/json' \
       -d '{"query_string": query}'
     ```
