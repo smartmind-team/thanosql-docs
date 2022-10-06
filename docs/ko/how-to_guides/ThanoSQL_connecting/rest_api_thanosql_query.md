@@ -38,6 +38,7 @@ REST API를 사용하여 ThanoSQL 콘솔상에서 사용하던 쿼리들을 사�
       'https://engine.thanosql.ai/api/v1/query/' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
+      -H 'Content-Type: application/json' \
       -d '{"query_string": query, "query_type": query_type}'
     ```
 
