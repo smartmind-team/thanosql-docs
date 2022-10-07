@@ -32,6 +32,7 @@ title: 개요
 - [__Wav2Vec2 __](/ko/how-to_guides/ThanoSQL_model/wav2vec2/) — 음성 인식 모델
 - [__SimCLR__](/ko/how-to_guides/ThanoSQL_model/SimCLR/) —  이미지로 이미지 검색 모델
 - [__CLIP__](/ko/how-to_guides/ThanoSQL_model/CLIP/) — 텍스트로 이미지 검색 모델
+- [__SBERT__](/ko/how-to_guides/ThanoSQL_model/SBERT/) — 텍스트로 텍스트 검색 모델
 
 ### __ThanoSQL Rest API Reference__ 
 
