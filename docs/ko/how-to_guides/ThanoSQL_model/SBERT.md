@@ -61,6 +61,23 @@ OPTIONS(
 - "train" : 사전훈련된 모델을 추가로 학습할지를 설정합니다. False일 경우 사전훈련된 모델을 추가로 학습하지 않고 그대로 사용합니다. (DEFAULT : True)
 - "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (DEFAULT : False)
 
+ __BUILD MODEL 예시__
+
+[텍스트로 텍스트 검색하기](/tutorials/thanosql_search/search_text_by_text/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
+
+```sql
+%%thanosql
+BUILD MODEL nsmc_text_search_model
+USING SBERTKo
+OPTIONS (
+    text_col="document",
+    overwrite=True
+)
+AS
+SELECT *
+FROM nsmc_train
+```
+
 ## __CONVERT 구문__
 
 "__CONVERT__" 구문은 기존에 존재하던 테이블에서 텍스트 데이터를 수치화한 벡터로 변환하고 이를 사용할 데이터 테이블에 추가합니다.
@@ -162,8 +179,8 @@ OPTIONS (
 "__OPTIONS__" 절은 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
 - "text_col" : 테이블에서 영화 리뷰 데이터를 담고 있는 컬럼의 이름입니다.
-- "ngram_range" : 새로 만들어질 테이블의 이름입니다.
-- "use_stopwords" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
+- "ngram_range" : 키워드의 최소 단어 수와 최대 단어 수를 정합니다. (list[int, int], DEFAULT : [1, 2])
+- "use_stopwords" : 큰 의미가 없는 단어를 제외할지 정합니다. (DEFAULT : True)
 - "lang" : en, ko
 - "top_n" : 추출할 키워드의 수입니다. 유사도가 높은 순서대로 출력합니다. (int, DEFAULT : 5)
 - "diversity" : 추출될 키워드의 다양성입니다. 높을 수록 기존에 추출된 키워드와 유사한 키워드는 다시 추출되지 않습니다. 0 <= diversity <= 1 (float, DEFAULT : 0.5)
