@@ -45,7 +45,7 @@ title: ThanoSQL All Tutorials
                     Search Text by Text
                 </h3>
                 <p>
-                    <br>Use ThanoSQL's text-to-text search model to search for the desired document in text.</br>
+                    <br>Use ThanoSQL's text-to-text search model to search for the desired document.</br>
                 </p>
             </a>
         </li>
