@@ -95,9 +95,10 @@ If you want to import only certain tutorials into your workspace, use the wget m
 
 | Tutorial | URL |
 | :---------: |  :----------------------------------: |
-| `Search images with keywords` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_keyword.ipynb |
-| `Search images with images` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_image.ipynb |
-| `Search images with text` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_text.ipynb |
+| `Search images by keywords` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_keyword.ipynb |
+| `Search images by images` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_image.ipynb |
+| `Search images by text` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_text.ipynb |
+| `Search text by text` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_text_by_text.ipynb |
 | `Create classification model using Auto-ML` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/classification/automl_classification.ipynb |
 | `Create Image Classification Model` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/classification/image_classification.ipynb |
 | `Create text classification model` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/classification/text_classification.ipynb |

@@ -24,7 +24,10 @@ Use the "__BUILD MODEL__" query to develop an AI model.
 The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
 ​
 
-```sql
+``` sql
+query_statement:
+    query_expr
+
 BUILD MODEL (model_name_expression)
 USING SimCLR
 OPTIONS (

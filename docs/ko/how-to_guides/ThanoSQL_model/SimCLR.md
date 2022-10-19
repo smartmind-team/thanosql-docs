@@ -25,6 +25,9 @@ __표기법 규칙__
 "__BUILD MODEL__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의된 데이터 세트를 학습할 수 있습니다. 
 ​
 ``` sql
+query_statement:
+    query_expr
+
 BUILD MODEL (model_name_expression)
 USING SimCLR
 OPTIONS (

@@ -47,8 +47,9 @@ FROM titanic_train
 !!! note "AI models that can be used with '__BUILD MODEL__ statement'"
     - Auto-ML Classification model - AutomlClassifier
     - Auto-ML Regression model - AutomlRegressor
-    - ConvNeXT Model - ConvNeXt_Tiny , ConvNeXt_Base
-    - EfficientNet Model - EfficientNetV2S , EfficientV2M
+    - ConvNeXT Model - ConvNeXt_Tiny, ConvNeXt_Base
+    - EfficientNet Model - EfficientNetV2S, EfficientV2M
     - Albert Model - AlbertKo, AlbertEn
-    - Electra Model - ElectraKo , ElectraEn
-    - Wav2Vec2 Model - Wav2Vec2Ko , Wav2Vec2En
+    - Electra Model - ElectraKo, ElectraEn
+    - Wav2Vec2 Model - Wav2Vec2Ko, Wav2Vec2En
+    - SBERT Model - SBERTKo, SBERTEn

@@ -6,3 +6,4 @@ nav:
     - wav2vec2.md
     - SimCLR.md
     - CLIP.md
+    - SBERT.md

@@ -46,10 +46,9 @@ FROM titanic_train
 !!! note "'__BUILD MODEL__'을 통해 사용 가능한 인공지능 모델"
     - Auto-ML 분류 모델 - AutomlClassifier
     - Auto-ML 회귀 모델 - AutomlRegressor
-    - ConvNeXT 모델 - ConvNeXt_Tiny , ConvNeXt_Base
-    - EfficientNet 모델 - EfficientNetV2S , EfficientV2M
+    - ConvNeXT 모델 - ConvNeXt_Tiny, ConvNeXt_Base
+    - EfficientNet 모델 - EfficientNetV2S, EfficientV2M
     - Albert 모델 - AlbertKo, AlbertEn 
-    - Electra 모델 - ElectraKo , ElectraEn
-    - Wav2Vec2 모델 - Wav2Vec2Ko , Wav2Vec2En
-
-
+    - Electra 모델 - ElectraKo, ElectraEn
+    - Wav2Vec2 모델 - Wav2Vec2Ko, Wav2Vec2En
+    - SBERT 모델 - SBERTKo, SBERTEn

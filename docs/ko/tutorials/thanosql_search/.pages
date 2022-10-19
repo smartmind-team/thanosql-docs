@@ -2,3 +2,4 @@ nav:
     - search_image_by_keyword.md
     - search_image_by_image.md
     - search_image_by_text.md
+    - search_text_by_text.md

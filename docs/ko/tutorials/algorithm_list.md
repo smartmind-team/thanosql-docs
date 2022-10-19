@@ -39,6 +39,16 @@ title: ThanoSQL 모든 튜토리얼
                 </p>
             </a>
         </li>
+        <li>
+            <a href="/tutorials/thanosql_search/search_text_by_text/">
+                <h3>
+                    텍스트로 텍스트 검색하기
+                </h3>
+                <p>
+                    <br>ThanoSQL의 텍스트-텍스트 검색 모델을 사용하여 텍스트로 원하는 문서에 대한 검색을 진행합니다.</br>
+                </p>
+            </a>
+        </li>
     </ul>
     <header>
         <h2 id="card-h2"> ThanoSQL ML</h2>

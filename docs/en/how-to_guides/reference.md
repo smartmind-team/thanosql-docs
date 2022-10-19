@@ -31,6 +31,7 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__Wav2Vec2 __](/en/how-to_guides/ThanoSQL_model/wav2vec2/) — Speech Recognition Model
 - [__SimCLR__](/en/how-to_guides/ThanoSQL_model/SimCLR/) —  Image search model with image
 - [__CLIP__](/en/how-to_guides/ThanoSQL_model/CLIP/) — Image search model with text
+- [__SBERT__](/en/how-to_guides/ThanoSQL_model/SBERT/) — Text search model with text
 
 ### __ThanoSQL Rest API Reference__
 
