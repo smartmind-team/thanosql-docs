@@ -25,3 +25,10 @@ ThanoSQL supports the following extensions for image and audio data:
 
 !!! notice ""
     ThanoSQL does not require any special extensions for text data.
+
+## **5. How do I auto close brackets?**
+
+Check the Auto Close Brackets option from the Settings menu tab.
+
+!!! tip ""
+    This also applies for quotation marks.
