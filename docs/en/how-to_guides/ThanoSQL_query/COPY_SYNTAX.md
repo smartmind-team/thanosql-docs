@@ -32,6 +32,6 @@ FROM
 [absolute_path_of_data_files_in_the_workspace]
 ```
 
-!!! note "__Note__"
+!!! note "__Query Details__"
     - Specify the options to use for the __COPY__ statement with an "__OPTIONS__" clause.
         - "overwrite" : Overwrite if a dataset with the same name exists. If True, the existing dataset is overwritten with the new dataset. (True|False, DEFAULT: False)
