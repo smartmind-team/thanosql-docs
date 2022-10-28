@@ -95,7 +95,7 @@ FROM "thanosql-dataset/diet_data/diet.csv"
 
 ## __1. 데이터 세트 확인__
 
-키워드-이미지 검색 모델을 만들기 위해 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92">diet</mark> 테이블을 사용합니다. 아래의 쿼리 구문을 실행하고 테이블의 내용을 확인합니다.
+키워드-이미지 검색 모델을 만들기 위해 ThanoSQL workspace DB에 저장되어 있는 <mark style="background-color:#FFEC92">diet</mark> 테이블을 사용합니다. 아래의 쿼리 구문을 실행하고 테이블의 내용을 확인합니다.
 
 
 ```python

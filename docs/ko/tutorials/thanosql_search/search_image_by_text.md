@@ -31,7 +31,7 @@ __아래는 ThanoSQL 텍스트-이미지 검색 알고리즘의 활용 및 예�
     <p>👉 Unsplash는 20만 명 이상의 사진가들이 참여한 이미지들을 AI를 위한 데이터 세트로 무료로 공개했습니다. <code>Unsplash Dataset - Lite</code>는 25,000 장의 자연을 테마로한 이미지로 구성되어 있으며, 25,000 개의 키워드를 함께 제공합니다. </p>
 </div>
 
-이번 튜토리얼에서는 텍스트-이미지 검색 모델을 사용하여, ThanoSQL DB의 `Unsplash Dataset - Lite` 데이터 세트의 25,000 장의 이미지 중에서 텍스트로 원하는 이미지를 검색해 봅니다.
+이번 튜토리얼에서는 텍스트-이미지 검색 모델을 사용하여, ThanoSQL workspace DB의 `Unsplash Dataset - Lite` 데이터 세트의 25,000 장의 이미지 중에서 텍스트로 원하는 이미지를 검색해 봅니다.
 
 ## __0. 데이터 세트 및 모델 준비__
 
@@ -119,7 +119,7 @@ AS tutorial_search_clip
 
 ## __1. 데이터 세트 확인__
 
-텍스트-이미지 검색 모델을 만들기 위해 우리는 ThanoSQL DB에 저장되어 있는 `unsplash_data` 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
+텍스트-이미지 검색 모델을 만들기 위해 우리는 ThanoSQL workspace DB에 저장되어 있는 `unsplash_data` 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 
 ```python
@@ -436,7 +436,7 @@ FROM unsplash_data
         <li>"<strong>CONVERT USING</strong>" 쿼리 구문은 <code>tutorial_search_clip</code> 모델을 이미지 수치화를 위한 알고리즘으로 사용합니다.  </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문은 이미지 수치화 시 필요한 변수들을 정의합니다.
         <ul>
-            <li>"table_name" : ThanoSQL DB 내에 저장될 테이블 이름</li>
+            <li>"table_name" : ThanoSQL workspace DB 내에 저장될 테이블 이름</li>
             <li>"image_col" : 이미지 경로를 담고 있는 컬럼 명</li>
             <li>"batch_size" : 한번의 학습에서 읽는 데이터 세트 묶음의 크기. 논문에 따르면 클 수록 학습 성능이 증가하지만 메모리의 크기를 고려하여 128을 사용합니다. (DEFAULT : 16)  </li>
         </ul>

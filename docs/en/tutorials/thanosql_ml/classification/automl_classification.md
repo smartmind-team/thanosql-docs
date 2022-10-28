@@ -636,7 +636,7 @@ In this tutorial, we created a Titanic survivor classification model using the <
 
 For the next step, the [Creating an Intermediate Classification Model] tutorial takes a deeper dive into the "__OPTIONS__" clause to improve accuracy. For the intermediate tutorial, we will create sophisticated classification models using the various "__OPTIONS__" provided by ThanoSQL's AutoML. In the advanced level, you will have the chance to vectorize unstructured data and include it as a train element in AutoML to create an even more sophisticated classification model.
 
-- [How to Upload to ThanoSQL DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
+- [How to Upload to ThanoSQL workspace DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
 - [Creating an Intermediate Image Classification Model]
 - [Image conversion and creating My model using Auto-ML]
 - [Deploy My Image Classification model](https://docs.thanosql.ai/en/how-to_guides/reference/)

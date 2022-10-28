@@ -26,7 +26,7 @@ FROM [사용할 데이터 세트]
 
 ## __3. CREATE TABLE 예시__ 
 
-아래 예는 `Color_descriptor`라는 속성 추출 인공지능 모델을 사용하여 경로('data/thanosAlgo/image_search/junyoung_test/')에 존재하는 이미지 파일들을 사용자가 지정한 이름인 `color_descriptor_table_test` 라는 데이터 테이블로 ThanoSQL DB 내에 생성합니다. 
+아래 예는 `Color_descriptor`라는 속성 추출 인공지능 모델을 사용하여 경로('data/thanosAlgo/image_search/junyoung_test/')에 존재하는 이미지 파일들을 사용자가 지정한 이름인 `color_descriptor_table_test` 라는 데이터 테이블로 ThanoSQL workspace DB 내에 생성합니다. 
 
 ```sql
 %%thanosql

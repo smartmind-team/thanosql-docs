@@ -1368,7 +1368,7 @@ In this tutorial, we performed text vectorization using `movie review data`, and
 <br>
 For the next step, explore the various "OPTIONS" and training methods of text vectorization models. If you want to learn more about building your own text model, proceed with the following tutorials.
 
-* [How to Upload to ThanoSQL DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
+* [How to Upload to ThanoSQL workspace DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
 * [Creating an Intermediate Similar Text Search Model]
 
 <div class="admonition tip">
