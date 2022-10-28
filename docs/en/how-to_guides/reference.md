@@ -19,9 +19,9 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__CONVERT__](/en/how-to_guides/ThanoSQL_query/CONVERT_USING_SYNTAX/) — Add features converted to vector formats from unstructured data (image, audio, video, etc.) to the existing data table
 - [__SEARCH__](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX/) — Search unstructured data (image, audio, video, etc.) 
 - [__PRINT__](/en/how-to_guides/ThanoSQL_query/PRINT_SYNTAX/) — Print unstructured data (image, audio, video, etc.)
-- [__GET__](/en/how-to_guides/ThanoSQL_query/GET_SYNTAX/) —  Get model, data tables stored in ThanoSQL workspace DB
-- [__LIST__](/en/how-to_guides/ThanoSQL_query/LIST_SYNTAX/) — List model, data tables, and tutorials stored in ThanoSQL workspace DB
-- [__COPY__](/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - Copy data files in the workspace and Create data tables within the ThanoSQL workspace DB
+- [__GET__](/en/how-to_guides/ThanoSQL_query/GET_SYNTAX/) —  Get model, data tables  
+- [__LIST__](/en/how-to_guides/ThanoSQL_query/LIST_SYNTAX/) — List model, data tables, and tutorials
+- [__COPY__](/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - Copy data files in the workspace and create/copy data tables within the ThanoSQL workspace DB
 
 ### __ThanoSQL Pre-built Model Statement Reference__
 
