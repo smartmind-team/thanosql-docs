@@ -20,10 +20,10 @@ AS
 ```
 
 !!! NOTE
-    Option values used in the "__OPTIONS__" clause are different for each model. Specific values needed for each model are listed in [reference](/en/how-to_guides/reference/). 
+    - Option values used in the "__OPTIONS__" clause are different for each model. Specific values needed for each model are listed in [reference](/en/how-to_guides/reference/). 
 
 !!! warning
-    The Auto-ML model is retrained by exclusively switching the dataset instead of changing the parameter values of the model to keep consistency with option values in the "__OPTIONS__" clause.
+    - The Auto-ML model is retrained by exclusively switching the dataset instead of changing the parameter values of the model to keep consistency with option values in the "__OPTIONS__" clause.
 ## __3. FIT MODEL Example__
 The example below demonstrates how to create a <mark style="background-color:#E9D7FD ">fit_test_classifier</mark> model by retraining the <mark style="background-color:#E9D7FD ">test_classifier</mark> model with a new dataset and a "__FIT_MODEL__" statement. 
 

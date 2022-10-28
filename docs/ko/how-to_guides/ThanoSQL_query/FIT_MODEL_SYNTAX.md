@@ -18,10 +18,10 @@ AS
 [사용할 데이터 세트]
 ``` 
 !!! NOTE
-    "__OPTIONS__"에서 사용하는 옵션값은 사용할 인공지능 모델에 따라 다르게 적용됩니다. 각 인공지능 모델에 대한 "__OPTIONS__"는 [참조 페이지](/how-to_guides/reference/)에서 확인 가능합니다.
+    - "__OPTIONS__"에서 사용하는 옵션값은 사용할 인공지능 모델에 따라 다르게 적용됩니다. 각 인공지능 모델에 대한 "__OPTIONS__"는 [참조 페이지](/how-to_guides/reference/)에서 확인 가능합니다.
 
 !!! warning
-    다만 Auto-ML 모델의 경우, 기존 인공지능 모델이 가지고 있던 파라미터 값을 사용하는 것이 아닌 데이터 세트만 바꿔 "__OPTIONS__"에 사용된 옵션값에 따른 모델을 만듭니다.
+    - 다만 Auto-ML 모델의 경우, 기존 인공지능 모델이 가지고 있던 파라미터 값을 사용하는 것이 아닌 데이터 세트만 바꿔 "__OPTIONS__"에 사용된 옵션값에 따른 모델을 만듭니다.
 
 ## __3. FIT MODEL 예시__
 아래 예는 "__FIT MODEL__" 구문을 사용하여 사용자가 이전에 만들었던 <mark style="background-color:#E9D7FD ">test_classifier</mark> 모델에 새롭게 추가된 데이터 세트를 사용하여 학습한  <mark style="background-color:#E9D7FD ">fit_test_classifier</mark> 모델을 만듭니다.

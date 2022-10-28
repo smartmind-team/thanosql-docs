@@ -21,7 +21,9 @@ AS
 ```
 
 !!! note "__Note__"    
-    You can use the `LIST THANOSQL MODEL` statement to view a list of the ThanoSQL pre-built models. There is only overwrite option in the `GET` statement and if not specified, the default value of the overwrite status will be set as False. If you do not include the `AS` clause and `custom_model_name`, pre-built models will be saved with default names. 
+    - You can use the `LIST THANOSQL MODEL` statement to view a list of the ThanoSQL pre-built models.  
+    - There is only overwrite option in the `GET` statement and if not specified, the default value of the overwrite status will be set as False.  
+    - If you do not include the `AS` clause and `custom_model_name`, pre-built models will be saved with default names. 
 
 
 The "__GET THANOSQL DATASET__" statement downloads the tutorial datasets to the user's workspace. 
@@ -35,5 +37,6 @@ OPTIONS (
 ```
 
 !!! note "__Note__"    
-    You can use the `LIST THANOSQL DATASET` statement to view a list of the ThanoSQL datasets. There is only overwrite option in the `GET` statement and if not specified, the default value of the overwrite status will be set as False. Datasets cannot be renamed. 
+    - You can use the `LIST THANOSQL DATASET` statement to view a list of the ThanoSQL datasets.  
+    - There is only overwrite option in the `GET` statement and if not specified, the default value of the overwrite status will be set as False. Datasets cannot be renamed. 
 
