@@ -6,7 +6,7 @@ title: COPY
 
 ## __1. COPY Statement__
 
-The "__COPY__" statement allows users to create data tables in the ThanoSQL workspace DB with their data files in their workspace.
+The "__COPY__" statement allows users to create/copy data tables in the ThanoSQL workspace DB with their data files.
 
 !!! note "__Supported file types__"
     - csv
@@ -15,6 +15,7 @@ The "__COPY__" statement allows users to create data tables in the ThanoSQL work
 
 !!! warning "__Warning__" 
     - The column name of data files only allows lowercase letters, numbers and _(underscore) 
+    - ThanoSQL only supports pkl files created by using pandas 
 
 ## __2. COPY Syntax__
 
@@ -31,6 +32,6 @@ FROM
 [absolute_path_of_data_files_in_the_workspace]
 ```
 
-!!! note "__Note__"    
-    - You can use the `COPY` statement to create a data table in the ThanoSQL workspace DB. There is only overwrite option in the `COPY` statement and if not specified, the default value will be set as False.  
-    - If the value is True, you can delete an existing data table and create a new data table with the same name in the ThanoSQL workspace DB. Otherwise, you are not allowed to create new data table with the same name. 
+!!! note "__Note__"
+    - Specify the options to use for the __COPY__ statement with an "__OPTIONS__" clause.
+        - "overwrite" : Overwrite if a dataset with the same name exists. If True, the existing dataset is overwritten with the new dataset. (True|False, DEFAULT: False)
