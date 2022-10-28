@@ -6,7 +6,7 @@ title: COPY
 
 ## __1. COPY Statement__
 
-The "__COPY__" statement allows users to create data tables in the thanoSQL DB with their data files in their workspace.
+The "__COPY__" statement allows users to create data tables in the ThanoSQL DB with their data files in their workspace.
 
 !!! note "__Supported file types__"
     - csv
@@ -19,11 +19,11 @@ The "__COPY__" statement allows users to create data tables in the thanoSQL DB w
 ## __2. COPY Syntax__
 
 
-The "__COPY__" statement creates data tables in the thanoSQL DB with their data files in their workspace.
+The "__COPY__" statement creates data tables in the ThanoSQL DB with their data files in their workspace.
 
 ```sql
 %%thanosql
-COPY [Name_of_table_in_the_thanoSQL_DB] 
+COPY [Name_of_table_in_the_ThanoSQL_DB] 
 OPTIONS (
     overwrite=True
 ) 
