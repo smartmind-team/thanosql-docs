@@ -114,7 +114,7 @@ FROM "thanosql-dataset/titanic_data/titanic_test.csv"
 
 ## __1. 데이터 세트 확인__
 
-생존자 예측 분류 모델을 만들기 위해 우리는 ThanoSQL workspace DB에 저장되어 있는 <mark style="background-color:#FFEC92 "><strong>titanic_train</strong></mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하면서 테이블 내용을 확인합니다.
+생존자 예측 분류 모델을 만들기 위해 우리는 ThanoSQL 워크스페이스 DB에 저장되어 있는 <mark style="background-color:#FFEC92 "><strong>titanic_train</strong></mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하면서 테이블 내용을 확인합니다.
 
 
 ```python

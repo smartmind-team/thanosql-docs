@@ -95,7 +95,7 @@ FROM "thanosql-dataset/nsmc_data/nsmc_sample_test.csv"
 
 ## __1. 데이터 세트 확인__
 
-텍스트 수치화 모델을 만들기 위해 ThanoSQL workspace DB에 저장되어 있는 <mark style="background-color:#FFEC92">nsmc_train</mark> 테이블을 사용합니다. <mark style="background-color:#FFEC92">nsmc_train</mark> 테이블은 <mark style="background-color:#FFD79C">NAVER Sentiment Movie Corpus</mark> 영화 리뷰 데이터 및 라벨 정보의 일부가 담겨 있는 테이블입니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
+텍스트 수치화 모델을 만들기 위해 ThanoSQL 워크스페이스 DB에 저장되어 있는 <mark style="background-color:#FFEC92">nsmc_train</mark> 테이블을 사용합니다. <mark style="background-color:#FFEC92">nsmc_train</mark> 테이블은 <mark style="background-color:#FFD79C">NAVER Sentiment Movie Corpus</mark> 영화 리뷰 데이터 및 라벨 정보의 일부가 담겨 있는 테이블입니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 
 ```python
@@ -354,7 +354,7 @@ FROM nsmc_test
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 텍스트 수치화 시 필요한 변수들을 정의합니다.
         <ul>
             <li>"text_col" : 데이터 테이블에서 영화 리뷰 데이터를 담은 컬럼</li>
-            <li>"table_name" : ThanoSQL workspace DB 내에 저장될 테이블 이름을 정의합니다.</li>
+            <li>"table_name" : ThanoSQL 워크스페이스 DB 내에 저장될 테이블 이름을 정의합니다.</li>
             <li>"batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기</li> 
         </ul>
         </li>

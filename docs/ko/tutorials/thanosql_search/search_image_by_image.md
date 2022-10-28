@@ -364,7 +364,7 @@ FROM mnist_test
         <li>"<strong>CONVERT USING</strong>" 쿼리 구문은 <code>my_image_search_model</code>을 이미지 수치화를 위한 알고리즘으로 사용합니다.   </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 이미지 수치화 시 필요한 변수들을 정의합니다.
         <ul>
-            <li>"table_name" : ThanoSQL workspace DB 내에 저장될 테이블 이름을 정의합니다. </li>
+            <li>"table_name" : ThanoSQL 워크스페이스 DB 내에 저장될 테이블 이름을 정의합니다. </li>
             <li>"image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼(default: "image_path")</li>
         </ul>
         </li>
