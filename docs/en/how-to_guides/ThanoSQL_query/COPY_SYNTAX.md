@@ -21,12 +21,12 @@ The "__COPY__" statement creates data tables in the thanoSQL DB with their data 
 
 ```sql
 %%thanosql
-COPY [Name of table in the thanoSQL DB] 
+COPY [Name_of_table_in_the_thanoSQL_DB] 
 OPTIONS (
     overwrite=True
 ) 
 FROM  
-[absolute path of data files in the workspace]
+[absolute_path_of_data_files_in_the_workspace]
 ```
 
 !!! note "__Note__"    
