@@ -13,6 +13,8 @@ The "__COPY__" statement allows users to create data tables in the thanoSQL DB w
     - pkl
     - xls, xlsx, xlsm, xlsb
 
+!!! warning "__Warning__" 
+    - The column name of data files only allows lowercase letters, numbers and _(underscore) 
 
 ## __2. COPY Syntax__
 
