@@ -13,6 +13,9 @@ title: COPY
     - pkl
     - xls, xlsx, xlsm, xlsb
 
+!!! warning "__주의사항__" 
+    - 데이터 파일의 컬럼 이름은 소문자, 숫자 그리고 _(밑줄)만을 허용합니다.
+
 
 ## __2. COPY 구문__
 
