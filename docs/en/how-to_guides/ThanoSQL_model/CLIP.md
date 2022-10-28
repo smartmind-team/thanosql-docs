@@ -14,7 +14,7 @@ __Notation Conventions__
 - VALUE represents a regular value.
 
 !!! note ""
-    __literal__ : A fixed or unchangeable value, also known as a Constant.
+    - __literal__ : A fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
 ## __CREATE TABLE Syntax__
@@ -111,7 +111,8 @@ AS
 ```
 
 !!! note ""
-    You must choose one of (text | texts) or (image | images) as an input. The input must be a string (e.g., 'a black cat', 'data/image/image01.jpg') or a list of strings (e.g., ['a black cat', 'a orange cat'], ['data/image/image01.jpg', 'data/image/image02.jpg']).
+    - You must choose one of (text | texts) or (image | images) as an input.  
+    - The input must be a string (e.g., 'a black cat', 'data/image/image01.jpg') or a list of strings (e.g., ['a black cat', 'a orange cat'], ['data/image/image01.jpg', 'data/image/image02.jpg']).
 
 __SEARCH Example__
 

@@ -15,7 +15,7 @@ __표기법 규칙__
 - VALUE는 값을 의미합니다. 
 
 !!! note "" 
-    __리터럴__ : 고정되거나 변경할 수 없는 값을 의미하며 상수(Constant)라고도 불립니다. 
+    - __리터럴__ : 고정되거나 변경할 수 없는 값을 의미하며 상수(Constant)라고도 불립니다. 
     > 각 리터럴은 테이블에서 컬럼과 같은 특별한 자료형을 가지고 있습니다.
 
 ## __BUILD MODEL 구문__ 
@@ -37,7 +37,7 @@ AS
 ``` 
 
 !!! faq ""
-    본 쿼리를 통해서 USING 뒤에 나오는 베이스 인공지능 모델을 model_name_expression 이름으로 저장합니다. 
+    - 본 쿼리를 통해서 USING 뒤에 나오는 베이스 인공지능 모델을 model_name_expression 이름으로 저장합니다. 
 
  __OPTIONS 절__
 
@@ -107,7 +107,7 @@ AS
 ``` 
 
 !!! faq ""
-    본 쿼리를 통해서 USING 뒤에 나온 인공지능 모델을 model_name_expression 이름으로 저장하고 같은 이름에 새로운 모델을 저장합니다. 
+    - 본 쿼리를 통해서 USING 뒤에 나온 인공지능 모델을 model_name_expression 이름으로 저장하고 같은 이름에 새로운 모델을 저장합니다. 
 
  __OPTIONS 절__
 
@@ -172,7 +172,7 @@ AS
 (query_expr)
 ``` 
 !!! faq ""
-    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델인 model_name_expression 을 사용합니다. 
+    - 본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델인 model_name_expression 을 사용합니다. 
 
  __TRANSFORM USING 예시__
 
@@ -200,7 +200,7 @@ AS
 ``` 
 
 !!! faq ""
-    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델을 사용합니다.
+    - 본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델을 사용합니다.
 
 __PREDICT 예시__
 
@@ -230,7 +230,7 @@ AS
 ``` 
 
 !!! faq ""
-    본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델을 사용합니다. 
+    - 본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델을 사용합니다. 
 
  __OPTIONS 절__
 

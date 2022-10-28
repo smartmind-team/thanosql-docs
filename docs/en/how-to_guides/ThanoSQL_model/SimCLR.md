@@ -14,7 +14,7 @@ __Notation Conventions__
 - VALUE represents a regular value.
 
 !!! note ""
-    __literal__ : A fixed or unchangeable value, also known as a Constant.
+    - __literal__ : A fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
 
@@ -179,7 +179,7 @@ AS
 ```
 
 !!! note ""
-    Images must be inputted as a string (for example, 'a black cat', 'data/image/image01.jpg').
+    - Images must be inputted as a string (for example, 'a black cat', 'data/image/image01.jpg').
 
 __SEARCH Example__
 

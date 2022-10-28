@@ -21,7 +21,7 @@ AS
 ```
 
 !!! NOTE
-    Option values used in the "__OPTIONS__" clause are different for each AI model. Specific values needed for each model are listed in [reference](/en/how-to_guides/reference/).
+    - Option values used in the "__OPTIONS__" clause are different for each AI model. Specific values needed for each model are listed in [reference](/en/how-to_guides/reference/).
 
 ## __3. BUILD MODEL Example__
 

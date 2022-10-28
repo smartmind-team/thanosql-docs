@@ -15,7 +15,7 @@ __Notation Conventions__
 
 
 !!! note ""
-    __literal__ : A fixed or unchangeable value, also known as a Constant.
+    - __literal__ : A fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
 
@@ -39,7 +39,7 @@ AS
 ``` 
 
 !!! faq ""
-    Use this query to save the base model that comes after the USING clause as model_name_expression.
+    - Use this query to save the base model that comes after the USING clause as model_name_expression.
 
  __OPTIONS clause__
 

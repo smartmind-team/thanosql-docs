@@ -14,7 +14,7 @@ __Notation Conventions__
 - VALUE represents a regular value.
 
 !!! note ""
-    __literal__ : A fixed or unchangeable value, also known as a Constant.
+    - __literal__ : A fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
 ## __BUILD MODEL Syntax__
@@ -36,7 +36,7 @@ AS
 ```
 
 !!! faq ""
-    Use this query to save the base model that comes after the USING clause as model_name_expression.
+    - Use this query to save the base model that comes after the USING clause as model_name_expression.
 
 __OPTIONS Clause__
 
@@ -137,7 +137,7 @@ AS
 ```
 
 !!! note ""
-    The input must be a string (e.g., "This movie was my favorite movie of all time", "The movie was unsatisfactory").
+    - The input must be a string (e.g., "This movie was my favorite movie of all time", "The movie was unsatisfactory").
 
 You can use the "__SEARCH__" statement to extract the keywords from the table that generated the vectors.
 

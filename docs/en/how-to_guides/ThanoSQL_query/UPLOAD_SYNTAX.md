@@ -19,7 +19,9 @@ FROM [model_path_to_upload]
 ```
 
 !!! note "__Note__"     
-    The "__OPTIONS__" clause in the `UPLOAD MODEL` statement allows users to specify the overwrite status and model framework. If the overwrite status is not specified, the default value will be set as False. The model framework must be specified directly by the user when using the `UPLOAD MODEL` statement every time. Currently, the only available framework is `Pytorch`.
+    - The "__OPTIONS__" clause in the `UPLOAD MODEL` statement allows users to specify the overwrite status and model framework. 
+    - If the overwrite status is not specified, the default value will be set as False. 
+    - The model framework must be specified directly by the user when using the `UPLOAD MODEL` statement every time. 
     
 !!! Failure "__Caution__"
-    The current `UPLOAD MODEL` statement is only available for `Pytorch` based models.
+    - The current `UPLOAD MODEL` statement is only available for `Pytorch` based models.
