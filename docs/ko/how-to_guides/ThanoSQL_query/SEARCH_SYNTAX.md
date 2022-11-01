@@ -12,9 +12,9 @@ title: SEARCH
 ```sql
 %%thanosql
 
-SEARCH [사용자 지정 데이터 테이블 이름]
+SEARCH IMAGE | AUDIO | VIDEO [검색에 사용되는 입력 데이터]
 USING [사용할 인공지능 모델]
-AS [사용할 데이터 세트]
+AS [사용할 데이터 테이블]
 ```
 
 ## __3. SEARCH 예시__
