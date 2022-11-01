@@ -19,12 +19,6 @@ FROM
 [워크스페이스에 있는 데이터 파일의 절대 경로]
 ```
 
-!!! note "__Query Details__"
-    - Specify the options to use for the __PREPROCESS__ statement with an "__OPTIONS__" clause.
-        - "table_name" : Table name must be provided as __PREPROCESS__ statement creates a data table at the end of data preprocessing.
-        - "column_name" : Preprocessed data will be stored in a column of the data table. This option specify the name of the column.
-        - "interval" : Interval for video splitting (DEFAULT:10)
-
 !!! note "__쿼리 세부 정보__"    
     - "__OPTIONS__" 쿼리 구문을 통해 __PREPROCESS__ 에 사용할 옵션을 지정합니다.  
         - "table_name" : ThanoSQL DB에 생성될 데이터 테이블명
