@@ -17,40 +17,6 @@ __Notation Conventions__
     - __literal__ : A fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
-## __CREATE TABLE Syntax__
-
-You can use the "__CREATE TABLE__" statement to generate a table containing the vectors of the image data.
-
-```sql
-CREATE TABLE (table_name_expression)
-USING clip_en
-OPTIONS (
-    expression [ , ...]
-    )
-FROM
-(query_expresison)
-```
-
-__OPTIONS Clause__
-
-```sql
-OPTIONS(
-    (path_type = column_name),
-    (data_type = column_name),
-    [file_type = VALUE],
-    [batch_size = VALUE],
-    [overwrite = {True | False}]
-    )
-```
-
-The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
-
-- "path_type" : Sets the name of the column containing the audio files path (DEFAULT: "audio_path")
-- "data_type" : Type of data.
-- "file_type" : The extension type of the image.
-- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
-- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
-
 ## __CONVERT Syntax__
 
 The "__CONVERT__" statement converts image data from an existing table into a vector and adds it to the table.
