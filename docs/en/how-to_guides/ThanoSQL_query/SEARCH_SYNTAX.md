@@ -12,7 +12,7 @@ The "__SEARCH__" statement allows users to search for content, meaning, or simil
 
 ```sql
 %%thanosql
-SEARCH [custom_data_table_name]
+SEARCH IMAGE | AUDIO | VIDEO [input_data_used_for_searching]
 USING [AI_model_to_use]
 AS [dataset_to_use]
 ```
