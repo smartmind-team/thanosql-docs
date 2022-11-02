@@ -21,9 +21,10 @@ FROM
 
 !!! note "__쿼리 세부 정보__"    
     - "__OPTIONS__" 쿼리 구문을 통해 __PREPROCESS__ 에 사용할 옵션을 지정합니다.  
+        - "interval" : 비디오 분할 주기 (DEFAULT : 10)
         - "table_name" : ThanoSQL DB에 생성될 데이터 테이블명
         - "column_name" : 전처리된 테이터가 저장될 컬럼명
-        - "interval" : 비디오 분할 주기 (DEFAULT : 10)
+        - "folder_name" : 전처리된 파일 데이터가 저장될 폴더명
 
 ## __3. PREPROCESS 예시__
 
@@ -34,9 +35,10 @@ FROM
 PREPROCESS VIDEO
 USING split
 OPTIONS (
+    interval=20,
     table_name='video_table',
     column_name='video_path',
-    interval=20,
+    folder_name='video_splitted'
     )
 FROM  
 "video_files/video_example.mp4"

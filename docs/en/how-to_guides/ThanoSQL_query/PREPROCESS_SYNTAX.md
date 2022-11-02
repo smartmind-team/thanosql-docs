@@ -21,9 +21,10 @@ FROM
 
 !!! note "__Query Details__"
     - Specify the options to use for the __PREPROCESS__ statement with an "__OPTIONS__" clause.
+        - "interval" : Interval for video splitting (DEFAULT:10)
         - "table_name" : Table name must be provided as __PREPROCESS__ statement creates a data table at the end of data preprocessing.
         - "column_name" : Preprocessed data will be stored in a column of the data table. This option specify the name of the column.
-        - "interval" : Interval for video splitting (DEFAULT:10)
+        - "folder_name" : Preprocessed file data will be stored in an actual folder. This option specify the name of the folder.
 
 ## __3. PREPROCESS Example__
 
@@ -34,9 +35,10 @@ The example below uses split, one of the video preprocessing method, to preproce
 PREPROCESS VIDEO
 USING split
 OPTIONS (
+    interval=20,
     table_name='video_table',
     column_name='video_path',
-    interval=20,
+    folder_name='video_splitted'
     )
 FROM  
 "video_files/video_example.mp4"
