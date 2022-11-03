@@ -135,6 +135,18 @@ title: ThanoSQL 모든 튜토리얼
             </a>
         </li>
         <li>
+            <a href="/tutorials/thanosql_ml/question_answering/visual_question_answering/">
+                <h3>
+                    시각 질의 응답 모델 사용하기
+                </h3>
+                <p>
+                    <br>
+                        ThanoSQL의 시각 질의 응답 모델을 사용하여 이미지에 대한 질문이 주어졌을 때, 해당 질문에 대해 알맞은 답변을 찾습니다.
+                    </br>
+                </p>
+            </a>
+        </li>
+        <li>
             <a href="/tutorials/thanosql_ml/udm_tutorial/">
                 <h3>
                     User Defined Model in ThanoSQL

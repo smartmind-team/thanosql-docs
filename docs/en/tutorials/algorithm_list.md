@@ -135,6 +135,18 @@ title: ThanoSQL All Tutorials
             </a>
         </li>
         <li>
+            <a href="/en/tutorials/thanosql_ml/question_answering/visual_question_answering/">
+                <h3>
+                     Use the Visual Question Answering Model
+                </h3>
+                <p>
+                    <br>
+                        Use ThanoSQL's Visual Question Answering model to find an appropriate answer to a question when an image and a question about the image are given
+                    </br>
+                </p>
+            </a>
+        </li>
+        <li>
             <a href="/en/tutorials/thanosql_ml/udm_tutorial/">
                 <h3>
                     User Defined Model in ThanoSQL
