@@ -49,6 +49,16 @@ title: ThanoSQL All Tutorials
                 </p>
             </a>
         </li>
+        <li>
+            <a href="/en/tutorials/thanosql_search/search_video_by_text/">
+                <h3>
+                    Search Video by Text
+                </h3>
+                <p>
+                    <br>Use ThanoSQL's text-to-video search model to search for the desired videos.</br>
+                </p>
+            </a>
+        </li>
     </ul>
     <header>
         <h2 id="card-h2"> ThanoSQL ML</h2>
