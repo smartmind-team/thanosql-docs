@@ -123,6 +123,18 @@ title: ThanoSQL All Tutorials
             </a>
         </li>
         <li>
+            <a href="/en/tutorials/thanosql_ml/audio_recognition/speech_recognition2/">
+                <h3>
+                     Using a Speech Recognition Model
+                </h3>
+                <p>
+                    <br>
+                        Use ThanoSQL's speech recognition model to convert voice files to text and translate outcome language to English.
+                    </br>
+                </p>
+            </a>
+        </li>
+        <li>
             <a href="/en/tutorials/thanosql_ml/udm_tutorial/">
                 <h3>
                     User Defined Model in ThanoSQL

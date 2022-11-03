@@ -123,6 +123,18 @@ title: ThanoSQL 모든 튜토리얼
             </a>
         </li>
         <li>
+            <a href="/tutorials/thanosql_ml/audio_recognition/speech_recognition2/">
+                <h3>
+                    오디오 파일을 받아쓰는 음성 인식 모델 사용하기
+                </h3>
+                <p>
+                    <br>
+                        ThanoSQL의 음성 인식 모델을 사용하여 음성 파일의 텍스트로의 변환하고 텍스트의 영어로의 번역 또한 진행합니다.
+                    </br>
+                </p>
+            </a>
+        </li>
+        <li>
             <a href="/tutorials/thanosql_ml/udm_tutorial/">
                 <h3>
                     User Defined Model in ThanoSQL
