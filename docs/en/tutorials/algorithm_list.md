@@ -49,6 +49,16 @@ title: ThanoSQL All Tutorials
                 </p>
             </a>
         </li>
+        <li>
+            <a href="/en/tutorials/thanosql_search/search_video_by_text/">
+                <h3>
+                    Search Video by Text
+                </h3>
+                <p>
+                    <br>Use ThanoSQL's text-to-video search model to search for the desired videos.</br>
+                </p>
+            </a>
+        </li>
     </ul>
     <header>
         <h2 id="card-h2"> ThanoSQL ML</h2>
@@ -108,6 +118,30 @@ title: ThanoSQL All Tutorials
                 <p>
                     <br>
                         Use ThanoSQL's speech recognition model to convert voice files to text.
+                    </br>
+                </p>
+            </a>
+        </li>
+        <li>
+            <a href="/en/tutorials/thanosql_ml/audio_recognition/speech_recognition2/">
+                <h3>
+                     Using a Speech Recognition Model
+                </h3>
+                <p>
+                    <br>
+                        Use ThanoSQL's speech recognition model to convert voice files to text and translate outcome language to English.
+                    </br>
+                </p>
+            </a>
+        </li>
+        <li>
+            <a href="/en/tutorials/thanosql_ml/question_answering/visual_question_answering/">
+                <h3>
+                     Use the Visual Question Answering Model
+                </h3>
+                <p>
+                    <br>
+                        Use ThanoSQL's Visual Question Answering model to find an appropriate answer to a question when an image and a question about the image are given
                     </br>
                 </p>
             </a>
