@@ -36,10 +36,6 @@ AS
 SELECT * 
 FROM titanic_train 
 ```
-
-!!! note "__쿼리 세부 정보__"   
-    - "__EVALUATE__" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">mymodel</mark>이라는 모델을 평가합니다. 
-    - "__OPTIONS__"의 "target"에는 분류 예측 모델에 목푯값이 되는 컬럼의 이름(<mark style="background-color:#D7D0FF">survived</mark>)을 적어줍니다.
     
 !!! faq "__평가 지표 정보__"
     - 평가 지표의 경우, 상황별로 다르게 모델마다 설정되어 있습니다. 분류 모델의 경우, 목푯값이 2가지의 경우인 단순 분류와 3가지 이상인 경우의 다중 분류에 따라 서로 다른 평가 지표를 사용합니다. 회귀 모델의 경우 항상 같은 평가 지표를 사용합니다.
