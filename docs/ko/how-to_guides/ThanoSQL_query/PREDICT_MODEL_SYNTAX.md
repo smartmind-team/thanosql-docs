@@ -13,25 +13,29 @@ title: PREDICT
 ```sql
 %%thanosql
 PREDICT USING [기존 학습한 모델 이름]
-OPTIONS ([모델 별 추론시 필요한 옵션값])
+OPTIONS ([모델 별 추론 시 필요한 옵션값])
 AS
 [사용할 테스트 데이터 세트]
 ```
 
+!!! note "쿼리 세부 정보"
+    - "OPTIONS" 쿼리 구문을 통해 사용할 옵션을 지정합니다.
+        - "table_name":구문을 통해 나온 결과 값을 저장할 테이블명을 지정합니다. 테이블명을 지정하지 않으면 결과 값은 따로 저장되지 않습니다.
+
 ## __3. PREDICT 예시__ 
-[텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/text_classification/)에서 해당 알고리즘 쿼리 구문 사용 예시를 확인하실 수 있습니다.
+
+!!! note 
+    - 예시는 한 모델에 특정된 것으로 필요한 옵션 값이나 사용되는 데이터 세트는 모델별로 다를 수 있습니다. 각 모델에 대한 자세한 설명은 [ThanoSQL Pre-built Model Statement Reference](/how-to_guides/reference/#thanosql-pre-built-model-statement-reference)를 참고해 주세요.
+    - 예시는 특정 모델과 데이터 세트가 존재해야만 작동하므로 그대로 복사하여 사용할 시 정상적으로 실행되지 않을 수 있습니다.
 
 ```sql
 %%thanosql
-PREDICT USING my_movie_review_classifier
+PREDICT USING mymodel
 OPTIONS (
+    table_name='predict_result_table'
     text_col='review'
     )
 AS
 SELECT *
 FROM movie_review_test```
 ```
-
-!!! note "__쿼리 세부 정보__" 
-    - "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
-        - "text_col" : 데이터 테이블에서 분류의 대상이 될 텍스트를 담은 컬럼을 설정합니다. (DEFAULT : "text")
