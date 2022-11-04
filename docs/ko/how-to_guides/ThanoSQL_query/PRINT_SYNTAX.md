@@ -39,11 +39,11 @@ OPTIONS (
     )
 AS 
 SELECT * 
-FROM junyong_img 
+FROM junyoung_img 
 ```
 
 !!! note ""
-    - `junyong_img` : 이미지 파일 경로가 저장되어 있는 데이터 테이블
+    - `junyoung_img` : 이미지 파일 경로가 저장되어 있는 데이터 테이블
 
 ### __3.2 오디오 출력__
 
@@ -57,12 +57,12 @@ OPTIONS (
     )
 AS 
 SELECT * 
-FROM junyong_aud
+FROM junyoung_aud
 ```
 [![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
-    - `junyong_aud` : 오디오 파일 경로가 저장되어 있는 데이터 테이블
+    - `junyoung_aud` : 오디오 파일 경로가 저장되어 있는 데이터 테이블
 
 
 ### __3.3 비디오 출력__
@@ -77,10 +77,10 @@ OPTIONS (
     )
 AS 
 SELECT * 
-FROM junyong_vid
+FROM junyoung_vid
 ```
 !!! note ""
-    - `junyong_vid` : 비디오 파일 경로가 저장되어 있는 데이터 테이블
+    - `junyoung_vid` : 비디오 파일 경로가 저장되어 있는 데이터 테이블
 
 ### __3.4 서브 쿼리를 사용하여 출력하기__
 
@@ -89,14 +89,14 @@ FROM junyong_vid
 ```sql
 %%thanosql
 PRINT IMAGE AS(
-    SELECT image_path as image, query1_score 
+    SELECT image_path 
     FROM (
         SEARCH IMAGE text='12345'
-        USING clip_en
+        USING mymodel
         AS 
         SELECT * 
         FROM mnist_dataset)
-    ORDER BY query1_score DESC 
+    ORDER BY score DESC 
     LIMIT 10
     )
 ```

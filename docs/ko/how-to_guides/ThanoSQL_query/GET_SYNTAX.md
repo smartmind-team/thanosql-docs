@@ -27,8 +27,6 @@ AS
     - GET 구문의 OPTIONS로는 overwrite 상태만 지정할 수 있으며 overwrite 상태의 default 값은 False 입니다.  
     - GET 구문 사용 시 AS 와 사용자 지정 모델 이름을 표기하지 않는다면 ThanoSQL Pre-built 모델의 이름으로 저장됩니다.
 
-
-
 "__GET THANOSQL DATASET__" 구문은 ThanoSQL Tutorial에 사용되는 테이터 세트를 자신의 워크스페이스 Dataset 폴더로 가지고 올 수 있습니다. 
 
 ```sql
@@ -44,6 +42,26 @@ OPTIONS (
     - GET 구문의 OPTIONS로는 overwrite 상태만 지정할 수 있으며 overwrite 상태의 default 값은 False 입니다.  
     - GET THANOSQL DATASET 구문은 지정된 데이터 세트의 이름을 바꿀 수 없습니다.  
 
+## __3. GET 예시__ 
 
+### __3.1 GET THANOSQL MODEL 예시__
 
+```sql
+%%thanosql
+GET THANOSQL MODEL convnext
+OPTIONS (
+    overwrite=True
+)
+AS myconvnext
+```
+
+### __3.2 GET THANOSQL DATASET 예시__
+
+```sql
+%%thanosql
+GET THANOSQL DATASET unsplash_data
+OPTIONS (
+    overwrite=True
+)
+```
 

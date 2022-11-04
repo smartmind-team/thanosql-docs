@@ -14,19 +14,24 @@ title: SEARCH
 
 SEARCH IMAGE | AUDIO | VIDEO [검색에 사용되는 입력 데이터]
 USING [사용할 인공지능 모델]
+OPTIONS [모델 별 검색 시 필요한 옵션값]
 AS [사용할 데이터 테이블]
 ```
 
 ## __3. SEARCH 예시__
 
-아래 쿼리는 이미지 수치화 인공지능 모델인 `Color_Descriptor`를 사용하여 유사 이미지에 대한 검색을 진행합니다. 
+!!! note 
+    - 예시는 한 모델에 특정된 것으로 필요한 옵션 값이나 사용되는 데이터 세트가 다를 수 있습니다. 각 모델에 대한 자세한 설명은 [ThanoSQL Pre-built Model Statement Reference](/how-to_guides/reference/#thanosql-pre-built-model-statement-reference)를 참고해 주세요.
+    - 예시는 특정 모델과 데이터 세트가 존재해야만 작동하므로 그대로 복사하여 사용할 시 정상적으로 실행되지 않을 수 있는 점 참고해 주세요.
 
 ```sql
 %%thanosql
-SEARCH IMAGE images='tutorial/image_search/images/20150617_132435.jpg' 
-USING Color_Descriptor 
+SEARCH IMAGE images='tutorial_data/mnist_data/test/923.jpg' 
+USING mymodel
+OPTIONS (
+    table_name='search_result_table'
+) 
 AS 
 SELECT * 
-FROM color_descriptor_table_test
+FROM mnist_test
 ```
-[![IMAGE](/img/thanosql_syntax/query/SEARCH/SEARCH_img1.png)](/img/thanosql_syntax/query/SEARCH/SEARCH_img1.png)
