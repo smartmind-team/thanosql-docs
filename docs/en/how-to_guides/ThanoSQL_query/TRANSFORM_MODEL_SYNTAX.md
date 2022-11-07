@@ -18,12 +18,15 @@ AS
 ```
 
 ## __3. TRANSFORM Example__
-The example below demonstrates how to use a "__TRANSFORM__" statement to apply the same data preprocessing to the <mark style="background-color:#FFEC92 ">titanic_test</mark> dataset as the <mark style="background-color:#E9D7FD ">test_classifier</mark>  model built in [BUILD MODEL](/en/how-to_guides/ThanoSQL_query/BUILD_MODEL_SYNTAX/).
+
+!!! note
+    - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to [ThanoSQL Pre-built Model Statement Reference](/en/how-to_guides/reference/#thanosql-pre-built-model-statement-reference)
+    - Since the example works only when a specific model and dataset exist, it may not run normally when copied and used as it is.
 
 ```sql
 %%thanosql
-TRANSFORM USING test_classifier
-AS
-SELECT *
-FROM titanic_test
+TRANSFORM USING mymodel 
+AS 
+SELECT * 
+FROM titanic_test 
 ```

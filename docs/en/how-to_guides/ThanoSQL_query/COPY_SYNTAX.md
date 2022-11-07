@@ -18,7 +18,6 @@ The "__COPY__" statement allows users to create data tables in the thanoSQL DB w
 
 ## __2. COPY Syntax__
 
-
 The "__COPY__" statement creates data tables in the thanoSQL DB with their data files in their workspace.
 
 ```sql
@@ -31,6 +30,17 @@ FROM
 [absolute_path_of_data_files_in_the_workspace]
 ```
 
-!!! note "__Note__"    
-    - You can use the `COPY` statement to create a data table in the ThanoSQL DB. There is only overwrite option in the `COPY` statement and if not specified, the default value will be set as False.  
-    - If the value is True, you can delete an existing data table and create a new data table with the same name in the ThanoSQL DB. Otherwise, you are not allowed to create new data table with the same name. 
+!!! note "__Query Details__"
+    - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
+        - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
+
+## __3. COPY Example__
+
+```sql
+%%thanosql
+COPY mytable
+OPTIONS (
+    overwrite=True
+)
+FROM "data/example.csv"
+```

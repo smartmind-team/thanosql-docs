@@ -5,6 +5,7 @@ title: UPLOAD MODEL
 # __UPLOAD MODEL__
 
 ## __1. UPLOAD MODEL Statement__
+
 The "__UPLOAD MODEL__" statement allows users to transfer their custom models to be used within the ThanoSQL environment. 
 
 ## __2. UPLOAD MODEL Syntax__
@@ -25,3 +26,12 @@ FROM [model_path_to_upload]
     
 !!! Failure "__Caution__"
     - The current `UPLOAD MODEL` statement is only available for `Pytorch` based models.
+
+## __3. UPLOAD MODEL Example__
+
+```sql
+%%thanosql
+UPLOAD MODEL mymodel
+OPTIONS (overwrite=True, framework="pytorch")
+FROM "model/example_model.pth"
+```

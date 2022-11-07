@@ -11,10 +11,9 @@ title: SEARCH
 
 ```sql
 %%thanosql
-
 SEARCH IMAGE | AUDIO | VIDEO [검색에 사용되는 입력 데이터]
 USING [사용할 인공지능 모델]
-OPTIONS [모델 별 검색 시 필요한 옵션값]
+OPTIONS ([모델 별 검색 시 필요한 옵션값])
 AS [사용할 데이터 테이블]
 ```
 
