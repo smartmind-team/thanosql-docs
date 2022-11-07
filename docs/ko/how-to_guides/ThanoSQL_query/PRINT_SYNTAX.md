@@ -9,6 +9,7 @@ title: PRINT
 사용자는 "__PRINT__" 구문을 사용하여 이미지, 오디오 그리고 비디오 파일을 출력할 수 있습니다. 
 
 ## __2. PRINT 구문__
+
 "__PRINT__" 구문
 ```sql
 %%thanosql
@@ -16,7 +17,9 @@ PRINT IMAGE | AUDIO | VIDEO
 AS 
 [출력할 데이터 세트]
 ```
+
 OPTIONS 사용한 "__PRINT__" 구문
+
 ```sql
 %%thanosql
 PRINT IMAGE | AUDIO | VIDEO
@@ -36,6 +39,7 @@ AS
 ### __3.1 이미지 출력__ 
 
 "__PRINT__" 쿼리문을 사용하여 데이터 테이블에 있는 이미지 파일들을 출력합니다.
+
 ```sql
 %%thanosql
 PRINT IMAGE 
@@ -64,6 +68,7 @@ AS
 SELECT * 
 FROM junyoung_aud
 ```
+
 [![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
@@ -84,6 +89,7 @@ AS
 SELECT * 
 FROM junyoung_vid
 ```
+
 !!! note ""
     - `junyoung_vid` : 비디오 파일 경로가 저장되어 있는 데이터 테이블
 
@@ -94,7 +100,7 @@ FROM junyoung_vid
 ```sql
 %%thanosql
 PRINT IMAGE AS(
-    SELECT image_path 
+    SELECT image_path, score 
     FROM (
         SEARCH IMAGE text='12345'
         USING mymodel

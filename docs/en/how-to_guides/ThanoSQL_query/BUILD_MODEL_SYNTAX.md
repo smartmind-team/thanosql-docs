@@ -20,18 +20,21 @@ AS
 
 ```
 
-!!! NOTE
-    - Option values used in the "__OPTIONS__" clause are different for each AI model. Specific values needed for each model are listed in [reference](/en/how-to_guides/reference/).
+!!! note "__Query Details__"
+    - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
+        - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
 
 ## __3. BUILD MODEL Example__
 
-### __3-1. Using the Auto_ML Model to Create a Classification Model__
-The example below demonstrates how to use ThanoSQL's ["AutomlClassifier"](/en/how-to_guides/ThanoSQL_model/AutomlClassifier/) and the "__BUILD MODEL__" statement to create a user-defined <mark style="background-color:#E9D7FD ">Titanic classification</mark> model. If you are interested in learning more about the entire procedure, check out [Create a classification model using AutoML](/en/tutorials/thanosql_ml/classification/automl_classification/).
+!!! note
+    - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to [ThanoSQL Pre-built Model Statement Reference](/en/how-to_guides/reference/#thanosql-pre-built-model-statement-reference)
+    - Since the example works only when a specific model and dataset exist, it may not run normally when copied and used as it is.
 
+### __3-1. Using the Auto_ML Model to Create a Classification Model__
 
 ```sql
 %%thanosql
-BUILD MODEL titanic_classification
+BUILD MODEL mymodel
 USING AutomlClassifier
 OPTIONS (
     target='survived',
