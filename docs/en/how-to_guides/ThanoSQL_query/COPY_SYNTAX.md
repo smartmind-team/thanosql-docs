@@ -48,7 +48,7 @@ FROM "data/example.csv"
 
 Using path of the data folder: 
 
-!!! note "__데이터 폴더 COPY 사용법__"
+!!! note "__Using COPY with Data Folder__"
     - If a path of the folder with the images, audios, or videos is given as an input, "__COPY__" clause will translate each image as a row and recreate it as a data table. 
 
 ```sql
