@@ -6,7 +6,7 @@ title: COPY
 
 ## __1. COPY Statement__
 
-The "__COPY__" statement allows users to create data tables in the thanoSQL DB with their data files, data folders, and dataframe within their workspace.
+The "__COPY__" statement allows users to create data tables in the ThanoSQL DB with their data files, data folders, and Pandas DataFrame within their workspace.
 
 !!! note "__Supported file types__"
     - csv
@@ -14,11 +14,11 @@ The "__COPY__" statement allows users to create data tables in the thanoSQL DB w
     - xls, xlsx, xlsm, xlsb
 
 !!! warning "__Warning__" 
-    - The column name of data files and dataframe only allows lowercase letters, numbers and _(underscore) 
+    - Data files and dataframes' column names can only contain lowercase letters, numbers, and an underscore.
 
 ## __2. COPY Syntax__
 
-The "__COPY__" statement creates data tables in the thanoSQL DB with their data files, data folders, and dataframe within their workspace.
+The "__COPY__" statement creates data tables in the ThanoSQL DB with their data files, data folders, and dataframe within their workspace.
 
 ```sql
 %%thanosql
@@ -36,7 +36,10 @@ FROM
 
 ## __3. COPY Example__
 
-Using path of the data file: 
+### __3-1. Using the path of the data file__
+
+The example below demonstrates how to use a data folder for the COPY clause. A specified file with a path as an input would be read by the ThanoSQL Engine and recreated as a table within a database. 
+
 ```sql
 %%thanosql
 COPY mytable
@@ -46,10 +49,12 @@ OPTIONS (
 FROM "data/example.csv"
 ```
 
-Using path of the data folder: 
+### __3-2. Using the path of the data folder__
 
-!!! note "__Using COPY with Data Folder__"
-    - If a path of the folder with the images, audios, or videos is given as an input, "__COPY__" clause will translate each image as a row and recreate it as a data table. 
+The example below demonstrates how to use a data directory for the COPY clause. A specified folder with a path as an input would be read by the ThanoSQL Engine and recreated as a table within a database. 
+
+!!! note "__Using COPY with Data Folders"
+    - If the path to the folder containing the images, audios, or videos is given as an input, the "__COPY__" clause will translate each image as a row and recreate it as a data table.
 
 ```sql
 %%thanosql
@@ -60,13 +65,31 @@ OPTIONS (
 FROM "diet_image_data/"
 ```
 
+### __3-2. Using a Pandas DataFrame__
+The example below demonstrates how to use a Pandas DataFrame for the COPY clause. A specified dataframe as an input would be read by the ThanoSQL Engine and recreated as a table within a database. 
+#### Prepare a Pandas DataFrame 
+```python
+df = pd.read_csv("./diet_image_data/sample.csv")
+df_in_json = df.to_json(orient="records")
+```
 
-Using a dataframe: 
-```sql
-%%thanosql
-COPY mytable
+#### Wrap it within the COPY clause 
+```python 
+copy_pandas_df = f'''
+COPY mytable 
 OPTIONS (
     overwrite=True
 )
-FROM dataframe
+FROM '{df_in_json}'
+'''
 ```
+
+#### COPY a Pandas DataFrame 
+
+```sql
+%%thanosql $copy_pandas_df
+```
+
+!!! warning "__Warning__"
+    - A Pandas DataFrame must be converted to JSON before being wrapped in the __COPY__ clause. 
+    - __${variable_name}__ should be followed by the __%%thanosql__. 
