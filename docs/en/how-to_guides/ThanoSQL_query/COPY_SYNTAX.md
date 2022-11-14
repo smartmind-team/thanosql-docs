@@ -27,7 +27,7 @@ OPTIONS (
     overwrite=True
 ) 
 FROM  
-[file_path | dir_path | dataframe]
+[absolute_file_path | absolute_dir_path | dataframe]
 ```
 
 !!! note "__Query Details__"
