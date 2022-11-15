@@ -10,7 +10,7 @@ The "__COPY__" statement allows users to create data tables in the ThanoSQL DB w
 
 !!! note "__Supported file types__"
     - csv
-    - pkl
+    - pkl, pickle
     - xls, xlsx, xlsm, xlsb
 
 !!! warning "__Warning__" 
@@ -18,7 +18,7 @@ The "__COPY__" statement allows users to create data tables in the ThanoSQL DB w
 
 ## __2. COPY Syntax__
 
-The "__COPY__" statement creates data tables in the ThanoSQL DB with their data files, data folders, and dataframe within their workspace.
+The "__COPY__" statement creates data tables in the ThanoSQL DB with their data files, data folders, and Pandas DataFrame within their workspace.
 
 ```sql
 %%thanosql
@@ -65,7 +65,7 @@ OPTIONS (
 FROM "diet_image_data/"
 ```
 
-### __3-2. Using a Pandas DataFrame__
+### __3-3. Using a Pandas DataFrame__
 The example below demonstrates how to use a Pandas DataFrame for the COPY clause. A specified dataframe as an input would be read by the ThanoSQL Engine and recreated as a table within a database. 
 #### Prepare a Pandas DataFrame 
 ```python
