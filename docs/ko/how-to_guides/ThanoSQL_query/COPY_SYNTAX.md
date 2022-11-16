@@ -27,7 +27,7 @@ OPTIONS (
     overwrite=True
 ) 
 FROM  
-[데이터 파일의 절대 경로 | 데이터 폴더의 절대 경로 | 데이터프레임]
+[데이터 파일의 절대 경로 | 데이터 폴더의 절대 경로]
 ```
 
 !!! note "쿼리 세부 정보"
@@ -89,7 +89,7 @@ FROM '{df_in_json}'
 #### COPY 구문으로 Pandas 데이터프레임 사용하기 
 
 ```sql
-%%thanosql $copy_pandas_df
+%thanosql $copy_pandas_df
 ```
 
 !!! warning "__Warning__"

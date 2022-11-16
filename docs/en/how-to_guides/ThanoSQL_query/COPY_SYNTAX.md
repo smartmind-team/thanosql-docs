@@ -27,7 +27,7 @@ OPTIONS (
     overwrite=True
 ) 
 FROM  
-[absolute_file_path | absolute_dir_path | dataframe]
+[absolute_file_path | absolute_dir_path]
 ```
 
 !!! note "__Query Details__"
@@ -87,7 +87,7 @@ FROM '{df_in_json}'
 #### COPY a Pandas DataFrame 
 
 ```sql
-%%thanosql $copy_pandas_df
+%thanosql $copy_pandas_df
 ```
 
 !!! warning "__Warning__"
