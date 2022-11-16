@@ -18,7 +18,7 @@ The "__COPY__" statement allows users to create data tables in the ThanoSQL DB w
 
 ## __2. COPY Syntax__
 
-The "__COPY__" statement creates data tables in the ThanoSQL DB with their data files, data folders, and Pandas DataFrame within their workspace.
+The "__COPY__" statement creates data tables in the ThanoSQL DB with their data files, data folders, and Pandas DataFrame within their workspace. Use of the dataframe can be found in the below example of __3-3. Using a Pandas DataFrame__. 
 
 ```sql
 %%thanosql
