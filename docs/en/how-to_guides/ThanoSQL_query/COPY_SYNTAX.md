@@ -92,4 +92,4 @@ FROM '{df_in_json}'
 
 !!! warning "__Warning__"
     - A Pandas DataFrame must be converted to JSON before being wrapped in the __COPY__ clause. 
-    - __${variable_name}__ should be followed by the __%%thanosql__. 
+    - __${variable_name}__ should be followed by the __%thanosql__. 
