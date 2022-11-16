@@ -27,7 +27,7 @@ OPTIONS (
     overwrite=True
 ) 
 FROM  
-[absolute_file_path | absolute_dir_path]
+[file_path | dir_path]
 ```
 
 !!! note "__Query Details__"
@@ -69,12 +69,12 @@ FROM "diet_image_data/"
 The example below demonstrates how to use a Pandas DataFrame for the COPY clause. A specified dataframe as an input would be read by the ThanoSQL Engine and recreated as a table within a database. 
 #### Prepare a Pandas DataFrame 
 ```python
+# create a Pandas DataFrame
 df = pd.read_csv("./diet_image_data/sample.csv")
+# df must to be converted to JSON and 'orient' must be specified as 'records' 
 df_in_json = df.to_json(orient="records")
-```
 
-#### Wrap it within the COPY clause 
-```python 
+# use a f-string to wrap dataframe's variable of 'df_in_json' within the COPY clause 
 copy_pandas_df = f'''
 COPY mytable 
 OPTIONS (
