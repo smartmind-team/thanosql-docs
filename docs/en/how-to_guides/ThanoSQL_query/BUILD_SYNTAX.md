@@ -1,19 +1,19 @@
 ---
-title: BUILD MODEL 
+title: BUILD  
 ---
 
-# __BUILD MODEL__
+# __BUILD__
 
-## __1. BUILD MODEL Statement__
+## __1. BUILD Statement__
 
-The "__BUILD MODEL__" statement enables users to create a desired AI model without any expertise in data science. 
+The "__BUILD__" statement enables users to create a desired AI model without any expertise in data science. 
 
-## __2. BUILD MODEL Syntax__
+## __2. BUILD Syntax__
 
 ```sql
 %%thanosql
-BUILD MODEL [custom_model_name]
-USING [AI_model_to_use]
+BUILD [custom_model_name]
+USING CLASS [AI_model_class_to_use]
 OPTIONS ([option_values_​​required_when_creating_an_AI_model])
 AS
 [dataset_to_use]
@@ -24,7 +24,7 @@ AS
     - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
         - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
 
-## __3. BUILD MODEL Example__
+## __3. BUILD Example__
 
 !!! note
     - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to [ThanoSQL Pre-built Model Statement Reference](/en/how-to_guides/reference/#thanosql-pre-built-model-statement-reference)
@@ -34,8 +34,8 @@ AS
 
 ```sql
 %%thanosql
-BUILD MODEL mymodel
-USING AutomlClassifier
+BUILD mymodel
+USING CLASS AutomlClassifier
 OPTIONS (
     target='survived',
     impute_type='iterative',
@@ -47,7 +47,7 @@ SELECT *
 FROM titanic_train
 ```
 
-!!! note "AI models that can be used with '__BUILD MODEL__ statement'"
+!!! note "AI models that can be used with '__BUILD__ statement'"
     - Auto-ML Classification model - AutomlClassifier
     - Auto-ML Regression model - AutomlRegressor
     - ConvNeXT Model - ConvNeXt_Tiny, ConvNeXt_Base
