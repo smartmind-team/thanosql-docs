@@ -18,7 +18,7 @@ The "__COPY__" statement allows users to create data tables in the ThanoSQL DB w
 
 ## __2. COPY Syntax__
 
-The "__COPY__" statement creates data tables in the ThanoSQL DB with their data files, data folders, and Pandas DataFrame within their workspace.
+The "__COPY__" statement creates data tables in the ThanoSQL DB with their data files, data folders, and Pandas DataFrame within their workspace. Use of the dataframe can be found in the below example of __3-3. Using a Pandas DataFrame__. 
 
 ```sql
 %%thanosql
@@ -27,7 +27,7 @@ OPTIONS (
     overwrite=True
 ) 
 FROM  
-[absolute_file_path | absolute_dir_path | dataframe]
+[file_path | dir_path]
 ```
 
 !!! note "__Query Details__"
@@ -69,12 +69,12 @@ FROM "diet_image_data/"
 The example below demonstrates how to use a Pandas DataFrame for the COPY clause. A specified dataframe as an input would be read by the ThanoSQL Engine and recreated as a table within a database. 
 #### Prepare a Pandas DataFrame 
 ```python
+# create a Pandas DataFrame
 df = pd.read_csv("./diet_image_data/sample.csv")
+# df must to be converted to JSON and 'orient' must be specified as 'records' 
 df_in_json = df.to_json(orient="records")
-```
 
-#### Wrap it within the COPY clause 
-```python 
+# use a f-string to wrap 'df_in_json' within the COPY clause 
 copy_pandas_df = f'''
 COPY mytable 
 OPTIONS (
@@ -87,9 +87,9 @@ FROM '{df_in_json}'
 #### COPY a Pandas DataFrame 
 
 ```sql
-%%thanosql $copy_pandas_df
+%thanosql $copy_pandas_df
 ```
 
 !!! warning "__Warning__"
     - A Pandas DataFrame must be converted to JSON before being wrapped in the __COPY__ clause. 
-    - __${variable_name}__ should be followed by the __%%thanosql__. 
+    - __${variable_name}__ should be followed by the __%thanosql__. 
