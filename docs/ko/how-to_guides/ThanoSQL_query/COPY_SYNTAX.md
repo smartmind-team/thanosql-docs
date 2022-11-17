@@ -71,12 +71,12 @@ FROM "diet_image_data/"
 
 #### Pandas 데이터프레임 준비
 ```python
-# Pandas Dataframe 만듭니다 
+# Pandas Dataframe을 만듭니다 
 df = pd.read_csv("./diet_image_data/sample.csv")
 # 데이터프레임은 JSON으로 변환 되어야 하며, 'orient'는 꼭 'records'로 명시합니다
 df_in_json = df.to_json(orient="records")
 
-# f-string을 사용하여 데이터프레임의 변수명인 'df_in_json'을 COPY 구문으로 감싸줍니다
+# f-string을 사용하여 'df_in_json'을 COPY 구문으로 감싸줍니다
 copy_pandas_df = f'''
 COPY mytable 
 OPTIONS (

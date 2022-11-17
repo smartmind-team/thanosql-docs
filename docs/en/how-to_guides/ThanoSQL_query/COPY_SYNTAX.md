@@ -74,7 +74,7 @@ df = pd.read_csv("./diet_image_data/sample.csv")
 # df must to be converted to JSON and 'orient' must be specified as 'records' 
 df_in_json = df.to_json(orient="records")
 
-# use a f-string to wrap dataframe's variable of 'df_in_json' within the COPY clause 
+# use a f-string to wrap 'df_in_json' within the COPY clause 
 copy_pandas_df = f'''
 COPY mytable 
 OPTIONS (
