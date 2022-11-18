@@ -1,8 +1,8 @@
 ---
-title: How to upload your data to ThanoSQL workspace
+title: How to upload your data to the ThanoSQL workspace
 ---
 
-# __How to upload your data to ThanoSQL workspace__ 
+# __How to upload your data to the ThanoSQL workspace__ 
 
 ## __Preface__
 
