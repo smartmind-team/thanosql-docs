@@ -125,7 +125,7 @@ FROM "thanosql-dataset/movie_review_data/movie_review_test.csv"
 
 ```python
 %%thanosql
-GET THANOSQL MODEL tutorial_text_classification
+GET THANOSQL MODEL electra
 OPTIONS (overwrite=True)
 AS tutorial_text_classification
 ```
@@ -148,7 +148,7 @@ AS tutorial_text_classification
 
 ## __1.Check Dataset__
 
-To create a movie review sentiment classification model, we use the <mark style="background-color:#FFEC92 ">movie_review_train</mark> table from the ThanoSQL database. To check the table's contents, run the following query.
+To create a movie review sentiment classification model, we use the <mark style="background-color:#FFEC92 ">movie_review_train</mark> table from the ThanoSQL workspace database. To check the table's contents, run the following query.
 
 
 ```python
@@ -262,7 +262,7 @@ FROM movie_review_test
       <th></th>
       <th>review</th>
       <th>sentiment</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -361,7 +361,6 @@ SELECT *
 FROM movie_review_train
 ```
 
-    Building model...
     Success
 
 
@@ -371,12 +370,14 @@ FROM movie_review_train
         <li>"<strong>BUILD MODEL</strong>" creates and trains a model named <mark style="background-color:#E9D7FD">my_movie_review_classifier</mark>.</li>
         <li>"<strong>USING</strong>" specifies <code>ElectraEn</code> as the base model.</li>
         <li>"<strong>OPTIONS</strong>" specifies the option values used to create the model.
-        <ul> 
-            <li> "text_col" : the name of the column containing the text to be used for the training. </li> 
-            <li> "label_col" : the name of the column containing information about the target. </li> 
-            <li>"epochs" : number of times to train with the training dataset.</li>
-            <li> "batch_size" is the size of dataset bundle utilized in a single cycle of training.</li>
+        <ul>
+            <li> "text_col" : the name of the column containing the text to be used for the training. (default: "text")</li> 
+            <li> "label_col" : the name of the column containing information about the target. (default: "label")</li> 
+            <li>"epochs" : number of times to train with the training dataset. (default: 3)</li>
+            <li> "batch_size" is the size of dataset bundle utilized in a single cycle of training. (default: 16)</li>
             <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+        </ul>
+        </li>
     </ul>
 </div>
 
@@ -393,7 +394,8 @@ To use the text classification model created in the previous step for prediction
 %%thanosql
 PREDICT USING my_movie_review_classifier
 OPTIONS (
-    text_col='review'
+    text_col="review",
+    column_name="predict_result"
     )
 AS
 SELECT *
@@ -423,7 +425,7 @@ FROM movie_review_test
       <th></th>
       <th>review</th>
       <th>sentiment</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -506,7 +508,8 @@ FROM movie_review_test
         <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
         <ul>
-            <li>"review" : the column containing the text to be used for prediction.</li>
+            <li>"text_col" : the column containing the text to be used for prediction. (default: "text")</li>
+            <li>"column_name" : the column that contains the predicted results. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
@@ -518,7 +521,7 @@ In this tutorial, we created a text classification model using the <mark style="
 
 For the next step, the [Creating an Intermediate Text Classification Model] tutorial takes a deeper dive into the text classification models. If you want to learn more about building your own text classification model for your service, proceed with the following tutorials.
 
-- [How to Upload to ThanoSQL DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
+- [How to upload to the ThanoSQL workspace](https://docs.thanosql.ai/en/getting_started/data_upload/)
 - [Creating an Intermediate Text Classification Model]
 - [Create My model using text conversion and Auto-ML]
 - [Deploy My text classification model](https://docs.thanosql.ai/en/how-to_guides/reference/)

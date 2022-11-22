@@ -113,7 +113,7 @@ FROM "thanosql-dataset/bike_sharing_data/bike_sharing_test.csv"
 
 ## __1. Check Dataset__
 
-To create the regression model, we use the <mark style="background-color:#FFEC92 ">bike_sharing_train</mark> table located in the ThanoSQL database. Run the query below to check the contents of the table.
+To create the regression model, we use the <mark style="background-color:#FFEC92 ">bike_sharing_train</mark> table located in the ThanoSQL workspace database. Run the query below to check the contents of the table.
 
 
 ```python
@@ -159,7 +159,7 @@ LIMIT 5
   <tbody>
     <tr>
       <th>0</th>
-      <td>2011-01-01 00:00:00</td>
+      <td>2011-01-01 0:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -167,12 +167,12 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>81</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>16</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2011-01-01 01:00:00</td>
+      <td>2011-01-01 1:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -180,12 +180,12 @@ LIMIT 5
       <td>9.02</td>
       <td>13.635</td>
       <td>80</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>40</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2011-01-01 02:00:00</td>
+      <td>2011-01-01 2:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -193,12 +193,12 @@ LIMIT 5
       <td>9.02</td>
       <td>13.635</td>
       <td>80</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>32</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2011-01-01 03:00:00</td>
+      <td>2011-01-01 3:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -206,12 +206,12 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>75</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>13</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2011-01-01 04:00:00</td>
+      <td>2011-01-01 4:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -219,7 +219,7 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>75</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -268,7 +268,6 @@ SELECT *
 FROM bike_sharing_train
 ```
 
-    Building model...
     Success
 
 
@@ -283,9 +282,10 @@ FROM bike_sharing_train
             <li>"features_to_drop" : selects columns that cannot be used for training </li>
             <li>"time_left_for_this_task" : the total time given to find a suitable regression model (DEFAULT: 300)</li>
             <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+        </ul>
+        </li>
     </ul>
 </div>
-
 
 ## __3. Evaluate the Model__
 
@@ -332,27 +332,27 @@ FROM bike_sharing_train
     <tr>
       <th>0</th>
       <td>MAE</td>
-      <td>73.5580</td>
+      <td>78.6406</td>
     </tr>
     <tr>
       <th>1</th>
       <td>MSE</td>
-      <td>9688.0873</td>
+      <td>11020.1239</td>
     </tr>
     <tr>
       <th>2</th>
       <td>R2</td>
-      <td>0.3367</td>
+      <td>0.2265</td>
     </tr>
     <tr>
       <th>3</th>
       <td>RMSLE</td>
-      <td>1.3192</td>
+      <td>1.3839</td>
     </tr>
     <tr>
       <th>4</th>
       <td>MAPE</td>
-      <td>0.4755</td>
+      <td>0.5038</td>
     </tr>
   </tbody>
 </table>
@@ -384,7 +384,8 @@ To use the regression model created in the previous step for prediction of <mark
 
 ```python
 %%thanosql
-PREDICT USING bike_regression 
+PREDICT USING bike_regression
+OPTIONS (column_name="predict_result")
 AS
 SELECT *
 FROM bike_sharing_test
@@ -421,13 +422,13 @@ LIMIT 10
       <th>atemp</th>
       <th>humidity</th>
       <th>windspeed</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2011-01-20 00:00:00</td>
+      <td>2011-01-20 0:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -436,11 +437,11 @@ LIMIT 10
       <td>11.365</td>
       <td>56</td>
       <td>26.0027</td>
-      <td>110.261271</td>
+      <td>107.695111</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2011-01-20 01:00:00</td>
+      <td>2011-01-20 1:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -449,11 +450,11 @@ LIMIT 10
       <td>13.635</td>
       <td>56</td>
       <td>0.0000</td>
-      <td>95.456726</td>
+      <td>93.535182</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2011-01-20 02:00:00</td>
+      <td>2011-01-20 2:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -462,11 +463,11 @@ LIMIT 10
       <td>13.635</td>
       <td>56</td>
       <td>0.0000</td>
-      <td>95.456726</td>
+      <td>93.535182</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2011-01-20 03:00:00</td>
+      <td>2011-01-20 3:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -475,11 +476,11 @@ LIMIT 10
       <td>12.880</td>
       <td>56</td>
       <td>11.0014</td>
-      <td>99.237931</td>
+      <td>97.300501</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2011-01-20 04:00:00</td>
+      <td>2011-01-20 4:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -488,11 +489,11 @@ LIMIT 10
       <td>12.880</td>
       <td>56</td>
       <td>11.0014</td>
-      <td>99.237931</td>
+      <td>97.300501</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>2011-01-20 05:00:00</td>
+      <td>2011-01-20 5:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -501,11 +502,11 @@ LIMIT 10
       <td>11.365</td>
       <td>60</td>
       <td>15.0013</td>
-      <td>96.628108</td>
+      <td>93.614300</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>2011-01-20 06:00:00</td>
+      <td>2011-01-20 6:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -514,11 +515,11 @@ LIMIT 10
       <td>10.605</td>
       <td>60</td>
       <td>15.0013</td>
-      <td>87.987842</td>
+      <td>87.414653</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>2011-01-20 07:00:00</td>
+      <td>2011-01-20 7:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -527,11 +528,11 @@ LIMIT 10
       <td>10.605</td>
       <td>55</td>
       <td>15.0013</td>
-      <td>88.986353</td>
+      <td>87.943924</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>2011-01-20 08:00:00</td>
+      <td>2011-01-20 8:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -540,11 +541,11 @@ LIMIT 10
       <td>10.605</td>
       <td>55</td>
       <td>19.0012</td>
-      <td>92.677368</td>
+      <td>89.547156</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>2011-01-20 09:00:00</td>
+      <td>2011-01-20 9:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -553,7 +554,7 @@ LIMIT 10
       <td>11.365</td>
       <td>52</td>
       <td>15.0013</td>
-      <td>114.897041</td>
+      <td>101.963185</td>
     </tr>
   </tbody>
 </table>
@@ -564,7 +565,12 @@ LIMIT 10
 <div class="admonition note">
     <h4 class="admonition-title">Query Details</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">bike_regression</mark>
+        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">bike_regression</mark></li>
+        <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
+        <ul>
+            <li>"column_name" : the column that contains the predicted results. (default: "predict_result")</li>
+        </ul>
+        </li>
     </ul>
 </div>
 
@@ -574,7 +580,7 @@ In this tutorial, we created a bicycle demand regression model using the <mark s
 
 For the next step, the [Creating an Intermediate Regression Model] tutorial takes a deeper dive into the "__OPTIONS__" clause to improve accuracy. For the intermediate tutorial, we will create sophisticated regression models using the various "__OPTIONS__" provided by ThanoSQL's AutoML. In the advanced level, you will have the chance to vectorize unstructured data and include it as a train element in AutoML to create an even more sophisticated regression model.
 
-- [How to Upload to ThanoSQL DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
+- [How to upload to the ThanoSQL workspace](https://docs.thanosql.ai/en/getting_started/data_upload/)
 - [Create an intermediate image classification model]
 - [Image conversion and creating My model using Auto-ML]
 - [Deploying My image classification model](https://docs.thanosql.ai/en/how-to_guides/reference/)

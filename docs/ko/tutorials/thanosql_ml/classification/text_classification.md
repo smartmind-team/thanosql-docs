@@ -126,7 +126,7 @@ FROM "thanosql-dataset/movie_review_data/movie_review_test.csv"
 
 ```python
 %%thanosql
-GET THANOSQL MODEL tutorial_text_classification
+GET THANOSQL MODEL electra
 OPTIONS (overwrite=True)
 AS tutorial_text_classification
 ```
@@ -149,7 +149,7 @@ AS tutorial_text_classification
 
 ## __1. 데이터 세트 확인__
 
-영화 리뷰 감정 분류 모델을 만들기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
+영화 리뷰 감정 분류 모델을 만들기 위해 우리는 ThanoSQL 워크스페이스 DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 
 ```python
@@ -263,7 +263,7 @@ FROM movie_review_test
       <th></th>
       <th>review</th>
       <th>sentiment</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -362,7 +362,6 @@ SELECT *
 FROM movie_review_train
 ```
 
-    Building model...
     Success
 
 
@@ -371,17 +370,20 @@ FROM movie_review_train
     <ul>
         <li>"<strong>BUILD MODEL</strong>" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>라는 모델을 만들고 학습시킵니다. </li>
         <li>"<strong>USING</strong>" 쿼리 구문을 통해 베이스 모델로 <code>ElectraEn</code>을 사용할 것을 명시합니다. </li>
-        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다. "text_col"은 학습에 사용할 텍스트를 담은 컬럼의 이름이며, "label_col"은 목푯값의 정보를 담은 컬럼의 이름입니다. "epochs"를 통해 몇 번의 학습을 반복할 지를 지정합니다. "batch_size"는 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다.</li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
+        <ul>
+            <li>"text_col" : 학습에 사용할 텍스트를 담은 컬럼의 이름(default: "text")</li>
+            <li>"label_col" : 목푯값의 정보를 담은 컬럼의 이름(default: "label")</li>
+            <li>"epochs : 모든 학습 데이터 세트를 학습하는 횟수(default: 3)</li>
+            <li>"batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기(default: 16)</li>
+            <li>"overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, DEFAULT : False)</li>
+        </ul>
+        </li>
     </ul>
 </div>
 
 <div class="admonition tip">
     <p>여기서는 빠르게 학습하기 위해 "epochs"를 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산 시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다.</p>
-</div>
-
-<div class="admonition note">
-    <p><strong>overwrite가 True일 때</strong>, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.<br>
-    반면, <strong>overwrite가 False일 때</strong>, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.</p>
 </div>
 
 ## __4. 생성된 모델을 사용하여 영화 리뷰 감정 분류 결과 예측__
@@ -393,7 +395,8 @@ FROM movie_review_train
 %%thanosql
 PREDICT USING my_movie_review_classifier
 OPTIONS (
-    text_col='review'
+    text_col="review",
+    column_name="predict_result"
     )
 AS
 SELECT *
@@ -423,7 +426,7 @@ FROM movie_review_test
       <th></th>
       <th>review</th>
       <th>sentiment</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -473,7 +476,7 @@ FROM movie_review_test
       <th>996</th>
       <td>CyberTracker is set in Los Angeles sometime in...</td>
       <td>negative</td>
-      <td>positive</td>
+      <td>negative</td>
     </tr>
     <tr>
       <th>997</th>
@@ -502,9 +505,15 @@ FROM movie_review_test
 
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
-    <p>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark> 모델을 예측에 사용합니다.
-    "<strong>OPTIONS</strong>"를 통해 예측에 사용할 옵션을 지정합니다. <mark style="background-color:#D7D0FF">review</mark>는 예측에 사용할 텍스트를 담은 컬럼의 이름입니다.
-    예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.</p>
+    <ul>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
+        <ul>
+            <li>"image_col" : 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름(default: "image_path")</li>
+            <li>"column_name" : 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 정의합니다.(default: "predict_result")</li>
+        </ul>
+        </li>
+    </ul>
 </div>
 
 ## __5. 튜토리얼을 마치며__

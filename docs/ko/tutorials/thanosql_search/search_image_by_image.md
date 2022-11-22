@@ -109,7 +109,7 @@ FROM "thanosql-dataset/mnist_data/mnist_test.csv"
 
 ## __1. 데이터 세트 확인__
 
-손글씨 분류 모델을 만들기 위해 ThanoSQL [DB](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용합니다. <mark style="background-color:#FFEC92">mnist_train</mark> 테이블은 <mark style="background-color:#FFD79C">MNIST</mark> 이미지 파일들이 저장되어 있는 경로와 파일 이름 그리고 라벨 정보가 담겨 있는 테이블입니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
+손글씨 분류 모델을 만들기 위해 ThanoSQL 워크스페이스 [DB](https://ko.wikipedia.org/wiki/%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4)에 저장되어 있는 <mark style="background-color:#FFEC92">mnist_train</mark> 테이블을 사용합니다. <mark style="background-color:#FFEC92">mnist_train</mark> 테이블은 <mark style="background-color:#FFD79C">MNIST</mark> 이미지 파일들이 저장되어 있는 경로와 파일 이름 그리고 라벨 정보가 담겨 있는 테이블입니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 
 ```python
@@ -212,7 +212,6 @@ SELECT *
 FROM mnist_train
 ```
 
-    Building model...
     Success
 
 
@@ -223,7 +222,7 @@ FROM mnist_train
         <li>"<strong>USING</strong>" 쿼리 구문을 통해 베이스 모델로 <mark style="background-color:#E9D7FD">SimCLR</mark> 모델을 사용할 것을 명시합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼 (Default : "<mark style="background-color:#D7D0FF ">image_path</mark>")</li>
+            <li>"image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼 (Default : "image_path")</li>
             <li>"max_epochs" : 이미지 수치화 모델을 생성하기 위한 데이터 세트 학습 횟수</li>
             <li>"overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, DEFAULT : False) </li>
         </ul>
@@ -231,7 +230,7 @@ FROM mnist_train
     </ul>
 </div>
 
-다음 "__CONVERT USING__ " 쿼리 구문을 실행하여 `mnist_test` 이미지들을 수치화 합니다. 수치화 된 결과는 `mnist_test` 테이블에 <mark style="background-color:#D7D0FF ">my_image_search_model_simclr</mark>이라는 새로운 이름의 컬럼에 저장됩니다.
+다음 "__CONVERT USING__ " 쿼리 구문을 실행하여 `mnist_test` 이미지들을 수치화 합니다. 수치화 된 결과는 `mnist_test` 테이블에 사용자가 옵션으로 지정한 이름(Default: <mark style="background-color:#D7D0FF ">convert_result</mark>)의 컬럼에 저장됩니다.
 
 
 ```python
@@ -239,7 +238,8 @@ FROM mnist_train
 CONVERT USING my_image_search_model
 OPTIONS (
     table_name= "mnist_test",
-    image_col="image_path"
+    image_col="image_path",
+    column_name="convert_result"
     )
 AS 
 SELECT * 
@@ -270,7 +270,7 @@ FROM mnist_test
       <th>image_path</th>
       <th>filename</th>
       <th>label</th>
-      <th>my_image_search_model_simclr</th>
+      <th>convert_result</th>
     </tr>
   </thead>
   <tbody>
@@ -279,35 +279,35 @@ FROM mnist_test
       <td>thanosql-dataset/mnist_data/test/5099.jpg</td>
       <td>5099.jpg</td>
       <td>6</td>
-      <td>[0.444032073, 0.5801488161, 0.2267433554, 0.39...</td>
+      <td>[0.35765496, 0.70219374, 1.036354, 0.30916533,...</td>
     </tr>
     <tr>
       <th>1</th>
       <td>thanosql-dataset/mnist_data/test/9239.jpg</td>
       <td>9239.jpg</td>
       <td>6</td>
-      <td>[0.1476701796, 0.342682898, 0.2172846198, 0.27...</td>
+      <td>[0.31446555, 0.4085992, 0.65440047, 0.3968239,...</td>
     </tr>
     <tr>
       <th>2</th>
       <td>thanosql-dataset/mnist_data/test/2242.jpg</td>
       <td>2242.jpg</td>
       <td>6</td>
-      <td>[0.35097491740000003, 0.7209255695, 0.28046309...</td>
+      <td>[0.42804983, 0.57595205, 0.87231886, 0.3619018...</td>
     </tr>
     <tr>
       <th>3</th>
       <td>thanosql-dataset/mnist_data/test/3451.jpg</td>
       <td>3451.jpg</td>
       <td>6</td>
-      <td>[0.37643736600000005, 0.590180397, 0.195147812...</td>
+      <td>[0.4673535, 0.52365816, 0.8862568, 0.35323358,...</td>
     </tr>
     <tr>
       <th>4</th>
       <td>thanosql-dataset/mnist_data/test/2631.jpg</td>
       <td>2631.jpg</td>
       <td>6</td>
-      <td>[0.3307343125, 0.8608254194, 0.1520642936, 0.3...</td>
+      <td>[0.43351364, 0.6121249, 1.0112104, 0.38044024,...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -321,35 +321,35 @@ FROM mnist_test
       <td>thanosql-dataset/mnist_data/test/8045.jpg</td>
       <td>8045.jpg</td>
       <td>8</td>
-      <td>[0.3578948677, 0.6466975212, 0.2159980386, 0.3...</td>
+      <td>[0.6956904, 0.6110612, 0.95983946, 0.6331365, ...</td>
     </tr>
     <tr>
       <th>196</th>
       <td>thanosql-dataset/mnist_data/test/9591.jpg</td>
       <td>9591.jpg</td>
       <td>8</td>
-      <td>[0.2122505158, 0.49833771590000003, 0.20016485...</td>
+      <td>[0.43570492, 0.4828499, 0.59078306, 0.24152778...</td>
     </tr>
     <tr>
       <th>197</th>
       <td>thanosql-dataset/mnist_data/test/7425.jpg</td>
       <td>7425.jpg</td>
       <td>8</td>
-      <td>[0.3215314448, 0.4451098144, 0.174146562800000...</td>
+      <td>[0.38205424, 0.39592215, 0.82946587, 0.2115911...</td>
     </tr>
     <tr>
       <th>198</th>
       <td>thanosql-dataset/mnist_data/test/2150.jpg</td>
       <td>2150.jpg</td>
       <td>8</td>
-      <td>[0.2608986199, 0.8333299160000001, 0.238905787...</td>
+      <td>[0.37463677, 0.9733489, 1.4452345, 0.22567756,...</td>
     </tr>
     <tr>
       <th>199</th>
       <td>thanosql-dataset/mnist_data/test/5087.jpg</td>
       <td>5087.jpg</td>
       <td>8</td>
-      <td>[0.38603764770000004, 0.7643868327000001, 0.21...</td>
+      <td>[0.318596, 0.78893185, 0.88471705, 0.2650501, ...</td>
     </tr>
   </tbody>
 </table>
@@ -364,8 +364,9 @@ FROM mnist_test
         <li>"<strong>CONVERT USING</strong>" 쿼리 구문은 <code>my_image_search_model</code>을 이미지 수치화를 위한 알고리즘으로 사용합니다.   </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 이미지 수치화 시 필요한 변수들을 정의합니다.
         <ul>
-            <li>"table_name" : ThanoSQL DB 내에 저장될 테이블 이름을 정의합니다. </li>
+            <li>"table_name" : ThanoSQL 워크스페이스 DB 내에 저장될 테이블 이름을 정의합니다. </li>
             <li>"image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼(default: "image_path")</li>
+            <li>"column_name" : 데이터 테이블에서 수치화된 결과를 담을 컬럼 이름을 정의합니다.(default: "convert_result")</li>
         </ul>
         </li>
     </ul>
@@ -384,15 +385,16 @@ FROM mnist_test
 
 ```python
 %%thanosql
-SEARCH IMAGE images='thanosql-dataset/mnist_data/test/923.jpg' 
-USING my_image_search_model 
+SEARCH IMAGE image='thanosql-dataset/mnist_data/test/923.jpg'
+USING my_image_search_model
+OPTIONS (
+    emb_col="convert_result",
+    column_name="search_result"
+    )
 AS
 SELECT * 
 FROM mnist_test
 ```
-
-    Searching...
-
 
 
 
@@ -418,8 +420,8 @@ FROM mnist_test
       <th>image_path</th>
       <th>filename</th>
       <th>label</th>
-      <th>my_image_search_model_simclr</th>
-      <th>my_image_search_model_simclr_similarity1</th>
+      <th>convert_result</th>
+      <th>search_result</th>
     </tr>
   </thead>
   <tbody>
@@ -428,40 +430,40 @@ FROM mnist_test
       <td>thanosql-dataset/mnist_data/test/5099.jpg</td>
       <td>5099.jpg</td>
       <td>6</td>
-      <td>[0.444032073, 0.5801488161, 0.2267433554, 0.39...</td>
-      <td>0.952158</td>
+      <td>[0.35765496, 0.70219374, 1.036354, 0.30916533,...</td>
+      <td>0.976650</td>
     </tr>
     <tr>
       <th>1</th>
       <td>thanosql-dataset/mnist_data/test/9239.jpg</td>
       <td>9239.jpg</td>
       <td>6</td>
-      <td>[0.1476701796, 0.342682898, 0.2172846198, 0.27...</td>
-      <td>0.922127</td>
+      <td>[0.31446555, 0.4085992, 0.65440047, 0.3968239,...</td>
+      <td>0.966272</td>
     </tr>
     <tr>
       <th>2</th>
       <td>thanosql-dataset/mnist_data/test/2242.jpg</td>
       <td>2242.jpg</td>
       <td>6</td>
-      <td>[0.35097491740000003, 0.7209255695, 0.28046309...</td>
-      <td>0.947650</td>
+      <td>[0.42804983, 0.57595205, 0.87231886, 0.3619018...</td>
+      <td>0.970497</td>
     </tr>
     <tr>
       <th>3</th>
       <td>thanosql-dataset/mnist_data/test/3451.jpg</td>
       <td>3451.jpg</td>
       <td>6</td>
-      <td>[0.37643736600000005, 0.590180397, 0.195147812...</td>
-      <td>0.944467</td>
+      <td>[0.4673535, 0.52365816, 0.8862568, 0.35323358,...</td>
+      <td>0.970680</td>
     </tr>
     <tr>
       <th>4</th>
       <td>thanosql-dataset/mnist_data/test/2631.jpg</td>
       <td>2631.jpg</td>
       <td>6</td>
-      <td>[0.3307343125, 0.8608254194, 0.1520642936, 0.3...</td>
-      <td>0.953317</td>
+      <td>[0.43351364, 0.6121249, 1.0112104, 0.38044024,...</td>
+      <td>0.975437</td>
     </tr>
     <tr>
       <th>...</th>
@@ -476,40 +478,40 @@ FROM mnist_test
       <td>thanosql-dataset/mnist_data/test/8045.jpg</td>
       <td>8045.jpg</td>
       <td>8</td>
-      <td>[0.3578948677, 0.6466975212, 0.2159980386, 0.3...</td>
-      <td>0.947619</td>
+      <td>[0.6956904, 0.6110612, 0.95983946, 0.6331365, ...</td>
+      <td>0.972526</td>
     </tr>
     <tr>
       <th>196</th>
       <td>thanosql-dataset/mnist_data/test/9591.jpg</td>
       <td>9591.jpg</td>
       <td>8</td>
-      <td>[0.2122505158, 0.49833771590000003, 0.20016485...</td>
-      <td>0.931918</td>
+      <td>[0.43570492, 0.4828499, 0.59078306, 0.24152778...</td>
+      <td>0.964288</td>
     </tr>
     <tr>
       <th>197</th>
       <td>thanosql-dataset/mnist_data/test/7425.jpg</td>
       <td>7425.jpg</td>
       <td>8</td>
-      <td>[0.3215314448, 0.4451098144, 0.174146562800000...</td>
-      <td>0.932220</td>
+      <td>[0.38205424, 0.39592215, 0.82946587, 0.2115911...</td>
+      <td>0.969010</td>
     </tr>
     <tr>
       <th>198</th>
       <td>thanosql-dataset/mnist_data/test/2150.jpg</td>
       <td>2150.jpg</td>
       <td>8</td>
-      <td>[0.2608986199, 0.8333299160000001, 0.238905787...</td>
-      <td>0.948953</td>
+      <td>[0.37463677, 0.9733489, 1.4452345, 0.22567756,...</td>
+      <td>0.978564</td>
     </tr>
     <tr>
       <th>199</th>
       <td>thanosql-dataset/mnist_data/test/5087.jpg</td>
       <td>5087.jpg</td>
       <td>8</td>
-      <td>[0.38603764770000004, 0.7643868327000001, 0.21...</td>
-      <td>0.960865</td>
+      <td>[0.318596, 0.78893185, 0.88471705, 0.2650501, ...</td>
+      <td>0.983770</td>
     </tr>
   </tbody>
 </table>
@@ -521,9 +523,15 @@ FROM mnist_test
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>SEARCH IMAGE [images|audio|videos]</strong>" 쿼리 구문은 검색하고자 하는 이미지|오디오|비디오 파일을 정의합니다.  <br></li>
-        <li>"<strong>USING</strong>"은 이미지 수치화에 사용할 모델을 정의합니다.<br></li>
-        <li>"<strong>AS</strong>" 쿼리 구문은 검색에 사용할 임베딩 테이블을 정의합니다. <code>mnist_embds</code> 테이블을 사용합니다 </li>
+        <li>"<strong>SEARCH IMAGE [image|text|audio|video]</strong>" 쿼리 구문은 검색하고자 하는 이미지|텍스트|오디오|비디오 파일을 정의합니다.</li>
+        <li>"<strong>USING</strong>"은 이미지 수치화에 사용할 모델을 정의합니다.</li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 이미지 검색 시 필요한 변수들을 정의합니다.
+        <ul>
+                <li>"emb_col" : 데이터 테이블에서 수치화된 결과를 담은 컬럼</li>
+                <li>"column_name" : 데이터 테이블에서 검색 결과를 담을 컬럼 이름을 정의합니다.(default: "search_result")</li>
+        </ul>
+        </li>
+        <li>"<strong>AS</strong>" 쿼리 구문은 검색에 사용할 임베딩 테이블을 정의합니다. <code>mnist_test</code> 테이블을 사용합니다 </li>
     </ul>
 </div>
 
@@ -534,20 +542,23 @@ FROM mnist_test
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT image_path, my_image_search_model_simclr_similarity1 
+    SELECT image_path, search_result 
     FROM (
-        SEARCH IMAGE images='thanosql-dataset/mnist_data/test/923.jpg' 
+        SEARCH IMAGE image='thanosql-dataset/mnist_data/test/923.jpg' 
         USING my_image_search_model 
+        OPTIONS (
+            emb_col="convert_result",
+            column_name="search_result"
+            )
         AS 
         SELECT * 
         FROM mnist_test
         )
-    ORDER BY my_image_search_model_simclr_similarity1 DESC 
+    ORDER BY search_result DESC 
     LIMIT 4
     )
 ```
 
-    Searching...
     /home/jovyan/thanosql-dataset/mnist_data/test/923.jpg
 
 
@@ -557,7 +568,7 @@ AS (
     
 
 
-    /home/jovyan/thanosql-dataset/mnist_data/test/6573.jpg
+    /home/jovyan/thanosql-dataset/mnist_data/test/5087.jpg
 
 
 
@@ -575,7 +586,7 @@ AS (
     
 
 
-    /home/jovyan/thanosql-dataset/mnist_data/test/5087.jpg
+    /home/jovyan/thanosql-dataset/mnist_data/test/4147.jpg
 
 
 

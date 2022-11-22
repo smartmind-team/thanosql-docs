@@ -95,7 +95,7 @@ FROM "thanosql-dataset/diet_data/diet.csv"
 
 ## __1. 데이터 세트 확인__
 
-키워드-이미지 검색 모델을 만들기 위해 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92">diet</mark> 테이블을 사용합니다. 아래의 쿼리 구문을 실행하고 테이블의 내용을 확인합니다.
+키워드-이미지 검색 모델을 만들기 위해 ThanoSQL 워크스페이스 DB에 저장되어 있는 <mark style="background-color:#FFEC92">diet</mark> 테이블을 사용합니다. 아래의 쿼리 구문을 실행하고 테이블의 내용을 확인합니다.
 
 
 ```python
@@ -194,10 +194,10 @@ FROM diet
 
 <div class="admonition note">
     <h4 class="admonition-title">데이터 테이블 이해하기</h4>
-    <p><mark style="background-color:#FFEC92">diet</mark> 테이블은 아래와 같은 정보를 담고 있습니다.   </p>
+    <p><mark style="background-color:#FFEC92">diet</mark> 테이블은 아래와 같은 정보를 담고 있습니다.</p>
     <ul>
         <li><mark style="background-color:#D7D0FF">image_path</mark> : 이미지 경로 </li>
-        <li><mark style="background-color:#D7D0FF">label</mark> : 파일 이름</li>
+        <li><mark style="background-color:#D7D0FF">label</mark> : 이미지 라벨</li>
     </ul>
 </div>
 
@@ -222,7 +222,6 @@ SELECT *
 FROM diet
 ```
 
-    Building model...
     Success
 
 
@@ -233,9 +232,9 @@ FROM diet
         <li>"<strong>USING</strong>" 쿼리 구문을 통해 베이스 모델로 <code>ConvNeXt_Tiny</code>를 사용할 것을 명시합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"image_col" : 이미지 경로를 담은 컬럼의 이름</li>
-            <li>"label_col" : 목푯값의 정보를 담은 컬럼의 이름</li>
-            <li>"epochs" : 모든 학습 데이터 세트를 학습하는 횟수</li>
+            <li>"image_col" : 이미지 경로를 담은 컬럼의 이름(default: "image_path")</li>
+            <li>"label_col" : 목푯값의 정보를 담은 컬럼의 이름(default: "label")</li>
+            <li>"epochs" : 모든 학습 데이터 세트를 학습하는 횟수(default: 3)</li>
             <li>"overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, DEFAULT : False)</li>
         </ul>
         </li>
@@ -244,12 +243,16 @@ FROM diet
 
 ## __3. 생성된 모델을 사용하여 키워드-이미지 검색 모델 확인__
 
-이전 단계에서 만든 이미지 예측 모델(<mark style="background-color:#E9D7FD ">diet_image_classification</mark>)을 사용해서 특정 이미지의 목푯값을 예측해 봅니다. 아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
+이전 단계에서 만든 이미지 예측 모델(<mark style="background-color:#E9D7FD ">diet_image_classification</mark>)을 사용해서 특정 이미지의 목푯값을 예측해 봅니다. 아래 쿼리를 수행하고 나면, 예측 결과는 사용자가 옵션으로 지정한 이름(Default: <mark style="background-color:#D7D0FF ">predict_result</mark>)의 컬럼에 저장되어 반환됩니다.
 
 
 ```python
 %%thanosql
 PREDICT USING diet_image_classification
+OPTIONS (
+    image_col='image_path',
+    column_name='predict_result'
+    )
 AS 
 SELECT *
 FROM diet
@@ -277,7 +280,8 @@ FROM diet
     <tr style="text-align: right;">
       <th></th>
       <th>image_path</th>
-      <th>predicted</th>
+      <th>label</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -285,29 +289,35 @@ FROM diet
       <th>0</th>
       <td>thanosql-dataset/diet_data/diet/백향과/0_A220148X...</td>
       <td>백향과</td>
+      <td>백향과</td>
     </tr>
     <tr>
       <th>1</th>
       <td>thanosql-dataset/diet_data/diet/백향과/0_A220148X...</td>
+      <td>백향과</td>
       <td>백향과</td>
     </tr>
     <tr>
       <th>2</th>
       <td>thanosql-dataset/diet_data/diet/백향과/1_A220148X...</td>
       <td>백향과</td>
+      <td>백향과</td>
     </tr>
     <tr>
       <th>3</th>
       <td>thanosql-dataset/diet_data/diet/백향과/0_A220148X...</td>
+      <td>백향과</td>
       <td>백향과</td>
     </tr>
     <tr>
       <th>4</th>
       <td>thanosql-dataset/diet_data/diet/백향과/0_A220148X...</td>
       <td>백향과</td>
+      <td>백향과</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
     </tr>
@@ -315,30 +325,35 @@ FROM diet
       <th>1185</th>
       <td>thanosql-dataset/diet_data/diet/사과파이/0_A020511...</td>
       <td>사과파이</td>
+      <td>사과파이</td>
     </tr>
     <tr>
       <th>1186</th>
       <td>thanosql-dataset/diet_data/diet/사과파이/0_A020511...</td>
-      <td>빵</td>
+      <td>사과파이</td>
+      <td>백향과</td>
     </tr>
     <tr>
       <th>1187</th>
       <td>thanosql-dataset/diet_data/diet/사과파이/1_A020511...</td>
       <td>사과파이</td>
+      <td>사과파이</td>
     </tr>
     <tr>
       <th>1188</th>
       <td>thanosql-dataset/diet_data/diet/사과파이/0_A020511...</td>
-      <td>보쌈</td>
+      <td>사과파이</td>
+      <td>사과파이</td>
     </tr>
     <tr>
       <th>1189</th>
       <td>thanosql-dataset/diet_data/diet/사과파이/0_A020511...</td>
       <td>사과파이</td>
+      <td>사과파이</td>
     </tr>
   </tbody>
 </table>
-<p>1190 rows × 2 columns</p>
+<p>1190 rows × 3 columns</p>
 </div>
 
 
@@ -347,6 +362,12 @@ FROM diet
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
         <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">diet_image_classification</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 이미지 예측시 필요한 변수들을 정의합니다.
+        <ul>
+            <li>"image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼(default: "image_path")</li>
+            <li>"column_name" : 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 정의합니다.(default: "predict_result")</li>
+        </ul>
+        </li>
     </ul>
 </div>
 
@@ -357,15 +378,15 @@ FROM diet
 
 ```python
 %%thanosql
-SELECT A.image_path, A.label, B.predicted 
-FROM diet A
-LEFT JOIN (
-    SELECT * 
-    FROM (PREDICT USING diet_image_classification 
-    AS SELECT * FROM diet)) B 
-ON A.image_path = B.image_path
-WHERE A.label = B.predicted
-AND A.label LIKE '사과파이'
+SELECT *
+FROM (
+    PREDICT USING diet_image_classification
+    AS
+    SELECT *
+    FROM diet
+    )
+WHERE label = predict_result
+AND label LIKE '사과파이'
 LIMIT 10
 ```
 
@@ -392,7 +413,7 @@ LIMIT 10
       <th></th>
       <th>image_path</th>
       <th>label</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -468,8 +489,8 @@ LIMIT 10
         <li>"<strong>SELECT * FROM (...)</strong>" 쿼리 구문을 통해  "<strong>PREDICT USING</strong>"으로 시작하는 쿼리 구문의 결과를 모두 선택합니다.</li>
         <li>"<strong>WHERE</strong>" 쿼리 구문을 통해 조건을 설정합니다. 이 조건은 "<strong>AND</strong>"를 통해 이어집니다.
         <ul>
-            <li>"label = predicted" : <mark style="background-color:#D7D0FF ">label</mark> 컬럼과 <mark style="background-color:#D7D0FF ">predicted</mark> 컬럼의 값이 같은 데이터만 추출합니다.</li>
-            <li>"label = '사과파이'" : <mark style="background-color:#D7D0FF ">label</mark> 컬럼이 '사과파이'인 데이터만 추출합니다.</li>
+            <li>"label = predict_result" : <mark style="background-color:#D7D0FF ">label</mark> 컬럼과 <mark style="background-color:#D7D0FF ">predict_result</mark> 컬럼의 값이 같은 데이터만 추출합니다.</li>
+            <li>"label LIKE '사과파이'" : <mark style="background-color:#D7D0FF ">label</mark> 컬럼이 '사과파이'인 데이터만 추출합니다.</li>
         </ul>
         </li>
     </ul>

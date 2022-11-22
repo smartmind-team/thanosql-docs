@@ -114,7 +114,7 @@ FROM "thanosql-dataset/titanic_data/titanic_test.csv"
 
 ## __1. 데이터 세트 확인__
 
-생존자 예측 분류 모델을 만들기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 "><strong>titanic_train</strong></mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하면서 테이블 내용을 확인합니다.
+생존자 예측 분류 모델을 만들기 위해 우리는 ThanoSQL 워크스페이스 DB에 저장되어 있는 <mark style="background-color:#FFEC92 "><strong>titanic_train</strong></mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하면서 테이블 내용을 확인합니다.
 
 
 ```python
@@ -167,7 +167,7 @@ LIMIT 5
       <td>3</td>
       <td>Braund, Mr. Owen Harris</td>
       <td>male</td>
-      <td>22</td>
+      <td>22.0</td>
       <td>1</td>
       <td>0</td>
       <td>A/5 21171</td>
@@ -182,7 +182,7 @@ LIMIT 5
       <td>1</td>
       <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
       <td>female</td>
-      <td>38</td>
+      <td>38.0</td>
       <td>1</td>
       <td>0</td>
       <td>PC 17599</td>
@@ -197,7 +197,7 @@ LIMIT 5
       <td>3</td>
       <td>Heikkinen, Miss. Laina</td>
       <td>female</td>
-      <td>26</td>
+      <td>26.0</td>
       <td>0</td>
       <td>0</td>
       <td>STON/O2. 3101282</td>
@@ -212,7 +212,7 @@ LIMIT 5
       <td>1</td>
       <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
       <td>female</td>
-      <td>35</td>
+      <td>35.0</td>
       <td>1</td>
       <td>0</td>
       <td>113803</td>
@@ -227,7 +227,7 @@ LIMIT 5
       <td>3</td>
       <td>Allen, Mr. William Henry</td>
       <td>male</td>
-      <td>35</td>
+      <td>35.0</td>
       <td>0</td>
       <td>0</td>
       <td>373450</td>
@@ -285,7 +285,6 @@ SELECT *
 FROM titanic_train
 ```
 
-    Building model...
     Success
 
 
@@ -350,37 +349,37 @@ FROM titanic_train
     <tr>
       <th>0</th>
       <td>accuracy</td>
-      <td>0.886644</td>
+      <td>0.895623</td>
     </tr>
     <tr>
       <th>1</th>
       <td>ROCAUC</td>
-      <td>0.888667</td>
+      <td>0.896712</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Recall</td>
-      <td>0.895082</td>
+      <td>0.900322</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Precision</td>
-      <td>0.798246</td>
+      <td>0.818713</td>
     </tr>
     <tr>
       <th>4</th>
       <td>f1-score</td>
-      <td>0.843895</td>
+      <td>0.857580</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Kappa</td>
-      <td>0.755364</td>
+      <td>0.775499</td>
     </tr>
     <tr>
       <th>6</th>
       <td>MCC</td>
-      <td>0.758416</td>
+      <td>0.777680</td>
     </tr>
   </tbody>
 </table>
@@ -413,6 +412,7 @@ FROM titanic_train
 ```python
 %%thanosql 
 PREDICT USING titanic_automl_classification
+OPTIONS (column_name="predict_result")
 AS 
 SELECT * 
 FROM titanic_test
@@ -450,7 +450,7 @@ FROM titanic_test
       <th>fare</th>
       <th>cabin</th>
       <th>embarked</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -628,7 +628,14 @@ FROM titanic_test
 
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
-    <p>"<strong>PREDICT USING</strong>" 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark> 모델을 예측에 사용합니다. "<strong>PREDICT</strong>"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 옵션이 필요없습니다. </p>
+    <ul>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
+        <ul>
+            <li>"column_name" : 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 정의합니다.(default: "predict_result")</li>
+        </ul>
+        </li>
+    </ul>
 </div>
 
 ## __5. 튜토리얼을 마치며__

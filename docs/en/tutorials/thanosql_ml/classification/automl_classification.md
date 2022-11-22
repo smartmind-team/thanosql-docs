@@ -82,7 +82,7 @@ OPTIONS (overwrite=True)
 %%thanosql
 COPY titanic_train 
 OPTIONS (overwrite=True)
-FROM "tutorial_data/titanic_data/titanic_train.csv"
+FROM "thanosql-dataset/titanic_data/titanic_train.csv"
 ```
 
     Success
@@ -113,7 +113,7 @@ FROM "thanosql-dataset/titanic_data/titanic_test.csv"
 
 ## __1. Check Dataset__
 
-To create the survivor classification model, we use the <mark style="background-color:#FFEC92 "><strong>titanic_train</strong></mark> table located in the ThanoSQL database. Run the query below to check the contents of the table.
+To create the survivor classification model, we use the <mark style="background-color:#FFEC92 "><strong>titanic_train</strong></mark> table located in the ThanoSQL workspace database. Run the query below to check the contents of the table.
 
 
 ```python
@@ -166,7 +166,7 @@ LIMIT 5
       <td>3</td>
       <td>Braund, Mr. Owen Harris</td>
       <td>male</td>
-      <td>22</td>
+      <td>22.0</td>
       <td>1</td>
       <td>0</td>
       <td>A/5 21171</td>
@@ -181,7 +181,7 @@ LIMIT 5
       <td>1</td>
       <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
       <td>female</td>
-      <td>38</td>
+      <td>38.0</td>
       <td>1</td>
       <td>0</td>
       <td>PC 17599</td>
@@ -196,7 +196,7 @@ LIMIT 5
       <td>3</td>
       <td>Heikkinen, Miss. Laina</td>
       <td>female</td>
-      <td>26</td>
+      <td>26.0</td>
       <td>0</td>
       <td>0</td>
       <td>STON/O2. 3101282</td>
@@ -211,7 +211,7 @@ LIMIT 5
       <td>1</td>
       <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
       <td>female</td>
-      <td>35</td>
+      <td>35.0</td>
       <td>1</td>
       <td>0</td>
       <td>113803</td>
@@ -226,7 +226,7 @@ LIMIT 5
       <td>3</td>
       <td>Allen, Mr. William Henry</td>
       <td>male</td>
-      <td>35</td>
+      <td>35.0</td>
       <td>0</td>
       <td>0</td>
       <td>373450</td>
@@ -283,7 +283,6 @@ SELECT *
 FROM titanic_train
 ```
 
-    Building model...
     Success
 
 
@@ -298,6 +297,8 @@ FROM titanic_train
             <li>"features_to_drop" : selects columns that cannot be used for training </li>
             <li>"time_left_for_this_task" : the total time given to find a suitable classification model (DEFAULT: 300)</li>
             <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+        </ul>
+        </li>
     </ul>
 </div>
 
@@ -410,6 +411,7 @@ To use the classification model created in the previous step for prediction of <
 ```python
 %%thanosql 
 PREDICT USING titanic_automl_classification
+OPTIONS (column_name="predict_result")
 AS 
 SELECT * 
 FROM titanic_test
@@ -447,7 +449,7 @@ FROM titanic_test
       <th>fare</th>
       <th>cabin</th>
       <th>embarked</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -626,7 +628,12 @@ FROM titanic_test
 <div class="admonition note">
     <h4 class="admonition-title">Query Details</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>
+        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark></li>
+        <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
+        <ul>
+            <li>"column_name" : the column that contains the predicted results. (default: "predict_result")</li>
+        </ul>
+        </li>
     </ul>
 </div>
 
@@ -636,7 +643,7 @@ In this tutorial, we created a Titanic survivor classification model using the <
 
 For the next step, the [Creating an Intermediate Classification Model] tutorial takes a deeper dive into the "__OPTIONS__" clause to improve accuracy. For the intermediate tutorial, we will create sophisticated classification models using the various "__OPTIONS__" provided by ThanoSQL's AutoML. In the advanced level, you will have the chance to vectorize unstructured data and include it as a train element in AutoML to create an even more sophisticated classification model.
 
-- [How to Upload to ThanoSQL DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
+- [How to upload to the ThanoSQL workspace](https://docs.thanosql.ai/en/getting_started/data_upload/)
 - [Creating an Intermediate Image Classification Model]
 - [Image conversion and creating My model using Auto-ML]
 - [Deploy My Image Classification model](https://docs.thanosql.ai/en/how-to_guides/reference/)

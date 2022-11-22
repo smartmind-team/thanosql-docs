@@ -114,7 +114,7 @@ FROM "thanosql-dataset/bike_sharing_data/bike_sharing_test.csv"
 
 ## __1. 데이터 세트 확인__
 
-본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">bike_sharing_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
+본 튜토리얼을 진행하기 위해 우리는 ThanoSQL 워크스페이스 DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">bike_sharing_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 
 ```python
@@ -160,7 +160,7 @@ LIMIT 5
   <tbody>
     <tr>
       <th>0</th>
-      <td>2011-01-01 00:00:00</td>
+      <td>2011-01-01 0:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -168,12 +168,12 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>81</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>16</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2011-01-01 01:00:00</td>
+      <td>2011-01-01 1:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -181,12 +181,12 @@ LIMIT 5
       <td>9.02</td>
       <td>13.635</td>
       <td>80</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>40</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2011-01-01 02:00:00</td>
+      <td>2011-01-01 2:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -194,12 +194,12 @@ LIMIT 5
       <td>9.02</td>
       <td>13.635</td>
       <td>80</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>32</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2011-01-01 03:00:00</td>
+      <td>2011-01-01 3:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -207,12 +207,12 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>75</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>13</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2011-01-01 04:00:00</td>
+      <td>2011-01-01 4:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -220,7 +220,7 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>75</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -268,7 +268,6 @@ SELECT *
 FROM bike_sharing_train
 ```
 
-    Building model...
     Success
 
 
@@ -333,27 +332,27 @@ FROM bike_sharing_train
     <tr>
       <th>0</th>
       <td>MAE</td>
-      <td>71.9746</td>
+      <td>73.5495</td>
     </tr>
     <tr>
       <th>1</th>
       <td>MSE</td>
-      <td>10016.9157</td>
+      <td>9664.5868</td>
     </tr>
     <tr>
       <th>2</th>
       <td>R2</td>
-      <td>0.3106</td>
+      <td>0.3398</td>
     </tr>
     <tr>
       <th>3</th>
       <td>RMSLE</td>
-      <td>1.1670</td>
+      <td>1.3192</td>
     </tr>
     <tr>
       <th>4</th>
       <td>MAPE</td>
-      <td>0.4551</td>
+      <td>0.4762</td>
     </tr>
   </tbody>
 </table>
@@ -385,7 +384,8 @@ FROM bike_sharing_train
 
 ```python
 %%thanosql
-PREDICT USING bike_regression 
+PREDICT USING bike_regression
+OPTIONS (column_name="predict_result")
 AS
 SELECT *
 FROM bike_sharing_test
@@ -422,13 +422,13 @@ LIMIT 10
       <th>atemp</th>
       <th>humidity</th>
       <th>windspeed</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2011-01-20 00:00:00</td>
+      <td>2011-01-20 0:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -437,11 +437,11 @@ LIMIT 10
       <td>11.365</td>
       <td>56</td>
       <td>26.0027</td>
-      <td>136.392187</td>
+      <td>110.567545</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2011-01-20 01:00:00</td>
+      <td>2011-01-20 1:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -450,11 +450,11 @@ LIMIT 10
       <td>13.635</td>
       <td>56</td>
       <td>0.0000</td>
-      <td>74.944578</td>
+      <td>95.440515</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2011-01-20 02:00:00</td>
+      <td>2011-01-20 2:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -463,11 +463,11 @@ LIMIT 10
       <td>13.635</td>
       <td>56</td>
       <td>0.0000</td>
-      <td>74.944578</td>
+      <td>95.440515</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2011-01-20 03:00:00</td>
+      <td>2011-01-20 3:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -476,11 +476,11 @@ LIMIT 10
       <td>12.880</td>
       <td>56</td>
       <td>11.0014</td>
-      <td>84.932830</td>
+      <td>99.848359</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2011-01-20 04:00:00</td>
+      <td>2011-01-20 4:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -489,11 +489,11 @@ LIMIT 10
       <td>12.880</td>
       <td>56</td>
       <td>11.0014</td>
-      <td>84.932830</td>
+      <td>99.848359</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>2011-01-20 05:00:00</td>
+      <td>2011-01-20 5:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -502,11 +502,11 @@ LIMIT 10
       <td>11.365</td>
       <td>60</td>
       <td>15.0013</td>
-      <td>97.821171</td>
+      <td>97.812435</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>2011-01-20 06:00:00</td>
+      <td>2011-01-20 6:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -515,11 +515,11 @@ LIMIT 10
       <td>10.605</td>
       <td>60</td>
       <td>15.0013</td>
-      <td>91.725860</td>
+      <td>91.118055</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>2011-01-20 07:00:00</td>
+      <td>2011-01-20 7:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -528,11 +528,11 @@ LIMIT 10
       <td>10.605</td>
       <td>55</td>
       <td>15.0013</td>
-      <td>85.927970</td>
+      <td>90.292752</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>2011-01-20 08:00:00</td>
+      <td>2011-01-20 8:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -541,11 +541,11 @@ LIMIT 10
       <td>10.605</td>
       <td>55</td>
       <td>19.0012</td>
-      <td>89.624088</td>
+      <td>92.152767</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>2011-01-20 09:00:00</td>
+      <td>2011-01-20 9:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -554,7 +554,7 @@ LIMIT 10
       <td>11.365</td>
       <td>52</td>
       <td>15.0013</td>
-      <td>101.249065</td>
+      <td>104.415442</td>
     </tr>
   </tbody>
 </table>
@@ -565,8 +565,12 @@ LIMIT 10
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 예측에 사용합니다. </li>
-        <li>"<strong>PREDICT</strong>"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 옵션값이 필요없습니다.</li>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
+        <ul>
+            <li>"column_name" : 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 정의합니다.(default: "predict_result")</li>
+        </ul>
+        </li>
     </ul>
 </div>
 

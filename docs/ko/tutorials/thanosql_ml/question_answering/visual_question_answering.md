@@ -8,9 +8,9 @@ title: 시각 질의 응답 모델 사용하기
 - 읽는데 걸리는 시간 : 5분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/thanosql_ml/question_answering/visual_question_answering.ipynb
-- 참고 문서 : [COCO 데이터 세트](https://cocodataset.org/#download), [VQA](https://visualqa.org/index.html)
+- 참고 문서 : [COCO 데이터 세트](https://cocodataset.org/#download), [VQA](https://visualqa.org/index.html), [ViLT](https://arxiv.org/abs/2102.03334)
 
-## __튜토리얼 소개__ 
+## 튜토리얼 소개 
 
 <div class="admonition note">
     <h4 class="admonition-title">시각 질의 응답 이해하기</h4>
@@ -101,9 +101,9 @@ FROM 'thanosql-dataset/coco_person_data/coco_person.csv'
 
 ```python
 %%thanosql
-GET THANOSQL MODEL vqa
+GET THANOSQL MODEL vilt
 OPTIONS (overwrite=True)
-AS tutorial_vqa
+AS tutorial_vilt
 ```
 
     Success
@@ -213,7 +213,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_1.jpg)
+![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_1.jpg)
     
 
 
@@ -222,7 +222,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_3.jpg)
+![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_3.jpg)
     
 
 
@@ -231,7 +231,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_5.jpg)
+![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_5.jpg)
     
 
 
@@ -240,7 +240,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_7.jpg)
+![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_7.jpg)
     
 
 
@@ -249,18 +249,18 @@ LIMIT 5
 
 
     
-![jpeg](output_16_9.jpg)
+![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_9.jpg)
     
 
 
 ## __2. 사전 학습된 모델을 사용하여 이미지의 질문에 대한 응답 예측__
 
-다음 쿼리문을 실행하면, 위에서 불러온 사전에 학습을 해 둔 시각 질의 응답 모델, <mark style="background-color:#E9D7FD ">tutorial_vqa</mark>모델을 사용하여 결과를 빠르게 예측해 볼 수 있습니다.
+다음 쿼리문을 실행하면, 위에서 불러온 사전에 학습을 해 둔 시각 질의 응답 모델, <mark style="background-color:#E9D7FD ">tutorial_vilt</mark>모델을 사용하여 결과를 빠르게 예측해 볼 수 있습니다.
 
 
 ```python
 %%thanosql
-PREDICT USING tutorial_vqa
+PREDICT USING tutorial_vilt
 OPTIONS (
     image_col='image_path',
     question='How many people are there?',
@@ -362,7 +362,7 @@ FROM coco_person_data
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 불러온 <mark style="background-color:#E9D7FD ">tutorial_vqa</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 불러온 <mark style="background-color:#E9D7FD ">tutorial_vilt</mark> 모델을 예측에 사용합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
         <ul>
             <li>"image_col" : 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름 (default: "image_path")</li>

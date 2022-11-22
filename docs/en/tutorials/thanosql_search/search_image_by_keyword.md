@@ -195,7 +195,7 @@ FROM diet
     <p>The <mark style="background-color:#FFEC92">diet</mark> table contains the following information. </p>
     <ul>
         <li><mark style="background-color:#D7D0FF">image_path</mark> : image path </li>
-        <li><mark style="background-color:#D7D0FF">label</mark> : filename</li>
+        <li><mark style="background-color:#D7D0FF">label</mark> : image label</li>
     </ul>
 </div>
 
@@ -220,7 +220,6 @@ SELECT *
 FROM diet
 ```
 
-    Building model...
     Success
 
 
@@ -231,9 +230,9 @@ FROM diet
         <li>"<strong>USING</strong>" specifies <code>ConvNeXt_Tiny</code> as the base model.</li>
         <li>"<strong>OPTIONS</strong>" specifies the option values used to create a model.
         <ul>
-            <li>"image_col" : the name of the column containing the image path.</li>
-            <li>"label_col" : the name of the column containing information about the target.</li>
-            <li>"epochs" : number of times to train with the training dataset.</li>
+            <li>"image_col" : the name of the column containing the image path. (default: "image_path")</li>
+            <li>"label_col" : the name of the column containing information about the target. (default: "label")</li>
+            <li>"epochs" : number of times to train with the training dataset. (default: 3)</li>
             <li>"overwrite": determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, DEFAULT : False)</li>
         </ul>
         </li>
@@ -242,12 +241,16 @@ FROM diet
 
 ## __3. Predict Specific Images__
 
-To predict a specific image, use the prediction model created in the previous step(<mark style="background-color:#E9D7FD ">diet_image_classification</mark>). After running the query below, the prediction result is stored and returned in the <mark style="background-color:#D7D0FF">predicted</mark> column.
+To predict a specific image, use the prediction model created in the previous step(<mark style="background-color:#E9D7FD ">diet_image_classification</mark>). After running the query below, the prediction result is stored and returned in the user-defined column (default: <mark style="background-color:#D7D0FF">predict_result</mark>) column.
 
 
 ```python
 %%thanosql
 PREDICT USING diet_image_classification
+OPTIONS (
+    image_col='image_path',
+    column_name='predict_result'
+    )
 AS 
 SELECT *
 FROM diet
@@ -275,7 +278,8 @@ FROM diet
     <tr style="text-align: right;">
       <th></th>
       <th>image_path</th>
-      <th>predicted</th>
+      <th>label</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -283,29 +287,35 @@ FROM diet
       <th>0</th>
       <td>thanosql-dataset/diet_data/diet/백향과/0_A220148X...</td>
       <td>백향과</td>
+      <td>백향과</td>
     </tr>
     <tr>
       <th>1</th>
       <td>thanosql-dataset/diet_data/diet/백향과/0_A220148X...</td>
+      <td>백향과</td>
       <td>백향과</td>
     </tr>
     <tr>
       <th>2</th>
       <td>thanosql-dataset/diet_data/diet/백향과/1_A220148X...</td>
       <td>백향과</td>
+      <td>백향과</td>
     </tr>
     <tr>
       <th>3</th>
       <td>thanosql-dataset/diet_data/diet/백향과/0_A220148X...</td>
+      <td>백향과</td>
       <td>백향과</td>
     </tr>
     <tr>
       <th>4</th>
       <td>thanosql-dataset/diet_data/diet/백향과/0_A220148X...</td>
       <td>백향과</td>
+      <td>백향과</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
     </tr>
@@ -313,30 +323,35 @@ FROM diet
       <th>1185</th>
       <td>thanosql-dataset/diet_data/diet/사과파이/0_A020511...</td>
       <td>사과파이</td>
+      <td>사과파이</td>
     </tr>
     <tr>
       <th>1186</th>
       <td>thanosql-dataset/diet_data/diet/사과파이/0_A020511...</td>
+      <td>사과파이</td>
       <td>사과파이</td>
     </tr>
     <tr>
       <th>1187</th>
       <td>thanosql-dataset/diet_data/diet/사과파이/1_A020511...</td>
       <td>사과파이</td>
+      <td>사과파이</td>
     </tr>
     <tr>
       <th>1188</th>
       <td>thanosql-dataset/diet_data/diet/사과파이/0_A020511...</td>
+      <td>사과파이</td>
       <td>사과파이</td>
     </tr>
     <tr>
       <th>1189</th>
       <td>thanosql-dataset/diet_data/diet/사과파이/0_A020511...</td>
       <td>사과파이</td>
+      <td>사과파이</td>
     </tr>
   </tbody>
 </table>
-<p>1190 rows × 2 columns</p>
+<p>1190 rows × 3 columns</p>
 </div>
 
 
@@ -345,6 +360,12 @@ FROM diet
     <h4 class="admonition-title">Query Details</h4>
     <ul>
         <li>Use the <mark style="background-color:#E9D7FD ">diet_image_classification</mark> model for prediction with the "<strong>PREDICT USING</strong>" query.</li>
+        <li>"<strong>OPTIONS</strong>" specifies the option values used to predict with the model.
+        <ul>
+            <li>"image_col" : the name of the column containing the image path. (default: "image_path")</li>
+            <li>"column_name" : the column that contains the predicted results. (default: "predict_result")</li>
+        </ul>
+        </li>
     </ul>
 </div>
 
@@ -355,15 +376,15 @@ To retrieve data with specific conditions, run a query using the "__PREDICT USIN
 
 ```python
 %%thanosql
-SELECT A.image_path, A.label, B.predicted 
-FROM diet A
-LEFT JOIN (
-    SELECT * 
-    FROM (PREDICT USING diet_image_classification 
-    AS SELECT * FROM diet)) B 
-ON A.image_path = B.image_path
-WHERE A.label = B.predicted
-AND A.label LIKE '사과파이'
+SELECT *
+FROM (
+    PREDICT USING diet_image_classification
+    AS
+    SELECT *
+    FROM diet
+    )
+WHERE label = predict_result
+AND label LIKE '사과파이'
 LIMIT 10
 ```
 
@@ -390,7 +411,7 @@ LIMIT 10
       <th></th>
       <th>image_path</th>
       <th>label</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -466,8 +487,8 @@ LIMIT 10
         <li>"<strong>SELECT * FROM (...)</strong>" selects all the results of the nested "<strong>PREDICT USING</strong>" query.</li>
         <li>"<strong>WHERE</strong>" sets the selection condition. "<strong>AND</strong>" allows multiple conditions.
         <ul>
-            <li>"label = predicted" : Queries only data where the<mark style="background-color:#D7D0FF ">label</mark> column and <mark style="background-color:#D7D0FF ">predicted</mark> column are equal.</li>
-            <li>"label = '사과파이'" : Queries data where the <mark style="background-color:#D7D0FF ">label</mark> value is 'apple pie'.</li>
+            <li>"label = predict_result" : Queries only data where the<mark style="background-color:#D7D0FF ">label</mark> column and <mark style="background-color:#D7D0FF ">predict_result</mark> column are equal.</li>
+            <li>"label LIKE '사과파이'" : Queries data where the <mark style="background-color:#D7D0FF ">label</mark> value is 'apple pie'.</li>
         </ul>
         </li>
     </ul>
