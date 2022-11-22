@@ -52,4 +52,4 @@ LIST TABLE
 
 !!! note "LIST as a Subquery" 
     - "**LIST**" 구문은 "**SELECT**"의 서브쿼리로 사용할수 있습니다. 
-    - ""**SELECT * FROM (LIST THANOSQL MODEL)**" 같이 "**LIST**" 구문을 서브쿼리로 사용함으로서 "**LIMIT**"과 "**WHERE**" 같은 psql 구문들과 함께 사용할 수 있습니다. 
+    - ""**SELECT * FROM (LIST THANOSQL MODEL)**" 같이 "**LIST**" 구문을 서브쿼리로 사용함으로서 "**LIMIT**"과 "**WHERE**" 같은 SQL 구문들과 함께 사용할 수 있습니다. 

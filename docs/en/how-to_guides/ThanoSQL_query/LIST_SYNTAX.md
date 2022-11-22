@@ -57,4 +57,4 @@ LIST TABLE
 
 !!! note "LIST as a Subquery" 
     - "**LIST**" clause can be used as "**SELECT**" clause's subquery. 
-    - By using "**LIST**" clause as a subquery like ""**SELECT * FROM (LIST THANOSQL MODEL)**", you can use psql clauses like "**LIMIT**" and "**WHERE**" with "**LIST**" clause as well. 
+    - By using "**LIST**" clause as a subquery like ""**SELECT * FROM (LIST THANOSQL MODEL)**", you can use SQL clauses like "**LIMIT**" and "**WHERE**" with "**LIST**" clause as well. 
