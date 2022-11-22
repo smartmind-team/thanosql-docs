@@ -20,7 +20,7 @@ title: 개요
 - [__SEARCH__](/ko/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX/) — 비정형 데이터(이미지, 오디오, 비디오 등)의 유사도 기반 검색
 - [__PRINT__](/ko/how-to_guides/ThanoSQL_query/PRINT_SYNTAX/) — 비정형 데이터(이미지, 오디오, 비디오 등) 출력
 - [__GET__](/ko/how-to_guides/ThanoSQL_query/GET_SYNTAX/) —  ThanoSQL DB에 저장되어 있는 모델, 데이터 테이블 가져오기
-- [__LIST__](/ko/how-to_guides/ThanoSQL_query/LIST_SYNTAX/) — ThanoSQL DB에 저장되어 있는 모델, 데이터 테이블, 튜토리얼 목록 조회
+- [__LIST__](/ko/how-to_guides/ThanoSQL_query/LIST_SYNTAX/) — ThanoSQL DB에 저장되어 있는 모델, 데이터 테이블 목록 조회
 - [__COPY__](/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - 워크스페이스에 있는 데이터 파일들로 ThanoSQL DB 안의 데이터 테이블 생성
 
 ### __ThanoSQL Pre-built Model Statement Reference__

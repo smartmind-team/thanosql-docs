@@ -59,24 +59,14 @@ LIST THANOSQL MODEL
 
 [![IMAGE](/img/getting_started/img8.png)](/img/getting_started/img8.png)
 
-아래 ThanoSQL문을 실행시키면 [ThanoSQL 기술 문서에 있는 튜토리얼](/tutorials/algorithm_list/)에 있는 튜토리얼 목록을 확인할 수 있습니다.
-
-```sql
-%%thanosql
-LIST THANOSQL TUTORIAL
-```
-
-[![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
-
-
-아래 ThanoSQL문을 실행시키면 [ThanoSQL 기술 문서에 있는 튜토리얼](/tutorials/algorithm_list/)에서 사용된 데이터 테이블 리스트를 확인할 수 있습니다.
+[ThanoSQL 기술 문서에 있는 튜토리얼](/tutorials/algorithm_list/)에서 튜토리얼 목록을 확인할 수 있습니다. 아래 ThanoSQL문을 실행시키면 각 튜토리얼에서 사용된 데이터 테이블 리스트를 확인할 수 있습니다.
 
 ```sql
 %%thanosql
 LIST THANOSQL DATASET
 ```
 
-[![IMAGE](/img/getting_started/img10.png)](/img/getting_started/img10.png)
+[![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
 
 
 ## __4. 튜토리얼 가져오기__
