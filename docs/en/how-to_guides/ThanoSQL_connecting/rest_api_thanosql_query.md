@@ -8,7 +8,7 @@ title: How to Query using ThanoSQL
 
 - Updated Date : {{ git_revision_date_localized }}
 
-You can run the same queries using ThanoSQL's REST API as you would on the ThanoSQL workspace.
+You can run the same queries using ThanoSQL's REST API as you would on the ThanoSQL Workspace.
 
 === "Python"
 

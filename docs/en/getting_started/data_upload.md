@@ -1,12 +1,12 @@
 ---
-title: How to upload your data to the ThanoSQL workspace
+title: How to upload your data to the ThanoSQL Workspace
 ---
 
-# __How to upload your data to the ThanoSQL workspace__ 
+# __How to upload your data to the ThanoSQL Workspace__ 
 
 ## __Preface__
 
-ThanoSQL workspace's users can upload data using two ways as shown below.
+ThanoSQL Workspace's users can upload data using two ways as shown below.
 
 !!! note "To upload data"
     1. Uploading your local data into your workspace environment
@@ -14,7 +14,7 @@ ThanoSQL workspace's users can upload data using two ways as shown below.
 
 ## __1. Uploading your local data in a workspace environment__
 
-To upload local data to ThanoSQL workspace, follow these steps:
+To upload local data to ThanoSQL Workspace, follow these steps:
 
 !!! note ""
     1. Log into the ThanoSQL console

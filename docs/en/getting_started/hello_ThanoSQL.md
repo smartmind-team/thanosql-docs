@@ -37,7 +37,7 @@ ex)
 ```
 [![IMAGE](/img/thanosql_api/restapi_token_img2.jpg)](/img/thanosql_api/restapi_token_img2.jpg) 
 
-!!! notice "How to create a query statement in the ThanoSQL workspace" 
+!!! notice "How to create a query statement in the ThanoSQL Workspace" 
     You can use either a one-line or multi-line format when writting ThanoSQL queries.
 
     - One-line queries are primarily used when returning queries in table form and assigning tables to variables. It is also used to assign ThanoSQL cell magic and Token, as shown in step 1 and 2.
