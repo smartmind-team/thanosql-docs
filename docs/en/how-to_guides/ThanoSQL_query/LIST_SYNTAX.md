@@ -46,3 +46,7 @@ LIST TABLE
 ```
 
 [![IMAGE](/img/thanosql_syntax/query/LIST/img4.png)](/img/thanosql_syntax/query/LIST/img4.png)
+
+!!! note "LIST as a Subquery" 
+    - "**LIST**" clause can be used as "**SELECT**" clause's subquery. 
+    - By using "**LIST**" clause as a subquery like ""**SELECT * FROM (LIST THANOSQL MODEL)**", you can use SQL clauses like "**LIMIT**" and "**WHERE**" with "**LIST**" clause as well. 
