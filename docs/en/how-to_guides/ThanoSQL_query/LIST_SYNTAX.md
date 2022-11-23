@@ -6,7 +6,7 @@ title: LIST
 
 ## __1. LIST Statement__
 
-The "__LIST__" statement allows users to view the lastest pre-built models ("THANOSQL MODEL"), provided datasets ("THANOSQL DATASET), tables ("TABLE") and the models ("MODEL") created by the users.
+The "__LIST__" statement allows users to view the lastest pre-built models ("THANOSQL MODEL"), provided datasets ("THANOSQL DATASET"), tables ("TABLE") and the models ("MODEL") created by the users.
 
 ## __2. LIST Syntax__
 
