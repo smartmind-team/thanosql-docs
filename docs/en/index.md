@@ -52,17 +52,17 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
                     ThanoSQL Workspace Manual
                 </h3>
                 <p>
-                    Explain about the basic usage of ThanoSQL workspace.
+                    Explain the basic usage of the ThanoSQL workspace.
                 </p>
             </a>
         </li>
         <li>
             <a href="/en/getting_started/data_upload/">
                 <h3>
-                    How to upload your data to ThanoSQL workspace
+                    How to Upload Your Data to the ThanoSQL Workspace
                 </h3>
                 <p>
-                    Describe two ways to upload data from the local computer to ThanoSQL workspace
+                    Describe two ways to upload data from the local computer to ThanoSQL Workspace
                 </p>
             </a>
         </li>
@@ -72,13 +72,13 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
 
 <div class="card">
     <header>
-        <h2 id="card-h2"> ThanoSQL tutorial</h2>
+        <h2 id="card-h2"> ThanoSQL Tutorial</h2>
     </header>
     <ul class="fullclick">
         <li>
             <a href="/en/tutorials/algorithm_list/">
                 <h3>
-                    ThanoSQL tutorial
+                    ThanoSQL Tutorial
                 </h3>
                 <p>
                     Describe examples of tutorials using ThanoSQL. 
