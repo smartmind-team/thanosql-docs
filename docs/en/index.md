@@ -52,14 +52,14 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
                     ThanoSQL Workspace Manual
                 </h3>
                 <p>
-                    Explain about the basic usage of ThanoSQL Workspace.
+                    Explain the basic usage of the ThanoSQL workspace.
                 </p>
             </a>
         </li>
         <li>
             <a href="/en/getting_started/data_upload/">
                 <h3>
-                    How to upload your data to ThanoSQL Workspace
+                    How to Upload Your Data to the ThanoSQL Workspace
                 </h3>
                 <p>
                     Describe two ways to upload data from the local computer to ThanoSQL Workspace
