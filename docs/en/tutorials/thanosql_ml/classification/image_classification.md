@@ -595,7 +595,7 @@ In this tutorial, we created an image classification model using the <mark style
 
 For the next step, [Creating an Intermediate Image Classification Model] tutorial, takes a deeper dive into the image classification models. If you want to learn more about building your own image classification model for your service, please proceed with the following tutorials.
 
-- [How to Upload to ThanoSQL DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
+- [How to Upload to ThanoSQL workspace DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
 - [Creating an Intermediate Image Classification Model]
 - [Image conversion and creating My model using Auto-ML]
 - [Deploy My Image Classification model](https://docs.thanosql.ai/en/how-to_guides/reference/)

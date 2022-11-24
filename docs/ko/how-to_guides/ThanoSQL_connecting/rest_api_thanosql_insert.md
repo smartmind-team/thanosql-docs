@@ -1,8 +1,8 @@
 ---
-title: ThanoSQL DB 업로드
+title: ThanoSQL 워크스페이스 DB 업로드
 ---
 
-# __ThanoSQL DB 업로드__
+# __ThanoSQL 워크스페이스 DB 업로드__
 
 REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 이미지를 보내고 원하는 DB 테이블에 이미지를 넣을수 있습니다. 
 
