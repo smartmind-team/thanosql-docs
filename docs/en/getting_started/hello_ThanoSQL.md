@@ -44,7 +44,7 @@ ex)
 
     - Multi-line queries provide the same user experience as other DBMSs and is used to query tables or run ThanoSQL's extended syntax.
 
-## **3. Check the list of ThanoSQL models/tutorials using the LIST query syntax**
+## **3. Check the list of ThanoSQL models and datasets using the LIST query syntax**
 
 All preparations to use **ThanoSQL** are complete.
 
@@ -57,26 +57,18 @@ LIST THANOSQL MODEL
 
 [![IMAGE](/img/getting_started/img8.png)](/img/getting_started/img8.png)
 
-If you run the ThanoSQL statement below, you can view the [tutorials in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/).
-
-```sql
-%%thanosql
-LIST THANOSQL TUTORIAL
-```
-
-[![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
-
-If you run the ThanoSQL statement below, you can see the list of data tables used by the [tutorials in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/).
+To see the list of datasets used by the tutorials, run the statement below.
 
 ```sql
 %%thanosql
 LIST THANOSQL DATASET
 ```
 
-[![IMAGE](/img/getting_started/img10.png)](/img/getting_started/img10.png)
+[![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
 
 ## __4. Get Tutorial__
 
+You can check out the available tutorials from the [tutorials in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/). 
 Running the statement below allows you to clone all ThanoSQL's tutorial into your workspace.
 
 ```sql

@@ -19,9 +19,9 @@ title: 개요
 - [__CONVERT__](/ko/how-to_guides/ThanoSQL_query/CONVERT_USING_SYNTAX/) — 기존 데이터 테이블에 비정형 데이터(이미지, 오디오, 비디오 등)의 벡터 형식으로 변환된 값을 데이터 테이블에 추가
 - [__SEARCH__](/ko/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX/) — 비정형 데이터(이미지, 오디오, 비디오 등)의 유사도 기반 검색
 - [__PRINT__](/ko/how-to_guides/ThanoSQL_query/PRINT_SYNTAX/) — 비정형 데이터(이미지, 오디오, 비디오 등) 출력
-- [__GET__](/ko/how-to_guides/ThanoSQL_query/GET_SYNTAX/) — 모델, 데이터 테이블 가져오기
-- [__LIST__](/ko/how-to_guides/ThanoSQL_query/LIST_SYNTAX/) — 모델, 데이터 테이블, 튜토리얼 목록 조회
-- [__COPY__](/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - 워크스페이스에 있는 데이터 파일들로 ThanoSQL 워크스페이스 DB 안의 데이터 테이블 생성/복사
+- [__GET__](/ko/how-to_guides/ThanoSQL_query/GET_SYNTAX/) —  ThanoSQL 워크스페이스 DB에 저장되어 있는 모델, 데이터 테이블 가져오기
+- [__LIST__](/ko/how-to_guides/ThanoSQL_query/LIST_SYNTAX/) — ThanoSQL 워크스페이스 DB에 저장되어 있는 모델, 데이터 세트 목록 조회
+- [__COPY__](/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - 워크스페이스에 있는 데이터 파일들로 ThanoSQL 워크스페이스 DB 안의 데이터 테이블 생성
 
 ### __ThanoSQL Pre-built Model Statement Reference__
 
