@@ -17,29 +17,32 @@ USING [사용할 인공지능 모델]
 OPTIONS ([인공지능 모델을 만들 때 필요한 옵션값])
 AS 
 [사용할 데이터 세트]
-
 ```
 
-!!! NOTE
-    - "__OPTIONS__"에서 사용하는 옵션값은 사용할 인공지능 모델에 따라 다르게 적용됩니다. 각 인공지능 모델에 대한 "__OPTIONS__"는 [참조 페이지](/how-to_guides/reference/)에서 확인 가능합니다.
+!!! note "쿼리 세부 정보"
+    - "OPTIONS" 쿼리 구문을 통해 사용할 옵션을 지정합니다.
+        - "overwrite":동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (True|False, DEFAULT : False)
 
 ## __3. BUILD MODEL 예시__
-### __3-1. 분류 모델 생성을 위한 Auto_ML 모델 사용__
 
-아래 예는 "__BUILD MODEL__" 구문을 사용하여 사용자가 정의한 <mark style="background-color:#E9D7FD ">titanic_classification</mark> 모델을 ThanoSQL에서 제공하는 ["AutomlClassifier"](/how-to_guides/ThanoSQL_model/AutomlClassifier/) 모델을 사용하여 분류 모델을 만듭니다. 전체 과정이 궁금하다면, [Auto-ML을 사용하여 분류 모델 만들기](/tutorials/thanosql_ml/classification/automl_classification/)를 진행해 보세요.
+!!! note 
+    - 예시는 한 모델에 특정된 것으로 필요한 옵션 값이나 사용되는 데이터 세트는 모델별로 다를 수 있습니다. 각 모델에 대한 자세한 설명은 [ThanoSQL Pre-built Model Statement Reference](/how-to_guides/reference/#thanosql-pre-built-model-statement-reference)를 참고해 주세요.
+    - 예시는 특정 모델과 데이터 세트가 존재해야만 작동하므로 그대로 복사하여 사용할 시 정상적으로 실행되지 않을 수 있습니다.
+
+### __3-1. AutomlClassifier 모델을 사용한 분류 모델 생성__
 
 ```sql
 %%thanosql
-BUILD MODEL titanic_classification 
+BUILD MODEL mymodel 
 USING AutomlClassifier 
 OPTIONS (
     target='survived', 
     impute_type='iterative',  
     features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
     overwrite = True
-    ) 
-AS 
-SELECT * 
+    )
+AS
+SELECT *
 FROM titanic_train
 ```
 

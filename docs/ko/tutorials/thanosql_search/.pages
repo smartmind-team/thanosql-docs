@@ -3,3 +3,4 @@ nav:
     - search_image_by_image.md
     - search_image_by_text.md
     - search_text_by_text.md
+    - search_video_by_text.md

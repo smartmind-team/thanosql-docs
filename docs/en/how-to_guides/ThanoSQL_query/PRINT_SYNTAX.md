@@ -29,6 +29,10 @@ AS
 [dataset_to_output]
 ```
 
+!!! note "__Query Details__"
+    - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
+        - "image_col | audio_col | video_col":The name of a column to be printed. If the column name is not specified, "image_path" | "audio_path" | "video_path" is the default value and if such column does not exist in the table an error message will be shown.
+
 ## __3. PRINT Example__
 
 ### __3.1 Image Print__
@@ -43,11 +47,11 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM junyong_img
+FROM junyoung_img
 ```
 
 !!! note ""
-    - `junyong_img` : Table containing paths of the image files
+    - `junyoung_img` : Table containing paths of the image files
 
 ### __3.2 Audio Print__
 
@@ -61,13 +65,13 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM junyong_aud
+FROM junyoung_aud
 ```
 
 [![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
-    - `junyong_aud` : Table containing paths of the audio files
+    - `junyoung_aud` : Table containing paths of the audio files
 
 ### __3.3 Video Print__
 
@@ -81,11 +85,11 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM junyong_vid
+FROM junyoung_vid
 ```
 
 !!! note ""
-    - `junyong_vid` : Table containing paths of the video files
+    - `junyoung_vid` : Table containing paths of the video files
 
 ### __3.4 Print with a subquery__
 
@@ -94,14 +98,14 @@ The following statement outputs the results of "__SEARCH__" statement created in
 ```sql
 %%thanosql
 PRINT IMAGE AS(
-    SELECT image_path as image, query1_score
+    SELECT image_path, score
     FROM (
         SEARCH IMAGE text='12345'
-        USING clip_en
+        USING mymodel
         AS
         SELECT *
         FROM mnist_dataset)
-    ORDER BY query1_score DESC
+    ORDER BY score DESC
     LIMIT 10
     )
 ```

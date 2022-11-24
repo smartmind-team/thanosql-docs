@@ -81,48 +81,6 @@ SELECT *
 FROM mnist_train
 ```
 
-## __CREATE TABLE Syntax__
-
-Using the syntax "__CREATE TABLE__", users can create a data table that converts unstructured data (image, audio, video, etc.) into vector formats using a quantization algorithm.
-The "__CREATE TABLE__" expression vectorizes the image files in the image folder path that comes after the "__FROM__" clause then creates and stores them as a table.
-​
-
-```sql
-​
-CREATE TABLE (table_name_expression) 
-USING (model_name_expression)
-OPTIONS (
-    expression [ , ...]
-    )
-FROM
-(query_expr)
-```
-
-​
-__OPTIONS Clause__
-​
-
-```sql
-OPTIONS(
-    (path_type = {'folder'|'file'}),
-    (data_type = {'image'|'audio'|'video'}),
-    (file_type = LIST),
-    [overwrite = {True | False}]
-
-    )
-```
-
-​
-The "__OPTIONS__" clause defines the attribute values of the image file for image quantification. The definition of each parameter is as follows.
-
-- "path_type" : Sets the type of path where data is stored (folder|file)
-
-- "data_type" : Sets the type of unstructured data used. (image|audio|video)
-
-- "file_type" : Sets the destination file extension type as a list (ex. ['.jpg'], '['.png'])
-  ​
-- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
-
 ## __CONVERT Syntax__
 
 Use the "__CONVERT__" statement to store the vector results as a new column of the existing dataset using a dataset containing the paths of the existing images. Each time a new model is used, a new vector column is added for comparison of vectorization results.

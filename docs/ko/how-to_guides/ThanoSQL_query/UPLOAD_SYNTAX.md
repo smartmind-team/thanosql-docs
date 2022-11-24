@@ -9,6 +9,7 @@ title: UPLOAD MODEL
 사용자는 "__UPLOAD MODEL__" 구문을 사용하여 직접 만든 모델들을 업로드하여 ThanoSQL 상에서 이용할 수 있습니다. 
 
 ## __2. UPLOAD MODEL 구문__
+
 ```sql
 %%thanosql
 UPLOAD MODEL [사용자 지정 모델 이름] 
@@ -25,4 +26,13 @@ FROM [업로드할 모델 경로]
     - Framework는 사용자가 UPLOAD 구문 사용 시 직접 지정을 해주어야 합니다 
 
 !!! Failure "__Caution__"
-    - 현재 UPLOAD MODEL 구문은 Pytorch 기반의 모델들만 사용 가능합니다. 
+    - 현재 UPLOAD MODEL 구문은 Pytorch 기반의 모델들만 사용 가능합니다.
+
+## __3. UPLOAD MODEL 예시__
+
+```sql
+%%thanosql
+UPLOAD MODEL mymodel
+OPTIONS (overwrite=True, framework="pytorch")
+FROM "model/example_model.pth"
+```

@@ -15,7 +15,6 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__TRANSFORM__](/en/how-to_guides/ThanoSQL_query/TRANSFORM_MODEL_SYNTAX/) — Transform data for prediction with defined model
 - [__PREDICT__](/en/how-to_guides/ThanoSQL_query/PREDICT_MODEL_SYNTAX/) — Predict with defined model
 - [__EVALUATE__](/en/how-to_guides/ThanoSQL_query/EVALUATE_MODEL_SYNTAX/) — Evaluate defined model
-- [__CREATE TABLE__](/en/how-to_guides/ThanoSQL_query/CREATE_TABLE_SYNTAX/) — Create data tables converted from unstructured data (image, audio, video, etc.) to vector formats 
 - [__CONVERT__](/en/how-to_guides/ThanoSQL_query/CONVERT_USING_SYNTAX/) — Add features converted to vector formats from unstructured data (image, audio, video, etc.) to the existing data table
 - [__SEARCH__](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX/) — Search unstructured data (image, audio, video, etc.) 
 - [__PRINT__](/en/how-to_guides/ThanoSQL_query/PRINT_SYNTAX/) — Print unstructured data (image, audio, video, etc.)
