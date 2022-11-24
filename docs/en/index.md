@@ -72,13 +72,13 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
 
 <div class="card">
     <header>
-        <h2 id="card-h2"> ThanoSQL tutorial</h2>
+        <h2 id="card-h2"> ThanoSQL Tutorial</h2>
     </header>
     <ul class="fullclick">
         <li>
             <a href="/en/tutorials/algorithm_list/">
                 <h3>
-                    ThanoSQL tutorial
+                    ThanoSQL Tutorial
                 </h3>
                 <p>
                     Describe examples of tutorials using ThanoSQL. 
