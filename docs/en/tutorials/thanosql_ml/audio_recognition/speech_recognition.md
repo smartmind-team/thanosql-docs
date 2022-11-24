@@ -613,7 +613,7 @@ In this tutorial, we created a speech recognition model using the <mark style="b
 
 For the next step, [Creating an Intermediate Speech Recognition Model], takes a deeper dive into the speech recognition model. If you want to learn more about building your own speech recognition model for your service, proceed with the following tutorials.
 
-- [How to Upload to ThanoSQL DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
+- [How to Upload to ThanoSQL workspace DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
 - [Creating an Intermediate speech recognition model]
 - [Deploying My Speech Recognition Models](https://docs.thanosql.ai/en/how-to_guides/reference/)
 

@@ -6,7 +6,7 @@ title: COPY
 
 ## __1. COPY  문__
 
-사용자는 "__COPY__" 구문을 사용하면 현재 ThanoSQL 워크스페이스에 있는 데이터 파일들, 데이터 폴더, 그리고 작업중인 pandas 데이터프레임을 ThanoSQL DB 안의 데이터 테이블로 생성할 수 있습니다. 
+사용자는 "__COPY__" 구문을 사용하면 현재 ThanoSQL 워크스페이스에 있는 데이터 파일들, 데이터 폴더, 그리고 작업중인 pandas 데이터프레임을 ThanoSQL 워크스페이스 DB 안의 데이터 테이블로 생성할 수 있습니다. 
 
 !!! note "__지원 가능한 데이터 파일 형식__"
     - csv
@@ -18,11 +18,11 @@ title: COPY
 
 ## __2. COPY 구문__
 
-"__COPY__" 구문은 ThanoSQL 워크스페이스에 있는 데이터 파일들, 데이터 폴더, 그리고 작업중인 pandas 데이터프레임을 ThanoSQL DB 안의 데이터 테이블로 생성할 수 있습니다. 데이터프레임 사용 방법은 아래의 예시 중 __3-3. Pandas 데이터프레임 사용시__ 에서 확인하실 수 있습니다. 
+"__COPY__" 구문은 ThanoSQL 워크스페이스에 있는 데이터 파일들, 데이터 폴더, 그리고 작업중인 pandas 데이터프레임을 ThanoSQL 워크스페이스 DB 안의 데이터 테이블로 생성할 수 있습니다. 데이터프레임 사용 방법은 아래의 예시 중 __3-3. Pandas 데이터프레임 사용시__ 에서 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
-COPY [ThanoSQL DB에 저장할 데이터 테이블 이름] 
+COPY [ThanoSQL 워크스페이스 DB에 저장할 데이터 테이블 이름] 
 OPTIONS (
     overwrite=True
 ) 

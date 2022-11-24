@@ -518,7 +518,7 @@ In this tutorial, we created a text classification model using the <mark style="
 
 For the next step, the [Creating an Intermediate Text Classification Model] tutorial takes a deeper dive into the text classification models. If you want to learn more about building your own text classification model for your service, proceed with the following tutorials.
 
-- [How to Upload to ThanoSQL DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
+- [How to Upload to ThanoSQL workspace DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
 - [Creating an Intermediate Text Classification Model]
 - [Create My model using text conversion and Auto-ML]
 - [Deploy My text classification model](https://docs.thanosql.ai/en/how-to_guides/reference/)
