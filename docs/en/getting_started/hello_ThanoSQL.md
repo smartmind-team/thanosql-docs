@@ -57,8 +57,7 @@ LIST THANOSQL MODEL
 
 [![IMAGE](/img/getting_started/img8.png)](/img/getting_started/img8.png)
 
-You can check out the available tutorials from the [tutorials in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/). 
-To see the list of data tables used by the tutorials, run the statement below.
+To see the list of datasets used by the tutorials, run the statement below.
 
 ```sql
 %%thanosql
@@ -69,6 +68,7 @@ LIST THANOSQL DATASET
 
 ## __4. Get Tutorial__
 
+You can check out the available tutorials from the [tutorials in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/). 
 Running the statement below allows you to clone all ThanoSQL's tutorial into your workspace.
 
 ```sql
