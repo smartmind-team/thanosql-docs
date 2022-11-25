@@ -8,7 +8,7 @@ title: 이미지로 이미지 검색하기
 - 읽는데 걸리는 시간 : 7분
 - 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - 실행 파일 위치 : tutorial/thanosql_search/search_image_by_image.ipynb   
-- 참고 문서 : [MNIST 데이터 세트](http://yann.lecun.com/exdb/mnist/), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
+- 참고 문서 : [MNIST 데이터 세트 소개](https://en.wikipedia.org/wiki/MNIST_database), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
 
 ## 튜토리얼 소개
 

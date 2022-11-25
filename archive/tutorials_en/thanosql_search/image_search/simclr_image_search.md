@@ -10,7 +10,7 @@ title: Search image by image
 - 7 min read
 - Languages : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
 - File location : tutorial/tutorial_en/query/search_image_by_image_en.ipynb
-- References : [MNIST Data Set](http://yann.lecun.com/exdb/mnist/), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
+- References : [Introduction of MNIST Data Set](https://en.wikipedia.org/wiki/MNIST_database), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
 - Updated Date : {{ git_revision_date_localized }}
 
 ## Tutorial Introduction

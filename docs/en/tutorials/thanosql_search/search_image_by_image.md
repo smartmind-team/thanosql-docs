@@ -8,7 +8,7 @@ title: Search Image by Image
 - 7 min read
 - Languages : [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
 - File location : tutorial_en/thanosql_search/search_image_by_image.ipynb
-- References : [MNIST DataSet](http://yann.lecun.com/exdb/mnist/), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
+- References : [Introduction of MNIST DataSet](https://en.wikipedia.org/wiki/MNIST_database), [A Simple Framework for Contrastive Learning of Visual Representations](https://arxiv.org/abs/2002.05709)
 
 ## Tutorial Introduction
 
