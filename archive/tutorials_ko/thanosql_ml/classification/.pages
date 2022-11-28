@@ -1,4 +1,0 @@
-nav:
-    - automl_classification.md
-    - classification_convnext.md
-    - classification_electra.md

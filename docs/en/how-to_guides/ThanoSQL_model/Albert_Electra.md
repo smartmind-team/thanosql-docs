@@ -114,7 +114,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in an ima
 - "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
 - "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 3)
 - "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
-- "overwrite" : Overwrite if a model with the same name exists in the DB. If True, the existing model is overwritten with the new model (DEFAULT: False)
+- "overwrite" : Overwrite if a model with the same name exists in the database. If True, the existing model is overwritten with the new model (DEFAULT: False)
 
 ## __PREDICT Syntax__
 

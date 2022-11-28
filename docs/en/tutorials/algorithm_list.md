@@ -25,7 +25,7 @@ title: ThanoSQL All Tutorials
                     Search Image by Image
                 </h3>
                 <p>
-                    <br>Use ThanoSQL's image-image search model to search for handwriting images similar to other images within the DB.</br>
+                    <br>Use ThanoSQL's image-image search model to search for handwriting images similar to other images within the database.</br>
                 </p>
             </a>
         </li>
