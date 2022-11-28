@@ -19,7 +19,7 @@ AS
 
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
-        - "table_name" : The name of the new table to be created.
+        - "table_name" : the name of the new table to be created.
 
 ## __3. CONVERT Examples__
 

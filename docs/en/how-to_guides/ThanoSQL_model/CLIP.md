@@ -14,7 +14,7 @@ __Notation Conventions__
 - VALUE represents a regular value.
 
 !!! note ""
-    - __literal__ : A fixed or unchangeable value, also known as a Constant.
+    - __literal__ : a fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
 ## __CONVERT Syntax__
@@ -44,9 +44,9 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "table_name" : The name of the new table to be created.
-- "image_col" : The name of the column containing the image path. (default : 'image_path')
-- "batch_size" : The size of the dataset bundle read during a single train. (default : 16)
+- "table_name" : the name of the new table to be created.
+- "image_col" : the name of the column containing the image path. (default : 'image_path')
+- "batch_size" : the size of the dataset bundle read during a single train. (default : 16)
 
 __CONVERT Example__
 
