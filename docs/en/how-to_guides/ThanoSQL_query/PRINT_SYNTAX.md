@@ -31,7 +31,7 @@ AS
 
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
-        - "image_col | audio_col | video_col":The name of a column to be printed. If the column name is not specified, "image_path" | "audio_path" | "video_path" is the default value and if such column does not exist in the table an error message will be shown.
+        - "image_col | audio_col | video_col": the name of a column to be printed. If the column name is not specified, "image_path" | "audio_path" | "video_path" is the default value and if such column does not exist in the table an error message will be shown.
 
 ## __3. PRINT Example__
 

@@ -32,7 +32,7 @@ AS
 
 !!! note "쿼리 세부 정보"
     - "OPTIONS" 쿼리 구문을 통해 사용할 옵션을 지정합니다.
-        - "image_col | audio_col | video_col":프린트 할 컬럼명을 지정합니다. 컬럼명을 지정하지 않을 경우 "image_path" | "audio_path" | "video_path" 가 default이며 해당 컬럼명이 없을 경우 오류가 발생할 수 있습니다.
+        - "image_col | audio_col | video_col": 프린트 할 컬럼명을 지정합니다. 컬럼명을 지정하지 않을 경우 "image_path" | "audio_path" | "video_path" 가 default이며 해당 컬럼명이 없을 경우 오류가 발생할 수 있습니다.
 
 ## __3. PRINT 예시__
 
