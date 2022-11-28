@@ -42,7 +42,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
                     ThanoSQL Web Manual
                 </h3>
                 <p>
-                    Describe the screens and features that are available for creating and managing accounts on ThanoSQL web. 
+                    Describe the screens and features that are available for creating and managing accounts on the ThanoSQL web. 
                 </p>
             </a>
         </li>
@@ -62,7 +62,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
                     How to Upload Your Data to the ThanoSQL Workspace
                 </h3>
                 <p>
-                    Describe two ways to upload data from the local computer to ThanoSQL Workspace
+                    Describe two ways to upload data from the local computer to the ThanoSQL Workspace
                 </p>
             </a>
         </li>
@@ -99,7 +99,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
                     ThanoSQL Reference
                 </h3>
                 <p>
-                    Provide official summary of ThanoSQL's grammar and its functions.
+                    Provide official summary of the ThanoSQL's grammar and its functions.
                 </p>
             </a>
         </li>
