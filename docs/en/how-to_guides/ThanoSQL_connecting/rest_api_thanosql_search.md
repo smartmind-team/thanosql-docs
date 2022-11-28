@@ -4,10 +4,6 @@ title: How to Use ThanoSQL Search
 
 # **How to Use ThanoSQL Search**
 
-## Preface
-
-- Updated Date : {{ git_revision_date_localized }}
-
 Using ThanoSQL's REST API, you can query and search for similar images within the ThanoSQL workspace database using images, text, and built models.
 
 ## **To search for an image using images**

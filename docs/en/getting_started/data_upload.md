@@ -4,8 +4,6 @@ title: How to Upload Your Data to the ThanoSQL Workspace
 
 # __How to Upload Your Data to the ThanoSQL Workspace__ 
 
-## __Preface__
-
 The ThanoSQL workspace's users can upload data in two ways, as shown below.
 
 !!! note "To upload data"
