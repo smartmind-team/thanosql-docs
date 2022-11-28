@@ -4,13 +4,13 @@ title: Use the Visual Question Answering Model
 
 # __Use the Visual Question Answering Model__
 
-- Tutorial Difficulty : ★☆☆☆☆
+- Tutorial Difficulty: ★☆☆☆☆
 - 5 min read
-- Languages : [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
-- File location : tutorial_en/thanosql_ml/question_answering/visual_question_answering.ipynb
-- References : [COCO Dataset](https://cocodataset.org/#download), [VQA](https://visualqa.org/index.html)
+- Languages: [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
+- File location: tutorial_en/thanosql_ml/question_answering/visual_question_answering.ipynb
+- References: [COCO Dataset](https://cocodataset.org/#download), [VQA](https://visualqa.org/index.html), [ViLT](https://arxiv.org/abs/2102.03334)
 
-## __Tutorial Introduction__
+## Tutorial Introduction
 
 <div class="admonition note">
     <h4 class="admonition-title">Understanding Visual Question Answering</h4>
@@ -65,7 +65,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" downloads the specified dataset to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL DATASET</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default : False) </li>
+            <li>"overwrite": determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -88,7 +88,7 @@ FROM 'thanosql-dataset/coco_person_data/coco_person.csv'
         <li>"<strong>COPY</strong>" specifies the name of the dataset to be saved as a database table. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>COPY</strong> clause.
         <ul>
-           <li>"overwrite" : determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default : False) </li>
+           <li>"overwrite": determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -99,9 +99,9 @@ FROM 'thanosql-dataset/coco_person_data/coco_person.csv'
 
 ```python
 %%thanosql
-GET THANOSQL MODEL vqa
+GET THANOSQL MODEL vilt
 OPTIONS (overwrite=True)
-AS tutorial_vqa
+AS tutorial_vilt
 ```
 
     Success
@@ -113,7 +113,7 @@ AS tutorial_vqa
         <li>"<strong>GET THANOSQL MODEL</strong>" downloads the specified model to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL MODEL</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default : False) </li>
+            <li>"overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default: False) </li>
         </ul>
         </li>
         <li>"<strong>AS</strong>" names the given model. If not specified, the model will be named as the default <code>THANOSQL MODEL</code> name.</li>
@@ -193,7 +193,7 @@ LIMIT 5
    <h4 class="admonition-title">Understanding the Data</h4>
    <ul>
       <li><mark style="background-color:#D7D0FF ">image_path</mark>: the name of the column that stores the image path.</li>
-      <li><mark style="background-color:#D7D0FF ">category</mark> : categories of images</li>
+      <li><mark style="background-color:#D7D0FF ">category</mark>: categories of images</li>
 </div>
 
 
@@ -211,7 +211,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_1.jpg)
+![jpeg](/en/img/tutorials/thanosql_ml/visual_question_answering/output_16_1.jpg)
     
 
 
@@ -220,7 +220,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_3.jpg)
+![jpeg](/en/img/tutorials/thanosql_ml/visual_question_answering/output_16_3.jpg)
     
 
 
@@ -229,7 +229,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_5.jpg)
+![jpeg](/en/img/tutorials/thanosql_ml/visual_question_answering/output_16_5.jpg)
     
 
 
@@ -238,7 +238,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_7.jpg)
+![jpeg](/en/img/tutorials/thanosql_ml/visual_question_answering/output_16_7.jpg)
     
 
 
@@ -247,18 +247,18 @@ LIMIT 5
 
 
     
-![jpeg](output_16_9.jpg)
+![jpeg](/en/img/tutorials/thanosql_ml/visual_question_answering/output_16_9.jpg)
     
 
 
 ## __2. Predict Response to a Question about the Images Using a Pretrained Model__
 
-To predict the results using the previously trained visual question and answer model, <mark style="background-color:#E9D7FD ">tutorial_vqa</mark> model, run the query below.
+To predict the results using the previously trained visual question and answer model, <mark style="background-color:#E9D7FD ">tutorial_vilt</mark> model, run the query below.
 
 
 ```python
 %%thanosql
-PREDICT USING tutorial_vqa
+PREDICT USING tutorial_vilt
 OPTIONS (
     image_col='image_path',
     question='How many people are there?',
@@ -360,12 +360,12 @@ FROM coco_person_data
 <div class="admonition note">
     <h4 class="admonition-title">Query Details</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" use the <mark style="background-color:#E9D7FD ">tutorial_vqa</mark> model loaded in the previous step via query syntax for prediction.</li>
+        <li>"<strong>PREDICT USING</strong>" use the <mark style="background-color:#E9D7FD ">tutorial_vilt</mark> model loaded in the previous step via query syntax for prediction.</li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
         <ul>
-            <li>"image_col" : the name of the column where the path of the image used for prediction is stored. (default: "image_path")</li>
-            <li>"question" : the question text to be used for prediction.</li>
-            <li>"column_name" : Defines the name of the column to contain the result. (default: "predict_result")</li>
+            <li>"image_col": the name of the column where the path of the image used for prediction is stored. (default: "image_path")</li>
+            <li>"question": the question text to be used for prediction.</li>
+            <li>"column_name": defines the name of the column to contain the result. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
@@ -374,6 +374,10 @@ FROM coco_person_data
 ## __3. In Conclusion__
 
 In this tutorial, we used a visual question-and-answer model to predict outcomes by asking questions about images in the `COCO dataset`. As this is a beginner-level tutorial, we focused on getting visible results through simple queries. If you only ask a question about the images you need, you will get a value that is closer to the desired result.
+
+* [How to Upload My Data to the ThanoSQL Workspace](https://docs.thanosql.ai/en/getting_started/data_upload/)
+* [How to Create a Table Using My Data](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [How to Upload My Model to the ThanoSQL Workspace](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">Inquiries about deploying a model for your own service</h4>

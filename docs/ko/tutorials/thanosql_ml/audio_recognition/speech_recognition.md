@@ -4,11 +4,11 @@ title: 오디오 파일을 받아쓰는 음성 인식 모델 만들기
 
 # __오디오 파일을 받아쓰는 음성 인식 모델 만들기__
 
-- 튜토리얼 난이도 : ★☆☆☆☆
-- 읽는데 걸리는 시간 : 10분
-- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 파일 위치 : tutorial/thanosql_ml/audio_recognition/speech_recognition.ipynb
-- 참고 문서 : [LibriSpeech 데이터 세트](http://www.openslr.org/12), [wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations](https://arxiv.org/abs/2006.11477)
+- 튜토리얼 난이도: ★☆☆☆☆
+- 읽는데 걸리는 시간: 10분
+- 사용 언어: [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치: tutorial/thanosql_ml/audio_recognition/speech_recognition.ipynb
+- 참고 문서: [LibriSpeech 데이터 세트](http://www.openslr.org/12), [wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations](https://arxiv.org/abs/2006.11477)
 
 ## 튜토리얼 소개
 
@@ -73,7 +73,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" 쿼리 구문을 사용하여 원하는 데이터 세트를 워크스페이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL DATASET</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -104,10 +104,10 @@ FROM "thanosql-dataset/librispeech_data/librispeech_test.csv"
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 DB에 저장 할 데이터 세트명을 지정합니다. </li>
+        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 데이터베이스에 저장 할 데이터 세트명을 지정합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>COPY</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 데이터베이스 상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -118,7 +118,7 @@ FROM "thanosql-dataset/librispeech_data/librispeech_test.csv"
 
 ```python
 %%thanosql
-GET THANOSQL MODEL tutorial_audio_recognition
+GET THANOSQL MODEL wav2vec2
 OPTIONS (overwrite=True)
 AS tutorial_audio_recognition
 ```
@@ -129,10 +129,10 @@ AS tutorial_audio_recognition
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>GET THANOSQL MODEL</strong>" 쿼리 구문을 사용하여 원하는 모델을 워크스페이스 및 DB에 저장합니다. </li>
+        <li>"<strong>GET THANOSQL MODEL</strong>" 쿼리 구문을 사용하여 원하는 모델을 워크스페이스 및 데이터베이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL MODEL</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
         <li>"<strong>AS</strong>" 쿼리 구문을 사용하여 해당 모델의 이름을 지정합니다. AS 구문을 사용하지 않을 경우 <code>THANOSQL MODEL</code>의 이름을 그대로 사용합니다. </li>
@@ -141,7 +141,7 @@ AS tutorial_audio_recognition
 
 ## __1. 데이터 세트 확인__
 
-본 튜토리얼을 진행하기 위해 우리는 ThanoSQL 워크스페이스 DBrkspace DB에 저장되어 있는  <mark style="background-color:#FFEC92 ">librispeech_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
+본 튜토리얼을 진행하기 위해 우리는 ThanoSQL 워크스페이스 데이터베이스에 저장되어 있는  <mark style="background-color:#FFEC92 ">librispeech_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 
 ```python
@@ -264,7 +264,7 @@ LIMIT 3
 
 ## __2. 사전 학습된 모델을 사용하여 음성 인식 결과 예측__
 
-다음 쿼리 구문을 실행하여 사전 학습된 음성인식 모델인 <mark style="background-color:#E9D7FD ">tutorial_audio_recognition</mark>을 사용하여 
+다음 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">tutorial_audio_recognition</mark> 모델을 사용하여 
 결과를 예측합니다.
 
 
@@ -303,7 +303,7 @@ FROM librispeech_train
       <th></th>
       <th>audio_path</th>
       <th>text</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -383,7 +383,7 @@ FROM librispeech_train
 ## __3. 음성 인식 모델 만들기__
 
 이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">librispeech_train</mark> 데이터 세트를 사용하여 음성 인식 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark>이라는 이름의 모델을 만듭니다.  
-(쿼리 실행 시 예상 소요 시간 : 1 min)
+(쿼리 실행 시 예상 소요 시간: 1 min)
 
 
 ```python
@@ -402,7 +402,6 @@ SELECT *
 FROM librispeech_train
 ```
 
-    Building model...
     Success
 
 
@@ -413,11 +412,11 @@ FROM librispeech_train
         <li>"<strong>USING</strong>" 쿼리 구문을 통해 베이스 모델로 <code>Wav2Vec2En</code>을 사용할 것을 명시합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"audio_col" : 학습에 사용할 오디오 경로를 담은 컬럼의 이름</li>
-            <li>"text_col" :  오디오의 스크립트 정보를 담은 컬럼의 이름</li>
-            <li>"epochs" : 모든 학습 데이터 세트를 학습하는 횟수</li>
-            <li>"batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기</li>
-            <li>"overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, DEFAULT : False)</li>
+            <li>"audio_col": 학습에 사용할 오디오 경로를 담은 컬럼의 이름 (default: "audio_path")</li>
+            <li>"text_col":  오디오의 스크립트 정보를 담은 컬럼의 이름 (default: "text")</li>
+            <li>"epochs": 모든 학습 데이터 세트를 학습하는 횟수 (default: 5)</li>
+            <li>"batch_size": 한 번의 학습에서 읽는 데이터 세트 묶음의 크기 (default: 16)</li>
+            <li>"overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, default : False)</li>
         </ul>
         </li>
     </ul>
@@ -427,16 +426,17 @@ FROM librispeech_train
     <p>여기서는 빠르게 학습하기 위해 "epochs"를 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산 시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다.</p>
 </div>
 
-## __4. 만든 모델을 사용하여 음성 인식 결과 예측__
+## __4. 생성된 모델을 사용하여 음성 인식 결과 예측__
 
-이전 단계에서 만든 음성 인식 모델을 사용해서 특정 음성(학습에 이용되지 않은 데이터 테이블,  <mark style="background-color:#FFEC92 ">librispeech_test</mark>)의 목푯값(스크립트)를 예측해 봅니다. 아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
+이전 단계에서 만든 음성 인식 모델을 사용해서 특정 음성(학습에 이용되지 않은 데이터 테이블,  <mark style="background-color:#FFEC92 ">librispeech_test</mark>)의 목푯값(스크립트)를 예측해 봅니다.
 
 
 ```python
 %%thanosql
 PREDICT USING my_speech_recognition_model
 OPTIONS (
-    audio_col='audio_path'
+    audio_col="audio_path",
+    column_name="predict_result"
     )
 AS
 SELECT *
@@ -466,7 +466,7 @@ FROM librispeech_test
       <th></th>
       <th>audio_path</th>
       <th>text</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -474,19 +474,19 @@ FROM librispeech_test
       <th>0</th>
       <td>thanosql-dataset/librispeech_data/080.wav</td>
       <td>dead said doctor macklewain</td>
-      <td>DEAD SAID DOCTOR MACKELWAYNE</td>
+      <td>DEAD SAID DOCTOR MACKELWAINE</td>
     </tr>
     <tr>
       <th>1</th>
       <td>thanosql-dataset/librispeech_data/081.wav</td>
       <td>one day when i rode over to the shimerdas i fo...</td>
-      <td>ONE DAY WHEN I RODE OVER TO THE SHIMERIDAS I F...</td>
+      <td>ONE DAY WHEN I RODE OVER TO THE SHIMERIDASI FO...</td>
     </tr>
     <tr>
       <th>2</th>
       <td>thanosql-dataset/librispeech_data/082.wav</td>
       <td>well i don't think you should turn a guy's t v...</td>
-      <td>WELL I DON'T THINK YOU SHOULD TURN A GUYSE TEV...</td>
+      <td>WELL I DON'T THINK YOU SHOULD TURN A GUYSE TEE...</td>
     </tr>
     <tr>
       <th>3</th>
@@ -498,7 +498,7 @@ FROM librispeech_test
       <th>4</th>
       <td>thanosql-dataset/librispeech_data/084.wav</td>
       <td>yes how many</td>
-      <td>YES HOW MANY</td>
+      <td>YE S HOW MANY</td>
     </tr>
     <tr>
       <th>5</th>
@@ -510,25 +510,25 @@ FROM librispeech_test
       <th>6</th>
       <td>thanosql-dataset/librispeech_data/086.wav</td>
       <td>i'm mister christopher from london</td>
-      <td>I MISSTER CHRISTOPHER FROM LONDON</td>
+      <td>I MISTER CHRISTOPHER FROM LONDON</td>
     </tr>
     <tr>
       <th>7</th>
       <td>thanosql-dataset/librispeech_data/087.wav</td>
       <td>nature a difference of fifty years had set a p...</td>
-      <td>NATURE A DIFFERENCE OF FIFTY YEARS HAD SET A P...</td>
+      <td>NATUREA DIFFERENCE OF FIFTY YEARSHAD SET A PRO...</td>
     </tr>
     <tr>
       <th>8</th>
       <td>thanosql-dataset/librispeech_data/088.wav</td>
       <td>he is just married you know is he said burgess</td>
-      <td>HE IS JUST MARRIED YOU KNOW IS HE SAID BURGIS</td>
+      <td>HE IS JUST MARRIED YOU KNOWIS HE SAID BURGES</td>
     </tr>
     <tr>
       <th>9</th>
       <td>thanosql-dataset/librispeech_data/089.wav</td>
       <td>she pointed into the gold cottonwood tree behi...</td>
-      <td>SHE POINTED INTO THE GOLD COTTONWOOD TREE BEHI...</td>
+      <td>SHE POINTED IN TO THE GOLD COTTON WOOD TREE BE...</td>
     </tr>
     <tr>
       <th>10</th>
@@ -546,13 +546,13 @@ FROM librispeech_test
       <th>12</th>
       <td>thanosql-dataset/librispeech_data/092.wav</td>
       <td>week followed week these two beings led a happ...</td>
-      <td>WEEK FOLLOWED WEEK THESE TWO BEINGS LED A HAPP...</td>
+      <td>WEEK FOLLOWED WEEK THESE TWO BEINGSLED A HAPPY...</td>
     </tr>
     <tr>
       <th>13</th>
       <td>thanosql-dataset/librispeech_data/093.wav</td>
       <td>gwynplaine was a mountebank</td>
-      <td>GWYNPLAINE WAS A MOUNTA BANK</td>
+      <td>GWYNPLAINE WAS A MOUNTE BANK</td>
     </tr>
     <tr>
       <th>14</th>
@@ -570,25 +570,25 @@ FROM librispeech_test
       <th>16</th>
       <td>thanosql-dataset/librispeech_data/096.wav</td>
       <td>i also offered to help your brother to escape ...</td>
-      <td>I ALSO OFFERED TO HELP YOUR BROTHER TO ESCAPE ...</td>
+      <td>I ALSO OFFERED TO HELP YOUR BRO THER TO ESCAPE...</td>
     </tr>
     <tr>
       <th>17</th>
       <td>thanosql-dataset/librispeech_data/097.wav</td>
       <td>well now said meekin with asperity i don't agr...</td>
-      <td>WELL NOW SAID MICON WITH ASPERITY I DON'T AGRE...</td>
+      <td>WELL NOW SAID MIKON WITH ASPERITYI DON'T AGREE...</td>
     </tr>
     <tr>
       <th>18</th>
       <td>thanosql-dataset/librispeech_data/098.wav</td>
       <td>little did i expect however the spectacle whic...</td>
-      <td>LITTLE DID I EXPECT HOWEVER THE SPECTACLE WHIC...</td>
+      <td>LITTLE DID I EXPECT HOWEVERTHE SPECTACLE WHICH...</td>
     </tr>
     <tr>
       <th>19</th>
       <td>thanosql-dataset/librispeech_data/099.wav</td>
       <td>i look at my watch it's a quarter to eleven</td>
-      <td>OU LOOK AT MY WATCH IT'S A QUARTER TO ELEVEN</td>
+      <td>A LOOK AT MY WATCHIT'S A QUARTER TO ELEVEN</td>
     </tr>
   </tbody>
 </table>
@@ -602,7 +602,8 @@ FROM librispeech_test
         <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark> 모델을 예측에 사용합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"audio_col" : 예측에 사용할 오디오 경로를 담은 컬럼의 이름</li>
+            <li>"audio_col": 예측에 사용할 오디오 경로를 담은 컬럼의 이름 (default: "audio_path")</li>
+            <li>"column_name": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 정의합니다. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
@@ -612,11 +613,9 @@ FROM librispeech_test
 
 이번 튜토리얼에서는 <mark style="background-color:#FFD79C">LibriSpeech</mark> 데이터 세트를 사용하여 음성 인식 모델을 만들어 보았습니다. 초급 단계 튜토리얼인 만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. 음성 인식 모델은 각 플랫폼이나 서비스에 맞는 정밀한 튜닝을 통해 정확도를 향상 시킬 수 있습니다. 나만의 데이터를 이용해서 베이스 모델을 학습을 진행하고 성능을 향상시켜 보세요. 다양한 비정형 데이터(이미지, 비디오, 텍스트 등)와 수치형 데이터들을 결합하여 나만의 모델을 만들고 경쟁력있는 서비스를 만들 수 있습니다.
 
-다음 단계인 [중급 음성 인식 모델 만들기] 튜토리얼에서는 음성 인식 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 음성 인식 모델 구축 방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요.
-
 * [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [중급 음성 인식 모델 만들기]
-* [나만의 음성 인식 모델 배포하기](https://docs.thanosql.ai/how-to_guides/reference/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

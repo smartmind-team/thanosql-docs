@@ -2,14 +2,13 @@
 title: 오디오 파일을 받아쓰는 음성 인식 모델 사용하기
 ---
 
-
 # __오디오 파일을 받아쓰는 음성 인식 모델 사용하기__
 
-- 튜토리얼 난이도 : ★★☆☆☆
-- 읽는데 걸리는 시간 : 5분
-- 사용 언어 : SQL (100%)
-- 실행 파일 위치 : tutorial/thanosql_ml/audio_recognition/speech_recognition2.ipynb
-- 참고 문서 : [whisper](https://github.com/openai/whisper)
+- 튜토리얼 난이도: ★☆☆☆☆
+- 읽는데 걸리는 시간: 5분
+- 사용 언어: [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치: tutorial/thanosql_ml/audio_recognition/speech_recognition2.ipynb
+- 참고 문서: [(AI-Hub) 한국어음성 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=123), [whisper](https://github.com/openai/whisper)
 
 ## 튜토리얼 소개 
 
@@ -31,7 +30,6 @@ __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
 
 - 음성 인식 기술을 사용하면 키보드로 작성하는 메모보다 빠르게 작성이 가능하고, 긴 음성 파일에서도 빠르게 특정 키워드를 검색 할 수 있습니다.
 
-
 <div class="admonition note">
     <h4 class="admonition-title">본 튜토리얼에서는</h4>
     <p>👉 Whisper [Alec Radford et al. 2022]는 openai에서 공개한 범용 음성 인식 딥러닝 모델로, 다양한 오디오의 대규모 데이터 세트에 대한 학습을 지원하며, 다국어 음성 인식은 물론 음성 번역 및 언어 식별을 수행할 수 있게 하는 다중 작업 모델입니다. 일반적인 음성 인식 문제에 적용해도 좋은 성능을 보입니다. 본 튜토리얼에서는 Whisper의 기능 중 일반적으로 사용되는 음성 인식과 영어로의 번역을 실행합니다. 
@@ -39,12 +37,14 @@ __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
 </div>
 
 ## __0. 데이터 세트 및 모델 준비__
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/getting_started/how_to_use_ThanoSQL/#5-thanosql) 에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
+
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/getting_started/how_to_use_ThanoSQL/#5-thanosql)
+에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 
 
 ```python
 %load_ext thanosql
-%thanosql API_TOKEN=<Issued_API_TOKEN>
+%thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
 
 ### __데이터 세트 준비__
@@ -65,7 +65,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" 쿼리 구문을 사용하여 원하는 데이터 세트를 워크스페이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL DATASET</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -75,9 +75,7 @@ OPTIONS (overwrite=True)
 ```python
 %%thanosql
 COPY korean_voice
-OPTIONS (
-    overwrite=True
-)
+OPTIONS (overwrite=True)
 FROM "thanosql-dataset/korean_voice_data/korean_voice.csv"
 ```
 
@@ -87,10 +85,10 @@ FROM "thanosql-dataset/korean_voice_data/korean_voice.csv"
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 DB에 저장 할 데이터 세트명을 지정합니다. </li>
+        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 데이터베이스에 저장 할 데이터 세트명을 지정합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>COPY</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 데이터베이스 상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -103,7 +101,7 @@ FROM "thanosql-dataset/korean_voice_data/korean_voice.csv"
 %%thanosql
 GET THANOSQL MODEL whisper_s
 OPTIONS (overwrite=True)
-AS whisper_small
+AS tutorial_whisper_small
 ```
 
     Success
@@ -112,10 +110,10 @@ AS whisper_small
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>GET THANOSQL MODEL</strong>" 쿼리 구문을 사용하여 원하는 모델을 워크스페이스 및 DB에 저장합니다. </li>
+        <li>"<strong>GET THANOSQL MODEL</strong>" 쿼리 구문을 사용하여 원하는 모델을 워크스페이스 및 데이터베이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL MODEL</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
         <li>"<strong>AS</strong>" 쿼리 구문을 사용하여 해당 모델의 이름을 지정합니다. AS 구문을 사용하지 않을 경우 <code>THANOSQL MODEL</code>의 이름을 그대로 사용합니다. </li>
@@ -124,14 +122,17 @@ AS whisper_small
 
 ## __1. 데이터 세트 확인__
 
-본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는  <mark style="background-color:#FFEC92 ">korean_voice</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
+본 튜토리얼을 진행하기 위해 우리는 ThanoSQL 워크스페이스 데이터베이스에 저장되어 있는  <mark style="background-color:#FFEC92 ">korean_voice</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 
 ```python
 %%thanosql
 SELECT *
 FROM korean_voice
+LIMIT 5
 ```
+
+
 
 
 <div class="df_size">
@@ -200,57 +201,8 @@ FROM korean_voice
       <td>쓰기가 된 글 완성된 글 또는 쓰기 전의 개요 뭐 자료 이런 것들을 보여주면서 그것...</td>
       <td>11.52</td>
     </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>thanosql-dataset/korean_voice_data/audio/broad...</td>
-      <td>16000</td>
-      <td>당근 씨를 막 뿌리려는 남편에게 나는 몇 번이나 말했다 그랬습니다.</td>
-      <td>당근 씨를 막 뿌리려는 남편에게 나는 몇 번이나 말했다 그랬습니다.</td>
-      <td>3.58</td>
-    </tr>
-    <tr>
-      <th>96</th>
-      <td>thanosql-dataset/korean_voice_data/audio/broad...</td>
-      <td>16000</td>
-      <td>작년에도 너무 얕게 씨를 뿌려 낭패를 본 적이 있기 때문이다.</td>
-      <td>작년에도 너무 얕게 씨를 뿌려 낭패를 본 적이 있기 때문이다.</td>
-      <td>4.22</td>
-    </tr>
-    <tr>
-      <th>97</th>
-      <td>thanosql-dataset/korean_voice_data/audio/broad...</td>
-      <td>16000</td>
-      <td>하나는 새를 위해서 하나는 또.</td>
-      <td>하나는 새를 위해서 하나는 또.</td>
-      <td>2.69</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>thanosql-dataset/korean_voice_data/audio/broad...</td>
-      <td>16000</td>
-      <td>많이 씨앗들을 넣어가지고 너무 촘촘하게 여러 개가 한꺼번에 자라는 거야 여러 줄기가.</td>
-      <td>많이 씨앗들을 넣어가지고 너무 촘촘하게 여러 개가 한꺼번에 자라는 거야 여러 줄기가.</td>
-      <td>6.14</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>thanosql-dataset/korean_voice_data/audio/broad...</td>
-      <td>16000</td>
-      <td>텃밭 농사짓는 정도일 겁니다.</td>
-      <td>텃밭 농사짓는 정도일 겁니다.</td>
-      <td>2.30</td>
-    </tr>
   </tbody>
 </table>
-<p>100 rows × 5 columns</p>
 </div>
 
 
@@ -312,19 +264,20 @@ LIMIT 3
 
 ## __2. 사전 학습된 모델을 사용하여 음성 인식 결과 예측__
 
-다음 쿼리 구문을 실행하여 사전 학습된 음성인식 모델인 <mark style="background-color:#E9D7FD ">whisper_small</mark>을 사용하여 결과를 예측합니다.
+다음 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">tutorial_whisper_small</mark> 모델을 사용하여 결과를 예측합니다.
 
 - `task="transcribe"` 옵션을 지정하면 음성 인식을 합니다. 
 
 
 ```python
 %%thanosql
-PREDICT USING whisper_small
+PREDICT USING tutorial_whisper_small
 OPTIONS (
     audio_col="audio_path",
     language="ko",
-    task="transcribe"
-)
+    task="transcribe",
+    column_name="predict_result"
+    )
 AS
 SELECT *
 FROM korean_voice
@@ -469,13 +422,14 @@ FROM korean_voice
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 <mark style="background-color:#E9D7FD ">whisper_small</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 <mark style="background-color:#E9D7FD ">tutorial_whisper_small</mark> 모델을 예측에 사용합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"audio_col" : 예측에 사용할 오디오 경로를 담은 컬럼의 이름</li>
-            <li>"batch_size" : 학습 때 사용되어지는 데이터 묶음 속의 데이터 수</li>
-            <li>"language" : 오디오 파일의 주요 사용 언어</li>
-            <li>"task" : 실행할 작업의 종류 (transcribe or translate)</li>
+            <li>"audio_col": 예측에 사용할 오디오 경로를 담은 컬럼의 이름 (default: "audio_path")</li>
+            <li>"batch_size": 학습 때 사용되어지는 데이터 묶음 속의 데이터 수 (default: 16)</li>
+            <li>"language": 오디오 파일의 주요 사용 언어 (default: "ko")</li>
+            <li>"task": 실행할 작업의 종류 ("transcribe"|"translate", default: "transcribe")</li>
+            <li>"column_name": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 정의합니다. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
@@ -483,18 +437,19 @@ FROM korean_voice
 
 ## __3. 사전 학습된 모델을 사용하여 영어로 자동 번역__
 
-다음 쿼리 구문을 실행하여 사전 학습된 자동번역 모델인 <mark style="background-color:#E9D7FD ">whisper_small</mark>을 사용하여 결과를 예측합니다. 
+다음 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">tutorial_whisper_small</mark> 모델을 사용하여 결과를 예측합니다. 
 - `task="translate"` 옵션을 지정하면 인식된 음성을 영어로 출력합니다. 이 과정은 '한국어 음성'을 바로 '영어 텍스트'로 번역하는 것으로, 중간에 '한국어 텍스트'를 거치지 않는 다는 점이 일반적인 번역 태스크와 다릅니다.
 
 
 ```python
 %%thanosql
-PREDICT USING whisper_small
+PREDICT USING tutorial_whisper_small
 OPTIONS (
     audio_col="audio_path",
     language="ko",
-    task="translate"
-)
+    task="translate",
+    column_name="predict_result"
+    )
 AS
 SELECT *
 FROM korean_voice
@@ -639,13 +594,14 @@ FROM korean_voice
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 <mark style="background-color:#E9D7FD ">whisper_small</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 <mark style="background-color:#E9D7FD ">tutorial_whisper_small</mark> 모델을 예측에 사용합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"audio_col" : 예측에 사용할 오디오 경로를 담은 컬럼의 이름</li>
-            <li>"batch_size" : 학습 때 사용되어지는 데이터 묶음 속의 데이터 수</li>
-            <li>"language" : 오디오 파일의 주요 사용 언어</li>
-            <li>"task" : 실행할 작업의 종류 (transcribe or translate)</li>
+            <li>"audio_col": 예측에 사용할 오디오 경로를 담은 컬럼의 이름 (default: "audio_path")</li>
+            <li>"batch_size": 학습 때 사용되어지는 데이터 묶음 속의 데이터 수 (default: 16)</li>
+            <li>"language": 오디오 파일의 주요 사용 언어 (default: "ko")</li>
+            <li>"task": 실행할 작업의 종류 ("transcribe"|"translate", default: "transcribe")</li>
+            <li>"column_name": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 정의합니다. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
@@ -655,11 +611,9 @@ FROM korean_voice
  
 이번 튜토리얼에서는 <mark style="background-color:#FFD79C">korean_voice</mark> 데이터 세트를 사용하여 Whisper의 기능 중 일반적으로 사용되는 음성 인식과 영어로의 번역을 실행해 보았습니다. 초급 단계 튜토리얼인 만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다.
 
-다음 단계인 [중급 음성 인식 모델 사용하기] 튜토리얼에서는 음성 인식 모델에 대한 사용법을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 음성 인식 모델 및 자동 번역 모델에 대한 사용 방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요.
-
 * [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [중급 음성 인식 모델 사용하기]
-* [나만의 음성 인식 모델 배포하기](https://docs.thanosql.ai/how-to_guides/reference/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

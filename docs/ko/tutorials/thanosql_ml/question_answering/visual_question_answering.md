@@ -4,13 +4,13 @@ title: 시각 질의 응답 모델 사용하기
 
 # __시각 질의 응답 모델 사용하기__
 
-- 튜토리얼 난이도 : ★☆☆☆☆
-- 읽는데 걸리는 시간 : 5분
-- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 파일 위치 : tutorial/thanosql_ml/question_answering/visual_question_answering.ipynb
-- 참고 문서 : [COCO 데이터 세트](https://cocodataset.org/#download), [VQA](https://visualqa.org/index.html)
+- 튜토리얼 난이도: ★☆☆☆☆
+- 읽는데 걸리는 시간: 5분
+- 사용 언어: [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치: tutorial/thanosql_ml/question_answering/visual_question_answering.ipynb
+- 참고 문서: [COCO 데이터 세트](https://cocodataset.org/#download), [VQA](https://visualqa.org/index.html), [ViLT](https://arxiv.org/abs/2102.03334)
 
-## __튜토리얼 소개__ 
+## 튜토리얼 소개 
 
 <div class="admonition note">
     <h4 class="admonition-title">시각 질의 응답 이해하기</h4>
@@ -67,7 +67,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" 쿼리 구문을 사용하여 원하는 데이터 세트를 워크스페이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL DATASET</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -87,10 +87,10 @@ FROM 'thanosql-dataset/coco_person_data/coco_person.csv'
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 DB에 저장 할 데이터 세트명을 지정합니다. </li>
+        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 데이터베이스에 저장 할 데이터 세트명을 지정합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>COPY</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 데이터베이스 상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -101,9 +101,9 @@ FROM 'thanosql-dataset/coco_person_data/coco_person.csv'
 
 ```python
 %%thanosql
-GET THANOSQL MODEL vqa
+GET THANOSQL MODEL vilt
 OPTIONS (overwrite=True)
-AS tutorial_vqa
+AS tutorial_vilt
 ```
 
     Success
@@ -112,10 +112,10 @@ AS tutorial_vqa
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>GET THANOSQL MODEL</strong>" 쿼리 구문을 사용하여 원하는 모델을 워크스페이스 및 DB에 저장합니다. </li>
+        <li>"<strong>GET THANOSQL MODEL</strong>" 쿼리 구문을 사용하여 원하는 모델을 워크스페이스 및 데이터베이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL MODEL</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
         <li>"<strong>AS</strong>" 쿼리 구문을 사용하여 해당 모델의 이름을 지정합니다. AS 구문을 사용하지 않을 경우 <code>THANOSQL MODEL</code>의 이름을 그대로 사용합니다. </li>
@@ -124,7 +124,7 @@ AS tutorial_vqa
 
 ## __1. 데이터 세트 확인__
 
-시각 질의 응답 모델을 사용하기 위해 우리는 ThanoSQL 워크스페이스 DB에 저장되어 있는 `coco_person_data` 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
+시각 질의 응답 모델을 사용하기 위해 우리는 ThanoSQL 워크스페이스 데이터베이스에 저장되어 있는 `coco_person_data` 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 
 ```python
@@ -195,7 +195,7 @@ LIMIT 5
    <h4 class="admonition-title">데이터 이해하기</h4>
    <ul>
       <li><mark style="background-color:#D7D0FF ">image_path</mark>: 각 이미지 파일의 위치 정보</li>
-      <li><mark style="background-color:#D7D0FF ">category</mark> : 이미지의 범주</li>
+      <li><mark style="background-color:#D7D0FF ">category</mark>: 이미지의 범주</li>
 </div>
 
 
@@ -213,7 +213,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_1.jpg)
+![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_1.jpg)
     
 
 
@@ -222,7 +222,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_3.jpg)
+![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_3.jpg)
     
 
 
@@ -231,7 +231,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_5.jpg)
+![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_5.jpg)
     
 
 
@@ -240,7 +240,7 @@ LIMIT 5
 
 
     
-![jpeg](output_16_7.jpg)
+![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_7.jpg)
     
 
 
@@ -249,18 +249,18 @@ LIMIT 5
 
 
     
-![jpeg](output_16_9.jpg)
+![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_9.jpg)
     
 
 
 ## __2. 사전 학습된 모델을 사용하여 이미지의 질문에 대한 응답 예측__
 
-다음 쿼리문을 실행하면, 위에서 불러온 사전에 학습을 해 둔 시각 질의 응답 모델, <mark style="background-color:#E9D7FD ">tutorial_vqa</mark>모델을 사용하여 결과를 빠르게 예측해 볼 수 있습니다.
+다음 쿼리문을 실행하면, 위에서 불러온 사전에 학습을 해 둔 시각 질의 응답 모델, <mark style="background-color:#E9D7FD ">tutorial_vilt</mark>모델을 사용하여 결과를 빠르게 예측해 볼 수 있습니다.
 
 
 ```python
 %%thanosql
-PREDICT USING tutorial_vqa
+PREDICT USING tutorial_vilt
 OPTIONS (
     image_col='image_path',
     question='How many people are there?',
@@ -362,12 +362,12 @@ FROM coco_person_data
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 불러온 <mark style="background-color:#E9D7FD ">tutorial_vqa</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 불러온 <mark style="background-color:#E9D7FD ">tutorial_vilt</mark> 모델을 예측에 사용합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"image_col" : 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름 (default: "image_path")</li>
-            <li>"question" : 예측에 사용할 질문 내용을 입력합니다.</li>
-            <li>"column_name" : 결과를 담을 컬럼의 이름을 정의합니다. (default: "predict_result")</li>
+            <li>"image_col": 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름 (default: "image_path")</li>
+            <li>"question": 예측에 사용할 질문 내용을 입력합니다.</li>
+            <li>"column_name": 결과를 담을 컬럼의 이름을 정의합니다. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
@@ -376,6 +376,10 @@ FROM coco_person_data
 ## __3. 튜토리얼을 마치며__
 
 이번 튜토리얼에서는 시각 질의 응답 모델을 사용하여 `COCO 데이터 세트`에서 이미지에 대한 질문을 통해 결과를 예측해 보았습니다. 초급 단계의 튜토리얼인 만큼 간단한 쿼리를 통해 눈에 보이는 결과를 얻는 것 위주로 진행했습니다. 필요한 이미지들에 대해서만 질문을 한다면, 보다 원하는 결과에 가까운 값을 얻을 수 있을 것입니다.
+
+* [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

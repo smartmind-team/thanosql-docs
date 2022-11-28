@@ -4,17 +4,17 @@ title: Create a Regression Model Using AutoML
 
 # __Create a Regression Model Using AutoML__
 
-- Tutorial Difficulty : ★☆☆☆☆
+- Tutorial Difficulty: ★☆☆☆☆
 - 5 min read
-- Languages : [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
-- File location : tutorial_en/thanosql_ml/regression/automl_regression.ipynb
-- References : [(Kaggle) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
+- Languages: [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
+- File location: tutorial_en/thanosql_ml/regression/automl_regression.ipynb
+- References: [(Kaggle) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
 
 ## Tutorial Introduction
 
 <div class="admonition note">
     <h4 class="admonition-title">Understanding Regression</h4>
-    <p>A regression is a type of <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning (ML)</a> that is used to predict numbers with sequential target values. For example, the model can be used to predict tomorrow's temperature or predict housing prices in a particular area.</p>
+    <p>A regression is a type of <a href="https://en.wikipedia.org/wiki/Machine_learning">machine learning(ML)</a> that is used to predict numbers with sequential target values. For example, the model can be used to predict tomorrow's temperature or predict housing prices in a particular area.</p>
 </div>
 
 When a company spends a certain amount on advertising, sales performance data from similar past cases can be used to predict advertising performance. All <a href="https://en.wikipedia.org/wiki/Feature_(machine_learning)">Features</a> that can be converted into data, such as the features of the product to be advertised, the product selling period, information about the surrounding market, sales volume information of competitors, the definition of the target customer group, and the market trend of the industry group, can be used as input data. By changing the adjustable information in the input data, you can predict optimal sales performance and adjust the advertising cost according to the forecast performance. You can use these regression models to improve ad performance and continuously increase sales.
@@ -33,9 +33,9 @@ __The following are examples and applications of the ThanoSQL regression model._
 
 __Predicting the number of bike rentals per hour on a specific date__
 
-ThanoSQL provides automated machine learning (__Auto-ML__) tools. This tutorial uses Auto-ML to predict the number of bike rentals. ThanoSQL's Auto-ML automates the process for model development and enables data collection and storage along with machine learning model development and distribution (end-to-end machine learning pipelines) using a single language.
+ThanoSQL provides automated machine learning(__Auto-ML__) tools. This tutorial uses Auto-ML to predict the number of bike rentals. ThanoSQL's Auto-ML automates the process for model development and enables data collection and storage along with machine learning model development and distribution(end-to-end machine learning pipelines) using a single language.
 
-__The advantages of using ThanoSQL's automated machine learning are:__
+__The advantages of using the ThanoSQL's automated machine learning are:__
 
 1. Implementation and deployment of machine learning solutions without extensive programming or data science knowledge
 2. Saving time and resources for deployment of development models
@@ -71,7 +71,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" downloads the specified dataset to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL DATASET</strong> clause.
         <ul>
-            <li>"overwrite" : Determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default : False) </li>
+            <li>"overwrite": determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -105,7 +105,7 @@ FROM "thanosql-dataset/bike_sharing_data/bike_sharing_test.csv"
         <li>"<strong>COPY</strong>" specifies the name of the dataset to be saved as a database table. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>COPY</strong> clause.
         <ul>
-           <li>"overwrite" : Determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default : False) </li>
+           <li>"overwrite": determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -113,7 +113,7 @@ FROM "thanosql-dataset/bike_sharing_data/bike_sharing_test.csv"
 
 ## __1. Check Dataset__
 
-To create the regression model, we use the <mark style="background-color:#FFEC92 ">bike_sharing_train</mark> table located in the ThanoSQL database. Run the query below to check the contents of the table.
+To create the regression model, we use the <mark style="background-color:#FFEC92 ">bike_sharing_train</mark> table located in the ThanoSQL workspace database. Run the query below to check the contents of the table.
 
 
 ```python
@@ -159,7 +159,7 @@ LIMIT 5
   <tbody>
     <tr>
       <th>0</th>
-      <td>2011-01-01 00:00:00</td>
+      <td>2011-01-01 0:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -167,12 +167,12 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>81</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>16</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2011-01-01 01:00:00</td>
+      <td>2011-01-01 1:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -180,12 +180,12 @@ LIMIT 5
       <td>9.02</td>
       <td>13.635</td>
       <td>80</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>40</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2011-01-01 02:00:00</td>
+      <td>2011-01-01 2:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -193,12 +193,12 @@ LIMIT 5
       <td>9.02</td>
       <td>13.635</td>
       <td>80</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>32</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2011-01-01 03:00:00</td>
+      <td>2011-01-01 3:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -206,12 +206,12 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>75</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>13</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2011-01-01 04:00:00</td>
+      <td>2011-01-01 4:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -219,7 +219,7 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>75</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -232,16 +232,16 @@ LIMIT 5
     <h4 class="admonition-title">Understanding the Data</h4>
     <p>The <mark style="background-color:#FFEC92 "><strong>bike_sharing_train</strong></mark> dataset contains information of the number of bicycle rented for an hour based on information such as date and time, temperature, humidity, and wind speed from January 2011 to December 2012.</p>
     <ul>
-        <li><mark style="background-color:#D7D0FF ">datetime</mark> : date by hour</li>
-        <li><mark style="background-color:#D7D0FF ">season</mark> : seasons (1=spring, 2=summer, 3=fall, 4=winter)</li>
-        <li><mark style="background-color:#D7D0FF ">holiday</mark> : holidays (0 = non-holiday, 1 = national holidays, etc.)</li>
-        <li><mark style="background-color:#D7D0FF ">workingday</mark> : workday (0 = weekends and holidays; 1 = weekends and non-holiday weekdays)</li>
-        <li><mark style="background-color:#D7D0FF ">weather</mark> : weather</li>
-        <li><mark style="background-color:#D7D0FF ">temp</mark> : temperature</li>
-        <li><mark style="background-color:#D7D0FF ">atemp</mark> : sensory temperature</li>
-        <li><mark style="background-color:#D7D0FF ">humidity</mark> : relative humidity</li>
-        <li><mark style="background-color:#D7D0FF ">windspeed</mark> : wind speed</li>
-        <li><mark style="background-color:#D7D0FF ">count</mark> : number of rentals</li>
+        <li><mark style="background-color:#D7D0FF ">datetime</mark>: date by hour</li>
+        <li><mark style="background-color:#D7D0FF ">season</mark>: seasons (1=spring, 2=summer, 3=fall, 4=winter)</li>
+        <li><mark style="background-color:#D7D0FF ">holiday</mark>: holidays (0 = non-holiday, 1 = national holidays, etc.)</li>
+        <li><mark style="background-color:#D7D0FF ">workingday</mark>: workday (0 = weekends and holidays; 1 = weekends and non-holiday weekdays)</li>
+        <li><mark style="background-color:#D7D0FF ">weather</mark>: weather</li>
+        <li><mark style="background-color:#D7D0FF ">temp</mark>: temperature</li>
+        <li><mark style="background-color:#D7D0FF ">atemp</mark>: sensory temperature</li>
+        <li><mark style="background-color:#D7D0FF ">humidity</mark>: relative humidity</li>
+        <li><mark style="background-color:#D7D0FF ">windspeed</mark>: wind speed</li>
+        <li><mark style="background-color:#D7D0FF ">count</mark>: number of rentals</li>
     </ul>
 </div>
 
@@ -268,7 +268,6 @@ SELECT *
 FROM bike_sharing_train
 ```
 
-    Building model...
     Success
 
 
@@ -278,14 +277,15 @@ FROM bike_sharing_train
         <li>"<strong>BUILD MODEL</strong>" creates and trains a model named <mark style="background-color:#E9D7FD ">bike_regression</mark>.</li>
         <li>"<strong>OPTIONS</strong>" specifies the option values used to create the model.
         <ul> 
-            <li>"target" : the name of the column containing the target value of the regression model </li>
-            <li>"impute_type" : determines how empty values ​​(NaNs) are handled ('simple'|'iterative' , default: 'simple') </li>
-            <li>"features_to_drop" : selects columns that cannot be used for training </li>
-            <li>"time_left_for_this_task" : the total time given to find a suitable regression model (default: 300)</li>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default : False) </li>
+            <li>"target": the name of the column containing the target value of the regression model </li>
+            <li>"impute_type": determines how empty values ​​(NaNs) are handled ('simple'|'iterative' , default: 'simple') </li>
+            <li>"features_to_drop": selects columns that cannot be used for training </li>
+            <li>"time_left_for_this_task": the total time given to find a suitable regression model (default: 300)</li>
+            <li>"overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default: False) </li>
+        </ul>
+        </li>
     </ul>
 </div>
-
 
 ## __3. Evaluate the Model__
 
@@ -332,27 +332,27 @@ FROM bike_sharing_train
     <tr>
       <th>0</th>
       <td>MAE</td>
-      <td>73.5580</td>
+      <td>78.6406</td>
     </tr>
     <tr>
       <th>1</th>
       <td>MSE</td>
-      <td>9688.0873</td>
+      <td>11020.1239</td>
     </tr>
     <tr>
       <th>2</th>
       <td>R2</td>
-      <td>0.3367</td>
+      <td>0.2265</td>
     </tr>
     <tr>
       <th>3</th>
       <td>RMSLE</td>
-      <td>1.3192</td>
+      <td>1.3839</td>
     </tr>
     <tr>
       <th>4</th>
       <td>MAPE</td>
-      <td>0.4755</td>
+      <td>0.5038</td>
     </tr>
   </tbody>
 </table>
@@ -366,7 +366,7 @@ FROM bike_sharing_train
         <li>"<strong>EVALUATE USING</strong>" evaluates the <mark style="background-color:#E9D7FD ">bike_regression</mark> model. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values used to evaluate the model.
         <ul> 
-            <li>"target" : the name of the column containing the target value of the regression model. </li>
+            <li>"target": the name of the column containing the target value of the regression model. </li>
         </ul>
         </li>
     </ul>
@@ -384,7 +384,8 @@ To use the regression model created in the previous step for prediction of <mark
 
 ```python
 %%thanosql
-PREDICT USING bike_regression 
+PREDICT USING bike_regression
+OPTIONS (column_name="predict_result")
 AS
 SELECT *
 FROM bike_sharing_test
@@ -421,13 +422,13 @@ LIMIT 10
       <th>atemp</th>
       <th>humidity</th>
       <th>windspeed</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2011-01-20 00:00:00</td>
+      <td>2011-01-20 0:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -436,11 +437,11 @@ LIMIT 10
       <td>11.365</td>
       <td>56</td>
       <td>26.0027</td>
-      <td>110.261271</td>
+      <td>107.695111</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2011-01-20 01:00:00</td>
+      <td>2011-01-20 1:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -449,11 +450,11 @@ LIMIT 10
       <td>13.635</td>
       <td>56</td>
       <td>0.0000</td>
-      <td>95.456726</td>
+      <td>93.535182</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2011-01-20 02:00:00</td>
+      <td>2011-01-20 2:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -462,11 +463,11 @@ LIMIT 10
       <td>13.635</td>
       <td>56</td>
       <td>0.0000</td>
-      <td>95.456726</td>
+      <td>93.535182</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2011-01-20 03:00:00</td>
+      <td>2011-01-20 3:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -475,11 +476,11 @@ LIMIT 10
       <td>12.880</td>
       <td>56</td>
       <td>11.0014</td>
-      <td>99.237931</td>
+      <td>97.300501</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2011-01-20 04:00:00</td>
+      <td>2011-01-20 4:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -488,11 +489,11 @@ LIMIT 10
       <td>12.880</td>
       <td>56</td>
       <td>11.0014</td>
-      <td>99.237931</td>
+      <td>97.300501</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>2011-01-20 05:00:00</td>
+      <td>2011-01-20 5:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -501,11 +502,11 @@ LIMIT 10
       <td>11.365</td>
       <td>60</td>
       <td>15.0013</td>
-      <td>96.628108</td>
+      <td>93.614300</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>2011-01-20 06:00:00</td>
+      <td>2011-01-20 6:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -514,11 +515,11 @@ LIMIT 10
       <td>10.605</td>
       <td>60</td>
       <td>15.0013</td>
-      <td>87.987842</td>
+      <td>87.414653</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>2011-01-20 07:00:00</td>
+      <td>2011-01-20 7:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -527,11 +528,11 @@ LIMIT 10
       <td>10.605</td>
       <td>55</td>
       <td>15.0013</td>
-      <td>88.986353</td>
+      <td>87.943924</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>2011-01-20 08:00:00</td>
+      <td>2011-01-20 8:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -540,11 +541,11 @@ LIMIT 10
       <td>10.605</td>
       <td>55</td>
       <td>19.0012</td>
-      <td>92.677368</td>
+      <td>89.547156</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>2011-01-20 09:00:00</td>
+      <td>2011-01-20 9:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -553,7 +554,7 @@ LIMIT 10
       <td>11.365</td>
       <td>52</td>
       <td>15.0013</td>
-      <td>114.897041</td>
+      <td>101.963185</td>
     </tr>
   </tbody>
 </table>
@@ -564,20 +565,22 @@ LIMIT 10
 <div class="admonition note">
     <h4 class="admonition-title">Query Details</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">bike_regression</mark>
+        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">bike_regression</mark></li>
+        <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
+        <ul>
+            <li>"column_name": the column that contains the predicted results. (default: "predict_result")</li>
+        </ul>
+        </li>
     </ul>
 </div>
 
 ## __5. In Conclusion__
 
-In this tutorial, we created a bicycle demand regression model using the <mark style="background-color:#FFD79C">Bike Sharing Demand</mark> dataset from [Kaggle](https://www.kaggle.com). As this is a beginner-level tutorial, we focused on the process rather than accuracy. If you'd like to learn more about building advanced regression models, you should check out our intermediate tutorials. 
+In this tutorial, we created a bicycle demand regression model using the <mark style="background-color:#FFD79C">Bike Sharing Demand</mark> dataset from [Kaggle](https://www.kaggle.com). As this is a beginner-level tutorial, we focused on the process rather than accuracy.
 
-For the next step, the [Creating an Intermediate Regression Model] tutorial takes a deeper dive into the "__OPTIONS__" clause to improve accuracy. For the intermediate tutorial, we will create sophisticated regression models using the various "__OPTIONS__" provided by ThanoSQL's AutoML. In the advanced level, you will have the chance to vectorize unstructured data and include it as a train element in AutoML to create an even more sophisticated regression model.
-
-- [How to Upload to ThanoSQL workspace DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
-- [Create an intermediate image classification model]
-- [Image conversion and creating My model using Auto-ML]
-- [Deploying My image classification model](https://docs.thanosql.ai/en/how-to_guides/reference/)
+* [How to Upload My Data to the ThanoSQL Workspace](https://docs.thanosql.ai/en/getting_started/data_upload/)
+* [How to Create a Table Using My Data](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [How to Upload My Model to the ThanoSQL Workspace](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">Inquiries about deploying a model for your own service</h4>

@@ -4,11 +4,11 @@ title: 텍스트로 이미지 검색하기
 
 # __텍스트로 이미지 검색하기__ 
 
-- 튜토리얼 난이도 : ★★☆☆☆
-- 읽는데 걸리는 시간 : 7분
-- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 파일 위치 : tutorial/thanosql_search/search_image_by_text.ipynb  
-- 참고 문서 : [Unsplash Dataset - Lite](https://unsplash.com/data), [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
+- 튜토리얼 난이도: ★★☆☆☆
+- 읽는데 걸리는 시간: 7분
+- 사용 언어: [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치: tutorial/thanosql_search/search_image_by_text.ipynb  
+- 참고 문서: [Unsplash Dataset - Lite](https://unsplash.com/data), [Learning Transferable Visual Models From Natural Language Supervision](https://arxiv.org/abs/2103.00020)
 
 ## 튜토리얼 소개
 
@@ -19,7 +19,7 @@ title: 텍스트로 이미지 검색하기
 
 텍스트와 이미지 같이 다른 형태의 입력 자료를 함께 다루는 문제를 멀티 모달(Multi-modal)이라고 합니다. "**CLIP: Connecting Text and Image**"은 대표적인 멀티 모달 모델로 수치화 된 저차원 공간에 대한 이해를 다루고 있습니다. 기존 모델이 이미지 자체의 <a href="https://ko.wikipedia.org/wiki/%ED%8A%B9%EC%A7%95_(%EA%B8%B0%EA%B3%84_%ED%95%99%EC%8A%B5)">특징(Feature)</a>만을 학습 했다면, 멀티 모달 모델에서는 이미지와 텍스트를 모두 입력 자료로 사용하면서 해당 이미지를 설명하는 텍스트에 대한 특징까지 동시에 학습할 수 있습니다. 또한, 텍스트와 이미지가 저차원 공간에 함께 위치함으로써 텍스트와 이미지 사이의 유사도를 판단할 수 있게 되며, 이를 응용하면 검색 알고리즘으로 사용할 수 있습니다.
 
-ThanoSQL은 인공지능 알고리즘을 이용해서 데이터 세트를 수치화 합니다. 이렇게 수치화 된 데이터는 DB의 컬럼 내에 저장되고, 입력받은 텍스트의 수치화 결과와 유사도 계산을 통해 비슷한 이미지를 검색하는데 사용됩니다.
+ThanoSQL은 인공지능 알고리즘을 이용해서 데이터 세트를 수치화 합니다. 이렇게 수치화 된 데이터는 데이터베이스의 컬럼 내에 저장되고, 입력받은 텍스트의 수치화 결과와 유사도 계산을 통해 비슷한 이미지를 검색하는데 사용됩니다.
 
 __아래는 ThanoSQL 텍스트-이미지 검색 알고리즘의 활용 및 예시 입니다.__
 
@@ -31,7 +31,7 @@ __아래는 ThanoSQL 텍스트-이미지 검색 알고리즘의 활용 및 예�
     <p>👉 Unsplash는 20만 명 이상의 사진가들이 참여한 이미지들을 AI를 위한 데이터 세트로 무료로 공개했습니다. <code>Unsplash Dataset - Lite</code>는 25,000 장의 자연을 테마로한 이미지로 구성되어 있으며, 25,000 개의 키워드를 함께 제공합니다. </p>
 </div>
 
-이번 튜토리얼에서는 텍스트-이미지 검색 모델을 사용하여, ThanoSQL 워크스페이스 DB의 `Unsplash Dataset - Lite` 데이터 세트의 25,000 장의 이미지 중에서 텍스트로 원하는 이미지를 검색해 봅니다.
+이번 튜토리얼에서는 텍스트-이미지 검색 모델을 사용하여, ThanoSQL 워크스페이스 데이터베이스의 `Unsplash Dataset - Lite` 데이터 세트의 25,000 장의 이미지 중에서 텍스트로 원하는 이미지를 검색해 봅니다.
 
 ## __0. 데이터 세트 및 모델 준비__
 
@@ -62,7 +62,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" 쿼리 구문을 사용하여 원하는 데이터 세트를 워크스페이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL DATASET</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -82,10 +82,10 @@ FROM 'thanosql-dataset/unsplash_data/unsplash.csv'
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 DB에 저장 할 데이터 세트명을 지정합니다. </li>
+        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 데이터베이스에 저장 할 데이터 세트명을 지정합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>COPY</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 데이터베이스 상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -96,7 +96,7 @@ FROM 'thanosql-dataset/unsplash_data/unsplash.csv'
 
 ```python
 %%thanosql
-GET THANOSQL MODEL tutorial_search_clip
+GET THANOSQL MODEL clip
 OPTIONS (overwrite=True)
 AS tutorial_search_clip
 ```
@@ -107,10 +107,10 @@ AS tutorial_search_clip
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>GET THANOSQL MODEL</strong>" 쿼리 구문을 사용하여 원하는 모델을 워크스페이스 및 DB에 저장합니다. </li>
+        <li>"<strong>GET THANOSQL MODEL</strong>" 쿼리 구문을 사용하여 원하는 모델을 워크스페이스 및 데이터베이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL MODEL</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
         <li>"<strong>AS</strong>" 쿼리 구문을 사용하여 해당 모델의 이름을 지정합니다. AS 구문을 사용하지 않을 경우 <code>THANOSQL MODEL</code>의 이름을 그대로 사용합니다. </li>
@@ -119,7 +119,7 @@ AS tutorial_search_clip
 
 ## __1. 데이터 세트 확인__
 
-텍스트-이미지 검색 모델을 만들기 위해 우리는 ThanoSQL 워크스페이스 DB에 저장되어 있는 `unsplash_data` 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
+텍스트-이미지 검색 모델을 만들기 위해 우리는 ThanoSQL 워크스페이스 데이터베이스에 저장되어 있는 `unsplash_data` 테이블을 사용합니다. 아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 
 ```python
@@ -274,20 +274,22 @@ LIMIT 5
 
 <div class="admonition danger">
     <h4 class="admonition-title">참고 사항</h4>
-    <p>텍스트-이미지 검색 알고리즘은 학습에 오랜 시간이 걸리고 총 4억 개의 데이터 세트로 사전 학습된 모델을 사용하기 때문에 "<strong>BUILD MODEL</strong>" 쿼리 구문을 이용한 학습 과정을 본 튜토리얼에서는 생략합니다. <code>tutorial_search_clip</code> 모델은 베이스 알고리즘으로 <code>clipen</code>을 사용한 사전학습 된 모델을 가져와서 사용하게 됩니다. "<strong>CONVERT USING</strong>" 쿼리 구문을 실행하게 되면 "모델명(<code>tutorial_search_clip</code>)_베이스 알고리즘명(<code>clipen</code>)"으로 이미지가 수치화 된 컬럼이 자동으로 생성이 되며, "<strong>SEARCH IMAGE</strong>" 쿼리 구문을 실행하게 되면 "모델명(<code>tutorial_search_clip</code>)_베이스 알고리즘 명(<code>clipen</code>)_similarity수(1)"로 이미지 유사도 컬럼이 자동으로 생성 됩니다. 여기서 "수"는 검색에 사용한 텍스트의 갯수를 의미합니다. 2개 이상의 텍스트로 검색이 이루어 질 경우 순서에 따라 컬럼의 수가 순차적으로 증가되어 생성 됩니다. 자세한 사항은 아래 내용을 참고하세요.</p>
+    <p>텍스트-이미지 검색 알고리즘은 학습에 오랜 시간이 걸리고 총 4억 개의 데이터 세트로 사전 학습된 모델을 사용하기 때문에 "<strong>BUILD MODEL</strong>" 쿼리 구문을 이용한 학습 과정을 본 튜토리얼에서는 생략합니다. 위에서 지정한 <code>tutorial_search_clip</code> 모델은 베이스 알고리즘으로 <code>clipen</code>을 사용한 사전학습 된 모델을 가져와서 사용하게 됩니다. "<strong>CONVERT USING</strong>" 쿼리 구문을 실행하게 되면 사용자가 옵션으로 지정한 이름 (default: <mark style="background-color:#D7D0FF ">convert_result</mark>)으로 이미지가 수치화 된 컬럼이 자동으로 생성이 되며, "<strong>SEARCH IMAGE</strong>" 쿼리 구문을 실행하게 되면 사용자가 옵션으로 지정한 이름 (default: <mark style="background-color:#D7D0FF ">search_result</mark>)으로 이미지 유사도 컬럼이 자동으로 생성 됩니다.</p>
 </div>
 (쿼리 실행 시 예상 소요 시간: 3 min)  
 
-<p>다음 "<strong>CONVERT USING</strong>" 쿼리 구문을 실행하여 <code>unsplash_data</code> 이미지들을 수치화 합니다. 수치화된 결과값은 새로 생긴 <mark style="background-color:#D7D0FF ">tutorial_search_clip_clipen</mark> 컬럼에 저장됩니다. (결과 컬럼명은 {model_name}_{base_model_name}으로 추가됩니다) </p>
+<p>다음 "<strong>CONVERT USING</strong>" 쿼리 구문을 실행하여 <code>unsplash_data</code> 이미지들을 수치화 합니다. 수치화된 결과값은 새로 생긴 <mark style="background-color:#D7D0FF ">convert_result</mark> 컬럼에 저장됩니다.</p>
 
 
 ```python
 %%thanosql
 CONVERT USING tutorial_search_clip
 OPTIONS (
+    table_name="unsplash_data",
     image_col="image_path", 
-    table_name="unsplash_data", 
-    batch_size=128
+    convert_type="image",
+    batch_size=128,
+    column_name="convert_result"
     )
 AS 
 SELECT *
@@ -320,7 +322,7 @@ FROM unsplash_data
       <th>photo_image_url</th>
       <th>photo_description</th>
       <th>ai_description</th>
-      <th>tutorial_search_clip_clipen</th>
+      <th>convert_result</th>
     </tr>
   </thead>
   <tbody>
@@ -331,7 +333,7 @@ FROM unsplash_data
       <td>https://images.unsplash.com/uploads/1411949294...</td>
       <td>Woman exploring a forest</td>
       <td>woman walking in the middle of forest</td>
-      <td>[-0.0148640582, 0.0549194068, 0.0118315415, 0....</td>
+      <td>[-0.17420602, 0.64508, 0.1391528, 0.10341604, ...</td>
     </tr>
     <tr>
       <th>1</th>
@@ -340,7 +342,7 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-141633941111...</td>
       <td>Succulents in a terrarium</td>
       <td>succulent plants in clear glass terrarium</td>
-      <td>[-0.0345519036, 0.0314463899, -0.0065574604, 0...</td>
+      <td>[-0.372485, 0.338373, -0.070274025, 0.14057267...</td>
     </tr>
     <tr>
       <th>2</th>
@@ -349,7 +351,7 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-142014251503...</td>
       <td>Rural winter mountainside</td>
       <td>rocky mountain under gray sky at daytime</td>
-      <td>[-0.031663157000000004, 0.0538793579, 0.013499...</td>
+      <td>[-0.35936347, 0.6120509, 0.15280451, 0.1916849...</td>
     </tr>
     <tr>
       <th>3</th>
@@ -358,7 +360,7 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-141487280988...</td>
       <td>Poppy seeds and flowers</td>
       <td>red common poppy flower selective focus phography</td>
-      <td>[0.0018179789000000001, 0.009972040500000001, ...</td>
+      <td>[0.021214027, 0.11650361, -0.2262484, -0.43345...</td>
     </tr>
     <tr>
       <th>4</th>
@@ -367,7 +369,7 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-141700759404...</td>
       <td>Silhouette near dark trees</td>
       <td>trees during night time</td>
-      <td>[-0.0223454703, 0.0129929734, -0.0019434979, -...</td>
+      <td>[-0.2664544, 0.15451586, -0.022570072, -0.0746...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -385,7 +387,7 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-159300793778...</td>
       <td>None</td>
       <td>black metal fence during daytime</td>
-      <td>[-0.0114668589, -0.0021708228, -0.0104938177, ...</td>
+      <td>[-0.13440058, -0.025392909, -0.122823216, -0.3...</td>
     </tr>
     <tr>
       <th>24964</th>
@@ -394,7 +396,7 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-159296761254...</td>
       <td>Pearl earrings and seashells</td>
       <td>white and brown seashell on white surface</td>
-      <td>[-0.0289349593, 0.0516048148, 0.0157920811, -0...</td>
+      <td>[-0.31456056, 0.5623399, 0.17107236, -0.203213...</td>
     </tr>
     <tr>
       <th>24965</th>
@@ -403,7 +405,7 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-159299937329...</td>
       <td>None</td>
       <td>leopard on brown tree trunk during daytime</td>
-      <td>[0.006948946, -0.032078824900000004, -0.013961...</td>
+      <td>[0.073464915, -0.339012, -0.14695403, -0.42601...</td>
     </tr>
     <tr>
       <th>24966</th>
@@ -412,7 +414,7 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-159192792878...</td>
       <td>Floral truck in the streets of Rome</td>
       <td>woman in beige coat and white hat standing on ...</td>
-      <td>[0.0052709519, -0.0013724031000000002, 0.02522...</td>
+      <td>[0.055300698, -0.015218094, 0.26629454, -0.364...</td>
     </tr>
     <tr>
       <th>24967</th>
@@ -421,7 +423,7 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-159240763188...</td>
       <td>None</td>
       <td>green plants on brown rocky mountain under blu...</td>
-      <td>[-0.0143270288, 0.0594773069, 0.0045367181, -0...</td>
+      <td>[-0.1620048, 0.66937244, 0.050710797, -0.13542...</td>
     </tr>
   </tbody>
 </table>
@@ -436,108 +438,21 @@ FROM unsplash_data
         <li>"<strong>CONVERT USING</strong>" 쿼리 구문은 <code>tutorial_search_clip</code> 모델을 이미지 수치화를 위한 알고리즘으로 사용합니다.  </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문은 이미지 수치화 시 필요한 변수들을 정의합니다.
         <ul>
-            <li>"table_name" : ThanoSQL 워크스페이스 DB 내에 저장될 테이블 이름</li>
-            <li>"image_col" : 이미지 경로를 담고 있는 컬럼 명</li>
-            <li>"batch_size" : 한번의 학습에서 읽는 데이터 세트 묶음의 크기. 논문에 따르면 클 수록 학습 성능이 증가하지만 메모리의 크기를 고려하여 128을 사용합니다. (DEFAULT : 16)  </li>
+            <li>"table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름</li>
+            <li>"image_col": 이미지 경로를 담고 있는 컬럼 명 (default: "image_path")</li>
+            <li>"convert_type": 수치화할 파일의 종류 ("image"|"text", default: "image")</li>
+            <li>"batch_size": 한번의 학습에서 읽는 데이터 세트 묶음의 크기. 논문에 따르면 클 수록 학습 성능이 증가하지만 메모리의 크기를 고려하여 128을 사용합니다. (default: 16)</li>
+            <li>"column_name": 데이터 테이블에서 수치화된 결과를 담을 컬럼 이름을 정의합니다. (default: "convert_result")</li>
         </ul>
         </li>
     </ul>
 </div>
 
-
-```python
-%%thanosql
-SELECT *
-FROM unsplash_data
-LIMIT 5
-```
-
-
-
-
-<div class="df_size">
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>photo_id</th>
-      <th>image_path</th>
-      <th>photo_image_url</th>
-      <th>photo_description</th>
-      <th>ai_description</th>
-      <th>tutorial_search_clip_clipen</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>XMyPniM9LF0</td>
-      <td>thanosql-dataset/unsplash_data/XMyPniM9LF0.jpg</td>
-      <td>https://images.unsplash.com/uploads/1411949294...</td>
-      <td>Woman exploring a forest</td>
-      <td>woman walking in the middle of forest</td>
-      <td>[-0.0148640582, 0.0549194068, 0.0118315415, 0....</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>rDLBArZUl1c</td>
-      <td>thanosql-dataset/unsplash_data/rDLBArZUl1c.jpg</td>
-      <td>https://images.unsplash.com/photo-141633941111...</td>
-      <td>Succulents in a terrarium</td>
-      <td>succulent plants in clear glass terrarium</td>
-      <td>[-0.0345519036, 0.0314463899, -0.0065574604, 0...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>cNDGZ2sQ3Bo</td>
-      <td>thanosql-dataset/unsplash_data/cNDGZ2sQ3Bo.jpg</td>
-      <td>https://images.unsplash.com/photo-142014251503...</td>
-      <td>Rural winter mountainside</td>
-      <td>rocky mountain under gray sky at daytime</td>
-      <td>[-0.031663157000000004, 0.0538793579, 0.013499...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>iuZ_D1eoq9k</td>
-      <td>thanosql-dataset/unsplash_data/iuZ_D1eoq9k.jpg</td>
-      <td>https://images.unsplash.com/photo-141487280988...</td>
-      <td>Poppy seeds and flowers</td>
-      <td>red common poppy flower selective focus phography</td>
-      <td>[0.0018179789000000001, 0.009972040500000001, ...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>BeD3vjQ8SI0</td>
-      <td>thanosql-dataset/unsplash_data/BeD3vjQ8SI0.jpg</td>
-      <td>https://images.unsplash.com/photo-141700759404...</td>
-      <td>Silhouette near dark trees</td>
-      <td>trees during night time</td>
-      <td>[-0.0223454703, 0.0129929734, -0.0019434979, -...</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
 ## __3. 텍스트로 이미지 검색하기__
 
 "__SEARCH IMAGE__"  쿼리 구문과 생성한 `tutorial_search_clip` 모델을 사용하여 텍스트 기반 이미지 검색을
  할 수 있습니다. 다음 쿼리 구문을 실행하여 "a black cat" 이라는 텍스트와 임베딩 된 `unsplash_data` 
-이미지들의 유사도를 계산합니다. 결괏값은 새로 추가된 <mark style="background-color:#D7D0FF ">tutorial_search_clip_clipen_similarity1</mark> 컬럼에 
+이미지들의 유사도를 계산합니다. 결괏값은 새로 추가된 <mark style="background-color:#D7D0FF ">search_result</mark> 컬럼에 
 저장됩니다.
 
 
@@ -545,13 +460,14 @@ LIMIT 5
 %%thanosql
 SEARCH IMAGE text="a black cat"
 USING tutorial_search_clip
+OPTIONS (
+    emb_col="convert_result",
+    column_name="search_result"
+    )
 AS 
 SELECT * 
 FROM unsplash_data
 ```
-
-    Searching...
-
 
 
 
@@ -579,8 +495,8 @@ FROM unsplash_data
       <th>photo_image_url</th>
       <th>photo_description</th>
       <th>ai_description</th>
-      <th>tutorial_search_clip_clipen</th>
-      <th>tutorial_search_clip_clipen_similarity1</th>
+      <th>convert_result</th>
+      <th>search_result</th>
     </tr>
   </thead>
   <tbody>
@@ -591,8 +507,8 @@ FROM unsplash_data
       <td>https://images.unsplash.com/uploads/1411949294...</td>
       <td>Woman exploring a forest</td>
       <td>woman walking in the middle of forest</td>
-      <td>[-0.0148640582, 0.0549194068, 0.0118315415, 0....</td>
-      <td>0.185725</td>
+      <td>[-0.17420602, 0.64508, 0.1391528, 0.10341604, ...</td>
+      <td>0.185742</td>
     </tr>
     <tr>
       <th>1</th>
@@ -601,8 +517,8 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-141633941111...</td>
       <td>Succulents in a terrarium</td>
       <td>succulent plants in clear glass terrarium</td>
-      <td>[-0.0345519036, 0.0314463899, -0.0065574604, 0...</td>
-      <td>0.148399</td>
+      <td>[-0.372485, 0.338373, -0.070274025, 0.14057267...</td>
+      <td>0.148483</td>
     </tr>
     <tr>
       <th>2</th>
@@ -611,8 +527,8 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-142014251503...</td>
       <td>Rural winter mountainside</td>
       <td>rocky mountain under gray sky at daytime</td>
-      <td>[-0.031663157000000004, 0.0538793579, 0.013499...</td>
-      <td>0.187703</td>
+      <td>[-0.35936347, 0.6120509, 0.15280451, 0.1916849...</td>
+      <td>0.187674</td>
     </tr>
     <tr>
       <th>3</th>
@@ -621,8 +537,8 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-141487280988...</td>
       <td>Poppy seeds and flowers</td>
       <td>red common poppy flower selective focus phography</td>
-      <td>[0.0018179789000000001, 0.009972040500000001, ...</td>
-      <td>0.177512</td>
+      <td>[0.021214027, 0.11650361, -0.2262484, -0.43345...</td>
+      <td>0.177507</td>
     </tr>
     <tr>
       <th>4</th>
@@ -631,8 +547,8 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-141700759404...</td>
       <td>Silhouette near dark trees</td>
       <td>trees during night time</td>
-      <td>[-0.0223454703, 0.0129929734, -0.0019434979, -...</td>
-      <td>0.218824</td>
+      <td>[-0.2664544, 0.15451586, -0.022570072, -0.0746...</td>
+      <td>0.218851</td>
     </tr>
     <tr>
       <th>...</th>
@@ -651,8 +567,8 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-159300793778...</td>
       <td>None</td>
       <td>black metal fence during daytime</td>
-      <td>[-0.0114668589, -0.0021708228, -0.0104938177, ...</td>
-      <td>0.226402</td>
+      <td>[-0.13440058, -0.025392909, -0.122823216, -0.3...</td>
+      <td>0.226361</td>
     </tr>
     <tr>
       <th>24964</th>
@@ -661,8 +577,8 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-159296761254...</td>
       <td>Pearl earrings and seashells</td>
       <td>white and brown seashell on white surface</td>
-      <td>[-0.0289349593, 0.0516048148, 0.0157920811, -0...</td>
-      <td>0.147114</td>
+      <td>[-0.31456056, 0.5623399, 0.17107236, -0.203213...</td>
+      <td>0.147183</td>
     </tr>
     <tr>
       <th>24965</th>
@@ -671,7 +587,7 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-159299937329...</td>
       <td>None</td>
       <td>leopard on brown tree trunk during daytime</td>
-      <td>[0.006948946, -0.032078824900000004, -0.013961...</td>
+      <td>[0.073464915, -0.339012, -0.14695403, -0.42601...</td>
       <td>0.227299</td>
     </tr>
     <tr>
@@ -681,8 +597,8 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-159192792878...</td>
       <td>Floral truck in the streets of Rome</td>
       <td>woman in beige coat and white hat standing on ...</td>
-      <td>[0.0052709519, -0.0013724031000000002, 0.02522...</td>
-      <td>0.169803</td>
+      <td>[0.055300698, -0.015218094, 0.26629454, -0.364...</td>
+      <td>0.169794</td>
     </tr>
     <tr>
       <th>24967</th>
@@ -691,8 +607,8 @@ FROM unsplash_data
       <td>https://images.unsplash.com/photo-159240763188...</td>
       <td>None</td>
       <td>green plants on brown rocky mountain under blu...</td>
-      <td>[-0.0143270288, 0.0594773069, 0.0045367181, -0...</td>
-      <td>0.152199</td>
+      <td>[-0.1620048, 0.66937244, 0.050710797, -0.13542...</td>
+      <td>0.152132</td>
     </tr>
   </tbody>
 </table>
@@ -706,6 +622,12 @@ FROM unsplash_data
     <ul>
         <li>"<strong>SEARCH IMAGE</strong>" 쿼리 구문을 사용하여 이미지를 찾을 것임을 명시합니다. "text" 변수를 이용해서 찾고자 하는 이미지의 텍스트 내용을 입력합니다. </li>
         <li>"<strong>USING</strong>" 쿼리 구문을 통해 검색에 사용할 모델로 <code>tutorial_search_clip</code>을 사용할 것을 명시합니다.</li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 이미지 검색 시 필요한 변수들을 정의합니다.
+        <ul>
+                <li>"emb_col": 데이터 테이블에서 수치화된 결과를 담은 컬럼</li>
+                <li>"column_name": 데이터 테이블에서 검색 결과를 담을 컬럼 이름을 정의합니다. (default: "search_result")</li>
+        </ul>
+        </li>
     </ul>
 </div>
 
@@ -714,20 +636,21 @@ FROM unsplash_data
 
 ```python
 %%thanosql
-SELECT image_path, tutorial_search_clip_clipen_similarity1 
+SELECT image_path, search_result 
 FROM (
     SEARCH IMAGE text="a black cat"
     USING tutorial_search_clip
+    OPTIONS (
+        emb_col="convert_result",
+        column_name="search_result"
+        )
     AS 
     SELECT * 
     FROM unsplash_data
     )
-ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
+ORDER BY search_result DESC 
 LIMIT 5
 ```
-
-    Searching...
-
 
 
 
@@ -751,34 +674,34 @@ LIMIT 5
     <tr style="text-align: right;">
       <th></th>
       <th>image_path</th>
-      <th>tutorial_search_clip_clipen_similarity1</th>
+      <th>search_result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>thanosql-dataset/unsplash_data/UMyfDjQ6Ep8.jpg</td>
-      <td>0.316560</td>
+      <td>0.316566</td>
     </tr>
     <tr>
       <th>1</th>
       <td>thanosql-dataset/unsplash_data/7XJ3d0xK444.jpg</td>
-      <td>0.311931</td>
+      <td>0.311922</td>
     </tr>
     <tr>
       <th>2</th>
       <td>thanosql-dataset/unsplash_data/m8HsSWh-y6E.jpg</td>
-      <td>0.310819</td>
+      <td>0.310804</td>
     </tr>
     <tr>
       <th>3</th>
       <td>thanosql-dataset/unsplash_data/6ST6S6i9IGM.jpg</td>
-      <td>0.310214</td>
+      <td>0.310139</td>
     </tr>
     <tr>
       <th>4</th>
       <td>thanosql-dataset/unsplash_data/aFyD5aWKu6k.jpg</td>
-      <td>0.309158</td>
+      <td>0.309160</td>
     </tr>
   </tbody>
 </table>
@@ -790,8 +713,8 @@ LIMIT 5
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
         <li>"<strong>SEARCH IMAGE</strong>" 쿼리 구문은 입력한 텍스트와 이미지 사이의 유사도를 계산하여 반환합니다.</li>
-        <li>첫 번째 "<strong>SELECT</strong>" 쿼리 구문은 괄호 안의 쿼리 결과에서 <mark style="background-color:#D7D0FF ">image_path</mark> 컬럼과 <mark style="background-color:#D7D0FF ">tutorial_search_clip_clipen_similarity1</mark> 컬럼을 선택합니다.</li>
-        <li>"<strong>ORDER BY</strong>" 쿼리 구문은 결과를 <mark style="background-color:#D7D0FF ">tutorial_search_clip_clipen_similarity1</mark> 컬럼의 값을 기준으로 정렬하는데, 정렬은 내림차순("<strong>DESC</strong>")이며, 그 중 상위 5개("<strong>LIMIT</strong>" 5)의 결과를 출력합니다.</li>
+        <li>첫 번째 "<strong>SELECT</strong>" 쿼리 구문은 괄호 안의 쿼리 결과에서 <mark style="background-color:#D7D0FF ">image_path</mark> 컬럼과 <mark style="background-color:#D7D0FF ">search_result</mark> 컬럼을 선택합니다.</li>
+        <li>"<strong>ORDER BY</strong>" 쿼리 구문은 결과를 <mark style="background-color:#D7D0FF ">search_result</mark> 컬럼의 값을 기준으로 정렬하는데, 정렬은 내림차순("<strong>DESC</strong>")이며, 그 중 상위 5개("<strong>LIMIT</strong>" 5)의 결과를 출력합니다.</li>
     </ul>
 </div>
 
@@ -802,26 +725,29 @@ LIMIT 5
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT image_path, tutorial_search_clip_clipen_similarity1 
+    SELECT image_path, search_result 
     FROM (
         SEARCH IMAGE text="a black cat"
         USING tutorial_search_clip
+        OPTIONS (
+            emb_col="convert_result",
+            column_name="search_result"
+            )
         AS 
         SELECT * 
         FROM unsplash_data
         )
-    ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
+    ORDER BY search_result DESC 
     LIMIT 5
     )
 ```
 
-    Searching...
     /home/jovyan/thanosql-dataset/unsplash_data/UMyfDjQ6Ep8.jpg
 
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_29_1.jpg)
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_28_1.jpg)
     
 
 
@@ -830,7 +756,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_29_3.jpg)
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_28_3.jpg)
     
 
 
@@ -839,7 +765,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_29_5.jpg)
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_28_5.jpg)
     
 
 
@@ -848,7 +774,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_29_7.jpg)
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_28_7.jpg)
     
 
 
@@ -857,7 +783,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_29_9.jpg)
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_28_9.jpg)
     
 
 
@@ -875,26 +801,29 @@ AS (
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT image_path, tutorial_search_clip_clipen_similarity1 
+    SELECT image_path, search_result 
     FROM (
         SEARCH IMAGE text="a dog on a chair"
         USING tutorial_search_clip
+        OPTIONS (
+            emb_col="convert_result",
+            column_name="search_result"
+            )
         AS 
         SELECT * 
         FROM unsplash_data
         )
-    ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
+    ORDER BY search_result DESC 
     LIMIT 5
     )
 ```
 
-    Searching...
     /home/jovyan/thanosql-dataset/unsplash_data/jZUr3AuI8io.jpg
 
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_31_1.jpg)
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_30_1.jpg)
     
 
 
@@ -903,7 +832,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_31_3.jpg)
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_30_3.jpg)
     
 
 
@@ -912,7 +841,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_31_5.jpg)
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_30_5.jpg)
     
 
 
@@ -921,11 +850,78 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_31_7.jpg)
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_30_7.jpg)
     
 
 
     /home/jovyan/thanosql-dataset/unsplash_data/GKY4WDO3QgY.jpg
+
+
+
+    
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_30_9.jpg)
+    
+
+
+
+```python
+%%thanosql
+PRINT IMAGE 
+AS (
+    SELECT image_path, search_result 
+    FROM (
+        SEARCH IMAGE text="gloomy photos"
+        USING tutorial_search_clip
+        OPTIONS (
+            emb_col="convert_result",
+            column_name="search_result"
+            )
+        AS 
+        SELECT * 
+        FROM unsplash_data
+        )
+    ORDER BY search_result DESC 
+    LIMIT 5
+    )
+```
+
+    /home/jovyan/thanosql-dataset/unsplash_data/Xo4vJrtrmmA.jpg
+
+
+
+    
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_31_1.jpg)
+    
+
+
+    /home/jovyan/thanosql-dataset/unsplash_data/QheWOfwEUio.jpg
+
+
+
+    
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_31_3.jpg)
+    
+
+
+    /home/jovyan/thanosql-dataset/unsplash_data/_zHYUQmWrzk.jpg
+
+
+
+    
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_31_5.jpg)
+    
+
+
+    /home/jovyan/thanosql-dataset/unsplash_data/Tu_lH5CFFZw.jpg
+
+
+
+    
+![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_31_7.jpg)
+    
+
+
+    /home/jovyan/thanosql-dataset/unsplash_data/DfYPBHaOR04.jpg
 
 
 
@@ -939,21 +935,24 @@ AS (
 %%thanosql
 PRINT IMAGE 
 AS (
-    SELECT image_path, tutorial_search_clip_clipen_similarity1 
+    SELECT image_path, search_result 
     FROM (
-        SEARCH IMAGE text="gloomy photos"
+        SEARCH IMAGE text="the feeling when your program finally works"
         USING tutorial_search_clip
+        OPTIONS (
+            emb_col="convert_result",
+            column_name="search_result"
+            )
         AS 
         SELECT * 
         FROM unsplash_data
         )
-    ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
+    ORDER BY search_result DESC 
     LIMIT 5
     )
 ```
 
-    Searching...
-    /home/jovyan/thanosql-dataset/unsplash_data/Xo4vJrtrmmA.jpg
+    /home/jovyan/thanosql-dataset/unsplash_data/nDLYtRqJtMw.jpg
 
 
 
@@ -962,7 +961,7 @@ AS (
     
 
 
-    /home/jovyan/thanosql-dataset/unsplash_data/QheWOfwEUio.jpg
+    /home/jovyan/thanosql-dataset/unsplash_data/qNJpGSCv_Jc.jpg
 
 
 
@@ -971,7 +970,7 @@ AS (
     
 
 
-    /home/jovyan/thanosql-dataset/unsplash_data/_zHYUQmWrzk.jpg
+    /home/jovyan/thanosql-dataset/unsplash_data/Yb5OBk-OxJY.jpg
 
 
 
@@ -980,7 +979,7 @@ AS (
     
 
 
-    /home/jovyan/thanosql-dataset/unsplash_data/Tu_lH5CFFZw.jpg
+    /home/jovyan/thanosql-dataset/unsplash_data/6etH6346MHE.jpg
 
 
 
@@ -989,7 +988,7 @@ AS (
     
 
 
-    /home/jovyan/thanosql-dataset/unsplash_data/DfYPBHaOR04.jpg
+    /home/jovyan/thanosql-dataset/unsplash_data/7GX5aICb5i4.jpg
 
 
 
@@ -998,73 +997,13 @@ AS (
     
 
 
-
-```python
-%%thanosql
-PRINT IMAGE 
-AS (
-    SELECT image_path, tutorial_search_clip_clipen_similarity1 
-    FROM (
-        SEARCH IMAGE text="the feeling when your program finally works"
-        USING tutorial_search_clip
-        AS 
-        SELECT * 
-        FROM unsplash_data
-        )
-    ORDER BY tutorial_search_clip_clipen_similarity1 DESC 
-    LIMIT 5
-    )
-```
-
-    Searching...
-    /home/jovyan/thanosql-dataset/unsplash_data/nDLYtRqJtMw.jpg
-
-
-
-    
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_33_1.jpg)
-    
-
-
-    /home/jovyan/thanosql-dataset/unsplash_data/qNJpGSCv_Jc.jpg
-
-
-
-    
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_33_3.jpg)
-    
-
-
-    /home/jovyan/thanosql-dataset/unsplash_data/Yb5OBk-OxJY.jpg
-
-
-
-    
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_33_5.jpg)
-    
-
-
-    /home/jovyan/thanosql-dataset/unsplash_data/6etH6346MHE.jpg
-
-
-
-    
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_33_7.jpg)
-    
-
-
-    /home/jovyan/thanosql-dataset/unsplash_data/7GX5aICb5i4.jpg
-
-
-
-    
-![jpeg](/img/tutorials/thanosql_search/search_image_by_text/output_33_9.jpg)
-    
-
-
 ## __4. 튜토리얼을 마치며__
 
 이번 튜토리얼에서는 멀티 모달 텍스트/이미지 수치화 모델을 사용하여 `unsplash 데이터 세트`에서 텍스트를 통한 이미지 검색을 해보았습니다. 초급 단계의 튜토리얼인 만큼 간단한 쿼리를 통해 눈에 보이는 결과를 얻는 것 위주로 진행했습니다. 이미지 검색을 조금 더 다채로운 쿼리와 함께 사용한다면, 보다 원하는 결과에 가까운 값을 얻을 수 있을 것입니다.
+
+* [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

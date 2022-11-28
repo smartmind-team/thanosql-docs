@@ -6,7 +6,7 @@ title: Using the Custom Model in ThanoSQL
 
 ## __0. Prepare Dataset and Model__
 
-This tutorial uses the Beans dataset. This dataset is of leaf images taken in the field in different districts in Uganda by the Makerere AI lab in collaboration with the National Crops Resources Research Institute (NaCRRI), the national body in charge of research in agriculture in Uganda.
+This tutorial uses the Beans dataset. This dataset is of leaf images taken in the field in different districts in Uganda by the Makerere AI lab in collaboration with the National Crops Resources Research Institute(NaCRRI), the national body in charge of research in agriculture in Uganda.
 
 
 
@@ -36,25 +36,6 @@ for split in ["train", "validation", "test"]:
 ```python
 !pip install torch torchvision
 ```
-
-    [33mWARNING: The directory '/home/jovyan/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.[0m[33m
-    [0mRequirement already satisfied: torch in /opt/conda/lib/python3.9/site-packages (1.12.1)
-    Collecting torchvision
-      Downloading torchvision-0.13.1-cp39-cp39-manylinux1_x86_64.whl (19.1 MB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m19.1/19.1 MB[0m [31m211.5 MB/s[0m eta [36m0:00:00[0ma [36m0:00:01[0m
-    [?25hRequirement already satisfied: typing-extensions in /opt/conda/lib/python3.9/site-packages (from torch) (4.3.0)
-    Requirement already satisfied: requests in /opt/conda/lib/python3.9/site-packages (from torchvision) (2.27.1)
-    Collecting pillow!=8.3.*,>=5.3.0
-      Downloading Pillow-9.2.0-cp39-cp39-manylinux_2_28_x86_64.whl (3.2 MB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.2/3.2 MB[0m [31m297.4 MB/s[0m eta [36m0:00:00[0m
-    [?25hRequirement already satisfied: numpy in /opt/conda/lib/python3.9/site-packages (from torchvision) (1.23.2)
-    Requirement already satisfied: charset-normalizer~=2.0.0 in /opt/conda/lib/python3.9/site-packages (from requests->torchvision) (2.0.12)
-    Requirement already satisfied: urllib3<1.27,>=1.21.1 in /opt/conda/lib/python3.9/site-packages (from requests->torchvision) (1.26.9)
-    Requirement already satisfied: idna<4,>=2.5 in /opt/conda/lib/python3.9/site-packages (from requests->torchvision) (3.3)
-    Requirement already satisfied: certifi>=2017.4.17 in /opt/conda/lib/python3.9/site-packages (from requests->torchvision) (2021.10.8)
-    Installing collected packages: pillow, torchvision
-    Successfully installed pillow-9.2.0 torchvision-0.13.1
-
 
 #### Create a Training Dataset 
 Following code block has been referenced from this [link](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html) and has been modified for this tutorial's need.
@@ -94,10 +75,6 @@ dataloaders = {
 }
 dataset_sizes = {split: len(image_datasets[split]) for split in ["train", "validation"]}
 ```
-
-    /opt/conda/lib/python3.9/site-packages/tqdm/auto.py:22: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-      from .autonotebook import tqdm as notebook_tqdm
-
 
 ### __Prepare the Model__
 
@@ -183,12 +160,6 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 criterion = torch.nn.CrossEntropyLoss()
 ```
 
-    /opt/conda/lib/python3.9/site-packages/torch/hub.py:266: UserWarning: You are about to download and run code from an untrusted repository. In a future release, this won't be allowed. To add the repository to your trusted list, change the command to {calling_fn}(..., trust_repo=False) and a command prompt will appear asking for an explicit confirmation of trust, or load(..., trust_repo=True), which will assume that the prompt is to be answered with 'yes'. You can also use load(..., trust_repo='check') which will only prompt for confirmation if the repo is not already trusted. This will eventually be the default behaviour
-      warnings.warn(
-    Downloading: "https://github.com/rwightman/pytorch-image-models/zipball/master" to /home/jovyan/.cache/torch/hub/master.zip
-    Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-mvit-weights/mobilevitv2_050-49951ee2.pth" to /home/jovyan/.cache/torch/hub/checkpoints/mobilevitv2_050-49951ee2.pth
-
-
 #### Train and Save a Model
 
 
@@ -198,21 +169,21 @@ trained_model = train_model(model, criterion, optimizer, num_epochs=3)
 
     Epoch 0/2
     ----------
-    train Loss: 0.5687 Acc: 0.7853
-    validation Loss: 0.1443 Acc: 0.9624
+    train Loss: 0.5634 Acc: 0.7921
+    validation Loss: 0.2599 Acc: 0.8947
     
     Epoch 1/2
     ----------
-    train Loss: 0.3428 Acc: 0.8675
-    validation Loss: 0.1300 Acc: 0.9699
+    train Loss: 0.3259 Acc: 0.8762
+    validation Loss: 0.2687 Acc: 0.9173
     
     Epoch 2/2
     ----------
-    train Loss: 0.2868 Acc: 0.8956
-    validation Loss: 0.2953 Acc: 0.9098
+    train Loss: 0.2883 Acc: 0.8830
+    validation Loss: 0.1434 Acc: 0.9624
     
-    Training complete in 2m 54s
-    Best val Acc: 0.969925
+    Training complete in 1m 26s
+    Best val Acc: 0.962406
 
 
 
@@ -220,7 +191,7 @@ trained_model = train_model(model, criterion, optimizer, num_epochs=3)
 torch.save(trained_model, "trained_model.pth")
 ```
 
-#### Create a Dataframe to Insert into the ThanoSQL Database 
+#### Create a Dataframe to Insert into ThanoSQL 
 
 
 ```python
@@ -250,6 +221,8 @@ OPTIONS (overwrite=True)
 FROM "test/udm_tutorial/test_data.pkl"
 ```
 
+    Success
+
 
 <div class="admonition note">
     <h4 class="admonition-title">Query Details</h4>
@@ -257,7 +230,7 @@ FROM "test/udm_tutorial/test_data.pkl"
         <li>"<strong>COPY</strong>" specifies the name of the dataset to be saved as a database table. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>COPY</strong> clause.
         <ul>
-           <li>"overwrite" : determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default : False) </li>
+           <li>"overwrite": determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -272,110 +245,6 @@ To check the table's contents, run the following query.
 %%thanosql
 SELECT *
 FROM beans_test
-```
-
-
-
-
-<div class="df_size">
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>image</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>[[[-0.02868402, -0.045808773500000004, -0.2170...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>[[[-0.06293352690000001, -0.06293352690000001,...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>[[[1.9577873945, 1.8721636534, 1.7180408239, 1...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>[[[0.2110626549, 0.0569397435, -0.3026800752, ...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>[[[-1.3815395832, -1.4329138994, -1.5014128685...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>123</th>
-      <td>[[[-0.0971830264, -0.11430778350000001, -0.114...</td>
-    </tr>
-    <tr>
-      <th>124</th>
-      <td>[[[-0.5938008428, -1.1589177847, -1.0732940435...</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>[[[-0.4396780729, -0.2170563042, -0.2513058186...</td>
-    </tr>
-    <tr>
-      <th>126</th>
-      <td>[[[-2.0322802067, -1.9809060097, -1.9124069214...</td>
-    </tr>
-    <tr>
-      <th>127</th>
-      <td>[[[-1.27879107, -1.2959158420999999, -1.364414...</td>
-    </tr>
-  </tbody>
-</table>
-<p>128 rows × 1 columns</p>
-</div>
-
-
-
-## __2. Upload Custom Model__
-
-To upload a custom model, run the following query.
-
-
-```python
-%%thanosql
-UPLOAD MODEL beans_mobilevit
-OPTIONS (overwrite=True, framework="pytorch")
-FROM "test/udm_tutorial/trained_model.pth"
-```
-
-
-## __3. Predict Using a Custom Model__
-
-To predict the result using a custom model, run the following query.
-
-
-```python
-%%thanosql
-PREDICT
-USING beans_mobilevit
-AS
-SELECT *
-FROM beans_test
-ORDER BY RANDOM()
 LIMIT 5
 ```
 
@@ -401,34 +270,120 @@ LIMIT 5
     <tr style="text-align: right;">
       <th></th>
       <th>image</th>
-      <th>predicted</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>[[[-1.9124069214000001, -1.6555356979, -1.4842...</td>
-      <td>[-1.3859444857, -0.6104061604000001, 2.0402860...</td>
+      <td>[[[-0.028684020042419434, -0.04580877348780632...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>[[[0.3823101819, 0.7761794925000001, 1.0501755...</td>
-      <td>[1.8987154961, 1.711524725, -3.7767300606000003]</td>
+      <td>[[[-0.0629335269331932, -0.0629335269331932, -...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>[[[-0.3883038163, -0.456802845, -0.5595513582,...</td>
-      <td>[-0.4351696968, 2.8146388531, -2.7762613297]</td>
+      <td>[[[1.9577873945236206, 1.8721636533737183, 1.7...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>[[[-1.6212861538, -1.6041613817, -1.4671633244...</td>
-      <td>[-2.0298011303, -0.8211234808000001, 2.9834887...</td>
+      <td>[[[0.21106265485286713, 0.0569397434592247, -0...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>[[[-0.9876701832, -0.8335474133, -0.7136741281...</td>
-      <td>[3.9639098644, -2.0307672024, -1.6559199095000...</td>
+      <td>[[[-1.3815395832061768, -1.432913899421692, -1...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+## __2. Upload Custom Model__
+
+To upload a custom model, run the following query.
+
+
+```python
+%%thanosql
+UPLOAD MODEL beans_mobilevit
+OPTIONS (
+    overwrite=True,
+    framework="pytorch"
+    )
+FROM "test/udm_tutorial/trained_model.pth"
+```
+
+    Success
+
+
+## __3. Predict Using a Custom Model__
+
+To predict the result using a custom model, run the following query.
+
+
+```python
+%%thanosql
+PREDICT
+USING beans_mobilevit
+AS (
+    SELECT *
+    FROM beans_test
+    ORDER BY RANDOM()
+    LIMIT 5
+    )
+```
+
+
+
+
+<div class="df_size">
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>image</th>
+      <th>predict_result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[[[-0.09718302637338638, -0.11430778354406357,...</td>
+      <td>[-1.734525203704834, -1.7788751125335693, 3.94...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[[[-1.3986643552780151, -1.4500386714935303, -...</td>
+      <td>[-1.6501493453979492, -1.6760544776916504, 3.8...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[[[-1.4157891273498535, -1.4842880964279175, -...</td>
+      <td>[-1.0188010931015015, 3.2187016010284424, -2.8...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[[[-1.2445416450500488, -1.158917784690857, -1...</td>
+      <td>[-1.5477955341339111, 2.5614449977874756, -1.3...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[[[-1.2445416450500488, -1.278791069984436, -1...</td>
+      <td>[-2.2948460578918457, -1.4243049621582031, 4.2...</td>
     </tr>
   </tbody>
 </table>
@@ -439,8 +394,8 @@ LIMIT 5
 
 ```python
 pred_df = _ 
-pred_df["predicted"] = pred_df["predicted"].apply(np.argmax)
-pred_df["predicted"] = pred_df["predicted"].apply(test_dataset.classes.__getitem__)
+pred_df["predict_result"] = pred_df["predict_result"].apply(np.argmax)
+pred_df["predict_result"] = pred_df["predict_result"].apply(test_dataset.classes.__getitem__)
 pred_df
 ```
 
@@ -466,34 +421,34 @@ pred_df
     <tr style="text-align: right;">
       <th></th>
       <th>image</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>[[[-1.9124069214000001, -1.6555356979, -1.4842...</td>
+      <td>[[[-0.09718302637338638, -0.11430778354406357,...</td>
       <td>healthy</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>[[[0.3823101819, 0.7761794925000001, 1.0501755...</td>
-      <td>angular_leaf_spot</td>
+      <td>[[[-1.3986643552780151, -1.4500386714935303, -...</td>
+      <td>healthy</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>[[[-0.3883038163, -0.456802845, -0.5595513582,...</td>
+      <td>[[[-1.4157891273498535, -1.4842880964279175, -...</td>
       <td>bean_rust</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>[[[-1.6212861538, -1.6041613817, -1.4671633244...</td>
-      <td>healthy</td>
+      <td>[[[-1.2445416450500488, -1.158917784690857, -1...</td>
+      <td>bean_rust</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>[[[-0.9876701832, -0.8335474133, -0.7136741281...</td>
-      <td>angular_leaf_spot</td>
+      <td>[[[-1.2445416450500488, -1.278791069984436, -1...</td>
+      <td>healthy</td>
     </tr>
   </tbody>
 </table>
