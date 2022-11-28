@@ -24,7 +24,7 @@ Click on the **Sign up Button** in the login page.
 
 [![IMAGE](/en/img/getting_started/img2.png)](/en/img/getting_started/img2.png)
 
-## __3. Use ThanoSQL Console__
+## __3. Use the ThanoSQL Console__
 
 - Log in and click on the **Start Button** to create a new workspace.
 
@@ -100,7 +100,7 @@ Query and create AI models with both structured and unstructured data with SQL.
 %load_ext thanosql
 %thanosql API_TOKEN=<Issued_API_TOKEN>
 ```
-- The query above must be executed first to use ThanoSQL's syntax.
+- The query above must be executed first to use the ThanoSQL's syntax.
 
 ② Switching Workspaces
 
