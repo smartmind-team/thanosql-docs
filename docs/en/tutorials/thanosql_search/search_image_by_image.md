@@ -66,7 +66,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" downloads the specified dataset to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL DATASET</strong> clause.
         <ul>
-            <li>"overwrite" : Determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, DEFAULT : False) </li>
+            <li>"overwrite" : Determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default : False) </li>
         </ul>
         </li>
     </ul>
@@ -100,7 +100,7 @@ FROM "thanosql-dataset/mnist_data/mnist_test.csv"
         <li>"<strong>COPY</strong>" specifies the name of the dataset to be saved as a database table. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>COPY</strong> clause.
         <ul>
-           <li>"overwrite" : Determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, DEFAULT : False) </li>
+           <li>"overwrite" : Determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default : False) </li>
         </ul>
         </li>
     </ul>
@@ -222,9 +222,9 @@ FROM mnist_train
         <li>"<strong>USING</strong>" specifies <code>SimCLR</code> as the base model.</li>
         <li>"<strong>OPTIONS</strong>" specifies the option values used to create a model.
         <ul>
-            <li>"image_col" : the name of the column containing the image path (Default: "<mark style="background-color:#D7D0FF">image_path</mark>")</li>
+            <li>"image_col" : the name of the column containing the image path (default: "<mark style="background-color:#D7D0FF">image_path</mark>")</li>
             <li>"max_epochs" : number of times to train with the training dataset.</li>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model. (True|False, DEFAULT: False) </li>
+            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model. (True|False, default: False) </li>
         </ul>
         </li>
     </ul>

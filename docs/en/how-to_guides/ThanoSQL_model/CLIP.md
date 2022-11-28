@@ -45,8 +45,8 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
 - "table_name" : The name of the new table to be created.
-- "image_col" : The name of the column containing the image path. (DEFAULT : 'image_path')
-- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
+- "image_col" : The name of the column containing the image path. (default : 'image_path')
+- "batch_size" : The size of the dataset bundle read during a single train. (default : 16)
 
 __CONVERT Example__
 

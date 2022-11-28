@@ -55,12 +55,12 @@ OPTIONS(
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "image")
-- "label_col" : 데이터 테이블에서 라벨의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "label")
-- "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
-- "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (DEFAULT : 3)
-- "learning_rate" : 모델의 학습률입니다. (DEFAULT : ConvNeXt=0.0001, EfficientNetV2=0.001)
-- "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (DEFAULT : False)
+- "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼을 설정합니다. (default : "image")
+- "label_col" : 데이터 테이블에서 라벨의 경로를 담은 컬럼을 설정합니다. (default : "label")
+- "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (default : 16)
+- "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (default : 3)
+- "learning_rate" : 모델의 학습률입니다. (default : ConvNeXt=0.0001, EfficientNetV2=0.001)
+- "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (default : False)
 
 
  __BUILD MODEL 예시__
@@ -117,12 +117,12 @@ OPTIONS(
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "image")
-- "label_col" : 데이터 테이블에서 라벨의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "label")
-- "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
-- "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (DEFAULT : 3)
-- "learning_rate" : 모델의 학습률입니다. (DEFAULT : ConvNeXt=0.0001, EfficientNetV2=0.001)
-- "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (DEFAULT : False)
+- "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼을 설정합니다. (default : "image")
+- "label_col" : 데이터 테이블에서 라벨의 경로를 담은 컬럼을 설정합니다. (default : "label")
+- "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (default : 16)
+- "epochs" : 총 몇 번 데이터 세트를 반복할 지를 설정합니다. (default : 3)
+- "learning_rate" : 모델의 학습률입니다. (default : ConvNeXt=0.0001, EfficientNetV2=0.001)
+- "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (default : False)
 
 
 ## __PREDICT 구문__
@@ -155,8 +155,8 @@ OPTIONS(
 
 "__OPTIONS__" 절은 이미지 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼을 설정합니다. (DEFAULT : "image")
-- "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
+- "image_col" : 데이터 테이블에서 이미지의 경로를 담은 컬럼을 설정합니다. (default : "image")
+- "batch_size" : 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (default : 16)
 
 
  __PREDICT 예시__

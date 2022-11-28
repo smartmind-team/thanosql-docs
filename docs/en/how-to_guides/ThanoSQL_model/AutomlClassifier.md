@@ -58,17 +58,17 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlClassifier model. The definition of each parameter is as follows.
 
 - "target" : Sets the name of the column that has the target value for the classification prediction model.
-- "impute_type" : Determines how empty values are handled in the data table.(DEFAULT : "simple")
+- "impute_type" : Determines how empty values are handled in the data table.(default : "simple")
 > "simple" : For empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
 > "iterative" : Applies an algorithm that predicts empty values with the remaining properties.
 - "features_to_drop" : Selects columns that are not needed for training.
 - "datetime_attribs" : Selects columns corresponding to the date.
-- "outlier_method" : Determines how outliers are handled in the table.(DEFAULT : "iso")
+- "outlier_method" : Determines how outliers are handled in the table.(default : "iso")
 > "pca" : Detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA).  
 > "iso" : Use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (Works efficiently on datasets with many variables.)  
 >  "knn" : Use a K-NN-based approach to detect abnormal samples based on the distance between each data.
-- "time_left_for_this_task" : Indicates the time the classifier will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
-- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT : False)
+- "time_left_for_this_task" : Indicates the time the classifier will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (default : 300)
+- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default : False)
 
 __BUILD MODEL Example__
 
@@ -125,17 +125,17 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlClassifier model. The definition of each parameter is as follows.
 
 - "target" : Sets the name of the column that has the target value for the classification prediction model.
-- "impute_type" : Determines how empty values are handled in the data table.(DEFAULT : "simple")
+- "impute_type" : Determines how empty values are handled in the data table.(default : "simple")
 > "simple" : For empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
 > "iterative" : Applies an algorithm that predicts empty values with the remaining properties.
 - "features_to_drop" : Selects columns that are not needed for training.
 - "datetime_attribs" : Selects columns corresponding to the date.
-- "outlier_method" : Determines how outliers are handled in the table.(DEFAULT : "iso")
+- "outlier_method" : Determines how outliers are handled in the table.(default : "iso")
 > "pca" : Detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA).  
 > "iso" : Use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (Works efficiently on datasets with many variables.)  
 >  "knn" : Use a K-NN-based approach to detect abnormal samples based on the distance between each data.
-- "time_left_for_this_task" : Indicates the time the classifier will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (DEFAULT : 300)
-- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT : False)
+- "time_left_for_this_task" : Indicates the time the classifier will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (default : 300)
+- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default : False)
 
 __FIT MODEL Example__
 
