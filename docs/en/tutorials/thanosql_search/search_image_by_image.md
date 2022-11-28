@@ -594,7 +594,7 @@ In this tutorial, we used the `MNIST` handwriting dataset to vectorize images an
 <br>
 For the next step, explore the various "__OPTIONS__" and training methods of image vectorization models. If you want to learn more about building your own accurate image model, proceed with the following tutorials.
 
-- [How to Upload to ThanoSQL workspace DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
+- [How to Upload to ThanoSQL workspace Database](https://docs.thanosql.ai/en/getting_started/data_upload/)
 - [Creating an Intermediate Similar Image Search Model]
 
 <div class="admonition tip">

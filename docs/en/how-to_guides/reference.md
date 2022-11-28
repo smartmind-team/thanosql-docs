@@ -20,7 +20,7 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__PRINT__](/en/how-to_guides/ThanoSQL_query/PRINT_SYNTAX/) — Print unstructured data (image, audio, video, etc.)
 - [__GET__](/en/how-to_guides/ThanoSQL_query/GET_SYNTAX/) —  Get model, data tables stored in the ThanoSQL Workspace Database
 - [__LIST__](/en/how-to_guides/ThanoSQL_query/LIST_SYNTAX/) — List model and data tables stored in the ThanoSQL Workspace Database
-- [__COPY__](/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - Copy data files in the workspace and Create data tables within the ThanoSQL Database
+- [__COPY__](/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - Copy data files in the workspace and Create data tables within the ThanoSQL Workspace Database
 
 ### __ThanoSQL Pre-built Model Statement Reference__
 

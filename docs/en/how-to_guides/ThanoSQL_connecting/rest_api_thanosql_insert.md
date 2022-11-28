@@ -1,8 +1,8 @@
 ---
-title: How to Upload to ThanoSQL Workspace Database
+title: How to Upload to the ThanoSQL Workspace Database
 ---
 
-# **How to Upload to ThanoSQL workspace Database**
+# **How to Upload to the ThanoSQL Workspace Database**
 
 ## Preface
 
