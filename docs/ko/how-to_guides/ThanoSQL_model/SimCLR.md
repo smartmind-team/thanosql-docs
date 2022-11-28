@@ -56,12 +56,12 @@ OPTIONS(
 ​
 "__OPTIONS__" 절은 SimCLR 수치화 모델의 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.  
 
-- "image_col" : 데이터 테이블에서 이미지의 경로를 설정합니다. (DEFAULT : "path")
-- "filename_col" : 데이터 테이블에서 이미지 파일 이름을 담은 컬럼을 설정합니다. (DEFAULT : "file_name")
-- "label_col" : 이미지 라벨을 담은 컬럼입니다. (DEFAULT : "label")
-- "max_epochs" : 모델 학습 횟수를 설정합니다. (DEFAULT : 5)  
-- "batch_size" : 학습 때 사용되어지는 데이터 묶음 속의 데이터 수를 설정합니다. (DEFAULT : 256)
-- "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (DEFAULT : False)
+- "image_col" : 데이터 테이블에서 이미지의 경로를 설정합니다. (default : "path")
+- "filename_col" : 데이터 테이블에서 이미지 파일 이름을 담은 컬럼을 설정합니다. (default : "file_name")
+- "label_col" : 이미지 라벨을 담은 컬럼입니다. (default : "label")
+- "max_epochs" : 모델 학습 횟수를 설정합니다. (default : 5)  
+- "batch_size" : 학습 때 사용되어지는 데이터 묶음 속의 데이터 수를 설정합니다. (default : 256)
+- "overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (default : False)
 
 
 __BUILD MODEL 예시__  

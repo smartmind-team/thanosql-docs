@@ -49,8 +49,8 @@ OPTIONS(
 "__OPTIONS__" 절은 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
 - "table_name" : 새로 만들어질 테이블의 이름입니다.
-- "image_col" : 테이블에서 이미지의 경로를 담고 있는 컬럼의 이름입니다. (DEFAULT : 'image_path')
-- "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (DEFAULT : 16)
+- "image_col" : 테이블에서 이미지의 경로를 담고 있는 컬럼의 이름입니다. (default : 'image_path')
+- "batch_size" : 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (default : 16)
 
 
 __CONVERT 예시__

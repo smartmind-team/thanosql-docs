@@ -71,7 +71,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" downloads the specified dataset to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL DATASET</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, DEFAULT : False) </li>
+            <li>"overwrite" : determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default : False) </li>
         </ul>
         </li>
     </ul>
@@ -105,7 +105,7 @@ FROM "thanosql-dataset/titanic_data/titanic_test.csv"
         <li>"<strong>COPY</strong>" specifies the name of the dataset to be saved as a database table. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>COPY</strong> clause.
         <ul>
-           <li>"overwrite" : determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, DEFAULT : False) </li>
+           <li>"overwrite" : determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default : False) </li>
         </ul>
         </li>
     </ul>
@@ -294,10 +294,10 @@ FROM titanic_train
         <li>"<strong>OPTIONS</strong>" specifies the option values used to create the model.
         <ul> 
             <li>"target" : the name of the column containing the target value of the classification model </li>
-            <li>"impute_type" : determines how empty values ​​(NaNs) are handled ('simple'|'iterative' , DEFAULT: 'simple') </li>
+            <li>"impute_type" : determines how empty values ​​(NaNs) are handled ('simple'|'iterative' , default: 'simple') </li>
             <li>"features_to_drop" : selects columns that cannot be used for training </li>
-            <li>"time_left_for_this_task" : the total time given to find a suitable classification model (DEFAULT: 300)</li>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+            <li>"time_left_for_this_task" : the total time given to find a suitable classification model (default: 300)</li>
+            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default : False) </li>
     </ul>
 </div>
 

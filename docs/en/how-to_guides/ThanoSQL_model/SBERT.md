@@ -54,11 +54,11 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter in a text model. The definition of each parameter is as follows.
 
 - "text_col" : The name of the column containing movie review data in the data table.
-- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
-- "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 1)
-- "learning_rate" : The learning rate of the model. (DEFAULT : 3e-5)
-- "train" : Determines whether to train the pretrained model. If False, the pretrained model is used. (DEFAULT : True)
-- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT: False)
+- "batch_size" : The size of the dataset bundle read during a single train. (default : 16)
+- "epochs" : Sets how many times the dataset is trained in total. (default : 1)
+- "learning_rate" : The learning rate of the model. (default : 3e-5)
+- "train" : Determines whether to train the pretrained model. If False, the pretrained model is used. (default : True)
+- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
 
 __BUILD MODEL Example__
 
@@ -106,7 +106,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 - "table_name" : The name of the new table to be created.
 - "text_col" : The name of the column containing the movie review data.
-- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
+- "batch_size" : The size of the dataset bundle read during a single train. (default : 16)
 
 __CONVERT Example__
 
@@ -167,12 +167,12 @@ OPTIONS (
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
 - "text_col" : The name of the column containing the movie review data.
-- "ngram_range" : Minimum and maximum size of words for each keyword. (list[int, int], DEFAULT : [1, 2])
-- "use_stopwords" : Whether to exclude words that do not have a significant meaning.  (DEFAULT : True) 
+- "ngram_range" : Minimum and maximum size of words for each keyword. (list[int, int], default : [1, 2])
+- "use_stopwords" : Whether to exclude words that do not have a significant meaning.  (default : True) 
 - "lang" : en, ko
-- "top_n" : The number of keywords to be extracted, in order of highest similarity. (int, DEFAULT : 5)
-- "diversity" : The variety of keywords to be extracted. The higher the value, the more diverse the keywords will be. 0 <= diversity <= 1 (float, DEFAULT : 0.5)
-- "threshold" : The minimum value of similarity value of keywords to be extracted. (float, DEFAULT : 0.0)
+- "top_n" : The number of keywords to be extracted, in order of highest similarity. (int, default : 5)
+- "diversity" : The variety of keywords to be extracted. The higher the value, the more diverse the keywords will be. 0 <= diversity <= 1 (float, default : 0.5)
+- "threshold" : The minimum value of similarity value of keywords to be extracted. (float, default : 0.0)
 
 __SEARCH Example__
 

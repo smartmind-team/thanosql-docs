@@ -87,7 +87,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" downloads the specified dataset to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL DATASET</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, DEFAULT : False) </li>
+            <li>"overwrite" : determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default : False) </li>
         </ul>
         </li>
     </ul>
@@ -121,7 +121,7 @@ FROM "thanosql-dataset/product_image_data/product_image_test.csv"
         <li>"<strong>COPY</strong>" specifies the name of the dataset to be saved as a database table. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>COPY</strong> clause.
         <ul>
-           <li>"overwrite" : determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, DEFAULT : False) </li>
+           <li>"overwrite" : determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default : False) </li>
         </ul>
         </li>
     </ul>
@@ -146,7 +146,7 @@ AS tutorial_product_classifier
         <li>"<strong>GET THANOSQL MODEL</strong>" downloads the specified model to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL MODEL</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default : False) </li>
         </ul>
         </li>
         <li>"<strong>AS</strong>" names the given model. If not specified, the model will be named as the default <code>THANOSQL MODEL</code> name.</li>
@@ -463,7 +463,7 @@ FROM product_image_train
             <li>"image_col" : name of column containing the image path</li>
             <li>"label_col" : name of the column containing information about the target value</li>
             <li>"epochs" : number of times to train with the training dataset.</li>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default : False) </li>
         </ul>
         </li>
     </ul>
