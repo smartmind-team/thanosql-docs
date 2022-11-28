@@ -4,11 +4,11 @@ title: Auto-ML을 사용하여 분류 모델 만들기
 
 # __Auto-ML을 사용하여 분류 모델 만들기__
 
-- 튜토리얼 난이도 : ★☆☆☆☆
-- 읽는데 걸리는 시간 : 4 분
-- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 파일 위치 : tutorial/thanosql_ml/classification/automl_classification.ipynb 
-- 참고 문서 : [(캐글) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
+- 튜토리얼 난이도: ★☆☆☆☆
+- 읽는데 걸리는 시간: 4 분
+- 사용 언어: [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치: tutorial/thanosql_ml/classification/automl_classification.ipynb 
+- 참고 문서: [(캐글) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
 
 ## 튜토리얼 소개
 
@@ -72,7 +72,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" 쿼리 구문을 사용하여 원하는 데이터 세트를 워크스페이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL DATASET</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -103,10 +103,10 @@ FROM "thanosql-dataset/titanic_data/titanic_test.csv"
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 DB에 복사 할 데이터 세트명을 지정합니다. </li>
+        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 데이터베이스에 복사 할 데이터 세트명을 지정합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>COPY</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 데이터베이스 상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -114,7 +114,7 @@ FROM "thanosql-dataset/titanic_data/titanic_test.csv"
 
 ## __1. 데이터 세트 확인__
 
-생존자 예측 분류 모델을 만들기 위해 우리는 ThanoSQL 워크스페이스 DB에 저장되어 있는 <mark style="background-color:#FFEC92 "><strong>titanic_train</strong></mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하면서 테이블 내용을 확인합니다.
+생존자 예측 분류 모델을 만들기 위해 우리는 ThanoSQL 워크스페이스 데이터베이스에 저장되어 있는 <mark style="background-color:#FFEC92 "><strong>titanic_train</strong></mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하면서 테이블 내용을 확인합니다.
 
 
 ```python
@@ -167,7 +167,7 @@ LIMIT 5
       <td>3</td>
       <td>Braund, Mr. Owen Harris</td>
       <td>male</td>
-      <td>22</td>
+      <td>22.0</td>
       <td>1</td>
       <td>0</td>
       <td>A/5 21171</td>
@@ -182,7 +182,7 @@ LIMIT 5
       <td>1</td>
       <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
       <td>female</td>
-      <td>38</td>
+      <td>38.0</td>
       <td>1</td>
       <td>0</td>
       <td>PC 17599</td>
@@ -197,7 +197,7 @@ LIMIT 5
       <td>3</td>
       <td>Heikkinen, Miss. Laina</td>
       <td>female</td>
-      <td>26</td>
+      <td>26.0</td>
       <td>0</td>
       <td>0</td>
       <td>STON/O2. 3101282</td>
@@ -212,7 +212,7 @@ LIMIT 5
       <td>1</td>
       <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
       <td>female</td>
-      <td>35</td>
+      <td>35.0</td>
       <td>1</td>
       <td>0</td>
       <td>113803</td>
@@ -227,7 +227,7 @@ LIMIT 5
       <td>3</td>
       <td>Allen, Mr. William Henry</td>
       <td>male</td>
-      <td>35</td>
+      <td>35.0</td>
       <td>0</td>
       <td>0</td>
       <td>373450</td>
@@ -245,18 +245,18 @@ LIMIT 5
     <h4 class="admonition-title">데이터 이해하기</h4>
     <p><mark style="background-color:#FFEC92 "><strong>tianic_train</strong></mark> 데이터 세트는 다음과 같은 정보를 담고 있습니다.</p>
     <ul>
-        <li><mark style="background-color:#D7D0FF">passengerid</mark> : 탑승승객 아이디</li>
-        <li><mark style="background-color:#D7D0FF">survived</mark> : 탑승승객  생존 여부</li>
-        <li><mark style="background-color:#D7D0FF">pclass</mark> : 탑승승객 티켓 등급</li>
-        <li><mark style="background-color:#D7D0FF">name</mark> : 탑승승객 이름</li>
-        <li><mark style="background-color:#D7D0FF">sex</mark> : 탑승승객 성별</li>
-        <li><mark style="background-color:#D7D0FF">age</mark> : 탑승승객 나이</li>
-        <li><mark style="background-color:#D7D0FF">sibsp</mark> : 탑승한 형제 자매 또는 배우자 수</li>
-        <li><mark style="background-color:#D7D0FF">parch</mark> : 탑승한 부모 또는 자녀의 수</li>
-        <li><mark style="background-color:#D7D0FF">ticket</mark> : 티켓 번호</li>
-        <li><mark style="background-color:#D7D0FF">fare</mark> : 요금</li>
-        <li><mark style="background-color:#D7D0FF">cabin</mark> : 선실</li>
-        <li><mark style="background-color:#D7D0FF">embarked</mark> : 승선지 또는 항구</li>
+        <li><mark style="background-color:#D7D0FF">passengerid</mark>: 탑승승객 아이디</li>
+        <li><mark style="background-color:#D7D0FF">survived</mark>: 탑승승객  생존 여부</li>
+        <li><mark style="background-color:#D7D0FF">pclass</mark>: 탑승승객 티켓 등급</li>
+        <li><mark style="background-color:#D7D0FF">name</mark>: 탑승승객 이름</li>
+        <li><mark style="background-color:#D7D0FF">sex</mark>: 탑승승객 성별</li>
+        <li><mark style="background-color:#D7D0FF">age</mark>: 탑승승객 나이</li>
+        <li><mark style="background-color:#D7D0FF">sibsp</mark>: 탑승한 형제 자매 또는 배우자 수</li>
+        <li><mark style="background-color:#D7D0FF">parch</mark>: 탑승한 부모 또는 자녀의 수</li>
+        <li><mark style="background-color:#D7D0FF">ticket</mark>: 티켓 번호</li>
+        <li><mark style="background-color:#D7D0FF">fare</mark>: 요금</li>
+        <li><mark style="background-color:#D7D0FF">cabin</mark>: 선실</li>
+        <li><mark style="background-color:#D7D0FF">embarked</mark>: 승선지 또는 항구</li>
     </ul>
 </div>
  
@@ -285,7 +285,6 @@ SELECT *
 FROM titanic_train
 ```
 
-    Building model...
     Success
 
 
@@ -295,11 +294,11 @@ FROM titanic_train
         <li>"<strong>BUILD MODEL</strong>" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 만들고 학습시킵니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"target" : 분류 모델의 목푯값이 담겨 있는 컬럼명</li>
-            <li>"impute_type" : 데이터 테이블의 빈 값(NaN)을 처리하는 방법 설정 ('simple'|'iterative' , DEFAULT : 'simple')        </li>
-            <li>"features_to_drop" : 데이터 테이블에서 학습에 이용하지 못하는 컬럼명 리스트</li>
-            <li>"time_left_for_this_task" : 적합한 분류 예측 모델을 찾는데 소요되는 시간 (DEFAULT : 300)</li>
-            <li>"overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"target": 분류 모델의 목푯값이 담겨 있는 컬럼명</li>
+            <li>"impute_type": 데이터 테이블의 빈 값(NaN)을 처리하는 방법 설정 ('simple'|'iterative' , default: 'simple')        </li>
+            <li>"features_to_drop": 데이터 테이블에서 학습에 이용하지 못하는 컬럼명 리스트</li>
+            <li>"time_left_for_this_task": 적합한 분류 예측 모델을 찾는데 소요되는 시간 (default: 300)</li>
+            <li>"overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -350,37 +349,37 @@ FROM titanic_train
     <tr>
       <th>0</th>
       <td>accuracy</td>
-      <td>0.886644</td>
+      <td>0.895623</td>
     </tr>
     <tr>
       <th>1</th>
       <td>ROCAUC</td>
-      <td>0.888667</td>
+      <td>0.896712</td>
     </tr>
     <tr>
       <th>2</th>
       <td>Recall</td>
-      <td>0.895082</td>
+      <td>0.900322</td>
     </tr>
     <tr>
       <th>3</th>
       <td>Precision</td>
-      <td>0.798246</td>
+      <td>0.818713</td>
     </tr>
     <tr>
       <th>4</th>
       <td>f1-score</td>
-      <td>0.843895</td>
+      <td>0.857580</td>
     </tr>
     <tr>
       <th>5</th>
       <td>Kappa</td>
-      <td>0.755364</td>
+      <td>0.775499</td>
     </tr>
     <tr>
       <th>6</th>
       <td>MCC</td>
-      <td>0.758416</td>
+      <td>0.777680</td>
     </tr>
   </tbody>
 </table>
@@ -394,7 +393,7 @@ FROM titanic_train
         <li>"<strong>EVALUATE USING</strong>" 쿼리 구문을 사용하여 구축한  <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>이라는 모델을 평가합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 모델 평가에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"target" : 분류 예측 모델에 목푯값이 되는 컬럼의 이름</li>
+            <li>"target": 분류 예측 모델에 목푯값이 되는 컬럼의 이름</li>
         </ul>
         </li>
     </ul>
@@ -413,6 +412,7 @@ FROM titanic_train
 ```python
 %%thanosql 
 PREDICT USING titanic_automl_classification
+OPTIONS (column_name="predict_result")
 AS 
 SELECT * 
 FROM titanic_test
@@ -450,7 +450,7 @@ FROM titanic_test
       <th>fare</th>
       <th>cabin</th>
       <th>embarked</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -628,19 +628,23 @@ FROM titanic_test
 
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
-    <p>"<strong>PREDICT USING</strong>" 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark> 모델을 예측에 사용합니다. "<strong>PREDICT</strong>"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 옵션이 필요없습니다. </p>
+    <ul>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 사용하여 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
+        <ul>
+            <li>"column_name": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 정의합니다. (default: "predict_result")</li>
+        </ul>
+        </li>
+    </ul>
 </div>
 
 ## __5. 튜토리얼을 마치며__
 
-이번 튜토리얼에서는 [캐글](https://www.kaggle.com/)의 <mark style="background-color:#FFD79C"> <strong>Titanic: Machine Learning from Disaster</strong></mark> 데이터를 사용하여 타이타닉 생존자 분류 예측 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정보다는 전반적인 프로세스 위주의 설명으로 진행 하였습니다. 향상 된 분류 모델 구축에 대해 자세히 알고 싶다면 중급 튜토리얼을 진행해 볼 것을 권장드립니다.
-
-다음 [중급 분류 예측 모델 만들기] 튜토리얼에서는 정확도 향상을 위한 "__OPTIONS__"에 대해 더욱 심도있게 다뤄보겠습니다. 중급, 고급 단계를 마치고 나만의 서비스/프로덕트를 위한 분류 예측 모델을 만들어 보세요. 중급 단계에서는 ThanoSQL의 AutoML이 제공하는 다양한 "__OPTIONS__"를 활용하여 정교한 분류 예측 모델을 만들어 볼 예정입니다. 또한, 중급 단계를 마치신 이후 고급 단계에서는 비정형 데이터를 수치화시킨 후 AutoML의 학습 요소로 포함하여 분류 예측 모델을 만들 수 있습니다.
+이번 튜토리얼에서는 [캐글](https://www.kaggle.com/)의 <mark style="background-color:#FFD79C"> <strong>Titanic: Machine Learning from Disaster</strong></mark> 데이터를 사용하여 타이타닉 생존자 분류 예측 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정보다는 전반적인 프로세스 위주의 설명으로 진행 하였습니다.
 
 * [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [중급 이미지 분류 모델 만들기]
-* [이미지 변환과 Auto-ML을 이용한 나만의 모델 만들기]
-* [나만의 이미지 분류 모델 배포하기](https://docs.thanosql.ai/how-to_guides/reference/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

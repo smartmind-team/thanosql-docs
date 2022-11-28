@@ -4,24 +4,24 @@ title: Create a Classification Model Using AutoML
 
 # __Create a Classification Model Using AutoML__
 
-- Tutorial difficulty : ★☆☆☆☆
+- Tutorial difficulty: ★☆☆☆☆
 - 4 min read
-- Languages : [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
-- File location : tutorial_en/thanosql_ml/classification/automl_classification.ipynb
-- References : [(Kaggle) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
+- Languages: [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
+- File location: tutorial_en/thanosql_ml/classification/automl_classification.ipynb
+- References: [(Kaggle) Titanic - Machine Learning from Disaster](https://www.kaggle.com/competitions/titanic/overview)
 
 ## Tutorial Introduction
 
 <div class="admonition note">
     <h4 class="admonition-title">Understanding Classification</h4>
-    <p>Classification is a type of <a href="https://en.wikipedia.org/wiki/Machine_learning">Machine Learning</a> that predicts which category (Category or Class) the target belongs to. For example, both binary classifications (used for classifying men or women) and multiple classifications (used to predict animal species such as dogs, cats, rabbits, etc.) are included in the classification tasks. <br></p>
+    <p>Classification is a type of <a href="https://en.wikipedia.org/wiki/Machine_learning">Machine Learning</a> that predicts which category(Category or Class) the target belongs to. For example, both binary classifications(used for classifying men or women) and multiple classifications(used to predict animal species such as dogs, cats, rabbits, etc.) are included in the classification tasks. <br></p>
 </div>
 
-To predict whether or not a potential customer will react positively to a particular marketing promotion in your company, you can use your customer's [Customer Relationship Management (CRM)](https://en.wikipedia.org/wiki/Customer_relationship_management) data (demographic information, customer behavior/search data, etc.). In this case, the <a href="https://en.wikipedia.org/wiki/Feature_(machine_learning)">features</a> expressed in the CRM data are used as the input data, and the target value, which is the value to be predicted, is whether the target customer's response to the promotion is positive (1 or True) or negative (0 or False). By using this classification model, you can predict the reaction of customers who have not been exposed to advertisements and target the appropriate customers, thereby continuously increasing marketing efficiency.
+To predict whether or not a potential customer will react positively to a particular marketing promotion in your company, you can use your customer's [Customer Relationship Management (CRM)](https://en.wikipedia.org/wiki/Customer_relationship_management) data(demographic information, customer behavior/search data, etc.). In this case, the <a href="https://en.wikipedia.org/wiki/Feature_(machine_learning)">features</a> expressed in the CRM data are used as the input data, and the target value, which is the value to be predicted, is whether the target customer's response to the promotion is positive(1 or True) or negative(0 or False). By using this classification model, you can predict the reaction of customers who have not been exposed to advertisements and target the appropriate customers, thereby continuously increasing marketing efficiency.
 
 __The following are examples and applications of the ThanoSQL classification model.__
 
-- The classification model enables early detection of current user deviations and allows proactive response to problems (deviations). Collected data can help you identify the features of leaving customers and allow you to take appropriate action by discovering leaving customers in advance. This can help prevent customer defections and increase sales.
+- The classification model enables early detection of current user deviations and allows proactive response to problems(deviations). Collected data can help you identify the features of leaving customers and allow you to take appropriate action by discovering leaving customers in advance. This can help prevent customer defections and increase sales.
 
 - You can predict the [Market Segmentation](https://en.wikipedia.org/wiki/Market_segmentation) involved in your online platform. Most service users have different characteristics, behaviors, and needs. Classification models utilize the users' features to identify granular groups and enable them to develop strategies tailored to them.  
 
@@ -33,7 +33,7 @@ __The following are examples and applications of the ThanoSQL classification mod
 
 __Predicting Passengers Who Would Survive The Titanic Incident__
 
-ThanoSQL provides automated machine learning (__Auto-ML__) tools. This tutorial uses Auto-ML to predict passengers who would survive the Titanic incident. ThanoSQL's Auto-ML automates the process for model development and enables data collection and storage along with machine learning model development and distribution (end-to-end machine learning pipelines) using a single language.
+ThanoSQL provides automated machine learning(__Auto-ML__) tools. This tutorial uses Auto-ML to predict passengers who would survive the Titanic incident. ThanoSQL's Auto-ML automates the process for model development and enables data collection and storage along with machine learning model development and distribution(end-to-end machine learning pipelines) using a single language.
 
 __Automated ML has the following advantages:__
 
@@ -71,7 +71,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" downloads the specified dataset to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL DATASET</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, DEFAULT : False) </li>
+            <li>"overwrite": determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -82,7 +82,7 @@ OPTIONS (overwrite=True)
 %%thanosql
 COPY titanic_train 
 OPTIONS (overwrite=True)
-FROM "tutorial_data/titanic_data/titanic_train.csv"
+FROM "thanosql-dataset/titanic_data/titanic_train.csv"
 ```
 
     Success
@@ -105,7 +105,7 @@ FROM "thanosql-dataset/titanic_data/titanic_test.csv"
         <li>"<strong>COPY</strong>" specifies the name of the dataset to be saved as a database table. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>COPY</strong> clause.
         <ul>
-           <li>"overwrite" : determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, DEFAULT : False) </li>
+           <li>"overwrite": determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -113,7 +113,7 @@ FROM "thanosql-dataset/titanic_data/titanic_test.csv"
 
 ## __1. Check Dataset__
 
-To create the survivor classification model, we use the <mark style="background-color:#FFEC92 "><strong>titanic_train</strong></mark> table located in the ThanoSQL database. Run the query below to check the contents of the table.
+To create the survivor classification model, we use the <mark style="background-color:#FFEC92 "><strong>titanic_train</strong></mark> table located in the ThanoSQL workspace database. Run the query below to check the contents of the table.
 
 
 ```python
@@ -166,7 +166,7 @@ LIMIT 5
       <td>3</td>
       <td>Braund, Mr. Owen Harris</td>
       <td>male</td>
-      <td>22</td>
+      <td>22.0</td>
       <td>1</td>
       <td>0</td>
       <td>A/5 21171</td>
@@ -181,7 +181,7 @@ LIMIT 5
       <td>1</td>
       <td>Cumings, Mrs. John Bradley (Florence Briggs Th...</td>
       <td>female</td>
-      <td>38</td>
+      <td>38.0</td>
       <td>1</td>
       <td>0</td>
       <td>PC 17599</td>
@@ -196,7 +196,7 @@ LIMIT 5
       <td>3</td>
       <td>Heikkinen, Miss. Laina</td>
       <td>female</td>
-      <td>26</td>
+      <td>26.0</td>
       <td>0</td>
       <td>0</td>
       <td>STON/O2. 3101282</td>
@@ -211,7 +211,7 @@ LIMIT 5
       <td>1</td>
       <td>Futrelle, Mrs. Jacques Heath (Lily May Peel)</td>
       <td>female</td>
-      <td>35</td>
+      <td>35.0</td>
       <td>1</td>
       <td>0</td>
       <td>113803</td>
@@ -226,7 +226,7 @@ LIMIT 5
       <td>3</td>
       <td>Allen, Mr. William Henry</td>
       <td>male</td>
-      <td>35</td>
+      <td>35.0</td>
       <td>0</td>
       <td>0</td>
       <td>373450</td>
@@ -244,18 +244,18 @@ LIMIT 5
     <h4 class="admonition-title">Understanding the Data</h4>
     <p>The <mark style="background-color:#FFEC92 "><strong>tianic_train</strong></mark> dataset contains the following columns.</p>
     <ul>
-        <li><mark style="background-color:#D7D0FF">passengerid</mark> : passenger ID</li>
-        <li><mark style="background-color:#D7D0FF">survived</mark> : whether the passenger on board survived</li>
-        <li><mark style="background-color:#D7D0FF">pclass</mark> : passenger ticket class</li>
-        <li><mark style="background-color:#D7D0FF">name</mark> : passenger name</li>
-        <li><mark style="background-color:#D7D0FF">sex</mark> : passenger gender</li>
-        <li><mark style="background-color:#D7D0FF">age</mark> : passenger age</li>
-        <li><mark style="background-color:#D7D0FF">sibsp</mark> : number of siblings or spouses on board</li>
-        <li><mark style="background-color:#D7D0FF">parch</mark> : number of parents or children on board</li>
-        <li><mark style="background-color:#D7D0FF">ticket</mark> : ticket number</li>
-        <li><mark style="background-color:#D7D0FF">fare</mark> : fare</li>
-        <li><mark style="background-color:#D7D0FF">cabin</mark> : cabin number</li>
-        <li><mark style="background-color:#D7D0FF">embarked</mark> : boarding location or port</li>
+        <li><mark style="background-color:#D7D0FF">passengerid</mark>: passenger ID</li>
+        <li><mark style="background-color:#D7D0FF">survived</mark>: whether the passenger on board survived</li>
+        <li><mark style="background-color:#D7D0FF">pclass</mark>: passenger ticket class</li>
+        <li><mark style="background-color:#D7D0FF">name</mark>: passenger name</li>
+        <li><mark style="background-color:#D7D0FF">sex</mark>: passenger gender</li>
+        <li><mark style="background-color:#D7D0FF">age</mark>: passenger age</li>
+        <li><mark style="background-color:#D7D0FF">sibsp</mark>: number of siblings or spouses on board</li>
+        <li><mark style="background-color:#D7D0FF">parch</mark>: number of parents or children on board</li>
+        <li><mark style="background-color:#D7D0FF">ticket</mark>: ticket number</li>
+        <li><mark style="background-color:#D7D0FF">fare</mark>: fare</li>
+        <li><mark style="background-color:#D7D0FF">cabin</mark>: cabin number</li>
+        <li><mark style="background-color:#D7D0FF">embarked</mark>: boarding location or port</li>
     </ul>
 </div>
 
@@ -283,7 +283,6 @@ SELECT *
 FROM titanic_train
 ```
 
-    Building model...
     Success
 
 
@@ -293,11 +292,13 @@ FROM titanic_train
         <li>"<strong>BUILD MODEL</strong>" creates and trains a model named <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>.</li>
         <li>"<strong>OPTIONS</strong>" specifies the option values used to create the model.
         <ul> 
-            <li>"target" : the name of the column containing the target value of the classification model </li>
-            <li>"impute_type" : determines how empty values ​​(NaNs) are handled ('simple'|'iterative' , DEFAULT: 'simple') </li>
-            <li>"features_to_drop" : selects columns that cannot be used for training </li>
-            <li>"time_left_for_this_task" : the total time given to find a suitable classification model (DEFAULT: 300)</li>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+            <li>"target": the name of the column containing the target value of the classification model </li>
+            <li>"impute_type": determines how empty values ​​(NaNs) are handled ('simple'|'iterative' , default: 'simple') </li>
+            <li>"features_to_drop": selects columns that cannot be used for training </li>
+            <li>"time_left_for_this_task": the total time given to find a suitable classification model (default: 300)</li>
+            <li>"overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default: False) </li>
+        </ul>
+        </li>
     </ul>
 </div>
 
@@ -391,7 +392,7 @@ FROM titanic_train
         <li>"<strong>EVALUATE USING</strong>" evaluates the <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark> model. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values used to evaluate the model.
         <ul> 
-            <li>"target" : the name of the column containing the target value of the classification model. </li>
+            <li>"target": the name of the column containing the target value of the classification model. </li>
         </ul>
         </li>
     </ul>
@@ -410,6 +411,7 @@ To use the classification model created in the previous step for prediction of <
 ```python
 %%thanosql 
 PREDICT USING titanic_automl_classification
+OPTIONS (column_name="predict_result")
 AS 
 SELECT * 
 FROM titanic_test
@@ -447,7 +449,7 @@ FROM titanic_test
       <th>fare</th>
       <th>cabin</th>
       <th>embarked</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -626,20 +628,22 @@ FROM titanic_test
 <div class="admonition note">
     <h4 class="admonition-title">Query Details</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark>
+        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">titanic_automl_classification</mark></li>
+        <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
+        <ul>
+            <li>"column_name": the column that contains the predicted results. (default: "predict_result")</li>
+        </ul>
+        </li>
     </ul>
 </div>
 
 ## __5. In Conclusion__
 
-In this tutorial, we created a Titanic survivor classification model using the <mark style="background-color:#FFD79C"><strong>Titanic: Machine Learning from Disaster</strong></mark> dataset from [Kaggle](https://www.kaggle.com/). As this is a beginner-level tutorial, we focused on the process rather than accuracy. If you'd like to learn more about building advanced classification models, you should check out our intermediate tutorials. 
+In this tutorial, we created a Titanic survivor classification model using the <mark style="background-color:#FFD79C"><strong>Titanic: Machine Learning from Disaster</strong></mark> dataset from [Kaggle](https://www.kaggle.com/). As this is a beginner-level tutorial, we focused on the process rather than accuracy.
 
-For the next step, the [Creating an Intermediate Classification Model] tutorial takes a deeper dive into the "__OPTIONS__" clause to improve accuracy. For the intermediate tutorial, we will create sophisticated classification models using the various "__OPTIONS__" provided by ThanoSQL's AutoML. In the advanced level, you will have the chance to vectorize unstructured data and include it as a train element in AutoML to create an even more sophisticated classification model.
-
-- [How to Upload to ThanoSQL workspace DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
-- [Creating an Intermediate Image Classification Model]
-- [Image conversion and creating My model using Auto-ML]
-- [Deploy My Image Classification model](https://docs.thanosql.ai/en/how-to_guides/reference/)
+* [How to Upload My Data to the ThanoSQL Workspace](https://docs.thanosql.ai/en/getting_started/data_upload/)
+* [How to Create a Table Using My Data](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [How to Upload My Model to the ThanoSQL Workspace](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">Inquiries about deploying a model for your own service</h4>

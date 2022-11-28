@@ -6,22 +6,22 @@ title: Create a Text Classification Model
 
 - Tutorial Difficulty: ★☆☆☆☆
 - 10 min read
-- Languages : [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
-- File location : tutorial_en/thanosql_ml/classification/text_classification.ipynb
-- References : [(Kaggle) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
+- Languages: [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
+- File location: tutorial_en/thanosql_ml/classification/text_classification.ipynb
+- References: [(Kaggle) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
 
 ## Tutorial Introduction
 
 <div class="admonition note">
     <h4 class="admonition-title">Understanding Classification</h4>
-    <p>Classification is a type of <a href="https://en.wikipedia.org/wiki/Machine_learning">Machine Learning</a> that predicts which category (Category or Class) the target belongs to. For example, both binary classifications (used for classifying men or women) and multiple classifications (used to predict animal species such as dogs, cats, rabbits, etc.) are included in the classification tasks. <br></p>
+    <p>Classification is a type of <a href="https://en.wikipedia.org/wiki/Machine_learning">Machine Learning</a> that predicts which category(Category or Class) the target belongs to. For example, both binary classifications(used for classifying men or women) and multiple classifications(used to predict animal species such as dogs, cats, rabbits, etc.) are included in the classification tasks. <br></p>
 </div>
 
-[Natural Language Processing (NLP)](https://en.wikipedia.org/wiki/Natural_language_processing) is a branch of artificial intelligence that uses machine learning to process and interpret text-based data.
+[Natural Language Processing(NLP)](https://en.wikipedia.org/wiki/Natural_language_processing) is a branch of artificial intelligence that uses machine learning to process and interpret text-based data.
 
 <div class="admonition tip">
-    <h4 class="admonition-title">What is <a href="https://en.wikipedia.org/wiki/Natural_language_processing">Natural Language Processing (NLP)</a></h4>
-    <p>Depending on the task, NLP can be divided into two categories: Natural Language Understanding (NLU) and Natural Language Generation (NLG). NLU is the process of converting a person's natural language into a value that a computer can understand. NLG, on the other hand, refers to the process of translating computer-readable values into natural language that humans can understand.</p>
+    <h4 class="admonition-title">What is <a href="https://en.wikipedia.org/wiki/Natural_language_processing">Natural Language Processing(NLP)</a></h4>
+    <p>Depending on the task, NLP can be divided into two categories: Natural Language Understanding(NLU) and Natural Language Generation(NLG). NLU is the process of converting a person's natural language into a value that a computer can understand. NLG, on the other hand, refers to the process of translating computer-readable values into natural language that humans can understand.</p>
 </div>
 
 Recent advancements in pre-training techniques, such as [BERT](<https://en.wikipedia.org/wiki/BERT_(language_model)>) and [GPT-3](https://en.wikipedia.org/wiki/GPT-3), allow for the development of a common language comprehension model prior to fine-tuning for specific NLP tasks, such as emotional analysis or question-and-answer.
@@ -46,9 +46,9 @@ __The following are examples and applications of the ThanoSQL text classificatio
 <div class="admonition warning">
     <h4 class="admonition-title">Tutorial Precautions</h4>
     <ul>
-        <li>A text classification model can be used to predict one target value (Target, Category) from one text value.</li>
+        <li>A text classification model can be used to predict one target value(Target, Category) from one text value.</li>
         <li>Both a column representing the text and a column representing the target value of the text must exist.</li>
-        <li>The base model of the corresponding text classification model (<code>ELECTRA</code>) uses GPU. Depending on the size and the batch size of the model used, GPU memory may be insufficient. In this case, try using a smaller model or reducing the batch size of the model.</li>
+        <li>The base model of the corresponding text classification model(<code>ELECTRA</code>) uses GPU. Depending on the size and the batch size of the model used, GPU memory may be insufficient. In this case, try using a smaller model or reducing the batch size of the model.</li>
     </ul>
 </div>
 
@@ -80,7 +80,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" downloads the specified dataset to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL DATASET</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, DEFAULT : False) </li>
+            <li>"overwrite": determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -114,7 +114,7 @@ FROM "thanosql-dataset/movie_review_data/movie_review_test.csv"
         <li>"<strong>COPY</strong>" specifies the name of the dataset to be saved as a database table. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>COPY</strong> clause.
         <ul>
-           <li>"overwrite" : determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, DEFAULT : False) </li>
+           <li>"overwrite": determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -125,7 +125,7 @@ FROM "thanosql-dataset/movie_review_data/movie_review_test.csv"
 
 ```python
 %%thanosql
-GET THANOSQL MODEL tutorial_text_classification
+GET THANOSQL MODEL electra
 OPTIONS (overwrite=True)
 AS tutorial_text_classification
 ```
@@ -139,7 +139,7 @@ AS tutorial_text_classification
         <li>"<strong>GET THANOSQL MODEL</strong>" downloads the specified model to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL MODEL</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+            <li>"overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default: False) </li>
         </ul>
         </li>
         <li>"<strong>AS</strong>" names the given model. If not specified, the model will be named as the default <code>THANOSQL MODEL</code> name.</li>
@@ -148,7 +148,7 @@ AS tutorial_text_classification
 
 ## __1.Check Dataset__
 
-To create a movie review sentiment classification model, we use the <mark style="background-color:#FFEC92 ">movie_review_train</mark> table from the ThanoSQL database. To check the table's contents, run the following query.
+To create a movie review sentiment classification model, we use the <mark style="background-color:#FFEC92 ">movie_review_train</mark> table from the ThanoSQL workspace database. To check the table's contents, run the following query.
 
 
 ```python
@@ -219,7 +219,7 @@ LIMIT 5
    <h4 class="admonition-title">Understanding the Data</h4>
    <ul>
       <li><mark style="background-color:#D7D0FF ">review</mark>: movie review in text format</li>
-      <li><mark style="background-color:#D7D0FF ">sentiment</mark> : target value indicating whether the review has a positive or negative sentiment</li>
+      <li><mark style="background-color:#D7D0FF ">sentiment</mark>: target value indicating whether the review has a positive or negative sentiment</li>
    </ul>
 </div>
 
@@ -262,7 +262,7 @@ FROM movie_review_test
       <th></th>
       <th>review</th>
       <th>sentiment</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -361,7 +361,6 @@ SELECT *
 FROM movie_review_train
 ```
 
-    Building model...
     Success
 
 
@@ -371,12 +370,14 @@ FROM movie_review_train
         <li>"<strong>BUILD MODEL</strong>" creates and trains a model named <mark style="background-color:#E9D7FD">my_movie_review_classifier</mark>.</li>
         <li>"<strong>USING</strong>" specifies <code>ElectraEn</code> as the base model.</li>
         <li>"<strong>OPTIONS</strong>" specifies the option values used to create the model.
-        <ul> 
-            <li> "text_col" : the name of the column containing the text to be used for the training. </li> 
-            <li> "label_col" : the name of the column containing information about the target. </li> 
-            <li>"epochs" : number of times to train with the training dataset.</li>
-            <li> "batch_size" is the size of dataset bundle utilized in a single cycle of training.</li>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+        <ul>
+            <li> "text_col": the name of the column containing the text to be used for the training. (default: "text")</li> 
+            <li> "label_col": the name of the column containing information about the target. (default: "label")</li> 
+            <li>"epochs": number of times to train with the training dataset. (default: 3)</li>
+            <li> "batch_size" is the size of dataset bundle utilized in a single cycle of training. (default: 16)</li>
+            <li>"overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default: False) </li>
+        </ul>
+        </li>
     </ul>
 </div>
 
@@ -393,7 +394,8 @@ To use the text classification model created in the previous step for prediction
 %%thanosql
 PREDICT USING my_movie_review_classifier
 OPTIONS (
-    text_col='review'
+    text_col="review",
+    column_name="predict_result"
     )
 AS
 SELECT *
@@ -423,7 +425,7 @@ FROM movie_review_test
       <th></th>
       <th>review</th>
       <th>sentiment</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -506,7 +508,8 @@ FROM movie_review_test
         <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
         <ul>
-            <li>"review" : the column containing the text to be used for prediction.</li>
+            <li>"text_col": the column containing the text to be used for prediction. (default: "text")</li>
+            <li>"column_name": the column that contains the predicted results. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
@@ -514,14 +517,11 @@ FROM movie_review_test
 
 ## __5. In Conclusion__
 
-In this tutorial, we created a text classification model using the <mark style="background-color:#FFD79C">IMDB Movie Reviews</mark> dataset. As this is a beginner-level tutorial, we focused on the process rather than accuracy. Text classification models can be improved in accuracy through fine tuning that is suitable for the user's needs. You can train the base model using your own data, or use a [Self-supervised Learning](https://en.wikipedia.org/wiki/Self-supervised_learning) model to vectorize and transform your data to create an automated machine learning (Auto-ML) for deployment. Create your own model and provide competitive services by combining various unstructured data (image, audio, video, etc.) and structured data with ThanoSQL.
+In this tutorial, we created a text classification model using the <mark style="background-color:#FFD79C">IMDB Movie Reviews</mark> dataset. As this is a beginner-level tutorial, we focused on the process rather than accuracy. Text classification models can be improved in accuracy through fine tuning that is suitable for the user's needs. You can train the base model using your own data, or use a [Self-supervised Learning](https://en.wikipedia.org/wiki/Self-supervised_learning) model to vectorize and transform your data to create an automated machine learning(Auto-ML) for deployment. Create your own model and provide competitive services by combining various unstructured data(image, audio, video, etc.) and structured data with ThanoSQL.
 
-For the next step, the [Creating an Intermediate Text Classification Model] tutorial takes a deeper dive into the text classification models. If you want to learn more about building your own text classification model for your service, proceed with the following tutorials.
-
-- [How to Upload to ThanoSQL workspace DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
-- [Creating an Intermediate Text Classification Model]
-- [Create My model using text conversion and Auto-ML]
-- [Deploy My text classification model](https://docs.thanosql.ai/en/how-to_guides/reference/)
+* [How to Upload My Data to the ThanoSQL Workspace](https://docs.thanosql.ai/en/getting_started/data_upload/)
+* [How to Create a Table Using My Data](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [How to Upload My Model to the ThanoSQL Workspace](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">Inquiries about deploying a model for your own service</h4>

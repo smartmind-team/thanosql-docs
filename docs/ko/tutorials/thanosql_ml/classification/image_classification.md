@@ -5,10 +5,10 @@ title: 이미지 분류 모델 만들기
 # __이미지 분류 모델 만들기__
 
 - 튜토리얼 난이도: ★☆☆☆☆
-- 읽는데 걸리는 시간 : 10분
-- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 파일 위치 : tutorial/thanosql_ml/classification/image_classification.ipynb
-- 참고 문서 : [(AI-Hub) 상품이미지 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=64), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
+- 읽는데 걸리는 시간: 10분
+- 사용 언어: [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치: tutorial/thanosql_ml/classification/image_classification.ipynb
+- 참고 문서: [(AI-Hub) 상품이미지 데이터](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=64), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
 
 ## 튜토리얼 소개
 
@@ -57,7 +57,7 @@ __아래는 ThanoSQL 이미지 분류 모델의 활용 및 예시입니다.__
    </ul>
 </div>
 
-## __0. 데이터 세트 및 모델 준비__
+## __0. 데이터 세트 준비__
 
 ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/getting_started/how_to_use_ThanoSQL/#5-thanosql)
 에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
@@ -86,7 +86,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" 쿼리 구문을 사용하여 원하는 데이터 세트를 워크스페이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL DATASET</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -117,44 +117,18 @@ FROM "thanosql-dataset/product_image_data/product_image_test.csv"
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 DB에 저장 할 데이터 세트명을 지정합니다. </li>
+        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 데이터베이스에 저장 할 데이터 세트명을 지정합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>COPY</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 데이터베이스 상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
-    </ul>
-</div>
-
-### __모델 준비__
-
-
-```python
-%%thanosql
-GET THANOSQL MODEL tutorial_product_classifier
-OPTIONS (overwrite=True)
-AS tutorial_product_classifier
-```
-
-    Success
-
-
-<div class="admonition note">
-    <h4 class="admonition-title">쿼리 세부 정보</h4>
-    <ul>
-        <li>"<strong>GET THANOSQL MODEL</strong>" 쿼리 구문을 사용하여 원하는 모델을 워크스페이스 및 DB에 저장합니다. </li>
-        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL MODEL</strong> 에 사용할 옵션을 지정합니다.
-        <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
-        </ul>
-        </li>
-        <li>"<strong>AS</strong>" 쿼리 구문을 사용하여 해당 모델의 이름을 지정합니다. AS 구문을 사용하지 않을 경우 <code>THANOSQL MODEL</code>의 이름을 그대로 사용합니다. </li>
     </ul>
 </div>
 
 ## __1. 데이터 세트 확인__
 
-본 튜토리얼을 진행하기 위해 우리는 ThanoSQL 워크스페이스 DB에 저장되어 있는  <mark style="background-color:#FFEC92 ">product_image_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
+본 튜토리얼을 진행하기 위해 우리는 ThanoSQL 워크스페이스 데이터베이스에 저장되어 있는  <mark style="background-color:#FFEC92 ">product_image_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 
 ```python
@@ -261,13 +235,13 @@ LIMIT 5
    <h4 class="admonition-title">데이터 이해하기</h4>
    <ul>
       <li><mark style="background-color:#D7D0FF ">image_path</mark>: 각 이미지의 파일의 위치 정보</li>
-      <li><mark style="background-color:#D7D0FF ">div_l</mark> : 상품의 대분류</li>
-      <li><mark style="background-color:#D7D0FF ">div_m</mark> : 상품의 중분류</li>
-      <li><mark style="background-color:#D7D0FF ">div_s</mark> : 상품의 소분류</li>
-      <li><mark style="background-color:#D7D0FF ">div_n</mark> : 상품의 세분류</li>
-      <li><mark style="background-color:#D7D0FF ">comp_nm</mark> : 제조사</li>
-      <li><mark style="background-color:#D7D0FF ">img_prod_nm</mark> : 상품명(이미지상)</li>
-      <li><mark style="background-color:#D7D0FF ">multi</mark> : 복수 상품 이미지인지 여부</li>
+      <li><mark style="background-color:#D7D0FF ">div_l</mark>: 상품의 대분류</li>
+      <li><mark style="background-color:#D7D0FF ">div_m</mark>: 상품의 중분류</li>
+      <li><mark style="background-color:#D7D0FF ">div_s</mark>: 상품의 소분류</li>
+      <li><mark style="background-color:#D7D0FF ">div_n</mark>: 상품의 세분류</li>
+      <li><mark style="background-color:#D7D0FF ">comp_nm</mark>: 제조사</li>
+      <li><mark style="background-color:#D7D0FF ">img_prod_nm</mark>: 상품명(이미지상)</li>
+      <li><mark style="background-color:#D7D0FF ">multi</mark>: 복수 상품 이미지인지 여부</li>
    </ul>
 </div>
 
@@ -286,7 +260,7 @@ LIMIT 5
 
 
     
-![png](/img/tutorials/thanosql_ml/image_classification/output_17_1.png)
+![png](/img/tutorials/thanosql_ml/image_classification/output_14_1.png)
     
 
 
@@ -295,7 +269,7 @@ LIMIT 5
 
 
     
-![png](/img/tutorials/thanosql_ml/image_classification/output_17_3.png)
+![png](/img/tutorials/thanosql_ml/image_classification/output_14_3.png)
     
 
 
@@ -304,7 +278,7 @@ LIMIT 5
 
 
     
-![png](/img/tutorials/thanosql_ml/image_classification/output_17_5.png)
+![png](/img/tutorials/thanosql_ml/image_classification/output_14_5.png)
     
 
 
@@ -313,7 +287,7 @@ LIMIT 5
 
 
     
-![png](/img/tutorials/thanosql_ml/image_classification/output_17_7.png)
+![png](/img/tutorials/thanosql_ml/image_classification/output_14_7.png)
     
 
 
@@ -322,112 +296,11 @@ LIMIT 5
 
 
     
-![png](/img/tutorials/thanosql_ml/image_classification/output_17_9.png)
+![png](/img/tutorials/thanosql_ml/image_classification/output_14_9.png)
     
 
 
-## __2. 사전 학습된 모델을 사용하여 상품 이미지 분류 결과 예측__
-
-다음 쿼리문을 실행하면, 사전에 학습을 해 둔 상품 이미지 분류모델, <mark style="background-color:#E9D7FD ">tutorial_product_classifier</mark>모델을 사용하여 결과를 빠르게 예측해볼 수 있습니다.
-
-
-```python
-%%thanosql
-PREDICT USING tutorial_product_classifier
-AS
-SELECT *
-FROM product_image_test
-```
-
-
-
-
-<div class="df_size">
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>image_path</th>
-      <th>predicted</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>생활용품</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>소스</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>디저트</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>음료</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>주류</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>197</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>의약외품</td>
-    </tr>
-    <tr>
-      <th>198</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>소스</td>
-    </tr>
-    <tr>
-      <th>199</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>주류</td>
-    </tr>
-    <tr>
-      <th>200</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>유제품</td>
-    </tr>
-    <tr>
-      <th>201</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>주류</td>
-    </tr>
-  </tbody>
-</table>
-<p>202 rows × 2 columns</p>
-</div>
-
-
-
-## __3. 이미지 분류 모델 생성__
+## __2. 이미지 분류 모델 생성__
 
 이전 단계에서 확인한  <mark style="background-color:#FFEC92 ">product_image_train</mark> 데이터 세트를 사용하여 이미지 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_product_classifier</mark>이라는 이름의 모델을 만듭니다.  
 (쿼리 실행 시 예상 소요 시간: 5 min)
@@ -448,7 +321,6 @@ SELECT *
 FROM product_image_train
 ```
 
-    Building model...
     Success
 
 
@@ -459,9 +331,10 @@ FROM product_image_train
         <li>"<strong>USING</strong>" 쿼리 구문을 통해 베이스 모델로 <code>ConvNeXt_Tiny</code>를 사용할 것을 명시합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"image_col" : 이미지 경로를 담은 컬럼의 이름</li>
-            <li>"label_col" : 목푯값의 정보를 담은 컬럼의 이름</li>
-            <li>"epochs : 모든 학습 데이터 세트를 학습하는 횟수</li>
+            <li>"image_col": 이미지 경로를 담은 컬럼의 이름 (default: "image_path")</li>
+            <li>"label_col": 목푯값의 정보를 담은 컬럼의 이름 (default: "label")</li>
+            <li>"epochs": 모든 학습 데이터 세트를 학습하는 횟수 (default: 3)</li>
+            <li>"overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, default: False)</li>
         </ul>
         </li>
     </ul>
@@ -471,21 +344,17 @@ FROM product_image_train
     <p>여기서는 빠르게 학습하기 위해 "epochs"를 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산 시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다.</p>
 </div>
 
-<div class="admonition note">
-    <p><strong>overwrite가 True일 때</strong>, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.<br>
-    반면, <strong>overwrite가 False일 때</strong>, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.</p>
-</div>
+## __3. 생성된 모델을 사용하여 상품 이미지 분류 결과 예측__
 
-## __4. 생성된 모델을 사용하여 상품 이미지 분류 결과 예측__
-
-이전 단계에서 만든 상품 이미지 분류 모델(<mark style="background-color:#E9D7FD ">my_product_classifier</mark>)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#FFEC92">product_image_test</mark>)의 목푯값을 예측해 봅니다.  아래 쿼리를 수행하고 나면, 예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.
+이전 단계에서 만든 상품 이미지 분류 모델(<mark style="background-color:#E9D7FD ">my_product_classifier</mark>)을 사용해서 특정 이미지(학습에 이용되지 않은 데이터 테이블, <mark style="background-color:#FFEC92">product_image_test</mark>)의 목푯값을 예측해 봅니다.
 
 
 ```python
 %%thanosql
 PREDICT USING my_product_classifier
 OPTIONS (
-    image_col='image_path'
+    image_col='image_path',
+    column_name='predict_result'
     )
 AS
 SELECT *
@@ -514,7 +383,14 @@ FROM product_image_test
     <tr style="text-align: right;">
       <th></th>
       <th>image_path</th>
-      <th>predicted</th>
+      <th>div_l</th>
+      <th>div_m</th>
+      <th>div_s</th>
+      <th>div_n</th>
+      <th>comp_nm</th>
+      <th>img_prod_nm</th>
+      <th>multi</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -522,29 +398,71 @@ FROM product_image_test
       <th>0</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>생활용품</td>
+      <td>위생용품</td>
+      <td>면봉</td>
+      <td>면봉</td>
+      <td>기타</td>
+      <td>콩맥스전자담배용크리닝면봉</td>
+      <td>True</td>
+      <td>생활용품</td>
     </tr>
     <tr>
       <th>1</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
+      <td>소스</td>
+      <td>장류</td>
+      <td>쌈장</td>
+      <td>쌈장</td>
+      <td>씨제이제일제당</td>
+      <td>해찬들고기전용쌈장450G</td>
+      <td>False</td>
       <td>소스</td>
     </tr>
     <tr>
       <th>2</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>디저트</td>
+      <td>디저트/베이커리</td>
+      <td>냉장디저트</td>
+      <td>냉장디저트</td>
+      <td>Dole 코리아</td>
+      <td>Dole후룻볼슬라이스복숭아198g</td>
+      <td>False</td>
+      <td>디저트</td>
     </tr>
     <tr>
       <th>3</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
+      <td>음료</td>
+      <td>기능성음료</td>
+      <td>한방음료</td>
+      <td>한방음료</td>
+      <td>광동제약</td>
+      <td>유어스광동어성초500ml</td>
+      <td>False</td>
       <td>음료</td>
     </tr>
     <tr>
       <th>4</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>주류</td>
+      <td>기타주류</td>
+      <td>칵테일</td>
+      <td>칵테일</td>
+      <td>롯데주류</td>
+      <td>순하리소다톡바나나355ML</td>
+      <td>False</td>
+      <td>주류</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
     </tr>
@@ -552,30 +470,65 @@ FROM product_image_test
       <th>197</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>의약외품</td>
+      <td>기능성음료</td>
+      <td>숙취해소음료</td>
+      <td>숙취해소음료</td>
+      <td>동아제약</td>
+      <td>동아제약)가그린제로100ML</td>
+      <td>False</td>
+      <td>의약외품</td>
     </tr>
     <tr>
       <th>198</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
+      <td>소스</td>
+      <td>장류</td>
+      <td>쌈장</td>
+      <td>쌈장</td>
+      <td>씨제이제일제당</td>
+      <td>해찬들고기전용쌈장450G</td>
+      <td>True</td>
       <td>소스</td>
     </tr>
     <tr>
       <th>199</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>주류</td>
+      <td>기타주류</td>
+      <td>칵테일</td>
+      <td>칵테일</td>
+      <td>롯데주류</td>
+      <td>순하리소다톡바나나355ML</td>
+      <td>True</td>
+      <td>주류</td>
     </tr>
     <tr>
       <th>200</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
+      <td>유제품</td>
+      <td>요구르트</td>
+      <td>떠먹는 요구르트</td>
+      <td>떠먹는 요구르트</td>
+      <td>기타</td>
+      <td>토핑오트&amp;애플시나몬</td>
+      <td>False</td>
       <td>유제품</td>
     </tr>
     <tr>
       <th>201</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>주류</td>
+      <td>기타주류</td>
+      <td>칵테일</td>
+      <td>칵테일</td>
+      <td>롯데주류</td>
+      <td>순하리소다톡바나나355ML</td>
+      <td>True</td>
+      <td>주류</td>
     </tr>
   </tbody>
 </table>
-<p>202 rows × 2 columns</p>
+<p>202 rows × 9 columns</p>
 </div>
 
 
@@ -586,22 +539,20 @@ FROM product_image_test
         <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_product_classifier</mark> 모델을 예측에 사용합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"image_col" : 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름</li>
+            <li>"image_col": 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름 (default: "image_path")</li>
+            <li>"column_name": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 정의합니다. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
 </div>
 
-## __5. 튜토리얼을 마치며__
+## __4. 튜토리얼을 마치며__
 
 이번 튜토리얼에서는 <mark style="background-color:#FFD79C">상품 이미지</mark> 데이터 세트를 사용하여 이미지 분류 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. 이미지 분류 모델은 각 플랫폼이나 서비스에 맞는 정밀한 튜닝을 통해 정확도를 향상 시킬 수 있고 적은 양의 데이터 라벨링만으로도 대부분 만족스러운 결과를 얻을 수 있습니다. 나만의 데이터를 이용해서 베이스 모델을 학습하거나, 자가학습(Self-supervised) 모델 등을 이용해 나의 데이터를 수치화하여 변환한 후 자동화 된 머신러닝(Auto-ML) 기법을 이용한 배포도 가능합니다. 다양한 비정형 데이터(오디오, 비디오, 텍스트 등)와 수치형 데이터들을 결합하여 나만의 모델을 만들고 경쟁력있는 서비스를 제공해 보세요.
 
-다음 단계인  [중급 이미지 분류 모델 만들기] 튜토리얼에서는 이미지 분류 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 이미지 분류 모델 구축방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요.
-
 * [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [중급 이미지 분류 모델 만들기]
-* [이미지 변환과 Auto-ML을 이용한 나만의 모델 만들기]
-* [나만의 이미지 분류 모델 배포하기](https://docs.thanosql.ai/how-to_guides/reference/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

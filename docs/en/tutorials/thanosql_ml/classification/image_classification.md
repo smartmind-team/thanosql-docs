@@ -6,18 +6,18 @@ title: Create an Image Classification Model
 
 - Tutorial Difficulty: ★☆☆☆☆
 - 10 min read
-- Languages : [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
-- File location : tutorial_en/thanosql_ml/classification/image_classification.ipynb
-- References : [(AI-Hub) Product image data](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=64), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
+- Languages: [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
+- File location: tutorial_en/thanosql_ml/classification/image_classification.ipynb
+- References: [(AI-Hub) Product image data](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=64), [A ConvNet for the 2020s](https://arxiv.org/abs/2201.03545)
 
 ## Tutorial Introduction
 
 <div class="admonition note">
     <h4 class="admonition-title">Understanding Classification</h4>
-    <p>Classification is a type of <a href="https://en.wikipedia.org/wiki/Machine_learning">Machine Learning</a> that predicts which category (Category or Class) the target belongs to. For example, both binary classifications (used for classifying men or women) and multiple classifications (used to predict animal species such as dogs, cats, rabbits, etc.) are included in the classification tasks. <br></p>
+    <p>Classification is a type of <a href="https://en.wikipedia.org/wiki/Machine_learning">Machine Learning</a> that predicts which category(Category or Class) the target belongs to. For example, both binary classifications(used for classifying men or women) and multiple classifications(used to predict animal species such as dogs, cats, rabbits, etc.) are included in the classification tasks. <br></p>
 </div>
 
-The image classification contest ([ImageNet](https://en.wikipedia.org/wiki/ImageNet)) has been held since 2010. The winning model at the beginning of the competition showed 72% accuracy. In 2015, the [ResNet](https://arxiv.org/abs/1512.03385) model that won showed 96% accuracy and started to surpass human classification capabilities.
+The image classification contest([ImageNet](https://en.wikipedia.org/wiki/ImageNet)) has been held since 2010. The winning model at the beginning of the competition showed 72% accuracy. In 2015, the [ResNet](https://arxiv.org/abs/1512.03385) model that won showed 96% accuracy and started to surpass human classification capabilities.
 
 <div class="admonition tip">
    <p>The human ability to classify the same data is estimated at about 95%.</p>
@@ -52,13 +52,13 @@ __The following are examples and applications of the ThanoSQL classification mod
 <div class="admonition warning">
    <h4 class="admonition-title">Tutorial Precautions</h4>
    <ul>
-      <li>The image classification model can be used to predict one target value (Target, Category) from one image.</li>
+      <li>The image classification model can be used to predict one target value(Target, Category) from one image.</li>
       <li>Both a column representing the image path and a column representing the target value of the image must exist.</li>
-      <li>The base model of the corresponding image classification model (<code>CONVNEXT</code>) uses GPU. Depending on the size and the batch size of the model used, GPU memory may be insufficient. In this case, try using a smaller model or reducing the batch size of the model.</li>
+      <li>The base model of the corresponding image classification model(<code>CONVNEXT</code>) uses GPU. Depending on the size and the batch size of the model used, GPU memory may be insufficient. In this case, try using a smaller model or reducing the batch size of the model.</li>
    </ul>
 </div>
 
-## __0. Prepare Dataset and Model__
+## __0. Prepare Dataset__
 
 
 As mentioned in the [ThanoSQL Workspace](https://docs.thanosql.ai/en/getting_started/how_to_use_ThanoSQL/#5-thanosql-workspace), you must create an API token and run the query below to execute the query of ThanoSQL. 
@@ -87,7 +87,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" downloads the specified dataset to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL DATASET</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, DEFAULT : False) </li>
+            <li>"overwrite": determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -121,41 +121,15 @@ FROM "thanosql-dataset/product_image_data/product_image_test.csv"
         <li>"<strong>COPY</strong>" specifies the name of the dataset to be saved as a database table. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>COPY</strong> clause.
         <ul>
-           <li>"overwrite" : determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, DEFAULT : False) </li>
+           <li>"overwrite": determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default: False) </li>
         </ul>
         </li>
-    </ul>
-</div>
-
-### __Prepare the Model__
-
-
-```python
-%%thanosql
-GET THANOSQL MODEL tutorial_product_classifier
-OPTIONS (overwrite=True)
-AS tutorial_product_classifier
-```
-
-    Success
-
-
-<div class="admonition note">
-    <h4 class="admonition-title">Query Details </h4>
-    <ul>
-        <li>"<strong>GET THANOSQL MODEL</strong>" downloads the specified model to the workspace. </li>
-        <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL MODEL</strong> clause.
-        <ul>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
-        </ul>
-        </li>
-        <li>"<strong>AS</strong>" names the given model. If not specified, the model will be named as the default <code>THANOSQL MODEL</code> name.</li>
     </ul>
 </div>
 
 ## __1. Check Dataset__
 
-To create the image classification  model, we use the <mark style="background-color:#FFEC92 ">product_image_train</mark> table from the ThanoSQL database. To check the table's contents, run the following query.
+To create the image classification  model, we use the <mark style="background-color:#FFEC92 ">product_image_train</mark> table from the ThanoSQL workspace database. To check the table's contents, run the following query.
 
 
 ```python
@@ -262,13 +236,13 @@ LIMIT 5
    <h4 class="admonition-title">Understanding the Data</h4>
    <ul>
       <li><mark style="background-color:#D7D0FF ">image_path</mark>: image file's path</li>
-      <li><mark style="background-color:#D7D0FF ">div_l</mark> : large classification of products</li>
-      <li><mark style="background-color:#D7D0FF ">div_m</mark> : middle classification of products</li>
-      <li><mark style="background-color:#D7D0FF ">div_s</mark> : subclassification of products</li>
-      <li><mark style="background-color:#D7D0FF ">div_n</mark> : detailed classification of products</li>
-      <li><mark style="background-color:#D7D0FF ">comp_nm</mark> : manufacturer</li>
-      <li><mark style="background-color:#D7D0FF ">img_prod_nm</mark> : product name (image)</li>
-      <li><mark style="background-color:#D7D0FF ">multi</mark> : whether image has multiple products</li>
+      <li><mark style="background-color:#D7D0FF ">div_l</mark>: large classification of products</li>
+      <li><mark style="background-color:#D7D0FF ">div_m</mark>: middle classification of products</li>
+      <li><mark style="background-color:#D7D0FF ">div_s</mark>: subclassification of products</li>
+      <li><mark style="background-color:#D7D0FF ">div_n</mark>: detailed classification of products</li>
+      <li><mark style="background-color:#D7D0FF ">comp_nm</mark>: manufacturer</li>
+      <li><mark style="background-color:#D7D0FF ">img_prod_nm</mark>: product name (image)</li>
+      <li><mark style="background-color:#D7D0FF ">multi</mark>: whether image has multiple products</li>
    </ul>
 </div>
 
@@ -287,7 +261,7 @@ LIMIT 5
 
 
     
-![png](/en/img/tutorials/thanosql_ml/image_classification/output_17_1.png)
+![png](/en/img/tutorials/thanosql_ml/image_classification/output_14_1.png)
     
 
 
@@ -296,7 +270,7 @@ LIMIT 5
 
 
     
-![png](/en/img/tutorials/thanosql_ml/image_classification/output_17_3.png)
+![png](/en/img/tutorials/thanosql_ml/image_classification/output_14_3.png)
     
 
 
@@ -305,7 +279,7 @@ LIMIT 5
 
 
     
-![png](/en/img/tutorials/thanosql_ml/image_classification/output_17_5.png)
+![png](/en/img/tutorials/thanosql_ml/image_classification/output_14_5.png)
     
 
 
@@ -314,7 +288,7 @@ LIMIT 5
 
 
     
-![png](/en/img/tutorials/thanosql_ml/image_classification/output_17_7.png)
+![png](/en/img/tutorials/thanosql_ml/image_classification/output_14_7.png)
     
 
 
@@ -323,112 +297,11 @@ LIMIT 5
 
 
     
-![png](/en/img/tutorials/thanosql_ml/image_classification/output_17_9.png)
+![png](/en/img/tutorials/thanosql_ml/image_classification/output_14_9.png)
     
 
 
-## __2. Predict Using Pretrained Models__
-
-To predict the results using the <mark style="background-color:#E9D7FD ">tutorial_product_classifier</mark> model, a pretrained image classification model, run the query below.
-
-
-```python
-%%thanosql
-PREDICT USING tutorial_product_classifier
-AS
-SELECT *
-FROM product_image_test
-```
-
-
-
-
-<div class="df_size">
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>image_path</th>
-      <th>predicted</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>생활용품</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>소스</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>디저트</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>음료</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>주류</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>197</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>의약외품</td>
-    </tr>
-    <tr>
-      <th>198</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>소스</td>
-    </tr>
-    <tr>
-      <th>199</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>주류</td>
-    </tr>
-    <tr>
-      <th>200</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>유제품</td>
-    </tr>
-    <tr>
-      <th>201</th>
-      <td>thanosql-dataset/product_image_data/product_im...</td>
-      <td>주류</td>
-    </tr>
-  </tbody>
-</table>
-<p>202 rows × 2 columns</p>
-</div>
-
-
-
-## __3. Create an Image Classification Model__
+## __2. Create an Image Classification Model__
 
 To create an image classification model with the name <mark style="background-color:#E9D7FD ">my_product_classifier</mark> using the <mark style="background-color:#FFEC92 ">product_image_train</mark> dataset, run the following query. 
 (Estimated duration of query execution: 5 min)
@@ -449,7 +322,6 @@ SELECT *
 FROM product_image_train
 ```
 
-    Building model...
     Success
 
 
@@ -460,10 +332,10 @@ FROM product_image_train
         <li>"<strong>USING</strong>" specifies <code>ConvNeXt_Tiny</code> as the base model</li>
         <li>"<strong>OPTIONS</strong>" specifies the option values used to create the model.
         <ul>
-            <li>"image_col" : name of column containing the image path</li>
-            <li>"label_col" : name of the column containing information about the target value</li>
-            <li>"epochs" : number of times to train with the training dataset.</li>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+            <li>"image_col": name of column containing the image path (default: "image_path")</li>
+            <li>"label_col": name of the column containing information about the target value (default: "label")</li>
+            <li>"epochs": number of times to train with the training dataset. (default: 3)</li>
+            <li>"overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -473,16 +345,17 @@ FROM product_image_train
     <p>In this example, we set "epochs" to 1 to train the model quickly. In general, larger number of "epochs" increases performance of the inference at the cost of the computation time.</p>
 </div>
 
-## __4. Predict__
+## __3. Predict__
 
-To use the image classification model created in the previous step for prediction of <mark style="background-color:#FFEC92">product_image_test</mark>, run the following query.
+To use the image classification model(<mark style="background-color:#E9D7FD ">my_product_classifier</mark>) created in the previous step for prediction of <mark style="background-color:#FFEC92">product_image_test</mark>, run the following query.
 
 
 ```python
 %%thanosql
 PREDICT USING my_product_classifier
 OPTIONS (
-    image_col='image_path'
+    image_col='image_path',
+    column_name='predict_result'
     )
 AS
 SELECT *
@@ -511,7 +384,14 @@ FROM product_image_test
     <tr style="text-align: right;">
       <th></th>
       <th>image_path</th>
-      <th>predicted</th>
+      <th>div_l</th>
+      <th>div_m</th>
+      <th>div_s</th>
+      <th>div_n</th>
+      <th>comp_nm</th>
+      <th>img_prod_nm</th>
+      <th>multi</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -519,29 +399,71 @@ FROM product_image_test
       <th>0</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>생활용품</td>
+      <td>위생용품</td>
+      <td>면봉</td>
+      <td>면봉</td>
+      <td>기타</td>
+      <td>콩맥스전자담배용크리닝면봉</td>
+      <td>True</td>
+      <td>생활용품</td>
     </tr>
     <tr>
       <th>1</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
+      <td>소스</td>
+      <td>장류</td>
+      <td>쌈장</td>
+      <td>쌈장</td>
+      <td>씨제이제일제당</td>
+      <td>해찬들고기전용쌈장450G</td>
+      <td>False</td>
       <td>소스</td>
     </tr>
     <tr>
       <th>2</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>디저트</td>
+      <td>디저트/베이커리</td>
+      <td>냉장디저트</td>
+      <td>냉장디저트</td>
+      <td>Dole 코리아</td>
+      <td>Dole후룻볼슬라이스복숭아198g</td>
+      <td>False</td>
+      <td>디저트</td>
     </tr>
     <tr>
       <th>3</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
+      <td>음료</td>
+      <td>기능성음료</td>
+      <td>한방음료</td>
+      <td>한방음료</td>
+      <td>광동제약</td>
+      <td>유어스광동어성초500ml</td>
+      <td>False</td>
       <td>음료</td>
     </tr>
     <tr>
       <th>4</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>주류</td>
+      <td>기타주류</td>
+      <td>칵테일</td>
+      <td>칵테일</td>
+      <td>롯데주류</td>
+      <td>순하리소다톡바나나355ML</td>
+      <td>False</td>
+      <td>주류</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
     </tr>
@@ -549,30 +471,65 @@ FROM product_image_test
       <th>197</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>의약외품</td>
+      <td>기능성음료</td>
+      <td>숙취해소음료</td>
+      <td>숙취해소음료</td>
+      <td>동아제약</td>
+      <td>동아제약)가그린제로100ML</td>
+      <td>False</td>
+      <td>의약외품</td>
     </tr>
     <tr>
       <th>198</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
+      <td>소스</td>
+      <td>장류</td>
+      <td>쌈장</td>
+      <td>쌈장</td>
+      <td>씨제이제일제당</td>
+      <td>해찬들고기전용쌈장450G</td>
+      <td>True</td>
       <td>소스</td>
     </tr>
     <tr>
       <th>199</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>주류</td>
+      <td>기타주류</td>
+      <td>칵테일</td>
+      <td>칵테일</td>
+      <td>롯데주류</td>
+      <td>순하리소다톡바나나355ML</td>
+      <td>True</td>
+      <td>주류</td>
     </tr>
     <tr>
       <th>200</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
+      <td>유제품</td>
+      <td>요구르트</td>
+      <td>떠먹는 요구르트</td>
+      <td>떠먹는 요구르트</td>
+      <td>기타</td>
+      <td>토핑오트&amp;애플시나몬</td>
+      <td>False</td>
       <td>유제품</td>
     </tr>
     <tr>
       <th>201</th>
       <td>thanosql-dataset/product_image_data/product_im...</td>
       <td>주류</td>
+      <td>기타주류</td>
+      <td>칵테일</td>
+      <td>칵테일</td>
+      <td>롯데주류</td>
+      <td>순하리소다톡바나나355ML</td>
+      <td>True</td>
+      <td>주류</td>
     </tr>
   </tbody>
 </table>
-<p>202 rows × 2 columns</p>
+<p>202 rows × 9 columns</p>
 </div>
 
 
@@ -583,22 +540,20 @@ FROM product_image_test
         <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD">my_product_classifier</mark>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
         <ul>
-            <li>"image_col" : the name of the column where the path of the image used for prediction is stored.</li>
+            <li>"image_col": the name of the column where the path of the image used for prediction is stored. (default: "image_path")</li>
+            <li>"column_name": the column that contains the predicted results. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
 </div>
 
-## __5. In Conclusion__
+## __4. In Conclusion__
 
-In this tutorial, we created an image classification model using the <mark style="background-color:#FFD79C">product image</mark> dataset. As this is a beginner-level tutorial, we focused on the process rather than accuracy. The image classification model can be improved in accuracy through fine tuning that is suitable for the user's needs. It is also possible to train the base model using your own data, or to vectorize and transform your data using a self-supervised model, and then distributing it using automated machine learning (Auto-ML) technique. Create your own model and provide competitive services by combining various unstructured data (image, audio, video, etc.) and structured data with ThanoSQL.
+In this tutorial, we created an image classification model using the <mark style="background-color:#FFD79C">product image</mark> dataset. As this is a beginner-level tutorial, we focused on the process rather than accuracy. The image classification model can be improved in accuracy through fine tuning that is suitable for the user's needs. It is also possible to train the base model using your own data, or to vectorize and transform your data using a self-supervised model, and then distributing it using automated machine learning(Auto-ML) technique. Create your own model and provide competitive services by combining various unstructured data(image, audio, video, etc.) and structured data with ThanoSQL.
 
-For the next step, [Creating an Intermediate Image Classification Model] tutorial, takes a deeper dive into the image classification models. If you want to learn more about building your own image classification model for your service, please proceed with the following tutorials.
-
-- [How to Upload to ThanoSQL workspace DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
-- [Creating an Intermediate Image Classification Model]
-- [Image conversion and creating My model using Auto-ML]
-- [Deploy My Image Classification model](https://docs.thanosql.ai/en/how-to_guides/reference/)
+* [How to Upload My Data to the ThanoSQL Workspace](https://docs.thanosql.ai/en/getting_started/data_upload/)
+* [How to Create a Table Using My Data](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [How to Upload My Model to the ThanoSQL Workspace](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">Inquiries about deploying a model for your own service</h4>

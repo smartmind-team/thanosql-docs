@@ -4,11 +4,11 @@ title: Using a Speech Recognition Model
 
 # __Using a Speech Recognition Model__
 
-- Tutorial Difficulty : ★★☆☆☆
+- Tutorial Difficulty: ★☆☆☆☆
 - 5 min read
-- Languages : SQL (100%)
-- File Location : tutorial/thanosql_ml/audio_recognition/speech_recognition2.ipynb
-- References : [whisper](https://github.com/openai/whisper)
+- Languages: [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
+- File Location: tutorial_en/thanosql_ml/audio_recognition/speech_recognition2.ipynb
+- References: [(AI-Hub) Korean voice data](https://aihub.or.kr/aihubdata/data/view.do?currMenu=115&topMenu=100&aihubDataSe=realm&dataSetSn=123), [whisper](https://github.com/openai/whisper)
 
 ## Tutorial Introduction
 
@@ -23,13 +23,12 @@ title: Using a Speech Recognition Model
 
 Today, speech recognition technology is being applied in various industries. Advances in speech recognition technology have been expanding into automatic interpretation for simple travel to high-level business meetings. In addition, it has delved into fields such as speech synthesis technology, which acts as a virtual guide, mimicking the voice of a specific celebrity, and converting a predetermined fingerprint into a voice.
 
-__The following are use case examples of ThanoSQL's speech recognition model.__
+__The following are use case examples of the ThanoSQL's speech recognition model.__
 
 - Speech recognition technology converts phone consultation data into text to enable customer sentiment analysis and consultation trend analysis. Using speech recognition technology, customer service representatives can improve their service by quickly receiving relevant information that answers customer inquiries.
 In addition, after consultation, the customer satisfaction trend can be analyzed even with the indirect measurement of customer satisfaction through sentiment analysis.
 
 - Using speech recognition technology, you can write notes faster than writing with a keyboard and instantly search for specific keywords even in long audio files.
-
 
 <div class="admonition note">
     <h4 class="admonition-title">In this tutorial</h4>
@@ -38,6 +37,7 @@ In addition, after consultation, the customer satisfaction trend can be analyzed
 </div>
 
 ## __0. Prepare Dataset and Model__
+
 As mentioned in the [ThanoSQL Workspace](https://docs.thanosql.ai/en/getting_started/how_to_use_ThanoSQL/#5-thanosql-workspace), you must create an API token and run the query below to execute the query of ThanoSQL. 
 
 
@@ -64,7 +64,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" downloads the specified dataset to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL DATASET</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, DEFAULT : False) </li>
+            <li>"overwrite": determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -74,9 +74,7 @@ OPTIONS (overwrite=True)
 ```python
 %%thanosql
 COPY korean_voice
-OPTIONS (
-    overwrite=True
-)
+OPTIONS (overwrite=True)
 FROM "thanosql-dataset/korean_voice_data/korean_voice.csv"
 ```
 
@@ -89,7 +87,7 @@ FROM "thanosql-dataset/korean_voice_data/korean_voice.csv"
         <li>"<strong>COPY</strong>" specifies the name of the dataset to be saved as a database table. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>COPY</strong> clause.
         <ul>
-           <li>"overwrite" : determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, DEFAULT : False) </li>
+           <li>"overwrite": determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -102,7 +100,7 @@ FROM "thanosql-dataset/korean_voice_data/korean_voice.csv"
 %%thanosql
 GET THANOSQL MODEL whisper_s
 OPTIONS (overwrite=True)
-AS whisper_small
+AS tutorial_whisper_small
 ```
 
     Success
@@ -114,7 +112,7 @@ AS whisper_small
         <li>"<strong>GET THANOSQL MODEL</strong>" downloads the specified model to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL MODEL</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+            <li>"overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default: False) </li>
         </ul>
         </li>
         <li>"<strong>AS</strong>" names the given model. If not specified, the model will be named as the default <code>THANOSQL MODEL</code> name.</li>
@@ -123,14 +121,18 @@ AS whisper_small
 
 ## __1. Check Dataset__
 
-For this tutorial, we use the <mark style="background-color:#FFEC92 ">korean_voice</mark> table stored in the ThanoSQL database. Execute the query below to check the contents of the table.
+For this tutorial, we use the <mark style="background-color:#FFEC92 ">korean_voice</mark> table stored in the ThanoSQL workspace database. Execute the query below to check the contents of the table.
 
 
 ```python
 %%thanosql
 SELECT *
 FROM korean_voice
+LIMIT 5
 ```
+
+
+
 
 <div class="df_size">
 <style scoped>
@@ -198,57 +200,8 @@ FROM korean_voice
       <td>쓰기가 된 글 완성된 글 또는 쓰기 전의 개요 뭐 자료 이런 것들을 보여주면서 그것...</td>
       <td>11.52</td>
     </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>95</th>
-      <td>thanosql-dataset/korean_voice_data/audio/broad...</td>
-      <td>16000</td>
-      <td>당근 씨를 막 뿌리려는 남편에게 나는 몇 번이나 말했다 그랬습니다.</td>
-      <td>당근 씨를 막 뿌리려는 남편에게 나는 몇 번이나 말했다 그랬습니다.</td>
-      <td>3.58</td>
-    </tr>
-    <tr>
-      <th>96</th>
-      <td>thanosql-dataset/korean_voice_data/audio/broad...</td>
-      <td>16000</td>
-      <td>작년에도 너무 얕게 씨를 뿌려 낭패를 본 적이 있기 때문이다.</td>
-      <td>작년에도 너무 얕게 씨를 뿌려 낭패를 본 적이 있기 때문이다.</td>
-      <td>4.22</td>
-    </tr>
-    <tr>
-      <th>97</th>
-      <td>thanosql-dataset/korean_voice_data/audio/broad...</td>
-      <td>16000</td>
-      <td>하나는 새를 위해서 하나는 또.</td>
-      <td>하나는 새를 위해서 하나는 또.</td>
-      <td>2.69</td>
-    </tr>
-    <tr>
-      <th>98</th>
-      <td>thanosql-dataset/korean_voice_data/audio/broad...</td>
-      <td>16000</td>
-      <td>많이 씨앗들을 넣어가지고 너무 촘촘하게 여러 개가 한꺼번에 자라는 거야 여러 줄기가.</td>
-      <td>많이 씨앗들을 넣어가지고 너무 촘촘하게 여러 개가 한꺼번에 자라는 거야 여러 줄기가.</td>
-      <td>6.14</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>thanosql-dataset/korean_voice_data/audio/broad...</td>
-      <td>16000</td>
-      <td>텃밭 농사짓는 정도일 겁니다.</td>
-      <td>텃밭 농사짓는 정도일 겁니다.</td>
-      <td>2.30</td>
-    </tr>
   </tbody>
 </table>
-<p>100 rows × 5 columns</p>
 </div>
 
 
@@ -257,8 +210,8 @@ FROM korean_voice
     <h4 class="admonition-title">Understanding Data</h4>
     <ul>
         <li><mark style="background-color:#D7D0FF ">audio_path</mark>: the audio file's path</li>
-        <li><mark style="background-color:#D7D0FF ">transcript_spelling</mark>: target value of the corresponding audio (target, script)</li>
-        <li><mark style="background-color:#D7D0FF ">transcript_phonetic</mark></li>:the visual representation of speech sounds (or phones) by means of symbols
+        <li><mark style="background-color:#D7D0FF ">transcript_spelling</mark>: target value of the corresponding audio(target, script)</li>
+        <li><mark style="background-color:#D7D0FF ">transcript_phonetic</mark>:the visual representation of speech sounds(or phones) by means of symbols</li>
     </ul>
 </div>
 
@@ -310,23 +263,27 @@ LIMIT 3
 
 ## __2. Predict Using Pretrained Model__
 
-To transcribe the audio results using the pretrained speech recognition model, <mark style="background-color:#E9D7FD ">whisper_small</mark>,  run the following query.
+To transcribe the audio results using the <mark style="background-color:#E9D7FD ">tutorial_whisper_small</mark> model, run the following query.
 
 - `task="transcribe"` When this option is specified, speech recognition is performed. 
 
 
 ```python
 %%thanosql
-PREDICT USING whisper_small
+PREDICT USING tutorial_whisper_small
 OPTIONS (
     audio_col="audio_path",
     language="ko",
-    task="transcribe"
-)
+    task="transcribe",
+    column_name="predict_result"
+    )
 AS
 SELECT *
 FROM korean_voice
 ```
+
+
+
 
 <div class="df_size">
 <style scoped>
@@ -464,13 +421,14 @@ FROM korean_voice
 <div class="admonition note">
     <h4 class="admonition-title">Query Details</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">whisper_small</mark> 
+        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">tutorial_whisper_small</mark> 
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
         <ul>
-            <li>"audio_col" : the name of the column containing the audio path to be used for prediction.</li>
-            <li>"batch_size" : the size of the dataset bundle read during a single train </li>
-            <li>"language" : language of the audio file</li>
-            <li>"task" : type of work to do (transcribe or translate)</li>
+            <li>"audio_col": the name of the column containing the audio path to be used for prediction. (default: "audio_path")</li>
+            <li>"batch_size": the size of the dataset bundle read during a single train (default: 16)</li>
+            <li>"language": language of the audio file (default: "ko")</li>
+            <li>"task": type of work to do ("transcribe"|"translate", default: "transcribe")</li>
+            <li>"column_name": the column that contains the predicted results. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
@@ -478,25 +436,29 @@ FROM korean_voice
 
 ## __3. Translate to English Using Pretrained Model__
 
-To auto-translate the audio results using the pretrained speech recognition model, <mark style="background-color:#E9D7FD ">whisper_small</mark>,  run the following query.
+To auto-translate the audio results using the <mark style="background-color:#E9D7FD ">tutorial_whisper_small</mark> model, run the following query.
 
 - `task="translate"` When this option is specified, speech recognition is performed. This process translates "Korean speech" directly into "English text," which is different from general translations in that it does not require the extra step of using "Korean text" during the process.
 
 
 ```python
 %%thanosql
-PREDICT USING whisper_small
+PREDICT USING tutorial_whisper_small
 OPTIONS (
     audio_col="audio_path",
     language="ko",
-    task="translate"
-)
+    task="translate",
+    column_name="predict_result"
+    )
 AS
 SELECT *
 FROM korean_voice
 ```
 
-<div class='df_size'>
+
+
+
+<div class="df_size">
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -632,13 +594,14 @@ FROM korean_voice
 <div class="admonition note">
     <h4 class="admonition-title">Query Details</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">whisper_small</mark> 
+        <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">tutorial_whisper_small</mark> 
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
         <ul>
-            <li>"audio_col" : the name of the column containing the audio path to be used for prediction.</li>
-            <li>"batch_size" : the size of the dataset bundle read during a single train </li>
-            <li>"language" : language of the audio file</li>
-            <li>"task" : type of work to do (transcribe or translate)</li>
+            <li>"audio_col": the name of the column containing the audio path to be used for prediction. (default: "audio_path")</li>
+            <li>"batch_size": the size of the dataset bundle read during a single train (default: 16)</li>
+            <li>"language": language of the audio file (default: "ko")</li>
+            <li>"task": type of work to do ("transcribe"|"translate", default: "transcribe")</li>
+            <li>"column_name": the column that contains the predicted results. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
@@ -648,11 +611,9 @@ FROM korean_voice
  
 In this tutorial, we used the Whisper model for speech recognition and translation using the <mark style="background-color:#FFD79C">korean_voice</mark> dataset. As this is a beginner-level tutorial, we focused on the process rather than accuracy.
 
-For the next step, [Using an Intermediate Speech Recognition Model] takes a deeper dive into the speech recognition model. If you want to learn more about utilizing your own speech recognition models for speech recognition and translation for your service, proceed with the following tutorials.
-
-- [How to Upload to ThanoSQL DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
-- [Using an Intermediate speech recognition model]
-- [Deploying My Speech Recognition Models](https://docs.thanosql.ai/en/how-to_guides/reference/)
+* [How to Upload My Data to the ThanoSQL Workspace](https://docs.thanosql.ai/en/getting_started/data_upload/)
+* [How to Create a Table Using My Data](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [How to Upload My Model to the ThanoSQL Workspace](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">Inquiries about deploying a model for your own service</h4>

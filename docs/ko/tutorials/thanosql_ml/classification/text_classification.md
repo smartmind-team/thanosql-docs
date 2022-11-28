@@ -5,10 +5,10 @@ title: 텍스트 분류 모델 만들기
 # __텍스트 분류 모델 만들기__
 
 - 튜토리얼 난이도: ★☆☆☆☆
-- 읽는데 걸리는 시간 : 10분
-- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 파일 위치 : tutorial/thanosql_ml/classification/text_classification.ipynb  
-- 참고 문서 : [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
+- 읽는데 걸리는 시간: 10분
+- 사용 언어: [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치: tutorial/thanosql_ml/classification/text_classification.ipynb  
+- 참고 문서: [(캐글) IMDB Movie Reviews](https://www.kaggle.com/code/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews/data), [ELECTRA: Pre-training Text Encoders as Discriminators Rather Than Generators](https://arxiv.org/abs/2003.10555)
 
 ## 튜토리얼 소개
 
@@ -81,7 +81,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" 쿼리 구문을 사용하여 원하는 데이터 세트를 워크스페이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL DATASET</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -112,10 +112,10 @@ FROM "thanosql-dataset/movie_review_data/movie_review_test.csv"
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 DB에 저장 할 데이터 세트명을 지정합니다. </li>
+        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 데이터베이스에 저장 할 데이터 세트명을 지정합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>COPY</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 데이터베이스 상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -126,7 +126,7 @@ FROM "thanosql-dataset/movie_review_data/movie_review_test.csv"
 
 ```python
 %%thanosql
-GET THANOSQL MODEL tutorial_text_classification
+GET THANOSQL MODEL electra
 OPTIONS (overwrite=True)
 AS tutorial_text_classification
 ```
@@ -137,10 +137,10 @@ AS tutorial_text_classification
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>GET THANOSQL MODEL</strong>" 쿼리 구문을 사용하여 원하는 모델을 워크스페이스 및 DB에 저장합니다. </li>
+        <li>"<strong>GET THANOSQL MODEL</strong>" 쿼리 구문을 사용하여 원하는 모델을 워크스페이스 및 데이터베이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL MODEL</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
         <li>"<strong>AS</strong>" 쿼리 구문을 사용하여 해당 모델의 이름을 지정합니다. AS 구문을 사용하지 않을 경우 <code>THANOSQL MODEL</code>의 이름을 그대로 사용합니다. </li>
@@ -149,7 +149,7 @@ AS tutorial_text_classification
 
 ## __1. 데이터 세트 확인__
 
-영화 리뷰 감정 분류 모델을 만들기 위해 우리는 ThanoSQL 워크스페이스 DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
+영화 리뷰 감정 분류 모델을 만들기 위해 우리는 ThanoSQL 워크스페이스 데이터베이스에 저장되어 있는 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 
 ```python
@@ -219,8 +219,8 @@ LIMIT 5
 <div class="admonition note">
     <h4 class="admonition-title">데이터 이해하기</h4>
     <ul>
-        <li><mark style="background-color:#D7D0FF ">review</mark> : 영화 리뷰 텍스트</li>
-        <li><mark style="background-color:#D7D0FF ">sentiment</mark> : 해당 리뷰가 긍정적인지(positive), 부정적인지(negative)를 나타내는 목푯값(Target)</li>
+        <li><mark style="background-color:#D7D0FF ">review</mark>: 영화 리뷰 텍스트</li>
+        <li><mark style="background-color:#D7D0FF ">sentiment</mark>: 해당 리뷰가 긍정적인지(positive), 부정적인지(negative)를 나타내는 목푯값(Target)</li>
     </ul>
 </div>
 
@@ -263,7 +263,7 @@ FROM movie_review_test
       <th></th>
       <th>review</th>
       <th>sentiment</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -343,7 +343,7 @@ FROM movie_review_test
 ## __3. 텍스트 분류 모델 만들기__
 
 이전 단계에서 확인한 <mark style="background-color:#FFEC92 ">movie_review_train</mark> 데이터 세트를 사용하여 텍스트 분류 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>라는 이름의 모델을 만듭니다.  
-(쿼리 실행 시 예상 소요 시간 : 3 min)
+(쿼리 실행 시 예상 소요 시간: 3 min)
 
 
 ```python
@@ -362,7 +362,6 @@ SELECT *
 FROM movie_review_train
 ```
 
-    Building model...
     Success
 
 
@@ -371,17 +370,20 @@ FROM movie_review_train
     <ul>
         <li>"<strong>BUILD MODEL</strong>" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark>라는 모델을 만들고 학습시킵니다. </li>
         <li>"<strong>USING</strong>" 쿼리 구문을 통해 베이스 모델로 <code>ElectraEn</code>을 사용할 것을 명시합니다. </li>
-        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다. "text_col"은 학습에 사용할 텍스트를 담은 컬럼의 이름이며, "label_col"은 목푯값의 정보를 담은 컬럼의 이름입니다. "epochs"를 통해 몇 번의 학습을 반복할 지를 지정합니다. "batch_size"는 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다.</li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
+        <ul>
+            <li>"text_col": 학습에 사용할 텍스트를 담은 컬럼의 이름 (default: "text")</li>
+            <li>"label_col": 목푯값의 정보를 담은 컬럼의 이름 (default: "label")</li>
+            <li>"epochs": 모든 학습 데이터 세트를 학습하는 횟수 (default: 3)</li>
+            <li>"batch_size": 한 번의 학습에서 읽는 데이터 세트 묶음의 크기 (default: 16)</li>
+            <li>"overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, default: False)</li>
+        </ul>
+        </li>
     </ul>
 </div>
 
 <div class="admonition tip">
     <p>여기서는 빠르게 학습하기 위해 "epochs"를 1로 지정했습니다. 일반적으로 숫자가 클수록 많은 계산 시간이 소요되지만 학습이 진행됨에 따라 예측 성능이 올라갑니다.</p>
-</div>
-
-<div class="admonition note">
-    <p><strong>overwrite가 True일 때</strong>, 사용자는 이전 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 있습니다.<br>
-    반면, <strong>overwrite가 False일 때</strong>, 사용자는 이전에 생성했던 데이터 테이블과 같은 이름의 데이터 테이블을 생성할 수 없습니다.</p>
 </div>
 
 ## __4. 생성된 모델을 사용하여 영화 리뷰 감정 분류 결과 예측__
@@ -393,7 +395,8 @@ FROM movie_review_train
 %%thanosql
 PREDICT USING my_movie_review_classifier
 OPTIONS (
-    text_col='review'
+    text_col="review",
+    column_name="predict_result"
     )
 AS
 SELECT *
@@ -423,7 +426,7 @@ FROM movie_review_test
       <th></th>
       <th>review</th>
       <th>sentiment</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -473,7 +476,7 @@ FROM movie_review_test
       <th>996</th>
       <td>CyberTracker is set in Los Angeles sometime in...</td>
       <td>negative</td>
-      <td>positive</td>
+      <td>negative</td>
     </tr>
     <tr>
       <th>997</th>
@@ -502,21 +505,24 @@ FROM movie_review_test
 
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
-    <p>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark> 모델을 예측에 사용합니다.
-    "<strong>OPTIONS</strong>"를 통해 예측에 사용할 옵션을 지정합니다. <mark style="background-color:#D7D0FF">review</mark>는 예측에 사용할 텍스트를 담은 컬럼의 이름입니다.
-    예측 결과는 <mark style="background-color:#D7D0FF">predicted</mark> 컬럼에 저장되어 반환됩니다.</p>
+    <ul>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 만든 <mark style="background-color:#E9D7FD ">my_movie_review_classifier</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
+        <ul>
+            <li>"image_col": 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름 (default: "image_path")</li>
+            <li>"column_name": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 정의합니다. (default: "predict_result")</li>
+        </ul>
+        </li>
+    </ul>
 </div>
 
 ## __5. 튜토리얼을 마치며__
 
 이번 튜토리얼에서는  <mark style="background-color:#FFD79C">IMDB Movie Reviews</mark> 데이터 세트를 사용하여 텍스트 분류 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다. 텍스트 분류 모델은 각 플랫폼이나 서비스에 맞는 정밀한 튜닝을 통해 정확도를 향상 시킬 수 있습니다. 나만의 데이터를 이용해서 베이스 모델을 학습하거나, [자가학습(Self-supervised Learning)](https://en.wikipedia.org/wiki/Self-supervised_learning) 모델 등을 이용해 나의 데이터를 수치화하여 변환한 후 자동화 된 머신러닝(Auto-ML) 기법을 이용한 배포 또한 가능합니다. 다양한 비정형 데이터(이미지, 오디오, 비디오 등)와 수치형 데이터들을 결합하여 나만의 모델을 만들고 경쟁력있는 서비스를 제공해 보세요.
 
-다음 단계인 [중급 텍스트 분류 모델 만들기] 튜토리얼에서는 텍스트 분류 모델을 더욱 심도있게 다뤄봅니다. 내 서비스를 위한 나만의 텍스트 분류 모델 구축 방법에 대해 더욱 자세히 알고 싶다면 다음 튜토리얼들을 진행해보세요.
-
 * [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [중급 텍스트 분류 모델 만들기]
-* [텍스트 변환과 Auto-ML을 이용한 나만의 모델 만들기]
-* [나만의 텍스트 분류 모델 배포하기](https://docs.thanosql.ai/how-to_guides/reference/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>
