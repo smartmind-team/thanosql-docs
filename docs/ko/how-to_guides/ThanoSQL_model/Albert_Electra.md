@@ -64,7 +64,7 @@ OPTIONS(
 
  __BUILD MODEL 예시__
 
-[텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/text_classification/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트 분류 모델 만들기](/ko/tutorials/thanosql_ml/classification/text_classification/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -143,7 +143,7 @@ AS
 
  __PREDICT 예시__
 
-[텍스트 분류 모델 만들기](/tutorials/thanosql_ml/classification/text_classification/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트 분류 모델 만들기](/ko/tutorials/thanosql_ml/classification/text_classification/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

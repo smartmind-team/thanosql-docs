@@ -63,7 +63,7 @@ OPTIONS(
 
  __BUILD MODEL 예시__
 
-[오디오 파일을 받아쓰는 음성 인식 모델 만들기](/tutorials/thanosql_ml/audio_recognition/speech_recognition/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
+[오디오 파일을 받아쓰는 음성 인식 모델 만들기](/ko/tutorials/thanosql_ml/audio_recognition/speech_recognition/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -158,7 +158,7 @@ OPTIONS(
 
  __PREDICT 예시__
 
-[오디오 파일을 받아쓰는 음성 인식 모델 만들기](/tutorials/thanosql_ml/audio_recognition/speech_recognition/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
+[오디오 파일을 받아쓰는 음성 인식 모델 만들기](/ko/tutorials/thanosql_ml/audio_recognition/speech_recognition/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
