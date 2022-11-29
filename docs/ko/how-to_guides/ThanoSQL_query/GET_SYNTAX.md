@@ -46,7 +46,7 @@ OPTIONS (
 
 !!! note "쿼리 세부 정보"
     - "OPTIONS" 쿼리 구문을 통해 사용할 옵션을 지정합니다.
-        - "overwrite":동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 데이터 세트은 새로운 데이터 세트로 변경됩니다. (True|False, default: False) 
+        - "overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 데이터 세트은 새로운 데이터 세트로 변경됩니다. (True|False, default: False) 
 
 ## __3. GET 예시__ 
 
