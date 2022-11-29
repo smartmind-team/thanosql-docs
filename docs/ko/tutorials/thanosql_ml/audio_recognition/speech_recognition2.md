@@ -38,7 +38,7 @@ __아래는 ThanoSQL 음성 인식 모델의 활용 및 예시입니다.__
 
 ## __0. 데이터 세트 및 모델 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/getting_started/how_to_use_ThanoSQL/#5-thanosql)
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/ko/getting_started/how_to_use_ThanoSQL/#5-thanosql)
 에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 
 
@@ -611,9 +611,9 @@ FROM korean_voice
  
 이번 튜토리얼에서는 <mark style="background-color:#FFD79C">korean_voice</mark> 데이터 세트를 사용하여 Whisper의 기능 중 일반적으로 사용되는 음성 인식과 영어로의 번역을 실행해 보았습니다. 초급 단계 튜토리얼인 만큼 정확도 향상을 위한 과정 설명보다는 작동 위주의 설명으로 진행했습니다.
 
-* [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
-* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
+* [나만의 데이터 업로드하기](https://docs.thanosql.ai/ko/getting_started/data_upload/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

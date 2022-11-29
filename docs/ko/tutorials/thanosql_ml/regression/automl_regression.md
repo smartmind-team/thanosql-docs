@@ -45,7 +45,7 @@ __ThanoSQL의 자동화 된 머신러닝을 사용하면 다음과 같은 장점
 
 ## __0. 데이터 세트 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/getting_started/how_to_use_ThanoSQL/#5-thanosql)
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/ko/getting_started/how_to_use_ThanoSQL/#5-thanosql)
 에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 
 
@@ -578,9 +578,9 @@ LIMIT 10
 
 이번 튜토리얼에서는 [캐글](https://www.kaggle.com)의 <mark style="background-color:#FFD79C">Bike Sharing Demand</mark> 데이터 세트를 사용하여 자전거 수요 예측 회귀 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정보다는 전반적인 프로세스 위주의 설명으로 진행 하였습니다.
 
-* [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
-* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
+* [나만의 데이터 업로드하기](https://docs.thanosql.ai/ko/getting_started/data_upload/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

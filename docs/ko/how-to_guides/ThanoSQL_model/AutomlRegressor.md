@@ -73,7 +73,7 @@ OPTIONS(
 
 __BUILD MODEL 예시__
 
-[Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
+[Auto-ML을 사용하여 예측 모델 만들기](/ko/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -142,7 +142,7 @@ OPTIONS(
 
  __FIT MODEL 예시__
 
-[FIT MODEL](/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
+[FIT MODEL](/ko/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -178,7 +178,7 @@ AS
 
  __TRANSFORM 예시__
 
-[TRANSFORM](/how-to_guides/ThanoSQL_query/TRANSFORM_MODEL_SYNTAX/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
+[TRANSFORM](/ko/how-to_guides/ThanoSQL_query/TRANSFORM_MODEL_SYNTAX/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -205,7 +205,7 @@ AS
 
  __PREDICT 예시__
 
-[Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
+[Auto-ML을 사용하여 예측 모델 만들기](/ko/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql
@@ -247,7 +247,7 @@ OPTIONS(
 
  __EVALUATE 예시__
 
-[Auto-ML을 사용하여 예측 모델 만들기](/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
+[Auto-ML을 사용하여 예측 모델 만들기](/ko/tutorials/thanosql_ml/regression/automl_regression/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
 
 ```sql
 %%thanosql

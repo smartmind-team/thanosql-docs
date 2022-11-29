@@ -26,7 +26,7 @@ title: 텍스트로 텍스트 검색하기
 
 ## __0. 데이터 세트 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/getting_started/how_to_use_ThanoSQL/#5-thanosql)
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/ko/getting_started/how_to_use_ThanoSQL/#5-thanosql)
 에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 
 
@@ -1584,9 +1584,9 @@ WHERE score > 0.3
 
 이번 튜토리얼에서는 `nsmc` 영화 리뷰 데이터를 사용하여 텍스트 수치화와 수치화 결과를 바탕으로 한 유사 텍스트 검색, 키워드 추출을 진행해 보았습니다. 이번 튜토리얼에서는 모델의 수치화 성능보다는 작동 위주의 설명으로 진행하였습니다. 나만의 텍스트 수치화모델을 만들어 다양한 형태의 비정형 데이터 세트에 검색 기능을 추가하고 Auto-ML 기법을 이용한 나만의 모델을 배포할 수 있습니다.
 
-* [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
-* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
+* [나만의 데이터 업로드하기](https://docs.thanosql.ai/ko/getting_started/data_upload/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

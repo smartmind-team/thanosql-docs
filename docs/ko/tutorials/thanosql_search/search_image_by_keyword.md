@@ -38,7 +38,7 @@ title: 키워드로 이미지 검색하기
 
 ## __0. 데이터 세트 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/getting_started/how_to_use_ThanoSQL/#5-thanosql)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/ko/getting_started/how_to_use_ThanoSQL/#5-thanosql)에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 
 
 ```python
@@ -500,9 +500,9 @@ LIMIT 10
 
 이번 튜토리얼에서는 `음식 이미지 데이터 세트`를 사용해 키워드와 관련된 음식 이미지를 검색하는 모델을 구축하고 활용까지 해보았습니다. 이번 튜토리얼에서는 정확도 보다는 작동위주로 빠르게 진행되었습니다. 빌드 옵션의 학습 횟수, 데이터 수등 다양한 옵션들을 조절하여 모델의 정확도를 향상시킬 수 있습니다. 이어지는 유사이미지 검색모델, 텍스트 설명을 이용한 이미지 검색 튜토리얼을 진행하고 나만의 다양한 검색 서비스를 만들어 보세요.
 
-* [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
-* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
+* [나만의 데이터 업로드하기](https://docs.thanosql.ai/ko/getting_started/data_upload/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

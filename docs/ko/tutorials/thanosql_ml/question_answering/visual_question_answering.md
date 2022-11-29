@@ -40,7 +40,7 @@ title: 시각 질의 응답 모델 사용하기
 
 ## __0. 데이터 세트 및 모델 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/getting_started/how_to_use_ThanoSQL/#5-thanosql)
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/ko/getting_started/how_to_use_ThanoSQL/#5-thanosql)
 에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 
 
@@ -101,9 +101,9 @@ FROM 'thanosql-dataset/coco_person_data/coco_person.csv'
 
 ```python
 %%thanosql
-GET THANOSQL MODEL vilt
+GET THANOSQL MODEL vqa
 OPTIONS (overwrite=True)
-AS tutorial_vilt
+AS tutorial_vqa
 ```
 
     Success
@@ -213,7 +213,7 @@ LIMIT 5
 
 
     
-![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_1.jpg)
+![jpeg](/ko/img/tutorials/thanosql_ml/visual_question_answering/output_16_1.jpg)
     
 
 
@@ -222,7 +222,7 @@ LIMIT 5
 
 
     
-![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_3.jpg)
+![jpeg](/ko/img/tutorials/thanosql_ml/visual_question_answering/output_16_3.jpg)
     
 
 
@@ -231,7 +231,7 @@ LIMIT 5
 
 
     
-![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_5.jpg)
+![jpeg](/ko/img/tutorials/thanosql_ml/visual_question_answering/output_16_5.jpg)
     
 
 
@@ -240,7 +240,7 @@ LIMIT 5
 
 
     
-![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_7.jpg)
+![jpeg](/ko/img/tutorials/thanosql_ml/visual_question_answering/output_16_7.jpg)
     
 
 
@@ -249,18 +249,18 @@ LIMIT 5
 
 
     
-![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_9.jpg)
+![jpeg](/ko/img/tutorials/thanosql_ml/visual_question_answering/output_16_9.jpg)
     
 
 
 ## __2. 사전 학습된 모델을 사용하여 이미지의 질문에 대한 응답 예측__
 
-다음 쿼리문을 실행하면, 위에서 불러온 사전에 학습을 해 둔 시각 질의 응답 모델, <mark style="background-color:#E9D7FD ">tutorial_vilt</mark>모델을 사용하여 결과를 빠르게 예측해 볼 수 있습니다.
+다음 쿼리문을 실행하면, 위에서 불러온 사전에 학습을 해 둔 시각 질의 응답 모델, <mark style="background-color:#E9D7FD ">tutorial_vqa</mark>모델을 사용하여 결과를 빠르게 예측해 볼 수 있습니다.
 
 
 ```python
 %%thanosql
-PREDICT USING tutorial_vilt
+PREDICT USING tutorial_vqa
 OPTIONS (
     image_col='image_path',
     question='How many people are there?',
@@ -362,7 +362,7 @@ FROM coco_person_data
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 불러온 <mark style="background-color:#E9D7FD ">tutorial_vilt</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 불러온 <mark style="background-color:#E9D7FD ">tutorial_vqa</mark> 모델을 예측에 사용합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
         <ul>
             <li>"image_col": 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름 (default: "image_path")</li>
@@ -377,9 +377,9 @@ FROM coco_person_data
 
 이번 튜토리얼에서는 시각 질의 응답 모델을 사용하여 `COCO 데이터 세트`에서 이미지에 대한 질문을 통해 결과를 예측해 보았습니다. 초급 단계의 튜토리얼인 만큼 간단한 쿼리를 통해 눈에 보이는 결과를 얻는 것 위주로 진행했습니다. 필요한 이미지들에 대해서만 질문을 한다면, 보다 원하는 결과에 가까운 값을 얻을 수 있을 것입니다.
 
-* [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
-* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
+* [나만의 데이터 업로드하기](https://docs.thanosql.ai/ko/getting_started/data_upload/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

@@ -40,7 +40,7 @@ ThanoSQL을 사용하여 손글씨 데이터를 입력하고 데이터베이스 
 
 ## __0. 데이터 세트 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/getting_started/how_to_use_ThanoSQL/#5-thanosql)
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/ko/getting_started/how_to_use_ThanoSQL/#5-thanosql)
 에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
 
 
@@ -564,7 +564,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_image/output_24_1.jpg)
+![jpeg](/ko/img/tutorials/thanosql_search/search_image_by_image/output_24_1.jpg)
     
 
 
@@ -573,7 +573,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_image/output_24_3.jpg)
+![jpeg](/ko/img/tutorials/thanosql_search/search_image_by_image/output_24_3.jpg)
     
 
 
@@ -582,7 +582,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_image/output_24_5.jpg)
+![jpeg](/ko/img/tutorials/thanosql_search/search_image_by_image/output_24_5.jpg)
     
 
 
@@ -591,7 +591,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_image/output_24_7.jpg)
+![jpeg](/ko/img/tutorials/thanosql_search/search_image_by_image/output_24_7.jpg)
     
 
 
@@ -604,9 +604,9 @@ AS (
 
 이번 튜토리얼에서는 `MNIST` 손글씨 데이터 세트를 사용하여 이미지 수치화와 수치화 결과를 바탕으로한 유사 이미지 검색까지 진행해 보았습니다. 이번 튜토리얼에서는 이미지 유사도의 정확도보다도 작동 위주의 설명으로 진행하였습니다. 이미지 수치화 모델은 각 이미지 데이터 세트에 맞는 정밀한 튜닝과 소량의 정답을 학습 시에 추가하여 정확도를 향상 시킬 수 있습니다. 
 
-* [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
-* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
+* [나만의 데이터 업로드하기](https://docs.thanosql.ai/ko/getting_started/data_upload/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/ko/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

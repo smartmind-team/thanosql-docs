@@ -63,7 +63,7 @@ OPTIONS(
 
  __BUILD MODEL 예시__
 
-[텍스트로 텍스트 검색하기](/tutorials/thanosql_search/search_text_by_text/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 텍스트 검색하기](/ko/tutorials/thanosql_search/search_text_by_text/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -115,7 +115,7 @@ OPTIONS(
 
 __CONVERT 예시__
 
-[텍스트로 텍스트 검색하기](/tutorials/thanosql_search/search_text_by_text/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 텍스트 검색하기](/ko/tutorials/thanosql_search/search_text_by_text/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
 
 
 ```sql
@@ -188,7 +188,7 @@ OPTIONS (
 
 __SEARCH 예시__
 
-[텍스트로 텍스트 검색하기](/tutorials/thanosql_search/search_text_by_text/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 텍스트 검색하기](/ko/tutorials/thanosql_search/search_text_by_text/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
