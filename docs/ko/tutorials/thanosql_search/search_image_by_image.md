@@ -564,7 +564,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_image/output_24_1.jpg)
+![jpeg](/ko/img/tutorials/thanosql_search/search_image_by_image/output_24_1.jpg)
     
 
 
@@ -573,7 +573,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_image/output_24_3.jpg)
+![jpeg](/ko/img/tutorials/thanosql_search/search_image_by_image/output_24_3.jpg)
     
 
 
@@ -582,7 +582,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_image/output_24_5.jpg)
+![jpeg](/ko/img/tutorials/thanosql_search/search_image_by_image/output_24_5.jpg)
     
 
 
@@ -591,7 +591,7 @@ AS (
 
 
     
-![jpeg](/img/tutorials/thanosql_search/search_image_by_image/output_24_7.jpg)
+![jpeg](/ko/img/tutorials/thanosql_search/search_image_by_image/output_24_7.jpg)
     
 
 

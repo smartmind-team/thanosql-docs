@@ -260,7 +260,7 @@ LIMIT 5
 
 
     
-![png](/img/tutorials/thanosql_ml/image_classification/output_14_1.png)
+![png](/ko/img/tutorials/thanosql_ml/image_classification/output_14_1.png)
     
 
 
@@ -269,7 +269,7 @@ LIMIT 5
 
 
     
-![png](/img/tutorials/thanosql_ml/image_classification/output_14_3.png)
+![png](/ko/img/tutorials/thanosql_ml/image_classification/output_14_3.png)
     
 
 
@@ -278,7 +278,7 @@ LIMIT 5
 
 
     
-![png](/img/tutorials/thanosql_ml/image_classification/output_14_5.png)
+![png](/ko/img/tutorials/thanosql_ml/image_classification/output_14_5.png)
     
 
 
@@ -287,7 +287,7 @@ LIMIT 5
 
 
     
-![png](/img/tutorials/thanosql_ml/image_classification/output_14_7.png)
+![png](/ko/img/tutorials/thanosql_ml/image_classification/output_14_7.png)
     
 
 
@@ -296,7 +296,7 @@ LIMIT 5
 
 
     
-![png](/img/tutorials/thanosql_ml/image_classification/output_14_9.png)
+![png](/ko/img/tutorials/thanosql_ml/image_classification/output_14_9.png)
     
 
 

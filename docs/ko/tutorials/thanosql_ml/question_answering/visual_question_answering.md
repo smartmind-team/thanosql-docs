@@ -213,7 +213,7 @@ LIMIT 5
 
 
     
-![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_1.jpg)
+![jpeg](/ko/img/tutorials/thanosql_ml/visual_question_answering/output_16_1.jpg)
     
 
 
@@ -222,7 +222,7 @@ LIMIT 5
 
 
     
-![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_3.jpg)
+![jpeg](/ko/img/tutorials/thanosql_ml/visual_question_answering/output_16_3.jpg)
     
 
 
@@ -231,7 +231,7 @@ LIMIT 5
 
 
     
-![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_5.jpg)
+![jpeg](/ko/img/tutorials/thanosql_ml/visual_question_answering/output_16_5.jpg)
     
 
 
@@ -240,7 +240,7 @@ LIMIT 5
 
 
     
-![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_7.jpg)
+![jpeg](/ko/img/tutorials/thanosql_ml/visual_question_answering/output_16_7.jpg)
     
 
 
@@ -249,7 +249,7 @@ LIMIT 5
 
 
     
-![jpeg](/img/tutorials/thanosql_ml/visual_question_answering/output_16_9.jpg)
+![jpeg](/ko/img/tutorials/thanosql_ml/visual_question_answering/output_16_9.jpg)
     
 
 

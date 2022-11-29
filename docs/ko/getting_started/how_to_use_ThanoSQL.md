@@ -8,7 +8,7 @@ title: ThanoSQL 웹 사용법
 
 ThanoSQL에 접속 후, **Login 버튼(또는 메인화면의 시작하기 버튼)**을 클릭해 로그인 화면으로 접속합니다.
 
-[![IMAGE](/img/getting_started/img0.png)](/img/getting_started/img0.png)
+[![IMAGE](/ko/img/getting_started/img0.png)](/ko/img/getting_started/img0.png)
 
 !!! note ""
       ThanoSQL 콘솔을 사용 하기 위해서는 필수로 회원가입을 진행해야 합니다.
@@ -18,22 +18,22 @@ ThanoSQL에 접속 후, **Login 버튼(또는 메인화면의 시작하기 버�
 
 ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니다.
 
-[![IMAGE](/img/getting_started/img1.png)](/img/getting_started/img1.png)
+[![IMAGE](/ko/img/getting_started/img1.png)](/ko/img/getting_started/img1.png)
 
 - 정보입력 후 **계정 만들기 버튼**을 클릭해 회원가입을 완료합니다.
 - **이메일 인증**, **서비스 이용약관**과 **개인정보처리방침**에 동의 후 가입 할 수 있습니다.
 
-[![IMAGE](/img/getting_started/img2.png)](/img/getting_started/img2.png)
+[![IMAGE](/ko/img/getting_started/img2.png)](/ko/img/getting_started/img2.png)
 
 ## __3. 워크스페이스 생성__
 
 - 로그인 후, **시작하기 버튼**을 클릭해 워크스페이스를 생성 합니다.
 
-[![IMAGE](/img/getting_started/img3.png)](/img/getting_started/img3.png)
+[![IMAGE](/ko/img/getting_started/img3.png)](/ko/img/getting_started/img3.png)
 
 ## __3-1. 플랜 설정__
 
-[![IMAGE](/img/getting_started/img4.png)](/img/getting_started/img4.png)
+[![IMAGE](/ko/img/getting_started/img4.png)](/ko/img/getting_started/img4.png)
 
 ① **Plan**
 
@@ -49,7 +49,7 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 
 ## __3-2. 신청서 작성__
 
-[![IMAGE](/img/getting_started/img5.png)](/img/getting_started/img5.png)
+[![IMAGE](/ko/img/getting_started/img5.png)](/ko/img/getting_started/img5.png)
 
 ① 워크스페이스 이름을 **입력**합니다.
 
@@ -87,7 +87,7 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 
 - 워크스페이스 생성 페이지로 이동해 추가 생성할 수 있습니다.
 
-[![IMAGE](/img/getting_started/img6.png)](/img/getting_started/img6.png)
+[![IMAGE](/ko/img/getting_started/img6.png)](/ko/img/getting_started/img6.png)
 
 ## __5. ThanoSQL 워크스페이스__
 
@@ -107,4 +107,4 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 
 - 다른 워크스페이스(생성한 워크스페이스)로 손쉽게 이동할 수 있습니다.
 
-[![IMAGE](/img/getting_started/img7.png)](/img/getting_started/img7.png)
+[![IMAGE](/ko/img/getting_started/img7.png)](/ko/img/getting_started/img7.png)
