@@ -14,7 +14,7 @@ __Notation Conventions__
 - VALUE represents a regular value.
 
 !!! note ""
-    __literal__ : A fixed or unchangeable value, also known as a Constant.
+    - __literal__: a fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
 
@@ -24,7 +24,10 @@ Use the "__BUILD MODEL__" query to develop an AI model.
 The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
 ​
 
-```sql
+``` sql
+query_statement:
+    query_expr
+
 BUILD MODEL (model_name_expression)
 USING SimCLR
 OPTIONS (
@@ -52,12 +55,12 @@ OPTIONS(
 ​
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "image_col" : Sets the name of the column containing the image path. (DEFAULT: "path")
-- "filename_col" : Sets the name of the column containing the image file name. (DEFAULT : "file_name")
-- "label_col" : Sets the name of the column containing the path of the label (DEFAULT : "label")
-- "max_epochs" : Sets how many times the dataset is trained in total. (DEFAULT : )
-- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT: 256)
-- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
+- "image_col": sets the name of the column containing the image path. (default: "path")
+- "filename_col": sets the name of the column containing the image file name. (default: "file_name")
+- "label_col": sets the name of the column containing the path of the label (default: "label")
+- "max_epochs": sets how many times the dataset is trained in total. (default: )
+- "batch_size": the size of the dataset bundle read during a single train. (default: 256)
+- "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (default: False)
 
 __BUILD MODEL Example__
 
@@ -77,48 +80,6 @@ AS
 SELECT *
 FROM mnist_train
 ```
-
-## __CREATE TABLE Syntax__
-
-Using the syntax "__CREATE TABLE__", users can create a data table that converts unstructured data (image, audio, video, etc.) into vector formats using a quantization algorithm.
-The "__CREATE TABLE__" expression vectorizes the image files in the image folder path that comes after the "__FROM__" clause then creates and stores them as a table.
-​
-
-```sql
-​
-CREATE TABLE (table_name_expression) 
-USING (model_name_expression)
-OPTIONS (
-    expression [ , ...]
-    )
-FROM
-(query_expr)
-```
-
-​
-__OPTIONS Clause__
-​
-
-```sql
-OPTIONS(
-    (path_type = {'folder'|'file'}),
-    (data_type = {'image'|'audio'|'video'}),
-    (file_type = LIST),
-    [overwrite = {True | False}]
-
-    )
-```
-
-​
-The "__OPTIONS__" clause defines the attribute values of the image file for image quantification. The definition of each parameter is as follows.
-
-- "path_type" : Sets the type of path where data is stored (folder|file)
-
-- "data_type" : Sets the type of unstructured data used. (image|audio|video)
-
-- "file_type" : Sets the destination file extension type as a list (ex. ['.jpg'], '['.png'])
-  ​
-- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (DEFAULT: False)
 
 ## __CONVERT Syntax__
 
@@ -145,7 +106,7 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 ​
 
-- "table_name" : Sets the name of the table to store the new vector results
+- "table_name": sets the name of the table to store the new vector results
 
 __CONVERT Example__
 
@@ -176,7 +137,7 @@ AS
 ```
 
 !!! note ""
-    Images must be inputted as a string (for example, 'a black cat', 'data/image/image01.jpg').
+    - Images must be inputted as a string (for example, 'a black cat', 'data/image/image01.jpg').
 
 __SEARCH Example__
 

@@ -15,12 +15,18 @@ ThanoSQL COPY 구문은 utf-8 encoding 형식만 지원합니다. 한국어가 �
 ## **4. ThanoSQL에서 지원하는 비정형 데이터의 종류는 무엇인가요?**
 ThanoSQL은  Image와 audio 데이터에 대해 아래의 확장자를 지원합니다.
 
-- Image :  "jpg", "png"  
-- Audio : "wav", "flac", "mp3"
-- Video : "mp4"
+- Image:  "jpg", "png"  
+- Audio: "wav", "flac", "mp3"
+- Video: "mp4"
 
 !!! notice ""
     반면 Text 데이터의 경우, 따로 특별한 확장자를 요구하지 않습니다. 
 
 !!! warning ""
     Image의 경우, 언급된 2가지 이외의 확장자는 안정적으로 동작하지 않을 수도 있습니다.
+
+## **5. 코드 작성 시 괄호 자동 완성은 어떻게 설정하는 건가요?**
+`Menu > Settings > Auto Close Brackets`를 클릭하시면 해당 기능을 사용할 수 있습니다.
+
+!!! tip ""
+    따옴표에 대해서도 자동 완성이 적용됩니다.

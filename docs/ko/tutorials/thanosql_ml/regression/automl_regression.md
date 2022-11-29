@@ -4,11 +4,11 @@ title: Auto-ML을 사용하여 예측 모델 만들기
 
 # __Auto-ML을 사용하여 예측 모델 만들기__
 
-- 튜토리얼 난이도 : ★☆☆☆☆
-- 읽는 시간 : 5분
-- 사용 언어 : [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
-- 실행 파일 위치 : tutorial/thanosql_ml/regression/automl_regression.ipynb
-- 참고 문서 : [(캐글) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
+- 튜토리얼 난이도: ★☆☆☆☆
+- 읽는 시간: 5분
+- 사용 언어: [SQL](https://ko.wikipedia.org/wiki/SQL) (100%)
+- 실행 파일 위치: tutorial/thanosql_ml/regression/automl_regression.ipynb
+- 참고 문서: [(캐글) Bike Sharing Demand](https://www.kaggle.com/competitions/bike-sharing-demand/overview)
 
 ## 튜토리얼 소개
 
@@ -72,7 +72,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" 쿼리 구문을 사용하여 원하는 데이터 세트를 워크스페이스에 저장합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>GET THANOSQL DATASET</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -103,10 +103,10 @@ FROM "thanosql-dataset/bike_sharing_data/bike_sharing_test.csv"
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 DB에 저장 할 데이터 세트명을 지정합니다. </li>
+        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 데이터베이스에 저장 할 데이터 세트명을 지정합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>COPY</strong> 에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"overwrite" : 동일 이름의 데이터 세트가 DB상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"overwrite": 동일 이름의 데이터 세트가 데이터베이스 상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -114,7 +114,7 @@ FROM "thanosql-dataset/bike_sharing_data/bike_sharing_test.csv"
 
 ## __1. 데이터 세트 확인__
 
-본 튜토리얼을 진행하기 위해 우리는 ThanoSQL DB에 저장되어 있는 <mark style="background-color:#FFEC92 ">bike_sharing_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
+본 튜토리얼을 진행하기 위해 우리는 ThanoSQL 워크스페이스 데이터베이스에 저장되어 있는 <mark style="background-color:#FFEC92 ">bike_sharing_train</mark> 테이블을 사용합니다. 아래의 쿼리문을 실행하여 테이블 내용을 확인합니다.
 
 
 ```python
@@ -160,7 +160,7 @@ LIMIT 5
   <tbody>
     <tr>
       <th>0</th>
-      <td>2011-01-01 00:00:00</td>
+      <td>2011-01-01 0:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -168,12 +168,12 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>81</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>16</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2011-01-01 01:00:00</td>
+      <td>2011-01-01 1:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -181,12 +181,12 @@ LIMIT 5
       <td>9.02</td>
       <td>13.635</td>
       <td>80</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>40</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2011-01-01 02:00:00</td>
+      <td>2011-01-01 2:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -194,12 +194,12 @@ LIMIT 5
       <td>9.02</td>
       <td>13.635</td>
       <td>80</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>32</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2011-01-01 03:00:00</td>
+      <td>2011-01-01 3:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -207,12 +207,12 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>75</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>13</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2011-01-01 04:00:00</td>
+      <td>2011-01-01 4:00</td>
       <td>1</td>
       <td>0</td>
       <td>0</td>
@@ -220,7 +220,7 @@ LIMIT 5
       <td>9.84</td>
       <td>14.395</td>
       <td>75</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>1</td>
     </tr>
   </tbody>
@@ -233,23 +233,23 @@ LIMIT 5
     <h4 class="admonition-title">데이터 이해하기</h4>
     <p><mark style="background-color:#FFEC92 "><strong>bike_sharing_train</strong></mark> 데이터 세트에는 2011년 1월부터 2012년 12월까지 날짜와 시간, 기온, 습도, 풍속 등의 정보를 기반으로 1시간 간격 동안의 자전거 대여 횟수에 대한 정보를 담고 있습니다.</p>
     <ul>
-        <li><mark style="background-color:#D7D0FF ">datetime</mark> : 시간별 날짜</li>
-        <li><mark style="background-color:#D7D0FF ">season</mark> : 계절(1 = 봄, 2 = 여름, 3 = 가을, 4 = 겨울)</li>
-        <li><mark style="background-color:#D7D0FF ">holiday</mark> : 휴일(0 = 휴일이 아닌 날, 1 = 주말을 제외한 국경일 등의 휴일)</li>
-        <li><mark style="background-color:#D7D0FF ">workingday</mark> : 작업일(0 = 주말 및 휴일, 1 = 주말 및 휴일이 아닌 주중)</li>
-        <li><mark style="background-color:#D7D0FF ">weather</mark> : 날씨</li>
-        <li><mark style="background-color:#D7D0FF ">temp</mark> : 온도</li>
-        <li><mark style="background-color:#D7D0FF ">atemp</mark> : 체감온도</li>
-        <li><mark style="background-color:#D7D0FF ">humidity</mark> : 상대습도</li>
-        <li><mark style="background-color:#D7D0FF ">windspeed</mark> : 풍속</li>
-        <li><mark style="background-color:#D7D0FF ">count</mark> : 대여 횟수</li>
+        <li><mark style="background-color:#D7D0FF ">datetime</mark>: 시간별 날짜</li>
+        <li><mark style="background-color:#D7D0FF ">season</mark>: 계절(1 = 봄, 2 = 여름, 3 = 가을, 4 = 겨울)</li>
+        <li><mark style="background-color:#D7D0FF ">holiday</mark>: 휴일(0 = 휴일이 아닌 날, 1 = 주말을 제외한 국경일 등의 휴일)</li>
+        <li><mark style="background-color:#D7D0FF ">workingday</mark>: 작업일(0 = 주말 및 휴일, 1 = 주말 및 휴일이 아닌 주중)</li>
+        <li><mark style="background-color:#D7D0FF ">weather</mark>: 날씨</li>
+        <li><mark style="background-color:#D7D0FF ">temp</mark>: 온도</li>
+        <li><mark style="background-color:#D7D0FF ">atemp</mark>: 체감온도</li>
+        <li><mark style="background-color:#D7D0FF ">humidity</mark>: 상대습도</li>
+        <li><mark style="background-color:#D7D0FF ">windspeed</mark>: 풍속</li>
+        <li><mark style="background-color:#D7D0FF ">count</mark>: 대여 횟수</li>
     </ul>
 </div>
 
 ## __2. 회귀 모델 생성__
 
 이전 단계에서 확인한 <mark style="background-color:#FFEC92 "><strong>bike_sharing_train</strong></mark> 데이터 세트를 사용하여 자전거 수요 예측 회귀 모델을 만듭니다. 아래의 쿼리 구문을 실행하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>이라는 이름의 모델을 만듭니다.  
-(쿼리 실행 시 예상 소요 시간 : 8 min)
+(쿼리 실행 시 예상 소요 시간: 8 min)
 
 
 ```python
@@ -268,7 +268,6 @@ SELECT *
 FROM bike_sharing_train
 ```
 
-    Building model...
     Success
 
 
@@ -278,11 +277,11 @@ FROM bike_sharing_train
         <li>"<strong>BUILD MODEL</strong>" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark>라는 모델을 만들고 학습시킵니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 모델 생성에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"target" : 회귀 예측 모델의 목푯값이 담겨 있는 컬럼명</li>
-            <li>"impute_type" : 데이터 테이블의 빈 값(NaN)을 처리하는 방법 설정 ('simple'|'iterative' , DEFAULT : 'simple')        </li>
-            <li>"datetime_attribs" : 날짜 형식의 데이터가 담겨 있는 컬럼명 리스트</li>
-            <li>"time_left_for_this_task" : 적합한 회귀 예측 모델을 찾는데 소요되는 시간 (DEFAULT : 300)</li>
-            <li>"overwrite" : 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, DEFAULT : False) </li>
+            <li>"target": 회귀 예측 모델의 목푯값이 담겨 있는 컬럼명</li>
+            <li>"impute_type": 데이터 테이블의 빈 값(NaN)을 처리하는 방법 설정 ('simple'|'iterative' , default: 'simple')        </li>
+            <li>"datetime_attribs": 날짜 형식의 데이터가 담겨 있는 컬럼명 리스트</li>
+            <li>"time_left_for_this_task": 적합한 회귀 예측 모델을 찾는데 소요되는 시간 (default: 300)</li>
+            <li>"overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -333,27 +332,27 @@ FROM bike_sharing_train
     <tr>
       <th>0</th>
       <td>MAE</td>
-      <td>71.9746</td>
+      <td>73.5495</td>
     </tr>
     <tr>
       <th>1</th>
       <td>MSE</td>
-      <td>10016.9157</td>
+      <td>9664.5868</td>
     </tr>
     <tr>
       <th>2</th>
       <td>R2</td>
-      <td>0.3106</td>
+      <td>0.3398</td>
     </tr>
     <tr>
       <th>3</th>
       <td>RMSLE</td>
-      <td>1.1670</td>
+      <td>1.3192</td>
     </tr>
     <tr>
       <th>4</th>
       <td>MAPE</td>
-      <td>0.4551</td>
+      <td>0.4762</td>
     </tr>
   </tbody>
 </table>
@@ -367,7 +366,7 @@ FROM bike_sharing_train
         <li>"<strong>EVALUATE USING</strong>" 쿼리 구문을 사용하여 구축한 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 평가합니다. </li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 사용하여 평가에 사용할 옵션을 지정합니다.
         <ul>
-            <li>"target" : 회귀 예측 모델의 목푯값이 담겨있는 컬럼명</li>
+            <li>"target": 회귀 예측 모델의 목푯값이 담겨있는 컬럼명</li>
         </ul>
         </li>
     </ul>
@@ -385,7 +384,8 @@ FROM bike_sharing_train
 
 ```python
 %%thanosql
-PREDICT USING bike_regression 
+PREDICT USING bike_regression
+OPTIONS (column_name="predict_result")
 AS
 SELECT *
 FROM bike_sharing_test
@@ -422,13 +422,13 @@ LIMIT 10
       <th>atemp</th>
       <th>humidity</th>
       <th>windspeed</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>2011-01-20 00:00:00</td>
+      <td>2011-01-20 0:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -437,11 +437,11 @@ LIMIT 10
       <td>11.365</td>
       <td>56</td>
       <td>26.0027</td>
-      <td>136.392187</td>
+      <td>110.567545</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>2011-01-20 01:00:00</td>
+      <td>2011-01-20 1:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -450,11 +450,11 @@ LIMIT 10
       <td>13.635</td>
       <td>56</td>
       <td>0.0000</td>
-      <td>74.944578</td>
+      <td>95.440515</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>2011-01-20 02:00:00</td>
+      <td>2011-01-20 2:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -463,11 +463,11 @@ LIMIT 10
       <td>13.635</td>
       <td>56</td>
       <td>0.0000</td>
-      <td>74.944578</td>
+      <td>95.440515</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>2011-01-20 03:00:00</td>
+      <td>2011-01-20 3:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -476,11 +476,11 @@ LIMIT 10
       <td>12.880</td>
       <td>56</td>
       <td>11.0014</td>
-      <td>84.932830</td>
+      <td>99.848359</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>2011-01-20 04:00:00</td>
+      <td>2011-01-20 4:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -489,11 +489,11 @@ LIMIT 10
       <td>12.880</td>
       <td>56</td>
       <td>11.0014</td>
-      <td>84.932830</td>
+      <td>99.848359</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>2011-01-20 05:00:00</td>
+      <td>2011-01-20 5:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -502,11 +502,11 @@ LIMIT 10
       <td>11.365</td>
       <td>60</td>
       <td>15.0013</td>
-      <td>97.821171</td>
+      <td>97.812435</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>2011-01-20 06:00:00</td>
+      <td>2011-01-20 6:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -515,11 +515,11 @@ LIMIT 10
       <td>10.605</td>
       <td>60</td>
       <td>15.0013</td>
-      <td>91.725860</td>
+      <td>91.118055</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>2011-01-20 07:00:00</td>
+      <td>2011-01-20 7:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -528,11 +528,11 @@ LIMIT 10
       <td>10.605</td>
       <td>55</td>
       <td>15.0013</td>
-      <td>85.927970</td>
+      <td>90.292752</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>2011-01-20 08:00:00</td>
+      <td>2011-01-20 8:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -541,11 +541,11 @@ LIMIT 10
       <td>10.605</td>
       <td>55</td>
       <td>19.0012</td>
-      <td>89.624088</td>
+      <td>92.152767</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>2011-01-20 09:00:00</td>
+      <td>2011-01-20 9:00</td>
       <td>1</td>
       <td>0</td>
       <td>1</td>
@@ -554,7 +554,7 @@ LIMIT 10
       <td>11.365</td>
       <td>52</td>
       <td>15.0013</td>
-      <td>101.249065</td>
+      <td>104.415442</td>
     </tr>
   </tbody>
 </table>
@@ -565,21 +565,22 @@ LIMIT 10
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 예측에 사용합니다. </li>
-        <li>"<strong>PREDICT</strong>"의 경우 생성된 모델의 절차를 따르기 때문에 특별한 옵션값이 필요없습니다.</li>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 사용하여 <mark style="background-color:#E9D7FD ">bike_regression</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
+        <ul>
+            <li>"column_name": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 정의합니다. (default: "predict_result")</li>
+        </ul>
+        </li>
     </ul>
 </div>
 
 ## __5. 튜토리얼을 마치며__
 
-이번 튜토리얼에서는 [캐글](https://www.kaggle.com)의 <mark style="background-color:#FFD79C">Bike Sharing Demand</mark> 데이터 세트를 사용하여 자전거 수요 예측 회귀 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정보다는 전반적인 프로세스 위주의 설명으로 진행 하였습니다. 향상 된 회귀 모델 구축에 대해 자세히 알고 싶다면 중급 튜토리얼을 진행해 볼 것을 권장드립니다.
-
-다음 [중급 회귀 작업 모델 만들기] 튜토리얼에서는 정확도 향상을 위한 "__OPTIONS__"에 대해 더욱 심도있게 다뤄보겠습니다. 중급, 고급 단계를 마치고 나만의 서비스/프로덕트를 위한 회귀 예측 모델을 만들어 보세요. 중급 단계에서는 ThanoSQL의 Auto-ML이 제공하는 다양한 "__OPTIONS__"를 활용하여 정교한 회귀 예측 모델을 만들어 볼 예정입니다. 또한, 중급 단계를 마치신 이후 고급 단계에서는 비정형 데이터를 수치화시킨 후 Auto-ML의 학습 요소로 포함하여 회귀 예측 모델을 만들 수 있습니다.
+이번 튜토리얼에서는 [캐글](https://www.kaggle.com)의 <mark style="background-color:#FFD79C">Bike Sharing Demand</mark> 데이터 세트를 사용하여 자전거 수요 예측 회귀 모델을 만들어 보았습니다. 초급 단계 튜토리얼인만큼 정확도 향상을 위한 과정보다는 전반적인 프로세스 위주의 설명으로 진행 하였습니다.
 
 * [나만의 데이터 업로드하기](https://docs.thanosql.ai/getting_started/data_upload/)
-* [중급 이미지 분류 모델 만들기]
-* [이미지 변환과 Auto-ML을 이용한 나만의 모델 만들기]
-* [나만의 이미지 분류 모델 배포하기](https://docs.thanosql.ai/how-to_guides/reference/)
+* [나만의 데이터 테이블 생성하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [나만의 모델 업로드하기](https://docs.thanosql.ai/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">나만의 서비스를 위한 모델 배포 관련 문의</h4>

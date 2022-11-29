@@ -12,3 +12,4 @@ nav:
     - PRINT_SYNTAX.md
     - GET_SYNTAX.md
     - LIST_SYNTAX.md
+    - COPY_SYNTAX.md

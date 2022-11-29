@@ -19,18 +19,20 @@ AS
 [dataset_to_use]
 ```
 
-!!! NOTE
-    Option values used in the "__OPTIONS__" clause are different for each model. Specific values needed for each model are listed in [reference](/en/how-to_guides/reference/). 
+!!! note "__Query Details__"
+    - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
+        - "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (default: False)
 
-!!! warning
-    The Auto-ML model is retrained by exclusively switching the dataset instead of changing the parameter values of the model to keep consistency with option values in the "__OPTIONS__" clause.
 ## __3. FIT MODEL Example__
-The example below demonstrates how to create a <mark style="background-color:#E9D7FD ">fit_test_classifier</mark> model by retraining the <mark style="background-color:#E9D7FD ">test_classifier</mark> model with a new dataset and a "__FIT_MODEL__" statement. 
+
+!!! note
+    - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to the [ThanoSQL Pre-built Model Statement Reference](/en/how-to_guides/reference/#thanosql-pre-built-model-statement-reference)
+    - Since the example works only when a specific model and dataset exist, it may not run normally when copied and used as it is.
 
 ```sql
 %%thanosql
-FIT MODEL fit_test_classifier
-USING test_classifier
+FIT MODEL mynewmodel
+USING myoldmodel
 OPTIONS (
     target = 'survived',
     impute_type='simple',

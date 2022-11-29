@@ -4,7 +4,7 @@ title: ThanoSQL 서치 사용
 
 # __ThanoSQL 서치 사용__
 
-REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으로 ThanoSQL DB 상의 유사한 이미지를 조회하고 받을 수 있습니다. 
+REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으로 ThanoSQL 워크스페이스 데이터베이스 상의 유사한 이미지를 조회하고 받을 수 있습니다. 
 
 ## __이미지로 이미지 검색하기__
 
@@ -23,10 +23,10 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
     api_url = f"{base_url}?table_name={table_name}&model_name={model_name}&column_name={column_name}"
 
     header = {
-        "Authorization" : f"Bearer {api_token}"
+        "Authorization": f"Bearer {api_token}"
     }
 
-    files = {'file' : open('이미지 파일 경로', 'rb')}
+    files = {'file': open('이미지 파일 경로', 'rb')}
 
     ## SEARCH WITH IMAGE
     with requests.post(api_url, headers = header, files=files, stream=True) as r:
@@ -67,7 +67,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
     api_url = f"{base_url}?table_name={table_name}&model_name={model_name}&column_name={column_name}&text={text}"
 
     header = {
-        "Authorization" : f"Bearer {api_token}"
+        "Authorization": f"Bearer {api_token}"
     }
 
     ## SEARCH WITH IMAGE

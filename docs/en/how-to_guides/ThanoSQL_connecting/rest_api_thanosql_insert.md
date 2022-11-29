@@ -1,14 +1,10 @@
 ---
-title: How to Upload to ThanoSQL DB
+title: How to Upload to the ThanoSQL Workspace Database
 ---
 
-# **How to Upload to ThanoSQL DB**
+# **How to Upload to the ThanoSQL Workspace Database**
 
-## Preface
-
-- Updated Date : {{ git_revision_date_localized }}
-
-You can use ThanoSQL's REST API to remotely send and upload images to your ThanoSQL storage and insert them into any of your DB table.
+You can use ThanoSQL's REST API to remotely send and upload images to your ThanoSQL storage and insert them into any of your table within the database.
 
 === "Python"
 
@@ -23,9 +19,9 @@ You can use ThanoSQL's REST API to remotely send and upload images to your Thano
 
     api_url = f"{base_url}?table_name={table_name}&column_name={column_name}"
     header = {
-        "Authorization" : f"Bearer {api_token}"
+        "Authorization": f"Bearer {api_token}"
     }
-    files = {'file' : open('Image File Path', 'rb')}
+    files = {'file': open('Image File Path', 'rb')}
 
     r = requests.post(api_url, files=files, headers=header)
 

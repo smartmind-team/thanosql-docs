@@ -19,20 +19,24 @@ AS
 [test_dataset_to_use]
 ```
 
-## __3. PREDICT Example__
-You can find the example of the following query statement in the [Create a text classification model](/en/tutorials/thanosql_ml/classification/text_classification/).
+!!! note "__Query Details__"
+    - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
+        - "table_name": the name of the new table to be created.
 
-````sql
+## __3. PREDICT Example__
+
+!!! note
+    - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to the [ThanoSQL Pre-built Model Statement Reference](/en/how-to_guides/reference/#thanosql-pre-built-model-statement-reference)
+    - Since the example works only when a specific model and dataset exist, it may not run normally when copied and used as it is.
+
+```sql
 %%thanosql
-PREDICT USING my_movie_review_classifier
+PREDICT USING mymodel
 OPTIONS (
+    table_name='predict_result_table'
     text_col='review'
     )
 AS
 SELECT *
 FROM movie_review_test```
-````
-
-!!! note "__Query Details__"
-    - The "__OPTIONS__" clause can change the value of a parameter from the default value in an image model. The meaning of each parameter is as follows:
-        - "text_col" : Column containing the text to be classified by the model. (DEFAULT : "text")
+```

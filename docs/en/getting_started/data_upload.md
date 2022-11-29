@@ -1,20 +1,18 @@
 ---
-title: How to upload your data to ThanoSQL workspace
+title: How to Upload Your Data to the ThanoSQL Workspace
 ---
 
-# __How to upload your data to ThanoSQL workspace__ 
+# __How to Upload Your Data to the ThanoSQL Workspace__ 
 
-## __Preface__
-
-ThanoSQL workspace's users can upload data using two ways as shown below.
+The ThanoSQL workspace's users can upload data in two ways, as shown below.
 
 !!! note "To upload data"
     1. Uploading your local data into your workspace environment
     2. Uploading local data by SFTP server connection using a private key
 
-## __1. Uploading your local data in a workspace environment__
+## __1. Uploading your local data into a workspace environment__
 
-To upload local data to ThanoSQL workspace, follow these steps:
+Follow these steps to upload local data to the ThanoSQL workspace:
 
 !!! note ""
     1. Log into the ThanoSQL console
@@ -27,7 +25,7 @@ To upload local data to ThanoSQL workspace, follow these steps:
 ## __2. Uploading local data by SFTP server connection using a private key__
 
 !!! note "What is SFTP(Secure File Transfer Protocol)?"
-    An interactive file transfer program with a user interface similar to File Transfer Protocol (FTP). However, SFTP uses SSH File Transfer Protocol (FTP) to create a secure connection to the server.
+    An interactive file transfer program with a user interface similar to File Transfer Protocol(FTP). However, SFTP uses SSH File Transfer Protocol(FTP) to create a secure connection to the server.
 
 !!! danger ""
     - SFTP supports only ubuntu linux 

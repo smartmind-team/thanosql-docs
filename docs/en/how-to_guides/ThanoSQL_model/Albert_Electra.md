@@ -14,7 +14,7 @@ __Notation Conventions__
 - VALUE represents a regular value.
 
 !!! note ""
-    __literal__ : A fixed or unchangeable value, also known as a Constant.
+    - __literal__: a fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
 ## __BUILD MODEL Syntax__
@@ -50,12 +50,12 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in an image model. The definition of each parameter is as follows.
 
-- "text_col" : Sets the name of the column containing the text to be classified. (DEFAULT: "text")
-- "label_col" : Sets the name of the column containing the path of the label. (DEFAULT : "label")
-- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
-- "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 3)
-- "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
-- "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (DEFAULT: False)
+- "text_col": sets the name of the column containing the text to be classified. (default: "text")
+- "label_col": sets the name of the column containing the path of the label. (default: "label")
+- "batch_size": the size of the dataset bundle read during a single train. (default: 16)
+- "epochs": sets how many times the dataset is trained in total. (default: 3)
+- "learning_rate": the learning rate of the model. (default: 0.0001)
+- "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
 
 __BUILD MODEL Example__
 
@@ -109,12 +109,12 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in an image model. The definition of each parameter is as follows.
 
-- "text_col" : Sets the name of the column containing the text to be classified. (DEFAULT: "text")
-- "label_col" : Sets the name of the column containing the path of the label. (DEFAULT : "label")
-- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
-- "epochs" : Sets how many times the dataset is trained in total. (DEFAULT : 3)
-- "learning_rate" : The learning rate of the model. (DEFAULT : 0.0001)
-- "overwrite" : Overwrite if a model with the same name exists in the DB. If True, the existing model is overwritten with the new model (DEFAULT: False)
+- "text_col": sets the name of the column containing the text to be classified. (default: "text")
+- "label_col": sets the name of the column containing the path of the label. (default: "label")
+- "batch_size": the size of the dataset bundle read during a single train. (default: 16)
+- "epochs": sets how many times the dataset is trained in total. (default: 3)
+- "learning_rate": the learning rate of the model. (default: 0.0001)
+- "overwrite": overwrite if a model with the same name exists in the database. If True, the existing model is overwritten with the new model (default: False)
 
 ## __PREDICT Syntax__
 
@@ -158,7 +158,7 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter in an image model. The definition of each parameter is as follows.
 
 
-- "text_col" : Sets the name of the column containing the text to be classified. (DEFAULT: "text")
+- "text_col": sets the name of the column containing the text to be classified. (default: "text")
 
 ## __EVALUATE Syntax__
 
@@ -187,6 +187,6 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in an image model. The definition of each parameter is as follows.
 
-- "text_col" : Sets the name of the column containing the text to be classified. (DEFAULT: "text")
+- "text_col": sets the name of the column containing the text to be classified. (default: "text")
 
-- "batch_size" : The size of the dataset bundle read during a single train. (DEFAULT : 16)
+- "batch_size": the size of the dataset bundle read during a single train. (default: 16)

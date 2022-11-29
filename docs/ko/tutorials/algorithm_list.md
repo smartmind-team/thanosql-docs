@@ -25,7 +25,7 @@ title: ThanoSQL 모든 튜토리얼
                     이미지로 이미지 검색하기
                 </h3>
                 <p>
-                    <br>ThanoSQL의 이미지-이미지 검색 모델을 사용하여 손글씨 데이터를 입력하고 DB 내에서 입력 이미지와 유사한 이미지에 대한 검색을 진행합니다.</br>
+                    <br>ThanoSQL의 이미지-이미지 검색 모델을 사용하여 손글씨 데이터를 입력하고 데이터베이스 내에서 입력 이미지와 유사한 이미지에 대한 검색을 진행합니다.</br>
                 </p>
             </a>
         </li>
@@ -36,6 +36,26 @@ title: ThanoSQL 모든 튜토리얼
                 </h3>
                 <p>
                     <br>ThanoSQL의 텍스트-이미지 검색 모델을 사용하여 텍스트로 원하는 이미지에 대한 검색을 진행합니다.</br>
+                </p>
+            </a>
+        </li>
+        <li>
+            <a href="/tutorials/thanosql_search/search_text_by_text/">
+                <h3>
+                    텍스트로 텍스트 검색하기
+                </h3>
+                <p>
+                    <br>ThanoSQL의 텍스트-텍스트 검색 모델을 사용하여 텍스트로 원하는 문서에 대한 검색을 진행합니다.</br>
+                </p>
+            </a>
+        </li>
+        <li>
+            <a href="/tutorials/thanosql_search/search_video_by_text/">
+                <h3>
+                    텍스트로 비디오 검색하기
+                </h3>
+                <p>
+                    <br>ThanoSQL의 텍스트-비디오 검색 모델을 사용하여 텍스트로 원하는 비디오에 대한 검색을 진행합니다.</br>
                 </p>
             </a>
         </li>
@@ -98,6 +118,30 @@ title: ThanoSQL 모든 튜토리얼
                 <p>
                     <br>
                         ThanoSQL의 음성 인식 모델을 사용하여 음성 파일의 텍스트로의 변환을 진행합니다.
+                    </br>
+                </p>
+            </a>
+        </li>
+        <li>
+            <a href="/tutorials/thanosql_ml/audio_recognition/speech_recognition2/">
+                <h3>
+                    오디오 파일을 받아쓰는 음성 인식 모델 사용하기
+                </h3>
+                <p>
+                    <br>
+                        ThanoSQL의 음성 인식 모델을 사용하여 음성 파일의 텍스트로의 변환하고 텍스트의 영어로의 번역 또한 진행합니다.
+                    </br>
+                </p>
+            </a>
+        </li>
+        <li>
+            <a href="/tutorials/thanosql_ml/question_answering/visual_question_answering/">
+                <h3>
+                    시각 질의 응답 모델 사용하기
+                </h3>
+                <p>
+                    <br>
+                        ThanoSQL의 시각 질의 응답 모델을 사용하여 이미지에 대한 질문이 주어졌을 때, 해당 질문에 대해 알맞은 답변을 찾습니다.
                     </br>
                 </p>
             </a>

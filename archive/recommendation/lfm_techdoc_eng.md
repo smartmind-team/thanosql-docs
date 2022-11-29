@@ -30,7 +30,7 @@ The Goodbooks dataset contains the rating from a scale of 1 to 10 that user gave
 ## **Intended uses & Limitation**
 - ThanoSQL team customized LFM model for SQL practitioners to create a recommendation list by using simple SQL quries without any other kind of coding works.
 - You can build a recommendation model if you have a table that contains columns of 'UserID', 'ItemID', 'Rating'.
-- With thanoSQL, you can simply preprocess data for building a recommendation model without a deep knowledge of various programming languages such as Python, Java, or C and also a deep understanding of machine learning concepts.  
+- With ThanoSQL, you can simply preprocess data for building a recommendation model without a deep knowledge of various programming languages such as Python, Java, or C and also a deep understanding of machine learning concepts.  
 - SQL practitioners use a built model to create three different kinds of recommendation lists of 'User to Item', 'Item to User', 'Item to Item' by using the Predict function.
 - Because the LFM model uses the Matrix factorization algorithm, the larger data results the higher computation and overloading the computer. (If the size of the data exceeds a certain standard, it is recommended to seperate the table by time to create a recommendation model)
 

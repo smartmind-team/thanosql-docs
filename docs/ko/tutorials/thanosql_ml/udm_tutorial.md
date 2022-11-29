@@ -4,13 +4,15 @@ title: User Defined Model in ThanoSQL
 
 # __사용자의 모델을 ThanoSQL에서 사용하기__
 
-## 데이터
+## __0. 데이터 세트 및 모델 준비__
 
-### Beans 데이터세트
+### Beans 데이터 세트
 
 이 데이터 세트는 우간다의 농업 연구를 담당하는 국가 기관인 국립 작물 자원 연구소(NaCRRI)와 협력하여 Makerere AI 연구소가 우간다의 여러 지역에서 현장에서 촬영한 잎 이미지입니다. 데이터는 총 3개의 클래스로 구성되어 있습니다. 2개의 질병 클래스와 건강 클래스이고, 질병은 각각 세균모무늬병(Angular leaf spot)과 콩 녹병(Bean rust)입니다.
 
 홈페이지: <https://github.com/AI-Lab-Makerere/ibean>
+
+### __데이터 세트 준비__
 
 #### 데이터 다운로드 및 압축풀기
 
@@ -35,28 +37,9 @@ for split in ["train", "validation", "test"]:
 !pip install torch torchvision
 ```
 
-    [33mWARNING: The directory '/home/jovyan/.cache/pip' or its parent directory is not owned or is not writable by the current user. The cache has been disabled. Check the permissions and owner of that directory. If executing pip with sudo, you should use sudo's -H flag.[0m[33m
-    [0mRequirement already satisfied: torch in /opt/conda/lib/python3.9/site-packages (1.12.1)
-    Collecting torchvision
-      Downloading torchvision-0.13.1-cp39-cp39-manylinux1_x86_64.whl (19.1 MB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m19.1/19.1 MB[0m [31m211.5 MB/s[0m eta [36m0:00:00[0ma [36m0:00:01[0m
-    [?25hRequirement already satisfied: typing-extensions in /opt/conda/lib/python3.9/site-packages (from torch) (4.3.0)
-    Requirement already satisfied: requests in /opt/conda/lib/python3.9/site-packages (from torchvision) (2.27.1)
-    Collecting pillow!=8.3.*,>=5.3.0
-      Downloading Pillow-9.2.0-cp39-cp39-manylinux_2_28_x86_64.whl (3.2 MB)
-    [2K     [90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━[0m [32m3.2/3.2 MB[0m [31m297.4 MB/s[0m eta [36m0:00:00[0m
-    [?25hRequirement already satisfied: numpy in /opt/conda/lib/python3.9/site-packages (from torchvision) (1.23.2)
-    Requirement already satisfied: charset-normalizer~=2.0.0 in /opt/conda/lib/python3.9/site-packages (from requests->torchvision) (2.0.12)
-    Requirement already satisfied: urllib3<1.27,>=1.21.1 in /opt/conda/lib/python3.9/site-packages (from requests->torchvision) (1.26.9)
-    Requirement already satisfied: idna<4,>=2.5 in /opt/conda/lib/python3.9/site-packages (from requests->torchvision) (3.3)
-    Requirement already satisfied: certifi>=2017.4.17 in /opt/conda/lib/python3.9/site-packages (from requests->torchvision) (2021.10.8)
-    Installing collected packages: pillow, torchvision
-    Successfully installed pillow-9.2.0 torchvision-0.13.1
-
-
 #### 훈련용 데이터 세트 생성
 
-이후의 코드는 <https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html>에서 가져와 약간의 조정을 거친 것입니다.
+이후의 코드는 해당 [링크](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html)에서 가져와 약간의 조정을 거친 것입니다.
 
 
 ```python
@@ -94,9 +77,7 @@ dataloaders = {
 dataset_sizes = {split: len(image_datasets[split]) for split in ["train", "validation"]}
 ```
 
-    /opt/conda/lib/python3.9/site-packages/tqdm/auto.py:22: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
-      from .autonotebook import tqdm as notebook_tqdm
-
+### __모델 준비__
 
 #### 모델 학습 코드 작성하기
 
@@ -183,12 +164,6 @@ optimizer = torch.optim.Adam(model.parameters(), lr=0.001)
 criterion = torch.nn.CrossEntropyLoss()
 ```
 
-    /opt/conda/lib/python3.9/site-packages/torch/hub.py:266: UserWarning: You are about to download and run code from an untrusted repository. In a future release, this won't be allowed. To add the repository to your trusted list, change the command to {calling_fn}(..., trust_repo=False) and a command prompt will appear asking for an explicit confirmation of trust, or load(..., trust_repo=True), which will assume that the prompt is to be answered with 'yes'. You can also use load(..., trust_repo='check') which will only prompt for confirmation if the repo is not already trusted. This will eventually be the default behaviour
-      warnings.warn(
-    Downloading: "https://github.com/rwightman/pytorch-image-models/zipball/master" to /home/jovyan/.cache/torch/hub/master.zip
-    Downloading: "https://github.com/rwightman/pytorch-image-models/releases/download/v0.1-mvit-weights/mobilevitv2_050-49951ee2.pth" to /home/jovyan/.cache/torch/hub/checkpoints/mobilevitv2_050-49951ee2.pth
-
-
 #### 모델 훈련 및 저장
 
 
@@ -198,21 +173,21 @@ trained_model = train_model(model, criterion, optimizer, num_epochs=3)
 
     Epoch 0/2
     ----------
-    train Loss: 0.5687 Acc: 0.7853
-    validation Loss: 0.1443 Acc: 0.9624
+    train Loss: 0.5623 Acc: 0.7998
+    validation Loss: 0.1255 Acc: 0.9474
     
     Epoch 1/2
     ----------
-    train Loss: 0.3428 Acc: 0.8675
-    validation Loss: 0.1300 Acc: 0.9699
+    train Loss: 0.3426 Acc: 0.8859
+    validation Loss: 0.0830 Acc: 0.9774
     
     Epoch 2/2
     ----------
-    train Loss: 0.2868 Acc: 0.8956
-    validation Loss: 0.2953 Acc: 0.9098
+    train Loss: 0.2491 Acc: 0.9023
+    validation Loss: 0.0869 Acc: 0.9774
     
-    Training complete in 2m 54s
-    Best val Acc: 0.969925
+    Training complete in 2m 9s
+    Best val Acc: 0.977444
 
 
 
@@ -234,12 +209,14 @@ df = pd.DataFrame(pd.Series(data.tolist()), columns=["image"])  # column 이름�
 df.to_pickle("test_data.pkl")
 ```
 
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](https://docs.thanosql.ai/getting_started/how_to_use_ThanoSQL/#5-thanosql)
+에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.
+
 
 ```python
 %load_ext thanosql
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
 ```
-
 
 
 ```python
@@ -252,113 +229,27 @@ FROM "test/udm_tutorial/test_data.pkl"
     Success
 
 
-
-```python
-%%thanosql
-SELECT *
-FROM beans_test
-```
-
-
-
-
-<div class="df_size">
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>image</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>[[[-0.02868402, -0.045808773500000004, -0.2170...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>[[[-0.06293352690000001, -0.06293352690000001,...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>[[[1.9577873945, 1.8721636534, 1.7180408239, 1...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>[[[0.2110626549, 0.0569397435, -0.3026800752, ...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>[[[-1.3815395832, -1.4329138994, -1.5014128685...</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>123</th>
-      <td>[[[-0.0971830264, -0.11430778350000001, -0.114...</td>
-    </tr>
-    <tr>
-      <th>124</th>
-      <td>[[[-0.5938008428, -1.1589177847, -1.0732940435...</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>[[[-0.4396780729, -0.2170563042, -0.2513058186...</td>
-    </tr>
-    <tr>
-      <th>126</th>
-      <td>[[[-2.0322802067, -1.9809060097, -1.9124069214...</td>
-    </tr>
-    <tr>
-      <th>127</th>
-      <td>[[[-1.27879107, -1.2959158420999999, -1.364414...</td>
-    </tr>
-  </tbody>
-</table>
-<p>128 rows × 1 columns</p>
+<div class="admonition note">
+    <h4 class="admonition-title">쿼리 세부 정보</h4>
+    <ul>
+        <li>"<strong>COPY</strong>" 쿼리 구문을 사용하여 데이터베이스에 저장 할 데이터 세트명을 지정합니다. </li>
+        <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 <strong>COPY</strong> 에 사용할 옵션을 지정합니다.
+        <ul>
+            <li>"overwrite": 동일 이름의 데이터 세트가 데이터베이스 상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
+        </ul>
+        </li>
+    </ul>
 </div>
 
+## __1. 데이터 세트 확인__
 
-
-#### 모델 업로드
-
-
-```python
-%%thanosql
-UPLOAD MODEL beans_mobilevit
-OPTIONS (overwrite=True, framework="pytorch")
-FROM "test/udm_tutorial/trained_model.pth"
-```
-
-    Success
-
-
-#### 업로드한 모델을 통한 예측
+아래의 쿼리문을 실행하고 테이블의 내용을 확인합니다.
 
 
 ```python
 %%thanosql
-PREDICT
-USING beans_mobilevit
-AS
 SELECT *
 FROM beans_test
-ORDER BY RANDOM()
 LIMIT 5
 ```
 
@@ -384,34 +275,120 @@ LIMIT 5
     <tr style="text-align: right;">
       <th></th>
       <th>image</th>
-      <th>predicted</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>[[[-1.9124069214000001, -1.6555356979, -1.4842...</td>
-      <td>[-1.3859444857, -0.6104061604000001, 2.0402860...</td>
+      <td>[[[-0.028684020042419434, -0.04580877348780632...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>[[[0.3823101819, 0.7761794925000001, 1.0501755...</td>
-      <td>[1.8987154961, 1.711524725, -3.7767300606000003]</td>
+      <td>[[[-0.0629335269331932, -0.0629335269331932, -...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>[[[-0.3883038163, -0.456802845, -0.5595513582,...</td>
-      <td>[-0.4351696968, 2.8146388531, -2.7762613297]</td>
+      <td>[[[1.9577873945236206, 1.8721636533737183, 1.7...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>[[[-1.6212861538, -1.6041613817, -1.4671633244...</td>
-      <td>[-2.0298011303, -0.8211234808000001, 2.9834887...</td>
+      <td>[[[0.21106265485286713, 0.0569397434592247, -0...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>[[[-0.9876701832, -0.8335474133, -0.7136741281...</td>
-      <td>[3.9639098644, -2.0307672024, -1.6559199095000...</td>
+      <td>[[[-1.3815395832061768, -1.432913899421692, -1...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+## __2. 사용자 모델 올리기__
+
+아래의 쿼리문을 실행하고 사용자 모델을 업로드합니다.
+
+
+```python
+%%thanosql
+UPLOAD MODEL beans_mobilevit
+OPTIONS (
+    overwrite=True,
+    framework="pytorch"
+    )
+FROM "test/udm_tutorial/trained_model.pth"
+```
+
+    Success
+
+
+## __3. 사용자 모델을 사용하여 예측__
+
+아래의 쿼리문을 실행하고 사용자 모델을 사용하여 결과를 예측해 봅니다.
+
+
+```python
+%%thanosql
+PREDICT
+USING beans_mobilevit
+AS (
+    SELECT *
+    FROM beans_test
+    ORDER BY RANDOM()
+    LIMIT 5
+    )
+```
+
+
+
+
+<div class="df_size">
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>image</th>
+      <th>predict_result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>[[[-0.542426586151123, -0.9705454111099243, -1...</td>
+      <td>[-2.1083998680114746, -1.6671124696731567, 3.9...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>[[[-0.8335474133491516, -0.6622998714447021, 0...</td>
+      <td>[4.959186553955078, -1.3661561012268066, -3.34...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>[[[-0.6280503869056702, -0.6965493559837341, -...</td>
+      <td>[-1.100450038909912, -1.4762022495269775, 2.74...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>[[[0.8960527777671814, 0.7761794924736023, 0.8...</td>
+      <td>[-0.9654994010925293, -0.5125135183334351, 1.5...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>[[[-0.3026800751686096, -0.5253018736839294, -...</td>
+      <td>[-1.5803372859954834, -2.1661438941955566, 3.9...</td>
     </tr>
   </tbody>
 </table>
@@ -422,8 +399,8 @@ LIMIT 5
 
 ```python
 pred_df = _  # 가장 마지막에 사용된 객체를 불러옵니다.
-pred_df["predicted"] = pred_df["predicted"].apply(np.argmax)
-pred_df["predicted"] = pred_df["predicted"].apply(test_dataset.classes.__getitem__)
+pred_df["predict_result"] = pred_df["predict_result"].apply(np.argmax)
+pred_df["predict_result"] = pred_df["predict_result"].apply(test_dataset.classes.__getitem__)
 pred_df
 ```
 
@@ -449,34 +426,34 @@ pred_df
     <tr style="text-align: right;">
       <th></th>
       <th>image</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>[[[-1.9124069214000001, -1.6555356979, -1.4842...</td>
+      <td>[[[-0.542426586151123, -0.9705454111099243, -1...</td>
       <td>healthy</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>[[[0.3823101819, 0.7761794925000001, 1.0501755...</td>
+      <td>[[[-0.8335474133491516, -0.6622998714447021, 0...</td>
       <td>angular_leaf_spot</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>[[[-0.3883038163, -0.456802845, -0.5595513582,...</td>
-      <td>bean_rust</td>
+      <td>[[[-0.6280503869056702, -0.6965493559837341, -...</td>
+      <td>healthy</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>[[[-1.6212861538, -1.6041613817, -1.4671633244...</td>
+      <td>[[[0.8960527777671814, 0.7761794924736023, 0.8...</td>
       <td>healthy</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>[[[-0.9876701832, -0.8335474133, -0.7136741281...</td>
-      <td>angular_leaf_spot</td>
+      <td>[[[-0.3026800751686096, -0.5253018736839294, -...</td>
+      <td>healthy</td>
     </tr>
   </tbody>
 </table>

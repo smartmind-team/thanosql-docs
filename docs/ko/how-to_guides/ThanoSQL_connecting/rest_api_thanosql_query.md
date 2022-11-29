@@ -17,11 +17,11 @@ REST API를 사용하여 ThanoSQL 콘솔상에서 사용하던 쿼리들을 사�
     query_type="쿼리를 실행할 sql type" - psql or thanosql
 
     header = {
-        "Authorization" : f"Bearer {api_token}"
+        "Authorization": f"Bearer {api_token}"
     }
 
     data = {
-        'query_string' : query, 'query_type' : query_type
+        'query_string': query, 'query_type': query_type
     }
 
     r = requests.post(api_url, json=data, headers=header)
@@ -38,6 +38,7 @@ REST API를 사용하여 ThanoSQL 콘솔상에서 사용하던 쿼리들을 사�
       'https://engine.thanosql.ai/api/v1/query/' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
+      -H 'Content-Type: application/json' \
       -d '{"query_string": query, "query_type": query_type}'
     ```
 

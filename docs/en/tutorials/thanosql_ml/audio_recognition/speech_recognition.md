@@ -4,11 +4,11 @@ title: Create a Speech Recognition Model
 
 # __Create a Speech Recognition Model__
 
-- Tutorial Difficulty : ★☆☆☆☆
+- Tutorial Difficulty: ★☆☆☆☆
 - 10 min read
-- Languages : [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
-- File location : tutorial_en/thanosql_ml/audio_recognition/speech_recognition.ipynb
-- References : [LibriSpeech DataSet](http://www.openslr.org/12), [wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations](https://arxiv.org/abs/2006.11477)
+- Languages: [SQL](https://en.wikipedia.org/wiki/SQL) (100%)
+- File location: tutorial_en/thanosql_ml/audio_recognition/speech_recognition.ipynb
+- References: [LibriSpeech DataSet](http://www.openslr.org/12), [wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations](https://arxiv.org/abs/2006.11477)
 
 ## Tutorial Introduction
 
@@ -25,10 +25,10 @@ Today, speech recognition technology is being applied in various industries. Adv
 
 __The following are use case examples of ThanoSQL's speech recognition model.__
 
-- Voice recognition technology converts phone consultation data into text to enable customer sentiment analysis and consultation trend analysis. Using voice recognition technology, customer service representatives can improve their service by quickly receiving relevant information that answers customer inquiries.
+- Speech recognition technology converts phone consultation data into text to enable customer sentiment analysis and consultation trend analysis. Using speech recognition technology, customer service representatives can improve their service by quickly receiving relevant information that answers customer inquiries.
 In addition, after consultation, the customer satisfaction trend can be analyzed even with the indirect measurement of customer satisfaction through sentiment analysis.
 
-- Using voice recognition technology, you can write notes faster than writing with a keyboard and instantly search for specific keywords even in long audio files.
+- Using speech recognition technology, you can write notes faster than writing with a keyboard and instantly search for specific keywords even in long audio files.
 
 <div class="admonition note">
     <h4 class="admonition-title">In this tutorial</h4>
@@ -40,7 +40,7 @@ In addition, after consultation, the customer satisfaction trend can be analyzed
     <ul>
         <li>ThanoSQL currently only supports the following audio file formats: '.wav', '.flac'.</li>
         <li>Both a column indicating the audio file path and a column indicating the text corresponding to the target value must exist in the table.</li>
-        <li>The base model of the speech recognition model (<code>Wav2Vec2En</code>) utilizes GPU. Depending on the size of the model and the batch size, you may run out of GPU memory. In this case, try using a smaller model or reducing the batch size.</li>
+        <li>The base model of the speech recognition model(<code>Wav2Vec2En</code>) utilizes GPU. Depending on the size of the model and the batch size, you may run out of GPU memory. In this case, try using a smaller model or reducing the batch size.</li>
     </ul>
 </div>
 
@@ -72,7 +72,7 @@ OPTIONS (overwrite=True)
         <li>"<strong>GET THANOSQL DATASET</strong>" downloads the specified dataset to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL DATASET</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, DEFAULT : False) </li>
+            <li>"overwrite": determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -106,7 +106,7 @@ FROM "thanosql-dataset/librispeech_data/librispeech_test.csv"
         <li>"<strong>COPY</strong>" specifies the name of the dataset to be saved as a database table. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>COPY</strong> clause.
         <ul>
-           <li>"overwrite" : determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, DEFAULT : False) </li>
+           <li>"overwrite": determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -117,7 +117,7 @@ FROM "thanosql-dataset/librispeech_data/librispeech_test.csv"
 
 ```python
 %%thanosql
-GET THANOSQL MODEL tutorial_audio_recognition
+GET THANOSQL MODEL wav2vec2
 OPTIONS (overwrite=True)
 AS tutorial_audio_recognition
 ```
@@ -131,7 +131,7 @@ AS tutorial_audio_recognition
         <li>"<strong>GET THANOSQL MODEL</strong>" downloads the specified model to the workspace. </li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for the <strong>GET THANOSQL MODEL</strong> clause.
         <ul>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+            <li>"overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default: False) </li>
         </ul>
         </li>
         <li>"<strong>AS</strong>" names the given model. If not specified, the model will be named as the default <code>THANOSQL MODEL</code> name.</li>
@@ -140,7 +140,7 @@ AS tutorial_audio_recognition
 
 ## __1. Check Dataset__
 
-For this tutorial, we use the <mark style="background-color:#FFEC92 ">librispeech_train</mark> table stored in the ThanoSQL database. Execute the query below to check the contents of the table.
+For this tutorial, we use the <mark style="background-color:#FFEC92 ">librispeech_train</mark> table stored in the ThanoSQL workspace database. Execute the query below to check the contents of the table.
 
 
 ```python
@@ -264,7 +264,7 @@ LIMIT 3
 
 ## __2. Predict Using Pretrained Model__
 
-To predict the outcome using the pretrained speech recognition model, <mark style="background-color:#E9D7FD ">tutorial_audio_recognition</mark>,  run the following query.
+To predict the outcome using the <mark style="background-color:#E9D7FD ">tutorial_audio_recognition</mark> model, run the following query.
 
 
 ```python
@@ -302,7 +302,7 @@ FROM librispeech_train
       <th></th>
       <th>audio_path</th>
       <th>text</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -401,7 +401,6 @@ SELECT *
 FROM librispeech_train
 ```
 
-    Building model...
     Success
 
 
@@ -412,11 +411,11 @@ FROM librispeech_train
         <li>"<strong>USING</strong>" specifies <code>Wav2Vec2En</code> as the base model.</li>
          <li>"<strong>OPTIONS</strong>" specifies the option values used to create the model. 
         <ul>
-            <li>"audio_col" : the name of the column containing the audio path to be used for training.</li>
-            <li>"text_col" : the name of the column containing the audio script information.</li>
-            <li>"epochs" : number of times to train with the training dataset.</li>
-            <li> "batch_size" : the size of dataset bundle utilized in a single cycle of training.</li>
-            <li>"overwrite" : determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, DEFAULT : False) </li>
+            <li>"audio_col": the name of the column containing the audio path to be used for training. (default: "audio_path")</li>
+            <li>"text_col": the name of the column containing the audio script information. (default: "text")</li>
+            <li>"epochs": number of times to train with the training dataset. (default: 5)</li>
+            <li> "batch_size": the size of dataset bundle utilized in a single cycle of training. (default: 16)</li>
+            <li>"overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (True|False, default: False) </li>
         </ul>
         </li>
     </ul>
@@ -435,7 +434,8 @@ To use the speech recognition model created in the previous step for prediction 
 %%thanosql
 PREDICT USING my_speech_recognition_model
 OPTIONS (
-    audio_col='audio_path'
+    audio_col="audio_path",
+    column_name="predict_result"
     )
 AS
 SELECT *
@@ -465,7 +465,7 @@ FROM librispeech_test
       <th></th>
       <th>audio_path</th>
       <th>text</th>
-      <th>predicted</th>
+      <th>predict_result</th>
     </tr>
   </thead>
   <tbody>
@@ -485,7 +485,7 @@ FROM librispeech_test
       <th>2</th>
       <td>thanosql-dataset/librispeech_data/082.wav</td>
       <td>well i don't think you should turn a guy's t v...</td>
-      <td>WELL I DON'T THINK YOU SHOULD TURN A GUY'S TEV...</td>
+      <td>WELL I DON'T THINK YOU SHOULD TURN A GUISE TIV...</td>
     </tr>
     <tr>
       <th>3</th>
@@ -509,7 +509,7 @@ FROM librispeech_test
       <th>6</th>
       <td>thanosql-dataset/librispeech_data/086.wav</td>
       <td>i'm mister christopher from london</td>
-      <td>I' MISTER CHRISTOPHER FROM LONDON</td>
+      <td>I'M MISTER CHRISTOPHER FROM LONDON</td>
     </tr>
     <tr>
       <th>7</th>
@@ -521,7 +521,7 @@ FROM librispeech_test
       <th>8</th>
       <td>thanosql-dataset/librispeech_data/088.wav</td>
       <td>he is just married you know is he said burgess</td>
-      <td>HE IS JUST MARRIED YOU KNOW IS HE SAID BURGIS</td>
+      <td>HE IS JUST MARRIED YOU KNOWIS HE SAID BURGIS</td>
     </tr>
     <tr>
       <th>9</th>
@@ -545,13 +545,13 @@ FROM librispeech_test
       <th>12</th>
       <td>thanosql-dataset/librispeech_data/092.wav</td>
       <td>week followed week these two beings led a happ...</td>
-      <td>WEEK FOLLOWED WEEK THESE TWO BEINGS  LED A HAP...</td>
+      <td>WEEK FOLLOWED WEEK THESE TWO BEINGS LED A HAPP...</td>
     </tr>
     <tr>
       <th>13</th>
       <td>thanosql-dataset/librispeech_data/093.wav</td>
       <td>gwynplaine was a mountebank</td>
-      <td>GWYNPLAINE WAS A MOUNT ABANK</td>
+      <td>GWYNPLAINE WAS A MOUNT A BANK</td>
     </tr>
     <tr>
       <th>14</th>
@@ -563,19 +563,19 @@ FROM librispeech_test
       <th>15</th>
       <td>thanosql-dataset/librispeech_data/095.wav</td>
       <td>i've decided to enlist in the army</td>
-      <td>I'VE DECIDED TO ENLIST IN THE ARMY</td>
+      <td>I'VE DECIDED T ENLIST IN THE ARMY</td>
     </tr>
     <tr>
       <th>16</th>
       <td>thanosql-dataset/librispeech_data/096.wav</td>
       <td>i also offered to help your brother to escape ...</td>
-      <td>I ALSO OFFERED TO HELP YOUR BRO THER TO ESCAPE...</td>
+      <td>I ALSO OFFERED TO HELP YOUR BROTHER TO ESCAPE ...</td>
     </tr>
     <tr>
       <th>17</th>
       <td>thanosql-dataset/librispeech_data/097.wav</td>
       <td>well now said meekin with asperity i don't agr...</td>
-      <td>WELL NOW SAID MICKIN WITH ASPERITY I DON'T AGR...</td>
+      <td>WELL NOW SAID MICON WITH ASPERITYI DON'T AGREE...</td>
     </tr>
     <tr>
       <th>18</th>
@@ -587,7 +587,7 @@ FROM librispeech_test
       <th>19</th>
       <td>thanosql-dataset/librispeech_data/099.wav</td>
       <td>i look at my watch it's a quarter to eleven</td>
-      <td>A LOOK AT MY WATCHIT'S A QUARTER TO ELEVEN</td>
+      <td>LOOK AT MY WATCHIT'S A QUARTER TO ELEVEN</td>
     </tr>
   </tbody>
 </table>
@@ -601,7 +601,8 @@ FROM librispeech_test
         <li>"<strong>PREDICT USING</strong>" predicts the outcome using the <mark style="background-color:#E9D7FD ">my_speech_recognition_model</mark> 
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
         <ul>
-            <li>"audio_col" : the name of the column containing the audio path to be used for prediction.</li>
+            <li>"audio_col": the name of the column containing the audio path to be used for prediction. (default: "audio_path")</li>
+            <li>"column_name": the column that contains the predicted results. (default: "predict_result")</li>
         </ul>
         </li>
     </ul>
@@ -609,13 +610,11 @@ FROM librispeech_test
 
 ## __5. In Conclusion__
 
-In this tutorial, we created a speech recognition model using the <mark style="background-color:#FFD79C">LibriSpeech</mark> dataset. As this is a beginner-level tutorial, we focused on the process rather than accuracy. Speech recognition models can be improved in accuracy through fine tuning that is suitable for the user's needs. Try using your own data to train the base model and improving its performance. Create your own model and provide competitive services by combining various unstructured data (image, audio, video, etc.) and structured data with ThanoSQL.
+In this tutorial, we created a speech recognition model using the <mark style="background-color:#FFD79C">LibriSpeech</mark> dataset. As this is a beginner-level tutorial, we focused on the process rather than accuracy. Speech recognition models can be improved in accuracy through fine tuning that is suitable for the user's needs. Try using your own data to train the base model and improving its performance. Create your own model and provide competitive services by combining various unstructured data(image, audio, video, etc.) and structured data with ThanoSQL.
 
-For the next step, [Creating an Intermediate Speech Recognition Model], takes a deeper dive into the speech recognition model. If you want to learn more about building your own speech recognition model for your service, proceed with the following tutorials.
-
-- [How to Upload to ThanoSQL DB](https://docs.thanosql.ai/en/getting_started/data_upload/)
-- [Creating an Intermediate speech recognition model]
-- [Deploying My Speech Recognition Models](https://docs.thanosql.ai/en/how-to_guides/reference/)
+* [How to Upload My Data to the ThanoSQL Workspace](https://docs.thanosql.ai/en/getting_started/data_upload/)
+* [How to Create a Table Using My Data](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/)
+* [How to Upload My Model to the ThanoSQL Workspace](https://docs.thanosql.ai/en/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/)
 
 <div class="admonition tip">
     <h4 class="admonition-title">Inquiries about deploying a model for your own service</h4>
