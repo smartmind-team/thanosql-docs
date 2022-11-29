@@ -15,7 +15,7 @@ __Notation Conventions__
 
 
 !!! note ""
-    - __literal__ : a fixed or unchangeable value, also known as a Constant.
+    - __literal__: a fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
 ## __BUILD MODEL Syntax__
@@ -51,12 +51,12 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "image_col" : sets the name of the column containing the image path. (default: "image")
-- "label_col" : sets the name of the column containing the path of the label. (default : "label")
-- "batch_size" : the size of the dataset bundle read during a single train. (default : 16)
-- "epochs" : sets how many times the dataset is trained in total. (default : 3)
-- "learning_rate" : the learning rate of the model. (default : 0.0001)
-- "overwrite" : overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
+- "image_col": sets the name of the column containing the image path. (default: "image")
+- "label_col": sets the name of the column containing the path of the label. (default: "label")
+- "batch_size": the size of the dataset bundle read during a single train. (default: 16)
+- "epochs": sets how many times the dataset is trained in total. (default: 3)
+- "learning_rate": the learning rate of the model. (default: 0.0001)
+- "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
 
 __BUILD MODEL Example__
 
@@ -109,12 +109,12 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "image_col" : sets the name of the column containing the image path. (default: "image")
-- "label_col" : sets the name of the column containing the path of the label (default : "label")
-- "batch_size" : the size of the dataset bundle read during a single train. (default : 16)
-- "epochs" : sets how many times the dataset is trained in total. (default : 3)
-- "learning_rate" : the learning rate of the model. (default : 0.0001)
-- "overwrite" : overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
+- "image_col": sets the name of the column containing the image path. (default: "image")
+- "label_col": sets the name of the column containing the path of the label (default: "label")
+- "batch_size": the size of the dataset bundle read during a single train. (default: 16)
+- "epochs": sets how many times the dataset is trained in total. (default: 3)
+- "learning_rate": the learning rate of the model. (default: 0.0001)
+- "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
 
 ## __PREDICT Syntax__
 
@@ -143,8 +143,8 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "image_col" : sets the name of the column containing the image path. (default: "image")
-- "batch_size" : the size of the dataset bundle read during a single train. (default : 16)
+- "image_col": sets the name of the column containing the image path. (default: "image")
+- "batch_size": the size of the dataset bundle read during a single train. (default: 16)
 
 __PREDICT Example__
 
@@ -188,5 +188,5 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "image_col" : sets the name of the column containing the image path. (default: "image")
-- "batch_size" : the size of the dataset bundle read during a single train. (default : 16)
+- "image_col": sets the name of the column containing the image path. (default: "image")
+- "batch_size": the size of the dataset bundle read during a single train. (default: 16)

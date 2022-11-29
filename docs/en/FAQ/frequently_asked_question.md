@@ -19,9 +19,9 @@ The COPY clause in ThanoSQL only supports the utf-8 encoding format. For csv fil
 
 ThanoSQL supports the following extensions for image and audio data:
 
-- Image :  "jpg", "png"
-- Audio : "wav", "flac", "mp3"
-- Video : "mp4"
+- Image:  "jpg", "png"
+- Audio: "wav", "flac", "mp3"
+- Video: "mp4"
 
 !!! notice ""
     ThanoSQL does not require any special extensions for text data.

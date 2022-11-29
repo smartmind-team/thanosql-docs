@@ -20,7 +20,7 @@ AS [dataset_to_use]
 
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
-        - "table_name" : the name of the new table to be created.
+        - "table_name": the name of the new table to be created.
 
 ## __3. SEARCH Example__
 

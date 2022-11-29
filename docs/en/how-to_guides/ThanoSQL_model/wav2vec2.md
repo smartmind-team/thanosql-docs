@@ -14,7 +14,7 @@ __Notation Conventions__
 - VALUE represents a regular value.
 
 !!! note ""
-    - __literal__ : a fixed or unchangeable value, also known as a Constant.
+    - __literal__: a fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
 
 
@@ -51,12 +51,12 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "audio_col" : sets the name of the column containing the audio path. (default: "audio_path")
-- "text_col" : sets the name of the column containing the audio script. (default : "text")
-- "batch_size" : the size of the dataset bundle read during a single train. (default : 16)
-- "epochs" : sets how many times the dataset is trained in total. (default : 5)
-- "learning_rate" : the learning rate of the model. (default : 0.0001)
-- "overwrite" : overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
+- "audio_col": sets the name of the column containing the audio path. (default: "audio_path")
+- "text_col": sets the name of the column containing the audio script. (default: "text")
+- "batch_size": the size of the dataset bundle read during a single train. (default: 16)
+- "epochs": sets how many times the dataset is trained in total. (default: 5)
+- "learning_rate": the learning rate of the model. (default: 0.0001)
+- "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
 
 __BUILD MODEL Example__
 
@@ -110,12 +110,12 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "audio_col" : sets the name of the column containing the audio path. (default: "audio_path")
-- "text_col" : sets the name of the column containing the audio script. (default : "text")
-- "batch_size" : the size of the dataset bundle read during a single train. (default : 16)
-- "epochs" : sets how many times the dataset is trained in total. (default : 5)
-- "learning_rate" : the learning rate of the model. (default : 0.0001)
-- "overwrite" : overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
+- "audio_col": sets the name of the column containing the audio path. (default: "audio_path")
+- "text_col": sets the name of the column containing the audio script. (default: "text")
+- "batch_size": the size of the dataset bundle read during a single train. (default: 16)
+- "epochs": sets how many times the dataset is trained in total. (default: 5)
+- "learning_rate": the learning rate of the model. (default: 0.0001)
+- "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
 
 
 ## __PREDICT Syntax__
@@ -145,8 +145,8 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "audio_col" : sets the name of the column containing the audio path. (default: "audio_path")
-- "batch_size" : the size of the dataset bundle read during a single train. (default : 16)
+- "audio_col": sets the name of the column containing the audio path. (default: "audio_path")
+- "batch_size": the size of the dataset bundle read during a single train. (default: 16)
 
 __PREDICT Example__
 
@@ -191,6 +191,6 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
 
-- "audio_col" : sets the name of the column containing the audio path. (default: "audio_path")
-- "text_col" : sets the name of the column containing the audio script. (default : "text")
-- "batch_size" : the size of the dataset bundle read during a single train. (default : 16)
+- "audio_col": sets the name of the column containing the audio path. (default: "audio_path")
+- "text_col": sets the name of the column containing the audio script. (default: "text")
+- "batch_size": the size of the dataset bundle read during a single train. (default: 16)

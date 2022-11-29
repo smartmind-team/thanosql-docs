@@ -51,7 +51,7 @@ FROM junyoung_img
 ```
 
 !!! note ""
-    - `junyoung_img` : table containing paths of the image files
+    - `junyoung_img`: table containing paths of the image files
 
 ### __3.2 Audio Print__
 
@@ -71,7 +71,7 @@ FROM junyoung_aud
 [![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
-    - `junyoung_aud` : table containing paths of the audio files
+    - `junyoung_aud`: table containing paths of the audio files
 
 ### __3.3 Video Print__
 
@@ -89,7 +89,7 @@ FROM junyoung_vid
 ```
 
 !!! note ""
-    - `junyoung_vid` : table containing paths of the video files
+    - `junyoung_vid`: table containing paths of the video files
 
 ### __3.4 Print with a subquery__
 

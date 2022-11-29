@@ -22,7 +22,7 @@ AS
 
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
-        - "overwrite" : overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (default: False)
+        - "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (default: False)
 
 ## __3. BUILD MODEL Example__
 

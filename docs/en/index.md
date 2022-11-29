@@ -5,7 +5,7 @@ title: Intro
 # **ThanoSQL**
 
 - 3 min read
-- Updated Date : {{ git_revision_date_localized }}
+- Updated Date: {{ git_revision_date_localized }}
 
 ## **What is ThanoSQL?**
 

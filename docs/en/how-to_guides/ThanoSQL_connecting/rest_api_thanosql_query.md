@@ -17,11 +17,11 @@ You can run the same queries using ThanoSQL's REST API as you would on the Thano
     query="Query to request"
 
     header = {
-        "Authorization" : f"Bearer {api_token}"
+        "Authorization": f"Bearer {api_token}"
     }
 
     data = {
-        'query_string' : query
+        'query_string': query
     }
 
     r = requests.post(api_url, data=json.dumps(data), headers=header)

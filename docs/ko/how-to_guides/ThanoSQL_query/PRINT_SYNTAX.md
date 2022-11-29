@@ -52,7 +52,7 @@ FROM junyoung_img
 ```
 
 !!! note ""
-    - `junyoung_img` : 이미지 파일 경로가 저장되어 있는 데이터 테이블
+    - `junyoung_img`: 이미지 파일 경로가 저장되어 있는 데이터 테이블
 
 ### __3.2 오디오 출력__
 
@@ -72,7 +72,7 @@ FROM junyoung_aud
 [![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
-    - `junyoung_aud` : 오디오 파일 경로가 저장되어 있는 데이터 테이블
+    - `junyoung_aud`: 오디오 파일 경로가 저장되어 있는 데이터 테이블
 
 
 ### __3.3 비디오 출력__
@@ -91,7 +91,7 @@ FROM junyoung_vid
 ```
 
 !!! note ""
-    - `junyoung_vid` : 비디오 파일 경로가 저장되어 있는 데이터 테이블
+    - `junyoung_vid`: 비디오 파일 경로가 저장되어 있는 데이터 테이블
 
 ### __3.4 서브 쿼리를 사용하여 출력하기__
 
