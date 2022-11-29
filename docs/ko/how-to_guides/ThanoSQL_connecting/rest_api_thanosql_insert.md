@@ -19,9 +19,9 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 이미
 
     api_url = f"{base_url}?table_name={table_name}&column_name={column_name}"
     header = {
-        "Authorization" : f"Bearer {api_token}"
+        "Authorization": f"Bearer {api_token}"
     }
-    files = {'file' : open('이미지 파일 경로', 'rb')}
+    files = {'file': open('이미지 파일 경로', 'rb')}
 
     r = requests.post(api_url, files=files, headers=header)
 

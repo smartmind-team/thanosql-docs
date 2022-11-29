@@ -32,7 +32,7 @@ AS
 
 !!! note "쿼리 세부 정보"
     - "OPTIONS" 쿼리 구문을 통해 사용할 옵션을 지정합니다.
-        - "image_col | audio_col | video_col":프린트 할 컬럼명을 지정합니다. 컬럼명을 지정하지 않을 경우 "image_path" | "audio_path" | "video_path" 가 default이며 해당 컬럼명이 없을 경우 오류가 발생할 수 있습니다.
+        - "image_col | audio_col | video_col": 프린트 할 컬럼명을 지정합니다. 컬럼명을 지정하지 않을 경우 "image_path" | "audio_path" | "video_path" 가 default이며 해당 컬럼명이 없을 경우 오류가 발생할 수 있습니다.
 
 ## __3. PRINT 예시__
 
@@ -52,7 +52,7 @@ FROM junyoung_img
 ```
 
 !!! note ""
-    - `junyoung_img` : 이미지 파일 경로가 저장되어 있는 데이터 테이블
+    - `junyoung_img`: 이미지 파일 경로가 저장되어 있는 데이터 테이블
 
 ### __3.2 오디오 출력__
 
@@ -72,7 +72,7 @@ FROM junyoung_aud
 [![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
-    - `junyoung_aud` : 오디오 파일 경로가 저장되어 있는 데이터 테이블
+    - `junyoung_aud`: 오디오 파일 경로가 저장되어 있는 데이터 테이블
 
 
 ### __3.3 비디오 출력__
@@ -91,7 +91,7 @@ FROM junyoung_vid
 ```
 
 !!! note ""
-    - `junyoung_vid` : 비디오 파일 경로가 저장되어 있는 데이터 테이블
+    - `junyoung_vid`: 비디오 파일 경로가 저장되어 있는 데이터 테이블
 
 ### __3.4 서브 쿼리를 사용하여 출력하기__
 

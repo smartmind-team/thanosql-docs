@@ -27,7 +27,7 @@ AS
 
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause can change the value of a parameter from the default value in an image model. The meaning of each parameter is as follows:
-        - "overwrite" : Overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (default: False) 
+        - "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (default: False) 
 
 The "__GET THANOSQL DATASET__" statement downloads the tutorial datasets to the user's workspace. 
 
@@ -45,7 +45,7 @@ OPTIONS (
 
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
-        - "overwrite" : Overwrite if a dataset with the same name exists. If True, the existing dataset is overwritten with the new dataset. (default: False) 
+        - "overwrite": overwrite if a dataset with the same name exists. If True, the existing dataset is overwritten with the new dataset. (default: False) 
 
 ## __3. GET Example__ 
 

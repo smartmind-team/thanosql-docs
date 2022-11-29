@@ -25,7 +25,7 @@ Follow these steps to upload local data to the ThanoSQL workspace:
 ## __2. Uploading local data by SFTP server connection using a private key__
 
 !!! note "What is SFTP(Secure File Transfer Protocol)?"
-    An interactive file transfer program with a user interface similar to File Transfer Protocol (FTP). However, SFTP uses SSH File Transfer Protocol (FTP) to create a secure connection to the server.
+    An interactive file transfer program with a user interface similar to File Transfer Protocol(FTP). However, SFTP uses SSH File Transfer Protocol(FTP) to create a secure connection to the server.
 
 !!! danger ""
     - SFTP supports only ubuntu linux 

@@ -23,10 +23,10 @@ Using the ThanoSQL's REST API, you can query and search for similar images withi
     api_url = f"{base_url}?table_name={table_name}&model_name={model_name}&column_name={column_name}"
 
     header = {
-        "Authorization" : f"Bearer {api_token}"
+        "Authorization": f"Bearer {api_token}"
     }
 
-    files = {'file' : open('Image File Path', 'rb')}
+    files = {'file': open('Image File Path', 'rb')}
 
     ## SEARCH WITH IMAGE
     with requests.post(api_url, headers = header, files=files, stream=True) as r:
@@ -67,7 +67,7 @@ Using the ThanoSQL's REST API, you can query and search for similar images withi
     api_url = f"{base_url}?table_name={table_name}&model_name={model_name}&column_name={column_name}&text={text}"
 
     header = {
-        "Authorization" : f"Bearer {api_token}"
+        "Authorization": f"Bearer {api_token}"
     }
 
     ## SEARCH WITH IMAGE
