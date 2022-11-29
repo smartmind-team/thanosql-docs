@@ -9,7 +9,7 @@ title: Intro
 
 ## **What is ThanoSQL?**
 
-ThanoSQL is an integrated platform that is capable of [query](https://en.wikipedia.org/wiki/Query) and AI (artificial intelligence) modeling both structured and __unstructured data__[^1] with only __SQL__[^2]. You can apply the functions of __RDB (Relational Database)__[^3], AI, and Big Data Platform within one platform and significantly reduce inefficiencies that occur during AI-based digital transformation.
+ThanoSQL is an integrated platform that is capable of [query](https://en.wikipedia.org/wiki/Query) and AI(artificial intelligence) modeling both structured and __unstructured data__[^1] with only __SQL__[^2]. You can apply the functions of __RDB (Relational Database)__[^3], AI, and Big Data Platform within one platform and significantly reduce inefficiencies that occur during AI-based digital transformation.
 
 - ThanoSQL can query both structured and unstructured data with SQL alone and enables rapid AI modeling.
 - By replacing the __lambda architecture__[^4]-based unstructured big data platform with one ThanoSQL, development, deployment, and operation can be done in a single process.
@@ -110,7 +110,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
 [^1]: Data without an identifiable structure or architecture. Text, speech, and images are primarily applicable and do not follow a predefined data model, making them unsuitable for relational databases. However, this flexibility is scalable and unrestricted.
 Properly analyzed, unstructured data can be used for various applications and provide valuable [business intelligence](https://en.wikipedia.org/wiki/Business_intelligence) insight.
 
-[^2]: It is a special purpose programming language designed to process data from the Relational Data Base Management System (RDBMS) and is also called a query language.
+[^2]: It is a special purpose programming language designed to process data from the Relational Data Base Management System(RDBMS) and is also called a query language.
 
 [^3]: It refers to a database based on a relational data model. Relational data models represent all data in a two-dimensional table as one of the necessary ways to organize the data. Typically, you can only handle structured data.
 
