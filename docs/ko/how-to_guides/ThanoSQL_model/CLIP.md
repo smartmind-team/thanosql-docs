@@ -92,7 +92,7 @@ __OPTIONS 절__
 
 ```sql
 OPTIONS (
-    (search_input_type = {image | text | audio | video | keyword}),
+    (search_input_type = {image | text | audio | video}),
     [search_input = expression],
     [emb_col = embedded_column_name]
     [column_name = column_name_to_be_saved_as]

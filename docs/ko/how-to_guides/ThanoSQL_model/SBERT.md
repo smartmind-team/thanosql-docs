@@ -149,11 +149,11 @@ AS
     - 본 쿼리를 통해서 USING 뒤에 나온 모델인 model_name_expression을 사용합니다.
 
 
-__SEARCH TEXT OPTIONS 절__
+__OPTIONS 절__
 
 ```sql
 OPTIONS (
-    (search_input_type = {image | text | audio | video | keyword}),
+    (search_input_type = {image | text | audio | video}),
     [search_input = expression],
     [emb_col = embedded_column_name]
     [column_name = column_name_to_be_saved_as]
