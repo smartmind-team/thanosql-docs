@@ -168,23 +168,13 @@ criterion = torch.nn.CrossEntropyLoss()
 
 
 ```python
-trained_model = train_model(model, criterion, optimizer, num_epochs=3)
+trained_model = train_model(model, criterion, optimizer, num_epochs=1)
 ```
 
-    Epoch 0/2
+    Epoch 0/0
     ----------
     train Loss: 0.5623 Acc: 0.7998
     validation Loss: 0.1255 Acc: 0.9474
-    
-    Epoch 1/2
-    ----------
-    train Loss: 0.3426 Acc: 0.8859
-    validation Loss: 0.0830 Acc: 0.9774
-    
-    Epoch 2/2
-    ----------
-    train Loss: 0.2491 Acc: 0.9023
-    validation Loss: 0.0869 Acc: 0.9774
     
     Training complete in 2m 9s
     Best val Acc: 0.977444
@@ -223,7 +213,7 @@ ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이
 %%thanosql
 COPY beans_test 
 OPTIONS (overwrite=True)
-FROM "test/udm_tutorial/test_data.pkl"
+FROM "test_data.pkl"
 ```
 
     Success
@@ -237,6 +227,7 @@ FROM "test/udm_tutorial/test_data.pkl"
         <ul>
             <li>"overwrite": 동일 이름의 데이터 세트가 데이터베이스 상에 존재하는 경우 덮어쓰기 가능 유무 설정. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됨 (True|False, default: False) </li>
         </ul>
+        <li>"<strong>FROM</strong>" 쿼리 구문에는 데이터 세트 경로를 입력합니다. (위 예시는 최상위 경로에서 튜토리얼을 실행시켰을 경우의 데이터 세트 경로입니다) </li>
         </li>
     </ul>
 </div>
@@ -316,7 +307,7 @@ OPTIONS (
     overwrite=True,
     framework="pytorch"
     )
-FROM "test/udm_tutorial/trained_model.pth"
+FROM "trained_model.pth"
 ```
 
     Success
@@ -361,7 +352,7 @@ AS (
     <tr style="text-align: right;">
       <th></th>
       <th>image</th>
-      <th>predict_result</th>
+      <th>predicted</th>
     </tr>
   </thead>
   <tbody>
@@ -399,8 +390,8 @@ AS (
 
 ```python
 pred_df = _  # 가장 마지막에 사용된 객체를 불러옵니다.
-pred_df["predict_result"] = pred_df["predict_result"].apply(np.argmax)
-pred_df["predict_result"] = pred_df["predict_result"].apply(test_dataset.classes.__getitem__)
+pred_df["predicted"] = pred_df["predicted"].apply(np.argmax)
+pred_df["predicted"] = pred_df["predicted"].apply(test_dataset.classes.__getitem__)
 pred_df
 ```
 
@@ -426,7 +417,7 @@ pred_df
     <tr style="text-align: right;">
       <th></th>
       <th>image</th>
-      <th>predict_result</th>
+      <th>predicted</th>
     </tr>
   </thead>
   <tbody>

@@ -164,23 +164,13 @@ criterion = torch.nn.CrossEntropyLoss()
 
 
 ```python
-trained_model = train_model(model, criterion, optimizer, num_epochs=3)
+trained_model = train_model(model, criterion, optimizer, num_epochs=1)
 ```
 
-    Epoch 0/2
+    Epoch 0/0
     ----------
     train Loss: 0.5634 Acc: 0.7921
     validation Loss: 0.2599 Acc: 0.8947
-    
-    Epoch 1/2
-    ----------
-    train Loss: 0.3259 Acc: 0.8762
-    validation Loss: 0.2687 Acc: 0.9173
-    
-    Epoch 2/2
-    ----------
-    train Loss: 0.2883 Acc: 0.8830
-    validation Loss: 0.1434 Acc: 0.9624
     
     Training complete in 1m 26s
     Best val Acc: 0.962406
@@ -218,7 +208,7 @@ As mentioned in the [ThanoSQL Workspace](https://docs.thanosql.ai/en/getting_sta
 %%thanosql
 COPY beans_test 
 OPTIONS (overwrite=True)
-FROM "test/udm_tutorial/test_data.pkl"
+FROM "test_data.pkl"
 ```
 
     Success
@@ -232,6 +222,7 @@ FROM "test/udm_tutorial/test_data.pkl"
         <ul>
            <li>"overwrite": determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (True|False, default: False) </li>
         </ul>
+        <li>"<strong>FROM</strong>" specifies the path of the dataset. (The above example illustrates a situation where a tutorial has been run in the root directory) </li>
         </li>
     </ul>
 </div>
@@ -311,7 +302,7 @@ OPTIONS (
     overwrite=True,
     framework="pytorch"
     )
-FROM "test/udm_tutorial/trained_model.pth"
+FROM "trained_model.pth"
 ```
 
     Success
@@ -356,7 +347,7 @@ AS (
     <tr style="text-align: right;">
       <th></th>
       <th>image</th>
-      <th>predict_result</th>
+      <th>predicted</th>
     </tr>
   </thead>
   <tbody>
@@ -394,8 +385,8 @@ AS (
 
 ```python
 pred_df = _ 
-pred_df["predict_result"] = pred_df["predict_result"].apply(np.argmax)
-pred_df["predict_result"] = pred_df["predict_result"].apply(test_dataset.classes.__getitem__)
+pred_df["predicted"] = pred_df["predicted"].apply(np.argmax)
+pred_df["predicted"] = pred_df["predicted"].apply(test_dataset.classes.__getitem__)
 pred_df
 ```
 
@@ -421,7 +412,7 @@ pred_df
     <tr style="text-align: right;">
       <th></th>
       <th>image</th>
-      <th>predict_result</th>
+      <th>predicted</th>
     </tr>
   </thead>
   <tbody>
