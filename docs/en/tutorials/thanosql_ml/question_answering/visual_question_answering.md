@@ -99,9 +99,9 @@ FROM 'thanosql-dataset/coco_person_data/coco_person.csv'
 
 ```python
 %%thanosql
-GET THANOSQL MODEL vqa
+GET THANOSQL MODEL vilt
 OPTIONS (overwrite=True)
-AS tutorial_vqa
+AS tutorial_vilt
 ```
 
     Success
@@ -253,12 +253,12 @@ LIMIT 5
 
 ## __2. Predict Response to a Question about the Images Using a Pretrained Model__
 
-To predict the results using the previously trained visual question and answer model, <mark style="background-color:#E9D7FD ">tutorial_vqa</mark> model, run the query below.
+To predict the results using the previously trained visual question and answer model, <mark style="background-color:#E9D7FD ">tutorial_vilt</mark> model, run the query below.
 
 
 ```python
 %%thanosql
-PREDICT USING tutorial_vqa
+PREDICT USING tutorial_vilt
 OPTIONS (
     image_col='image_path',
     question='How many people are there?',
@@ -360,7 +360,7 @@ FROM coco_person_data
 <div class="admonition note">
     <h4 class="admonition-title">Query Details</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" use the <mark style="background-color:#E9D7FD ">tutorial_vqa</mark> model loaded in the previous step via query syntax for prediction.</li>
+        <li>"<strong>PREDICT USING</strong>" use the <mark style="background-color:#E9D7FD ">tutorial_vilt</mark> model loaded in the previous step via query syntax for prediction.</li>
         <li>"<strong>OPTIONS</strong>" specifies the option values to be used for prediction.
         <ul>
             <li>"image_col": the name of the column where the path of the image used for prediction is stored. (default: "image_path")</li>

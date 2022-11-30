@@ -101,9 +101,9 @@ FROM 'thanosql-dataset/coco_person_data/coco_person.csv'
 
 ```python
 %%thanosql
-GET THANOSQL MODEL vqa
+GET THANOSQL MODEL vilt
 OPTIONS (overwrite=True)
-AS tutorial_vqa
+AS tutorial_vilt
 ```
 
     Success
@@ -255,12 +255,12 @@ LIMIT 5
 
 ## __2. 사전 학습된 모델을 사용하여 이미지의 질문에 대한 응답 예측__
 
-다음 쿼리문을 실행하면, 위에서 불러온 사전에 학습을 해 둔 시각 질의 응답 모델, <mark style="background-color:#E9D7FD ">tutorial_vqa</mark>모델을 사용하여 결과를 빠르게 예측해 볼 수 있습니다.
+다음 쿼리문을 실행하면, 위에서 불러온 사전에 학습을 해 둔 시각 질의 응답 모델, <mark style="background-color:#E9D7FD ">tutorial_vilt</mark>모델을 사용하여 결과를 빠르게 예측해 볼 수 있습니다.
 
 
 ```python
 %%thanosql
-PREDICT USING tutorial_vqa
+PREDICT USING tutorial_vilt
 OPTIONS (
     image_col='image_path',
     question='How many people are there?',
@@ -362,7 +362,7 @@ FROM coco_person_data
 <div class="admonition note">
     <h4 class="admonition-title">쿼리 세부 정보</h4>
     <ul>
-        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 불러온 <mark style="background-color:#E9D7FD ">tutorial_vqa</mark> 모델을 예측에 사용합니다.</li>
+        <li>"<strong>PREDICT USING</strong>" 쿼리 구문을 통해 이전 단계에서 불러온 <mark style="background-color:#E9D7FD ">tutorial_vilt</mark> 모델을 예측에 사용합니다.</li>
         <li>"<strong>OPTIONS</strong>" 쿼리 구문을 통해 예측에 사용할 옵션을 지정합니다.
         <ul>
             <li>"image_col": 예측에 사용할 이미지의 경로가 기록되어 있는 컬럼의 이름 (default: "image_path")</li>
