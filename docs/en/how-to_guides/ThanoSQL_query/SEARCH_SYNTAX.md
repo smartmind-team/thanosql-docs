@@ -12,15 +12,17 @@ The "__SEARCH__" statement allows users to search for content, meaning, or simil
 
 ```sql
 %%thanosql
-SEARCH IMAGE | AUDIO | VIDEO [input_data_used_for_searching]
+SEARCH IMAGE | AUDIO | VIDEO | TEXT | KEYWORD
 USING [AI_model_to_use]
 OPTIONS ([option_values_​​required_for_search])
-AS [dataset_to_use]
 ```
 
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
-        - "table_name": the name of the new table to be created.
+        - "search_input_type": defines the image|text|audio|video type to be used for the search.
+        - "search_input": defines the input to be used for the search. 
+        - "emb_col": the column that contains the vectorized results.
+        - "column_name": defines the name of the column that contains the search results. (default: "search_result")
 
 ## __3. SEARCH Example__
 
@@ -30,12 +32,16 @@ AS [dataset_to_use]
 
 ```sql
 %%thanosql
-SEARCH IMAGE images='tutorial_data/mnist_data/test/923.jpg' 
+SEARCH IMAGE 
 USING mymodel
 OPTIONS (
-    table_name='search_result_table'
+    search_input_type="image",
+    search_input="tutorial_data/mnist_data/test/923.jpg", 
+    emb_col="convert_result",
+    column_name="search_result"
 ) 
 AS 
 SELECT * 
 FROM mnist_test
 ```
+

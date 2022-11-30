@@ -130,23 +130,48 @@ FROM mnist_test
 You can use the "__SEARCH__" statement to search an image from the vector table.
 
 ```sql
-SEARCH IMAGE (images = expression)
+SEARCH IMAGE 
 USING (model_name_expression)
+OPTIONS(
+    expression [ , ...]
+    )
 AS
 (query_expr)
 ```
 
-!!! note ""
-    - Images must be inputted as a string (for example, 'a black cat', 'data/image/image01.jpg').
+__OPTIONS Clause__
+
+```sql
+OPTIONS (
+    (search_input_type = {image | text | audio | video}),
+    [search_input = expression],
+    [emb_col = embedded_column_name]
+    [column_name = column_name_to_be_saved_as]
+    )
+```
+
+The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
+
+- "search_input_type": defines the image|text|audio|video type to be used for the search.
+- "search_input": defines the input to be used for the search. 
+- "emb_col": the column that contains the vectorized results.
+- "column_name": defines the name of the column that contains the search results. (default: "search_result")
+
 
 __SEARCH Example__
 
-Examples of SEARCH queries can be found in [Image search with image](/en/tutorials/thanosql_search/search_image_by_image/).
+Examples of SEARCH queries can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
 
 ```sql
 %%thanosql
-SEARCH IMAGE images='tutorial_data/mnist_data/test/923.jpg'
+SEARCH IMAGE 
 USING my_image_search_model
+OPTIONS (
+    search_input_type="image",
+    search_input="tutorial_data/mnist_data/test/923.jpg",
+    emb_col="convert_result",
+    column_name="search_result"
+)
 AS
 SELECT *
 FROM mnist_test

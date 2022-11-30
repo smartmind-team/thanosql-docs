@@ -11,7 +11,7 @@ title: SEARCH
 
 ```sql
 %%thanosql
-SEARCH IMAGE | AUDIO | VIDEO [검색에 사용되는 입력 데이터]
+SEARCH IMAGE | AUDIO | VIDEO | TEXT | KEYWORD
 USING [사용할 인공지능 모델]
 OPTIONS ([모델 별 검색 시 필요한 옵션값])
 AS [사용할 데이터 테이블]
@@ -19,8 +19,10 @@ AS [사용할 데이터 테이블]
 
 !!! note "쿼리 세부 정보"
     - "OPTIONS" 쿼리 구문을 통해 사용할 옵션을 지정합니다.
-        - "table_name": 구문을 통해 나온 결과 값을 저장할 테이블명을 지정합니다. 테이블명을 지정하지 않으면 결과 값은 따로 저장되지 않습니다.
-
+        - "search_input_type": 검색할 때 사용할 이미지|텍스트|오디오|비디오 타입
+        - "search_input": 검색할 때 사용할 입력값 
+        - "emb_col": 데이터 테이블에서 수치화된 결과를 담은 컬럼
+        - "column_name": 데이터 테이블에서 검색 결과를 담을 컬럼 이름 (default: "search_result")
 ## __3. SEARCH 예시__
 
 !!! note 
@@ -29,10 +31,13 @@ AS [사용할 데이터 테이블]
 
 ```sql
 %%thanosql
-SEARCH IMAGE images='tutorial_data/mnist_data/test/923.jpg' 
+SEARCH IMAGE 
 USING mymodel
 OPTIONS (
-    table_name='search_result_table'
+    search_input_type="image",
+    search_input="tutorial_data/mnist_data/test/923.jpg", 
+    emb_col="convert_result",
+    column_name="search_result"
 ) 
 AS 
 SELECT * 
