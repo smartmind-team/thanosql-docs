@@ -100,8 +100,13 @@ The following statement outputs the results of "__SEARCH__" statement created in
 PRINT IMAGE AS(
     SELECT image_path, score
     FROM (
-        SEARCH IMAGE text='12345'
+        SEARCH IMAGE 
         USING mymodel
+        OPTIONS (
+            search_input_type="text",
+            search_input="12345",
+            emb_col="convert_result"
+        )
         AS
         SELECT *
         FROM mnist_dataset)

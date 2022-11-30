@@ -130,14 +130,33 @@ FROM movie_review_test
 You can use the "__SEARCH__" statement to retrieve the desired document from the table that generated the vectors.
 
 ```sql
-SEARCH TEXT (text = expression)
+SEARCH TEXT 
 USING (model_name_expression)
+OPTIONS(
+    expression [ , ...]
+    )
 AS 
 (query_expr)
 ```
 
-!!! note ""
-    - The input must be a string (e.g., "This movie was my favorite movie of all time", "The movie was unsatisfactory").
+__SEARCH TEXT OPTIONS Clause__
+
+```sql
+OPTIONS (
+    (search_input_type = {image | text | audio | video | keyword}),
+    [search_input = expression],
+    [emb_col = embedded_column_name]
+    [column_name = column_name_to_be_saved_as]
+    )
+```
+
+The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
+
+- "search_input_type": defines the image|text|audio|video type to be used for the search.
+- "search_input": defines the input to be used for the search. 
+- "emb_col": the column that contains the vectorized results.
+- "column_name": defines the name of the column that contains the search results. (default: "search_result")
+
 
 You can use the "__SEARCH__" statement to extract the keywords from the table that generated the vectors.
 
@@ -148,9 +167,11 @@ USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
+AS 
+(query_expr)
 ```
 
-__OPTIONS Clause__
+__SEARCH KEYWORD OPTIONS Clause__
 
 ```sql
 OPTIONS (
@@ -190,8 +211,14 @@ OPTIONS (
 AS (
     SELECT document, label, nsmc_text_search_model_sbertko_similarity1 as score
     FROM (
-        SEARCH TEXT text="가볍게 볼 수 있는 코미디 영화"
+        SEARCH TEXT 
         USING nsmc_text_search_model
+        OPTIONS (
+            search_input_type="text",
+            search_input="가볍게 볼 수 있는 코미디 영화",
+            emb_col="convert_result",
+            column_name="search_result"
+        )
         AS 
         SELECT * 
         FROM nsmc_test

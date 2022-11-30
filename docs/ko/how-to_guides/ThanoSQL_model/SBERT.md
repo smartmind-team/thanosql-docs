@@ -136,17 +136,37 @@ FROM nsmc_test
 "__SEARCH__" 구문을 사용하여 수치화을 생성한 테이블에서 원하는 문서를 검색할 수 있습니다.
 
 ``` sql
-SEARCH TEXT (text = expression)
+SEARCH TEXT 
 USING (model_name_expression)
+OPTIONS(
+    expression [ , ...]
+    )
 AS 
 (query_expr)
 ```
 
-!!! note ""
-    - 사용자로부터 text를 입력으로 받아야 합니다. 입력은 string (예: "기분이 좋아지는 작품", "영화 내용이 불만족스러웠다")이어야 합니다.
-
 !!! faq ""
     - 본 쿼리를 통해서 USING 뒤에 나온 모델인 model_name_expression을 사용합니다.
+
+
+__SEARCH TEXT OPTIONS 절__
+
+```sql
+OPTIONS (
+    (search_input_type = {image | text | audio | video | keyword}),
+    [search_input = expression],
+    [emb_col = embedded_column_name]
+    [column_name = column_name_to_be_saved_as]
+    )
+```
+
+"__OPTIONS__" 절은 모델에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
+
+- "search_input_type": 검색할 때 사용할 이미지|텍스트|오디오|비디오 타입
+- "search_input": 검색할 때 사용할 입력값 
+- "emb_col": 데이터 테이블에서 수치화된 결과를 담은 컬럼
+- "column_name": 데이터 테이블에서 검색 결과를 담을 컬럼 이름 (default: "search_result")
+
 
 "__SEARCH__" 구문을 사용하여 수치화을 생성한 테이블에서 키워드를 추출할 수 있습니다.
 
@@ -157,6 +177,8 @@ USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
+AS 
+(query_expr)
 ```
 
 !!! faq ""
@@ -202,8 +224,14 @@ OPTIONS (
 AS (
     SELECT document, label, nsmc_text_search_model_sbertko_similarity1 as score
     FROM (
-        SEARCH TEXT text="가볍게 볼 수 있는 코미디 영화"
+        SEARCH TEXT 
         USING nsmc_text_search_model
+        OPTIONS (
+            search_input_type="text",
+            search_input="가볍게 볼 수 있는 코미디 영화",
+            emb_col="convert_result",
+            column_name="search_result"
+        )
         AS 
         SELECT * 
         FROM nsmc_test

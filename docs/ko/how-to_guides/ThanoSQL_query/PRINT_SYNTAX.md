@@ -104,6 +104,11 @@ PRINT IMAGE AS(
     FROM (
         SEARCH IMAGE text='12345'
         USING mymodel
+        OPTIONS (
+            search_input_type="text",
+            search_input="12345",
+            emb_col="convert_result"
+        )
         AS 
         SELECT * 
         FROM mnist_dataset)

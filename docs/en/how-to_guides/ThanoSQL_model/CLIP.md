@@ -70,15 +70,33 @@ FROM unsplash_data
 You can use the "__SEARCH__" statement to retrieve the desired image from the table that generated the vectors.
 
 ```sql
-SEARCH IMAGE ({text|texts|image|images} = expression)
-USING clip_en
+SEARCH IMAGE 
+USING (model_name_expression)
+OPTIONS(
+    expression [ , ...]
+    )
 AS
 (query_expr)
 ```
 
-!!! note ""
-    - You must choose one of (text | texts) or (image | images) as an input.  
-    - The input must be a string (e.g., 'a black cat', 'data/image/image01.jpg') or a list of strings (e.g., ['a black cat', 'a orange cat'], ['data/image/image01.jpg', 'data/image/image02.jpg']).
+__OPTIONS Clause__
+
+```sql
+OPTIONS (
+    (search_input_type = {image | text | audio | video | keyword}),
+    [search_input = expression],
+    [emb_col = embedded_column_name]
+    [column_name = column_name_to_be_saved_as]
+    )
+```
+
+The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
+
+- "search_input_type": defines the image|text|audio|video type to be used for the search.
+- "search_input": defines the input to be used for the search. 
+- "emb_col": the column that contains the vectorized results.
+- "column_name": defines the name of the column that contains the search results. (default: "search_result")
+
 
 __SEARCH Example__
 
@@ -86,8 +104,14 @@ Examples of SEARCH queries can be found in [Image search with text](/en/tutorial
 
 ```sql
 %%thanosql
-SEARCH IMAGE text="a black cat"
+SEARCH IMAGE 
 USING tutorial_search_clip
+OPTIONS (
+    search_input_type="text",
+    search_input="a black cat",
+    emb_col="convert_result",
+    column_name="search_result"
+)
 AS
 SELECT *
 FROM unsplash_data
