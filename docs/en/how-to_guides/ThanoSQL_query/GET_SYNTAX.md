@@ -15,18 +15,18 @@ The "__GET THANOSQL MODEL__" statement downloads the ThanoSQL pre-built models t
 %%thanosql
 GET THANOSQL MODEL [ThanoSQL_pre-built_model_name] 
 OPTIONS (
+    model_name=[custom_model_name],
     overwrite=True
 ) 
-AS 
-[custom_model_name]
 ```
 
 !!! note "__Note__"    
     - You can use the `LIST THANOSQL MODEL` statement to view a list of the ThanoSQL pre-built models.  
-    - If you do not include the `AS` clause and `custom_model_name`, pre-built models will be saved with default names. 
+    - If you do not include the `model_name` and provide a `custom_model_name`, pre-built models will be saved with default names. 
 
 !!! note "__Query Details__"
-    - The "__OPTIONS__" clause can change the value of a parameter from the default value in an image model. The meaning of each parameter is as follows:
+    - The "__OPTIONS__" clause can change the value of a parameter from the default value. The meaning of each parameter is as follows:
+        - “model_name”: the model name to store a given model in the ThanoSQL workspace
         - "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (default: False) 
 
 The "__GET THANOSQL DATASET__" statement downloads the tutorial datasets to the user's workspace. 
@@ -55,9 +55,9 @@ OPTIONS (
 %%thanosql
 GET THANOSQL MODEL convnext
 OPTIONS (
+    model_name="myconvnext",
     overwrite=True
 )
-AS myconvnext
 ```
 
 ### __3.2 GET THANOSQL DATASET Example__
