@@ -13,7 +13,6 @@ title: 개요
 - [__FIT MODEL__](/ko/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/) —  추가된 데이터 세트에 대한 인공지능 모델 재학습
 - [__UPLOAD MODEL__](/ko/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/) — 사용자가 직접 만든 모델 ThanoSQL 워크스페이스 데이터베이스에 올리기
 - [__DELETE MODEL__](/ko/how-to_guides/ThanoSQL_query/DELETE_MODEL_SYNTAX/) —  모델 삭제
-- [__TRANSFORM__](/ko/how-to_guides/ThanoSQL_query/TRANSFORM_MODEL_SYNTAX/) — 모델 적용을 위한 데이터 전처리
 - [__PREDICT__](/ko/how-to_guides/ThanoSQL_query/PREDICT_MODEL_SYNTAX/) — 모델 적용
 - [__EVALUATE__](/ko/how-to_guides/ThanoSQL_query/EVALUATE_MODEL_SYNTAX/) —  모델 평가
 - [__CONVERT__](/ko/how-to_guides/ThanoSQL_query/CONVERT_USING_SYNTAX/) — 기존 데이터 테이블에 비정형 데이터(이미지, 오디오, 비디오 등)의 벡터 형식으로 변환된 값을 데이터 테이블에 추가

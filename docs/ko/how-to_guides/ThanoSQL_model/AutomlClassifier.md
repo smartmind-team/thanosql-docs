@@ -159,33 +159,6 @@ SELECT *
 FROM titanic_train
 ```
 
-## __TRANSFORM 구문__
-
-이 "__TRANSFORM__" 구문을 사용하여 테스트 데이터 세트에 인공지능 모델 생성시 사용한 동일한 전처리 방법을 적용할 수 있습니다. "__TRANSFORM__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
-
-``` sql
-query_statement:
-    query_expr
-
-TRANSFORM USING (model_name_expression) 
-AS 
-(query_expr)
-``` 
-!!! faq ""
-    - 본 쿼리를 통해서 USING 뒤에 나오는 인공지능 모델인 model_name_expression 을 사용합니다. 
-
- __TRANSFORM USING 예시__
-
-[TRANSFORM](/ko/how-to_guides/ThanoSQL_query/TRANSFORM_MODEL_SYNTAX/)에서 해당 알고리즘 구문 사용 예시를 확인하실 수 있습니다. 
-
-```sql
-%%thanosql
-TRANSFORM USING titanic_classification 
-AS 
-SELECT * 
-FROM titanic_test 
-```
-
 ## __PREDICT 구문__
 
 이 "__PREDICT__" 구문을 사용하여 테스트 데이터 세트에 인공지능 모델을 적용하여 예측, 분류, 추천 등의 작업을 수행할 수 있습니다. "__PREDICT__" 표현식은 "__AS__" 뒤에 나오는 query_expr을 통해 정의한 데이터 세트를 전처리할 수 있습니다.
