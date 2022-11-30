@@ -156,31 +156,6 @@ SELECT *
 FROM titanic_train
 ```
 
-## __TRANSFORM Syntax__
-
-The "__TRANSFORM__" statement is used to apply the same preprocessing method used to create AI models on your test datasets. The "__TRANSFORM__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
-
-```sql
-query_statement:
-    query_expr
-
-TRANSFORM USING (model_name_expression)
-AS
-(query_expr)
-```
-
-__TRANSFORM Example__
-
-A sample TRANSFORM query can be found in [TRANSFORM](/en/how-to_guides/ThanoSQL_query/TRANSFORM_MODEL_SYNTAX/).
-
-```sql
-%%thanosql
-TRANSFORM USING titanic_classification
-AS
-SELECT *
-FROM titanic_test
-```
-
 ## __PREDICT Syntax__
 
 Use the "__PREDICT__" statement to apply artificial intelligence models to test datasets to perform prediction, classification, recommendation, and more. The "__PREDICT__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.

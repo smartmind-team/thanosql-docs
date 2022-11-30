@@ -12,7 +12,6 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__FIT MODEL__](/en/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/) —  Re-Build AI model for added datasets
 - [__UPLOAD MODEL__](/en/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/) — Upload User-Defined Model to the ThanoSQL Workspace Database
 - [__DELETE MODEL__](/en/how-to_guides/ThanoSQL_query/DELETE_MODEL_SYNTAX/) —  Delete Model
-- [__TRANSFORM__](/en/how-to_guides/ThanoSQL_query/TRANSFORM_MODEL_SYNTAX/) — Transform data for prediction with defined model
 - [__PREDICT__](/en/how-to_guides/ThanoSQL_query/PREDICT_MODEL_SYNTAX/) — Predict with defined model
 - [__EVALUATE__](/en/how-to_guides/ThanoSQL_query/EVALUATE_MODEL_SYNTAX/) — Evaluate defined model
 - [__CONVERT__](/en/how-to_guides/ThanoSQL_query/CONVERT_USING_SYNTAX/) — Add features converted to vector formats from unstructured data (image, audio, video, etc.) to the existing data table
