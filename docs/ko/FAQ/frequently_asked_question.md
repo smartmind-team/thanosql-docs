@@ -13,7 +13,7 @@ ThanoSQL에서는 모델명/컬럼명을 소문자로 처리하고 있습니다.
 ThanoSQL COPY 구문은 utf-8 encoding 형식만 지원합니다. 한국어가 들어있는 csv 파일의 경우, utf-8 encoding 후 COPY 구문을 사용하시기 바랍니다.
 
 ## **4. ThanoSQL에서 지원하는 비정형 데이터의 종류는 무엇인가요?**
-ThanoSQL은  Image와 audio 데이터에 대해 아래의 확장자를 지원합니다.
+ThanoSQL에서는  Image와 audio 데이터에 대해 아래의 확장자를 지원합니다.
 
 - Image:  "jpg", "png"  
 - Audio: "wav", "flac", "mp3"
@@ -30,3 +30,6 @@ ThanoSQL은  Image와 audio 데이터에 대해 아래의 확장자를 지원합
 
 !!! tip ""
     따옴표에 대해서도 자동 완성이 적용됩니다.
+
+## **6. LIKE 문법 사용하여 지정한 칼럼 값과 유사한 패턴을 갖는지 확인할 때 “%” 연산자가 정상 작동하지 않습니다.**
+ThanoSQL에서는 "%"를 이스케이프문으로 받아들이기 때문에, "%%" 라고 작성해야합니다. 

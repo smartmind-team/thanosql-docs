@@ -32,3 +32,7 @@ You can turn on the feature by clicking on `Menu > Settings > Auto Close Bracket
 
 !!! tip ""
     This also applies for quotation marks.
+
+## **6. When using a LIKE statement, the “%” operator does not work.**
+
+Since ThanoSQL uses “%” as an escape character, you need to use “%%” instead.
