@@ -11,7 +11,7 @@ __Notation Conventions__
 - The bracket `[]` indicates an optional clause.
 - An ellipsis following a comma in brackets [,...] means that the preceding item can be repeated as a comma-separated list
 - The vertical bar `|` represents the logic `OR`.
-- VALUE means just value.
+- VALUE represents a regular value.
 
 !!! note ""
     - __literal__: a fixed or unchangeable value, also known as a Constant.
