@@ -27,7 +27,7 @@ AS
 ## __3. BUILD MODEL Example__
 
 !!! note
-    - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to the [ThanoSQL Pre-built Model Statement Reference](/en/how-to_guides/reference/#thanosql-pre-built-model-statement-reference)
+    - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to the [ThanoSQL Model Statement Reference](/en/how-to_guides/reference/#thanosql-model-statement-reference)
     - Since the example works only when a specific model and dataset exist, it may not run normally when copied and used as it is.
 
 ### __3-1. Using the Auto_ML Model to Create a Classification Model__

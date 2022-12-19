@@ -21,7 +21,7 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__LIST__](/en/how-to_guides/ThanoSQL_query/LIST_SYNTAX/) — List Model and Data Tables Stored in the ThanoSQL Workspace Database
 - [__COPY__](/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - Copy Data Files in the Workspace and Create Data Tables Within the ThanoSQL Workspace Database
 
-### __ThanoSQL Pre-built Model Statement Reference__
+### __ThanoSQL Model Statement Reference__
 
 - [__AutomlClassifier__](/en/how-to_guides/ThanoSQL_model/AutomlClassifier/) — Classification Model
 - [__AutomlRegressor__](/en/how-to_guides/ThanoSQL_model/AutomlRegressor/) — Regression Model
