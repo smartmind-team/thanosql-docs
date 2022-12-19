@@ -60,7 +60,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 __BUILD MODEL Example__
 
-A sample BUILD MODEL query can be found in [Create an image classification model](/en/tutorials/thanosql_ml/classification/image_classification/).
+A sample BUILD MODEL query can be found in [Create an Image Classification Model](/en/tutorials/thanosql_ml/classification/image_classification/).
 
 ```sql
 %%thanosql
@@ -148,7 +148,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 __PREDICT Example__
 
-A sample PREDICT query can be found in [Create an image classification model](/en/tutorials/thanosql_ml/classification/image_classification/).
+A sample PREDICT query can be found in [Create an Image Classification Model](/en/tutorials/thanosql_ml/classification/image_classification/).
 
 ```sql
 %%thanosql

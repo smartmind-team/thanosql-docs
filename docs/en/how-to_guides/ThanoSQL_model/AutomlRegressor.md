@@ -66,7 +66,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 
 **BUILD MODEL Example**
 
-A sample BUILD MODEL query can be found in [Create a regression model using AutoML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+A sample BUILD MODEL query can be found in [Create a Regression Model Using AutoML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -166,7 +166,7 @@ AS
 
 **PREDICT Example**
 
-A sample PREDICT query can be found in [Create a regression model using AutoML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+A sample PREDICT query can be found in [Create a Regression Model Using AutoML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
@@ -206,7 +206,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the Au
 
 **EVALUATE Example**
 
-A sample EVALUATE query can be found in [Create a regression model using AutoML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+A sample EVALUATE query can be found in [Create a Regression Model Using AutoML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
