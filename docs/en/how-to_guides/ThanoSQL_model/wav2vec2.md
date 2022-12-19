@@ -60,7 +60,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 __BUILD MODEL Example__
 
-A sample BUILD MODEL query can be found in [Create a speech recognition model to dictate an audio file](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
+A sample BUILD MODEL query can be found in [Create a Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
 
 ```sql
 %%thanosql
@@ -150,7 +150,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 __PREDICT Example__
 
-A sample PREDICT query can be found in [Create a speech recognition model to dictate an audio file](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
+A sample PREDICT query can be found in [Create a Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
 
 ```sql
 %%thanosql

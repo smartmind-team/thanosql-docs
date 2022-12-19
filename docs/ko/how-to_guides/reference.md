@@ -22,7 +22,7 @@ title: 개요
 - [__LIST__](/ko/how-to_guides/ThanoSQL_query/LIST_SYNTAX/) — ThanoSQL 워크스페이스 데이터베이스에 저장되어 있는 모델, 데이터 세트 목록 조회
 - [__COPY__](/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - 워크스페이스에 있는 데이터 파일들로 ThanoSQL 워크스페이스 데이터베이스 안의 데이터 테이블 생성
 
-### __ThanoSQL Pre-built Model Statement Reference__
+### __ThanoSQL Model Statement Reference__
 
 - [__AutomlClassifier__](/ko/how-to_guides/ThanoSQL_model/AutomlClassifier/) — 분류 모델
 - [__AutomlRegressor__](/ko/how-to_guides/ThanoSQL_model/AutomlRegressor/) — 회귀 모델

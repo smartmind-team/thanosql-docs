@@ -50,7 +50,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 __CONVERT Example__
 
-Examples of CONVERT queries can be found in [Image search with text](/en/tutorials/thanosql_search/search_image_by_text/).
+Examples of CONVERT queries can be found in [Search Image by Text](/en/tutorials/thanosql_search/search_image_by_text/).
 
 ```sql
 %%thanosql
@@ -100,7 +100,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 __SEARCH Example__
 
-Examples of SEARCH queries can be found in [Image search with text](/en/tutorials/thanosql_search/search_image_by_text/).
+Examples of SEARCH queries can be found in [Search Image by Text](/en/tutorials/thanosql_search/search_image_by_text/).
 
 ```sql
 %%thanosql

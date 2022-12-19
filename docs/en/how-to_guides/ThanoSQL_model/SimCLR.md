@@ -64,7 +64,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 __BUILD MODEL Example__
 
-Examples of BUILD MODEL queries can be found in [Image search with image](/en/tutorials/thanosql_search/search_image_by_image/).
+Examples of BUILD MODEL queries can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
 ​
 
 ```sql
@@ -110,7 +110,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter in the mo
 
 __CONVERT Example__
 
-Examples of CONVERT queries can be found in [Image search with image](/en/tutorials/thanosql_search/search_image_by_image/).
+Examples of CONVERT queries can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
 ​
 
 ```sql
