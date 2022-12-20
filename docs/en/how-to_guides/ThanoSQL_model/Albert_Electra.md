@@ -43,7 +43,7 @@ OPTIONS(
     [batch_size=VALUE],
     [max_epochs=VALUE],
     [learning_rate=VALUE],
-    [overwrite={True | False}]
+    [overwrite={True|False}]
     )
 ```
 
@@ -59,7 +59,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __BUILD MODEL Example__
 
-A sample "__BUILD MODEL__" query can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/text_classification/).
+An example "__BUILD MODEL__" query can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/text_classification/).
 
 ```sql
 %%thanosql
@@ -104,7 +104,7 @@ OPTIONS(
     [batch_size=VALUE],
     [max_epochs=VALUE],
     [learning_rate=VALUE],
-    [overwrite={True | False}]
+    [overwrite={True|False}]
     )
 ```
 
@@ -155,7 +155,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __PREDICT Example__
 
-A sample "__PREDICT__" query can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/text_classification/).
+An example "__PREDICT__" query can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/text_classification/).
 
 ```sql
 %%thanosql
@@ -190,7 +190,7 @@ __OPTIONS Clause__
 OPTIONS(
     (text_col=column_name),
     (label_col=column_name),
-    [batch_size = VALUE]
+    [batch_size=VALUE]
     )
 ```
 

@@ -22,8 +22,7 @@ __Notation Conventions__
 
 ## __BUILD MODEL Syntax__
 
-Use the "__BUILD MODEL__" query to develop an AI model.
-The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
+Use the "__BUILD MODEL__" statement to develop an AI model. The "__BUILD MODEL__" statement allows you to train a model using datasets defined with the query_expr that comes after the "__AS__" clause.
 
 ``` sql
 query_statement:
@@ -38,41 +37,40 @@ AS
 (query_expr)
 ``` 
 
-!!! faq ""
-    - Use this query to save the base model that comes after the USING clause as model_name_expression.
 
- __OPTIONS clause__
+ __OPTIONS Clause__
 
 ```sql
 OPTIONS(
-    target = column_name,
-    [impute_type = {"simple" | "iterative"}],
-    [features_to_drop = [column_name, ...]],
-    [datetime_attribs = [column_name, ...]],
-    [outlier_method = {"pca" | "iso" | "knn"}],
-    [time_left_for_this_task = VALUE],
-    [overwrite = {True | False}]
+    (target_col=column_name),
+    [features_to_drop=[column_name, ...]],
+    [impute_type={'simple'|'iterative'}],
+    [datetime_attribs=[column_name, ...]],
+    [outlier_method={'pca'|'iso'|'knn'}],
+    [time_left_for_this_task=VALUE],
+    [overwrite={True|False}]
     )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlClassifier model. The definition of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "target": sets the name of the column that has the target value for the classification prediction model.
-- "impute_type": determines how empty values are handled in the data table.(default: "simple")
-> "simple": for empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
-> "iterative": applies an algorithm that predicts empty values with the remaining properties.
-- "features_to_drop": selects columns that are not needed for training.
-- "datetime_attribs": selects columns corresponding to the date.
-- "outlier_method": determines how outliers are handled in the table.(default: "iso")
-> "pca": detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA).  
-> "iso": use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (Works efficiently on datasets with many variables.)  
->  "knn": use a K-NN-based approach to detect abnormal samples based on the distance between each data.
-- "time_left_for_this_task": indicates the time the classifier will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (default: 300)
-- "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
+- "target_col": the name of the column containing the target value of the classification model (str, default: 'target') 
+- "features_to_drop": selects columns that cannot be used for training (int, optional, default: 300)
+- "impute_type": determines how empty values ​​(NaNs) are handled (str, optional, 'simple'|'iterative' , default: 'simple') 
+> "simple": for empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean
+> "iterative": applies an algorithm that predicts empty values with the remaining properties
+- "datetime_attribs": selects columns corresponding to the date (str, optional)
+- "outlier_method": determines how outliers are handled in the table (str, default: 'iso')
+> "pca": detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA)
+> "iso": use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples (Works efficiently on datasets with many variables)  
+>  "knn": use a K-NN-based approach to detect abnormal samples based on the distance between each data
+- "time_left_for_this_task": the total time given to find a suitable classification model in seconds (int, optional, default: 300)
+- "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
+
 
 __BUILD MODEL Example__
 
-Examples of BUILD MODEL queries can be found in [Create a Classification Model Using AutoML](/en/tutorials/Thanosql_ml/classification/automl_classification/).
+An example "__BUILD MODEL__" query can be found in  [Create a Classification Model Using AutoML](/en/tutorials/Thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql
@@ -82,17 +80,18 @@ OPTIONS (
     target='survived',
     impute_type='iterative',
     features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
-    outlier_method = 'pca',
-    overwrite = True
+    outlier_method='pca',
+    overwrite=True
     )
 AS
 SELECT *
 FROM titanic_train
 ```
 
+
 ## __FIT MODEL Syntax__
 
-The "__FIT MODEL__" statement lets you retrain artificial intelligence models. The "__FIT MODEL__" expression allows you to retrain datasets defined by the query_expr that comes after the "__AS__" clause.
+Use the "__FIT MODEL__" statement to retrain an AI models. The "__FIT MODEL__" statement allows you to retrain a model using datasets defined with the query_expr that comes after the "__AS__" clause. In this case, the label of the data used for retraining should be the same as the label used for the previous training.
 
 ```sql
 query_statement:
@@ -107,83 +106,91 @@ AS
 (query_expr)
 ```
 
-__OPTIONS clause__
+
+ __OPTIONS Clause__
 
 ```sql
 OPTIONS(
-    target = column_name,
-    [impute_type = {"simple" | "iterative"}],
-    [features_to_drop = [column_name, ...]],
-    [datetime_attribs = [column_name, ...]],
-    [outlier_method = {"pca" | "iso" | "knn"}],
-    [time_left_for_this_task = VALUE],
-    [overwrite = {True | False}]
-
+    (target_col=column_name),
+    [features_to_drop=[column_name, ...]],
+    [impute_type={'simple'|'iterative'}],
+    [datetime_attribs=[column_name, ...]],
+    [outlier_method={'pca'|'iso'|'knn'}],
+    [time_left_for_this_task=VALUE],
+    [overwrite={True|False}]
     )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlClassifier model. The definition of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "target": sets the name of the column that has the target value for the classification prediction model.
-- "impute_type": determines how empty values are handled in the data table. (default: "simple")
-> "simple": for empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean.  
-> "iterative": applies an algorithm that predicts empty values with the remaining properties.
-- "features_to_drop": selects columns that are not needed for training.
-- "datetime_attribs": selects columns corresponding to the date.
-- "outlier_method": determines how outliers are handled in the table. (default: "iso")
-> "pca": detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA).  
-> "iso": use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples. (Works efficiently on datasets with many variables.)  
->  "knn": use a K-NN-based approach to detect abnormal samples based on the distance between each data.
-- "time_left_for_this_task": indicates the time the classifier will take to find a suitable classification prediction model. The larger the value, the more likely it is to find a suitable model (default: 300)
-- "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model (default: False)
+- "target_col": the name of the column containing the target value of the classification model (str, default: 'target') 
+- "features_to_drop": selects columns that cannot be used for training (int, optional, default: 300)
+- "impute_type": determines how empty values ​​(NaNs) are handled (str, optional, 'simple'|'iterative' , default: 'simple') 
+> "simple": for empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean
+> "iterative": applies an algorithm that predicts empty values with the remaining properties
+- "datetime_attribs": selects columns corresponding to the date (str, optional)
+- "outlier_method": determines how outliers are handled in the table (str, default: 'iso')
+> "pca": detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA)
+> "iso": use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples (Works efficiently on datasets with many variables)  
+>  "knn": use a K-NN-based approach to detect abnormal samples based on the distance between each data
+- "time_left_for_this_task": the total time given to find a suitable classification model in seconds (int, optional, default: 300)
+- "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
-__FIT MODEL Example__
 
-Examples of FIT MODEL queries can be found in [FIT MODEL](/en/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/)
-
-```sql
-%%thanosql
-FIT MODEL fit_test_classifier
-USING titanic_classification
-OPTIONS (
-    target = 'survived',
-    impute_type='simple',
-    features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
-    overwrite=True
-    )
-AS
-SELECT *
-FROM titanic_train
-```
 
 ## __PREDICT Syntax__
 
-Use the "__PREDICT__" statement to apply artificial intelligence models to test datasets to perform prediction, classification, recommendation, and more. The "__PREDICT__" expression can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
+Use the "__PREDICT__" statement to apply AI models to perform prediction, classification, recommendation, and more. The "__PREDICT__" statement can preprocess the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
     query_expr
 
 PREDICT USING (model_name_expression)
+OPTIONS (
+    expression [ , ...]
+    )
 AS
 (query_expr)
 ```
 
+
+__OPTIONS Clause__
+
+```sql
+OPTIONS(
+    (result_col=column_name),
+    (table_name=expression) 
+    )
+```
+
+The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
+
+- "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column (str, optional)
+
+
 __PREDICT Example__
 
-Examples of PREDICT queries can be found in [Create a Classification Model Using AutoML](/en/tutorials/Thanosql_ml/classification/automl_classification/).
+An example "__PREDICT__" query can be found in [Create a Classification Model Using AutoML](/en/tutorials/Thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql
 PREDICT USING titanic_classification
+OPTIONS (
+    result_col='predict_result',
+    table_name='titanic_test'
+    )
 AS
 SELECT *
 FROM titanic_test
 ```
 
+
+
 ## __EVALUATE Syntax__
 
-You can use the "__EVALUATE__" statement to evaluate the AI model. The "__EVALUATE__" expression evaluates the dataset defined by the query_expr that comes after the "__AS__" clause.
+Use the "__EVALUATE__" statement to evaluate the AI model. The "__EVALUATE__" expression evaluates a model using the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -191,7 +198,7 @@ query_statement:
 
 EVALUATE USING (model_name_expression)
 OPTIONS (
-    target = expression
+    expression [ , ...]
     )
 AS
 (query_expr)
@@ -201,23 +208,24 @@ __OPTIONS clause__
 
 ```sql
 OPTIONS(
-    target = column_name
+    (target_col=column_name)
     )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter in the AutomlClassifier model. The definition of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "target": sets the name of the column that has the target value for the classification prediction model.
+- "target_col": the name of the column containing the target value of the classification model (str, default: 'target')
+
 
 __EVALUATE Example__
 
-Examples of EVALUATE queries can be found in [Create a Classification Model Using AutoML](/en/tutorials/Thanosql_ml/classification/automl_classification/).
+An example "__EVALUATE__" query can be found in [Create a Classification Model Using AutoML](/en/tutorials/Thanosql_ml/classification/automl_classification/).
 
 ```sql
 %%thanosql
 EVALUATE USING titanic_classification
 OPTIONS (
-    target = 'survived'
+    target='survived'
     )
 AS
 SELECT *
