@@ -10,11 +10,11 @@ Reference page provides a formal overview of each topic. More information on usi
 
 - [__BUILD MODEL__](/en/how-to_guides/ThanoSQL_query/BUILD_MODEL_SYNTAX/) — Build an AI Model
 - [__FIT MODEL__](/en/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/) —  Rebuild the AI model to Accommodate New Datasets
-- [__UPLOAD MODEL__](/en/how-to_guides/ThanoSQL_query/UPLOAD_SYNTAX/) — Upload a User-defined Model to the ThanoSQL Workspace Database
+- [__UPLOAD MODEL__](/en/how-to_guides/ThanoSQL_query/UPLOAD_MODEL_SYNTAX/) — Upload a User-defined Model to the ThanoSQL Workspace Database
 - [__DELETE MODEL__](/en/how-to_guides/ThanoSQL_query/DELETE_MODEL_SYNTAX/) —  Delete Model
-- [__PREDICT__](/en/how-to_guides/ThanoSQL_query/PREDICT_MODEL_SYNTAX/) — Predict With a Model
-- [__EVALUATE__](/en/how-to_guides/ThanoSQL_query/EVALUATE_MODEL_SYNTAX/) — Evaluate the Model
-- [__CONVERT__](/en/how-to_guides/ThanoSQL_query/CONVERT_USING_SYNTAX/) — Convert Unstructured Data(image, audio, video, etc.) to Embedding Vectors and Save it as a Table
+- [__PREDICT__](/en/how-to_guides/ThanoSQL_query/PREDICT_SYNTAX/) — Predict With a Model
+- [__EVALUATE__](/en/how-to_guides/ThanoSQL_query/EVALUATE_SYNTAX/) — Evaluate the Model
+- [__CONVERT__](/en/how-to_guides/ThanoSQL_query/CONVERT_SYNTAX/) — Convert Unstructured Data(image, audio, video, etc.) to Embedding Vectors and Save it as a Table
 - [__SEARCH__](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX/) — Search Unstructured Data(image, audio, video, etc.)
 - [__PRINT__](/en/how-to_guides/ThanoSQL_query/PRINT_SYNTAX/) — Print Unstructured Data(image, audio, video, etc.)
 - [__GET__](/en/how-to_guides/ThanoSQL_query/GET_SYNTAX/) —  Get Model, Data Tables Stored in the ThanoSQL Workspace Database
