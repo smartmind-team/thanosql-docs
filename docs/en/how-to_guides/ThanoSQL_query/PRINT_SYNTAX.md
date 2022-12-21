@@ -11,27 +11,31 @@ The "__PRINT__" statement allows users to to output images, audio, and video fil
 
 The "__PRINT__" syntax
 ```sql
-%%thanosql
-PRINT IMAGE | AUDIO | VIDEO
+query_statement:
+    query_expr
+
+PRINT { IMAGE | AUDIO | VIDEO }
 AS
-[dataset_to_output]
+(query_expr)
 ```
 
 The "__PRINT__" syntax with an "__OPTIONS__" clause.
 
 ```sql
-%%thanosql
+query_statement:
+    query_expr
+
 PRINT IMAGE | AUDIO | VIDEO
 OPTIONS (
-    image_col | audio_col | video_col = [image_path_column_name]
+    image_col | audio_col | video_col = (column_name)
     )
 AS
-[dataset_to_output]
+(query_expr)
 ```
 
 !!! note "__Query Details__"
-    - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
-        - "image_col | audio_col | video_col": the name of a column to be printed. If the column name is not specified, "image_path" | "audio_path" | "video_path" is the default value and if such column does not exist in the table an error message will be shown.
+    - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows:
+        - "image_col | audio_col | video_col": the name of a column to be printed (str, default: 'image_path'|'audio_path'|'video_path')
 
 ## __3. PRINT Example__
 
@@ -47,11 +51,11 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM junyoung_img
+FROM image_table
 ```
 
 !!! note ""
-    - `junyoung_img`: table containing paths of the image files
+    - `image_table`: table containing paths of the image files
 
 ### __3.2 Audio Print__
 
@@ -65,13 +69,13 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM junyoung_aud
+FROM audio_table
 ```
 
 [![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
-    - `junyoung_aud`: table containing paths of the audio files
+    - `audio_table`: table containing paths of the audio files
 
 ### __3.3 Video Print__
 
@@ -85,11 +89,11 @@ OPTIONS (
     )
 AS
 SELECT *
-FROM junyoung_vid
+FROM video_table
 ```
 
 !!! note ""
-    - `junyoung_vid`: table containing paths of the video files
+    - `video_table`: table containing paths of the video files
 
 ### __3.4 Print with a subquery__
 
@@ -97,20 +101,23 @@ The following statement outputs the results of "__SEARCH__" statement created in
 
 ```sql
 %%thanosql
-PRINT IMAGE AS(
-    SELECT image_path, score
+PRINT IMAGE 
+AS (
+    SELECT image_path, search_result 
     FROM (
         SEARCH IMAGE 
-        USING mymodel
+        USING my_image_search_model 
         OPTIONS (
-            search_input_type="text",
-            search_input="12345",
-            emb_col="convert_result"
+            search_by='image',
+            search_input='thanosql-dataset/mnist_data/test/923.jpg',
+            emb_col='convert_result',
+            result_col='search_result'
+            )
+        AS 
+        SELECT * 
+        FROM mnist_test
         )
-        AS
-        SELECT *
-        FROM mnist_dataset)
-    ORDER BY score DESC
-    LIMIT 10
+    ORDER BY search_result DESC 
+    LIMIT 4
     )
 ```

@@ -12,28 +12,26 @@ The "__GET__" statement allows users to download the lastest ThanoSQL pre-built 
 The "__GET THANOSQL MODEL__" statement downloads the ThanoSQL pre-built models to the user's workspace. 
 
 ```sql
-%%thanosql
-GET THANOSQL MODEL [ThanoSQL_pre-built_model_name] 
+GET THANOSQL MODEL (ThanOSQL_model_name_expression) 
 OPTIONS (
-    model_name=[custom_model_name],
+    model_name=(model_name_expression),
     overwrite=True
 ) 
 ```
 
 !!! note "__Note__"    
     - You can use the `LIST THANOSQL MODEL` statement to view a list of the ThanoSQL pre-built models.  
-    - If you do not include the `model_name` and provide a `custom_model_name`, pre-built models will be saved with default names. 
+    - If you do not include the `model_name` and provide a `model_name_expression`, pre-built models will be saved with their default names. 
 
 !!! note "__Query Details__"
-    - The "__OPTIONS__" clause can change the value of a parameter from the default value. The meaning of each parameter is as follows:
-        - “model_name”: the model name to store a given model in the ThanoSQL workspace
-        - "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (default: False) 
+    - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows:
+        - "model_name": the model name to store a given model in the ThanoSQL workspace (str, optional)
+        - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
 The "__GET THANOSQL DATASET__" statement downloads the tutorial datasets to the user's workspace. 
 
 ```sql
-%%thanosql
-GET THANOSQL DATASET [ThanoSQL_dataset_name]
+GET THANOSQL DATASET [ThanOSQL_dataset_name_expression]
 OPTIONS (
     overwrite=True 
 )
@@ -44,8 +42,8 @@ OPTIONS (
     - Datasets cannot be renamed.
 
 !!! note "__Query Details__"
-    - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
-        - "overwrite": overwrite if a dataset with the same name exists. If True, the existing dataset is overwritten with the new dataset. (default: False) 
+    - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows:
+        - "overwrite": determines whether to overwrite a dataset if it already exists. If set as True, the old dataset is replaced with the new dataset (bool, optional, True|False, default: False)
 
 ## __3. GET Example__ 
 
@@ -53,18 +51,18 @@ OPTIONS (
 
 ```sql
 %%thanosql
-GET THANOSQL MODEL convnext
+GET THANOSQL MODEL xclip
 OPTIONS (
-    model_name="myconvnext",
+    model_name='tutorial_search_xclip',
     overwrite=True
-)
+    )
 ```
 
 ### __3.2 GET THANOSQL DATASET Example__
 
 ```sql
 %%thanosql
-GET THANOSQL DATASET unsplash_data
+GET THANOSQL DATASET kinetics700_data
 OPTIONS (
     overwrite=True
 )

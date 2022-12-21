@@ -6,52 +6,51 @@ title: CONVERT
 
 ## __1. CONVERT Statement__
 
-The "__CONVERT__" statement allows users to convert unstructured data such as images, videos, and audio to vector format using a vectorization algorithm and append it to the given data table.
+The "__CONVERT__" statement allows users to convert unstructured data (image|audio|video|text) to vector format using a vectorization algorithm.
 
 ## __2. CONVERT Syntax__
 
 ```sql
-CONVERT USING [AI_model_to_use]
-OPTIONS ([option_values_​​required_for_vectorization])
+query_statement:
+    query_expr
+
+CONVERT USING (model_name_expression)
+OPTIONS (
+    expression [ , ...]
+    )
 AS
-[dataset_to_use]
+(query_expr)
 ```
 
 !!! note "__Query Details__"
-    - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
-        - "table_name": the name of the new table to be created.
+    - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows:
+        - "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column (str, optional)
 
-## __3. CONVERT Examples__
+## __3. CONVERT Example__
 
 !!! note
     - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to the [ThanoSQL Model Statement Reference](/en/how-to_guides/reference/#thanosql-model-statement-reference)
-    - Since the example works only when a specific model and dataset exist, it may not run normally when copied and used as it is.
+    - Because the example only works when a specific model and dataset are present, it may not run normally if copied and used as is.
 
-### __3.1 Image vectorization using `CLIP` model__
 
 ```sql
 %%thanosql
-CONVERT USING clip
+CONVERT USING tutorial_search_clip
 OPTIONS (
-    image_col="image_path",
-    table_name="unsplash_data", 
-    batch_size=128
+    table_name='unsplash_data',
+    image_col='image_path', 
+    convert_type='image',
+    batch_size=128,
+    result_col='convert_result'
     )
 AS 
-SELECT * 
+SELECT *
 FROM unsplash_data
 ```
 
-### __3.2 Image vectorization using `SimCLR` model__
+!!! note "AI models that can be used with '__CONVERT__ statement'"
+    - SimCLR Model - SimCLR
+    - CLIP Model - CLIP
+    - XCLIP Model - XCLIP
+    - SBERT Model - SBERTKo, SBERTEn
 
-```sql
-%%thanosql
-CONVERT USING simclr
-OPTIONS (
-    table_name= "convert_result_table",
-    image_col="image_path"
-    )
-AS 
-SELECT * 
-FROM mnist_test
-```

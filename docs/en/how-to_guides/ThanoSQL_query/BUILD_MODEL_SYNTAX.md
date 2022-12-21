@@ -33,8 +33,6 @@ AS
     - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to the [ThanoSQL Model Statement Reference](/en/how-to_guides/reference/#thanosql-model-statement-reference)
     - Because the example only works when a specific model and dataset are present, it may not run normally if copied and used as is.
 
-An example "__BUILD MODEL__" query can be found in  [Create a Classification Model Using AutoML](/en/tutorials/Thanosql_ml/classification/automl_classification/).
-
 ```sql
 %%thanosql
 BUILD MODEL titanic_classification

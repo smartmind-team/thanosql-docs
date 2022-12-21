@@ -6,24 +6,26 @@ title: UPLOAD MODEL
 
 ## __1. UPLOAD MODEL Statement__
 
-The "__UPLOAD MODEL__" statement allows users to transfer their custom models to be used within the ThanoSQL environment. 
+The "__UPLOAD MODEL__" statement allows users to upload their custom models to be used within the ThanoSQL environment. 
 
 ## __2. UPLOAD MODEL Syntax__
+
 ```sql
 %%thanosql
-UPLOAD MODEL [user_defined_model_name] 
+UPLOAD MODEL (model_name_expression)
 OPTIONS (
-    overwrite=True, 
-    framework=[model_framework]
+    framework=[model_framework],
+    overwrite=True
     ) 
-FROM [model_path_to_upload]
+FROM [model_path_expression]
 ```
 
-!!! note "__Note__"     
-    - The "__OPTIONS__" clause in the `UPLOAD MODEL` statement allows users to specify the overwrite status and model framework. 
-    - If the overwrite status is not specified, the default value will be set as False. 
-    - The model framework must be specified directly by the user when using the `UPLOAD MODEL` statement every time. 
-    
+!!! note "__Query Details__"
+    - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows:
+        - "framework": column that contains the model's target value (str, default: 'pytorch')
+        - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
+
+
 !!! Failure "__Caution__"
     - The current `UPLOAD MODEL` statement is only available for `Pytorch` based models.
 
@@ -31,7 +33,10 @@ FROM [model_path_to_upload]
 
 ```sql
 %%thanosql
-UPLOAD MODEL mymodel
-OPTIONS (overwrite=True, framework="pytorch")
-FROM "model/example_model.pth"
+UPLOAD MODEL beans_mobilevit
+OPTIONS (
+    framework="pytorch",
+    overwrite=True
+    )
+FROM "trained_model.pth"
 ```

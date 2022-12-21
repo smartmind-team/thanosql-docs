@@ -26,7 +26,7 @@ query_statement:
     query_expr
 
 BUILD MODEL (model_name_expression)
-USING {AlbertKo | AlbertEn | ElectraKo | ElectraEn}
+USING { AlbertKo | AlbertEn | ElectraKo | ElectraEn }
 OPTIONS (
     expression [ , ...]
     )
