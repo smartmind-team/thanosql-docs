@@ -33,7 +33,7 @@ You can run the same queries using ThanoSQL's REST API as you would on the Thano
 
 === "cURL"
 
-    ``` shell
+    ```shell
     curl -X 'POST' \
       'https://engine.thanosql.ai/api/v1/query/' \
       -H 'accept: application/json' \

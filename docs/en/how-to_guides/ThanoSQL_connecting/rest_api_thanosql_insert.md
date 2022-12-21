@@ -31,7 +31,7 @@ You can use ThanoSQL's REST API to remotely send and upload images to your Thano
 
 === "cURL"
 
-    ``` shell
+    ```shell
     curl -X 'POST' \
       'https://engine.thanosql.ai/api/v1/insert/?table_name=Table name&column_name=Table Name' \
       -H 'accept: application/json' \

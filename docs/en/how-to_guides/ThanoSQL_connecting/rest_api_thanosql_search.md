@@ -38,7 +38,7 @@ Using the ThanoSQL's REST API, you can query and search for similar images withi
 
 === "cURL"
 
-    ``` shell
+    ```shell
     curl -X 'POST' \
       'https://engine.thanosql.ai/api/v1/search/file/?table_name=Table Name&model_name=Model Name&column_name=Column Name' \
       -H 'accept: application/json' \
@@ -80,7 +80,7 @@ Using the ThanoSQL's REST API, you can query and search for similar images withi
 
 === "cURL"
 
-    ``` shell
+    ```shell
     curl -X 'POST' \
       'https://engine.thanosql.ai/api/v1/search/text/?table_name=Table Name&model_name=Model Name&column_name=Column Name&text=Text to search' \
       -H 'accept: application/json' \

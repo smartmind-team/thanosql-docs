@@ -24,7 +24,7 @@ __Notation Conventions__
 
 Use the "__BUILD MODEL__" statement to develop an AI model. The "__BUILD MODEL__" statement allows you to train a model using datasets defined with the query_expr that comes after the "__AS__" clause.
 
-``` sql
+```sql
 query_statement:
     query_expr
 
