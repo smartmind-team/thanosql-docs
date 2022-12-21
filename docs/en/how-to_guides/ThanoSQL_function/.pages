@@ -1,5 +1,5 @@
 nav:
-    - BUILD_MODEL_SYNTAX.md
+    <!-- - BUILD_MODEL_SYNTAX.md
     - FIT_MODEL_SYNTAX.md
     - UPLOAD_MODEL_SYNTAX.md
     - DELETE_MODEL_SYNTAX.md
@@ -11,4 +11,4 @@ nav:
     - GET_SYNTAX.md
     - LIST_SYNTAX.md
     - COPY_SYNTAX.md
-    - FUNCTION_SYNTAX.md
+    - FUNCTION_SYNTAX.md -->

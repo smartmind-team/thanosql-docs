@@ -3,3 +3,4 @@ nav:
     - ThanoSQL_query
     - ThanoSQL_model
     - ThanoSQL_connecting
+    - ThanoSQL_function

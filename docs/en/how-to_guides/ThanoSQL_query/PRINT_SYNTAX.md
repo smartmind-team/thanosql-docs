@@ -9,7 +9,7 @@ The "__PRINT__" statement allows users to to output images, audio, and video fil
 
 ## __2. PRINT Syntax__
 
-The "__PRINT__" syntax
+The "__PRINT__" syntax.
 ```sql
 query_statement:
     query_expr

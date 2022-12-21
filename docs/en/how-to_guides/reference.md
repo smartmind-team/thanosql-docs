@@ -20,6 +20,7 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__GET__](/en/how-to_guides/ThanoSQL_query/GET_SYNTAX/) —  Get Model, Data Tables Stored in the ThanoSQL Workspace Database
 - [__LIST__](/en/how-to_guides/ThanoSQL_query/LIST_SYNTAX/) — List Model and Data Tables Stored in the ThanoSQL Workspace Database
 - [__COPY__](/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - Copy Data Files in the Workspace and Create Data Tables Within the ThanoSQL Workspace Database
+- [__FUNCTION__](/en/how-to_guides/ThanoSQL_query/FUNCTION_SYNTAX/) - Process Data With ThanoSQL's Functions  
 
 ### __ThanoSQL Model Statement Reference__
 
@@ -34,6 +35,9 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__Whisper__](/en/how-to_guides/ThanoSQL_model/Whisper/) — Speech Recognition Model 2 
 - [__XCLIP__](/en/how-to_guides/ThanoSQL_model/XCLIP/) — Video Search Model With Text 
 - [__ViLT__](/en/how-to_guides/ThanoSQL_model/ViLT/) — Visual Question Answering Model 
+
+### __ThanoSQL Function Statement Reference__ 
+
 
 ### __ThanoSQL Rest API Reference__
 
