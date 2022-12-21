@@ -1,14 +1,3 @@
 nav:
-    <!-- - BUILD_MODEL_SYNTAX.md
-    - FIT_MODEL_SYNTAX.md
-    - UPLOAD_MODEL_SYNTAX.md
-    - DELETE_MODEL_SYNTAX.md
-    - PREDICT_SYNTAX.md
-    - EVALUATE_SYNTAX.md
-    - CONVERT_SYNTAX.md
-    - SEARCH_SYNTAX.md
-    - PRINT_SYNTAX.md
-    - GET_SYNTAX.md
-    - LIST_SYNTAX.md
-    - COPY_SYNTAX.md
-    - FUNCTION_SYNTAX.md -->
+    - compute.md
+    - preprocess.md
