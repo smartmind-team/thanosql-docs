@@ -53,7 +53,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "label_col": the name of the column containing information about the target (str, default: 'label')
 - "batch_size" is the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16)
 - "max_epochs": number of times to train with the training dataset (int, optional, default: 3)
-- "learning_rate": the learning rate of the model (float, default: 1e-4) 
+- "learning_rate": the learning rate of the model (float, optional, default: 1e-4) 
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
 
@@ -114,7 +114,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "label_col": the name of the column containing information about the target (str, default: 'label')
 - "batch_size" is the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16)
 - "max_epochs": number of times to train with the training dataset (int, optional, default: 3)
-- "learning_rate": the learning rate of the model (float, default: 1e-4) 
+- "learning_rate": the learning rate of the model (float, optional, default: 1e-4) 
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
 
@@ -140,8 +140,8 @@ __OPTIONS Clause__
 OPTIONS(
     (text_col=column_name),
     [batch_size=VALUE],
-    (result_col=column_name),
-    (table_name=expression) 
+    [result_col=column_name],
+    [table_name=expression] 
     )
 ```
 

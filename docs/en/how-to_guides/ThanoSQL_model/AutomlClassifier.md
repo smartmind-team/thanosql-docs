@@ -60,7 +60,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 > "simple": for empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean
 > "iterative": applies an algorithm that predicts empty values with the remaining properties
 - "datetime_attribs": selects columns corresponding to the date (str, optional)
-- "outlier_method": determines how outliers are handled in the table (str, default: 'iso')
+- "outlier_method": determines how outliers are handled in the table (str, optional, default: 'iso')
 > "pca": detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA)
 > "iso": use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples (Works efficiently on datasets with many variables)  
 >  "knn": use a K-NN-based approach to detect abnormal samples based on the distance between each data
@@ -129,7 +129,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 > "simple": for empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean
 > "iterative": applies an algorithm that predicts empty values with the remaining properties
 - "datetime_attribs": selects columns corresponding to the date (str, optional)
-- "outlier_method": determines how outliers are handled in the table (str, default: 'iso')
+- "outlier_method": determines how outliers are handled in the table (str, optional, default: 'iso')
 > "pca": detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis (PCA)
 > "iso": use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples (Works efficiently on datasets with many variables)  
 >  "knn": use a K-NN-based approach to detect abnormal samples based on the distance between each data
@@ -159,8 +159,8 @@ __OPTIONS Clause__
 
 ```sql
 OPTIONS(
-    (result_col=column_name),
-    (table_name=expression) 
+    [result_col=column_name],
+    [table_name=expression] 
     )
 ```
 
@@ -225,7 +225,7 @@ An example "__EVALUATE__" query can be found in [Create a Classification Model U
 %%thanosql
 EVALUATE USING titanic_classification
 OPTIONS (
-    target='survived'
+    target_col='survived'
     )
 AS
 SELECT *

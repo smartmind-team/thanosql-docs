@@ -28,7 +28,7 @@ title: 개요
 - [__AutomlRegressor__](/ko/how-to_guides/ThanoSQL_model/AutomlRegressor/) — 회귀 모델
 - [__ConvNeXt & EfficientNet__](/ko/how-to_guides/ThanoSQL_model/ConvNeXt_EfficientNet/) — 키워드로 이미지 검색 모델
 - [__Albert & Electra__](/ko/how-to_guides/ThanoSQL_model/Albert_Electra/) — 텍스트 분류 모델
-- [__Wav2Vec2__](/ko/how-to_guides/ThanoSQL_model/wav2vec2/) — 음성 인식 모델
+- [__Wav2Vec2__](/ko/how-to_guides/ThanoSQL_model/Wav2Vec2/) — 음성 인식 모델
 - [__SimCLR__](/ko/how-to_guides/ThanoSQL_model/SimCLR/) —  이미지로 이미지 검색 모델
 - [__CLIP__](/ko/how-to_guides/ThanoSQL_model/CLIP/) — 텍스트로 이미지 검색 모델
 - [__SBERT__](/ko/how-to_guides/ThanoSQL_model/SBERT/) — 텍스트로 텍스트 검색 모델
