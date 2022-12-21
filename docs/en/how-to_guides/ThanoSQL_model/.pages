@@ -7,3 +7,6 @@ nav:
     - SimCLR.md
     - CLIP.md
     - SBERT.md
+    - Whisper.md
+    - XCLIP.md
+    - ViLT.md

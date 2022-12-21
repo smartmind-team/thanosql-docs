@@ -1,8 +1,8 @@
 ---
-title: Wav2Vec2
+title: Whisper
 ---
 
-# __Wav2Vec2__
+# __Whisper__
 
 __Notation Conventions__
 
@@ -16,106 +16,6 @@ __Notation Conventions__
 !!! note ""
     - __literal__: a fixed or unchangeable value, also known as a Constant.
     > Each literal has a special data type such as column, in the table.
-
-## __BUILD MODEL Syntax__
-
-Use the "__BUILD MODEL__" statement to develop an AI model. The "__BUILD MODEL__" statement allows you to train a model using datasets defined with the query_expr that comes after the "__AS__" clause.
-
-```sql
-query_statement:
-    query_expr
-
-BUILD MODEL (model_name_expression)
-USING { Wav2Vec2Ko | Wav2Vec2En }
-OPTIONS (
-    expression [ , ...]
-    )
-AS
-(query_expr)
-```
-
-
-__OPTIONS Clause__
-
-```sql
-OPTIONS(
-    (audio_col=column_name),
-    (text_col=column_name),
-    [max_epochs=VALUE],
-    [batch_size=VALUE],
-    [learning_rate=VALUE],
-    [overwrite={True|False}]
-    )
-```
-
-The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
-
-- "audio_col": the name of the column containing the audio path to be used for training (str, default: 'audio_path')
-- "text_col": the name of the column containing the audio script information (str, default: 'text')
-- "max_epochs": number of times to train with the training dataset (int, optional, default: 5)
--  "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16)
-- "learning_rate": the learning rate of the model (float, optional, default: 1e-4) 
-- "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False) 
-
-__BUILD MODEL Example__
-
-An example "__BUILD MODEL__" query can be found in [Create a Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
-
-```sql
-%%thanosql
-BUILD MODEL my_speech_recognition_model
-USING Wav2Vec2En
-OPTIONS (
-  audio_col='audio_path',
-  text_col='text',
-  max_epochs=1,
-  batch_size=4 ,
-  overwrite=True
-  )
-AS
-SELECT *
-FROM librispeech_train
-```
-
-## __FIT MODEL Syntax__
-
-Use the "__FIT MODEL__" statement to retrain an AI models. The "__FIT MODEL__" statement allows you to retrain a model using datasets defined with the query_expr that comes after the "__AS__" clause. In this case, the label of the data used for retraining should be the same as the label used for the previous training.
-
-```sql
-query_statement:
-    query_expr
-
-FIT MODEL (model_name_expression)
-USING (model_name_expression)
-OPTIONS (
-    expression [ , ...]
-    )
-AS
-(query_expr)
-```
-
-__OPTIONS Clause__
-
-```sql
-OPTIONS(
-    (audio_col=column_name),
-    (text_col=column_name),
-    [max_epochs=VALUE],
-    [batch_size=VALUE],
-    [learning_rate=VALUE],
-    [overwrite={True|False}]
-    )
-```
-
-The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
-
-- "audio_col": the name of the column containing the audio path to be used for training (str, default: 'audio_path')
-- "text_col": the name of the column containing the audio script information (str, default: 'text')
-- "max_epochs": number of times to train with the training dataset (int, optional, default: 5)
--  "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16)
-- "learning_rate": the learning rate of the model (float, optional, default: 1e-4) 
-- "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False) 
-
 
 ## __PREDICT Syntax__
 
@@ -139,6 +39,8 @@ __OPTIONS Clause__
 OPTIONS(
     (audio_col=column_name),
     [batch_size=VALUE],
+    (language=expression),
+    (task={'transcribe'|'translate'}),
     [result_col=column_name],
     [table_name=expression]
     )
@@ -147,23 +49,32 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
 - "audio_col": the name of the column containing the audio path to be used for prediction (str, default: 'audio_path')
-- "batch_size" is the size of dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
+- "batch_size": the size of the dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
+- "language": specifies the language of the audio file. If selected as ‘auto’, the model will recognize the language from the available pool of 99 languages (str, default: 'auto')
+- "task": type of work to do (str, 'transcribe'|'translate', default: 'transcribe')
+<!-- >  "transcribe":  -->
+<!-- >  "translate":  -->
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
 - "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column (str, optional)
 
+
 __PREDICT Example__
 
-An example "__PREDICT__" query can be found in [Create a Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/).
+An example "__PREDICT__" query can be found in [Using a Speech Recognition Model](/en/tutorials/thanosql_ml/audio_recognition/speech_recognition2/).
 
 ```sql
 %%thanosql
-PREDICT USING my_speech_recognition_model
+PREDICT USING tutorial_whisper_small
 OPTIONS (
-  audio_col='audio_path'
-  )
+    audio_col='audio_path',
+    language='auto',
+    task='transcribe',
+    result_col='predict_result',
+    table_name='korean_voice'
+    )
 AS
 SELECT *
-FROM librispeech_test
+FROM korean_voice
 ```
 
 ## __EVALUATE Syntax__
@@ -187,13 +98,17 @@ __OPTIONS Clause__
 ```sql
 OPTIONS(
     (audio_col=column_name),
-    (text_col=column_name),
-    [batch_size=VALUE]
+    [batch_size=VALUE],
+    (language=expression),
+    (task={'transcribe'|'translate'}),
+    (text_col=column_name)
     )
 ```
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "audio_col": the column containing the audio path to be used for evaluation (str, default: 'audio_path')
-- "text_col": the name of the column containing information about the target (str, default: 'text')
+- "audio_col": the name of the column containing the audio path to be used for evaluation (str, default: 'audio_path')
 - "batch_size" is the size of dataset bundle utilized in a single cycle of evaluation (int, optional, default: 16)
+- "language": specifies the language of the audio file. If selected as ‘auto’, the model will recognize the language from the available pool of 99 languages (str, default: 'auto')
+- "task": type of work to do (str, 'transcribe'|'translate', default: 'transcribe')
+- "text_col": the name of the column containing information about the target (str, default: 'text')
