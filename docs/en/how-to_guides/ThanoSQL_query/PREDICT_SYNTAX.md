@@ -1,21 +1,21 @@
 ---
-title: FIT MODEL
+title: PREDICT
 ---
 
-# __FIT MODEL__
+# __PREDICT__
 
-## __1. FIT MODEL Statement__
+## __1. PREDICT Statement__
 
-The "__FIT MODEL__" statement allows users to retrain a model with new data without having any expertise in data science.
+The "__PREDICT__" statement allows users to apply models to perform prediction, classification, recommendation, and more.
 
-## __2. FIT MODEL Syntax__
+
+## __2. PREDICT Syntax__
 
 ```sql
 query_statement:
     query_expr
 
-FIT MODEL (model_name_expression)
-USING (model_name_expression)
+PREDICT USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -25,9 +25,9 @@ AS
 
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows:
-        - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
+        - "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
 
-## __3. FIT MODEL Example__
+## __3. PREDICT Example__
 
 !!! note
     - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to the [ThanoSQL Model Statement Reference](/en/how-to_guides/reference/#thanosql-model-statement-reference)
@@ -35,22 +35,19 @@ AS
 
 ```sql
 %%thanosql
-FIT MODEL titanic_automl_classification_fit
-USING titanic_automl_classification
+PREDICT USING my_product_classifier
 OPTIONS (
-    target='survived',
-    impute_type='iterative',
-    features_to_drop=['name', 'ticket', 'passengerid', 'cabin'],
-    outlier_method='pca',
-    time_left_for_this_task=300,
-    overwrite=True
+    image_col='image_path',
+    result_col='predict_result',
+    table_name='product_image_test'
     )
 AS
 SELECT *
-FROM titanic_train
+FROM product_image_test
 ```
 
-!!! note "AI models that can be used with '__FIT MODEL__ statement'"
+
+!!! note "AI models that can be used with '__PREDICT__ statement'"
     - AutoML Classification model - AutomlClassifier
     - AutoML Regression model - AutomlRegressor
     - ConvNeXT Model - ConvNeXt_Tiny, ConvNeXt_Base
@@ -58,5 +55,5 @@ FROM titanic_train
     - Albert Model - AlbertKo, AlbertEn
     - Electra Model - ElectraKo, ElectraEn
     - Wav2Vec2 Model - Wav2Vec2Ko, Wav2Vec2En
-    - SimCLR Model - SimCLR
-    - SBERT Model - SBERTKo, SBERTEn
+    - Whisper Model - Whisper
+    - ViLT Model - ViLT

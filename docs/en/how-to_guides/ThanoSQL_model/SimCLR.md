@@ -20,11 +20,9 @@ __Notation Conventions__
 
 ## __BUILD MODEL Syntax__
 
-Use the "__BUILD MODEL__" query to develop an AI model.
-The "__BUILD MODEL__" statement allows you to train datasets defined with the query_expr that comes after the "__AS__" clause.
-​
+Use the "__BUILD MODEL__" statement to develop an AI model. The "__BUILD MODEL__" statement allows you to train a model using datasets defined with the query_expr that comes after the "__AS__" clause.
 
-``` sql
+```sql
 query_statement:
     query_expr
 
@@ -32,39 +30,34 @@ BUILD MODEL (model_name_expression)
 USING SimCLR
 OPTIONS (
     expression [ , ...]
-)
+    )
 AS
 (query_expr)
 ```
 
-​
 __OPTIONS Clause__
 ​
-
 ```sql
-OPTIONS(
-    (image_col = VALUE),
-    (filename_col = VALUE),
-    [label_col = VALUE],
-    [max_epochs = VALUE],
-    [batch_size = VALUE],
-    [overwrite = {True | False}]
+OPTIONS (
+    (image_col=VALUE),
+    [batch_size=VALUE],
+    [max_epochs=VALUE],
+    [pretrained={True|False}],
+    [overwrite={True|False}]
 )
 ```
 
-​
-The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "image_col": sets the name of the column containing the image path. (default: "path")
-- "filename_col": sets the name of the column containing the image file name. (default: "file_name")
-- "label_col": sets the name of the column containing the path of the label (default: "label")
-- "max_epochs": sets how many times the dataset is trained in total. (default: )
-- "batch_size": the size of the dataset bundle read during a single train. (default: 256)
-- "overwrite": overwrite if a model with the same name exists. If True, the existing model is overwritten with the new model. (default: False)
+- "image_col": the name of the column containing the image path to be used for the training (str, default: 'image_path')
+- "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 256)
+- "max_epochs": number of times to train with the training dataset (int, optional, default: 5)
+- "pretrained": Sets whether or not to use pre-trained ImageNet weights (bool, optional, True|False, default: False)
+- "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
 __BUILD MODEL Example__
 
-Examples of BUILD MODEL queries can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
+An example "__BUILD MODEL__" query can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
 ​
 
 ```sql
@@ -72,7 +65,7 @@ Examples of BUILD MODEL queries can be found in [Search Image by Image](/en/tuto
 BUILD MODEL my_image_search_model
 USING SimCLR
 OPTIONS (
-    image_col="image_path",
+    image_col='image_path',
     max_epochs=1,
     overwrite=True
     )
@@ -83,12 +76,14 @@ FROM mnist_train
 
 ## __CONVERT Syntax__
 
-Use the "__CONVERT__" statement to store the vector results as a new column of the existing dataset using a dataset containing the paths of the existing images. Each time a new model is used, a new vector column is added for comparison of vectorization results.
-​
+Use the "__CONVERT__" statement to convert data into the vectors and add it to the table.
 
 ```sql
+query_statement:
+    query_expr
+
 CONVERT USING (model_name_expression)
-OPTIONS(
+OPTIONS (
     expression [ , ...]
     )
 AS
@@ -98,79 +93,90 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
-    (table_name = VALUE)
+OPTIONS (
+    [table_name=expression],
+    (image_col=column_name),
+    [result_col=column_name],
+    [batch_size=VALUE]
     )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 ​
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
+- "image_col": the name of the column containing the image path (str, default: 'image_path')
+- "result_col": defines the column name that contains the vectorized results (str, optional, default: 'convert_result')
+- "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 256)
 
-- "table_name": sets the name of the table to store the new vector results
 
 __CONVERT Example__
 
-Examples of CONVERT queries can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
+An example "__CONVERT__" query can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
 ​
 
 ```sql
 %%thanosql
 CONVERT USING my_image_search_model
 OPTIONS (
-    table_name= "mnist_test",
-    image_col="image_path"
+    table_name='mnist_test',
+    image_col='image_path',
+    result_col='convert_result'
     )
 AS
 SELECT *
 FROM mnist_test
 ```
 
-## __SEARCH Syntax__
+## __SEARCH IMAGE Syntax__
 
-You can use the "__SEARCH__" statement to search an image from the vector table.
+Use the "__SEARCH IMAGE__" statement to retrieve the desired image data.
 
 ```sql
+query_statement:
+    query_expr
+
 SEARCH IMAGE 
 USING (model_name_expression)
-OPTIONS(
+OPTIONS (
     expression [ , ...]
     )
 AS
 (query_expr)
 ```
 
+
 __OPTIONS Clause__
 
 ```sql
 OPTIONS (
-    (search_input_type = {image | text | audio | video}),
-    [search_input = expression],
-    [emb_col = embedded_column_name]
-    [column_name = column_name_to_be_saved_as]
+    (search_by={image|text|audio|video}),
+    (search_input=expression),
+    (emb_col=column_name),
+    [result_col=column_name]
     )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "search_input_type": defines the image|text|audio|video type to be used for the search.
-- "search_input": defines the input to be used for the search. 
-- "emb_col": the column that contains the vectorized results.
-- "column_name": defines the name of the column that contains the search results. (default: "search_result")
+- "search_by": defines the image|text|audio|video type to be used for the search (str)
+- "search_input": defines the input to be used for the search (str)
+- "emb_col": the column that contains the vectorized results (str)
+- "result_col": defines the name of the column that contains the search results (str, optional, default: 'search_result')
 
 
-__SEARCH Example__
+__SEARCH IMAGE Example__
 
-Examples of SEARCH queries can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
+An example "__SEARCH IMAGE__" query can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
 
 ```sql
 %%thanosql
 SEARCH IMAGE 
 USING my_image_search_model
 OPTIONS (
-    search_input_type="image",
-    search_input="tutorial_data/mnist_data/test/923.jpg",
-    emb_col="convert_result",
-    column_name="search_result"
+    search_by='image',
+    search_input='tutorial_data/mnist_data/test/923.jpg',
+    emb_col='convert_result',
+    result_col='search_result'
 )
 AS
 SELECT *

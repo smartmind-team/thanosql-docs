@@ -11,8 +11,7 @@ The "__DELETE MODEL__" statement allows users to delete their models.
 ## __2. DELETE MODEL Syntax__
 
 ```sql
-%%thanosql
-DELETE MODEL [model_name_to_delete]
+DELETE MODEL (model_name_expression)
 ```
 
 ## __3. DELETE MODEL Example__
@@ -22,3 +21,5 @@ DELETE MODEL [model_name_to_delete]
 DELETE MODEL mymodel
 ```
 
+!!! note "AI models that can be used with '__DELETE MODEL__ statement'"
+    - All models created, uploaded, or imported within the ThanoSQL workspace.
