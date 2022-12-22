@@ -8,7 +8,7 @@ You can run the same queries using ThanoSQL's REST API as you would on the Thano
 
 === "Python"
 
-    ``` python
+    ```python
     import requests
     import json
 

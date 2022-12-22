@@ -10,7 +10,7 @@ Using the ThanoSQL's REST API, you can query and search for similar images withi
 
 === "Python"
 
-    ``` python
+    ```python
     import requests
     import json
 
@@ -51,7 +51,7 @@ Using the ThanoSQL's REST API, you can query and search for similar images withi
 
 === "Python"
 
-    ``` python
+    ```python
     import requests
     import json
 

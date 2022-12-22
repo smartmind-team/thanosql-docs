@@ -16,7 +16,7 @@ query_statement:
 
 SEARCH { IMAGE | AUDIO | VIDEO | TEXT | KEYWORD }
 USING (model_name_expression)
-OPTIONS(
+OPTIONS (
     expression [ , ...]
     )
 AS

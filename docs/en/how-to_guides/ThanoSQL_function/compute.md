@@ -30,7 +30,7 @@ OPTIONS (
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (label_col=column_name),
     (emb_col=column_name),
     [result_col=expression]
@@ -49,7 +49,7 @@ __groupby_mean Example__
 ```sql
 %%thanosql
 FUNCTION compute.groupby_mean
-OPTIONS(
+OPTIONS (
     label_col='label',
     emb_col='convert_result',
     result_col='result_col'
@@ -75,10 +75,10 @@ OPTIONS (
 { AS (query_expr) | FROM {file_path_expression} } 
 ```
 
- __OPTIONS Clause__
+__OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (target_emb_col=column_name),
     (src_table=expression),
     (src_emb_col=column_name),
@@ -100,7 +100,7 @@ __similarities Example__
 ```sql
 %%thanosql
 FUNCTION compute.similarities
-OPTIONS(
+OPTIONS (
     target_emb_col='convert_result',
     src_table='mnist_train_test',
     src_emb_col='convert_result',

@@ -36,7 +36,7 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     [table_name=expression],
     (image_col=column_name),
     (text_col=column_name),
@@ -48,11 +48,11 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
 - "image_col": the name of the column containing the image path (str, default: 'image_path')
 - "text_col": the name of the column containing the text (str, default: 'text')
 - "convert_type": file type for vectorization (str, 'image'|'text', default: 'image')
-- "batch_size": the size of dataset bundle utilized in a single cycle of training. The larger the number, the better the learning performance. However, considering the size of the memory, only 128 is used in this case (int, optional, default: 16) 
+- "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16) 
 - "result_col": defines the column name that contains the vectorized results (str, optional, default: 'convert_result')
 
 
@@ -64,11 +64,13 @@ An example "__CONVERT__" query can be found in [Search Image by Text](/en/tutori
 %%thanosql
 CONVERT USING tutorial_search_clip
 OPTIONS (
-    image_col='image_path',
     table_name='unsplash_data',
-    batch_size=128
+    image_col='image_path', 
+    convert_type='image',
+    batch_size=128,
+    result_col='convert_result'
     )
-AS
+AS 
 SELECT *
 FROM unsplash_data
 ```
@@ -83,7 +85,7 @@ query_statement:
     
 SEARCH IMAGE 
 USING (model_name_expression)
-OPTIONS(
+OPTIONS (
     expression [ , ...]
     )
 AS
@@ -97,7 +99,7 @@ OPTIONS (
     (search_by={image|text|audio|video}),
     (search_input=expression),
     (emb_col=column_name),
-    [column_name=expression]
+    [result_col=expression]
     )
 ```
 
@@ -121,9 +123,9 @@ OPTIONS (
     search_by='text',
     search_input='a black cat',
     emb_col='convert_result',
-    column_name='search_result'
-)
-AS
-SELECT *
+    result_col='search_result'
+    )
+AS 
+SELECT * 
 FROM unsplash_data
 ```

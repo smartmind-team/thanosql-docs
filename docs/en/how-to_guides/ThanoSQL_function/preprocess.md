@@ -32,7 +32,7 @@ OPTIONS (
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (label_col=column_name),
     (emb_col=column_name),
     [result_col=expression]
@@ -52,7 +52,7 @@ __groupby_mean Example__
 ```sql
 %%thanosql
 FUNCTION preprocess.video_to_df 
-OPTIONS(
+OPTIONS (
    method_name='split', 
    interval=1, 
    table_name='video_split_table', 

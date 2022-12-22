@@ -37,10 +37,10 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (text_col=column_name),
-    [max_epochs=VALUE],
     [batch_size=VALUE],
+    [max_epochs=VALUE],
     [learning_rate=VALUE],
     [overwrite={True|False}]
     )
@@ -48,9 +48,9 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "text_col": a column containing movie review data in the data table (str, default: 'text')
+- "text_col": the name of the column containing the text to be used for the training (str, default: 'text')
+- "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16)
 - "max_epochs": number of times to train with the training dataset (int, optional, default: 1)
-- "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16) 
 - "learning_rate": the learning rate of the model (float, optional, default: 3e-5) 
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False) 
 
@@ -90,18 +90,18 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (text_col=column_name),
     [table_name=expression],
     [batch_size=VALUE],
-    [result_col=column_name],
-)
+    [result_col=column_name]
+    )
 ```
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "text_col": a column containing movie review data in the data table (str, default: 'text')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column (str, optional)
+- "text_col": the name of the column containing the text to be used for the vectorization (str, default: 'text')
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
 - "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16)
 - "result_col": defines the column name that contains the vectorized results (str, optional, default: 'convert_result')
 
@@ -116,7 +116,8 @@ CONVERT USING movie_text_search_model
 OPTIONS (
     text_col='review',
     table_name='movie_review_test',
-    batch_size=32
+    batch_size=32,
+    result_col="convert_result"
     )
 AS 
 SELECT *
@@ -133,7 +134,7 @@ query_statement:
 
 SEARCH TEXT 
 USING (model_name_expression)
-OPTIONS(
+OPTIONS (
     expression [ , ...]
     )
 AS
@@ -162,23 +163,32 @@ __SEARCH TEXT Example__
 An example "__SEARCH TEXT__" query can be found in [Search Text by Text](/en/tutorials/thanosql_search/search_text_by_text/).
 
 ```sql
-%%thanosql
-SELECT review, sentiment, score
-FROM (
-    SEARCH TEXT 
-    USING movie_text_search_model
-    OPTIONS (
-        search_by='text',
-        search_input='This movie was my favorite movie of all time',
-        emb_col='convert_result',
-        result_col='score'
-        )
-    AS 
-    SELECT * 
-    FROM movie_review_test
+SEARCH KEYWORD
+USING movie_text_search_model
+OPTIONS (
+    text_col='review',
+    ngram_range=[1, 3],
+    use_stopwords=True
     )
-ORDER BY score DESC 
-LIMIT 10
+AS (
+    SELECT review, sentiment, score
+    FROM (
+        SEARCH TEXT 
+        USING movie_text_search_model
+        OPTIONS (
+            search_by='text',
+            search_input='The best action movie',
+            emb_col='convert_result',
+            result_col='score'
+            )
+        AS 
+        SELECT * 
+        FROM movie_review_test
+        WHERE review LIKE '%%gun%%'
+        )
+    ORDER BY score DESC 
+    LIMIT 10
+    )
 ```
 
 ## __SEARCH KEYWORD Syntax__
@@ -191,7 +201,7 @@ query_statement:
 
 SEARCH KEYWORD 
 USING (model_name_expression)
-OPTIONS(
+OPTIONS (
     expression [ , ...]
     )
 AS
@@ -215,7 +225,7 @@ OPTIONS (
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
 - "lang": language to use (str, optional, 'ko'|'en' default: 'ko')
-- "text_col": a column containing movie review data in the data table (str, default: 'text')
+- "text_col": the name of the column containing the text to be used for th keyword extraction (str, default: 'text')
 - "ngram_range": minimum and maximum number of words for each keyword ex) [1, 3]. In most situations, keywords are extracted according to the maximum number of words (list[int, int], optional, default: [1, 2])
 - "top_n": number of keywords to be extracted, in order of highest similarity (int, optional, default: 5)
 - "diversity": variety of keywords to be extracted. The higher the value, the more diverse the keywords will be 0 <= diversity <= 1 (float, optional, default: 0.5)

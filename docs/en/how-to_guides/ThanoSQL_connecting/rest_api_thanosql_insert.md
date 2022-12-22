@@ -8,7 +8,7 @@ You can use ThanoSQL's REST API to remotely send and upload images to your Thano
 
 === "Python"
 
-    ``` python
+    ```python
     import requests
     import json
 

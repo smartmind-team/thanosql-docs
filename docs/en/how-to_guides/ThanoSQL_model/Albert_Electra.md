@@ -37,7 +37,7 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (text_col=column_name),
     (label_col=column_name),
     [batch_size=VALUE],
@@ -51,7 +51,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 - "text_col": the name of the column containing the text to be used for the training (str, default: 'text')
 - "label_col": the name of the column containing information about the target (str, default: 'label')
-- "batch_size" is the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16)
+- "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16)
 - "max_epochs": number of times to train with the training dataset (int, optional, default: 3)
 - "learning_rate": the learning rate of the model (float, optional, default: 1e-4) 
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
@@ -98,7 +98,7 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (text_col=column_name),
     (label_col=column_name),
     [batch_size=VALUE],
@@ -112,7 +112,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 - "text_col": the name of the column containing the text to be used for the training (str, default: 'text')
 - "label_col": the name of the column containing information about the target (str, default: 'label')
-- "batch_size" is the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16)
+- "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16)
 - "max_epochs": number of times to train with the training dataset (int, optional, default: 3)
 - "learning_rate": the learning rate of the model (float, optional, default: 1e-4) 
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
@@ -137,7 +137,7 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (text_col=column_name),
     [batch_size=VALUE],
     [result_col=column_name],
@@ -148,9 +148,9 @@ OPTIONS(
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
 - "text_col": the column containing the text to be used for prediction (str, default: 'text')
-- "batch_size" is the size of dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
+- "batch_size": the size of dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
 
 
 __PREDICT Example__
@@ -170,7 +170,7 @@ FROM movie_review_test
 
 ## __EVALUATE Syntax__
 
-Use the "__EVALUATE__" statement to evaluate the AI model. The "__EVALUATE__" expression evaluates a model using the dataset defined by the query_expr that comes after the "__AS__" clause.
+Use the "__EVALUATE__" statement to evaluate the AI model. The "__EVALUATE__" statement evaluates a model using the dataset defined by the query_expr that comes after the "__AS__" clause.
 
 ```sql
 query_statement:
@@ -187,7 +187,7 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (text_col=column_name),
     (label_col=column_name),
     [batch_size=VALUE]
@@ -198,4 +198,4 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 - "text_col": the column containing the text to be used for evaluation (str, default: 'text')
 - "label_col": the name of the column containing information about the target (str, default: 'label')
-- "batch_size" is the size of dataset bundle utilized in a single cycle of evaluation (int, optional, default: 16)
+- "batch_size": the size of dataset bundle utilized in a single cycle of evaluation (int, optional, default: 16)

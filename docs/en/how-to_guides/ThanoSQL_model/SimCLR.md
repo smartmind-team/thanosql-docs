@@ -38,19 +38,21 @@ AS
 __OPTIONS Clause__
 ​
 ```sql
-OPTIONS(
+OPTIONS (
     (image_col=VALUE),
-    [max_epochs=VALUE],
     [batch_size=VALUE],
+    [max_epochs=VALUE],
+    [pretrained={True|False}],
     [overwrite={True|False}]
 )
 ```
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "image_col": the name of the column containing the image path (str, default: 'image_path')
-- "max_epochs": number of times to train with the training dataset (int, optional, default: 5)
+- "image_col": the name of the column containing the image path to be used for the training (str, default: 'image_path')
 - "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 256)
+- "max_epochs": number of times to train with the training dataset (int, optional, default: 5)
+- "pretrained": Sets whether or not to use pre-trained ImageNet weights (bool, optional, True|False, default: False)
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
 __BUILD MODEL Example__
@@ -91,7 +93,7 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     [table_name=expression],
     (image_col=column_name),
     [result_col=column_name],
@@ -101,7 +103,7 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 ​
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
 - "image_col": the name of the column containing the image path (str, default: 'image_path')
 - "result_col": defines the column name that contains the vectorized results (str, optional, default: 'convert_result')
 - "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 256)
@@ -117,7 +119,8 @@ An example "__CONVERT__" query can be found in [Search Image by Image](/en/tutor
 CONVERT USING my_image_search_model
 OPTIONS (
     table_name='mnist_test',
-    image_col='image_path'
+    image_col='image_path',
+    result_col='convert_result'
     )
 AS
 SELECT *
@@ -134,7 +137,7 @@ query_statement:
 
 SEARCH IMAGE 
 USING (model_name_expression)
-OPTIONS(
+OPTIONS (
     expression [ , ...]
     )
 AS

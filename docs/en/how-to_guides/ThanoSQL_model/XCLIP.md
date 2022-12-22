@@ -36,7 +36,7 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     [table_name=expression],
     (video_col=column_name),
     (text_col=column_name),
@@ -48,11 +48,11 @@ OPTIONS(
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
 - "video_col": the name of the column containing the video path (str, default: 'video_path')
 - "text_col": the name of the column containing the text (str, default: 'text')
-- "convert_type": file type for vectorization (str, 'image'|'text', default: 'image')
-- "batch_size": the size of dataset bundle utilized in a single cycle of training. The larger the number, the better the learning performance. However, considering the size of the memory, only 128 is used in this case (int, optional, default: 16) 
+- "convert_type": file type for vectorization (str, 'video'|'text', default: 'video')
+- "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16) 
 - "result_col": defines the column name that contains the vectorized results (str, optional, default: 'convert_result')
 
 
@@ -75,7 +75,7 @@ FROM kinetics700
 
 ## __SEARCH VIDEO Syntax__
 
-Use the "__SEARCH VIDEO__" statement to retrieve the desired image data.
+Use the "__SEARCH VIDEO__" statement to retrieve the desired video data.
 
 ```sql
 query_statement:
@@ -83,7 +83,7 @@ query_statement:
     
 SEARCH VIDEO 
 USING (model_name_expression)
-OPTIONS(
+OPTIONS (
     expression [ , ...]
     )
 AS
