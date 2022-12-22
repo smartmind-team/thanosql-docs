@@ -37,6 +37,7 @@ plugins:
           ThanoSQL query: ThanoSQL Statement Reference
           ThanoSQL connecting: ThanoSQL REST API Reference
           ThanoSQL model: ThanoSQL Model Statement Reference
+          ThanoSQL function: ThanoSQL Function Statement Reference
           FAQ: FAQ
         ko:
           Getting started: 시작하기
@@ -51,6 +52,7 @@ plugins:
           ThanoSQL query: ThanoSQL Statement Reference
           ThanoSQL connecting: ThanoSQL REST API Reference
           ThanoSQL model: ThanoSQL Model Statement Reference
+          ThanoSQL function: ThanoSQL Function Statement Reference
           Thanosql api: REST API 사용하기
           FAQ: 자주 묻는 질문
   - awesome-pages: # Omits nav and control over page
