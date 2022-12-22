@@ -37,8 +37,8 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__ViLT__](/en/how-to_guides/ThanoSQL_model/ViLT/) — Visual Question Answering Model 
 
 ### __ThanoSQL Function Statement Reference__ 
-- [__Compute__](/en/how-to_guides/ThanoSQL_function/compute/) — Compute Data 
-- [__Preprocess__](/en/how-to_guides/ThanoSQL_function/preprocess/) — Preprocess Data
+- [__Compute__](/en/how-to_guides/ThanoSQL_function/Compute/) — Compute Data 
+- [__Preprocess__](/en/how-to_guides/ThanoSQL_function/Preprocess/) — Preprocess Data
 
 ### __ThanoSQL Rest API Reference__
 

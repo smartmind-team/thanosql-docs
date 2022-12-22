@@ -6,7 +6,7 @@ title: Preprocess
 
 ## __1. Preprocess Statement__
 
-The "__Compute__" statement allows users to preprocess data using ThanoSQL's "__Preprocess__" functions.
+The "__Preprocess__" statement allows users to preprocess data using ThanoSQL's "__Preprocess__" functions.
 
 ## __2. Preprocess Functions__
 
@@ -33,9 +33,10 @@ __OPTIONS Clause__
 
 ```sql
 OPTIONS (
-    (label_col=column_name),
-    (emb_col=column_name),
-    [result_col=expression]
+    [method_name={'split'}],
+    [interval=VALUE],
+    (table_name=expression),
+    (folder_name=expression)
     )
 ```
 
@@ -47,7 +48,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "folder_name": the name of the folder where the split video will be stored after preprocessing (str)
 
 
-__groupby_mean Example__
+__video_to_df Example__
 
 ```sql
 %%thanosql
@@ -57,6 +58,6 @@ OPTIONS (
    interval=1, 
    table_name='video_split_table', 
    folder_name='video_split_folder'
-) 
-FROM "thanosql-dataset/kinetics700_data/video/1ejgHKw8E3Y.mp4"
+    )
+FROM 'thanosql-dataset/kinetics700_data/video/1ejgHKw8E3Y.mp4'
 ```

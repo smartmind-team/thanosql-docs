@@ -23,7 +23,7 @@ AS
 ```
 
 !!! warning
-    - If the dataset you want to use does not contain a target column, it is not possible to evaluate the performance of the model.
+    - If the dataset you want to use does not contain a target, it is not possible to evaluate the performance of the model.
 
 ## __3. EVALUATE Example__
 

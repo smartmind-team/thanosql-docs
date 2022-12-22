@@ -53,7 +53,7 @@ OPTIONS (
     label_col='label',
     emb_col='convert_result',
     result_col='result_col'
-)
+    )
 AS
 SELECT * FROM mnist_train_test
 ```
@@ -106,7 +106,7 @@ OPTIONS (
     src_emb_col='convert_result',
     src_label_col='label',
     topk=3
-)
+    )
 AS
 SELECT * FROM mnist_train_test
 ```

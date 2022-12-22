@@ -35,13 +35,14 @@ AS
 
 ```sql
 %%thanosql
-FIT MODEL titanic_classification
-USING AutomlClassifier
+FIT MODEL titanic_automl_classification_fit
+USING titanic_automl_classification
 OPTIONS (
     target='survived',
     impute_type='iterative',
-    features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
+    features_to_drop=['name', 'ticket', 'passengerid', 'cabin'],
     outlier_method='pca',
+    time_left_for_this_task=300,
     overwrite=True
     )
 AS

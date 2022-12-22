@@ -24,7 +24,7 @@ AS
 ```
 
 !!! note "__Query Details__"
-    - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows:
+    - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
         - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
 ## __3. BUILD MODEL Example__
@@ -35,13 +35,13 @@ AS
 
 ```sql
 %%thanosql
-BUILD MODEL titanic_classification
+BUILD MODEL titanic_automl_classification
 USING AutomlClassifier
 OPTIONS (
-    target='survived',
+    target_col='survived',
     impute_type='iterative',
-    features_to_drop=["name", 'ticket', 'passengerid', 'cabin'],
-    outlier_method='pca',
+    features_to_drop=['name', 'ticket', 'passengerid', 'cabin'],
+    time_left_for_this_task=300,
     overwrite=True
     )
 AS

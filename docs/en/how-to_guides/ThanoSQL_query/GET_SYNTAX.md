@@ -12,7 +12,7 @@ The "__GET__" statement allows users to download the lastest ThanoSQL pre-built 
 The "__GET THANOSQL MODEL__" statement downloads the ThanoSQL pre-built models to the user's workspace. 
 
 ```sql
-GET THANOSQL MODEL (ThanOSQL_model_name_expression) 
+GET THANOSQL MODEL (ThanoSQL_model_name_expression)
 OPTIONS (
     model_name=(model_name_expression),
     overwrite=True
@@ -20,8 +20,8 @@ OPTIONS (
 ```
 
 !!! note "__Note__"    
-    - You can use the `LIST THANOSQL MODEL` statement to view a list of the ThanoSQL pre-built models.  
-    - If you do not include the `model_name` and provide a `model_name_expression`, pre-built models will be saved with their default names. 
+    - You can use the __LIST THANOSQL MODEL__ statement to view a list of the ThanoSQL pre-built models.   
+    - If you do not include the "model_name" and provide a "model_name_expression", pre-built models will be saved with their default names. 
 
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows:
@@ -31,14 +31,12 @@ OPTIONS (
 The "__GET THANOSQL DATASET__" statement downloads the tutorial datasets to the user's workspace. 
 
 ```sql
-GET THANOSQL DATASET [ThanOSQL_dataset_name_expression]
-OPTIONS (
-    overwrite=True 
-)
+GET THANOSQL DATASET [ThanoSQL_dataset_name_expression]
+OPTIONS (overwrite=True)
 ```
 
 !!! note "__Note__"    
-    - You can use the `LIST THANOSQL DATASET` statement to view a list of the ThanoSQL datasets.  
+    - You can use the __LIST THANOSQL DATASET__ statement to view a list of the ThanoSQL datasets.  
     - Datasets cannot be renamed.
 
 !!! note "__Query Details__"
@@ -51,9 +49,9 @@ OPTIONS (
 
 ```sql
 %%thanosql
-GET THANOSQL MODEL xclip
+GET THANOSQL MODEL clip
 OPTIONS (
-    model_name='tutorial_search_xclip',
+    model_name='tutorial_search_clip',
     overwrite=True
     )
 ```
@@ -62,8 +60,6 @@ OPTIONS (
 
 ```sql
 %%thanosql
-GET THANOSQL DATASET kinetics700_data
-OPTIONS (
-    overwrite=True
-)
+GET THANOSQL DATASET unsplash_data
+OPTIONS (overwrite=True)
 ```

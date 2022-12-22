@@ -55,7 +55,7 @@ FROM image_table
 ```
 
 !!! note ""
-    - `image_table`: table containing paths of the image files
+    - "image_table": table containing paths of the image files
 
 ### __3.2 Audio Print__
 
@@ -75,7 +75,7 @@ FROM audio_table
 [![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
-    - `audio_table`: table containing paths of the audio files
+    - "audio_table": table containing paths of the audio files
 
 ### __3.3 Video Print__
 
@@ -93,7 +93,7 @@ FROM video_table
 ```
 
 !!! note ""
-    - `video_table`: table containing paths of the video files
+    - "video_table": table containing paths of the video files
 
 ### __3.4 Print with a subquery__
 

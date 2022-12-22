@@ -47,7 +47,7 @@ FROM product_image_test
 ```
 
 
-!!! note "AI models that can be used with '__FIT MODEL__ statement'"
+!!! note "AI models that can be used with '__PREDICT__ statement'"
     - AutoML Classification model - AutomlClassifier
     - AutoML Regression model - AutomlRegressor
     - ConvNeXT Model - ConvNeXt_Tiny, ConvNeXt_Base

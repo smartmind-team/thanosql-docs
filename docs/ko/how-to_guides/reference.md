@@ -32,6 +32,9 @@ title: 개요
 - [__SimCLR__](/ko/how-to_guides/ThanoSQL_model/SimCLR/) —  이미지로 이미지 검색 모델
 - [__CLIP__](/ko/how-to_guides/ThanoSQL_model/CLIP/) — 텍스트로 이미지 검색 모델
 - [__SBERT__](/ko/how-to_guides/ThanoSQL_model/SBERT/) — 텍스트로 텍스트 검색 모델
+- [__ Whisper__](/ko/how-to_guides/ThanoSQL_model/Whisper/) — 음성 인식 모델 2
+- [__ XCLIP__](/ko/how-to_guides/ThanoSQL_model/XCLIP/) — 텍스트로 비디오 검색 모델
+- [__ViLT__](/ko/how-to_guides/ThanoSQL_model/ViLT/) — 시각 질의 응답 모델
 
 ### __ThanoSQL Rest API Reference__ 
 
