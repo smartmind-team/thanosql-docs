@@ -78,3 +78,6 @@ If "table_name" and "column_name" are specified, the given file would be sent to
       -H 'Content-Type: multipart/form-data' \
       -F 'file=@Data File Path;type=file_type/Data File Type'
     ```
+
+!!! faq "FAQ"
+    - In order to look up the path within the Jupiter workspace, you must put /home/jovyan in front.
