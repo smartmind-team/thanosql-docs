@@ -23,13 +23,6 @@ AS
 (query_expr)
 ```
 
-!!! note "쿼리 세부 정보"
-    - "OPTIONS" 절은 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
-        - "search_by": 검색할 때 사용할 이미지|텍스트|오디오|비디오 타입을 설정합니다. (str)
-        - "search_input": 검색할 때 사용할 입력값입니다. (str)
-        - "emb_col": 데이터 테이블에서 수치화된 결과를 담은 컬럼의 이름입니다. (str)
-        - "result_col": 데이터 테이블에서 검색 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'search_result')
-
 ## __3. SEARCH 예시__
 
 !!! note
