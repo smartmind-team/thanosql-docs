@@ -2,5 +2,5 @@ nav:
     - reference.md
     - ThanoSQL_query
     - ThanoSQL_model
-    - ThanoSQL_connecting
     - ThanoSQL_function
+    - ThanoSQL_connecting
