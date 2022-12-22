@@ -10,7 +10,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
 
 === "Python"
 
-    ``` python
+    ```python
     import requests
     import json
 
@@ -38,7 +38,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
 
 === "cURL"
 
-    ``` shell 
+    ```shell 
     curl -X 'POST' \
       'https://engine.thanosql.ai/api/v1/search/file/?table_name=테이블 명&model_name=모델 명&column_name=컬럼 명' \
       -H 'accept: application/json' \
@@ -51,7 +51,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
 
 === "Python"
 
-    ``` python
+    ```python
     import requests
     import json
 
@@ -80,7 +80,7 @@ REST API를 사용하여 이미지나 텍스트와 BUILD한 모델을 기반으�
 
 === "cURL"
 
-    ``` shell 
+    ```shell 
     curl -X 'POST' \
       'https://engine.thanosql.ai/api/v1/search/text/?table_name=테이블 명&model_name=모델 명&column_name=컬럼 명&text=서치할 텍스트' \
       -H 'accept: application/json' \

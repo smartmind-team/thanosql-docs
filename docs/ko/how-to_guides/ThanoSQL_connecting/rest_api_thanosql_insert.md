@@ -8,7 +8,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 이미
 
 === "Python"
 
-    ``` python
+    ```python
     import requests
     import json
 
@@ -31,7 +31,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 이미
 
 === "cURL"
 
-    ``` shell 
+    ```shell 
     curl -X 'POST' \
       'https://engine.thanosql.ai/api/v1/insert/?table_name=테이블 명&column_name=컬럼 명' \
       -H 'accept: application/json' \
