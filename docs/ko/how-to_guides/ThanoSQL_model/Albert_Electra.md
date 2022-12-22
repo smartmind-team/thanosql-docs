@@ -139,8 +139,8 @@ __OPTIONS 절__
 OPTIONS (
     (text_col=column_name),
     [batch_size=VALUE],
-    (result_col=column_name),
-    (table_name=expression)
+    [result_col=column_name],
+    [table_name=expression]
     )
 ```
 

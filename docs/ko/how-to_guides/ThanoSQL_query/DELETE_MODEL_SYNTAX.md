@@ -22,4 +22,4 @@ DELETE MODEL mymodel
 ```
 
 !!! note "'__DELETE MODEL__ 문'을 사용할 수 있는 인공지능 모델"
-    - ThanoSQL 워크스페이스 내에서 생성 또는 업로드한 모든 모델
+    - ThanoSQL 워크스페이스 내에서 생성, 업로드 또는 불러온 모든 모델
