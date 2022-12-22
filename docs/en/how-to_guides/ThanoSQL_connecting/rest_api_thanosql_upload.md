@@ -22,7 +22,7 @@ If "table_name" and "column_name" are not specified, the given file would only b
     header = {
         "Authorization": f"Bearer {api_token}"
     }
-    files = {'file': open('Image File Path', 'rb')}
+    files = {'file': open('Data File Path', 'rb')}
 
     r = requests.post(api_url, files=files, headers=header)
 
@@ -38,7 +38,7 @@ If "table_name" and "column_name" are not specified, the given file would only b
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
-      -F 'file=@Image File Path;type=image/Image File Type'
+      -F 'file=@Data File Path;type=file_type/Data File Type'
     ```
 
 ## Upload & Insert 
@@ -60,7 +60,7 @@ If "table_name" and "column_name" are specified, the given file would be sent to
     header = {
         "Authorization": f"Bearer {api_token}"
     }
-    files = {'file': open('Image File Path', 'rb')}
+    files = {'file': open('Data File Path', 'rb')}
 
     r = requests.post(api_url, files=files, headers=header)
 
@@ -76,5 +76,5 @@ If "table_name" and "column_name" are specified, the given file would be sent to
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
-      -F 'file=@Image File Path;type=image/Image File Type'
+      -F 'file=@Data File Path;type=file_type/Data File Type'
     ```
