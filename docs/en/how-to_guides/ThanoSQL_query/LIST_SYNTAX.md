@@ -13,7 +13,6 @@ The "__LIST__" statement allows users to view the lastest pre-built models("THAN
 The "__LIST MODEL__" statement outputs the models you have created.
 
 ```sql
-%%thanosql
 LIST MODEL
 ```
 
@@ -22,7 +21,6 @@ LIST MODEL
 The "__LIST THANOSQL MODEL__" statement outputs the latest pre-built models.
 
 ```sql
-%%thanosql
 LIST THANOSQL MODEL
 ```
 
@@ -32,7 +30,6 @@ LIST THANOSQL MODEL
 The "__LIST THANOSQL DATASET__" statement outputs the latest datasets used by the tutorials.
 
 ```sql
-%%thanosql
 LIST THANOSQL DATASET
 ```
 
@@ -41,7 +38,6 @@ LIST THANOSQL DATASET
 The "__LIST TABLE__" statement outputs the tables you have created.
 
 ```sql
-%%thanosql
 LIST TABLE
 ```
 

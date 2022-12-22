@@ -1,8 +1,8 @@
 ---
-title: CLIP
+title: XCLIP
 ---
 
-# __CLIP__
+# __XCLIP__
 
 __Notation Conventions__
 
@@ -38,7 +38,7 @@ __OPTIONS Clause__
 ```sql
 OPTIONS (
     [table_name=expression],
-    (image_col=column_name),
+    (video_col=column_name),
     (text_col=column_name),
     (convert_type={'image'|'text'}),
     [batch_size=VALUE],
@@ -49,41 +49,39 @@ OPTIONS (
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
 - "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
-- "image_col": the name of the column containing the image path (str, default: 'image_path')
+- "video_col": the name of the column containing the video path (str, default: 'video_path')
 - "text_col": the name of the column containing the text (str, default: 'text')
-- "convert_type": file type for vectorization (str, 'image'|'text', default: 'image')
+- "convert_type": file type for vectorization (str, 'video'|'text', default: 'video')
 - "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16) 
 - "result_col": defines the column name that contains the vectorized results (str, optional, default: 'convert_result')
 
 
 __CONVERT Example__
 
-An example "__CONVERT__" query can be found in [Search Image by Text](/en/tutorials/thanosql_search/search_image_by_text/).
+An example "__CONVERT__" query can be found in [Search Video by Text](/en/tutorials/thanosql_search/search_video_by_text/).
 
 ```sql
 %%thanosql
-CONVERT USING tutorial_search_clip
+CONVERT USING tutorial_search_xclip
 OPTIONS (
-    table_name='unsplash_data',
-    image_col='image_path', 
-    convert_type='image',
-    batch_size=128,
+    video_col='video_path',
+    table_name='kinetics700',
     result_col='convert_result'
     )
-AS 
+AS
 SELECT *
-FROM unsplash_data
+FROM kinetics700
 ```
 
-## __SEARCH IMAGE Syntax__
+## __SEARCH VIDEO Syntax__
 
-Use the "__SEARCH IMAGE__" statement to retrieve the desired image data.
+Use the "__SEARCH VIDEO__" statement to retrieve the desired video data.
 
 ```sql
 query_statement:
     query_expr
     
-SEARCH IMAGE 
+SEARCH VIDEO 
 USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
@@ -99,7 +97,7 @@ OPTIONS (
     (search_by={image|text|audio|video}),
     (search_input=expression),
     (emb_col=column_name),
-    [result_col=expression]
+    [column_name=expression]
     )
 ```
 
@@ -111,21 +109,21 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "result_col": defines the name of the column that contains the search results (str, optional, default: 'search_result')
 
 
-__SEARCH IMAGE Example__
+__SEARCH VIDEO Example__
 
-An example "__SEARCH IMAGE__" query can be found in [Search Image by Text](/en/tutorials/thanosql_search/search_image_by_text/).
+An example "__SEARCH VIDEO__" query can be found in [Search Video by Text](/en/tutorials/thanosql_search/search_video_by_text/).
 
 ```sql
 %%thanosql
-SEARCH IMAGE 
-USING tutorial_search_clip
+SEARCH VIDEO 
+USING tutorial_search_xclip
 OPTIONS (
     search_by='text',
-    search_input='a black cat',
+    search_input='bench press',
     emb_col='convert_result',
-    result_col='search_result'
+    result_col='score'
     )
 AS 
 SELECT * 
-FROM unsplash_data
+FROM kinetics700
 ```

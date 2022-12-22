@@ -46,5 +46,3 @@ title: 개요
 - [__ThanoSQL 구문 활용__](/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_query/)
 - [__ThanoSQL 워크스페이스 데이터베이스 업로드__](/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_upload/)
 - [__ThanoSQL 서치 사용__](/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_search/)
-
-
