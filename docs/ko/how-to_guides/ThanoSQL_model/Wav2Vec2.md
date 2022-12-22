@@ -1,8 +1,8 @@
 ---
-title: Albert & Electra
+title: Wav2Vec2
 ---
 
-# __Albert & Electra__
+# __Wav2Vec2__
 
 __표기법 규칙__
 
@@ -27,7 +27,7 @@ query_statement:
     query_expr
 
 BUILD MODEL (model_name_expression)
-USING { AlbertKo | AlbertEn | ElectraKo | ElectraEn }
+USING { Wav2Vec2Ko | Wav2Vec2En }
 OPTIONS (
     expression [ , ...]
     )
@@ -39,8 +39,8 @@ __OPTIONS 절__
 
 ```sql
 OPTIONS (
+    (audio_col=column_name),
     (text_col=column_name),
-    (label_col=column_name),
     [batch_size=VALUE],
     [max_epochs=VALUE],
     [learning_rate=VALUE],
@@ -50,32 +50,31 @@ OPTIONS (
 
 "__OPTIONS__" 절은 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "text_col": 데이터 테이블에서 학습의 대상이 될 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
-- "label_col": 데이터 테이블에서 목푯값의 정보를 담은 컬럼의 이름입니다. (str, default: 'label')
+- "audio_col": 데이터 테이블에서 학습의 대상이 될 오디오 파일들의 경로를 담은 컬럼을 설정합니다. (str, default: 'audio_path')
+- "text_col": 데이터 테이블에서 오디오의 스크립트를 담은 컬럼을 설정합니다. (default: "text")
 - "batch_size": 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 16)
-- "max_epochs": 모든 학습 데이터 세트를 학습하는 횟수를 설정합니다. (int, optional, default: 3)
+- "max_epochs":모든 학습 데이터 세트를 학습하는 횟수를 설정합니다. (int, optional, default: 5)
 - "learning_rate": 모델의 학습률입니다. (float, optional, default: 1e-4)
 - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
 
-
 __BUILD MODEL 예시__
 
-[텍스트 분류 모델 만들기](/ko/tutorials/thanosql_ml/classification/text_classification/)에서 "__BUILD MODEL__" 구문 사용 예시를 확인하실 수 있습니다.
+[오디오 파일을 받아쓰는 음성 인식 모델 만들기](/ko/tutorials/thanosql_ml/audio_recognition/speech_recognition/)에서 "__BUILD MODEL__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
-BUILD MODEL my_movie_review_classifier
-USING ElectraEn
+BUILD MODEL my_speech_recognition_model
+USING Wav2Vec2En
 OPTIONS (
-  text_col='review',
-  label_col='sentiment',
-  max_epochs=1,
-  batch_size=4,
-  overwrite=True
-  )
+    audio_col='audio_path',
+    text_col='text',
+    max_epochs=1,
+    batch_size=4,
+    overwrite= True
+    )
 AS
 SELECT *
-FROM movie_review_train
+FROM librispeech_train
 ```
 
 ## __FIT MODEL 구문__
@@ -99,8 +98,8 @@ __OPTIONS 절__
 
 ```sql
 OPTIONS (
+    (audio_col=column_name),
     (text_col=column_name),
-    (label_col=column_name),
     [batch_size=VALUE],
     [max_epochs=VALUE],
     [learning_rate=VALUE],
@@ -110,10 +109,10 @@ OPTIONS (
 
 "__OPTIONS__" 절은 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "text_col": 데이터 테이블에서 학습의 대상이 될 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
-- "label_col": 데이터 테이블에서 목푯값의 정보를 담은 컬럼의 이름입니다. (str, default: 'label')
+- "audio_col": 데이터 테이블에서 학습의 대상이 될 오디오 파일들의 경로를 담은 컬럼을 설정합니다. (str, default: 'audio_path')
+- "text_col": 데이터 테이블에서 오디오의 스크립트를 담은 컬럼을 설정합니다. (default: "text")
 - "batch_size": 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 16)
-- "max_epochs": 모든 학습 데이터 세트를 학습하는 횟수를 설정합니다. (int, optional, default: 3)
+- "max_epochs":모든 학습 데이터 세트를 학습하는 횟수를 설정합니다. (int, optional, default: 5)
 - "learning_rate": 모델의 학습률입니다. (float, optional, default: 1e-4)
 - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
 
@@ -137,7 +136,7 @@ __OPTIONS 절__
 
 ```sql
 OPTIONS (
-    (text_col=column_name),
+    (audio_col=column_name),
     [batch_size=VALUE],
     [result_col=column_name],
     [table_name=expression]
@@ -146,24 +145,26 @@ OPTIONS (
 
 "__OPTIONS__" 절은 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "text_col": 데이터 테이블에서 예측의 대상이 될 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
+- "audio_col": 데이터 테이블에서 예측의 대상이 될 오디오 파일들의 경로를 담은 컬럼의 이름입니다. (str, default: 'audio_path')
 - "batch_size": 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 16)
 - "result_col": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'predict_result')
 - "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'predict_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 
 __PREDICT 예시__
 
-[텍스트 분류 모델 만들기](/ko/tutorials/thanosql_ml/classification/text_classification/)에서 "__PREDICT__" 구문 사용 예시를 확인하실 수 있습니다.
+[오디오 파일을 받아쓰는 음성 인식 모델 만들기](/ko/tutorials/thanosql_ml/audio_recognition/speech_recognition/)에서 "__PREDICT__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
-PREDICT USING my_movie_review_classifier
+PREDICT USING my_speech_recognition_model
 OPTIONS (
-    text_col='review'
+    audio_col='audio_path',
+    result_col='predict_result',
+    table_name='librispeech_test'
     )
 AS
 SELECT *
-FROM movie_review_test
+FROM librispeech_test
 ```
 
 ## __EVALUATE 구문__
@@ -174,7 +175,7 @@ FROM movie_review_test
 query_statement:
     query_expr
 
-EVALUATE USING (model_name_expression) 
+EVALUATE USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -186,14 +187,14 @@ __OPTIONS 절__
 
 ```sql
 OPTIONS (
+    (audio_col=column_name),
     (text_col=column_name),
-    (label_col=column_name),
     [batch_size=VALUE]
     )
 ```
 
 "__OPTIONS__" 절은 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "text_col": 데이터 테이블에서 평가의 대상이 될 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
-- "label_col": 데이터 테이블에서 목푯값의 정보를 담은 컬럼의 이름입니다. (str, default: 'label')
+- "audio_col": 데이터 테이블에서 평가의 대상이 될 오디오 파일들의 경로를 담은 컬럼의 이름입니다. (str, default: 'audio_path')
+- "text_col": 데이터 테이블에서 목푯값의 정보를 담은 컬럼의 이름입니다. (str, default: 'text')
 - "batch_size": 한 번의 평가에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 16)
