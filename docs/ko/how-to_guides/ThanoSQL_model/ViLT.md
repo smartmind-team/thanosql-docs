@@ -37,7 +37,7 @@ AS
 __OPTIONS 절__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (image_col=column_name),
     (question=expression),
     [result_col=column_name],

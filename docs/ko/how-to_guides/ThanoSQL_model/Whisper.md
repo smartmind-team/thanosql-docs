@@ -37,7 +37,7 @@ AS
 __OPTIONS 절__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (audio_col=column_name),
     [batch_size=VALUE],
     (language=expression),
@@ -96,7 +96,7 @@ AS
 __OPTIONS 절__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (audio_col=column_name),
     [batch_size=VALUE],
     (language=expression),

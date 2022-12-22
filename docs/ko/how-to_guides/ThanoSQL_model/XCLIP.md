@@ -37,7 +37,7 @@ AS
 __OPTIONS 절__
 
 ```sql
-OPTIONS(
+OPTIONS (
     [table_name=expression],
     (video_col=column_name),
     (text_col=column_name),
@@ -83,7 +83,7 @@ query_statement:
     
 SEARCH VIDEO 
 USING (model_name_expression)
-OPTIONS(
+OPTIONS (
     expression [ , ...]
     )
 AS
