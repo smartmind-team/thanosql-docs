@@ -182,7 +182,7 @@ USING SBERTEn
 OPTIONS (
     text_col="review",
     overwrite=True
-)
+    )
 AS
 SELECT *
 FROM movie_review_train
@@ -723,7 +723,7 @@ FROM (
     SELECT * 
     FROM movie_review_test
     LIMIT 10
-)
+    )
 ```
 
 
@@ -1002,7 +1002,7 @@ AS (
         )
     ORDER BY score DESC 
     LIMIT 10
-)
+    )
 ```
 
 
@@ -1136,8 +1136,8 @@ FROM (
             )
         ORDER BY score DESC 
         LIMIT 10
+        )
     )
-)
 ```
 
 
@@ -1270,7 +1270,7 @@ AS (
         )
     ORDER BY score DESC 
     LIMIT 10
-)
+    )
 ```
 
 
@@ -1407,9 +1407,9 @@ FROM (
                 )
             ORDER BY score DESC 
             LIMIT 10
+            )
         )
     )
-)
 WHERE score > 0.3
 ```
 

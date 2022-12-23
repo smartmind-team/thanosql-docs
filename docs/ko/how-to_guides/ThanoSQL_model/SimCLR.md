@@ -44,7 +44,7 @@ OPTIONS (
     [max_epochs=VALUE],
     [pretrained={True|False}],
     [overwrite={True|False}]
-)
+    )
 ```
 ​
 "__OPTIONS__" 절은 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.

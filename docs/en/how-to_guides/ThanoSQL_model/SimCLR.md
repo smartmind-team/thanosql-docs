@@ -44,7 +44,7 @@ OPTIONS (
     [max_epochs=VALUE],
     [pretrained={True|False}],
     [overwrite={True|False}]
-)
+    )
 ```
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
@@ -177,7 +177,7 @@ OPTIONS (
     search_input='tutorial_data/mnist_data/test/923.jpg',
     emb_col='convert_result',
     result_col='search_result'
-)
+    )
 AS
 SELECT *
 FROM mnist_test

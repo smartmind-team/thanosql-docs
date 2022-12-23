@@ -66,7 +66,7 @@ USING SBERTKo
 OPTIONS (
     text_col='document',
     overwrite=True
-)
+    )
 AS
 SELECT *
 FROM nsmc_train
