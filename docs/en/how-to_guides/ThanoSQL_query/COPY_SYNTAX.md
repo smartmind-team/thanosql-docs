@@ -42,7 +42,7 @@ FROM 'data/example.csv'
 
 The example below demonstrates how to use a data directory for the COPY clause. A specified folder with a path as an input would be read by the ThanoSQL Engine and recreated as a table within a database. 
 
-!!! note “__Using COPY with Data Folders__”
+!!! note "__Using COPY with Data Folders__"
     - If the path to the folder containing the images, audios, or videos is given as an input, the “COPY” clause will translate each file as a row and recreate it as a data table.
 
 ```sql
