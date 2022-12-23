@@ -36,7 +36,7 @@ AS
 ```
 
 !!! note "쿼리 세부 정보"
-    - "OPTIONS" 절은 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
+    - "__OPTIONS__" 절에서 매개변수의 값을 기본값에서 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
         - "image_col | audio_col | video_col": 프린트 할 컬럼명을 지정합니다. (str, default: 'image_path'|'audio_path'|'video_path')
 
 ## __3. PRINT 예시__
