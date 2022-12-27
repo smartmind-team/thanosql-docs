@@ -55,7 +55,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 > "transcribe": the task of recognizing speech
 > "translate": the task of translating recognized speech back into English. This process is different from the ordinary translating task in that it translates Korean speech directly into English text, skipping the middle task of translating to Korean text
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 
 __PREDICT Example__

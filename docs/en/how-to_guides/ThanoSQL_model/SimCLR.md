@@ -103,7 +103,7 @@ OPTIONS (
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 - "image_col": the name of the column containing the image path (str, default: 'image_path')
 - "result_col": defines the column name that contains the vectorized results (str, optional, default: 'convert_result')
 - "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 256)
