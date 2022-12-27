@@ -28,8 +28,7 @@ AS
         - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
 !!! warning ""
-   The model_name_expression that comes after "__USING__" is case sensitive.
-
+    The model_name_expression that comes after "__USING__" is case sensitive.
 
 ## __3. BUILD MODEL Example__
 

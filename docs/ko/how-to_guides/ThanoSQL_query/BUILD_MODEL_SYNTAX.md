@@ -28,7 +28,7 @@ AS
         - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
 
 !!! warning ""
-   "__USING__" 뒤에 작성하는 model_name_expression은 대/소문자의 영향을 받습니다.
+    "__USING__" 뒤에 작성하는 model_name_expression은 대/소문자의 영향을 받습니다.
 
 ## __3. BUILD MODEL 예시__
 
