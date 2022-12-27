@@ -191,7 +191,7 @@ USING SBERTKo
 OPTIONS (
     text_col="document",
     overwrite=True
-)
+    )
 AS
 SELECT *
 FROM nsmc_train
@@ -755,7 +755,7 @@ FROM (
     SELECT * 
     FROM nsmc_test
     LIMIT 10
-)
+    )
 ```
 
 
@@ -1097,7 +1097,7 @@ AS (
         )
     ORDER BY score DESC 
     LIMIT 10
-)
+    )
 ```
 
 
@@ -1231,8 +1231,8 @@ FROM (
             )
         ORDER BY score DESC 
         LIMIT 10
+        )
     )
-)
 ```
 
 
@@ -1369,9 +1369,9 @@ FROM
                 )
             ORDER BY score DESC
             LIMIT 10
+            )
         )
     )
-)
 WHERE score > 0.3
 ```
 
