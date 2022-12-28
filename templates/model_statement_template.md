@@ -45,7 +45,7 @@ OPTIONS(
     (table_name=expression),
     (image_col=column_name),
     [batch_size=VALUE]
-)
+    )
 }
 ```
 
@@ -228,7 +228,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "text_col": the column containing the text to be used for prediction (str, default: 'text')
 - "batch_size" is the size of dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "text_col": the column containing the text to be used for evaluation (str, default: 'text')
@@ -250,7 +250,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "audio_col": the name of the column containing the audio path to be used for prediction (str, default: 'audio_path')
 - "batch_size" is the size of dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "audio_col": the column containing the audio path to be used for evaluation (str, default: 'audio_path')
@@ -262,14 +262,21 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 <!-- AutoML -->
 <!-- BUILD & FIT OPTIONS -->
 - "target_col": the name of the column containing the target value of the classification model (str, default: 'target') 
+- "features_to_drop": selects columns that cannot be used for training (list[str], optional)
 - "impute_type": determines how empty values ​​(NaNs) are handled (str, optional, 'simple'|'iterative' , default: 'simple') 
-- "features_to_drop": selects columns that cannot be used for training (int, optional, default: 300)
-- "time_left_for_this_task": the total time given to find a suitable classification model in seconds (int, optional, default: 300)
+> "simple": for empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean  
+> "iterative": applies an algorithm that predicts empty values with the remaining properties
+- "datetime_attribs": selects columns corresponding to the date (list[str], optional)
+- "outlier_method": determines how outliers are handled in the table. If None, the table includes outliers (str, optional, 'knn'|'iso'|'pca', default: None)
+> "knn": use a K-NN-based approach to detect abnormal samples based on the distance between each data  
+> "iso": use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples (Works efficiently on datasets with many variables)  
+> "pca": detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis(PCA)
+- "time_left_for_this_task": the total time given to find a suitable classification model in seconds (int, optional, default: 60)
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
 <!-- PREDICT OPTIONS -->
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "target_col": the name of the column containing the target value of the classification model (str, default: 'target') 
@@ -290,7 +297,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "image_col": the name of the column where the path of the image used for prediction is stored (str, default: 'image_path')
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
 - "batch_size": the size of the dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 - "input_size": size of the image to be used for prediction (int, optional)
 
 <!-- EVALUATE OPTIONS -->
@@ -329,7 +336,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "language": specifies the language of the audio file. If selected as ‘auto’, the model will recognize the language from the available pool of 99 languages (str, default: 'auto')
 - "task": type of work to do (str, 'transcribe'|'translate', default: 'transcribe')
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "audio_col": the name of the column containing the audio path to be used for evaluation (str, default: 'audio_path')
@@ -345,7 +352,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "image_col": the name of the column where the path of the image used for prediction is stored (str, default: "image_path")
 - "question": the question text to be used for prediction (str)
 - "result_col": defines the name of the column to contain the result (str, optional, default: "predict_result")
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 
 8. 

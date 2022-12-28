@@ -61,7 +61,7 @@ OPTIONS (
     label_col='label',
     emb_col='convert_result',
     result_col='result_col'
-)
+    )
 AS
 SELECT * FROM mnist_train_test
 }
