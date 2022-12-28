@@ -44,4 +44,4 @@ FROM {file_path_expression}
         - groupby_emb_mean
         - similarity
     - preprocess
-        - video_to_df     
+        - video_to_df
