@@ -83,7 +83,7 @@ e.g.
 <!-- CONVERT, PREDICT -->
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows:
-        - "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a '{predict_result  | convert_result}' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
+        - "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a '{predict_result | convert_result}' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
 
 <!-- COPY -->
 !!! note "__Query Details__"
