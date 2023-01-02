@@ -33,7 +33,7 @@ AS
     {쿼리 세부 정보 설명
     예시)
     - "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
-        - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
+        - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 여부를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
     }
 
 ## __3. {구문 이름} 예시__
@@ -85,7 +85,7 @@ FROM titanic_train
 <!-- BUILD, FIT -->
 !!! note "쿼리 세부 정보"
     - "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
-        - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
+        - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 여부를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
 
 <!-- CONVERT, PREDICT -->
 !!! note "쿼리 세부 정보"
@@ -95,17 +95,17 @@ FROM titanic_train
 <!-- COPY -->
 !!! note "쿼리 세부 정보"
     - "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
-        - "overwrite": 동일 이름의 테이블이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 테이블은 새로운 테이블로 변경됩니다. (bool, optional, True|False, default: False)
+        - "overwrite": 동일 이름의 테이블이 존재하는 경우 덮어쓰기 가능 여부를 설정합니다. True일 경우 기존 테이블은 새로운 테이블로 변경됩니다. (bool, optional, True|False, default: False)
 
 <!-- GET -->
 !!! note "쿼리 세부 정보"
     - "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
         - "model_name": 저장할 모델의 이름을 설정합니다. (str, optional)
-        - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
+        - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 여부를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
 
 !!! note "쿼리 세부 정보"
     - "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
-        - "overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됩니다. (bool, optional, True|False, default: False)
+        - "overwrite": 동일 이름의 데이터 세트가 존재하는 경우 덮어쓰기 가능 여부를 설정합니다. True일 경우 기존 데이터 세트는 새로운 데이터 세트로 변경됩니다. (bool, optional, True|False, default: False)
 
 <!-- PRINT -->
 !!! note "쿼리 세부 정보"
@@ -124,4 +124,4 @@ FROM titanic_train
 !!! note "쿼리 세부 정보"
     - "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
         - "framework": 모델의 프레임워크를 설정합니다. (str, default: 'pytorch')
-        - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
+        - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 여부를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)

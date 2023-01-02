@@ -22,7 +22,7 @@ FROM [model_path_expression]
 !!! note "쿼리 세부 정보"
     - "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
         - "framework": 모델의 프레임워크를 설정합니다. (str, default: 'pytorch')
-        - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
+        - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 여부를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
 
 !!! Failure "__Caution__"
     - 현재 "__UPLOAD MODEL__" 구문은 `Pytorch` 기반의 모델들만 사용 가능합니다.
