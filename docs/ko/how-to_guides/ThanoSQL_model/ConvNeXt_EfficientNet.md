@@ -59,7 +59,7 @@ OPTIONS (
 - "learning_rate": 모델의 학습률입니다. (float, optional, default: 1e-3)
 - "input_size": 학습에 사용할 이미지의 사이즈를 설정합니다. (int, optional)
 - "color": 학습에 사용할 이미지의 색상을 설정합니다. (str, optional, ‘RGB’|'GRAY’, default: ‘RGB’)
-- "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
+- "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 여부를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
 
 __BUILD MODEL 예시__
 
@@ -121,7 +121,7 @@ OPTIONS (
 - "learning_rate": 모델의 학습률입니다. (float, optional, default: 1e-3)
 - "input_size": 학습에 사용할 이미지의 사이즈를 설정합니다. (int, optional)
 - "color": 학습에 사용할 이미지의 색상을 설정합니다. (str, optional, ‘RGB’|'GRAY’, default: ‘RGB’)
-- "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 유무를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
+- "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 여부를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
 
 ## __PREDICT 구문__
 
