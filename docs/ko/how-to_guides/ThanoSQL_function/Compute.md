@@ -93,7 +93,7 @@ OPTIONS (
 - "src_table": 평균 임베딩 값에 대한 정보가 포함된 테이블의 이름입니다. (str)
 - "src_emb_col": 데이터 테이블에서 임베딩 값을 담은 컬럼의 이름입니다. (str)
 - "src_label_col": 데이터 테이블에서 라벨을 담은 컬럼의 이름입니다. (str)
-- "top_k": 제공되는 라벨의 수를 지정합니다. (int, optional, default: 10)
+- "top_k": 제공되는 라벨의 수를 지정합니다. (int, optional, default: 1)
 - "result_col": 데이터 테이블에서 유사도 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'similarity_result')
 
 __similarity 예시__
