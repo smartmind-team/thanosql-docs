@@ -148,7 +148,7 @@ OPTIONS (
     (search_input=expression),
     (emb_col=column_name),
     [result_col=column_name],
-    [topk=VALUE]
+    [top_k=VALUE]
     )
 ```
 
