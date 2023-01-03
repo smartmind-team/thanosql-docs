@@ -98,20 +98,20 @@ An example "__BUILD MODEL__" query can be found in [Electrictity Consumption For
 BUILD MODEL elec_predict_model
 USING TFT
 OPTIONS (
-    target_col= 'target',
+    target_col='target',
     time_idx_col='time_idx',
-    group_id_cols = ['num'],
-    min_encoder_length = 1,
-    max_encoder_length = 840,
+    group_id_cols=['num'],
+    min_encoder_length=1,
+    max_encoder_length=840,
     min_prediction_length=1, 
-    max_prediction_length = 168,
-    group_normalizer = True,  
-    time_varying_known_categorical_cols= ['num', 'same_temp_wind_group', 'holiday', 'dow', 'cluster', 'before_holiday_flag', 'natural_cooling_sys_flag', 'solar_sys_flag'],
+    max_prediction_length=168,
+    group_normalizer=True,  
+    time_varying_known_categorical_cols=['num', 'same_temp_wind_group', 'holiday', 'dow', 'cluster', 'before_holiday_flag', 'natural_cooling_sys_flag', 'solar_sys_flag'],
     time_varying_known_real_cols=['time_idx','hour','temperature','windspeed','humidity','precipitation','insolation','days_left_holiday'],
     time_varying_unknown_real_cols=['target','log_target','mean_target','mean_target_num','mean_target_stwg','mean_target_cluster'],    
-    validate = False,    
+    validate=False,    
     overwrite=True,
-    max_epochs = 1
+    max_epochs=1
 )
 AS 
 SELECT *
@@ -153,7 +153,7 @@ An example "__PREDICT__" query can be found in [Electrictity Consumption Forecas
 %%thanosql 
 PREDICT USING elec_predict_model 
 OPTIONS (      
-        result_col = "tft_result"
+        result_col="tft_result"
         )
 AS 
 SELECT 
