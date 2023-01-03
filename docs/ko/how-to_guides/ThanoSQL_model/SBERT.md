@@ -148,7 +148,8 @@ OPTIONS (
     (search_by={image|text|audio|video}),
     (search_input=expression),
     (emb_col=column_name),
-    [result_col=column_name]
+    [result_col=column_name],
+    [top_k=VALUE]
     )
 ```
 
@@ -158,6 +159,7 @@ OPTIONS (
 - "search_input": 검색할 때 사용할 입력값입니다. (str)
 - "emb_col": 데이터 테이블에서 수치화된 결과를 담은 컬럼의 이름입니다. (str)
 - "result_col": 데이터 테이블에서 검색 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'search_result')
+- "top_k": 반환할 행의 수를 설정합니다. None을 입력할 시 데이터 테이블 전체를 반환합니다. (int, optional, default: 1000)
 
 __SEARCH TEXT 예시__
 
@@ -173,14 +175,13 @@ FROM (
         search_by='text',
         search_input='기분이 좋아지는 작품',
         emb_col='convert_result',
-        result_col='score'
+        result_col='score',
+        top_k=10
         )
     AS
     SELECT *
     FROM nsmc_test
     )
-ORDER BY score DESC
-LIMIT 10
 ```
 
 ## __SEARCH KEYWORD 구문__
@@ -230,20 +231,18 @@ __SEARCH KEYWORD 예시__
 
 ```sql
 %%thanosql
-SELECT * FROM (
-    SELECT document, label, json_array_elements(keyword -> 'keyword') AS keywords, json_array_elements(keyword -> 'score') AS score
-        FROM (
-            SEARCH KEYWORD
-            USING nsmc_text_search_model
-            OPTIONS (
-                text_col='document',
-                use_stopwords=True
-                )
-            AS
-            SELECT *
-            FROM nsmc_test
-            LIMIT 10
+SELECT document, label, json_array_elements(keyword -> 'keyword') AS keywords, json_array_elements(keyword -> 'score') AS score
+FROM (
+    SEARCH KEYWORD 
+    USING nsmc_text_search_model
+    OPTIONS (
+        text_col='document',
+        use_stopwords=True,
+        threshold=0.5
         )
+    AS
+    SELECT *
+    FROM nsmc_test
+    LIMIT 10
     )
-WHERE score > 0.5
 ```

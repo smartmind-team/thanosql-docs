@@ -83,7 +83,7 @@ OPTIONS (
     (src_table=expression),
     (src_emb_col=column_name),
     (src_label_col=column_name),
-    [topk=VALUE],
+    [top_k=VALUE],
     [result_col=expression]
     )
 ```
@@ -94,7 +94,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "src_table": the name of the table containing information about the average embedding value (str)
 - "src_emb_col": the name of the column containing the embedding value (str)
 - "src_label_col": the name of the column containing the label (str)
-- "topk": the number of label to be provided (int, optional, default: 1)
+- "top_k": the number of label to be provided (int, optional, default: 1)
 - "result_col": the name of the column containing the similarity values (str, optional, default: 'similarity_result')
 
 __similarity Example__
@@ -107,7 +107,7 @@ OPTIONS (
     src_table='mnist_train_test',
     src_emb_col='convert_result',
     src_label_col='label',
-    topk=3,
+    top_k=3,
     result_col='result_col'
     )
 AS
