@@ -105,13 +105,13 @@ OPTIONS (
     group_id_cols=['num'],
     min_encoder_length=1,
     max_encoder_length=840,
-    min_prediction_length=1, 
+    min_prediction_length=1,
     max_prediction_length=168,
-    group_normalizer=True,  
-    time_varying_known_categorical_cols=['num', 'same_temp_wind_group', 'holiday', 'dow', 'cluster', 'before_holiday_flag', 'natural_cooling_sys_flag', 'solar_sys_flag'],
+    group_normalizer=True,
+    time_varying_known_categorical_cols=['num','same_temp_wind_group','holiday','dow','cluster','before_holiday_flag','natural_cooling_sys_flag','solar_sys_flag'],
     time_varying_known_real_cols=['time_idx','hour','temperature','windspeed','humidity','precipitation','insolation','days_left_holiday'],
-    time_varying_unknown_real_cols=['target','log_target','mean_target','mean_target_num','mean_target_stwg','mean_target_cluster'],    
-    validate=False,    
+    time_varying_unknown_real_cols=['target','log_target','mean_target','mean_target_num','mean_target_stwg','mean_target_cluster'],
+    validate=False,
     overwrite=True,
     max_epochs=1
 )
