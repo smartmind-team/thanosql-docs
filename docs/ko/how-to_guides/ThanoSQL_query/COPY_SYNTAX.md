@@ -79,4 +79,5 @@ FROM '{df_in_json}'
 
 !!! warning "__Warning__"
     - Pandas 데이터프레임은 __COPY__ 구문으로 감싸기 전에 JSON으로 변환하여야 합니다.
+    - JSON으로 변환된 변수를 __COPY__ 구문으로 감쌀 때는 쌍따옴표만 사용 가능합니다. 
     - __${변수_이름}__ 은 __%thanosql__ 뒤에 명시되어야 합니다.
