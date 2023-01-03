@@ -100,7 +100,7 @@ OPTIONS (
     (search_input=expression),
     (emb_col=column_name),
     [result_col=expression],
-    [topk=VALUE]
+    [top_k=VALUE]
     )
 ```
 
