@@ -112,7 +112,7 @@ OPTIONS (
     validate=False,
     overwrite=True,
     max_epochs=1
-)
+    )
 AS 
 SELECT *
 FROM building_elec_train
@@ -153,8 +153,8 @@ An example "__PREDICT__" query can be found in [Electrictity Consumption Forecas
 %%thanosql 
 PREDICT USING elec_predict_model 
 OPTIONS (      
-        result_col="tft_result"
-        )
+    result_col="tft_result"
+    )
 AS 
 SELECT 
 * 
