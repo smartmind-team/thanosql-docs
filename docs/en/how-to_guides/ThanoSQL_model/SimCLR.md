@@ -162,7 +162,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "search_input": defines the input to be used for the search (str)
 - "emb_col": the column that contains the vectorized results (str)
 - "result_col": defines the name of the column that contains the search results (str, optional, default: 'search_result')
-- "top_k": number of rows to return. If set as 0, returns the entire data table (int, optional, default: 1000)
+- "top_k": number of rows to return. If set as None, returns the entire data table (int, optional, default: 1000)
 
 __SEARCH IMAGE Example__
 
