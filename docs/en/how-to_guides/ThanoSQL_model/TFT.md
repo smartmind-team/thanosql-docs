@@ -149,6 +149,9 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 An example "__PREDICT__" query can be found in [Electrictity Consumption Forecasting]({/en/tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/}).
 
+!!! warning "Test dataset requires preprocessing"
+    - To predict using a time series model, you must merge some last part of train dataset for the configured encoder length before the test dataset. e.g. If you set the model encoder length to 860 and the time_idx value of the test data starts from 1000 following the train dataset, the train dataset from time_idx 140 to 999 should be merged before the test data set.
+    
 ```sql
 %%thanosql 
 PREDICT USING elec_predict_model 
