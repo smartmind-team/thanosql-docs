@@ -97,7 +97,8 @@ OPTIONS (
     (search_by={image|text|audio|video}),
     (search_input=expression),
     (emb_col=column_name),
-    [column_name=expression]
+    [column_name=expression],
+    [topk=VALUE]
     )
 ```
 
@@ -107,6 +108,7 @@ OPTIONS (
 - "search_input": 검색할 때 사용할 입력값입니다. (str)
 - "emb_col": 데이터 테이블에서 수치화된 결과를 담은 컬럼의 이름입니다. (str)
 - "result_col": 데이터 테이블에서 검색 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'search_result')
+- "top_k": 반환할 행의 수를 설정합니다. 0을 입력할 시 데이터 테이블 전체를 반환합니다. (int, optional, default: 1000)
 
 __SEARCH VIDEO 예시__
 
@@ -120,7 +122,8 @@ OPTIONS (
     search_by='text',
     search_input='bench press',
     emb_col='convert_result',
-    result_col='score'
+    result_col='score',
+    top_k=10
     )
 AS
 SELECT *

@@ -117,7 +117,7 @@ OPTIONS (
     text_col='review',
     table_name='movie_review_test',
     batch_size=32,
-    result_col="convert_result"
+    result_col='convert_result'
     )
 AS 
 SELECT *
@@ -147,7 +147,8 @@ OPTIONS (
     (search_by={image|text|audio|video}),
     (search_input=expression),
     (emb_col=column_name),
-    [result_col=column_name]
+    [result_col=column_name],
+    [topk=VALUE]
     )
 ```
 
@@ -157,6 +158,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "search_input": defines the input to be used for the search (str)
 - "emb_col": the column that contains the vectorized results (str)
 - "result_col": defines the name of the column that contains the search results (str, optional. default: 'search_result')
+- "top_k": number of rows to return. If set as 0, returns the entire data table (int, optional, default: 1000)
 
 __SEARCH TEXT Example__
 
@@ -165,18 +167,17 @@ An example "__SEARCH TEXT__" query can be found in [Search Text by Text](/en/tut
 ```sql
 SELECT review, sentiment, score
 FROM (
-    SEARCH TEXT text="This movie was my favorite movie of all time"
+    SEARCH TEXT text='This movie was my favorite movie of all time'
     USING movie_text_search_model
     OPTIONS (
-        emb_col="convert_result",
-        column_name="score"
+        emb_col='convert_result',
+        column_name='score',
+        top_k=10
         )
     AS 
     SELECT * 
     FROM movie_review_test
     )
-ORDER BY score DESC 
-LIMIT 10
 ```
 
 ## __SEARCH KEYWORD Syntax__
@@ -226,21 +227,19 @@ __SEARCH KEYWORD Example__
 An example "__SEARCH KEYWORD__" query can be found in [Search Text by Text](/en/tutorials/thanosql_search/search_text_by_text/).
 
 ```sql
-%%thanosql 
-SELECT * FROM (
-    SELECT review, sentiment, json_array_elements(keyword -> 'keyword') AS keywords, json_array_elements(keyword -> 'score') AS score
-        FROM (
-            SEARCH KEYWORD 
-            USING movie_text_search_model
-            OPTIONS (
-                text_col='review',
-                use_stopwords=True
-                )
-            AS 
-            SELECT * 
-            FROM movie_review_test
-            LIMIT 10
+%%thanosql
+SELECT review, sentiment, json_array_elements(keyword -> 'keyword') AS keywords, json_array_elements(keyword -> 'score') AS score
+FROM (
+    SEARCH KEYWORD 
+    USING movie_text_search_model
+    OPTIONS (
+        text_col='review',
+        use_stopwords=True,
+        threshold=0.5
         )
-    ) 
-WHERE score > 0.5
+    AS 
+    SELECT * 
+    FROM movie_review_test
+    LIMIT 10
+    )
 ```

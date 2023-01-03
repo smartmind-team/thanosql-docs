@@ -97,7 +97,8 @@ OPTIONS (
     (search_by={image|text|audio|video}),
     (search_input=expression),
     (emb_col=column_name),
-    [column_name=expression]
+    [column_name=expression],
+    [topk=VALUE]
     )
 ```
 
@@ -107,7 +108,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "search_input": defines the input to be used for the search (str)
 - "emb_col": the column that contains the vectorized results (str)
 - "result_col": defines the name of the column that contains the search results (str, optional, default: 'search_result')
-
+- "top_k": number of rows to return. If set as 0, returns the entire data table (int, optional, default: 1000)
 
 __SEARCH VIDEO Example__
 
@@ -121,7 +122,8 @@ OPTIONS (
     search_by='text',
     search_input='bench press',
     emb_col='convert_result',
-    result_col='score'
+    result_col='score',
+    top_k=10
     )
 AS 
 SELECT * 
