@@ -89,7 +89,7 @@ OPTIONS (
 - "learning_rate": 모델의 학습률입니다. (float, optional, default: 3e-3)
 - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 여부 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (bool, optional, True|False, default: False)
 
-## __BUILD MODEL 예시__
+__BUILD MODEL 예시__
 
 [시계열 예측 모델 만들기]({/ko/tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/})에서 "__BUILD MODEL__" 구문 사용 예시를 확인하실 수 있습니다.
 
@@ -149,7 +149,7 @@ OPTIONS (
 
 - "result_col": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'predict_result')
 
-## __PREDICT 예시__
+__PREDICT 예시__
 
 [시계열 예측 모델 만들기]({/ko/tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/})에서 "__PREDICT__" 구문 사용 예시를 확인하실 수 있습니다.
 
@@ -176,7 +176,7 @@ EVALUATE USING (model_name_expression)
 AS
 (query_expr)
 ```
-## __EVALUATE 예시_
+__EVALUATE 예시__
 
 [시계열 예측 모델 만들기]({/ko/tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/})에서 "__EVALUATE__" 구문 사용 예시를 확인하실 수 있습니다.
 
