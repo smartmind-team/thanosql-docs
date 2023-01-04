@@ -51,7 +51,7 @@ OPTIONS(
     (time_varying_known_categorical_cols=VALUE),
     (time_varying_known_real_cols=VALUE),
     (time_varying_unknown_categorical_cols=VALUE),
-    (time_varying_unknown_real_cols:VALUE),
+    (time_varying_unknown_real_cols=VALUE),
     (special_day_cols=VALUE),
     (allow_missing_timesteps={True|False}),
     [validate={True|False}],
@@ -89,7 +89,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False) (bool, optional, True|False, default: False)
 
 
-__BUILD MODEL Example__
+## __BUILD MODEL Example__
 
 An example "__BUILD MODEL__" query can be found in [Electrictity Consumption Forecasting]({/en/tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/}).
 
@@ -153,14 +153,13 @@ An example "__PREDICT__" query can be found in [Electrictity Consumption Forecas
     - To predict using a time series model, you must merge some last part of train dataset for the configured encoder length before the test dataset. e.g. If you set the model encoder length to 860 and the time_idx value of the test data starts from 1000 following the train dataset, the train dataset from time_idx 140 to 999 should be merged before the test data set.
     
 ```sql
-%%thanosql 
-PREDICT USING elec_predict_model 
-OPTIONS (      
-    result_col="tft_result"
+%%thanosql
+PREDICT USING elec_predict_model
+OPTIONS (
+    result_col='tft_result'
     )
-AS 
-SELECT 
-* 
+AS
+SELECT *
 FROM building_elec_test
 ```
 
@@ -182,10 +181,9 @@ AS
 An example "__EVALUATE__" query can be found in [Electrictity Consumption Forecasting]({/en/tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/}).
 
 ```sql
-%%thanosql  
-EVALUATE USING elec_predict_model 
-AS 
-SELECT 
-*       
+%%thanosql
+EVALUATE USING elec_predict_model
+AS
+SELECT *
 FROM building_elec_test
 ```
