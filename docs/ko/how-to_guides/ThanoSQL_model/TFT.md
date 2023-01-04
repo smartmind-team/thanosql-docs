@@ -53,7 +53,7 @@ OPTIONS (
     (time_varying_known_real_cols=[column_name, ...]),
     (time_varying_unknown_categorical_cols=[column_name, ...]),
     (time_varying_unknown_real_cols=[column_name, ...]),
-    (special_day_cols=[column_name, ...]),
+    [special_day_cols=[column_name, ...]],
     (allow_missing_timesteps={True|False}),
     [validate={True|False}],
     [seed=VALUE],
@@ -66,28 +66,28 @@ OPTIONS (
 
 "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "target_col": 시계열 모델의 목푯값이 담겨 있는 컬럼명 (str, default: 'target')
-- "time_idx_col": 시간 인덱스 컬럼. 시계열 모델을 학습하기 위해 꼭 필요합니다 (int, default: 'time_idx')
-- "max_encoder_length": 모델이 예측할 때 사용할 과거 데이터 최대 길이(time_idx) (int, default: 24)
-- "min_encoder_length": 모델이 예측할 때 사용할 과거 데이터의 최소 길이(time_idx). 기본값은 max_encoder_length 값에 맞춰집니다 (int, optional)
-- "max_prediction_length": 최대 예측 길이. 너무 짧지 않도록 선택합니다 (int, default: 24)
-- "min_prediction_length": 최소 예측 길이. 기본값은 max_encoder_length 값에 맞춰집니다 (str, optional)
-- "group_id_cols": 시계열 식별자 컬럼. 데이터 세트에 여러 시계열이 존재하는 경우 해당 식별자를 리스트 형태로 기재합니다 (List[str])
-- "group_normalizer": GroupNormalizer의 사용 유무. True일 경우 그룹 아이디, 타겟, 시간 인덱스를 사용하여 정규화를 진행합니다 (bool, optional, True|False, default: False)
-- "static_categorical_cols": 시간이 지나도 변하지 않는 범주형 변수 리스트 e.g. 제품 범주 (List[str])
-- "static_real_cols": 시간이 지나도 변하지 않는 연속형 변수 리스트 e.g. 2017년 평균 인구수, 2017년 평균 가계 소득 (str)
-- "time_varying_known_categorical_cols": 시간이 지남에 따라 변경되고 미래 값이 미리 알려진 범주형 변수 리스트 e.g. 공휴일 (List[str])
-- "time_varying_unknown_real_cols": 시간이 지남에 따라 변경되고 미래에 알려지지 않은 연속형 변수 리스트. 여기에 타겟 값을 포함하는 것이 좋습니다 (List[str])
-- "time_varying_known_real_cols": 시간이 지남에 따라 변경되고 미래에 알려진 연속 변수 리스트 (List[str])
-- "time_varying_unknown_categorical_cols": 시간이 지남에 따라 변경되고 미래에 알려지지 않은 범주형 변수 리스트. 항목은 함께 인코딩되는 리스트가 될 수도 있습니다. 여기에 타겟 값을 포함하는 것이 좋습니다 e.g. 날씨 범주 (List[str])
-- "special_day_cols": 동시에 여러 값을 가지는 범주형 변수 리스트 e.g. 공휴일 (List[str], optional)
-- "allow_missing_timesteps": 누락된 시간 인덱스 허용 가능 설정. True일 경우 결측 타임 인덱스에 대한 샘플이 생성됩니다. e.g 특정 시계열에 1,2,4,5에 대한 샘플만 있으면 3에 대한 샘플이 생성됩니다. 단 NA값은 처리하지 않습니다 (bool, optional, True|False, default: False)
-- "validate": 교차검증 사용옵션 (bool, optional, True|False, default: False)
-- "seed": 실험의 재현성을 위해 난수 고정용 값 (int, optional, default: 42)
+- "target_col": 데이터 테이블에서 시계열 예측 모델의 목푯값이 되는 컬럼의 이름입니다. (str, default: 'target')
+- "time_idx_col": 시간 인덱스 컬럼입니다. 시계열 모델을 학습하기 위해 꼭 필요합니다. (int, default: 'time_idx')
+- "max_encoder_length": 모델이 예측할 때 사용할 과거 데이터 최대 길이(time_idx)입니다. (int, default: 24)
+- "min_encoder_length": 모델이 예측할 때 사용할 과거 데이터의 최소 길이(time_idx)입니다. 기본값은 max_encoder_length 값에 맞춰집니다. (int, optional)
+- "max_prediction_length": 최대 예측 길이입니다. 너무 짧지 않도록 선택합니다. (int, default: 24)
+- "min_prediction_length": 최소 예측 길이입니다. 기본값은 max_encoder_length 값에 맞춰집니다. (int, optional)
+- "group_id_cols": 시계열 식별자 컬럼입니다. 데이터 세트에 여러 시계열이 존재하는 경우 해당 식별자를 리스트 형태로 기재합니다. (List[str])
+- "group_normalizer": GroupNormalizer의 사용 유무를 설정합니다. True일 경우 그룹 아이디, 타겟, 시간 인덱스를 사용하여 정규화를 진행합니다. (bool, optional, True|False, default: False)
+- "static_categorical_cols": 시간이 지나도 변하지 않는 범주형 변수 리스트입니다. e.g. 제품 범주 (List[str])
+- "static_real_cols": 시간이 지나도 변하지 않는 연속형 변수 리스트입니다. e.g. 2017년 평균 인구수, 2017년 평균 가계 소득 (str)
+- "time_varying_known_categorical_cols": 시간이 지남에 따라 변경되고 미래 값이 미리 알려진 범주형 변수 리스트입니다. e.g. 공휴일 (List[str])
+- "time_varying_unknown_real_cols": 시간이 지남에 따라 변경되고 미래에 알려지지 않은 연속형 변수 리스트입니다. 여기에 타겟 값을 포함하는 것이 좋습니다. (List[str])
+- "time_varying_known_real_cols": 시간이 지남에 따라 변경되고 미래에 알려진 연속 변수 리스트입니다. (List[str])
+- "time_varying_unknown_categorical_cols": 시간이 지남에 따라 변경되고 미래에 알려지지 않은 범주형 변수 리스트입니다. 항목은 함께 인코딩되는 리스트가 될 수도 있습니다. 여기에 타겟 값을 포함하는 것이 좋습니다. e.g. 날씨 범주 (List[str])
+- "special_day_cols": 동시에 여러 값을 가지는 범주형 변수 리스트입니다. e.g. 공휴일 (List[str], optional)
+- "allow_missing_timesteps": 누락된 시간 인덱스 허용 가능 설정입니다. True일 경우 결측 타임 인덱스에 대한 샘플이 생성됩니다. e.g 특정 시계열에 1,2,4,5에 대한 샘플만 있으면 3에 대한 샘플이 생성됩니다. 단 NA값은 처리하지 않습니다. (bool, True|False, default: False)
+- "validate": 교차검증 사용옵션을 설정합니다. (bool, optional, True|False, default: False)
+- "seed": 실험의 재현성을 위해 난수 고정용 값입니다. (int, optional, default: 42)
 - "batch_size": 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 128)
 - "max_epochs": 모든 학습 데이터 세트를 학습하는 횟수를 설정합니다. (int, optional, default: 30)
 - "learning_rate": 모델의 학습률입니다. (float, optional, default: 3e-3)
-- "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 여부 설정. True일 경우 기존 모델은 새로운 모델로 변경됨 (bool, optional, True|False, default: False)
+- "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 여부 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
 
 __BUILD MODEL 예시__
 

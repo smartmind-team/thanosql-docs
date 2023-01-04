@@ -37,7 +37,7 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
+OPTIONS (
     (target_col=column_name),
     (time_idx_col=column_name),
     (max_encoder_length=VALUE),
@@ -52,7 +52,7 @@ OPTIONS(
     (time_varying_known_real_cols=[column_name, ...]),
     (time_varying_unknown_categorical_cols=[column_name, ...]),
     (time_varying_unknown_real_cols=[column_name, ...]),
-    (special_day_cols=[column_name, ...]),
+    [special_day_cols=[column_name, ...]],
     (allow_missing_timesteps={True|False}),
     [validate={True|False}],
     [seed=VALUE],
@@ -70,7 +70,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "max_encoder_length": maximum length to encode. This is the maximum history length used by the time series dataset (int, default: 24)
 - "min_encoder_length": minimum length to encode. Defaults to 'max_encoder_length' (int, optional, default: 'max_encoder_length')
 - "max_prediction_length": the maximum prediction/decoder length (this should not be too short because it can aid in convergence) (int, default: 24)
-- "min_prediction_length": the minimum prediction/decoder length. Defaults to 'max_prediction_length' (str, optional, default: 'max_prediction_length')
+- "min_prediction_length": the minimum prediction/decoder length. Defaults to 'max_prediction_length' (int, optional, default: 'max_prediction_length')
 - "group_id_cols": list of columns identifying a time series. Together with the time_idx, the group_ids identify a sample. Set this to the constant column name. If you only have one timeseries. (List[str])
 - "group_normalizer": if True, a transformer that takes group_ids, target, and time_idx to normalize targets (bool, optional, True|False, default: False)
 - "static_categorical_cols": list of categorical variables that do not change over time; entries can also be lists, which are then encoded together (e.g. useful for product categories) (List[str])
@@ -79,7 +79,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "time_varying_unknown_real_cols": list of continuous variables that change over time and are not known in the future. You might want to include your target here (List[str])
 - "time_varying_known_real_cols": list of continuous variables that change over time and are known in the future (e.g. price of a product, but not demand of a product) (List[str])
 - "time_varying_unknown_categorical_cols": list of categorical variables that change over time and are not known in the future; entries can also be lists, which are then encoded together (e.g. useful for weather categories). You might want to include your target here. (List[str])
-- "special_day_cols": a list of categorical variables will be combined with a column name of 'speical_days'. This is particularly useful if a categorical variable can have multiple values at the same time. An example are holidays which can be overlapping. (List[str])
+- "special_day_cols": a list of categorical variables will be combined with a column name of 'speical_days'. This is particularly useful if a categorical variable can have multiple values at the same time. An example are holidays which can be overlapping. (List[str], optional)
 - "allow_missing_timesteps": if to allow missing timesteps that are automatically filled up. Missing values refer to gaps in the time_idx, e.g. if a specific timeseries has only samples for 1, 2, 4, 5, the sample for 3 will be generated on-the-fly. Allow missings does not deal with NA values. You should fill NA values before passing the dataframe to the TimeSeriesDataSet (bool, True|False, default: False)
 - "validate": if true, cross validation will be implemented (bool, optional, True|False, default: False)
 - "seed": a number that is used to initialize the pseudorandom number generator. It can have a huge impact on the training results. This lets a model be reproducible (int, optional, default: 42)
