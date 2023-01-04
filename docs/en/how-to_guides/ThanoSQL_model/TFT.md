@@ -38,52 +38,52 @@ __OPTIONS Clause__
 
 ```sql
 OPTIONS(
+    (target_col=column_name),
+    (time_idx_col=column_name),
     (max_encoder_length=VALUE),
     [min_encoder_length=VALUE],
     (max_prediction_length=VALUE),
     [min_prediction_length=VALUE],
-    (time_idx_col=VALUE),
-    (target_col=VALUE),
-    (group_id_cols=VALUE),
+    (group_id_cols=[column_name, ...]),
     [group_normalizer={True|False}]
-    (static_categorical_cols=VALUE),
-    (static_real_cols=VALUE),
-    (time_varying_known_categorical_cols=VALUE),
-    (time_varying_known_real_cols=VALUE),
-    (time_varying_unknown_categorical_cols=VALUE),
-    (time_varying_unknown_real_cols=VALUE),
-    (special_day_cols=VALUE),
+    (static_categorical_cols=[column_name, ...]),
+    (static_real_cols=[column_name, ...]),
+    (time_varying_known_categorical_cols=[column_name, ...]),
+    (time_varying_known_real_cols=[column_name, ...]),
+    (time_varying_unknown_categorical_cols=[column_name, ...]),
+    (time_varying_unknown_real_cols=[column_name, ...]),
+    (special_day_cols=[column_name, ...]),
     (allow_missing_timesteps={True|False}),
     [validate={True|False}],
+    [seed=VALUE],
     [batch_size=VALUE],
     [max_epochs=VALUE],
     [learning_rate=VALUE],
-    [seed=VALUE],
     [overwrite={True|False}]
     )
 ```
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "target_col": column denoting the target or list of columns denoting the target - categorical or continous (str, default: 'target')
-- "time_idx_col": integer column denoting the time index. This columns is used to determine the sequence of samples. If there no missings observations, the time index should increase by +1 for each subsequent sample. The first time_idx for each series does not necessarily have to be 0 but any value is allowed (int, default: 'time_idx')
+- "target_col": a column representing the target, which can be categorical or continuous (str, default: 'target')
+- "time_idx_col": an integer column representing the time index. This column is used to determine the sequence of samples. If there are no missing observations, the time index should increase by 1 for each subsequent sample. The first 'time_idx' for each series does not necessarily have to be 0, but any value is allowed (str, default: 'time_idx')
 - "max_encoder_length": maximum length to encode. This is the maximum history length used by the time series dataset (int, default: 24)
-- "min_encoder_length": minimum allowed length to encode. Defaults to max_encoder_length (int, optional, default: 'max_encoder_length')
-- "max_prediction_length": maximum prediction/decoder length (choose this not too short as it can help convergence) (int, default: 24)
-- "min_prediction_length": minimum prediction/decoder length. Defaults to max_prediction_length (str, optional, default: 'max_prediction_length')
-- "group_id_cols": list of column names identifying a time series. This means that the group_ids identify a sample together with the time_idx. If you have only one timeseries, set this to the name of column that is constant (List[str], default: [])
-- "group_normalizer": if True, transformer that take group_ids, target and time_idx to normalize targets (bool, optional, default: False)
-- "static_categorical_cols": list of categorical variables that do not change over time, entries can be also lists which are then encoded together (e.g. useful for product categories) (List[str], default: [])
+- "min_encoder_length": minimum length to encode. Defaults to 'max_encoder_length' (int, optional, default: 'max_encoder_length')
+- "max_prediction_length": the maximum prediction/decoder length (this should not be too short because it can aid in convergence) (int, default: 24)
+- "min_prediction_length": the minimum prediction/decoder length. Defaults to 'max_prediction_length' (str, optional, default: 'max_prediction_length')
+- "group_id_cols": list of columns identifying a time series. Together with the time_idx, the group_ids identify a sample. Set this to the constant column name. If you only have one timeseries. (List[str], default: [])
+- "group_normalizer": if True, a transformer that takes group_ids, target, and time_idx to normalize targets (bool, optional, default: False)
+- "static_categorical_cols": list of categorical variables that do not change over time; entries can also be lists, which are then encoded together (e.g. useful for product categories) (List[str], default: [])
 - "static_real_cols": list of continuous variables that do not change over time (str, default: [])
-- "time_varying_known_categorical_cols": list of categorical variables that change over time and are known in the future, entries can be also lists which are then encoded together (e.g. useful for special days or promotion categories) (List[str], default: [])
+- "time_varying_known_categorical_cols": list of categorical variables that change over time and are known in the future; entries can also be lists, which are then encoded together (e.g. useful for special days or promotion categories) (List[str], default: [])
 - "time_varying_unknown_real_cols": list of continuous variables that change over time and are not known in the future. You might want to include your target here (List[str], default: [])
 - "time_varying_known_real_cols": list of continuous variables that change over time and are known in the future (e.g. price of a product, but not demand of a product) (List[str], default: [])
-- "time_varying_unknown_categorical_cols": list of categorical variables that change over time and are not known in the future, entries can be also lists which are then encoded together (e.g. useful for weather categories). You might want to include your target here. (List[str], default: [])
-- "special_day_cols": list of categorical variables will be combined with a column name of 'speical_days'. This is particularly useful if a categorical variable can have multiple values at the same time. An example are holidays which can be overlapping. (List[str], default: [])
+- "time_varying_unknown_categorical_cols": list of categorical variables that change over time and are not known in the future; entries can also be lists, which are then encoded together (e.g. useful for weather categories). You might want to include your target here. (List[str], default: [])
+- "special_day_cols": a list of categorical variables will be combined with a column name of 'speical_days'. This is particularly useful if a categorical variable can have multiple values at the same time. An example are holidays which can be overlapping. (List[str], default: [])
 - "allow_missing_timesteps": if to allow missing timesteps that are automatically filled up. Missing values refer to gaps in the time_idx, e.g. if a specific timeseries has only samples for 1, 2, 4, 5, the sample for 3 will be generated on-the-fly. Allow missings does not deal with NA values. You should fill NA values before passing the dataframe to the TimeSeriesDataSet (bool, default: False)
 - "validate": if true, cross validation will be implemented (bool, optional, default: False)
-- "seed": a number that is used to initialize the pseudorandom number generator. It can have a huge impact on the training results. This let a model be reproducible (int, optional, default: 42)
-- "batch_size" is the size of dataset bundle utilized in a single cycle of training (int, optional, default: 128)
+- "seed": a number that is used to initialize the pseudorandom number generator. It can have a huge impact on the training results. This lets a model be reproducible (int, optional, default: 42)
+- "batch_size" is the size of the dataset bundle utilized in a single cycle of training (int, optional, default: 128)
 - "max_epochs": number of times to train with the training dataset (int, optional, default: 30)
 - "learning_rate": the learning rate of the model (float, optional, default: 3e-3)
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False) (bool, optional, True|False, default: False)
@@ -150,12 +150,12 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 An example "__PREDICT__" query can be found in [Electrictity Consumption Forecasting]({/en/tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/}).
 
 !!! warning "Test dataset requires preprocessing"
-    - To predict using a time series model, you must merge some last part of train dataset for the configured encoder length before the test dataset. e.g. If you set the model encoder length to 860 and the time_idx value of the test data starts from 1000 following the train dataset, the train dataset from time_idx 140 to 999 should be merged before the test data set.
+    - To predict using a time series model, you must merge the train dataset with the configured encoder length as an answer to the test dataset. e.g. If you set the model encoder length to 860 and the test dataset's "time_idx" starts at 1000, the "time_idx" of 140–999 data points should be merged into the test dataset.
     
 ```sql
-%%thanosql
-PREDICT USING elec_predict_model
-OPTIONS (
+%%thanosql 
+PREDICT USING elec_predict_model 
+OPTIONS (      
     result_col='tft_result'
     )
 AS

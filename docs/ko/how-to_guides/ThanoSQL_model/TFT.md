@@ -39,27 +39,27 @@ __OPTIONS 절__
 
 ```sql
 OPTIONS (
+    (target_col=column_name),
+    (time_idx_col=column_name),
     (max_encoder_length=VALUE),
     [min_encoder_length=VALUE],
     (max_prediction_length=VALUE),
     [min_prediction_length=VALUE],
-    (time_idx_col=VALUE),
-    (target_col=VALUE),
-    (group_id_cols=VALUE),
+    (group_id_cols=[column_name, ...]),
     [group_normalizer={True|False}]
-    (static_categorical_cols=VALUE),
-    (static_real_cols=VALUE),
-    (time_varying_known_categorical_cols=VALUE),
-    (time_varying_known_real_cols=VALUE),
-    (time_varying_unknown_categorical_cols=VALUE),
-    (time_varying_unknown_real_cols=VALUE),
-    (special_day_cols=VALUE), 
+    (static_categorical_cols=[column_name, ...]),
+    (static_real_cols=[column_name, ...]),
+    (time_varying_known_categorical_cols=[column_name, ...]),
+    (time_varying_known_real_cols=[column_name, ...]),
+    (time_varying_unknown_categorical_cols=[column_name, ...]),
+    (time_varying_unknown_real_cols=[column_name, ...]),
+    (special_day_cols=[column_name, ...]),
     (allow_missing_timesteps={True|False}),
     [validate={True|False}],
+    [seed=VALUE],
     [batch_size=VALUE],
     [max_epochs=VALUE],
     [learning_rate=VALUE],
-    [seed=VALUE],
     [overwrite={True|False}]
     )
 ```
