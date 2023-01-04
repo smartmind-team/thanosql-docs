@@ -17,13 +17,16 @@ The "__COPY__" statement allows users to create data tables in the ThanoSQL work
 
 ```sql
 COPY (table_name_expression)
-OPTIONS (overwrite=True)
+OPTIONS (
+    expression [ , ...]
+    )
 FROM (file_path | dir_path)
 ```
 
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
         - "overwrite": determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (bool, optional, True|False, default: False)
+        - "chunksize": the number of rows in each batch to be written at a time. By default, all rows will be written at once (int, optonal, default: 1000)
 
 ## __3. COPY Example__
 
