@@ -20,8 +20,6 @@ To use **ThanoSQL** in this environment, you must first load the **ThanoSQL cell
 ## **2. Set API_TOKEN**
 
 Next, to set the workspace's API_TOKEN, press the **Get API_TOKEN** button at the top of the browser to copy the API Token then paste it into the cell as shown.
-!!! danger
-    You can always get a new API token, but please note that when you get a new one, you can no longer use the previously issued token.
 
 !!! tip "With the generated API token, you can use all of the ThanoSQL`s REST APIs"
     For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](/en/how-to_guides/reference/#thanosql-rest-api-reference)
