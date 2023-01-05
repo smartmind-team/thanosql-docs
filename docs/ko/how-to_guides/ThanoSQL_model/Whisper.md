@@ -110,4 +110,7 @@ OPTIONS (
 - "audio_col": 데이터 테이블에서 평가의 대상이 될 오디오 파일들의 경로를 담은 컬럼의 이름입니다. (str, default: 'audio_path')
 - "batch_size": 한 번의 평가에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 16)
 - "language": 오디오 파일의 주요 사용 언어를 설정합니다. ‘auto’일 경우 모델이 인식할 수 있는 99가지 언어 중 하나로 인식합니다. (str, default: 'auto')
+- "task": 실행할 작업의 종류를 설정합니다. (str, 'transcribe'|'translate', default: 'transcribe')
+> "transcribe": 음성 인식을 합니다.  
+> "translate": 인식된 음성을 영어로 출력합니다. 이 과정은 ‘한국어 음성‘을 바로 ‘영어 텍스트‘로 번역하는 것으로, 중간에 ‘한국어 텍스트’를 거치지 않는 다는 점이 일반적인 번역 태스크와 다릅니다.
 - "text_col": 데이터 테이블에서 목푯값의 정보를 담은 컬럼의 이름입니다. (str, default: 'text')

@@ -114,7 +114,7 @@ __CONVERT 예시__
 %%thanosql
 CONVERT USING my_image_search_model
 OPTIONS (
-    table_name= 'mnist_test',
+    table_name='mnist_test',
     image_col='image_path',
     result_col='convert_result'
     )

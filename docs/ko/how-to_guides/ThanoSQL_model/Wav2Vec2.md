@@ -70,7 +70,7 @@ OPTIONS (
     text_col='text',
     max_epochs=1,
     batch_size=4,
-    overwrite= True
+    overwrite=True
     )
 AS
 SELECT *

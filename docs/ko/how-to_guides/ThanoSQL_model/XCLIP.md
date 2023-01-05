@@ -97,7 +97,7 @@ OPTIONS (
     (search_by={image|text|audio|video}),
     (search_input=expression),
     (emb_col=column_name),
-    [column_name=expression],
+    [result_col=expression],
     [top_k=VALUE]
     )
 ```

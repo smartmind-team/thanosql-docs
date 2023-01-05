@@ -68,8 +68,8 @@ USING Wav2Vec2En
 OPTIONS (
   audio_col='audio_path',
   text_col='text',
+  batch_size=4,
   max_epochs=1,
-  batch_size=4 ,
   overwrite=True
   )
 AS

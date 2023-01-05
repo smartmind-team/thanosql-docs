@@ -69,8 +69,8 @@ USING ElectraEn
 OPTIONS (
   text_col='review',
   label_col='sentiment',
-  max_epochs=1,
   batch_size=4,
+  max_epochs=1,
   overwrite=True
   )
 AS

@@ -83,7 +83,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "allow_missing_timesteps": if to allow missing timesteps that are automatically filled up. Missing values refer to gaps in the time_idx, e.g. if a specific timeseries has only samples for 1, 2, 4, 5, the sample for 3 will be generated on-the-fly. Allow missings does not deal with NA values. You should fill NA values before passing the dataframe to the TimeSeriesDataSet (bool, True|False, default: False)
 - "validate": if true, cross validation will be implemented (bool, optional, True|False, default: False)
 - "seed": a number that is used to initialize the pseudorandom number generator. It can have a huge impact on the training results. This lets a model be reproducible (int, optional, default: 42)
-- "batch_size" is the size of the dataset bundle utilized in a single cycle of training (int, optional, default: 128)
+- "batch_size": the size of the dataset bundle utilized in a single cycle of training (int, optional, default: 128)
 - "max_epochs": number of times to train with the training dataset (int, optional, default: 30)
 - "learning_rate": the learning rate of the model (float, optional, default: 3e-3)
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)

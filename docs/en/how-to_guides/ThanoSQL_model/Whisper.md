@@ -110,4 +110,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "audio_col": the name of the column containing the audio path to be used for evaluation (str, default: 'audio_path')
 - "batch_size": the size of dataset bundle utilized in a single cycle of evaluation (int, optional, default: 16)
 - "language": specifies the language of the audio file. If selected as ‘auto’, the model will recognize the language from the available pool of 99 languages (str, default: 'auto')
+- "task": type of work to do (str, 'transcribe'|'translate', default: 'transcribe')
+> "transcribe": the task of recognizing speech
+> "translate": the task of translating recognized speech back into English. This process is different from the ordinary translating task in that it translates Korean speech directly into English text, skipping the middle task of translating to Korean text
 - "text_col": the name of the column containing information about the target (str, default: 'text')

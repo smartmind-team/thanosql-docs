@@ -78,8 +78,8 @@ BUILD MODEL titanic_automl_classification
 USING AutomlClassifier 
 OPTIONS (
     target_col='survived', 
-    impute_type='iterative',  
     features_to_drop=['name', 'ticket', 'passengerid', 'cabin'],
+    impute_type='iterative',  
     time_left_for_this_task=300,
     overwrite=True
     ) 

@@ -169,7 +169,7 @@ __PREDICT 예시__
 PREDICT USING bike_regression
 OPTIONS (
     result_col='predict_result',
-    table_namme='bike_sharing_test'
+    table_name='bike_sharing_test'
     )
 AS
 SELECT *

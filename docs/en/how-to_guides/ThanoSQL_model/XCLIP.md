@@ -64,8 +64,8 @@ An example "__CONVERT__" query can be found in [Search Video by Text](/en/tutori
 %%thanosql
 CONVERT USING tutorial_search_xclip
 OPTIONS (
-    video_col='video_path',
     table_name='kinetics700',
+    video_col='video_path',
     result_col='convert_result'
     )
 AS
@@ -97,7 +97,7 @@ OPTIONS (
     (search_by={image|text|audio|video}),
     (search_input=expression),
     (emb_col=column_name),
-    [column_name=expression],
+    [result_col=expression],
     [top_k=VALUE]
     )
 ```

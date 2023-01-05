@@ -41,7 +41,7 @@ __OPTIONS Clause__
 OPTIONS (
     (image_col=column_name),
     (label_col=column_name),
-    [batch_size = VALUE],
+    [batch_size=VALUE],
     [max_epochs=VALUE],
     [learning_rate=VALUE],
     [input_size=VALUE],
@@ -101,7 +101,7 @@ AS
 OPTIONS (
     (image_col=column_name),
     (label_col=column_name),
-    [batch_size = VALUE],
+    [batch_size=VALUE],
     [max_epochs=VALUE],
     [learning_rate=VALUE],
     [input_size=VALUE],
