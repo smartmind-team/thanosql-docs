@@ -55,3 +55,4 @@ FROM product_image_test
     - Wav2Vec2 모델 - Wav2Vec2Ko, Wav2Vec2En
     - Whisper 모델 - Whisper
     - ViLT 모델 - ViLT
+    - TFT 모델 - TFT

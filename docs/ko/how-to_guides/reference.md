@@ -36,6 +36,7 @@ title: 개요
 - [__Whisper__](/ko/how-to_guides/ThanoSQL_model/Whisper/) — 음성 인식 모델 2
 - [__XCLIP__](/ko/how-to_guides/ThanoSQL_model/XCLIP/) — 텍스트로 비디오 검색 모델
 - [__ViLT__](/ko/how-to_guides/ThanoSQL_model/ViLT/) — 시각 질의 응답 모델
+- [__TFT__](/ko/how-to_guides/ThanoSQL_model/TFT/) — 시계열 예측 모델
 
 ### __ThanoSQL Function Statement Reference__ 
 - [__Compute__](/ko/how-to_guides/ThanoSQL_function/Compute/) — 데이터 계산

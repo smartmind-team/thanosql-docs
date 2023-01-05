@@ -35,6 +35,7 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__Whisper__](/en/how-to_guides/ThanoSQL_model/Whisper/) — Speech Recognition Model 2 
 - [__XCLIP__](/en/how-to_guides/ThanoSQL_model/XCLIP/) — Video Search Model With Text 
 - [__ViLT__](/en/how-to_guides/ThanoSQL_model/ViLT/) — Visual Question Answering Model 
+- [__TFT__](/en/how-to_guides/ThanoSQL_model/TFT/) — Time Series Forecasting Model
 
 ### __ThanoSQL Function Statement Reference__ 
 - [__Compute__](/en/how-to_guides/ThanoSQL_function/Compute/) — Compute Data 

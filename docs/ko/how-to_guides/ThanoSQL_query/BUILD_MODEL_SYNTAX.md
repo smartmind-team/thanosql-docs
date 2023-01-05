@@ -62,3 +62,4 @@ FROM titanic_train
     - Wav2Vec2 모델 - Wav2Vec2Ko, Wav2Vec2En
     - SimCLR 모델 - SimCLR
     - SBERT 모델 - SBERTKo, SBERTEn
+    - TFT 모델 - TFT

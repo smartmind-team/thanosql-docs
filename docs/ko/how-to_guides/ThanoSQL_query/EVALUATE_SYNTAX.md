@@ -60,3 +60,4 @@ FROM titanic_train
     - Electra 모델 - ElectraKo, ElectraEn
     - Wav2Vec2 모델 - Wav2Vec2Ko, Wav2Vec2En
     - Whisper 모델 - Whisper
+    - TFT 모델 - TFT
