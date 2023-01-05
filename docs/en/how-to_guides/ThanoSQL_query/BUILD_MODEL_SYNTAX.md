@@ -62,3 +62,4 @@ FROM titanic_train
     - Wav2Vec2 Model - Wav2Vec2Ko, Wav2Vec2En
     - SimCLR Model - SimCLR
     - SBERT Model - SBERTKo, SBERTEn
+    - TFT Model - TFT

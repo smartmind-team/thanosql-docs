@@ -62,3 +62,4 @@ FROM titanic_train
     - Electra Model - ElectraKo, ElectraEn
     - Wav2Vec2 Model - Wav2Vec2Ko, Wav2Vec2En
     - Whisper Model - Whisper
+    - TFT Model - TFT
