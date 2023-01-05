@@ -167,11 +167,13 @@ An example "__SEARCH TEXT__" query can be found in [Search Text by Text](/en/tut
 ```sql
 SELECT review, sentiment, score
 FROM (
-    SEARCH TEXT text='This movie was my favorite movie of all time'
+    SEARCH TEXT 
     USING movie_text_search_model
     OPTIONS (
+        search_by='text',
+        search_input='This movie was my favorite movie of all time',
         emb_col='convert_result',
-        column_name='score',
+        result_col='score',
         top_k=10
         )
     AS 

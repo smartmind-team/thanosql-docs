@@ -50,7 +50,7 @@ OPTIONS (
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "target_col": the name of the column containing the target value of the classification model (str, default: 'target') 
+- "target_col": the name of the column containing the target value of the regression model (str, default: 'target') 
 - "features_to_drop": selects columns that cannot be used for training (list[str], optional)
 - "impute_type": determines how empty values ​​(NaNs) are handled (str, optional, 'simple'|'iterative' , default: 'simple')  
 > "simple": for empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean
@@ -60,7 +60,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 > "knn": use a K-NN-based approach to detect abnormal samples based on the distance between each data.  
 > "iso": use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples (Works efficiently on datasets with many variables)  
 > "pca": detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis(PCA)
-- "time_left_for_this_task": the total time given to find a suitable classification model in seconds (int, optional, default: 60)
+- "time_left_for_this_task": the total time given to find a suitable regression model in seconds (int, optional, default: 60)
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
 __BUILD MODEL Example__
@@ -118,7 +118,7 @@ OPTIONS (
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "target_col": the name of the column containing the target value of the classification model (str, default: 'target') 
+- "target_col": the name of the column containing the target value of the regression model (str, default: 'target') 
 - "features_to_drop": selects columns that cannot be used for training (list[str], optional)
 - "impute_type": determines how empty values ​​(NaNs) are handled (str, optional, 'simple'|'iterative' , default: 'simple')  
 > "simple": for empty values, categorical variables are treated as the most common value and continuous variables are treated as the mean
@@ -128,7 +128,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 > "knn": use a K-NN-based approach to detect abnormal samples based on the distance between each data.  
 > "iso": use Isolation Forest to randomly branch the data table on a tree basis, isolate all observations, and detect abnormal samples (Works efficiently on datasets with many variables)  
 > "pca": detect abnormal samples by reducing and restoring dimensions using the Principal Component Analysis(PCA)
-- "time_left_for_this_task": the total time given to find a suitable classification model in seconds (int, optional, default: 300)
+- "time_left_for_this_task": the total time given to find a suitable regression model in seconds (int, optional, default: 300)
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
 
@@ -210,7 +210,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __EVALUATE Example__
 
-A sample EVALUATE query can be found in [Create a Regression Model Using AutoML](/en/tutorials/thanosql_ml/regression/automl_regression/).
+A sample __EVALUATE__ query can be found in [Create a Regression Model Using AutoML](/en/tutorials/thanosql_ml/regression/automl_regression/).
 
 ```sql
 %%thanosql
