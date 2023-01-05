@@ -20,6 +20,8 @@ theme:
 
 plugins:
   - search # Built-in search plugin
+  - mkdocs-jupyter: # Currently not using. If going to use, run pipenv install mkdocs-jupyter
+      include_source: True # Enable download ipynb files
   # Multiple language versions
   - i18n:
       default_language: en
@@ -36,7 +38,8 @@ plugins:
           How to guides: Reference
           ThanoSQL query: ThanoSQL Statement Reference
           ThanoSQL connecting: ThanoSQL REST API Reference
-          ThanoSQL model: ThanoSQL Pre-built Model Statement Reference
+          ThanoSQL model: ThanoSQL Model Statement Reference
+          ThanoSQL function: ThanoSQL Function Statement Reference
           FAQ: FAQ
         ko:
           Getting started: 시작하기
@@ -50,7 +53,8 @@ plugins:
           How to guides: 참조
           ThanoSQL query: ThanoSQL Statement Reference
           ThanoSQL connecting: ThanoSQL REST API Reference
-          ThanoSQL model: ThanoSQL Pre-built Model Statement Reference
+          ThanoSQL model: ThanoSQL Model Statement Reference
+          ThanoSQL function: ThanoSQL Function Statement Reference
           Thanosql api: REST API 사용하기
           FAQ: 자주 묻는 질문
   - awesome-pages: # Omits nav and control over page
@@ -58,8 +62,6 @@ plugins:
   # Adding the date of last update
   - git-revision-date-localized:
       type: iso_date # Format yyyy-mm-dd
-  # - mkdocs-jupyter: # Currently not using. If going to use, run pipenv install mkdocs-jupyter
-  #     include_source: True # Enable download ipynb files
 
 # Extensions
 markdown_extensions:

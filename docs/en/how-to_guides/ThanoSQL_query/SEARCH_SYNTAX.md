@@ -11,31 +11,41 @@ The "__SEARCH__" statement allows users to search for content, meaning, or simil
 ## __2. SEARCH Syntax__
 
 ```sql
-%%thanosql
-SEARCH IMAGE | AUDIO | VIDEO [input_data_used_for_searching]
-USING [AI_model_to_use]
-OPTIONS ([option_values_​​required_for_search])
-AS [dataset_to_use]
-```
+query_statement:
+    query_expr
 
-!!! note "__Query Details__"
-    - The "__OPTIONS__" clause can change the value of a parameter. The meaning of each parameter is as follows:
-        - "table_name": the name of the new table to be created.
+SEARCH { IMAGE | AUDIO | VIDEO | TEXT | KEYWORD }
+USING (model_name_expression)
+OPTIONS (
+    expression [ , ...]
+    )
+AS
+(query_expr)
+```
 
 ## __3. SEARCH Example__
 
 !!! note
-    - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to the [ThanoSQL Pre-built Model Statement Reference](/en/how-to_guides/reference/#thanosql-pre-built-model-statement-reference)
-    - Since the example works only when a specific model and dataset exist, it may not run normally when copied and used as it is.
+    - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to the [ThanoSQL Model Statement Reference](/en/how-to_guides/reference/#thanosql-model-statement-reference)
+    - Because the example only works when a specific model and dataset are present, it may not run normally if copied and used as is.
 
 ```sql
 %%thanosql
-SEARCH IMAGE images='tutorial_data/mnist_data/test/923.jpg' 
-USING mymodel
+SEARCH IMAGE
+USING my_image_search_model
 OPTIONS (
-    table_name='search_result_table'
-) 
-AS 
-SELECT * 
+    search_by='image',
+    search_input='thanosql-dataset/mnist_data/test/923.jpg',
+    emb_col='convert_result',
+    result_col='search_result'
+    )
+AS
+SELECT *
 FROM mnist_test
 ```
+
+!!! note "AI Models That Can Be Used with '__SEARCH__ Statement'"
+    - SimCLR Model - SimCLR
+    - CLIP Model - CLIP
+    - XCLIP Model - XCLIP
+    - SBERT Model - SBERTKo, SBERTEn

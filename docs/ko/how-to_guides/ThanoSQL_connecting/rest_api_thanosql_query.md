@@ -8,7 +8,7 @@ REST API를 사용하여 ThanoSQL 콘솔상에서 사용하던 쿼리들을 사�
 
 === "Python"
 
-    ``` python
+    ```python
     import requests
 
     api_token = "발급받은_API_TOKEN"
@@ -33,7 +33,7 @@ REST API를 사용하여 ThanoSQL 콘솔상에서 사용하던 쿼리들을 사�
 
 === "cURL"
 
-    ``` shell 
+    ```shell 
     curl -X 'POST' \
       'https://engine.thanosql.ai/api/v1/query/' \
       -H 'accept: application/json' \

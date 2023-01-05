@@ -1,4 +1,4 @@
 nav:
-    - automl_classification.md
-    - image_classification.md
-    - text_classification.md
+    - automl_classification.ipynb
+    - image_classification.ipynb
+    - text_classification.ipynb

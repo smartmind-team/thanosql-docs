@@ -1,3 +1,3 @@
 nav:
-    - speech_recognition.md
-    - speech_recognition2.md
+    - speech_recognition.ipynb
+    - speech_recognition2.ipynb

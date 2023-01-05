@@ -3,4 +3,5 @@ nav:
     - regression
     - audio_recognition
     - question_answering
-    - udm_tutorial.md
+    - timeseries
+    - udm_tutorial.ipynb

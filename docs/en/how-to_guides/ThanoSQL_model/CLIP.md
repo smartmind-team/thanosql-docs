@@ -19,14 +19,15 @@ __Notation Conventions__
 
 ## __CONVERT Syntax__
 
-The "__CONVERT__" statement converts image data from an existing table into a vector and adds it to the table.
+Use the "__CONVERT__" statement to convert data into the vectors and add it to the table.
 
 ```sql
-CONVERT USING clip_en
-OPTIONS(
-    (table_name = expression),
-    (image_col = column_name),
-    [batch_size = VALUE]
+query_statement:
+    query_expr
+
+CONVERT USING (model_name_expression)
+OPTIONS (
+    expression [ , ...]
     )
 AS
 (query_expr)
@@ -35,60 +36,97 @@ AS
 __OPTIONS Clause__
 
 ```sql
-OPTIONS(
-    (table_name=expression),
+OPTIONS (
+    [table_name=expression],
     (image_col=column_name),
-    [batch_size=VALUE]
-)
+    (text_col=column_name),
+    (convert_type={'image'|'text'}),
+    [batch_size=VALUE],
+    [result_col=column_name]
+    )
 ```
 
-The "__OPTIONS__" clause allows you to change the value of a parameter in the model. The definition of each parameter is as follows.
+The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "table_name": the name of the new table to be created.
-- "image_col": the name of the column containing the image path. (default: 'image_path')
-- "batch_size": the size of the dataset bundle read during a single train. (default: 16)
+- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
+- "image_col": the name of the column containing the image path (str, default: 'image_path')
+- "text_col": the name of the column containing the text (str, default: 'text')
+- "convert_type": file type for vectorization (str, 'image'|'text', default: 'image')
+- "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16) 
+- "result_col": defines the column name that contains the vectorized results (str, optional, default: 'convert_result')
+
 
 __CONVERT Example__
 
-Examples of CONVERT queries can be found in [Image search with text](/en/tutorials/thanosql_search/search_image_by_text/).
+An example "__CONVERT__" query can be found in [Search Image by Text](/en/tutorials/thanosql_search/search_image_by_text/).
 
 ```sql
 %%thanosql
 CONVERT USING tutorial_search_clip
 OPTIONS (
-    image_col="image_path",
-    table_name="unsplash_data",
-    batch_size=128
+    table_name='unsplash_data',
+    image_col='image_path', 
+    convert_type='image',
+    batch_size=128,
+    result_col='convert_result'
     )
-AS
+AS 
 SELECT *
 FROM unsplash_data
 ```
 
-## __SEARCH Syntax__
+## __SEARCH IMAGE Syntax__
 
-You can use the "__SEARCH__" statement to retrieve the desired image from the table that generated the vectors.
+Use the "__SEARCH IMAGE__" statement to retrieve the desired image data.
 
 ```sql
-SEARCH IMAGE ({text|texts|image|images} = expression)
-USING clip_en
+query_statement:
+    query_expr
+    
+SEARCH IMAGE 
+USING (model_name_expression)
+OPTIONS (
+    expression [ , ...]
+    )
 AS
 (query_expr)
 ```
 
-!!! note ""
-    - You must choose one of (text | texts) or (image | images) as an input.  
-    - The input must be a string (e.g., 'a black cat', 'data/image/image01.jpg') or a list of strings (e.g., ['a black cat', 'a orange cat'], ['data/image/image01.jpg', 'data/image/image02.jpg']).
+__OPTIONS Clause__
 
-__SEARCH Example__
+```sql
+OPTIONS (
+    (search_by={image|text|audio|video}),
+    (search_input=expression),
+    (emb_col=column_name),
+    [result_col=expression],
+    [top_k=VALUE]
+    )
+```
 
-Examples of SEARCH queries can be found in [Image search with text](/en/tutorials/thanosql_search/search_image_by_text/).
+The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
+
+- "search_by": defines the image|text|audio|video type to be used for the search (str)
+- "search_input": defines the input to be used for the search (str)
+- "emb_col": the column that contains the vectorized results (str)
+- "result_col": defines the name of the column that contains the search results (str, optional, default: 'search_result')
+- "top_k": number of rows to return. If set as None, returns the entire data table (int, optional, default: 1000)
+
+__SEARCH IMAGE Example__
+
+An example "__SEARCH IMAGE__" query can be found in [Search Image by Text](/en/tutorials/thanosql_search/search_image_by_text/).
 
 ```sql
 %%thanosql
-SEARCH IMAGE text="a black cat"
+SEARCH IMAGE 
 USING tutorial_search_clip
-AS
-SELECT *
+OPTIONS (
+    search_by='text',
+    search_input='a black cat',
+    emb_col='convert_result',
+    result_col='search_result'
+    )
+AS 
+SELECT * 
 FROM unsplash_data
 ```
