@@ -21,5 +21,5 @@ DELETE MODEL (model_name_expression)
 DELETE MODEL mymodel
 ```
 
-!!! note "AI models that can be used with '__DELETE MODEL__ statement'"
+!!! note "AI Models That Can Be Used with '__DELETE MODEL__ Statement'"
     - All models created, uploaded, or imported within the ThanoSQL workspace.

@@ -13,10 +13,9 @@ The "__UPLOAD MODEL__" statement allows users to upload their custom models to b
 ```sql
 UPLOAD MODEL (model_name_expression)
 OPTIONS (
-    framework=[model_framework],
-    overwrite=True
+    expression [ , ...]
     ) 
-FROM [model_path_expression]
+FROM (model_path_expression)
 ```
 
 !!! note "__Query Details__"

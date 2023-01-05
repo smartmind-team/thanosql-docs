@@ -15,7 +15,7 @@ query_statement:
     query_expr
 
 BUILD MODEL (model_name_expression)
-USING {model_name_expression}
+USING (model_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -52,7 +52,7 @@ SELECT *
 FROM titanic_train
 ```
 
-!!! note "AI models that can be used with '__BUILD MODEL__ statement'"
+!!! note "AI Models That Can Be Used with '__BUILD MODEL__ Statement'"
     - AutoML Classification model - AutomlClassifier
     - AutoML Regression model - AutomlRegressor
     - ConvNeXT Model - ConvNeXt_Tiny, ConvNeXt_Base

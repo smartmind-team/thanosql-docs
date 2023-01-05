@@ -20,7 +20,7 @@ COPY (table_name_expression)
 OPTIONS (
     expression [ , ...]
     )
-FROM (file_path | dir_path)
+FROM {file_path | dir_path}
 ```
 
 !!! note "쿼리 세부 정보"
@@ -32,7 +32,7 @@ FROM (file_path | dir_path)
 
 ### __3-1. 데이터 파일 사용시__
 
-아래 예는 "COPY" 구문에 사용자가 정의한 example.csv 파일을 사용하는 방법을 보여줍니다. 정의된 데이터 파일은 ThanoSQL Engine을 통해 데이터베이스의 테이블로 생성됩니다.
+아래 예는 "__COPY__" 구문에 사용자가 정의한 example.csv 파일을 사용하는 방법을 보여줍니다. 정의된 데이터 파일은 ThanoSQL Engine을 통해 데이터베이스의 테이블로 생성됩니다.
 
 ```sql
 %%thanosql
@@ -43,7 +43,7 @@ FROM 'data/example.csv'
 
 ### __3-2. 데이터 폴더 사용시__
 
-아래 예는 "COPY" 구문에 사용자가 정의한 diet_image_data 폴더를 사용하는 방법을 보여줍니다. 정의된 데이터 폴더는 ThanoSQL Engine을 통해 데이터베이스의 테이블로 생성됩니다.
+아래 예는 "__COPY__" 구문에 사용자가 정의한 diet_image_data 폴더를 사용하는 방법을 보여줍니다. 정의된 데이터 폴더는 ThanoSQL Engine을 통해 데이터베이스의 테이블로 생성됩니다.
 
 !!! note "__데이터 폴더 COPY 사용법__"
     - 이미지, 오디오, 혹은 비디오가 있는 데이터 폴더의 경로를 입력하면 "__COPY__" 구문이 폴더 내의 각각의 파일들을 자동으로 행으로 변화하여 데이터 테이블로 재생성합니다.
@@ -57,7 +57,7 @@ FROM 'diet_image_data/'
 
 ### __3-3. Pandas 데이터프레임 사용시__
 
-아래 예는 "COPY" 구문에 사용자가 정의한 Pandas 데이터프레임을 사용하는 방법을 보여줍니다. 정의된 데이터프레임은 ThanoSQL Engine을 통해 데이터베이스의 테이블로 생성됩니다.
+아래 예는 "__COPY__" 구문에 사용자가 정의한 Pandas 데이터프레임을 사용하는 방법을 보여줍니다. 정의된 데이터프레임은 ThanoSQL Engine을 통해 데이터베이스의 테이블로 생성됩니다.
 
 #### Pandas 데이터프레임 준비
 ```python

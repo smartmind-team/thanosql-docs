@@ -53,7 +53,7 @@ FROM titanic_train
 | `AutomlRegressor`    | MAE, MSE, R2, RMSLE, MAPE|
 
 
-!!! note "AI models that can be used with '__EVALUATE__ statement'"
+!!! note "AI Models That Can Be Used with '__EVALUATE__ Statement'"
     - AutoML Classification model - AutomlClassifier
     - AutoML Regression model - AutomlRegressor
     - ConvNeXT Model - ConvNeXt_Tiny, ConvNeXt_Base

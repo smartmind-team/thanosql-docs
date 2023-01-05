@@ -47,7 +47,7 @@ FROM product_image_test
 ```
 
 
-!!! note "AI models that can be used with '__PREDICT__ statement'"
+!!! note "AI Models That Can Be Used with '__PREDICT__ Statement'"
     - AutoML Classification model - AutomlClassifier
     - AutoML Regression model - AutomlRegressor
     - ConvNeXT Model - ConvNeXt_Tiny, ConvNeXt_Base

@@ -25,7 +25,7 @@ The "__PRINT__" syntax with an "__OPTIONS__" clause.
 query_statement:
     query_expr
 
-PRINT IMAGE | AUDIO | VIDEO
+PRINT { IMAGE | AUDIO | VIDEO }
 OPTIONS (
     image_col | audio_col | video_col = (column_name)
     )
@@ -39,7 +39,7 @@ AS
 
 ## __3. PRINT Example__
 
-### __3.1 Image Print__
+### __3-1. Image Print__
 
 Outputs image files from the table.
 
@@ -57,7 +57,7 @@ FROM image_table
 !!! note ""
     - "image_table": table containing paths of the image files
 
-### __3.2 Audio Print__
+### __3-2. Audio Print__
 
 Outputs audio files from the table.
 
@@ -77,7 +77,7 @@ FROM audio_table
 !!! note ""
     - "audio_table": table containing paths of the audio files
 
-### __3.3 Video Print__
+### __3-3. Video Print__
 
 Outputs video files from the table.
 
@@ -95,29 +95,28 @@ FROM video_table
 !!! note ""
     - "video_table": table containing paths of the video files
 
-### __3.4 Print with a subquery__
+### __3-4. Print with a Subquery__
 
 The following statement outputs the results of "__SEARCH__" statement created in the nested [SEARCH](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX). 
 
 ```sql
 %%thanosql
-PRINT IMAGE 
+PRINT IMAGE
 AS (
-    SELECT image_path, search_result 
+    SELECT image_path, search_result
     FROM (
-        SEARCH IMAGE 
-        USING my_image_search_model 
+        SEARCH IMAGE
+        USING my_image_search_model
         OPTIONS (
             search_by='image',
             search_input='thanosql-dataset/mnist_data/test/923.jpg',
             emb_col='convert_result',
-            result_col='search_result'
+            result_col='search_result',
+            top_k=4
             )
-        AS 
-        SELECT * 
+        AS
+        SELECT *
         FROM mnist_test
         )
-    ORDER BY search_result DESC 
-    LIMIT 4
     )
 ```

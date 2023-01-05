@@ -27,7 +27,7 @@ AS
 query_statement:
     query_expr
 
-PRINT IMAGE | AUDIO | VIDEO
+PRINT { IMAGE | AUDIO | VIDEO }
 OPTIONS (
     image_col | audio_col | video_col = (column_name)
     )
@@ -41,7 +41,7 @@ AS
 
 ## __3. PRINT 예시__
 
-### __3.1 이미지 출력__
+### __3-1. 이미지 출력__
 
 "__PRINT__" 쿼리문을 사용하여 테이블에 있는 이미지 파일들을 출력합니다.
 
@@ -59,7 +59,7 @@ FROM image_table
 !!! note ""
     - "image_table": 이미지 파일 경로가 저장되어 있는 데이터 테이블
 
-### __3.2 오디오 출력__
+### __3-2. 오디오 출력__
 
 "__PRINT__" 쿼리문을 사용하여 데이터 테이블에 있는 오디오 파일들을 출력합니다.
 
@@ -80,7 +80,7 @@ FROM audio_table
     - "audio_table": 오디오 파일 경로가 저장되어 있는 데이터 테이블
 
 
-### __3.3 비디오 출력__
+### __3-3. 비디오 출력__
 
 "__PRINT__" 쿼리문을 사용하여 데이터 테이블에 있는 비디오 파일들을 출력합니다.
 
@@ -98,7 +98,7 @@ FROM video_table
 !!! note ""
     - "video_table": 비디오 파일 경로가 저장되어 있는 데이터 테이블
 
-### __3.4 서브 쿼리를 사용하여 출력하기__
+### __3-4. 서브 쿼리를 사용하여 출력하기__
 
 다음 쿼리는 [SEARCH](/ko/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX)에서 만들었던 "__SEARCH__" 쿼리문을 "__PRINT__" 구문의 서브 쿼리로 사용하여 "__SEARCH__"의 결과 테이블을 바로 출력합니다.
 
@@ -114,13 +114,12 @@ AS (
             search_by='image',
             search_input='thanosql-dataset/mnist_data/test/923.jpg',
             emb_col='convert_result',
-            result_col='search_result'
+            result_col='search_result',
+            top_k=4
             )
-        AS 
-        SELECT * 
+        AS
+        SELECT *
         FROM mnist_test
         )
-    ORDER BY search_result DESC 
-    LIMIT 4
     )
 ```

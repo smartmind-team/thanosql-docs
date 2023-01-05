@@ -48,9 +48,8 @@ SELECT *
 FROM unsplash_data
 ```
 
-!!! note "AI models that can be used with '__CONVERT__ statement'"
+!!! note "AI Models That Can Be Used with '__CONVERT__ Statement'"
     - SimCLR Model - SimCLR
     - CLIP Model - CLIP
     - XCLIP Model - XCLIP
     - SBERT Model - SBERTKo, SBERTEn
-

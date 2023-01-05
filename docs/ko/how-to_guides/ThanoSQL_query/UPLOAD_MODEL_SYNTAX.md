@@ -13,10 +13,9 @@ title: UPLOAD MODEL
 ```sql
 UPLOAD MODEL (model_name_expression)
 OPTIONS (
-    framework=[model_framework],
-    overwrite=True
+    expression [ , ...]
     )
-FROM [model_path_expression]
+FROM (model_path_expression)
 ```
 
 !!! note "쿼리 세부 정보"

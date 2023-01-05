@@ -40,13 +40,12 @@ OPTIONS (
     result_col='search_result'
     )
 AS
-SELECT * 
+SELECT *
 FROM mnist_test
 ```
 
-!!! note "AI models that can be used with '__SEARCH__ statement'"
+!!! note "AI Models That Can Be Used with '__SEARCH__ Statement'"
     - SimCLR Model - SimCLR
     - CLIP Model - CLIP
     - XCLIP Model - XCLIP
     - SBERT Model - SBERTKo, SBERTEn
-

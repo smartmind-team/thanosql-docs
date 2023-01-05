@@ -53,7 +53,7 @@ SELECT *
 FROM titanic_train
 ```
 
-!!! note "AI models that can be used with '__FIT MODEL__ statement'"
+!!! note "AI Models That Can Be Used with '__FIT MODEL__ Statement'"
     - AutoML Classification model - AutomlClassifier
     - AutoML Regression model - AutomlRegressor
     - ConvNeXT Model - ConvNeXt_Tiny, ConvNeXt_Base

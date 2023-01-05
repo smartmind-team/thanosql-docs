@@ -16,7 +16,7 @@ title: FUNCTION
 query_statement:
     query_expr
 
-FUNCTION {function_module_expression}.{function_name_expression}
+FUNCTION (function_module_expression).(function_name_expression)
 OPTIONS (
     expression [ , ...]
     )
@@ -27,11 +27,11 @@ AS
 "__FROM__" 절을 사용하는 "__FUNCTION__" 구문
 
 ```sql
-FUNCTION {function_module_expression}.{function_name_expression}
+FUNCTION (function_module_expression).(function_name_expression)
 OPTIONS (
     expression [ , ...]
     )
-FROM {file_path_expression}
+FROM (file_path_expression)
 ```
 
 !!! note "쿼리 세부 정보"
