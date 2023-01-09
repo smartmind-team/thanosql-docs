@@ -44,7 +44,7 @@ Click on the **Sign up Button** in the login page.
 - Enter a promotion code.
 - Click the Start Button after entering the code to go to the next step.
 !!! warning
-      - Promotion codes cannot be reused once they create a workspace.
+      Promotion codes cannot be reused once they create a workspace.
 
 ## __3-2. Application Form__
 
@@ -64,7 +64,7 @@ Click on the **Sign up Button** in the login page.
       - **This field is mandatory.**
 3. Customer Name
       - Please input the customer's full name.
-4. mobile phone number
+4. Mobile Phone Number
       - Please input your mobile phone number in case we cannot reach you via email.
 5. Inquiry
       - Please input any inquiries you may have.
@@ -80,7 +80,7 @@ Click on the **Sign up Button** in the login page.
 ① Workspace
 
 - Click on the **Open Button** to open the selected workspace.
-- Click on the More Button to download the SSH Key or update your workspace plan.
+- Click on the **More Button** to download the SSH Key, copy or refresh your API key, start or stop your workspace, update your plan settings, or get information regarding your Workspace's settings.
 
 ② Create additional workspaces
 
@@ -94,8 +94,7 @@ Query and create AI models with both structured and unstructured data with SQL.
 
 ① Get API Token
 
-- **Click on the "GET API_TOKEN" Button to get your API token (copied into your clipboard). Use the query below to connect to and start using ThanoSQL.**
-- You must use the given API token to use our services. Though, you can request for new API tokens, be aware that older tokens will automatically expire.
+- You must use the given API token to use our services. **Click on the "GET API_TOKEN" Button to get your API token (copied into your clipboard).** Use the query below to connect to and start using ThanoSQL.
 ```sql
 %load_ext thanosql
 %thanosql API_TOKEN=<Issued_API_TOKEN>
@@ -107,3 +106,54 @@ Query and create AI models with both structured and unstructured data with SQL.
 - Click on the workspace drop down list to switch between your workspaces.
 
 [![IMAGE](/en/img/getting_started/img7.png)](/en/img/getting_started/img7.png)
+
+## __6. Workspace Settings__
+
+Change and edit your Workspace settings.
+
+## __6-1. General__
+
+[![IMAGE](/en/img/getting_started/img8.png)](/en/img/getting_started/img10.png)
+
+① Workspace Start/Stop
+
+- Send a request to start/stop your Workspace. You cannot send a new request while it is being processed.
+
+② Plan
+
+- Check and update your Workspace's plan settings.
+
+③ Delete Workspace
+
+- Delete your Workspace.
+
+!!! warning
+      Deleting a Workspace will permanently delete all of its data. This action cannot be reversed.
+
+## __6.2 Log__
+
+[![IMAGE](/en/img/getting_started/img9.png)](/en/img/getting_started/img11.png)
+
+① Workspace Usage
+
+- View your Workspace Usage in a graph.
+
+② Workspace Start/Stop
+
+- View the most recent logs of your Workspace. Click on the **View All Button** to view all logs.
+
+## __6.3 Developer__
+
+[![IMAGE](/en/img/getting_started/img10.png)](/en/img/getting_started/img12.png)
+
+① Copy API Token
+
+- You must use the given API token to use our services. Clicking on the API Token's copy button will save it onto your clipboard.
+
+② Refresh API Token
+
+- Be aware that refreshing your API Token will automatically expire your previous tokens.
+
+③ SSH Key Download
+
+- Download your SSH Key as a key.pem file.

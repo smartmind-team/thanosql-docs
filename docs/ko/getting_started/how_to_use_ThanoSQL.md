@@ -81,11 +81,11 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 ① 워크스페이스
 
 - 열기 버튼을 클릭해 해당 워크스페이스로 접속할 수 있습니다.
-- SSH Key 다운로드와, 요금제 변경 / 갱신을 할 수 있습니다.
+- 워크스페이스 설정에서 SSH Key 다운로드, API Key 복사 / 재발급, 워크스페이스 시작 / 정지, 요금제 변경 등 정보를 제공합니다.
 
 ② 추가 워크스페이스 생성
 
-- 워크스페이스 생성 페이지로 이동해 추가 생성할 수 있습니다.
+- 워크스페이스 생성 페이지로 이동합니다.
 
 [![IMAGE](/ko/img/getting_started/img6.png)](/ko/img/getting_started/img6.png)
 
@@ -95,8 +95,7 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 
 ① API 토큰 발급
 
-- **GET API_TOKEN 버튼**을 클릭해 API 토큰을 발급 받습니다.(클립보드에 복사) 아래의 쿼리를 통해 정상적으로 서비스를 사용할 수 있습니다.
-- 해당 서비스를 이용하기 위해서는 API 토큰을 사용해야 합니다. API 토큰은 새롭게 발급은 가능하나 이전에 발급받은 토큰은 더 이상 사용할 수 없습니다.
+- 해당 서비스를 이용하기 위해서는 API 토큰을 사용해야 합니다. **GET API_TOKEN 버튼**을 클릭해 API 토큰을 발급 받습니다.(클립보드에 복사) 아래의 쿼리를 통해 정상적으로 서비스를 사용할 수 있습니다.
 ```sql
 %load_ext thanosql
 %thanosql API_TOKEN=<발급받은_API_TOKEN>
@@ -108,3 +107,54 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 - 다른 워크스페이스(생성한 워크스페이스)로 손쉽게 이동할 수 있습니다.
 
 [![IMAGE](/ko/img/getting_started/img7.png)](/ko/img/getting_started/img7.png)
+
+## __6. 워크스페이스 설정__
+
+워크스페이스의 설정을 확인 및 수정을 할 수 있습니다.
+
+## __6-1. General__
+
+[![IMAGE](/ko/img/getting_started/img10.png)](/ko/img/getting_started/img10.png)
+
+① Workspace Start/Stop
+
+- 워크스페이스 전원을 Start/Stop 동작할 수 있습니다. 요청이 완료 될 때까지 새로운 요청을 보낼 수 없습니다.
+
+② Plan
+
+- 워크스페이스의 Plan 정보를 확인 후 변경을 할 수 있습니다.
+
+③ Workspace 삭제
+
+- 워크스페이스를 삭제할 수 있습니다.
+
+!!! warning
+      삭제한 Workspace의 데이터는 완전히 삭제됩니다. 삭제 된 데이터는 복구할 수 없습니다.
+
+## __6.2 Log__
+
+[![IMAGE](/ko/img/getting_started/img11.png)](/ko/img/getting_started/img11.png)
+
+① Workspace Usage
+
+- 워크스페이스 사용 시간을 그래프로 확인 할 수 있습니다.
+
+② Workspace Start/Stop
+
+- 해당 워크스페이스의 최신 로그를 바로 확인할 수 있습니다. **View All 버튼**을 누르면 모든 로그를 확인할 수 있는 페이지로 이동합니다.
+
+## __6.3 Developer__
+
+[![IMAGE](/ko/img/getting_started/img12.png)](/ko/img/getting_started/img12.png)
+
+① API 토큰 발급
+
+- 해당 서비스를 이용하기 위해서는 API 토큰을 사용해야 합니다. API 토큰 발급 버튼을 누를면 클립보드에 복사됩니다. 
+
+② API 토큰 재발급
+
+- API 토큰은 새롭게 발급은 가능하나 이전에 발급받은 토큰은 더 이상 사용할 수 없습니다. API 토큰 재발급 요청 후 API 토큰을 발급 받으면 새로운 토큰을 받을 수 있습니다.
+
+③ SSH Key Download
+
+- SSH 키를 key.pem 파일로 다운로드 받을 수 있습니다.
