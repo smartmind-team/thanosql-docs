@@ -140,7 +140,7 @@ In order to delete a file only, use the below methods to delete a file from the 
 If "db_commit" is set to True and "table_name" and "column_name" are specified, the given file is deleted from ThanoSQL storage, and all rows with the same value as the specified file path are removed from the table's specified column.
 
 
-== "Python"
+=== "Python"
 
     ```python 
     import requests

@@ -139,7 +139,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 "db_commit"이 True로 설정되고 "table_name" 및 "tablen_name"이 지정되면 지정된 파일을 ThanoSQL 저장소에서 삭제하고 지정된 파일 경로와 동일한 값을 가진 모든 행이 테이블의 지정된 열에서 제거됩니다.
 
 
-== "Python"
+=== "Python"
 
     ```python 
     import requests
