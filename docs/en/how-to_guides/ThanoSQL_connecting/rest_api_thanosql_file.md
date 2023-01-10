@@ -2,7 +2,8 @@
 title: How to Upload & Delete a File from the ThanoSQL Workspace Database
 ---
 
-# __How to Upload a File to the ThanoSQL Workspace Database__
+# __How to Upload & Delete a File from the ThanoSQL Workspace Database__
+## __How to Upload a File to the ThanoSQL Workspace Database__
 
 You can use ThanoSQL's REST API to remotely send and upload files to your ThanoSQL storage and insert them into any of your table within the database.
 
@@ -12,7 +13,7 @@ You can use ThanoSQL's REST API to remotely send and upload files to your ThanoS
         - Audio: "mp3", "wav
         - Video: "mp4", "wmv", "avi"
 
-## File Upload  
+### __File Upload__
 
 In order to upload a file only, use the below methods to send a file to the ThanoSQL storage. 
 
@@ -47,7 +48,7 @@ In order to upload a file only, use the below methods to send a file to the Than
       -F 'file=@Data File Path;type=file_type/Data File Type'
     ```
 
-## File Upload & Insert 
+### __File Upload & Insert__
 
 If "db commit" is set to True and "table name" and "column name" are specified, the given file is sent to ThanoSQL storage and the file path is inserted into a column of the specified table.
 
@@ -86,15 +87,15 @@ If "db commit" is set to True and "table name" and "column name" are specified, 
       -F 'file=@Data File Path;type=file_type/Data File Type'
     ```
 
-!!! faq "FAQ"
+!!! faq "__FAQ__"
     - In order to use a file within the Jupyter workspace, you must put '/'home/jovyan' in front of the path. 
 
 
-# __How to Delete a File From the ThanoSQL Workspace Database__
+## __How to Delete a File From the ThanoSQL Workspace Database__
 
 You can use ThanoSQL's REST API to delete files from your ThanoSQL storage and remove all rows from any of your tables within the database that have the same value as the file paths.
 
-## File Delete
+### __File Delete__
 
 In order to delete a file only, use the below methods to delete a file from the ThanoSQL storage. 
 
@@ -134,7 +135,7 @@ In order to delete a file only, use the below methods to delete a file from the 
     ```
 
 
-## File Delete & Remove 
+### __File Delete & Remove__
 
 If "db_commit" is set to True and "table_name" and "column_name" are specified, the given file is deleted from ThanoSQL storage, and all rows with the same value as the specified file path are removed from the table's specified column.
 
