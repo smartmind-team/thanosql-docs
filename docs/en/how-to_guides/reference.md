@@ -44,5 +44,5 @@ Reference page provides a formal overview of each topic. More information on usi
 ### __ThanoSQL Rest API Reference__
 
 - [__How to Query Using ThanoSQL__](/en/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_query/)
-- [__How to Upload & Insert to the ThanoSQL Workspace__](/en/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_upload/)
+- [__How to Upload & Delete a File from the ThanoSQL Workspace Database__](/en/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_file/)
 - [__How to Use the ThanoSQL Search__](/en/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_search/)
