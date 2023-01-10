@@ -91,7 +91,7 @@ If "db commit" is set to True and "table name" and "column name" are specified, 
     - In order to use a file within the Jupyter workspace, you must put '/'home/jovyan' in front of the path. 
 
 
-## __How to Delete a File From the ThanoSQL Workspace Database__
+## __How to Delete a File from the ThanoSQL Workspace Database__
 
 You can use ThanoSQL's REST API to delete files from your ThanoSQL storage and remove all rows from any of your tables within the database that have the same value as the file paths.
 
