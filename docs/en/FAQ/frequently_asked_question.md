@@ -17,7 +17,7 @@ The COPY clause in ThanoSQL only supports the utf-8 encoding format. For csv fil
 
 ## **4. What types of unstructured data does ThanoSQL support?**
 
-ThanoSQL supports the following extensions for image and audio data:
+ThanoSQL supports the following extensions for image, audio, and video data:
 
 - Image:  "jpg", "png"
 - Audio: "wav", "flac", "mp3"
