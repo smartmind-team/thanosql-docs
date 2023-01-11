@@ -83,10 +83,10 @@ $ chmod 400 key.pem
 ### __STEP 4. SFTP 연결하기__
 로컬 환경에서 파일 권한이 변경 완료되면 SFTP에 접속해 줍니다.
 !!! warning ""
-    SFTP에 접속하기 위해서는 pem 파일의 절대 경로와 STEP 1에서 확인한 워크스페이스 이름이 필요합니다.
+    SFTP에 접속하기 위해서는 pem 파일의 경로와 STEP 1에서 확인한 워크스페이스 이름이 필요합니다.
 
 ```bash
-sftp -i [pem 파일 절대경로] [워크스페이스 이름]@engine.thanosql.ai
+sftp -i [pem 파일 경로] [워크스페이스 이름]@engine.thanosql.ai
 ```
 
 연결되면 아래와 같은 화면을 확인하실 수 있습니다.

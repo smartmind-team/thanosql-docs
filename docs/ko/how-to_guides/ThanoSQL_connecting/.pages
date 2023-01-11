@@ -1,4 +1,4 @@
 nav:
   - rest_api_thanosql_query.md
-  - rest_api_thanosql_upload.md
+  - rest_api_thanosql_file.md
   - rest_api_thanosql_search.md

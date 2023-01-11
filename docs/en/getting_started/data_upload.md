@@ -84,10 +84,10 @@ $ chmod 400 key.pem
 After changing the permission of the file from your local environment, Connect to SFTP server.
 
 !!! warning ""
-    To connect to the SFTP server, you need the absolute path of the pem file and workspace name you checked in STEP 1.
+    To connect to the SFTP server, you need the path of the pem file and the workspace name you checked in STEP 1.
 
 ```bash
-sftp -i [the absolute path of the pem file] [name of workspace]@engine.thanosql.ai
+sftp -i [path of the pem file] [name of workspace]@engine.thanosql.ai
 ```
 
 Once connected, you will get a screen as shown below.
