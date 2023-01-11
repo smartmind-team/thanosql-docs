@@ -80,7 +80,7 @@ Click on the **Sign up Button** in the login page.
 ① Workspace
 
 - Click on the **Open Button** to open the selected workspace.
-- Click on the **More Button** to download the SSH Key, copy or refresh your API key, start or stop your workspace, update your plan settings, or get information regarding your Workspace's settings.
+- Click on the **Settings Button ⚙️** to download the SSH Key, copy or refresh your API key, start or stop your workspace, update your plan settings, or get information regarding your Workspace's settings.
 
 ② Create additional workspaces
 
@@ -128,7 +128,7 @@ Change and edit your Workspace settings.
 - Delete your Workspace.
 
 !!! warning
-      Deleting a Workspace will permanently delete all of its data. This action cannot be reversed.
+      Please contact us in case your Workspace needs to be deleted. Your Workspace data will be permanently deleted once your request is processed. Be aware that this action cannot be reversed.
 
 ## __6.2 Log__
 
