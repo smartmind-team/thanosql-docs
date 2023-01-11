@@ -113,7 +113,7 @@ Change and edit your Workspace settings.
 
 ## __6-1. General__
 
-[![IMAGE](/en/img/getting_started/img8.png)](/en/img/getting_started/img10.png)
+[![IMAGE](/en/img/getting_started/img10.png)](/en/img/getting_started/img10.png)
 
 ① Workspace Start/Stop
 
@@ -132,7 +132,7 @@ Change and edit your Workspace settings.
 
 ## __6.2 Log__
 
-[![IMAGE](/en/img/getting_started/img9.png)](/en/img/getting_started/img11.png)
+[![IMAGE](/en/img/getting_started/img11.png)](/en/img/getting_started/img11.png)
 
 ① Workspace Usage
 
@@ -144,7 +144,7 @@ Change and edit your Workspace settings.
 
 ## __6.3 Developer__
 
-[![IMAGE](/en/img/getting_started/img10.png)](/en/img/getting_started/img12.png)
+[![IMAGE](/en/img/getting_started/img12.png)](/en/img/getting_started/img12.png)
 
 ① Copy API Token
 
