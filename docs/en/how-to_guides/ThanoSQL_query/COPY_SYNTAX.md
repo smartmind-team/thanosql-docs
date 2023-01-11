@@ -12,6 +12,7 @@ The "__COPY__" statement allows users to create data tables in the ThanoSQL work
     - csv
     - pkl, pickle
     - xls, xlsx, xlsm, xlsb
+    - pqt, parquet 
 
 ## __2. COPY Syntax__
 

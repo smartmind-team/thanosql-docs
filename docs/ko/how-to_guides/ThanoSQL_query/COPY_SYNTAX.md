@@ -12,6 +12,7 @@ title: COPY
     - csv
     - pkl, pickle
     - xls, xlsx, xlsm, xlsb
+    - pqt, parquet 
 
 ## __2. COPY 구문__
 
