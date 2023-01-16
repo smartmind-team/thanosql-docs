@@ -8,7 +8,7 @@ title: ThanoSQL 웹 사용법
 
 ThanoSQL에 접속 후, **Login 버튼(또는 메인화면의 시작하기 버튼)**을 클릭해 로그인 화면으로 접속합니다.
 
-[![IMAGE](/ko/img/getting_started/img0.png)](/ko/img/getting_started/img0.png)
+[![IMAGE](/ko/img/getting_started/img0.png){: style="max-height:none"}](/ko/img/getting_started/img0.png)
 
 !!! note ""
       ThanoSQL 콘솔을 사용 하기 위해서는 필수로 회원가입을 진행해야 합니다.
@@ -18,22 +18,22 @@ ThanoSQL에 접속 후, **Login 버튼(또는 메인화면의 시작하기 버�
 
 ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니다.
 
-[![IMAGE](/ko/img/getting_started/img1.png)](/ko/img/getting_started/img1.png)
+[![IMAGE](/ko/img/getting_started/img1.png){: style="max-height:none"}](/ko/img/getting_started/img1.png)
 
 - 정보입력 후 **계정 만들기 버튼**을 클릭해 회원가입을 완료합니다.
 - **이메일 인증**, **서비스 이용약관**과 **개인정보처리방침**에 동의 후 가입 할 수 있습니다.
 
-[![IMAGE](/ko/img/getting_started/img2.png)](/ko/img/getting_started/img2.png)
+[![IMAGE](/ko/img/getting_started/img2.png){: style="max-height:none"}](/ko/img/getting_started/img2.png)
 
 ## __3. 워크스페이스 생성__
 
 - 로그인 후, **시작하기 버튼**을 클릭해 워크스페이스를 생성 합니다.
 
-[![IMAGE](/ko/img/getting_started/img3.png)](/ko/img/getting_started/img3.png)
+[![IMAGE](/ko/img/getting_started/img3.png){: style="max-height:none"}](/ko/img/getting_started/img3.png)
 
-## __3-1. 플랜 설정__
+### __3-1. 플랜 설정__
 
-[![IMAGE](/ko/img/getting_started/img4.png)](/ko/img/getting_started/img4.png)
+[![IMAGE](/ko/img/getting_started/img4.png){: style="max-height:none"}](/ko/img/getting_started/img4.png)
 
 ① **Plan**
 
@@ -47,9 +47,9 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 !!! warning
       프로모션 코드는 일회용입니다. 재사용 할 수 없습니다.
 
-## __3-2. 신청서 작성__
+### __3-2. 신청서 작성__
 
-[![IMAGE](/ko/img/getting_started/img5.png)](/ko/img/getting_started/img5.png)
+[![IMAGE](/ko/img/getting_started/img5.png){: style="max-height:none"}](/ko/img/getting_started/img5.png)
 
 ① 워크스페이스 이름을 **입력**합니다.
 
@@ -87,7 +87,7 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 
 - 워크스페이스 생성 페이지로 이동합니다.
 
-[![IMAGE](/ko/img/getting_started/img6.png)](/ko/img/getting_started/img6.png)
+[![IMAGE](/ko/img/getting_started/img6.png){: style="max-height:none"}](/ko/img/getting_started/img6.png)
 
 ## __5. ThanoSQL 워크스페이스__
 
@@ -106,15 +106,15 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 
 - 다른 워크스페이스(생성한 워크스페이스)로 손쉽게 이동할 수 있습니다.
 
-[![IMAGE](/ko/img/getting_started/img7.png)](/ko/img/getting_started/img7.png)
+[![IMAGE](/ko/img/getting_started/img7.png){: style="max-height:none"}](/ko/img/getting_started/img7.png)
 
 ## __6. 워크스페이스 설정__
 
 워크스페이스의 설정을 확인 및 수정을 할 수 있습니다.
 
-## __6-1. General__
+### __6-1. General__
 
-[![IMAGE](/ko/img/getting_started/img10.png)](/ko/img/getting_started/img10.png)
+[![IMAGE](/ko/img/getting_started/img10.png){: style="max-height:none"}](/ko/img/getting_started/img10.png)
 
 ① Workspace Start/Stop
 
@@ -131,9 +131,9 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 !!! warning
       Workspace 삭제가 필요할 시 문의하기 페이지로 이동해 삭제 요청을 할 수 있습니다. 삭제 문의가 완료되면 해당 Workspace의 데이터는 완전히 삭제됩니다. 삭제된 데이터는 복구할 수 없습니다.
 
-## __6.2 Log__
+### __6.2 Log__
 
-[![IMAGE](/ko/img/getting_started/img11.png)](/ko/img/getting_started/img11.png)
+[![IMAGE](/ko/img/getting_started/img11.png){: style="max-height:none"}](/ko/img/getting_started/img11.png)
 
 ① Workspace Usage
 
@@ -143,9 +143,9 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 
 - 해당 워크스페이스의 최신 로그를 바로 확인할 수 있습니다. **View All 버튼**을 누르면 모든 로그를 확인할 수 있는 페이지로 이동합니다.
 
-## __6.3 Developer__
+### __6.3 Developer__
 
-[![IMAGE](/ko/img/getting_started/img12.png)](/ko/img/getting_started/img12.png)
+[![IMAGE](/ko/img/getting_started/img12.png){: style="max-height:none"}](/ko/img/getting_started/img12.png)
 
 ① API 토큰 복사
 

@@ -8,7 +8,7 @@ title: ThanoSQL Web Manual
 
 Go to ThanoSQL and click on the **Login Button (or the start button at the homepage)** to go to the login page.
 
-[![IMAGE](/en/img/getting_started/img0.png)](/en/img/getting_started/img0.png)
+[![IMAGE](/en/img/getting_started/img0.png){: style="max-height:none"}](/en/img/getting_started/img0.png)
 
 !!! note ""
       To use the ThanoSQL console, please sign up first.
@@ -17,22 +17,22 @@ Go to ThanoSQL and click on the **Login Button (or the start button at the homep
 
 Click on the **Sign up Button** in the login page.
 
-[![IMAGE](/en/img/getting_started/img1.png)](/en/img/getting_started/img1.png)
+[![IMAGE](/en/img/getting_started/img1.png){: style="max-height:none"}](/en/img/getting_started/img1.png)
 
 - Fill out the signup form and click on the **Create Account** button.
 - Verify your email address and agree to our Terms of Service and Privacy Policy to create an account.
 
-[![IMAGE](/en/img/getting_started/img2.png)](/en/img/getting_started/img2.png)
+[![IMAGE](/en/img/getting_started/img2.png){: style="max-height:none"}](/en/img/getting_started/img2.png)
 
 ## __3. Use the ThanoSQL Console__
 
 - Log in and click on the **Start Button** to create a new workspace.
 
-[![IMAGE](/en/img/getting_started/img3.png)](/en/img/getting_started/img3.png)
+[![IMAGE](/en/img/getting_started/img3.png){: style="max-height:none"}](/en/img/getting_started/img3.png)
 
-## __3-1. Plan Settings__
+### __3-1. Plan Settings__
 
-[![IMAGE](/en/img/getting_started/img4.png)](/en/img/getting_started/img4.png)
+[![IMAGE](/en/img/getting_started/img4.png){: style="max-height:none"}](/en/img/getting_started/img4.png)
 
 ① **Plan**
 
@@ -46,9 +46,9 @@ Click on the **Sign up Button** in the login page.
 !!! warning
       Promotion codes cannot be reused once they create a workspace.
 
-## __3-2. Application Form__
+### __3-2. Application Form__
 
-[![IMAGE](/en/img/getting_started/img5.png)](/en/img/getting_started/img5.png)
+[![IMAGE](/en/img/getting_started/img5.png){: style="max-height:none"}](/en/img/getting_started/img5.png)
 
 ① Create a workspace name
 
@@ -86,7 +86,7 @@ Click on the **Sign up Button** in the login page.
 
 - Click on the **Create New Workspace** card to create additional workspaces.
 
-[![IMAGE](/en/img/getting_started/img6.png)](/en/img/getting_started/img6.png)
+[![IMAGE](/en/img/getting_started/img6.png){: style="max-height:none"}](/en/img/getting_started/img6.png)
 
 ## __5. ThanoSQL Workspace__
 
@@ -105,15 +105,15 @@ Query and create AI models with both structured and unstructured data with SQL.
 
 - Click on the workspace drop down list to switch between your workspaces.
 
-[![IMAGE](/en/img/getting_started/img7.png)](/en/img/getting_started/img7.png)
+[![IMAGE](/en/img/getting_started/img7.png){: style="max-height:none"}](/en/img/getting_started/img7.png)
 
 ## __6. Workspace Settings__
 
 Change and edit your Workspace settings.
 
-## __6-1. General__
+### __6-1. General__
 
-[![IMAGE](/en/img/getting_started/img10.png)](/en/img/getting_started/img10.png)
+[![IMAGE](/en/img/getting_started/img10.png){: style="max-height:none"}](/en/img/getting_started/img10.png)
 
 ① Workspace Start/Stop
 
@@ -130,9 +130,9 @@ Change and edit your Workspace settings.
 !!! warning
       Please contact us in case your Workspace needs to be deleted. Your Workspace data will be permanently deleted once your request is processed. Be aware that this action cannot be reversed.
 
-## __6.2 Log__
+### __6.2 Log__
 
-[![IMAGE](/en/img/getting_started/img11.png)](/en/img/getting_started/img11.png)
+[![IMAGE](/en/img/getting_started/img11.png){: style="max-height:none"}](/en/img/getting_started/img11.png)
 
 ① Workspace Usage
 
@@ -142,9 +142,9 @@ Change and edit your Workspace settings.
 
 - View the most recent logs of your Workspace. Click on the **View All Button** to view all logs.
 
-## __6.3 Developer__
+### __6.3 Developer__
 
-[![IMAGE](/en/img/getting_started/img12.png)](/en/img/getting_started/img12.png)
+[![IMAGE](/en/img/getting_started/img12.png){: style="max-height:none"}](/en/img/getting_started/img12.png)
 
 ① Copy API Token
 
