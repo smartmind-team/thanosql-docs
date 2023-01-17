@@ -26,7 +26,10 @@ FROM {file_path | dir_path}
 
 !!! note "쿼리 세부 정보"
     - "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
-        - "overwrite": 동일 이름의 테이블이 존재하는 경우 덮어쓰기 가능 여부를 설정합니다. True일 경우 기존 테이블은 새로운 테이블로 변경됩니다. (bool, optional, True|False, default: False)
+        - "if_exists": 동일 이름의 테이블이 존재하는 경우 처리하는 방법을 결정합니다. 오류를 발생시키거나, 기존 테이블에 추가하거나, 기존 테이블을 대체할 수 있습니다. (str, optional, 'fail'|'replace'|'append', default: 'fail')
+            - "fail": 기존 테이블이 이미 있는 경우 오류 발생
+            - "replace": 기존 테이블이 이미 있는 경우 테이블 대체 
+            - "append": 지정된 데이터프레임을 기존 테이블에 추가
         - "chunksize": 한 번에 쓸 각 배치의 행 수입니다. 기본적으로 모든 행이 한 번에 기록됩니다 (int, optional, default: 1000)
 
 ## __3. COPY 예시__
@@ -38,7 +41,7 @@ FROM {file_path | dir_path}
 ```sql
 %%thanosql
 COPY mytable
-OPTIONS (overwrite=True)
+OPTIONS (if_exists='replace')
 FROM 'data/example.csv'
 ```
 
@@ -52,7 +55,7 @@ FROM 'data/example.csv'
 ```sql
 %%thanosql
 COPY mytable
-OPTIONS (overwrite=True)
+OPTIONS (if_exists='replace')
 FROM 'diet_image_data/'
 ```
 
@@ -70,7 +73,7 @@ df_in_json = df.to_json(orient="records")
 # f-string을 사용하여 'df_in_json'을 COPY 구문으로 감싸줍니다
 copy_pandas_df = f'''
 COPY mytable
-OPTIONS (overwrite=True)
+OPTIONS (if_exists='replace')
 FROM '{df_in_json}'
 '''
 ```
