@@ -130,7 +130,7 @@ Change and edit your Workspace settings.
 !!! warning
       Please contact us in case your Workspace needs to be deleted. Your Workspace data will be permanently deleted once your request is processed. Be aware that this action cannot be reversed.
 
-### __6.2 Log__
+### __6-2 Log__
 
 [![IMAGE](/en/img/getting_started/img11.png){: style="max-height:none"}](/en/img/getting_started/img11.png)
 
@@ -142,7 +142,7 @@ Change and edit your Workspace settings.
 
 - View the most recent logs of your Workspace. Click on the **View All Button** to view all logs.
 
-### __6.3 Developer__
+### __6-3 Developer__
 
 [![IMAGE](/en/img/getting_started/img12.png){: style="max-height:none"}](/en/img/getting_started/img12.png)
 

@@ -131,7 +131,7 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 !!! warning
       Workspace 삭제가 필요할 시 문의하기 페이지로 이동해 삭제 요청을 할 수 있습니다. 삭제 문의가 완료되면 해당 Workspace의 데이터는 완전히 삭제됩니다. 삭제된 데이터는 복구할 수 없습니다.
 
-### __6.2 Log__
+### __6-2 Log__
 
 [![IMAGE](/ko/img/getting_started/img11.png){: style="max-height:none"}](/ko/img/getting_started/img11.png)
 
@@ -143,7 +143,7 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 
 - 해당 워크스페이스의 최신 로그를 바로 확인할 수 있습니다. **View All 버튼**을 누르면 모든 로그를 확인할 수 있는 페이지로 이동합니다.
 
-### __6.3 Developer__
+### __6-3 Developer__
 
 [![IMAGE](/ko/img/getting_started/img12.png){: style="max-height:none"}](/ko/img/getting_started/img12.png)
 
