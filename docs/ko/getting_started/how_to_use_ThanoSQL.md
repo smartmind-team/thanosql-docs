@@ -8,7 +8,7 @@ title: ThanoSQL 웹 사용법
 
 ThanoSQL에 접속 후, **Login 버튼(또는 메인화면의 시작하기 버튼)**을 클릭해 로그인 화면으로 접속합니다.
 
-[![IMAGE](/ko/img/getting_started/img0.png)](/ko/img/getting_started/img0.png)
+[![IMAGE](/ko/img/getting_started/img0.png){: style="max-height:none"}](/ko/img/getting_started/img0.png)
 
 !!! note ""
       ThanoSQL 콘솔을 사용 하기 위해서는 필수로 회원가입을 진행해야 합니다.
@@ -18,22 +18,22 @@ ThanoSQL에 접속 후, **Login 버튼(또는 메인화면의 시작하기 버�
 
 ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니다.
 
-[![IMAGE](/ko/img/getting_started/img1.png)](/ko/img/getting_started/img1.png)
+[![IMAGE](/ko/img/getting_started/img1.png){: style="max-height:none"}](/ko/img/getting_started/img1.png)
 
 - 정보입력 후 **계정 만들기 버튼**을 클릭해 회원가입을 완료합니다.
 - **이메일 인증**, **서비스 이용약관**과 **개인정보처리방침**에 동의 후 가입 할 수 있습니다.
 
-[![IMAGE](/ko/img/getting_started/img2.png)](/ko/img/getting_started/img2.png)
+[![IMAGE](/ko/img/getting_started/img2.png){: style="max-height:none"}](/ko/img/getting_started/img2.png)
 
 ## __3. 워크스페이스 생성__
 
 - 로그인 후, **시작하기 버튼**을 클릭해 워크스페이스를 생성 합니다.
 
-[![IMAGE](/ko/img/getting_started/img3.png)](/ko/img/getting_started/img3.png)
+[![IMAGE](/ko/img/getting_started/img3.png){: style="max-height:none"}](/ko/img/getting_started/img3.png)
 
-## __3-1. 플랜 설정__
+### __3-1. 플랜 설정__
 
-[![IMAGE](/ko/img/getting_started/img4.png)](/ko/img/getting_started/img4.png)
+[![IMAGE](/ko/img/getting_started/img4.png){: style="max-height:none"}](/ko/img/getting_started/img4.png)
 
 ① **Plan**
 
@@ -47,9 +47,9 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 !!! warning
       프로모션 코드는 일회용입니다. 재사용 할 수 없습니다.
 
-## __3-2. 신청서 작성__
+### __3-2. 신청서 작성__
 
-[![IMAGE](/ko/img/getting_started/img5.png)](/ko/img/getting_started/img5.png)
+[![IMAGE](/ko/img/getting_started/img5.png){: style="max-height:none"}](/ko/img/getting_started/img5.png)
 
 ① 워크스페이스 이름을 **입력**합니다.
 
@@ -80,26 +80,25 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 
 ① 워크스페이스
 
-- 열기 버튼을 클릭해 해당 워크스페이스로 접속할 수 있습니다.
-- SSH Key 다운로드와, 요금제 변경 / 갱신을 할 수 있습니다.
+- **열기 버튼**을 클릭해 해당 워크스페이스로 접속할 수 있습니다.
+- **워크스페이스 설정(⚙️)**에서 SSH Key 다운로드, API Key 복사 / 재발급, 워크스페이스 시작 / 정지, 요금제 변경 등 정보를 제공합니다.
 
 ② 추가 워크스페이스 생성
 
-- 워크스페이스 생성 페이지로 이동해 추가 생성할 수 있습니다.
+- 워크스페이스 생성 페이지로 이동합니다.
 
-[![IMAGE](/ko/img/getting_started/img6.png)](/ko/img/getting_started/img6.png)
+[![IMAGE](/ko/img/getting_started/img6.png){: style="max-height:none"}](/ko/img/getting_started/img6.png)
 
 ## __5. ThanoSQL 워크스페이스__
 
 정형과 비정형 데이터 모두 SQL 만으로 쿼리(Query, 질의)와 AI(인공지능) 모델링을 할 수 있습니다.
 
-① API 토큰 발급
+① API 토큰 복사
 
-- **GET API_TOKEN 버튼**을 클릭해 API 토큰을 발급 받습니다.(클립보드에 복사) 아래의 쿼리를 통해 정상적으로 서비스를 사용할 수 있습니다.
-- 해당 서비스를 이용하기 위해서는 API 토큰을 사용해야 합니다. API 토큰은 새롭게 발급은 가능하나 이전에 발급받은 토큰은 더 이상 사용할 수 없습니다.
+- 해당 서비스를 이용하기 위해서는 API 토큰을 사용해야 합니다. **GET API_TOKEN 버튼**을 클릭해 API 토큰을 클립보드에 복사 받습니다. 아래의 쿼리를 통해 정상적으로 서비스를 사용할 수 있습니다.
 ```sql
 %load_ext thanosql
-%thanosql API_TOKEN=<발급받은_API_TOKEN>
+%thanosql API_TOKEN=<복사받은_API_TOKEN>
 ```
 - 워크 스페이스에서 ThanoSQL 문법을 사용하기 위해서는 **파일 상단**에서 항상 위 **쿼리**를 실행해야 합니다.
 
@@ -107,4 +106,55 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 
 - 다른 워크스페이스(생성한 워크스페이스)로 손쉽게 이동할 수 있습니다.
 
-[![IMAGE](/ko/img/getting_started/img7.png)](/ko/img/getting_started/img7.png)
+[![IMAGE](/ko/img/getting_started/img7.png){: style="max-height:none"}](/ko/img/getting_started/img7.png)
+
+## __6. 워크스페이스 설정__
+
+워크스페이스의 설정을 확인 및 수정을 할 수 있습니다.
+
+### __6-1. General__
+
+[![IMAGE](/ko/img/getting_started/img10.png){: style="max-height:none"}](/ko/img/getting_started/img10.png)
+
+① Workspace Start/Stop
+
+- 워크스페이스 전원을 Start/Stop 동작할 수 있습니다. 요청이 완료될 때까지 새로운 요청을 보낼 수 없습니다.
+
+② Plan
+
+- 워크스페이스의 Plan 정보를 확인 후 변경을 할 수 있습니다.
+
+③ Workspace 삭제
+
+- 워크스페이스를 삭제할 수 있습니다.
+
+!!! warning
+      Workspace 삭제가 필요할 시 문의하기 페이지로 이동해 삭제 요청을 할 수 있습니다. 삭제 문의가 완료되면 해당 Workspace의 데이터는 완전히 삭제됩니다. 삭제된 데이터는 복구할 수 없습니다.
+
+### __6-2. Log__
+
+[![IMAGE](/ko/img/getting_started/img11.png){: style="max-height:none"}](/ko/img/getting_started/img11.png)
+
+① Workspace Usage
+
+- 워크스페이스 사용 시간을 그래프로 확인할 수 있습니다.
+
+② Workspace Start/Stop
+
+- 해당 워크스페이스의 최신 로그를 바로 확인할 수 있습니다. **View All 버튼**을 누르면 모든 로그를 확인할 수 있는 페이지로 이동합니다.
+
+### __6-3. Developer__
+
+[![IMAGE](/ko/img/getting_started/img12.png){: style="max-height:none"}](/ko/img/getting_started/img12.png)
+
+① API 토큰 복사
+
+- 해당 서비스를 이용하기 위해서는 API 토큰을 사용해야 합니다. API 토큰 복사 버튼을 누르면 클립보드에 복사됩니다. 
+
+② API 토큰 재발급
+
+- API 토큰은 새롭게 발급은 가능하나 이전에 발급받은 토큰은 더 이상 사용할 수 없습니다. API 토큰 재발급 요청 후 API 토큰을 복사 받으면 새로운 토큰을 받을 수 있습니다.
+
+③ SSH Key Download
+
+- SSH 키를 key.pem 파일로 다운로드 받을 수 있습니다.

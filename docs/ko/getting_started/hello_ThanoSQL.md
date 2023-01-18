@@ -20,9 +20,6 @@ ThanoSQL의 워크스페이스는 [Jupyter Lab](https://github.com/jupyterlab/ju
 
 다음으로, 각 사용자의 워크스페이스 API_TOKEN 설정을 위해 브라우저 상단의 **GET API_TOKEN** 버튼을 누른 후 붙여넣기하여 설정해줍니다. 
 
-!!! danger  
-    API 토큰은 새롭게 발급 받을수 있지만 새롭게 발급 받으면 이전에 발급 받은 토큰은 더 이상 사용 할수 없는 점 유의하시기 바랍니다. 
-
 !!! tip "생성된 API 토큰을 이용하여 ThanoSQL의 모든 REST API를 사용하실수 있습니다"
     ThanoSQL에서 REST API 사용에 대한 자세한 내용은 [참조 페이지의 __ThanoSQL REST API Reference__](/ko/how-to_guides/reference/#thanosql-rest-api-reference)에서 확인하세요.
 
