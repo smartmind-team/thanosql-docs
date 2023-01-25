@@ -30,7 +30,6 @@ FROM {file_path | dir_path}
             - "fail": 기존 테이블이 이미 있는 경우 오류 발생
             - "replace": 기존 테이블이 이미 있는 경우 테이블 대체 
             - "append": 지정된 데이터프레임을 기존 테이블에 추가
-        - "chunksize": 한 번에 쓸 각 배치의 행 수입니다. 기본적으로 모든 행이 한 번에 기록됩니다 (int, optional, default: 1000)
 
 ## __3. COPY 예시__
 

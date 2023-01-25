@@ -30,7 +30,6 @@ FROM {file_path | dir_path}
             - "fail": raise an error if there is already an existing table
             - "replace": replace a table if there is already an existing table
             - "append": append given dataframe to an existing table
-        - "chunksize": the number of rows in each batch to be written at a time. By default, all rows will be written at once (int, optonal, default: 1000)
 
 ## __3. COPY Example__
 
