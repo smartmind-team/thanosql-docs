@@ -7,7 +7,7 @@ title: How to Query using ThanoSQL
 You can use the same queries for ThanoSQL's REST API as you would in the ThanoSQL workspace.
 
 !!! warning "__Warning__"
-    - Columns created using "__CONVERT__" are encoded using base64 to be formatted in JSON. To use it as a column containing bytes, it must be decoded using base64's b64decode. 
+    - Columns created using "__CONVERT__" are encoded using base64. To use it as a column containing bytes, it must be decoded using base64's b64decode. 
 
 === "Python"
 
