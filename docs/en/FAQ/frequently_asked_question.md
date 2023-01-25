@@ -38,3 +38,17 @@ You can turn on the feature by clicking on `Menu > Settings > Auto Close Bracket
 ## **6. When using a LIKE statement, the “%” operator does not work.**
 
 Since ThanoSQL uses “%” as an escape character, you need to use “%%” instead.
+
+## **7. How do I decode base64 encoded DataFrame columns?**
+
+When using ThanoSQL's REST API, columns created using "__CONVERT__" are encoded using base64. Therefore, to use it as a column containing bytes, it must be decoded using base64's b64decode.
+
+```python
+# to decode back to array an of bytes
+import base64
+df['column name with encoded values'] = df['column name with encoded values'].apply(lambda x: base64.b64encode(x))
+
+# to decode array of bytes to array of floats 
+import numpy as np 
+df['column name with array of bytes'] = df['column name with array of bytes'].apply(lambda x: list(np.frombuffer(x, dtype="float32")))
+```
