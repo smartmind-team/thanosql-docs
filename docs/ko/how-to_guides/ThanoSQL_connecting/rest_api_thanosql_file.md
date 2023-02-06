@@ -14,9 +14,13 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
         - Audio: "mp3", "wav
         - Video: "mp4", "wmv", "avi"
 
+    - 위에서 언급되지 않은 모든 확장자의 파일은 "others" 폴더에 저장됩니다. 
+
+
 ### __파일 업로드__
 
 파일만 업로드하려면 아래의 방법을 사용하여 파일을 ThanoSQL 저장소로 보냅니다.
+API URL에 'folder_name="폴더 이름"'을 덧붙이면 파일은 지정한 폴더에 저장되며 데이터베이스에는 등록되지 않습니다.
 
 === "Python"
 
@@ -176,4 +180,43 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json' \
       -d '{"file_path": "데이터 파일 경로", "table_name": "테이블 명", "column_name": "컬럼 명"}'
+    ```
+
+
+### __파일 목록 받기__
+
+지정한 경로의 파일, 폴더 목록을 가져옵니다. 경로를 지정할 때 정규식을 사용할 수 있습니다.
+
+=== "Python"
+
+    ```python 
+    import requests
+    import json
+
+    api_token = "발급받은_API_TOKEN"
+    api_url="https://engine.thanosql.ai/api/v1/file/dir"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    data = {
+        'file_path': '파일 경로'
+    }
+
+    r = requests.post(api_url, data=json.dumps(data), headers=header)
+
+    r.raise_for_status()
+    return_json = r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+    curl -X 'POST' \
+      'http://thanosql.ai.local:8000/api/v1/file/dir/' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer 발급받은_API_TOKEN' \
+      -H 'Content-Type: application/json' \
+      -d '{"file_path": "파일 경로"}'
     ```

@@ -12,10 +12,14 @@ You can use ThanoSQL's REST API to remotely send and upload files to your ThanoS
         - Image:  "jpg", "png", "jpeg"
         - Audio: "mp3", "wav
         - Video: "mp4", "wmv", "avi"
+        
+    - Files with extensions not listed above are stored in the "others" folder.
 
 ### __File Upload__
 
-In order to upload a file only, use the below methods to send a file to the ThanoSQL storage. 
+In order to upload a file only, use the below methods to send a file to the ThanoSQL storage.
+When the 'folder_name="folder name"' is added to the URL, the file will be uploaded to the 
+designated folder, but not entered into the database table.
 
 === "Python"
 
@@ -177,4 +181,44 @@ If "db_commit" is set to True and "table_name" and "column_name" are specified, 
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: application/json' \
       -d '{"file_path": "Data File Path", "table_name": "Table Name", "column_name": "Column Name"}'
+    ```
+
+
+### __Get File List__
+
+A list of files and folders is returned from a specified file path. The file path can be expressed 
+using a regular expression.
+
+=== "Python"
+
+    ```python 
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    api_url="https://engine.thanosql.ai/api/v1/file/dir"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    data = {
+        'file_path': 'File Path'
+    }
+
+    r = requests.post(api_url, data=json.dumps(data), headers=header)
+
+    r.raise_for_status()
+    return_json = r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+    curl -X 'POST' \
+      'http://thanosql.ai.local:8000/api/v1/file/dir/' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN' \
+      -H 'Content-Type: application/json' \
+      -d '{"file_path": "File Path"}'
     ```
