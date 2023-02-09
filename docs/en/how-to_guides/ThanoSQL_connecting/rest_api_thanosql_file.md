@@ -5,7 +5,7 @@ title: How to Upload & Delete a File from the ThanoSQL Workspace Database
 # __How to Upload & Delete a File from the ThanoSQL Workspace Database__
 ## __How to Upload a File to the ThanoSQL Workspace Database__
 
-You can use ThanoSQL's REST API to remotely send and upload files to your ThanoSQL storage and insert them into any of your table within the database.
+You can use ThanoSQL's REST API to remotely send and upload files to your ThanoSQL storage and insert them into any of your table within the database. The default root folder for all user files in ThanoSQL is set to "drive."
 
 !!! warning "__Warning__"
     - File API supports image, audio, and video data with the following extensions:
@@ -13,12 +13,12 @@ You can use ThanoSQL's REST API to remotely send and upload files to your ThanoS
         - Audio: "mp3", "wav
         - Video: "mp4", "wmv", "avi"
         
-    - Files with extensions not listed above are stored in the "others" folder.
+    - Files with extensions not listed above are stored in the "drive/others" folder.
 
 ### __File Upload__
 
 In order to upload a file only, use the below methods to send a file to the ThanoSQL storage.
-When the 'folder_name="folder name"' is added to the URL, the file will be uploaded to the 
+When the 'dir="folder name"' is added to the URL, the file will be uploaded to the 
 designated folder, but not entered into the database table.
 
 === "Python"
@@ -29,7 +29,6 @@ designated folder, but not entered into the database table.
 
     api_token = "Issued_API_TOKEN"
     api_url="https://engine.thanosql.ai/api/v1/file/upload/"
-
     header = {
         "Authorization": f"Bearer {api_token}"
     }
@@ -111,17 +110,14 @@ In order to delete a file only, use the below methods to delete a file from the 
     import json
 
     api_token = "Issued_API_TOKEN"
-    api_url="https://engine.thanosql.ai/api/v1/file/delete/"
+    file_path = "Data File Path"
+    api_url=f"https://engine.thanosql.ai/api/v1/file/delete/?file_path={file_path}'
 
     header = {
         "Authorization": f"Bearer {api_token}"
     }
 
-    data = {
-        'file_path': 'Data File Path'
-    }
-
-    r = requests.post(api_url, data=json.dumps(data), headers=header)
+    r = requests.post(api_url, headers=header)
 
     r.raise_for_status()
     return_json = r.json()
@@ -131,11 +127,10 @@ In order to delete a file only, use the below methods to delete a file from the 
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/delete/' \
+      'https://engine.thanosql.ai/api/v1/file/delete/?file_path=Data File Path' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
-      -H 'Content-Type: application/json' \
-      -d '{"file_path": "Data File Path"}'
+      -H 'Content-Type: application/json'
     ```
 
 
@@ -153,20 +148,17 @@ If "db_commit" is set to True and "table_name" and "column_name" are specified, 
     api_token = "Issued_API_TOKEN"
     base_url="https://engine.thanosql.ai/api/v1/file/delete/"
     db_commit = True 
+    file_path = 'File Path'
+    table_name = 'Table Name'
+    column_name = 'Column Name'
 
-    api_url = f"{base_url}?db_commit={db_commit}"
+    api_url = f"{base_url}?db_commit={db_commit}&file_path={file_path}&table_name={table_name}&column_name={column_name}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
     }
 
-    data = {
-        'file_path': 'File Path',
-        'table_name': 'Table Name',
-        'column_name': 'Column Name'
-    }
-
-    r = requests.post(api_url, data=json.dumps(data), headers=header)
+    r = requests.post(api_url, headers=header)
 
     r.raise_for_status()
     return_json = r.json()
@@ -176,11 +168,10 @@ If "db_commit" is set to True and "table_name" and "column_name" are specified, 
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/delete/?db_commit=True' \
+      'https://engine.thanosql.ai/api/v1/file/delete/?db_commit=True&file_path=File Path&table_name=Table Name&column_name=Column Name' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
-      -H 'Content-Type: application/json' \
-      -d '{"file_path": "Data File Path", "table_name": "Table Name", "column_name": "Column Name"}'
+      -H 'Content-Type: application/json'
     ```
 
 
@@ -196,17 +187,14 @@ using a regular expression.
     import json
 
     api_token = "Issued_API_TOKEN"
-    api_url="https://engine.thanosql.ai/api/v1/file/dir"
+    file_path = "File Path"
+    api_url=f"https://engine.thanosql.ai/api/v1/file/list/?file_path={file_path}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
     }
 
-    data = {
-        'file_path': 'File Path'
-    }
-
-    r = requests.post(api_url, data=json.dumps(data), headers=header)
+    r = requests.post(api_url, headers=header)
 
     r.raise_for_status()
     return_json = r.json()
@@ -216,9 +204,8 @@ using a regular expression.
 
     ```shell
     curl -X 'POST' \
-      'http://thanosql.ai.local:8000/api/v1/file/dir/' \
+      'http://thanosql.ai.local:8000/api/v1/file/list/?file_path={File Path}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
-      -H 'Content-Type: application/json' \
-      -d '{"file_path": "File Path"}'
+      -H 'Content-Type: application/json'
     ```
