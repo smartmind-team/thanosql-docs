@@ -20,7 +20,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 ### __파일 업로드__
 
 파일만 업로드하려면 아래의 방법을 사용하여 파일을 ThanoSQL 저장소로 보냅니다.
-API URL에 'dir="폴더 이름"'을 덧붙이면 파일은 지정한 폴더에 저장되며 데이터베이스에는 등록되지 않습니다.
+API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저장됩니다.
 
 === "Python"
 
@@ -29,7 +29,7 @@ API URL에 'dir="폴더 이름"'을 덧붙이면 파일은 지정한 폴더에 �
     import json
 
     api_token = "발급받은_API_TOKEN"
-    api_url="https://engine.thanosql.ai/api/v1/file/upload/"
+    api_url = "https://engine.thanosql.ai/api/v1/file/upload/"
     header = {
         "Authorization": f"Bearer {api_token}"
     }
@@ -63,7 +63,7 @@ API URL에 'dir="폴더 이름"'을 덧붙이면 파일은 지정한 폴더에 �
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url="https://engine.thanosql.ai/api/v1/upload/"
+    base_url = "https://engine.thanosql.ai/api/v1/upload/"
     table_name = "테이블 명"
     column_name = "컬럼 명"
     db_commit = True 
@@ -112,7 +112,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 
     api_token = "발급받은_API_TOKEN"
     file_path = "데이터 파일 경로"
-    api_url=f"https://engine.thanosql.ai/api/v1/file/delete/?file_path={file_path}'
+    api_url = f"https://engine.thanosql.ai/api/v1/file/delete/?file_path={file_path}'
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -136,7 +136,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 
 ### __파일 삭제 & 제거__
 
-"db_commit"이 True로 설정되고 "table_name" 및 "tablen_name"이 지정되면 지정된 파일을 ThanoSQL 저장소에서 삭제하고 지정된 파일 경로와 동일한 값을 가진 모든 행이 테이블의 지정된 열에서 제거됩니다.
+"db_commit"이 True로 설정되고 "table_name" 및 "column_name"이 지정되면 지정된 파일을 ThanoSQL 저장소에서 삭제하고 그 파일 경로와 같은 값이 지정된 열에 들어 있는 모든 행이 지정된 데이터베이스에서 제거됩니다.
 
 
 === "Python"
@@ -146,7 +146,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url="https://engine.thanosql.ai/api/v1/file/delete/"
+    base_url = "https://engine.thanosql.ai/api/v1/file/delete/"
     db_commit = True 
     file_path = '데이터 파일 경로',
     table_name = '테이블 명',
@@ -177,7 +177,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 
 ### __파일 목록 받기__
 
-지정한 경로의 파일, 폴더 목록을 가져옵니다. 경로를 지정할 때 정규식을 사용할 수 있습니다.
+지정한 경로의 파일과 폴더 목록을 가져옵니다. 파일 경로를 지정할 때 정규식을 사용할 수 있습니다.
 
 === "Python"
 
@@ -187,7 +187,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 
     api_token = "발급받은_API_TOKEN"
     file_path = "파일 경로"
-    api_url=f"https://engine.thanosql.ai/api/v1/file/list/?file_path={file_path}"
+    api_url = f"https://engine.thanosql.ai/api/v1/file/list/?file_path={file_path}"
 
     header = {
         "Authorization": f"Bearer {api_token}"

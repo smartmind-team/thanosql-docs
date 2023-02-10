@@ -18,8 +18,8 @@ You can use ThanoSQL's REST API to remotely send and upload files to your ThanoS
 ### __File Upload__
 
 In order to upload a file only, use the below methods to send a file to the ThanoSQL storage.
-When the 'dir="folder name"' is added to the URL, the file will be uploaded to the 
-designated folder, but not entered into the database table.
+When the "dir=folder name" is added to the URL, the file will be uploaded to the 
+designated folder.
 
 === "Python"
 
@@ -28,7 +28,7 @@ designated folder, but not entered into the database table.
     import json
 
     api_token = "Issued_API_TOKEN"
-    api_url="https://engine.thanosql.ai/api/v1/file/upload/"
+    api_url = "https://engine.thanosql.ai/api/v1/file/upload/"
     header = {
         "Authorization": f"Bearer {api_token}"
     }
@@ -62,7 +62,7 @@ If "db commit" is set to True and "table name" and "column name" are specified, 
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url="https://engine.thanosql.ai/api/v1/file/upload/"
+    base_url = "https://engine.thanosql.ai/api/v1/file/upload/"
     table_name = "Table Name"
     column_name = "Column Name"
     db_commit = True 
@@ -111,7 +111,7 @@ In order to delete a file only, use the below methods to delete a file from the 
 
     api_token = "Issued_API_TOKEN"
     file_path = "Data File Path"
-    api_url=f"https://engine.thanosql.ai/api/v1/file/delete/?file_path={file_path}'
+    api_url = f"https://engine.thanosql.ai/api/v1/file/delete/?file_path={file_path}'
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -136,7 +136,7 @@ In order to delete a file only, use the below methods to delete a file from the 
 
 ### __File Delete & Remove__
 
-If "db_commit" is set to True and "table_name" and "column_name" are specified, the given file is deleted from ThanoSQL storage, and all rows with the same value as the specified file path are removed from the table's specified column.
+If "db_commit" is set to True and "table_name" and "column_name" are specified, the given file is deleted from ThanoSQL storage, and all rows in the table with the same value as the specified file path in the specified column will be deleted.
 
 
 === "Python"
@@ -146,7 +146,7 @@ If "db_commit" is set to True and "table_name" and "column_name" are specified, 
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url="https://engine.thanosql.ai/api/v1/file/delete/"
+    base_url = "https://engine.thanosql.ai/api/v1/file/delete/"
     db_commit = True 
     file_path = 'File Path'
     table_name = 'Table Name'
@@ -188,7 +188,7 @@ using a regular expression.
 
     api_token = "Issued_API_TOKEN"
     file_path = "File Path"
-    api_url=f"https://engine.thanosql.ai/api/v1/file/list/?file_path={file_path}"
+    api_url = f"https://engine.thanosql.ai/api/v1/file/list/?file_path={file_path}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
