@@ -203,7 +203,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 
     ```shell
     curl -X 'POST' \
-      'http://thanosql.ai.local:8000/api/v1/file/list/?file_path={파일 경로}' \
+      'https://engine.thanosql.ai/api/v1/file/list/?file_path={파일 경로}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json'

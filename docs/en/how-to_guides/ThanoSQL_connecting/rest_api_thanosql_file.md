@@ -204,7 +204,7 @@ using a regular expression.
 
     ```shell
     curl -X 'POST' \
-      'http://thanosql.ai.local:8000/api/v1/file/list/?file_path={File Path}' \
+      'https://engine.thanosql.ai/api/v1/file/list/?file_path={File Path}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: application/json'
