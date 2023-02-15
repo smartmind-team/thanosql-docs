@@ -177,8 +177,7 @@ If "db_commit" is set to True and "table_name" and "column_name" are specified, 
 
 ### __Get File List__
 
-A list of files and folders is returned from a specified file path. The file path can be expressed 
-using a regular expression.
+A list of files and folders is returned from a specified file path. The file path can be expressed using a regular expression.
 
 === "Python"
 
