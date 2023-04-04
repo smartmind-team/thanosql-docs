@@ -2,7 +2,7 @@
 
 ThanoSQL Technical Documentation - https://docs.thanosql.ai
 
-The ThanoSQL documentation website provides comprehensive guidance on how to use ThanoSQL, a powerful tool for managing large amounts of data. The website is divided into several sections, including an introduction to ThanoSQL, a getting started guide, tutorials, a reference guide, and a frequently asked questions (FAQ) section.
+The ThanoSQL documentation website provides comprehensive guidance on how to use ThanoSQL. The website is divided into several sections, including an introduction to ThanoSQL, a getting started guide, tutorials, a reference guide, and a frequently asked questions (FAQ) section.
 
 The introduction section provides a high-level overview of ThanoSQL, highlighting its features and capabilities. The getting started guide offers step-by-step instructions on how to install and set up ThanoSQL, as well as tips on how to get started using the software.
 
