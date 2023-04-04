@@ -41,6 +41,6 @@ mkdocs serve
 ```
 
 ## Additional Information
-The documentation is powered by __MkDocs__, a fast and simple static site generator.
+The documentation is powered by [MkDocs](https://www.mkdocs.org/), a fast and simple static site generator.
 
 If you are a member of smartmind, and want more information about mkdocs check [Clickup](https://app.clickup.com/31080411/v/dc/xmfyv-1363/xmfyv-8363)
