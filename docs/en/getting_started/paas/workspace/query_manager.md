@@ -1,5 +1,5 @@
 ---
-title: ThanoSQL Workspace Manual
+title: Query Manager
 ---
 
 # **ThanoSQL Workspace Manual**
