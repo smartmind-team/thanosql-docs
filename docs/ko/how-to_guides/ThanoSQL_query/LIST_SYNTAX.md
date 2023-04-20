@@ -15,14 +15,14 @@ title: LIST
 ```sql
 LIST MODEL
 ```
-[![IMAGE](/img/thanosql_syntax/query/LIST/img1.png)](/img/thanosql_syntax/query/LIST/img1.png)
+[![IMAGE](/img/thanosql_syntax/query/LIST/img2_0.png)](/img/thanosql_syntax/query/LIST/img2_0.png)
 
 "__LIST THANOSQL MODEL__" 구문은 ThanoSQL Pre-built 모델의 리스트를 확인합니다.
 
 ```sql
 LIST THANOSQL MODEL
 ```
-[![IMAGE](/img/thanosql_syntax/query/LIST/img2.png)](/img/thanosql_syntax/query/LIST/img2.png)
+[![IMAGE](/img/thanosql_syntax/query/LIST/img2_1.png)](/img/thanosql_syntax/query/LIST/img2_1.png)
 
 "__LIST THANOSQL DATASET__" 구문은 ThanoSQL 데이터 세트의 리스트를 확인합니다.
 

@@ -1,4 +1,5 @@
 nav:
     - web_manual.md
-    - hello_ThanoSQL.md
     - data_upload.md
+    - PaaS : paas
+    - SasS : saas

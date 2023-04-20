@@ -21,7 +21,7 @@ AI-based digital transformation requires a wide range of knowledge and technolog
 
 The diagram below is a data engineering ecosystem map that shows more than 60 technologies at a glance for building data science and big data analytics systems.
 
-[![IMAGE](/img/index/img1.png)](/img/index/img1.png)
+[![IMAGE](/img/index/img2_0.png)](/img/index/img2_0.png)
 
 Against this situation, ThanoSQL
 
