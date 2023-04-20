@@ -29,7 +29,7 @@ __아래는 ThanoSQL (영화) 추천 모델의 활용 및 기대효과 예시입
 
 ## __0. 데이터 세트 준비__
 
-ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/getting_started/how_to_use_ThanoSQL/#5-thanosql)
+ThanoSQL의 쿼리 구문을 사용하기 위해서는 [ThanoSQL 워크스페이스](/getting_started/web_manual/#5-thanosql)
 에서 언급된 것처럼 API 토큰을 생성하고 아래의 쿼리를 실행해야 합니다.   
 
 ```sql

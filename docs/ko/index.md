@@ -37,7 +37,7 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/ko/getting_started/how_to_use_ThanoSQL/">
+            <a href="/ko/getting_started/web_manual/">
                 <h3>
                     ThanoSQL 웹 사용법
                 </h3>
