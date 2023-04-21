@@ -1,4 +1,5 @@
 nav:
-    - how_to_use_ThanoSQL.md
-    - hello_ThanoSQL.md
+    - web_manual.md
     - data_upload.md
+    - PaaS : paas
+    - SasS : saas

@@ -33,3 +33,17 @@ ThanoSQL에서는  이미지, 오디오, 그리고 비디오 데이터에 대해
 
 ## **6. LIKE 문법 사용하여 지정한 칼럼 값과 유사한 패턴을 갖는지 확인할 때 “%” 연산자가 정상 작동하지 않습니다.**
 ThanoSQL에서는 "%"를 이스케이프문으로 받아들이기 때문에, "%%" 라고 작성해야합니다. 
+
+## **7. Base64 인코딩된 데이터 프레임 컬럼을 디코딩하려면 어떻게 해야 하나요?**
+
+ThanoSQL의 REST API를 사용할 때 "__CONVERT__"를 사용하여 생성된 컬럼은 base64를 사용하여 인코딩됩니다. 따라서 바이트를 변환된 컬럼으로 사용하려면 base64의 b64decode를 사용하여 디코딩해야 합니다.
+
+```python
+# 바이트 배열로 다시 디코딩
+import base64
+df['인코딩된 컬럼'] = df['인코딩된 컬럼'].apply(lambda x: base64.b64encode(x))
+
+# 바이트 배열을 플로트 배열로 디코딩
+import numpy as np 
+df['바이트 배열 컬럼'] = df['바이트 배열 컬럼'].apply(lambda x: list(np.frombuffer(x, dtype="float32")))
+```

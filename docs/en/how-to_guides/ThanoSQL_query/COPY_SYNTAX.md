@@ -12,6 +12,7 @@ The "__COPY__" statement allows users to create data tables in the ThanoSQL work
     - csv
     - pkl, pickle
     - xls, xlsx, xlsm, xlsb
+    - pqt, parquet 
 
 ## __2. COPY Syntax__
 
@@ -25,8 +26,10 @@ FROM {file_path | dir_path}
 
 !!! note "__Query Details__"
     - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
-        - "overwrite": determines whether to overwrite a table if it already exists. If set as True, the old table is replaced with the new table (bool, optional, True|False, default: False)
-        - "chunksize": the number of rows in each batch to be written at a time. By default, all rows will be written at once (int, optonal, default: 1000)
+        - "if_exists": determines how the function should handle the case where the table already exists, it can either raise an error, append to the existing table, or replace the existing table (str, optional, 'fail'|'replace'|'append', default: 'fail')
+            - "fail": raise an error if there is already an existing table
+            - "replace": replace a table if there is already an existing table
+            - "append": append given dataframe to an existing table
 
 ## __3. COPY Example__
 
@@ -37,7 +40,7 @@ The example below demonstrates how to use a data file for the "__COPY__" clause.
 ```sql
 %%thanosql
 COPY mytable
-OPTIONS (overwrite=True)
+OPTIONS (if_exists='replace')
 FROM 'data/example.csv'
 ```
 
@@ -51,7 +54,7 @@ The example below demonstrates how to use a data directory for the "__COPY__" cl
 ```sql
 %%thanosql
 COPY mytable
-OPTIONS (overwrite=True)
+OPTIONS (if_exists='replace')
 FROM 'diet_image_data/'
 ```
 
@@ -68,7 +71,7 @@ df_in_json = df.to_json(orient="records")
 # use a f-string to wrap 'df_in_json' within the COPY clause 
 copy_pandas_df = f'''
 COPY mytable
-OPTIONS (overwrite=True)
+OPTIONS (if_exists='replace')
 FROM '{df_in_json}'
 '''
 ```
