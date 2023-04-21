@@ -37,7 +37,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/en/getting_started/how_to_use_ThanoSQL/">
+            <a href="/en/getting_started/web_manual/">
                 <h3>
                     ThanoSQL Web Manual
                 </h3>
@@ -47,7 +47,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
             </a>
         </li>
         <li>
-            <a href="/en/getting_started/hello_ThanoSQL/">
+            <a href="/en/getting_started/paas/workspace/">
                 <h3>
                     ThanoSQL Workspace Manual
                 </h3>

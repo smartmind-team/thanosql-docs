@@ -1,28 +1,27 @@
 ---
-title: ThanoSQL Workspace Manual
+title: Lab
 ---
 
-# **ThanoSQL Workspace Manual**
+# **Lab Manual**
 
-ThanoSQL`s workspace is a web-based computing environment based on [Jupyter Lab](https://github.com/jupyterlab/jupyterlab).
+ThanoSQL Workspace's Lab is a web-based computing environment based on [Jupyter Lab](https://github.com/jupyterlab/jupyterlab).
 
-To use **ThanoSQL** in this environment, you must first load the **ThanoSQL cell magic**.
+To use **ThanoSQL** in this environment, you must first load the **ThanoSQL Magic**.
 
 !!! tip ""
     You can press the run button at the top, or you can run it with either the **Ctrl + Enter** or **Shift + Enter** shortcuts.
 
-## **1. Call up ThanoSQL cell magic**
+## **1. Loading ThanoSQL Magic**
+
+Load the ThanoSQL Magic extension program with the following command.
 
 ```sql
 %load_ext thanosql
 ```
 
-## **2. Set API_TOKEN**
+## **2. Setting API_TOKEN**
 
-Next, to set the workspace's API_TOKEN, press the **Get API_TOKEN** button at the top of the browser to copy the API Token then paste it into the cell as shown.
-
-!!! tip "With the generated API token, you can use all of the ThanoSQL`s REST APIs"
-    For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](/en/how-to_guides/reference/#thanosql-rest-api-reference)
+Set the API_TOKEN obtained through **Workspace Settings page - Developer - API Token - Copy button** as follows.
 
 ```sql
 %thanosql API_TOKEN=<Issued_API_TOKEN>
@@ -33,14 +32,9 @@ ex)
 ```sql
 %thanosql API_TOKEN=eyGVFDdfafddvczs
 ```
-[![IMAGE](/img/thanosql_api/restapi_token_img2.jpg)](/img/thanosql_api/restapi_token_img2.jpg) 
 
-!!! notice "How to create a query statement in the ThanoSQL workspace" 
-    You can use either a one-line or multi-line format when writing the ThanoSQL queries.
-
-    - One-line queries are primarily used when returning queries in table form and assigning tables to variables. It is also used to assign the ThanoSQL cell magic and a token, as shown in steps 1 and 2.
-
-    - Multi-line queries provide the same user experience as other DBMSs and is used to query tables or run the ThanoSQL's extended syntax.
+!!! tip "With the generated API token, you can use all of the ThanoSQL`s REST APIs"
+    For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](/en/how-to_guides/reference/#thanosql-rest-api-reference)
 
 ## **3. Check the list of the ThanoSQL models and datasets using the LIST query syntax**
 
@@ -63,6 +57,27 @@ LIST THANOSQL DATASET
 ```
 
 [![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
+
+
+!!! notice "How to write queries in the ThanoSQL Workspace Lab" 
+    There are two ways to write queries in ThanoSQL: line-based and cell-based.
+
+    - Line-based: After entering `%thanosql`, continue writing the query on the same line. The query result is returned as a DataFrame and can be stored in a variable for further programming, similar to a Python variable.
+    
+    ```
+    df = %thanosql SELECT id, name FROM user
+    ```
+
+    - Cell-based: After entering `%%thanosql`, write the query freely on multiple lines. This provides a user experience similar to using other DBMSs to query tables or execute ThanoSQL extension syntax.
+
+    ```
+    %%thanosql
+    SELECT
+        id,
+        name
+    FROM user
+    ```
+
 
 ## __4. Get Tutorial__
 
