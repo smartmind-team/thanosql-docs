@@ -4,7 +4,7 @@ title: Query Manager
 
 # __Query Manager 사용법__
 
-Query Manager는 ThanoSQL 명령을 실행하고 결과를 분석할 수 있는 도구입니다. 중요 기능은 다음과 같습니다.
+ThanoSQL 워크스페이스의 Query Manager는 ThanoSQL 명령을 실행하고 결과를 분석할 수 있는 도구입니다. 중요 기능은 다음과 같습니다.
 
 - ThanoSQL 및 기본 SQL 명령 실행
 - 데이터 테이블의 '테이블 스키마' / '미리보기'

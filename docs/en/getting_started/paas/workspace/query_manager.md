@@ -4,7 +4,7 @@ title: Query Manager
 
 # __Query Manager Manual__
 
-Query Manager is a tool that allows you to execute ThanoSQL commands and analyze their results. The key features are as follows:
+ThanoSQL Workspace's Query Manager is a tool that allows you to execute ThanoSQL commands and analyze their results. The key features are as follows:
 
 - Execution of ThanoSQL and basic SQL commands
 - Retrieval of data table schema information/preview
