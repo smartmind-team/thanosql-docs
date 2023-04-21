@@ -32,8 +32,6 @@ ex)
 ```sql
 %thanosql API_TOKEN=eyGVFDdfafddvczs
 ```
-[![IMAGE](/img/thanosql_api/restapi_token_img2.jpg)](/img/thanosql_api/restapi_token_img2.jpg)
-
 
 !!! tip "With the generated API token, you can use all of the ThanoSQL`s REST APIs"
     For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](/en/how-to_guides/reference/#thanosql-rest-api-reference)
