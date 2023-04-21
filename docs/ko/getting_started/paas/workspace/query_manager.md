@@ -2,102 +2,60 @@
 title: Query Manager
 ---
 
-# **ThanoSQL Workspace Manual**
+# __Query Manager 사용법__
 
-ThanoSQL`s workspace is a web-based computing environment based on [Jupyter Lab](https://github.com/jupyterlab/jupyterlab).
+Query Manager는 ThanoSQL 명령을 실행하고 결과를 분석할 수 있는 도구입니다. 중요 기능은 다음과 같습니다.
 
-To use **ThanoSQL** in this environment, you must first load the **ThanoSQL cell magic**.
+- ThanoSQL 및 기본 SQL 명령 실행
+- 데이터 테이블의 '테이블 스키마' / '미리보기'
 
-!!! tip ""
-    You can press the run button at the top, or you can run it with either the **Ctrl + Enter** or **Shift + Enter** shortcuts.
+## __1. 새 쿼리 생성__
 
-## **1. Call up ThanoSQL cell magic**
+- **새 쿼리 만들기** 버튼을 클릭해 쿼리 탭을 생성합니다.
 
-```sql
-%load_ext thanosql
-```
+[![IMAGE](/ko/img/getting_started/paas/workspace/img1.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/img1.png)
 
-## **2. Set API_TOKEN**
+## __2. 쿼리 실행__
 
-Next, to set the workspace's API_TOKEN, press the **Get API_TOKEN** button at the top of the browser to copy the API Token then paste it into the cell as shown.
+- 쿼리를 작성하고 실행해 결과를 볼 수 있습니다.
 
-!!! tip "With the generated API token, you can use all of the ThanoSQL`s REST APIs"
-    For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](/en/how-to_guides/reference/#thanosql-rest-api-reference)
+[![IMAGE](/ko/img/getting_started/paas/workspace/img2.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/img2.png)
 
-```sql
-%thanosql API_TOKEN=<Issued_API_TOKEN>
-```
+① 쿼리 입력창
 
-ex)
+- ThanoSQL 쿼리를 작성합니다.
 
-```sql
-%thanosql API_TOKEN=eyGVFDdfafddvczs
-```
-[![IMAGE](/img/thanosql_api/restapi_token_img2.jpg)](/img/thanosql_api/restapi_token_img2.jpg) 
+② 쿼리 실행 버튼
 
-!!! notice "How to create a query statement in the ThanoSQL workspace" 
-    You can use either a one-line or multi-line format when writing the ThanoSQL queries.
+- 쿼리를 실행합니다.
 
-    - One-line queries are primarily used when returning queries in table form and assigning tables to variables. It is also used to assign the ThanoSQL cell magic and a token, as shown in steps 1 and 2.
+③ 쿼리 실행 결과창
 
-    - Multi-line queries provide the same user experience as other DBMSs and is used to query tables or run the ThanoSQL's extended syntax.
+- 쿼리 실행 결과과 테이블 형태로 출력됩니다.
 
-## **3. Check the list of the ThanoSQL models and datasets using the LIST query syntax**
+④ 페이지 기능
 
-All preparations to use **ThanoSQL** are complete.
-
-To view a list of prebuilt the ThanoSQL models, run the ThanoSQL statement below.
-
-```sql
-%%thanosql
-LIST THANOSQL MODEL
-```
-
-[![IMAGE](/img/getting_started/img8.png)](/img/getting_started/img8.png)
-
-To see the list of datasets used by the tutorials, run the statement below.
-
-```sql
-%%thanosql
-LIST THANOSQL DATASET
-```
-
-[![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
-
-## __4. Get Tutorial__
-
-You can check out the available tutorials from the [tutorials in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/). 
-Running the statement below allows you to clone all the ThanoSQL's tutorial into your workspace.
-
-```sql
-!git clone https://github.com/smartmind-team/thanosql-tutorial.git
-```
-
-If you want to import only certain tutorials into your workspace, use the wget method as shown below.
-
-!!!note "___Github URL of the ThanoSQL tutorials___"
-
-```python
-!wget [Tutorials' Github URL]
-# Example 
-## wget https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_keyword.ipynb
-```
-
-| Tutorial | URL |
-| :---------: |  :----------------------------------: |
-| `Search images by keywords` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_keyword.ipynb |
-| `Search images by images` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_image.ipynb |
-| `Search images by text` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_image_by_text.ipynb |
-| `Search text by text` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_text_by_text.ipynb |
-| `Search video by text` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_search/search_video_by_text.ipynb |
-| `Create classification model using Auto-ML` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/classification/automl_classification.ipynb |
-| `Create Image Classification Model` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/classification/image_classification.ipynb |
-| `Create text classification model` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/classification/text_classification.ipynb |
-| `Create regression model using Auto-ML` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/regression/automl_regression.ipynb |
-| `Create voice recognition model that dictates audio files` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/audio_recognition/speech_recognition.ipynb |
-| `Using a Speech Recognition Model that dictates and translate audio files` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/audio_recognition/speech_recognition2.ipynb |
-| `Use the Visual Question Answering Model to find an appropriate answer to a question` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/question_answering/visual_question_answering.ipynb |
-| `Create a Time Series Forecasting Model` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/timeseries/timeseries_forecasting.ipynb |  
-| `Use your model in ThanoSQL` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/main/tutorial_en/thanosql_ml/udm_tutorial.ipynb |
+- 한 번에 표시되는 행 수 조절이 가능합니다. (최대 100행)
+- 다음/이전 페이지로 이동 가능하며, 현재 페이지 번호를 알 수 있습니다.
 
 
+## __3. 데이터 테이블 정보창__
+
+좌측의 **데이터베이스 내비게이션**으로 [스키마](https://www.postgresql.org/docs/current/ddl-schemas.html) 별 테이블 구성 정보를 알 수 있습니다. ThanoSQL에서는 `public`과 `qm` 스키마가 기본적으로 제공되며, Query Manager에서 실행한 쿼리 결과들은 `qm` 스키마에 임의의 테이블 이름으로 저장됩니다. 이를 이용하여 이전 테이블 실행 결과들을 언제든지 재사용할 수 있습니다.
+
+또한, 테이블 명을 클릭하면 다음과 같은 정보를 열람 할 수 있습니다.
+
+### __3-1. 테이블 스키마__
+
+해당 데이터 테이블의 컬럼명, 데이터 타입, Null 가능 여부를 확인 할 수 있습니다.
+
+[![IMAGE](/ko/img/getting_started/paas/workspace/img3.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/img3.png)
+
+### __3-2. 미리보기__
+
+해당 데이터 테이블의 내용을 빠르게 파악할 수 있습니다.
+
+!!! warning 
+    미리보기에서는 데이터 테이블 편집이 불가능합니다.
+
+[![IMAGE](/ko/img/getting_started/paas/workspace/img4.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/img4.png)
