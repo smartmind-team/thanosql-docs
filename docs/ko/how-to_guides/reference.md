@@ -7,7 +7,7 @@ title: 개요
 
 참조 페이지는 주제에 대한 공식적인 요약을 제공합니다. ThanoSQL 사용에 대한 자세한 내용은 [튜토리얼](/ko/tutorials/algorithm_list/)에서 찾을 수 있습니다. 각 참조 페이지에 나열된 상호 참조를 확인하세요.
 
-### __ThanoSQL Statement Reference__
+### __ThanoSQL Statement__
 
 - [__BUILD MODEL__](/ko/how-to_guides/ThanoSQL_query/BUILD_MODEL_SYNTAX/) — 인공지능 모델에 대한 학습
 - [__FIT MODEL__](/ko/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/) —  추가된 데이터 세트에 대한 인공지능 모델 재학습
@@ -23,7 +23,7 @@ title: 개요
 - [__COPY__](/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - 워크스페이스에 있는 데이터 파일들로 ThanoSQL 워크스페이스 데이터베이스 안의 데이터 테이블 생성
 - [__FUNCTION__](/ko/how-to_guides/ThanoSQL_query/FUNCTION_SYNTAX/) - ThanoSQL 함수를 사용하여 데이터 처리
 
-### __ThanoSQL Model Statement Reference__
+### __Model Statement__
 
 - [__AutomlClassifier__](/ko/how-to_guides/ThanoSQL_model/AutomlClassifier/) — 분류 모델
 - [__AutomlRegressor__](/ko/how-to_guides/ThanoSQL_model/AutomlRegressor/) — 회귀 모델
@@ -38,12 +38,10 @@ title: 개요
 - [__ViLT__](/ko/how-to_guides/ThanoSQL_model/ViLT/) — 시각 질의 응답 모델
 - [__TFT__](/ko/how-to_guides/ThanoSQL_model/TFT/) — 시계열 예측 모델
 
-### __ThanoSQL Function Statement Reference__ 
+### __Function Statement__ 
 - [__Compute__](/ko/how-to_guides/ThanoSQL_function/Compute/) — 데이터 계산
 - [__Preprocess__](/ko/how-to_guides/ThanoSQL_function/Preprocess/) — 데이터 전처리
 
-### __ThanoSQL Rest API Reference__ 
+### __REST API__ 
 
-- [__ThanoSQL 구문 활용__](/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_query/)
-- [__ThanoSQL 워크스페이스 데이터베이스 파일 업로드 & 삭제__](/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_file/)
-- [__ThanoSQL 서치 사용__](/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_search/)
+- [__Overview__](/ko/how-to_guides/ThanoSQL_connecting/overview/)

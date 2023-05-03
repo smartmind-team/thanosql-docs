@@ -6,7 +6,7 @@ title: Reference
 
 Reference page provides a formal overview of each topic. More information on using the ThanoSQL can be found in the [Tutorial](/en/tutorials/algorithm_list/). Check the cross-references listed on each reference page.
 
-### __ThanoSQL Statement Reference__
+### __ThanoSQL Statement__
 
 - [__BUILD MODEL__](/en/how-to_guides/ThanoSQL_query/BUILD_MODEL_SYNTAX/) — Build an AI Model
 - [__FIT MODEL__](/en/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/) —  Rebuild the AI model to Accommodate New Datasets
@@ -22,7 +22,7 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__COPY__](/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - Copy Data Files in the Workspace and Create Data Tables Within the ThanoSQL Workspace Database
 - [__FUNCTION__](/en/how-to_guides/ThanoSQL_query/FUNCTION_SYNTAX/) - Process Data With ThanoSQL's Functions  
 
-### __ThanoSQL Model Statement Reference__
+### __Model Statement__
 
 - [__AutomlClassifier__](/en/how-to_guides/ThanoSQL_model/AutomlClassifier/) — Classification Model
 - [__AutomlRegressor__](/en/how-to_guides/ThanoSQL_model/AutomlRegressor/) — Regression Model
@@ -37,12 +37,10 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__ViLT__](/en/how-to_guides/ThanoSQL_model/ViLT/) — Visual Question Answering Model 
 - [__TFT__](/en/how-to_guides/ThanoSQL_model/TFT/) — Time Series Forecasting Model
 
-### __ThanoSQL Function Statement Reference__ 
+### __Function Statement__ 
 - [__Compute__](/en/how-to_guides/ThanoSQL_function/Compute/) — Compute Data 
 - [__Preprocess__](/en/how-to_guides/ThanoSQL_function/Preprocess/) — Preprocess Data
 
-### __ThanoSQL Rest API Reference__
+### __REST API__
 
-- [__How to Query Using ThanoSQL__](/en/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_query/)
-- [__How to Upload & Delete a File from the ThanoSQL Workspace Database__](/en/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_file/)
-- [__How to Use the ThanoSQL Search__](/en/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_search/)
+- [__Overview__](/en/how-to_guides/ThanoSQL_connecting/overview/)
