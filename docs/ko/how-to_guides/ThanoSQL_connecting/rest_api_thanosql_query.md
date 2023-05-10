@@ -1,10 +1,10 @@
 ---
-title: ThanoSQL 구문 활용
+title: Query APIs
 ---
 
-# __ThanoSQL 구문 활용__
+# **Query APIs**
 
-REST API를 사용하여 ThanoSQL 콘솔상에서 사용하던 쿼리들을 사용할수 있습니다. 
+Query APIs로 워크스페이스에서 사용하던 쿼리들을 동일하게 사용할수 있습니다. 
 
 !!! warning "__Warning__"
     - "__CONVERT__"를 사용해 만들어진 컬럼의 값들은 base64로 인코딩됩니다. 바이트 형식의 값을 사용하려면 base64의 b64decode를 사용하여 디코딩해야 합니다.
