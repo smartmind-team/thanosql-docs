@@ -8,8 +8,9 @@ Using the ThanoSQL Table REST APIs, you can execute several CRUD operations on y
 
 ## **The Table Object**
 A table object consists of four main componenets:
-1. *`name`: The name of the table
-2. *`schema`: The schema that the table is a part of
+
+1. `name`: The name of the table
+2. `schema`: The schema that the table is a part of
 3. `columns`
     - `id`: The ordinal position of the column
     - `default`: The default value of the column
@@ -30,7 +31,7 @@ A table object consists of four main componenets:
 _The above components that have a * next to its name will not be included in the body for the POST table API. Instead, it will be specified in the URL as query parameters._
 
 
-## **To GET all of your tables**
+## **To Get All of Your Tables**
 
 === "Python"
 
@@ -64,7 +65,7 @@ _The above components that have a * next to its name will not be included in the
     ```
 This returns a list of the table objects. If no `schema_name` is provided, then tables from every schemas will be listed. 
 
-## **To GET a single table**
+## **To Get a Single Table**
 
 === "Python"
 
@@ -99,7 +100,7 @@ This returns a list of the table objects. If no `schema_name` is provided, then 
     ```
   If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
 
-## **To ALTER a table**
+## **To Alter a Table**
 
 The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the `table_name` and `schema_name`. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. 
 
@@ -253,7 +254,7 @@ In the following example lets pretend we want to alter the table object below:
   If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
 
 
-## **To CREATE a table**
+## **To Create a Table**
 
 The CREATE Table API is used to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema_name` as query params. 
 
@@ -378,7 +379,7 @@ The CREATE Table API is used to execute the CREATE TABLE operation. In order to 
     ```
   If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
 
-  ## **To DELETE a table**
+## **To Delete a Table**
 
 === "Python"
 
