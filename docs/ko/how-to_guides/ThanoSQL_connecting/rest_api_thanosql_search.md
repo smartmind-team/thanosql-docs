@@ -6,7 +6,7 @@ title: Search APIs
 
 Search APIs로 이미지나 텍스트와 "__BUILD__"한 모델을 기반으로 ThanoSQL 워크스페이스 데이터베이스 상의 유사한 이미지를 조회하고 받을 수 있습니다. 
 
-## **file**
+## __`POST` /search/file__
 
 이미지 파일을 사용하여 이미지를 검색하려면 다음 엔드포인트를 사용할 수 있습니다.
 
@@ -49,7 +49,7 @@ Search APIs로 이미지나 텍스트와 "__BUILD__"한 모델을 기반으로 T
       -F 'file=@이미지 파일 경로;type=image/이미지 파일 타입'
     ```
 
-## **text**
+## __`POST` /search/text__
 
 텍스트를 사용하여 이미지를 검색하려면 다음 엔드포인트를 사용할 수 있습니다.
 

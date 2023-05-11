@@ -7,7 +7,9 @@ title: Query APIs
 You can use the same queries for Query APIs as you would in the ThanoSQL Workspace.
 
 !!! warning "__Warning__"
-    - Columns created using "__CONVERT__" are encoded using base64. To use it as a column containing bytes, it must be decoded using base64's b64decode. 
+    - Columns created using "__CONVERT__" are encoded using base64. To use it as a column containing bytes, it must be decoded using base64's b64decode.
+
+## __`POST` /query__
 
 === "Python"
 

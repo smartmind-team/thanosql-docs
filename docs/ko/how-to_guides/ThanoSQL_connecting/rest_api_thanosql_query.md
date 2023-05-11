@@ -9,6 +9,8 @@ Query APIs로 워크스페이스에서 사용하던 쿼리들을 동일하게 �
 !!! warning "__Warning__"
     - "__CONVERT__"를 사용해 만들어진 컬럼의 값들은 base64로 인코딩됩니다. 바이트 형식의 값을 사용하려면 base64의 b64decode를 사용하여 디코딩해야 합니다.
 
+## __`POST` /query__
+
 === "Python"
 
     ```python

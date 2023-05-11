@@ -6,7 +6,7 @@ title: Search APIs
 
 You can use Search APIs to query and search for similar images within the ThanoSQL Workspace database using images, text, and built models.
 
-## **file**
+## __`POST` /search/file__
 
 To search for images using an image file, you can use the following endpoint.
 
@@ -49,7 +49,7 @@ To search for images using an image file, you can use the following endpoint.
       -F 'file=@Image File Path;type=image/Image File Type'
     ```
 
-## **text**
+## __`POST` /search/text__
 
 To search for images using a text, you can use the following endpoint.
 

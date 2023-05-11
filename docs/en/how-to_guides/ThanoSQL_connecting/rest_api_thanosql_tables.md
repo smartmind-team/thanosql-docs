@@ -6,32 +6,32 @@ title: How to Use the ThanoSQL Table APIs
 
 Using the ThanoSQL Table REST APIs, you can execute several CRUD operations on your ThanoSQL workspace database tables.
 
-## **The Table Object**
-A table object consists of four main componenets:
+!!! Note "__Table Object__"
+    A table object consists of four main componenets:
 
-1. `name`: The name of the table
-2. `schema`: The schema that the table is a part of
-3. `columns`
-    - `id`: The ordinal position of the column
-    - `default`: The default value of the column
-    - `is_nullable`: A boolean determining if the column is nullable
-    - `type`: [Data type](https://www.postgresql.org/docs/current/datatype.html#:~:text=Table%C2%A08.1.%C2%A0Data%20Types) of the column
-    - `name`: The name of the column
-4. `constraints`
-    - `primary_key`: The primary key of the table 
-        - `name`: The constraint name of the primary key
-        - `columns`: The columns that make up the primary key
-    - `foreign_keys`: 
-        - `name`: The constraint name of the foreign key
-        - `reference_schema`: The schema that contains the `reference_table`
-        - `reference_table`: The table that contains the `reference_column`
-        - `reference_column`: The column that the foreign key is referring to
-        - `column`: The foreign key column
+    1. `name`: The name of the table
+    2. `schema`: The schema that the table is a part of
+    3. `columns`
+        - `id`: The ordinal position of the column
+        - `default`: The default value of the column
+        - `is_nullable`: A boolean determining if the column is nullable
+        - `type`: [Data type](https://www.postgresql.org/docs/current/datatype.html#:~:text=Table%C2%A08.1.%C2%A0Data%20Types) of the column
+        - `name`: The name of the column
+    4. `constraints`
+        - `primary_key`: The primary key of the table 
+            - `name`: The constraint name of the primary key
+            - `columns`: The columns that make up the primary key
+        - `foreign_keys`: 
+            - `name`: The constraint name of the foreign key
+            - `reference_schema`: The schema that contains the `reference_table`
+            - `reference_table`: The table that contains the `reference_column`
+            - `reference_column`: The column that the foreign key is referring to
+            - `column`: The foreign key column
 
-_The above components that have a * next to its name will not be included in the body for the POST table API. Instead, it will be specified in the URL as query parameters._
+    _The above components that have a * next to its name will not be included in the body for the POST table API. Instead, it will be specified in the URL as query parameters._
 
 
-## **To Get All of Your Tables**
+## **`GET` /table**
 
 === "Python"
 
@@ -65,7 +65,7 @@ _The above components that have a * next to its name will not be included in the
     ```
 This returns a list of the table objects. If no `schema_name` is provided, then tables from every schemas will be listed. 
 
-## **To Get a Single Table**
+## **`GET` /table/{table_name}**
 
 === "Python"
 
@@ -100,7 +100,7 @@ This returns a list of the table objects. If no `schema_name` is provided, then 
     ```
   If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
 
-## **To Alter a Table**
+## **`PUT` /table/{table_name}**
 
 The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the `table_name` and `schema_name`. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. 
 
@@ -254,7 +254,7 @@ In the following example lets pretend we want to alter the table object below:
   If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
 
 
-## **To Create a Table**
+## **`POST` /table/{table_name}**
 
 The CREATE Table API is used to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema_name` as query params. 
 
@@ -379,7 +379,7 @@ The CREATE Table API is used to execute the CREATE TABLE operation. In order to 
     ```
   If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
 
-## **To Delete a Table**
+## **`DELETE` /table/{table_name}**
 
 === "Python"
 

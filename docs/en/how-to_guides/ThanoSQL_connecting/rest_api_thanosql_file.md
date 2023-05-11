@@ -14,7 +14,7 @@ You can use File APIs to remotely send and upload files to your Workspace storag
         
     - Files with extensions not listed above are stored in the "drive/others" folder.
 
-## __upload__
+## __`POST` /file/upload__
 
 In order to upload a file only, use the below methods to send a file to the Workspace storage.
 When the "dir=folder name" is added to the URL, the file will be uploaded to the 
@@ -91,7 +91,7 @@ If "db commit" is set to True and "table name" and "column name" are specified, 
     - In order to use a file within the Jupyter workspace, you must put '/'home/jovyan' in front of the path. 
 
 
-## __delete__
+## __`POST` /file/delete__
 
 In order to delete a file only, use the below methods to delete a file from the Workspace storage. 
 
@@ -164,7 +164,7 @@ If "db_commit" is set to True and "table_name" and "column_name" are specified, 
     ```
 
 
-## __list__
+## __`POST` /file/list__
 
 A list of files and folders is returned from a specified file path. The file path can be expressed using a regular expression.
 
