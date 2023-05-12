@@ -9,8 +9,8 @@ Using the ThanoSQL Table REST APIs, you can execute several CRUD operations on y
 !!! Note "__Table Object__"
     A table object consists of four main componenets:
 
-    1. `name`: The name of the table
-    2. `schema`: The schema that the table is a part of
+    1. *`name`: The name of the table
+    2. *`schema`: The schema that the table is a part of
     3. `columns`
         - `id`: The ordinal position of the column
         - `default`: The default value of the column
