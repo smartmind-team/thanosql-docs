@@ -4,7 +4,7 @@ title: How to Use the ThanoSQL Table APIs
 
 # **How to Use the ThanoSQL Table APIs**
 
-Using the ThanoSQL Table REST APIs, you can execute several CRUD operations on your ThanoSQL workspace database tables.
+You can use the ThanoSQL Table REST API for several CRUD operations on your ThanoSQL DB tables.
 
 !!! Note "__Table Object__"
     A table object consists of four main componenets:
@@ -32,6 +32,8 @@ Using the ThanoSQL Table REST APIs, you can execute several CRUD operations on y
 
 
 ## **`GET` /table**
+
+In order to get a list of all of your tables, use the method below. If no `schema_name` is provided, then tables from every schemas will be listed. 
 
 === "Python"
 
@@ -63,9 +65,11 @@ Using the ThanoSQL Table REST APIs, you can execute several CRUD operations on y
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
-This returns a list of the table objects. If no `schema_name` is provided, then tables from every schemas will be listed. 
+
 
 ## **`GET` /table/{table_name}**
+
+Use this method to get the objects of a single table. If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
 
 === "Python"
 
@@ -98,8 +102,7 @@ This returns a list of the table objects. If no `schema_name` is provided, then 
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
-  If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
-
+  
 ## **`PUT` /table/{table_name}**
 
 The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the `table_name` and `schema_name`. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. 
@@ -256,7 +259,7 @@ In the following example lets pretend we want to alter the table object below:
 
 ## **`POST` /table/{table_name}**
 
-The CREATE Table API is used to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema_name` as query params. 
+Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema_name` as query params. 
 
 !!! note " "
     When adding Column objects to the list of columns, there is no need to specify the id since the id just refers to the ordinal position of the column. Additionally if the table is created with an empty body, an empty table will be created. If no table_name is specified, the table will be created with a random uuid string.
@@ -377,9 +380,11 @@ The CREATE Table API is used to execute the CREATE TABLE operation. In order to 
             }
         }'
     ```
-  If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
 
 ## **`DELETE` /table/{table_name}**
+
+To delete a table, use the method below. If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
+
 
 === "Python"
 
