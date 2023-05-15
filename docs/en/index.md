@@ -4,9 +4,6 @@ title: Intro
 
 # **ThanoSQL**
 
-- 3 min read
-- Updated Date: {{ git_revision_date_localized }}
-
 ## **What is ThanoSQL?**
 
 ThanoSQL is an integrated platform that is capable of [query](https://en.wikipedia.org/wiki/Query) and AI(artificial intelligence) modeling both structured and __unstructured data__[^1] with only __SQL__[^2]. You can apply the functions of __RDB (Relational Database)__[^3], AI, and Big Data Platform within one platform and significantly reduce inefficiencies that occur during AI-based digital transformation.
@@ -47,22 +44,22 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
             </a>
         </li>
         <li>
-            <a href="/en/getting_started/paas/workspace/">
-                <h3>
-                    ThanoSQL Workspace Manual
-                </h3>
-                <p>
-                    Explain the basic usage of the ThanoSQL workspace.
-                </p>
-            </a>
-        </li>
-        <li>
             <a href="/en/getting_started/data_upload/">
                 <h3>
                     How to Upload Your Data to the ThanoSQL Workspace
                 </h3>
                 <p>
                     Describe two ways to upload data from the local computer to the ThanoSQL Workspace
+                </p>
+            </a>
+        </li>
+        <li>
+            <a href="/en/getting_started/paas/workspace/">
+                <h3>
+                    ThanoSQL Workspace Manual
+                </h3>
+                <p>
+                    Explain the basic usage of the ThanoSQL workspace.
                 </p>
             </a>
         </li>
