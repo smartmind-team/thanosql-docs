@@ -63,6 +63,26 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
                 </p>
             </a>
         </li>
+        <li>
+            <a href="/ko/getting_started/saas/autocrm/">
+                <h3>
+                    AutoCRM 사용법
+                </h3>
+                <p>
+                    AutoCRM의 기본적인 사용법에 대해 설명합니다.  
+                </p>
+            </a>
+        </li>
+        <li>
+            <a href="/ko/getting_started/saas/qe/">
+                <h3>
+                    Query Everything 사용법
+                </h3>
+                <p>
+                    Query Everything의 기본적인 사용법에 대해 설명합니다.  
+                </p>
+            </a>
+        </li>
     </ul>
 </div>
 

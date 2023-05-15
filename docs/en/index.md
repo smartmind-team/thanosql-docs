@@ -63,6 +63,26 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
                 </p>
             </a>
         </li>
+        <li>
+            <a href="/en/getting_started/saas/autocrm/">
+                <h3>
+                    AutoCRM Manual
+                </h3>
+                <p>
+                    Explain the basic usage of the AutoCRM.
+                </p>
+            </a>
+        </li>
+        <li>
+            <a href="/en/getting_started/saas/qe/">
+                <h3>
+                    Query Everything Manual
+                </h3>
+                <p>
+                    Explain the basic usage of the Query Everything.
+                </p>
+            </a>
+        </li>
     </ul>
 </div>
 
