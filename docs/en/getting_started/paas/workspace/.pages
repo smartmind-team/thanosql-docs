@@ -1,4 +1,4 @@
 nav:
-  - index.md
+  - Overview : index.md
   - query_manager.md
   - lab.md
