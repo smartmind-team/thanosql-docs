@@ -26,7 +26,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
     import json
 
     api_token = "발급받은_API_TOKEN"
-    api_url = "https://engine.thanosql.ai/api/v1/file/upload/"
+    api_url = "https://{your-engine-url}/api/v1/file/upload/"
     header = {
         "Authorization": f"Bearer {api_token}"
     }
@@ -42,7 +42,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/upload/' \
+      'https://{your-engine-url}/api/v1/file/upload/' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
@@ -58,7 +58,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url = "https://engine.thanosql.ai/api/v1/upload/"
+    base_url = "https://{your-engine-url}/api/v1/upload/"
     table_name = "테이블 명"
     column_name = "컬럼 명"
     db_commit = True 
@@ -79,7 +79,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell 
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/upload/?db_commit=True&table_name=테이블 명&column_name=컬럼 명' \
+      'https://{your-engine-url}/api/v1/file/upload/?db_commit=True&table_name=테이블 명&column_name=컬럼 명' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
@@ -102,7 +102,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     api_token = "발급받은_API_TOKEN"
     file_path = "데이터 파일 경로"
-    api_url = f"https://engine.thanosql.ai/api/v1/file/delete/?file_path={file_path}'
+    api_url = f"https://{your-engine-url}/api/v1/file/delete/?file_path={file_path}'
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -118,7 +118,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/delete/?file_path=데이터 파일 경로' \
+      'https://{your-engine-url}/api/v1/file/delete/?file_path=데이터 파일 경로' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json' 
@@ -134,7 +134,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url = "https://engine.thanosql.ai/api/v1/file/delete/"
+    base_url = "https://{your-engine-url}/api/v1/file/delete/"
     db_commit = True 
     file_path = '데이터 파일 경로',
     table_name = '테이블 명',
@@ -156,7 +156,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/delete/?db_commit=True&file_path=데이터 파일 경로&table_name=테이블 명&column_name=컬럼 명' \
+      'https://{your-engine-url}/api/v1/file/delete/?db_commit=True&file_path=데이터 파일 경로&table_name=테이블 명&column_name=컬럼 명' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json'
@@ -174,7 +174,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     api_token = "발급받은_API_TOKEN"
     file_path = "파일 경로"
-    api_url = f"https://engine.thanosql.ai/api/v1/file/list/?file_path={file_path}"
+    api_url = f"https://{your-engine-url}/api/v1/file/list/?file_path={file_path}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -190,7 +190,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/list/?file_path={파일 경로}' \
+      'https://{your-engine-url}/api/v1/file/list/?file_path={파일 경로}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json'

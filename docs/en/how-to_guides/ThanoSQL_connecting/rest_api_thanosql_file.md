@@ -27,7 +27,7 @@ designated folder.
     import json
 
     api_token = "Issued_API_TOKEN"
-    api_url = "https://engine.thanosql.ai/api/v1/file/upload/"
+    api_url = "https://{your-engine-url}/api/v1/file/upload/"
     header = {
         "Authorization": f"Bearer {api_token}"
     }
@@ -43,7 +43,7 @@ designated folder.
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/upload/' \
+      'https://{your-engine-url}/api/v1/file/upload/' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
@@ -59,7 +59,7 @@ If "db commit" is set to True and "table name" and "column name" are specified, 
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url = "https://engine.thanosql.ai/api/v1/file/upload/"
+    base_url = "https://{your-engine-url}/api/v1/file/upload/"
     table_name = "Table Name"
     column_name = "Column Name"
     db_commit = True 
@@ -80,7 +80,7 @@ If "db commit" is set to True and "table name" and "column name" are specified, 
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/upload/?db_commit=True&table_name=Table name&column_name=Column Name' \
+      'https://{your-engine-url}/api/v1/file/upload/?db_commit=True&table_name=Table name&column_name=Column Name' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
@@ -103,7 +103,7 @@ In order to delete a file only, use the below methods to delete a file from the 
 
     api_token = "Issued_API_TOKEN"
     file_path = "Data File Path"
-    api_url = f"https://engine.thanosql.ai/api/v1/file/delete/?file_path={file_path}'
+    api_url = f"https://{your-engine-url}/api/v1/file/delete/?file_path={file_path}'
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -119,7 +119,7 @@ In order to delete a file only, use the below methods to delete a file from the 
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/delete/?file_path=Data File Path' \
+      'https://{your-engine-url}/api/v1/file/delete/?file_path=Data File Path' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: application/json'
@@ -135,7 +135,7 @@ If "db_commit" is set to True and "table_name" and "column_name" are specified, 
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url = "https://engine.thanosql.ai/api/v1/file/delete/"
+    base_url = "https://{your-engine-url}/api/v1/file/delete/"
     db_commit = True 
     file_path = 'File Path'
     table_name = 'Table Name'
@@ -157,7 +157,7 @@ If "db_commit" is set to True and "table_name" and "column_name" are specified, 
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/delete/?db_commit=True&file_path=File Path&table_name=Table Name&column_name=Column Name' \
+      'https://{your-engine-url}/api/v1/file/delete/?db_commit=True&file_path=File Path&table_name=Table Name&column_name=Column Name' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: application/json'
@@ -176,7 +176,7 @@ A list of files and folders is returned from a specified file path. The file pat
 
     api_token = "Issued_API_TOKEN"
     file_path = "File Path"
-    api_url = f"https://engine.thanosql.ai/api/v1/file/list/?file_path={file_path}"
+    api_url = f"https://{your-engine-url}/api/v1/file/list/?file_path={file_path}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -192,7 +192,7 @@ A list of files and folders is returned from a specified file path. The file pat
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/list/?file_path={File Path}' \
+      'https://{your-engine-url}/api/v1/file/list/?file_path={File Path}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: application/json'
