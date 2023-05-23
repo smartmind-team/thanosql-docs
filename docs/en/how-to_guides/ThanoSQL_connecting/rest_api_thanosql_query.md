@@ -13,12 +13,12 @@ Execute ThanoSQL queries and receive a query log as a response.
     - `statement_type`: The query type (ex. SELECT, BUILD, etc.).
     - `start_time`: The start time of the query execution.
     - `end_time`: The end time of the query execution.
-    - `query`: The query that was executed.
+    - `query`: The query string that was executed.
     - `referer`: Indicates where the REST API call was made from.
     - `state`: Shows the state of the query execution (Either RUNNING or COMPLETE).
     - `destination_table`: Shows table where the results are stored in (If the `statement_type` is a SELECT, a new `destination_table` is created. Otherwise, the `destination_table` shows the affected table).
-    - `error_result`: Stores the error message if there was an error during query execution.
-    - `created_at`: Shows the timestamp of when the query was created.
+    - `error_result`: Stores the error message if there was an error executing the query.
+    - `created_at`: Shows the timestamp of when the query log was created.
 
 !!! warning "__Warning__"
     - Columns created using "__CONVERT__" are encoded using base64. To use it as a column containing bytes, it must be decoded using base64's b64decode.
