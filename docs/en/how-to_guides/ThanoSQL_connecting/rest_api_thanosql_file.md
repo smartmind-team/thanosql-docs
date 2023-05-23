@@ -1,11 +1,10 @@
 ---
-title: How to Upload & Delete a File from the ThanoSQL Workspace Database
+title: File APIs
 ---
 
-# __How to Upload & Delete a File from the ThanoSQL Workspace Database__
-## __How to Upload a File to the ThanoSQL Workspace Database__
+# **File APIs**
 
-You can use ThanoSQL's REST API to remotely send and upload files to your ThanoSQL storage and insert them into any of your table within the database. The default root folder for all user files in ThanoSQL is set to "drive."
+You can use File APIs to remotely send and upload files to your Workspace storage and insert them into any of your table within the database. The default root folder for all user files is set to "drive."
 
 !!! warning "__Warning__"
     - File API supports image, audio, and video data with the following extensions:
@@ -15,9 +14,9 @@ You can use ThanoSQL's REST API to remotely send and upload files to your ThanoS
         
     - Files with extensions not listed above are stored in the "drive/others" folder.
 
-### __File Upload__
+## __`POST` /file/upload__
 
-In order to upload a file only, use the below methods to send a file to the ThanoSQL storage.
+In order to upload a file only, use the below methods to send a file to the Workspace storage.
 When the "dir=folder name" is added to the URL, the file will be uploaded to the 
 designated folder.
 
@@ -51,9 +50,7 @@ designated folder.
       -F 'file=@Data File Path;type=file_type/Data File Type'
     ```
 
-### __File Upload & Insert__
-
-If "db commit" is set to True and "table name" and "column name" are specified, the given file is sent to ThanoSQL storage and the file path is inserted into a column of the specified table.
+If "db commit" is set to True and "table name" and "column name" are specified, the given file is sent to Workspace storage and the file path is inserted into a column of the specified table.
 
 === "Python"
 
@@ -94,14 +91,9 @@ If "db commit" is set to True and "table name" and "column name" are specified, 
     - In order to use a file within the Jupyter workspace, you must put '/'home/jovyan' in front of the path. 
 
 
-## __How to Delete a File from the ThanoSQL Workspace Database__
+## __`POST` /file/delete__
 
-You can use ThanoSQL's REST API to delete files from your ThanoSQL storage and remove all rows from any of your tables within the database that have the same value as the file paths.
-
-### __File Delete__
-
-In order to delete a file only, use the below methods to delete a file from the ThanoSQL storage. 
-
+In order to delete a file only, use the below methods to delete a file from the Workspace storage. 
 
 === "Python"
 
@@ -134,10 +126,7 @@ In order to delete a file only, use the below methods to delete a file from the 
     ```
 
 
-### __File Delete & Remove__
-
-If "db_commit" is set to True and "table_name" and "column_name" are specified, the given file is deleted from ThanoSQL storage, and all rows in the table with the same value as the specified file path in the specified column will be deleted.
-
+If "db_commit" is set to True and "table_name" and "column_name" are specified, the given file is deleted from Workspace storage, and all rows in the table with the same value as the specified file path in the specified column will be deleted.
 
 === "Python"
 
@@ -175,7 +164,7 @@ If "db_commit" is set to True and "table_name" and "column_name" are specified, 
     ```
 
 
-### __Get File List__
+## __`POST` /file/list__
 
 A list of files and folders is returned from a specified file path. The file path can be expressed using a regular expression.
 
