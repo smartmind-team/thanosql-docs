@@ -9,7 +9,7 @@ The Query Manager provides a familiar UI similar to DBMS, allowing you to execut
 - Query Log
 - Data Viewer
 
-## __Overview of the Query Manager page__
+## __Overview of the Query Manager Page__
 
 The Query Manager has three main sections:
 

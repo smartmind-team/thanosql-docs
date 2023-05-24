@@ -1,4 +1,4 @@
-# __Lab Manual__
+# __Lab 매뉴얼__
 
 Lab은 [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)을 기반으로 데이터 탐색, AI/ML 모델링 및 응용 프로그램 개발을 위한 다목적 환경을 제공합니다.
 
