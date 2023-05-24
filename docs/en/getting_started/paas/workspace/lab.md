@@ -1,10 +1,6 @@
----
-title: Lab
----
-
 # **Lab Manual**
 
-ThanoSQL Workspace's Lab is a web-based computing environment based on [Jupyter Lab](https://github.com/jupyterlab/jupyterlab).
+The Lab provides a multi-purpose environment for data exploration, AI/ML modeling, and application development, based on [Jupyter Lab](https://github.com/jupyterlab/jupyterlab).
 
 To use **ThanoSQL** in this environment, you must first load the **ThanoSQL Magic**.
 

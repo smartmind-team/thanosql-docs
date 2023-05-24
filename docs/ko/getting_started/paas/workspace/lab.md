@@ -1,10 +1,6 @@
----
-title: Lab
----
+# __Lab 매뉴얼__
 
-# __Lab 사용법__ 
-
-ThanoSQL 워크스페이스의 Lab은 [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)을 기반으로 하는 웹 기반 컴퓨팅 환경입니다.
+Lab은 [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)을 기반으로 데이터 탐색, AI/ML 모델링 및 응용 프로그램 개발을 위한 다목적 환경을 제공합니다.
 
 이 환경에서 **ThanoSQL**을 본격적으로 사용하기 위해서는 먼저 **ThanoSQL Magic**을 불러와야 합니다.
 
