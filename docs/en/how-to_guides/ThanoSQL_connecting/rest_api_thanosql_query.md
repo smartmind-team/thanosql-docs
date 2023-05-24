@@ -25,6 +25,12 @@ Execute ThanoSQL queries and receive a query log as a response.
 
 ## __`POST` /query__
 
+!!! Note "__Parameters__"
+    
+    - `schema`: The schema to retrieve the tables from. If no parameter is provided, defaults to "qm".
+    - `table_name`: The name that will be used to create the table. If not parameter is provided, defaults to a randomly generated table name 
+    - `overwrite`: Determines if the table shall be overwritten or not. Defaults to False.
+
 === "Python"
 
     ```python
