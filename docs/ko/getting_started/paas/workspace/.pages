@@ -1,4 +1,4 @@
 nav:
   - 개요 : index.md
-  - query_manager.md
-  - lab.md
+  - Query Manager : query_manager.md
+  - Lab : lab.md

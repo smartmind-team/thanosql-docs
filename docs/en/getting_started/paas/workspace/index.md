@@ -35,9 +35,9 @@ Here are the available features on the Service page:
 
 - **Lab**: Provides a versatile environment for data exploration, AI/ML modeling, and application development based on Jupyter Notebook. To try Lab in Workspace, see the [Lab Manual](./lab.md).
 
-Diagram.
+[![IMAGE](/en/img/getting_started/paas/workspace/img0.png){: style="max-height:none"}](/en/img/getting_started/paas/workspace/img0.png)
 
-A side navigation, a common component of service pages, provides navigation to each feature and provides a shortcut to the [workspace settings page](#workspace-settings-page). Additionally, the drop-down menu in the top right corner allows you to navigate to the service page of other workspaces.
+A side navigation(①), a common component of service pages, provides navigation to each feature and provides a shortcut to the [workspace settings page](#workspace-settings-page). Additionally, the drop-down menu(②) in the top right corner allows you to navigate to the service page of other workspaces.
 
 ## __Create a Workspace__
 
