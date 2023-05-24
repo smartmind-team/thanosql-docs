@@ -2,4 +2,3 @@ nav:
     - algorithm_list.md
     - thanosql_search
     - thanosql_ml
-    - REST API : rest_api
