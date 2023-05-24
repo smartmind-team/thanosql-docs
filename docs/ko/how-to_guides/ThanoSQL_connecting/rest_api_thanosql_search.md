@@ -17,7 +17,7 @@ Search APIs로 이미지나 텍스트와 "__BUILD__"한 모델을 기반으로 T
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url="https://engine.thanosql.ai/api/v1/search/file/"
+    base_url="https://{your-engine-url}/api/v1/search/file/"
     table_name = "테이블 명"
     model_name = "모델 명"
     column_name = "컬럼 명"
@@ -42,7 +42,7 @@ Search APIs로 이미지나 텍스트와 "__BUILD__"한 모델을 기반으로 T
 
     ```shell 
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/search/file/?table_name=테이블 명&model_name=모델 명&column_name=컬럼 명' \
+      'https://{your-engine-url}/api/v1/search/file/?table_name=테이블 명&model_name=모델 명&column_name=컬럼 명' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
@@ -60,7 +60,7 @@ Search APIs로 이미지나 텍스트와 "__BUILD__"한 모델을 기반으로 T
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url="https://engine.thanosql.ai/api/v1/search/text/"
+    base_url="https://{your-engine-url}/api/v1/search/text/"
     table_name = "테이블 명"
     model_name = "모델 명"
     column_name = "컬럼 명"
@@ -86,7 +86,7 @@ Search APIs로 이미지나 텍스트와 "__BUILD__"한 모델을 기반으로 T
 
     ```shell 
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/search/text/?table_name=테이블 명&model_name=모델 명&column_name=컬럼 명&text=서치할 텍스트' \
+      'https://{your-engine-url}/api/v1/search/text/?table_name=테이블 명&model_name=모델 명&column_name=컬럼 명&text=서치할 텍스트' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -d ''

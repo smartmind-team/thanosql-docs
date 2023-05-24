@@ -17,7 +17,7 @@ To search for images using an image file, you can use the following endpoint.
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url="https://engine.thanosql.ai/api/v1/search/file/"
+    base_url="https://{your-engine-url}/api/v1/search/file/"
     table_name = "Table Name"
     model_name = "Model Name"
     column_name = "Column Name"
@@ -42,7 +42,7 @@ To search for images using an image file, you can use the following endpoint.
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/search/file/?table_name=Table Name&model_name=Model Name&column_name=Column Name' \
+      'https://{your-engine-url}/api/v1/search/file/?table_name=Table Name&model_name=Model Name&column_name=Column Name' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
@@ -60,7 +60,7 @@ To search for images using a text, you can use the following endpoint.
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url="https://engine.thanosql.ai/api/v1/search/text/"
+    base_url="https://{your-engine-url}/api/v1/search/text/"
     table_name = "Table Name"
     model_name = "Model Name"
     column_name = "Column Name"
@@ -86,7 +86,7 @@ To search for images using a text, you can use the following endpoint.
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/search/text/?table_name=Table Name&model_name=Model Name&column_name=Column Name&text=Text to search' \
+      'https://{your-engine-url}/api/v1/search/text/?table_name=Table Name&model_name=Model Name&column_name=Column Name&text=Text to search' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -d ''

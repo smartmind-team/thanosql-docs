@@ -42,7 +42,7 @@ In order to get a list of all of your tables, use the method below. If no `schem
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url="https://{your_engine_url}/api/v1/table"
+    base_url="https://{your-engine-url}/api/v1/table"
     schema_name = "Schema Name"
 
     api_url = f"{base_url}?schema_name={schema_name}"
@@ -61,7 +61,7 @@ In order to get a list of all of your tables, use the method below. If no `schem
 
     ```shell
       curl -X 'GET' \
-      'https://{your_engine_url}/api/v1/table/?schema=public' \
+      'https://{your-engine-url}/api/v1/table/?schema=public' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
@@ -79,7 +79,7 @@ Use this method to get the objects of a single table. If no `schema_name` query 
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your_engine_url}/api/v1/table/"
+    base_url="https://{your-engine-url}/api/v1/table/"
     schema_name = "Schema Name"
 
     api_url = f"{base_url}/{table_name}?schema_name={schema_name}"
@@ -98,7 +98,7 @@ Use this method to get the objects of a single table. If no `schema_name` query 
 
     ```shell
       curl -X 'GET' \
-      'https://{your_engine_url}/api/v1/table/{table_name}/?schema=public' \
+      'https://{your-engine-url}/api/v1/table/{table_name}/?schema=public' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
@@ -166,7 +166,7 @@ In the following example lets pretend we want to alter the table object below:
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your_engine_url}/api/v1/table/"
+    base_url="https://{your-engine-url}/api/v1/table/"
     schema_name = "Schema Name"
 
     new_table = {
@@ -218,7 +218,7 @@ In the following example lets pretend we want to alter the table object below:
 
     ```shell
       curl -X 'PUT' \
-    'https://{your_engine_url}/api/v1/table/{table_name}?schema={schema_name}' \
+    'https://{your-engine-url}/api/v1/table/{table_name}?schema={schema_name}' \
     -H 'accept: application/json' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -273,7 +273,7 @@ Use this method to execute the CREATE TABLE operation. In order to create the ta
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your_engine_url}/api/v1/table/"
+    base_url="https://{your-engine-url}/api/v1/table/"
     schema_name = "Schema Name"
 
     # Note that the name and schema keys are missing from the body
@@ -335,7 +335,7 @@ Use this method to execute the CREATE TABLE operation. In order to create the ta
 
     ```shell
       curl -X 'POST' \
-    'https://{your_engine_url}/api/v1/table/{table_name}?schema={schema_name}' \
+    'https://{your-engine-url}/api/v1/table/{table_name}?schema={schema_name}' \
     -H 'accept: application/json' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -394,7 +394,7 @@ To delete a table, use the method below. If no `schema_name` query parameter is 
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your_engine_url}/api/v1/table"
+    base_url="https://{your-engine-url}/api/v1/table"
     schema_name = "Schema Name"
 
     api_url = f"{base_url}/{table_name}?schema_name={schema_name}"
@@ -413,7 +413,7 @@ To delete a table, use the method below. If no `schema_name` query parameter is 
 
     ```shell
       curl -X 'DELETE' \
-      'https://{your_engine_url}/api/v1/table/{table_name}?schema=public' \
+      'https://{your-engine-url}/api/v1/table/{table_name}?schema=public' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
