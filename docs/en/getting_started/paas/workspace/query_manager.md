@@ -13,7 +13,7 @@ The Query Manager provides a familiar UI similar to DBMS, allowing you to execut
 
 The Query Manager has three main sections:
 
-[![IMAGE](/ko/img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/qm_img_0.png)
+[![IMAGE](/en/img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](/en/img/getting_started/paas/workspace/qm_img_0.png)
 
 ① Query Editor
 
@@ -23,9 +23,9 @@ The Query Manager has three main sections:
 
 ### __Query Editor__
 
-ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
+Execute a ThanoSQL query and view the results as a table.
 
-[![IMAGE](/ko/img/getting_started/paas/workspace/qm_img_1.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/qm_img_1.png)
+[![IMAGE](/en/img/getting_started/paas/workspace/qm_img_1.png){: style="max-height:none"}](/en/img/getting_started/paas/workspace/qm_img_1.png)
 
 ① Tab : You can write queries and view results in separate tabs.
 
@@ -72,7 +72,7 @@ The Database Explorer provides information about tables within a schema. When yo
 
 You can check the column names, data types, and whether null values are allowed for the column.
 
-[![IMAGE](/ko/img/getting_started/paas/workspace/img3.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/img3.png)
+[![IMAGE](/en/img/getting_started/paas/workspace/img3.png){: style="max-height:none"}](/en/img/getting_started/paas/workspace/img3.png)
 
 **Preview**
 
@@ -81,13 +81,13 @@ You can quickly understand the contents of the data table in question.
 !!! warning
     Editing of the data table is not allowed in the Preview.
 
-[![IMAGE](/ko/img/getting_started/paas/workspace/img4.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/img4.png)
+[![IMAGE](/en/img/getting_started/paas/workspace/img4.png){: style="max-height:none"}](/en/img/getting_started/paas/workspace/img4.png)
 
 ### __Query Log__
 
 All queries executed in Query Manager are logged and displayed in the query log section. They are listed in the order of the query creation time, showing the query statement and its execution status.
 
-[![IMAGE](/ko/img/getting_started/paas/workspace/qm_img_2.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/qm_img_2.png)
+[![IMAGE](/en/img/getting_started/paas/workspace/qm_img_2.png){: style="max-height:none"}](/en/img/getting_started/paas/workspace/qm_img_2.png)
 
 #### Details Window
 
@@ -99,4 +99,4 @@ When you click on a query log, detailed information about the query is displayed
 
 ③ Error Message : If an error occurred during query execution, the error message is displayed.
 
-④ Open in New Query : It opens a new query editor tab with the query statement.
+④ Open as New Query : It opens a new query editor tab with the query statement.
