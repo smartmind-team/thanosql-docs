@@ -84,7 +84,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ### __쿼리 로그__
 
-Query Manager에서 실행한 모든 쿼리들은 기록되어 쿼리 로그 섹션에 보여집니다. 쿼리 생성시간의 최신 순으로 나열되며 실행한 쿼리 구문과 쿼리의 성공 여부를 보여줍니다.
+Query Manager에서 실행한 모든 쿼리는 기록되어 쿼리 로그 섹션에서 확인할 수 있습니다. 쿼리 생성시간의 최신순으로 나열되며 실행한 쿼리 구문과 쿼리의 성공 여부를 보여줍니다.
 
 [![IMAGE](/ko/img/getting_started/paas/workspace/qm_img_2.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/qm_img_2.png)
 
