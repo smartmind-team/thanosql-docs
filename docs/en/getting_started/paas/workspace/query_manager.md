@@ -63,6 +63,9 @@ The following keyboard shortcuts are supported in the Query Editor:
 
 You can check the workspace DB [Schema](https://www.postgresql.org/docs/current/ddl-schemas.html) and table configuration information. Each workspace basically provides `public` and `qm` schemas, and all queries that do not specify schema refer to `public` tables. Among the queries executed in the query editor, all queries whose results are in the form of a table are stored in the `qm` schema as an arbitrary table name. Using this, previous table execution results can be reused at any time.
 
+!!! warning
+    Query result temporary tables in schema `qm` are only kept for a maximum of 7 days.
+
 #### **Table Information**
 
 The Database Explorer provides information about tables within a schema. When you click on a table name, you can access the following information:
