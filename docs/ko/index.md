@@ -4,9 +4,6 @@ title: 개요
 
 # __ThanoSQL__
 
-- 읽는데 걸리는 시간: 3분
-- 마지막 수정날짜: {{ git_revision_date_localized }}
-
 ## __ThanoSQL 정의__
 
 ThanoSQL은 정형과 __비정형 데이터__[^1] 모두 __SQL__[^2]의 [쿼리(Query, 질의)](https://ko.wikipedia.org/wiki/%EC%BF%BC%EB%A6%AC)를 사용하여 AI(인공지능) 모델링 및 검색을 가능하게 한 통합 플랫폼입니다. __RDB__[^3](Relational DataBase, 관계형 데이터베이스), AI 그리고 Big Data Platform의 기능을 하나의 플랫폼에서 적용할 수 있으며, AI 기반의 디지털 전환 시 발생하는 비효율성을 획기적으로 줄일 수 있습니다.
@@ -47,6 +44,16 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
             </a>
         </li>
         <li>
+            <a href="/ko/getting_started/data_upload/">
+                <h3>
+                    ThanoSQL 데이터 업로드하기
+                </h3>
+                <p>
+                    ThanoSQL 워크스페이스에 로컬 컴퓨터에 있는 데이터를 업로드하는 2가지 방법에 대해 설명합니다.
+                </p>
+            </a>
+        </li>
+        <li>
             <a href="/ko/getting_started/paas/workspace/">
                 <h3>
                     ThanoSQL 워크스페이스 사용법
@@ -57,12 +64,22 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
             </a>
         </li>
         <li>
-            <a href="/ko/getting_started/data_upload/">
+            <a href="/ko/getting_started/saas/autocrm/">
                 <h3>
-                    ThanoSQL 데이터 업로드하기
+                    AutoCRM 사용법
                 </h3>
                 <p>
-                    ThanoSQL 워크스페이스에 로컬 컴퓨터에 있는 데이터를 업로드하는 2가지 방법에 대해 설명합니다.
+                    AutoCRM의 기본적인 사용법에 대해 설명합니다.  
+                </p>
+            </a>
+        </li>
+        <li>
+            <a href="/ko/getting_started/saas/qe/">
+                <h3>
+                    Query Everything 사용법
+                </h3>
+                <p>
+                    Query Everything의 기본적인 사용법에 대해 설명합니다.  
                 </p>
             </a>
         </li>

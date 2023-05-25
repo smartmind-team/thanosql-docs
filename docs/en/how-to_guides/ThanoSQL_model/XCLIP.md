@@ -40,7 +40,7 @@ OPTIONS (
     [table_name=expression],
     (video_col=column_name),
     (text_col=column_name),
-    (convert_type={'image'|'text'}),
+    (convert_type={'video'|'text'}),
     [batch_size=VALUE],
     [result_col=column_name]
     )

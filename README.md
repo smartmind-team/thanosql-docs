@@ -40,6 +40,15 @@ pipenv shell
 mkdocs serve
 ```
 
+To Serve on a Local Wi-Fi Network
+
+```bash
+# Get yor local ip address. It will return 192.168.x.x
+ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}'
+mkdocs serve --dev-addr 192.168.x.x:8000
+# Any device using the same Wi-Fi can now access it via 192.168.x.x:8000
+```
+
 ## Additional Information
 The documentation is powered by [MkDocs](https://www.mkdocs.org/), a fast and simple static site generator.
 

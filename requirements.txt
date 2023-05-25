@@ -1,7 +1,7 @@
 mkdocs-awesome-pages-plugin==2.8.0
 mkdocs-git-revision-date-localized-plugin==1.1.0
 mkdocs-material==8.5.2
-git+https://github.com/yeemh/mkdocs-static-i18n.git@feat/jupyter
+git+https://github.com/smartmind-team/mkdocs-static-i18n.git@feat/jupyter
 mkdocs-jupyter==0.21.0
 mkdocs==1.3.1
 pymdown-extensions==9.5

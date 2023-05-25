@@ -1,12 +1,10 @@
 ---
-title: ThanoSQL 워크스페이스 데이터베이스 파일 업로드 & 삭제
+title: File APIs
 ---
 
-# __ThanoSQL 워크스페이스 데이터베이스 파일 업로드 & 삭제__
+# **File APIs**
 
-## __ThanoSQL 워크스페이스 데이터베이스 파일 업로드__
-
-REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일을 보내고 원하는 데이터베이스 테이블에 파일을 넣을수 있습니다. ThanoSQL의 기본 설정에서 사용자 파일을 저장하는 최상위 폴더는 drive 입니다.
+File APIs로 자신의 워크스페이스 저장 공간에 원격으로 파일을 보내고 원하는 데이터베이스 테이블에 파일을 넣을수 있습니다. 사용자 파일을 저장하는 기본 폴더는 "drive" 입니다.
 
 !!! warning "__Warning__"
     - File API는 아래의 확장자의 이미지, 오디오, 그리고 비디오 데이터를 지원합니다:
@@ -16,9 +14,9 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 
     - 위에서 언급되지 않은 모든 확장자의 파일은 "drive/others" 폴더에 저장됩니다. 
 
-### __파일 업로드__
+## __`POST` /file/upload__
 
-파일만 업로드하려면 아래의 방법을 사용하여 파일을 ThanoSQL 저장소로 보냅니다.
+파일만 업로드하려면 아래의 방법을 사용하여 파일을 워크스페이스 저장소로 보냅니다.
 API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저장됩니다.
 
 === "Python"
@@ -28,7 +26,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
     import json
 
     api_token = "발급받은_API_TOKEN"
-    api_url = "https://engine.thanosql.ai/api/v1/file/upload/"
+    api_url = "https://{your-engine-url}/api/v1/file/upload/"
     header = {
         "Authorization": f"Bearer {api_token}"
     }
@@ -44,14 +42,12 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/upload/' \
+      'https://{your-engine-url}/api/v1/file/upload/' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
       -F 'file=@데이터 파일 경로;type=파일_타입/데이터 파일 타입'
     ```
-
-### __파일 업로드 & 인서트__
 
 "db commit"이 True로 설정되고 "table name"과 "column name"이 지정되면 지정된 파일이 ThanoSQL 저장소로 전송되고 파일 경로가 지정된 테이블의 열에 삽입됩니다.
 
@@ -62,7 +58,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url = "https://engine.thanosql.ai/api/v1/upload/"
+    base_url = "https://{your-engine-url}/api/v1/upload/"
     table_name = "테이블 명"
     column_name = "컬럼 명"
     db_commit = True 
@@ -83,7 +79,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell 
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/upload/?db_commit=True&table_name=테이블 명&column_name=컬럼 명' \
+      'https://{your-engine-url}/api/v1/file/upload/?db_commit=True&table_name=테이블 명&column_name=컬럼 명' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
@@ -94,14 +90,9 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
     - Jupyter 내부의 파일을 사용하려면 경로 앞에 '/'home/jovyan'을 붙여야 합니다.
 
 
+## __`POST` /file/delete__
 
-## __ThanoSQL 워크스페이스 데이터베이스 파일 삭제__
-
-REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일을 삭제하고 데이터베이스 테이블에 파일 경로가 담긴 행이 있다면 함께 삭제할 수 있습니다.
-
-### __파일 삭제__
-
-파일만 삭제하려면 아래의 방법을 사용하여 파일을 ThanoSQL 저장소에서 삭제합니다.
+파일만 삭제하려면 아래의 방법을 사용하여 파일을 워크스페이스 저장소에서 삭제합니다.
 
 === "Python"
 
@@ -111,7 +102,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 
     api_token = "발급받은_API_TOKEN"
     file_path = "데이터 파일 경로"
-    api_url = f"https://engine.thanosql.ai/api/v1/file/delete/?file_path={file_path}'
+    api_url = f"https://{your-engine-url}/api/v1/file/delete/?file_path={file_path}'
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -127,15 +118,13 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/delete/?file_path=데이터 파일 경로' \
+      'https://{your-engine-url}/api/v1/file/delete/?file_path=데이터 파일 경로' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json' 
     ```
 
-### __파일 삭제 & 제거__
-
-"db_commit"이 True로 설정되고 "table_name" 및 "column_name"이 지정되면 지정된 파일을 ThanoSQL 저장소에서 삭제하고 그 파일 경로와 같은 값이 지정된 열에 들어 있는 모든 행이 지정된 데이터베이스에서 제거됩니다.
+"db_commit"이 True로 설정되고 "table_name" 및 "column_name"이 지정되면 지정된 파일을 워크스페이스 저장소에서 삭제하고 그 파일 경로와 같은 값이 지정된 열에 들어 있는 모든 행이 지정된 데이터베이스에서 제거됩니다.
 
 
 === "Python"
@@ -145,7 +134,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url = "https://engine.thanosql.ai/api/v1/file/delete/"
+    base_url = "https://{your-engine-url}/api/v1/file/delete/"
     db_commit = True 
     file_path = '데이터 파일 경로',
     table_name = '테이블 명',
@@ -167,14 +156,13 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/delete/?db_commit=True&file_path=데이터 파일 경로&table_name=테이블 명&column_name=컬럼 명' \
+      'https://{your-engine-url}/api/v1/file/delete/?db_commit=True&file_path=데이터 파일 경로&table_name=테이블 명&column_name=컬럼 명' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json'
     ```
 
-
-### __파일 목록 받기__
+## __`POST` /file/list__
 
 지정한 경로의 파일과 폴더 목록을 가져옵니다. 파일 경로를 지정할 때 정규식을 사용할 수 있습니다.
 
@@ -186,7 +174,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 
     api_token = "발급받은_API_TOKEN"
     file_path = "파일 경로"
-    api_url = f"https://engine.thanosql.ai/api/v1/file/list/?file_path={file_path}"
+    api_url = f"https://{your-engine-url}/api/v1/file/list/?file_path={file_path}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -202,7 +190,7 @@ REST API를 사용하여 자신의 ThanoSQL 저장 공간에 원격으로 파일
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/file/list/?file_path={파일 경로}' \
+      'https://{your-engine-url}/api/v1/file/list/?file_path={파일 경로}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json'

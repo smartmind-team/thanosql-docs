@@ -1,15 +1,52 @@
----
-title: Overview
----
+# __Expolore the Workspace__
 
-# __Overview__ 
-## __1. Start a Workspace__
+The Workspace is a PaaS (Platform as a Service) product that enables data processing, AI/ML modeling, and application development with ThanoSQL. You can leverage the power of SQL and the versatility of Jupyter notebooks to query and analyze your data efficiently.
 
-- Click on the **Start Button** to create a new workspace.
+The workspace is composed of two pages, the **Main Page** and the **Service Page**.
+
+- **Main Page** : Create, view, and manage workspaces.
+- **Service Page** : Access various services such as Query Manager and Lab.
+
+## __Main Page__
+
+You can view and manage workspaces collectively. If you don't have an workspace yet, you can create a new one by clicking the **Start button**. Please refer to the [Create Workspace](#create-a-workspace) guide for instructions.
+
+[![IMAGE](/en/img/getting_started/img6.png){: style="max-height:none"}](/en/img/getting_started/img6.png)
+
+① Create New Workspace
+
+- You can go to the workspace creation page to create an additional workspace.
+
+② Workspace
+
+- 2-1. You can check the name of the corresponding workspace.
+- 2-2. You can check the operating status of the corresponding workspace.
+- 2-3. You can configure the corresponding workspace.
+- 2-4. You can check the Plan (name, class), End Date, and Role of the corresponding workspace.
+- 2-5. You can access the Service page of the corresponding workspace.
+
+## __Service Page__
+
+On the workspace list of the main page, you can navigate to the service page of the desired workspace by clicking the **Open button** for that workspace.
+
+Here are the available features on the Service page:
+
+- **Query Manager**: A tool that allows you to execute and track ThanoSQL queries. It provides interfaces such as Query Editor, Query Log, and Data Viewer. To try Query Manager in Workspace, see the [Query Manager Manual](./query_manager.md).
+
+- **Lab**: Provides a versatile environment for data exploration, AI/ML modeling, and application development based on Jupyter Notebook. To try Lab in Workspace, see the [Lab Manual](./lab.md).
+
+[![IMAGE](/en/img/getting_started/paas/workspace/img0.png){: style="max-height:none"}](/en/img/getting_started/paas/workspace/img0.png)
+
+A side navigation(①), a common component of service pages, provides navigation to each feature and provides a shortcut to the [workspace settings page](#workspace-settings-page). Additionally, the drop-down menu(②) in the top right corner allows you to navigate to the service page of other workspaces.
+
+## __Create a Workspace__
+
+- Click the Create New Workspace button on the main page.
+- If there is **no** existing workspace, click the **Start button** on the initial main page to navigate to the workspace creation page.
 
 [![IMAGE](/en/img/getting_started/img3.png){: style="max-height:none"}](/en/img/getting_started/img3.png)
 
-## __2. Plan Settings__
+### __1. Plan Settings__
 
 [![IMAGE](/en/img/getting_started/img4.png){: style="max-height:none"}](/en/img/getting_started/img4.png)
 
@@ -27,7 +64,7 @@ title: Overview
 
 - After entering the code, click on the "Start" button to proceed to the next step.
 
-## __3. Application Form__
+### __2. Application Form__
 
 [![IMAGE](/en/img/getting_started/img5.png){: style="max-height:none"}](/en/img/getting_started/img5.png)
 
@@ -56,31 +93,11 @@ title: Overview
 
 - Click on the **Complete Button** to request / complete creating a new workspace.
 
-## __4. Workspace Main__
+## __Workspace Settings Page__
 
-You can view and manage workspaces collectively.
+You can access general workspace information, usage logs, and data required for development, such as API tokens. You can navigate to these options by clicking on the settings icon in the workspace list on the Main page or the settings icon at the bottom left of the Service page.
 
-[![IMAGE](/en/img/getting_started/img6.png){: style="max-height:none"}](/en/img/getting_started/img6.png)
-
-① Create an Additional Workspace
-
-- You can go to the workspace creation page to create an additional workspace.
-
-② Workspace
-
-- 2-1. You can check the name of the corresponding workspace.
-- 2-2. You can check the operating status of the corresponding workspace.
-- 2-3. You can configure the corresponding workspace.
-- 2-4. You can check the Plan (name, class), End Date, and Role of the corresponding workspace.
-- 2-5. You can access the corresponding workspace and use the service.
-
-
-
-## __5. Workspace Settings__
-
-Change and edit your Workspace settings.
-
-### __5-1. General__
+### __General__
 
 [![IMAGE](/en/img/getting_started/img10.png){: style="max-height:none"}](/en/img/getting_started/img10.png)
 
@@ -108,7 +125,7 @@ Change and edit your Workspace settings.
 !!! warning
     Please contact us in case your Workspace needs to be deleted. Your Workspace data will be permanently deleted once your request is processed. Be aware that this action cannot be reversed.
 
-### __5-2. Log__
+### __Log__
 
 [![IMAGE](/en/img/getting_started/img11.png){: style="max-height:none"}](/en/img/getting_started/img11.png)
 
@@ -120,7 +137,7 @@ Change and edit your Workspace settings.
 
 - View the most recent logs of your Workspace. Click on the **View All Button** to view all logs.
 
-### __5-3. Developer__
+### __Developer__
 
 [![IMAGE](/en/img/getting_started/img12.png){: style="max-height:none"}](/en/img/getting_started/img12.png)
 

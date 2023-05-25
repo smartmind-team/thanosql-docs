@@ -1,12 +1,14 @@
 ---
-title: How to Use the ThanoSQL Search
+title: Search APIs
 ---
 
-# **How to Use the ThanoSQL Search**
+# **Search APIs**
 
-Using ThanoSQL's REST API, you can query and search for similar images within the ThanoSQL workspace database using images, text, and built models.
+You can use Search APIs to query and search for similar images within the ThanoSQL Workspace database using images, text, and built models.
 
-## **To Search for an Image Using Images**
+## __`POST` /search/file__
+
+To search for images using an image file, you can use the following endpoint.
 
 === "Python"
 
@@ -15,7 +17,7 @@ Using ThanoSQL's REST API, you can query and search for similar images within th
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url="https://engine.thanosql.ai/api/v1/search/file/"
+    base_url="https://{your-engine-url}/api/v1/search/file/"
     table_name = "Table Name"
     model_name = "Model Name"
     column_name = "Column Name"
@@ -40,14 +42,16 @@ Using ThanoSQL's REST API, you can query and search for similar images within th
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/search/file/?table_name=Table Name&model_name=Model Name&column_name=Column Name' \
+      'https://{your-engine-url}/api/v1/search/file/?table_name=Table Name&model_name=Model Name&column_name=Column Name' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
       -F 'file=@Image File Path;type=image/Image File Type'
     ```
 
-## **To Search for an Image Using Text**
+## __`POST` /search/text__
+
+To search for images using a text, you can use the following endpoint.
 
 === "Python"
 
@@ -56,7 +60,7 @@ Using ThanoSQL's REST API, you can query and search for similar images within th
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url="https://engine.thanosql.ai/api/v1/search/text/"
+    base_url="https://{your-engine-url}/api/v1/search/text/"
     table_name = "Table Name"
     model_name = "Model Name"
     column_name = "Column Name"
@@ -82,7 +86,7 @@ Using ThanoSQL's REST API, you can query and search for similar images within th
 
     ```shell
     curl -X 'POST' \
-      'https://engine.thanosql.ai/api/v1/search/text/?table_name=Table Name&model_name=Model Name&column_name=Column Name&text=Text to search' \
+      'https://{your-engine-url}/api/v1/search/text/?table_name=Table Name&model_name=Model Name&column_name=Column Name&text=Text to search' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -d ''
