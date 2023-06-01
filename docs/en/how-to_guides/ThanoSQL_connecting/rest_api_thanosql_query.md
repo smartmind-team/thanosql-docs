@@ -16,8 +16,8 @@ Execute ThanoSQL queries and receive a query log as a response.
     - `query`: The query string that was executed.
     - `referer`: Indicates where the REST API call was made from.
     - `state`: Shows the state of the query execution (Either RUNNING or COMPLETE).
-    - `destination_table`: Shows table where the results are stored in (If the `statement_type` is a SELECT, a new `destination_table` is created. Otherwise, the `destination_table` shows the affected table).
-    - `destination_schema`: Shows the schema the `destination_table` is stored in.
+    - `destination_table_name`: Shows table where the results are stored in (If the `statement_type` is a SELECT, a new destination_table is created. Otherwise, the `destination_table_name` shows the affected table).
+    - `destination_schema`: Shows the schema the destination_table is stored in.
     - `error_result`: Stores the error message if there was an error executing the query.
     - `created_at`: Shows the timestamp of when the query log was created.
 

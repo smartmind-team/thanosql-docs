@@ -16,8 +16,8 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다.
     - `query`: 실행된 쿼리문입니다.
     - `referer`: REST API 호출이 발생한 위치를 나타냅니다.
     - `state`: 쿼리 실행 상태를 나타냅니다 (RUNNING 또는 COMPLETE).
-    - `destination_table`: 결과가 저장된 테이블을 나타냅니다 (`statement_type`이 SELECT인 경우 새로운 `destination_table`이 생성됩니다. 그렇지 않은 경우, `destination_table`은 영향을 받은 테이블을 나타냅니다).
-    - `destination_schema`: `destination_table`이 저장된 스키마를 나타냅니다.
+    - `destination_table_name`: 결과가 저장된 테이블을 나타냅니다 (`statement_type`이 SELECT인 경우 새로운 destination_table이 생성됩니다. 그렇지 않은 경우, `destination_table_name`은 영향을 받은 테이블을 나타냅니다).
+    - `destination_schema`: destination_table이 저장된 스키마를 나타냅니다.
     - `error_result`: 쿼리 실행 중 발생한 오류 메시지를 저장합니다.
     - `created_at`: 쿼리 로그가 생성된 시간을 나타냅니다.
 
