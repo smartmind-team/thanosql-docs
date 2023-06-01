@@ -77,9 +77,3 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다.
 !!! warning "__Warning__"
     - "__CONVERT__"를 사용해 만들어진 컬럼의 값들은 base64로 인코딩됩니다. 바이트 형식의 값을 사용하려면 base64의 b64decode를 사용하여 디코딩해야 합니다.
 
-
-
-
-
-!!! faq "FAQ" 
-    - Jupyter 내부의 path를 조회하기 위해서는 앞에 /home/jovyan 을 붙여야 합니다.
