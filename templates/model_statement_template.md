@@ -42,7 +42,6 @@ __OPTIONS Clause__
 {option of the syntax explanation
 e.g. 
 OPTIONS(
-    (table_name=expression),
     (image_col=column_name),
     [batch_size=VALUE]
     )
@@ -53,7 +52,6 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 {definition of all the parameters used by the syntax
 e.g.
-- "table_name": the name of the new table to be created (str)
 - "image_col": the name of the column containing the image path. (str, default: 'image_path')
 - "batch_size": the size of the dataset bundle read during a single train. (int, optional, default: 16)
 }
@@ -69,7 +67,6 @@ e.g.
 CONVERT USING tutorial_search_clip
 OPTIONS (
     image_col='image_path',
-    table_name='unsplash_data',
     batch_size=128
     )
 AS
@@ -228,7 +225,6 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "text_col": the column containing the text to be used for prediction (str, default: 'text')
 - "batch_size" is the size of dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "text_col": the column containing the text to be used for evaluation (str, default: 'text')
@@ -250,7 +246,6 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "audio_col": the name of the column containing the audio path to be used for prediction (str, default: 'audio_path')
 - "batch_size" is the size of dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "audio_col": the column containing the audio path to be used for evaluation (str, default: 'audio_path')
@@ -276,7 +271,6 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 <!-- PREDICT OPTIONS -->
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "target_col": the name of the column containing the target value of the classification model (str, default: 'target') 
@@ -297,7 +291,6 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "image_col": the name of the column where the path of the image used for prediction is stored (str, default: 'image_path')
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
 - "batch_size": the size of the dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 - "input_size": size of the image to be used for prediction (int, optional)
 
 <!-- EVALUATE OPTIONS -->
@@ -316,7 +309,6 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "overwrite": determines whether to overwrite a model if it already exists. If set as True, the old model is replaced with the new model (bool, optional, True|False, default: False)
 
 <!-- CONVERT OPTIONS -->
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
 - "image_col": the name of the column containing the image path (str, default: 'image_path')
 - "result_col": defines the column name that contains the vectorized results (str, optional, default: 'convert_result')
 - "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 256)
@@ -336,7 +328,6 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "language": specifies the language of the audio file. If selected as ‘auto’, the model will recognize the language from the available pool of 99 languages (str, default: 'auto')
 - "task": type of work to do (str, 'transcribe'|'translate', default: 'transcribe')
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "audio_col": the name of the column containing the audio path to be used for evaluation (str, default: 'audio_path')
@@ -352,13 +343,11 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "image_col": the name of the column where the path of the image used for prediction is stored (str, default: "image_path")
 - "question": the question text to be used for prediction (str)
 - "result_col": defines the name of the column to contain the result (str, optional, default: "predict_result")
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 
 8. 
 <!-- CLIP -->
 <!-- CONVERT OPTIONS -->
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
 - "image_col": the name of the column containing the image path (str, default: 'image_path')
 - "text_col": the name of the column containing the text (str, default: 'text')
 - "convert_type": file type for vectorization (str, 'image'|'text', default: 'image')
@@ -375,7 +364,6 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 9. 
 <!-- XCLIP -->
 <!-- CONVERT OPTIONS -->
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
 - "video_col": the name of the column containing the video path (str, default: 'video_path')
 - "text_col": the name of the column containing the text (str, default: 'text')
 - "convert_type": file type for vectorization (str, 'image'|'text', default: 'image')
@@ -400,7 +388,6 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 <!-- CONVERT OPTIONS -->
 - "text_col": a column containing movie review data in the data table (str, default: 'text')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a data table (str, optional)
 - "batch_size": the size of dataset bundle utilized in a single cycle of training (int, optional, default: 16)
 - "result_col": defines the column name that contains the vectorized results (str, optional, default: 'convert_result')
 

@@ -158,15 +158,13 @@ __OPTIONS Clause__
 
 ```sql
 OPTIONS (
-    [result_col=column_name],
-    [table_name=expression] 
+    [result_col=column_name]
     )
 ```
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 
 __PREDICT Example__
@@ -177,8 +175,7 @@ An example "__PREDICT__" query can be found in [Create a Classification Model Us
 %%thanosql 
 PREDICT USING titanic_automl_classification
 OPTIONS (
-    result_col='predict_result',
-    table_name='titanic_test'
+    result_col='predict_result'
     )
 AS 
 SELECT * 

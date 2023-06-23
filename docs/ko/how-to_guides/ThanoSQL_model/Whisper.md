@@ -42,8 +42,7 @@ OPTIONS (
     [batch_size=VALUE],
     (language=expression),
     (task={'transcribe'|'translate'}),
-    [result_col=column_name],
-    [table_name=expression]
+    [result_col=column_name]
     )
 ```
 
@@ -56,7 +55,6 @@ OPTIONS (
 > "transcribe": 음성 인식을 합니다.  
 > "translate": 인식된 음성을 영어로 출력합니다. 이 과정은 ‘한국어 음성‘을 바로 ‘영어 텍스트‘로 번역하는 것으로, 중간에 ‘한국어 텍스트’를 거치지 않는 다는 점이 일반적인 번역 태스크와 다릅니다.
 - "result_col": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'predict_result')
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'predict_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 
 __PREDICT 예시__
 
@@ -69,8 +67,7 @@ OPTIONS (
     audio_col='audio_path',
     language='auto',
     task='transcribe',
-    result_col='predict_result',
-    table_name='korean_voice'
+    result_col='predict_result'
     )
 AS
 SELECT *

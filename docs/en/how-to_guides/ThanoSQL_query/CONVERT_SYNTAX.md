@@ -22,10 +22,6 @@ AS
 (query_expr)
 ```
 
-!!! note "__Query Details__"
-    - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
-        - "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, result dataframe will not be saved as a table (str, optional)
-
 ## __3. CONVERT Example__
 
 !!! note
@@ -37,7 +33,6 @@ AS
 %%thanosql
 CONVERT USING tutorial_search_clip
 OPTIONS (
-    table_name='unsplash_data',
     image_col='image_path', 
     convert_type='image',
     batch_size=128,

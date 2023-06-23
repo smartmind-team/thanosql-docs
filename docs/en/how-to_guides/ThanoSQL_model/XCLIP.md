@@ -37,7 +37,6 @@ __OPTIONS Clause__
 
 ```sql
 OPTIONS (
-    [table_name=expression],
     (video_col=column_name),
     (text_col=column_name),
     (convert_type={'video'|'text'}),
@@ -48,7 +47,6 @@ OPTIONS (
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'convert_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 - "video_col": the name of the column containing the video path (str, default: 'video_path')
 - "text_col": the name of the column containing the text (str, default: 'text')
 - "convert_type": file type for vectorization (str, 'video'|'text', default: 'video')
@@ -64,7 +62,6 @@ An example "__CONVERT__" query can be found in [Search Video by Text](/en/tutori
 %%thanosql
 CONVERT USING tutorial_search_xclip
 OPTIONS (
-    table_name='kinetics700',
     video_col='video_path',
     result_col='convert_result'
     )
@@ -94,7 +91,6 @@ __OPTIONS Clause__
 
 ```sql
 OPTIONS (
-    [table_name=expression],
     (search_by={image|text|audio|video}),
     (search_input=expression),
     (emb_col=column_name),
@@ -105,7 +101,6 @@ OPTIONS (
 
 The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows.
 
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'search_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 - "search_by": defines the image|text|audio|video type to be used for the search (str)
 - "search_input": defines the input to be used for the search (str)
 - "emb_col": the column that contains the vectorized results (str)

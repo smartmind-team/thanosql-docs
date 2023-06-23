@@ -93,7 +93,6 @@ __OPTIONS 절__
 ```sql
 OPTIONS (
     (text_col=column_name),
-    [table_name=expression],
     [batch_size=VALUE],
     [result_col=column_name]
     )
@@ -102,7 +101,6 @@ OPTIONS (
 "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
 - "text_col": 데이터 테이블에서 수치화의 대상이 될 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'convert_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 - "batch_size": 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 16)
 - "result_col": 데이터 테이블에서 수치화 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'convert_result')
 
@@ -115,7 +113,6 @@ __CONVERT 예시__
 CONVERT USING nsmc_text_search_model
 OPTIONS (
     text_col='document',
-    table_name='nsmc_test',
     batch_size=32,
     result_col='convert_result'
     )
@@ -145,7 +142,6 @@ __OPTIONS 절__
 
 ```sql
 OPTIONS (
-    [table_name=expression],
     (search_by={image|text|audio|video}),
     (search_input=expression),
     (emb_col=column_name),
@@ -156,7 +152,6 @@ OPTIONS (
 
 "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'search_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 - "search_by": 검색할 때 사용할 이미지|텍스트|오디오|비디오 타입을 설정합니다. (str)
 - "search_input": 검색할 때 사용할 입력값입니다. (str)
 - "emb_col": 데이터 테이블에서 수치화된 결과를 담은 컬럼의 이름입니다. (str)
@@ -207,7 +202,6 @@ __OPTIONS 절__
 
 ```sql
 OPTIONS (
-    [table_name=expression],
     [lang={en|ko}],
     (text_col=column_name),
     [ngram_range=[VALUE,VALUE]],
@@ -220,7 +214,6 @@ OPTIONS (
 
 "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'search_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 - "lang": 사용할 언어를 설정합니다. (str, optional, 'ko'|'en' default: 'ko')
 - "text_col": 데이터 테이블에서 키워드 추출의 대상이 될 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
 - "ngram_range": 키워드의 최소 단어 수와 최대 단어 수를 정합니다. (list[int, int], optional, default: [1, 2])

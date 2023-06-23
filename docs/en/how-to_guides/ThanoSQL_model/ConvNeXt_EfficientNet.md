@@ -144,7 +144,6 @@ OPTIONS (
     (image_col=column_name),
     [result_col=column_name],
     [batch_size=VALUE],
-    [table_name=expression],
     [input_size=VALUE]
     )
 ```
@@ -154,7 +153,6 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "image_col": the column containing the image path to be used for prediction (str, default: 'image_path')
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
 - "batch_size": the size of the dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 - "input_size": size of the image to be used for prediction (int, optional)
 
 
@@ -167,8 +165,7 @@ An example "__PREDICT__" query can be found in [Create an Image Classification M
 PREDICT USING my_product_classifier
 OPTIONS (
     image_col='image_path',
-    result_col='predict_result',
-    table_name='product_image_test'
+    result_col='predict_result'
     )
 AS
 SELECT *

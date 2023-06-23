@@ -138,8 +138,7 @@ __OPTIONS 절__
 OPTIONS (
     (audio_col=column_name),
     [batch_size=VALUE],
-    [result_col=column_name],
-    [table_name=expression]
+    [result_col=column_name]
     )
 ```
 
@@ -148,7 +147,6 @@ OPTIONS (
 - "audio_col": 데이터 테이블에서 예측의 대상이 될 오디오 파일들의 경로를 담은 컬럼의 이름입니다. (str, default: 'audio_path')
 - "batch_size": 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 16)
 - "result_col": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'predict_result')
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'predict_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 
 __PREDICT 예시__
 
@@ -159,8 +157,7 @@ __PREDICT 예시__
 PREDICT USING my_speech_recognition_model
 OPTIONS (
     audio_col='audio_path',
-    result_col='predict_result',
-    table_name='librispeech_test'
+    result_col='predict_result'
     )
 AS
 SELECT *

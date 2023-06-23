@@ -298,7 +298,6 @@ OPTIONS(
 - "text_col": 데이터 테이블에서 예측의 대상이 될 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
 - "batch_size": 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 16)
 - "result_col": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'predict_result')
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'predict_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "text_col": 데이터 테이블에서 평가의 대상이 될 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
@@ -320,7 +319,6 @@ OPTIONS(
 - "audio_col": 데이터 테이블에서 예측의 대상이 될 오디오 파일들의 경로를 담은 컬럼의 이름입니다. (str, default: 'audio_path')
 - "batch_size": 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 16)
 - "result_col": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'predict_result')
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'predict_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "audio_col": 데이터 테이블에서 평가의 대상이 될 오디오 파일들의 경로를 담은 컬럼의 이름입니다. (str, default: 'audio_path')
@@ -346,7 +344,6 @@ OPTIONS(
 
 <!-- PREDICT OPTIONS -->
 - "result_col": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'predict_result')
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'predict_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "target_col": 데이터 테이블에서 분류 예측 모델에 목푯값이 되는 컬럼의 이름입니다. (str, default: 'target')
@@ -368,7 +365,6 @@ OPTIONS(
 - "image_col": 데이터 테이블에서 예측의 대상이 될 이미지의 경로를 담은 컬럼의 이름입니다. (str, default: 'image_path')
 - "result_col": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'predict_result')
 - "batch_size": 한 번의 예측에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 16)
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'predict_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 - "input_size": 예측에 사용할 이미지의 사이즈를 설정합니다. (int, optional)
 
 <!-- EVALUATE OPTIONS -->
@@ -388,7 +384,6 @@ OPTIONS(
 - "overwrite": 동일 이름의 모델이 존재하는 경우 덮어쓰기 가능 여부를 설정합니다. True일 경우 기존 모델은 새로운 모델로 변경됩니다. (bool, optional, True|False, default: False)
 
 <!-- CONVERT OPTIONS -->
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'convert_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 - "image_col": 데이터 테이블에서 이미지의 경로를 담은 컬럼의 이름입니다. (str, default: 'image_path')
 - "result_col": 데이터 테이블에서 수치화 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'convert_result')
 - "batch_size": 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 256)
@@ -411,7 +406,6 @@ OPTIONS(
 > "transcribe": 음성 인식을 합니다.  
 > "translate": 인식된 음성을 영어로 출력합니다. 이 과정은 ‘한국어 음성‘을 바로 ‘영어 텍스트‘로 번역하는 것으로, 중간에 ‘한국어 텍스트’를 거치지 않는 다는 점이 일반적인 번역 태스크와 다릅니다.
 - "result_col": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'predict_result')
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'predict_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 
 <!-- EVALUATE OPTIONS -->
 - "audio_col": 데이터 테이블에서 평가의 대상이 될 오디오 파일들의 경로를 담은 컬럼의 이름입니다. (str, default: 'audio_path')
@@ -426,13 +420,11 @@ OPTIONS(
 - "image_col": 데이터 테이블에서 예측의 대상이 될 이미지의 경로를 담은 컬럼의 이름입니다. (str, default: "image_path")
 - "question": 예측에 사용할 질문 내용입니다. (str)
 - "result_col": 데이터 테이블에서 예측 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: "predict_result")
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'predict_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 
 
 8. 
 <!-- CLIP -->
 <!-- CONVERT OPTIONS -->
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'convert_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 - "image_col": 데이터 테이블에서 이미지의 경로를 담은 컬럼의 이름입니다. (str, default: 'image_path')
 - "text_col": 데이터 테이블에서 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
 - "convert_type": 수치화할 파일의 종류를 설정합니다. (str, 'image'|'text', default: 'image')
@@ -449,7 +441,6 @@ OPTIONS(
 9. 
 <!-- XCLIP -->
 <!-- CONVERT OPTIONS -->
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'convert_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 - "video_col": 데이터 테이블에서 비디오의 경로를 담은 컬럼의 이름입니다. (str, default: 'video_path')
 - "text_col": 데이터 테이블에서 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
 - "convert_type": 수치화할 파일의 종류를 설정합니다. (str, 'video'|'text', default: 'video')
@@ -474,7 +465,6 @@ OPTIONS(
 
 <!-- CONVERT OPTIONS -->
 - "text_col": 데이터 테이블에서 수치화의 대상이 될 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'convert_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 - "batch_size": 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 16)
 - "result_col": 데이터 테이블에서 수치화 결과를 담을 컬럼 이름을 설정합니다. (str, optional, default: 'convert_result')
 
