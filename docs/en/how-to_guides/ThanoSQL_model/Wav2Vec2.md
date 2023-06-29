@@ -139,8 +139,7 @@ __OPTIONS Clause__
 OPTIONS (
     (audio_col=column_name),
     [batch_size=VALUE],
-    [result_col=column_name],
-    [table_name=expression]
+    [result_col=column_name]
     )
 ```
 
@@ -149,7 +148,6 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 - "audio_col": the name of the column containing the audio path to be used for prediction (str, default: 'audio_path')
 - "batch_size": the size of dataset bundle utilized in a single cycle of prediction (int, optional, default: 16)
 - "result_col": the column that contains the predicted results (str, optional, default: 'predict_result')
-- "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a 'predict_result' column. If not specified, the result dataframe will not be saved as a table (str, optional)
 
 __PREDICT Example__
 
@@ -160,8 +158,7 @@ An example "__PREDICT__" query can be found in [Create a Speech Recognition Mode
 PREDICT USING my_speech_recognition_model
 OPTIONS (
     audio_col='audio_path',
-    result_col='predict_result',
-    table_name='librispeech_test'
+    result_col='predict_result'
     )
 AS
 SELECT *

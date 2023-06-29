@@ -35,11 +35,6 @@ FROM (file_path_expression)
 ```
 
 
-!!! note "__Query Details__"
-    - The "__OPTIONS__" clause allows you to change the value of a parameter. The definition of each parameter is as follows:
-        - "table_name": the table name to be stored in the ThanoSQL workspace database. If a previously used table is specified, the existing table will be replaced by the new table with a column containing the results. If not specified, the result dataframe will not be saved as a table (str, optional)
-
-
 !!! note "ThanoSQL's Modules and Functions That Can Be Used with '__FUNCTION__ Statement'"
     - compute
         - groupby_emb_mean
