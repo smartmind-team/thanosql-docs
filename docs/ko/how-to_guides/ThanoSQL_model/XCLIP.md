@@ -38,7 +38,6 @@ __OPTIONS 절__
 
 ```sql
 OPTIONS (
-    [table_name=expression],
     (video_col=column_name),
     (text_col=column_name),
     (convert_type={'video'|'text'}),
@@ -49,7 +48,6 @@ OPTIONS (
 
 "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'convert_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 - "video_col": 데이터 테이블에서 비디오의 경로를 담은 컬럼의 이름입니다. (str, default: 'video_path')
 - "text_col": 데이터 테이블에서 텍스트를 담은 컬럼의 이름입니다. (str, default: 'text')
 - "convert_type": 수치화할 파일의 종류를 설정합니다. (str, 'video'|'text', default: 'video')
@@ -65,7 +63,6 @@ __CONVERT 예시__
 CONVERT USING tutorial_search_xclip
 OPTIONS (
     video_col='video_path',
-    table_name='kinetics700',
     result_col='convert_result'
     )
 AS
@@ -94,7 +91,6 @@ __OPTIONS 절__
 
 ```sql
 OPTIONS (
-    [table_name=expression],
     (search_by={image|text|audio|video}),
     (search_input=expression),
     (emb_col=column_name),
@@ -105,7 +101,6 @@ OPTIONS (
 
 "__OPTIONS__" 절에서 매개변수의 값을 기본값으로부터 변경할 수 있습니다. 각 매개변수의 의미는 아래와 같습니다.
 
-- "table_name": ThanoSQL 워크스페이스 데이터베이스 내에 저장될 테이블 이름입니다. 기존에 사용한 테이블 이름으로 지정할 경우, 기존 테이블은 'search_result' 컬럼을 추가한 테이블로 대체됩니다. 지정하지 않을 시 테이블을 저장하지 않습니다. (str, optional)
 - "search_by": 검색할 때 사용할 이미지|텍스트|오디오|비디오 타입을 설정합니다. (str)
 - "search_input": 검색할 때 사용할 입력값입니다. (str)
 - "emb_col": 데이터 테이블에서 수치화된 결과를 담은 컬럼의 이름입니다. (str)
