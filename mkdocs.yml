@@ -97,6 +97,10 @@ extra:
     property: G-8KVG4NMMFK
   generator: false # Hide "Made with Material for Mkdocs"
 
+  # versioning
+  version:
+    provider: mike
+
 extra_css:
   - /assets/css/extra.css # For grid sections
 
