@@ -54,8 +54,7 @@ LIST THANOSQL DATASET
 
 [![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
 
-
-!!! notice "How to write queries in the ThanoSQL Workspace Lab" 
+!!! notice "How to write queries in the ThanoSQL Workspace Lab"
     There are two ways to write queries in ThanoSQL: line-based and cell-based.
 
     - Line-based: After entering `%thanosql`, continue writing the query on the same line. The query result is returned as a DataFrame and can be stored in a variable for further programming, similar to a Python variable.
