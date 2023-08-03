@@ -8,6 +8,8 @@ theme:
   logo: assets/images/docs_logo.png
   favicon: assets/images/favicon.png
   custom_dir: overrides
+  palette:
+    primary: deep purple
   features:
     - navigation.expand # Default dropdown to expand
     - navigation.sections # At sidebar top-level section name with bold & not dropdown menu
