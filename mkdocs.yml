@@ -1,6 +1,6 @@
 site_name: ThanoSQL
 site_description: ThanoSQL Documentation
-site_url: https://docs.thanosql.ai/
+site_url: https://nokchalatte.github.io/thanosql-docs/
 site_author: Smartmind Team
 
 theme:
@@ -8,8 +8,6 @@ theme:
   logo: assets/images/docs_logo.png
   favicon: assets/images/favicon.png
   custom_dir: overrides
-  palette:
-    primary: deep purple
   features:
     - navigation.expand # Default dropdown to expand
     - navigation.sections # At sidebar top-level section name with bold & not dropdown menu
@@ -88,8 +86,8 @@ markdown_extensions:
       alternate_style: true
 
 # Git info
-repo_name: smartmind-team/thanosql-docs
-repo_url: https://github.com/smartmind-team/thanosql-docs
+repo_name: nokchalatte/thanosql-docs
+repo_url: https://github.com/nokchalatte/thanosql-docs
 edit_uri: ""
 
 extra:
@@ -105,6 +103,6 @@ extra:
     default: latest
 
 extra_css:
-  - /assets/css/extra.css # For grid sections
+  - assets/css/extra.css # For grid sections
 
 copyright: "D-201, 39, Maeheon-ro 8-gil, Seocho-gu, Seoul 06770 South Korea<br />Email : contact@smartmind.team<br />Phone : (+82) 070-7151-9357<br /><br />© Since 2018 SmartMind, Inc. All Rights Reserved."
