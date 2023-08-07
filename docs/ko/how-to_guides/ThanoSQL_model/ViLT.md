@@ -52,7 +52,7 @@ OPTIONS (
 
 __PREDICT 예시__
 
-[시각 질의 응답 모델 사용하기](/ko/tutorials/thanosql_ml/question_answering/visual_question_answering/)에서 "__PREDICT__" 구문 사용 예시를 확인하실 수 있습니다.
+[시각 질의 응답 모델 사용하기](../../tutorials/thanosql_ml/question_answering/visual_question_answering/)에서 "__PREDICT__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

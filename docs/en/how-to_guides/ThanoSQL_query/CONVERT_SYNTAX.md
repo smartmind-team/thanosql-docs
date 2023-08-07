@@ -25,7 +25,7 @@ AS
 ## __3. CONVERT Example__
 
 !!! note
-    - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to the [ThanoSQL Model Statement Reference](/en/how-to_guides/reference/#thanosql-model-statement-reference)
+    - Examples are specific to one model, and the required option values ​​or the dataset used may differ from model to model. For a detailed description of each model, refer to the [ThanoSQL Model Statement Reference](../reference/#thanosql-model-statement-reference)
     - Because the example only works when a specific model and dataset are present, it may not run normally if copied and used as is.
 
 

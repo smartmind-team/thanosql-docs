@@ -92,7 +92,7 @@ sftp -i [path of the pem file] [name of workspace]@engine.thanosql.ai
 
 Once connected, you will get a screen as shown below.
 
-[![IMAGE](/img/thanosql_syntax/connecting/img1.png)](/img/thanosql_syntax/connecting/img1.png)
+[![IMAGE](../../img/thanosql_syntax/connecting/img1.png)](../../img/thanosql_syntax/connecting/img1.png)
 
 ### __STEP 5. Access data files__
 

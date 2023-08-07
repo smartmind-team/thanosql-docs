@@ -30,7 +30,7 @@ ex)
 ```
 
 !!! tip "With the generated API token, you can use all of the ThanoSQL`s REST APIs"
-    For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](/en/how-to_guides/reference/#thanosql-rest-api-reference)
+    For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](../../how-to_guides/reference/#thanosql-rest-api-reference)
 
 ## **3. Check the list of the ThanoSQL models and datasets using the LIST query syntax**
 
@@ -43,7 +43,7 @@ To view a list of prebuilt the ThanoSQL models, run the ThanoSQL statement below
 LIST THANOSQL MODEL
 ```
 
-[![IMAGE](/img/getting_started/img8.png)](/img/getting_started/img8.png)
+[![IMAGE](../../../../img/getting_started/img8.png)](../../../../img/getting_started/img8.png)
 
 To see the list of datasets used by the tutorials, run the statement below.
 
@@ -52,7 +52,7 @@ To see the list of datasets used by the tutorials, run the statement below.
 LIST THANOSQL DATASET
 ```
 
-[![IMAGE](/img/getting_started/img9.png)](/img/getting_started/img9.png)
+[![IMAGE](../../../../img/getting_started/img9.png)](../../../../img/getting_started/img9.png)
 
 !!! notice "How to write queries in the ThanoSQL Workspace Lab"
     There are two ways to write queries in ThanoSQL: line-based and cell-based.
@@ -76,7 +76,7 @@ LIST THANOSQL DATASET
 
 ## __4. Get Tutorial__
 
-You can check out the available tutorials from the [tutorials in the ThanoSQL Technical Documentation](/en/tutorials/algorithm_list/). 
+You can check out the available tutorials from the [tutorials in the ThanoSQL Technical Documentation](../../../tutorials/algorithm_list/). 
 Running the statement below allows you to clone all the ThanoSQL's tutorial into your workspace.
 
 ```sql

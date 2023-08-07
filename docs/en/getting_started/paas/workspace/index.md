@@ -11,7 +11,7 @@ The workspace is composed of two pages, the **Main Page** and the **Service Page
 
 You can view and manage workspaces collectively. If you don't have an workspace yet, you can create a new one by clicking the **Start button**. Please refer to the [Create Workspace](#create-a-workspace) guide for instructions.
 
-[![IMAGE](/en/img/getting_started/img6.png){: style="max-height:none"}](/en/img/getting_started/img6.png)
+[![IMAGE](../../../img/getting_started/img6.png){: style="max-height:none"}](../../../img/getting_started/img6.png)
 
 ① Create New Workspace
 
@@ -35,7 +35,7 @@ Here are the available features on the Service page:
 
 - **Lab**: Provides a versatile environment for data exploration, AI/ML modeling, and application development based on Jupyter Notebook. To try Lab in Workspace, see the [Lab Manual](./lab.md).
 
-[![IMAGE](/en/img/getting_started/paas/workspace/img0.png){: style="max-height:none"}](/en/img/getting_started/paas/workspace/img0.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/img0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/img0.png)
 
 A side navigation(①), a common component of service pages, provides navigation to each feature and provides a shortcut to the [workspace settings page](#workspace-settings-page). Additionally, the drop-down menu(②) in the top right corner allows you to navigate to the service page of other workspaces.
 
@@ -44,11 +44,11 @@ A side navigation(①), a common component of service pages, provides navigation
 - Click the Create New Workspace button on the main page.
 - If there is **no** existing workspace, click the **Start button** on the initial main page to navigate to the workspace creation page.
 
-[![IMAGE](/en/img/getting_started/img3.png){: style="max-height:none"}](/en/img/getting_started/img3.png)
+[![IMAGE](../../../img/getting_started/img3.png){: style="max-height:none"}](../../../img/getting_started/img3.png)
 
 ### __1. Plan Settings__
 
-[![IMAGE](/en/img/getting_started/img4.png){: style="max-height:none"}](/en/img/getting_started/img4.png)
+[![IMAGE](../../../img/getting_started/img4.png){: style="max-height:none"}](../../../img/getting_started/img4.png)
 
 ① **Plan**
 
@@ -66,7 +66,7 @@ A side navigation(①), a common component of service pages, provides navigation
 
 ### __2. Application Form__
 
-[![IMAGE](/en/img/getting_started/img5.png){: style="max-height:none"}](/en/img/getting_started/img5.png)
+[![IMAGE](../../../img/getting_started/img5.png){: style="max-height:none"}](../../../img/getting_started/img5.png)
 
 ① Enter the **Workspace Name**.
 
@@ -99,7 +99,7 @@ You can access general workspace information, usage logs, and data required for 
 
 ### __General__
 
-[![IMAGE](/en/img/getting_started/img10.png){: style="max-height:none"}](/en/img/getting_started/img10.png)
+[![IMAGE](../../../img/getting_started/img10.png){: style="max-height:none"}](../../../img/getting_started/img10.png)
 
 ① Workspace Start / Stop
 
@@ -127,7 +127,7 @@ You can access general workspace information, usage logs, and data required for 
 
 ### __Log__
 
-[![IMAGE](/en/img/getting_started/img11.png){: style="max-height:none"}](/en/img/getting_started/img11.png)
+[![IMAGE](../../../img/getting_started/img11.png){: style="max-height:none"}](../../../img/getting_started/img11.png)
 
 ① Workspace Usage
 
@@ -139,7 +139,7 @@ You can access general workspace information, usage logs, and data required for 
 
 ### __Developer__
 
-[![IMAGE](/en/img/getting_started/img12.png){: style="max-height:none"}](/en/img/getting_started/img12.png)
+[![IMAGE](../../../img/getting_started/img12.png){: style="max-height:none"}](../../../img/getting_started/img12.png)
 
 ① Copy API Token
 

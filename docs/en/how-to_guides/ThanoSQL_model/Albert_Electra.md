@@ -59,7 +59,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __BUILD MODEL Example__
 
-An example "__BUILD MODEL__" query can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/text_classification/).
+An example "__BUILD MODEL__" query can be found in [Create a Text Classification Model](../../tutorials/thanosql_ml/classification/text_classification/).
 
 ```sql
 %%thanosql
@@ -153,7 +153,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __PREDICT Example__
 
-An example "__PREDICT__" query can be found in [Create a Text Classification Model](/en/tutorials/thanosql_ml/classification/text_classification/).
+An example "__PREDICT__" query can be found in [Create a Text Classification Model](../../tutorials/thanosql_ml/classification/text_classification/).
 
 ```sql
 %%thanosql

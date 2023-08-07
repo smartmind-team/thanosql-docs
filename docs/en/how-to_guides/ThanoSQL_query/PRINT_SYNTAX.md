@@ -72,7 +72,7 @@ SELECT *
 FROM audio_table
 ```
 
-[![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
+[![IMAGE](../../../img/thanosql_syntax/query/PRINT/PRINT_img1.png)](../../../img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
     - "audio_table": table containing paths of the audio files
@@ -97,7 +97,7 @@ FROM video_table
 
 ### __3-4. Print with a Subquery__
 
-The following statement outputs the results of "__SEARCH__" statement created in the nested [SEARCH](/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX). 
+The following statement outputs the results of "__SEARCH__" statement created in the nested [SEARCH](./SEARCH_SYNTAX). 
 
 ```sql
 %%thanosql
