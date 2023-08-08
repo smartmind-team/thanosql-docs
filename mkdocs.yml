@@ -1,6 +1,6 @@
 site_name: ThanoSQL
 site_description: ThanoSQL Documentation
-site_url: https://nokchalatte.github.io/thanosql-docs/
+site_url: https://docs.thanosql.ai/
 site_author: Smartmind Team
 
 theme:
@@ -86,8 +86,8 @@ markdown_extensions:
       alternate_style: true
 
 # Git info
-repo_name: nokchalatte/thanosql-docs
-repo_url: https://github.com/nokchalatte/thanosql-docs
+repo_name: smartmind-team/thanosql-docs
+repo_url: https://github.com/smartmind-team/thanosql-docs
 edit_uri: ""
 
 extra:
