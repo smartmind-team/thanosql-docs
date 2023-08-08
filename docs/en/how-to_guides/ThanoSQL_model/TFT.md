@@ -91,7 +91,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __BUILD MODEL Example__
 
-An example "__BUILD MODEL__" query can be found in [Electrictity Consumption Forecasting]({../../tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/}).
+An example "__BUILD MODEL__" query can be found in [Electricity Consumption Forecasting](../../../tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb).
 
 ```sql
 %%thanosql
@@ -147,7 +147,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __PREDICT Example__
 
-An example "__PREDICT__" query can be found in [Electrictity Consumption Forecasting]({../../tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/}).
+An example "__PREDICT__" query can be found in [Electricity Consumption Forecasting](../../../tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb).
 
 !!! warning "Test dataset requires preprocessing"
     - To predict using a time series model, you must merge the train dataset with the configured encoder length as an answer to the test dataset. e.g. If you set the model encoder length to 860 and the test dataset's "time_idx" starts at 1000, the "time_idx" of 140–999 data points should be merged into the test dataset.
@@ -178,7 +178,7 @@ AS
 
 __EVALUATE Example__
 
-An example "__EVALUATE__" query can be found in [Electrictity Consumption Forecasting]({../../tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/}).
+An example "__EVALUATE__" query can be found in [Electricity Consumption Forecasting](../../../tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb).
 
 ```sql
 %%thanosql

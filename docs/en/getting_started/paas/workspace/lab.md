@@ -30,7 +30,7 @@ ex)
 ```
 
 !!! tip "With the generated API token, you can use all of the ThanoSQL`s REST APIs"
-    For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](../../how-to_guides/reference/#thanosql-rest-api-reference)
+    For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](../../../../how-to_guides/reference/#thanosql-rest-api-reference)
 
 ## **3. Check the list of the ThanoSQL models and datasets using the LIST query syntax**
 
@@ -76,7 +76,7 @@ LIST THANOSQL DATASET
 
 ## __4. Get Tutorial__
 
-You can check out the available tutorials from the [tutorials in the ThanoSQL Technical Documentation](../../../tutorials/algorithm_list/). 
+You can check out the available tutorials from the [tutorials in the ThanoSQL Technical Documentation](../../../../tutorials/algorithm_list/). 
 Running the statement below allows you to clone all the ThanoSQL's tutorial into your workspace.
 
 ```sql

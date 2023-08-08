@@ -56,7 +56,7 @@ OPTIONS (
 
 __CONVERT 예시__
 
-[텍스트로 비디오 검색하기](../../tutorials/thanosql_search/search_video_by_text/)에서 "__CONVERT__" 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 비디오 검색하기](../../../tutorials/thanosql_search/search_video_by_text/)에서 "__CONVERT__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -109,7 +109,7 @@ OPTIONS (
 
 __SEARCH VIDEO 예시__
 
-[텍스트로 비디오 검색하기](../../tutorials/thanosql_search/search_video_by_text/)에서 "__SEARCH VIDEO__" 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 비디오 검색하기](../../../tutorials/thanosql_search/search_video_by_text/)에서 "__SEARCH VIDEO__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

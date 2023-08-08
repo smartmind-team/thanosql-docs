@@ -30,7 +30,7 @@ ex)
 ```
 
 !!! tip "생성된 API 토큰을 이용하여 ThanoSQL의 모든 REST API를 사용하실수 있습니다"
-    ThanoSQL에서 REST API 사용에 대한 자세한 내용은 [참조 페이지의 __ThanoSQL REST API Reference__](../../../how-to_guides/reference/#thanosql-rest-api-reference)에서 확인하세요.
+    ThanoSQL에서 REST API 사용에 대한 자세한 내용은 [참조 페이지의 __ThanoSQL REST API Reference__](../../../../how-to_guides/reference/#thanosql-rest-api-reference)에서 확인하세요.
 
 
 
@@ -78,7 +78,7 @@ LIST THANOSQL DATASET
 
 ## __4. 튜토리얼 가져오기__
 
-[ThanoSQL 기술 문서에 있는 튜토리얼](../../../tutorials/algorithm_list/)에서 튜토리얼 목록을 확인할 수 있습니다. 
+[ThanoSQL 기술 문서에 있는 튜토리얼](../../../../tutorials/algorithm_list/)에서 튜토리얼 목록을 확인할 수 있습니다. 
 아래 문을 실행시키면 ThanoSQL의 전체 튜토리얼들을 자신의 워크스페이스에 가지고 올 수 있습니다. 
 
 ```sql

@@ -58,7 +58,7 @@ OPTIONS (
 
 __PREDICT 예시__
 
-[오디오 파일을 받아쓰는 음성 인식 모델 사용하기](../../tutorials/thanosql_ml/audio_recognition/speech_recognition2/)에서 "__PREDICT__" 구문 사용 예시를 확인하실 수 있습니다.
+[오디오 파일을 받아쓰는 음성 인식 모델 사용하기](../../../tutorials/thanosql_ml/audio_recognition/speech_recognition2/)에서 "__PREDICT__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

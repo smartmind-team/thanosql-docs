@@ -1,4 +1,4 @@
-# __Expolore the Workspace__
+# __Explore the Workspace__
 
 The Workspace is a PaaS (Platform as a Service) product that enables data processing, AI/ML modeling, and application development with ThanoSQL. You can leverage the power of SQL and the versatility of Jupyter notebooks to query and analyze your data efficiently.
 
@@ -31,9 +31,9 @@ On the workspace list of the main page, you can navigate to the service page of 
 
 Here are the available features on the Service page:
 
-- **Query Manager**: A tool that allows you to execute and track ThanoSQL queries. It provides interfaces such as Query Editor, Query Log, and Data Viewer. To try Query Manager in Workspace, see the [Query Manager Manual](./query_manager.md).
+- **Query Manager**: A tool that allows you to execute and track ThanoSQL queries. It provides interfaces such as Query Editor, Query Log, and Data Viewer. To try Query Manager in Workspace, see the [Query Manager Manual](query_manager).
 
-- **Lab**: Provides a versatile environment for data exploration, AI/ML modeling, and application development based on Jupyter Notebook. To try Lab in Workspace, see the [Lab Manual](./lab.md).
+- **Lab**: Provides a versatile environment for data exploration, AI/ML modeling, and application development based on Jupyter Notebook. To try Lab in Workspace, see the [Lab Manual](lab).
 
 [![IMAGE](../../../img/getting_started/paas/workspace/img0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/img0.png)
 
@@ -71,7 +71,7 @@ A side navigation(①), a common component of service pages, provides navigation
 ① Enter the **Workspace Name**.
 
 - The workspace name cannot be duplicated.
-- Workspace names can only be written in English (lowercase, first letter) and numbers (last letter). ex)myworkspace123
+- Workspace names can only be written in English (lowercase, first letter) and numbers (last letter). ex: myworkspace123
 
 ② Selected Plan
 

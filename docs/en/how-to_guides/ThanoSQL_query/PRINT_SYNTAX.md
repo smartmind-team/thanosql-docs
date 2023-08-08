@@ -97,7 +97,7 @@ FROM video_table
 
 ### __3-4. Print with a Subquery__
 
-The following statement outputs the results of "__SEARCH__" statement created in the nested [SEARCH](./SEARCH_SYNTAX). 
+The following statement outputs the results of "__SEARCH__" statement created in the nested [SEARCH](SEARCH_SYNTAX). 
 
 ```sql
 %%thanosql

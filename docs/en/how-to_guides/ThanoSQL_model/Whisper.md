@@ -58,7 +58,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __PREDICT Example__
 
-An example "__PREDICT__" query can be found in [Using a Speech Recognition Model](../../tutorials/thanosql_ml/audio_recognition/speech_recognition2/).
+An example "__PREDICT__" query can be found in [Using a Speech Recognition Model](../../../tutorials/thanosql_ml/audio_recognition/speech_recognition2/).
 
 ```sql
 %%thanosql

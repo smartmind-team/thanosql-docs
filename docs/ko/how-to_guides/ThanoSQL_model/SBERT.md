@@ -57,7 +57,7 @@ OPTIONS (
 
 __BUILD MODEL 예시__
 
-[텍스트로 텍스트 검색하기](../../tutorials/thanosql_search/search_text_by_text/)에서 "__BUILD MODEL__" 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 텍스트 검색하기](../../../tutorials/thanosql_search/search_text_by_text/)에서 "__BUILD MODEL__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -106,7 +106,7 @@ OPTIONS (
 
 __CONVERT 예시__
 
-[텍스트로 텍스트 검색하기](../../tutorials/thanosql_search/search_text_by_text/)에서 "__CONVERT__" 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 텍스트 검색하기](../../../tutorials/thanosql_search/search_text_by_text/)에서 "__CONVERT__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -160,7 +160,7 @@ OPTIONS (
 
 __SEARCH TEXT 예시__
 
-[텍스트로 텍스트 검색하기](../../tutorials/thanosql_search/search_text_by_text/)에서 "__SEARCH TEXT__" 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 텍스트 검색하기](../../../tutorials/thanosql_search/search_text_by_text/)에서 "__SEARCH TEXT__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -224,7 +224,7 @@ OPTIONS (
 
 __SEARCH KEYWORD 예시__
 
-[텍스트로 텍스트 검색하기](../../tutorials/thanosql_search/search_text_by_text/)에서 "__SEARCH KEYWORD__" 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 텍스트 검색하기](../../../tutorials/thanosql_search/search_text_by_text/)에서 "__SEARCH KEYWORD__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

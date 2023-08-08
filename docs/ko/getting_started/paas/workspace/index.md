@@ -31,9 +31,9 @@
 
 다음은 서비스 페이지에서 사용 가능한 기능입니다.
 
-- **Query Manager** : ThanoSQL 쿼리를 실행하고 추적하는데 도움이 되는 도구입니다. 쿼리 편집기, 쿼리 로그 및 데이터 뷰어 등의 인터페이스를 제공합니다. 사용해 보려면 [Query Manager 매뉴얼](./query_manager.md)를 참조하세요.
+- **Query Manager** : ThanoSQL 쿼리를 실행하고 추적하는데 도움이 되는 도구입니다. 쿼리 편집기, 쿼리 로그 및 데이터 뷰어 등의 인터페이스를 제공합니다. 사용해 보려면 [Query Manager 매뉴얼](query_manager)를 참조하세요.
 
-- **Lab** : Jupyter Notebook을 기반으로 데이터 탐색, AI/ML 모델링 및 응용 프로그램 개발을 위한 다목적 환경을 제공합니다. 사용해 보려면 [Lab 매뉴얼](./lab.md)를 참조하세요.
+- **Lab** : Jupyter Notebook을 기반으로 데이터 탐색, AI/ML 모델링 및 응용 프로그램 개발을 위한 다목적 환경을 제공합니다. 사용해 보려면 [Lab 매뉴얼](lab)를 참조하세요.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/img0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/img0.png)
 
