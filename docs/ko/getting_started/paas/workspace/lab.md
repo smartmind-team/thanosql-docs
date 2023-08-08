@@ -30,7 +30,7 @@ ex)
 ```
 
 !!! tip "생성된 API 토큰을 이용하여 ThanoSQL의 모든 REST API를 사용하실수 있습니다"
-    ThanoSQL에서 REST API 사용에 대한 자세한 내용은 [참조 페이지의 __ThanoSQL REST API Reference__](../../../../how-to_guides/reference/#thanosql-rest-api-reference)에서 확인하세요.
+    ThanoSQL에서 REST API 사용에 대한 자세한 내용은 [참조 페이지의 __ThanoSQL REST API Reference__](../../../../how-to_guides/reference/#rest-api)에서 확인하세요.
 
 
 

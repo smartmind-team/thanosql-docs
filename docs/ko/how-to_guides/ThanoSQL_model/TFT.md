@@ -91,7 +91,7 @@ OPTIONS (
 
 __BUILD MODEL 예시__
 
-[시계열 예측 모델 만들기](../../../tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/)에서 "__BUILD MODEL__" 구문 사용 예시를 확인하실 수 있습니다.
+[시계열 예측 모델 만들기](../../../tutorials/thanosql_ml/timeseries/timeseries_forecasting/)에서 "__BUILD MODEL__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -151,7 +151,7 @@ OPTIONS (
 
 __PREDICT 예시__
 
-[시계열 예측 모델 만들기](../../../tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/)에서 "__PREDICT__" 구문 사용 예시를 확인하실 수 있습니다.
+[시계열 예측 모델 만들기](../../../tutorials/thanosql_ml/timeseries/timeseries_forecasting/)에서 "__PREDICT__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -178,7 +178,7 @@ AS
 ```
 __EVALUATE 예시__
 
-[시계열 예측 모델 만들기](../../../tutorials/thanosql_ml/timeseries/timeseries_forecasting.ipynb/)에서 "__EVALUATE__" 구문 사용 예시를 확인하실 수 있습니다.
+[시계열 예측 모델 만들기](../../../tutorials/thanosql_ml/timeseries/timeseries_forecasting/)에서 "__EVALUATE__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

@@ -30,7 +30,7 @@ ex)
 ```
 
 !!! tip "With the generated API token, you can use all of the ThanoSQL`s REST APIs"
-    For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](../../../../how-to_guides/reference/#thanosql-rest-api-reference)
+    For more information about using the ThanoSQL's REST API, see [__ThanoSQL REST API Reference__](../../../../how-to_guides/reference/#rest-api)
 
 ## **3. Check the list of the ThanoSQL models and datasets using the LIST query syntax**
 
