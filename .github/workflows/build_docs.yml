@@ -1,0 +1,36 @@
+name: Generate [version] documentation
+
+on:
+  push:
+    branches:
+    - 'v*.*'
+
+jobs:
+  build_docs:
+    name: Generate [version] documentation
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: [ 3.8 ]
+
+    steps:
+      - name: Checkout source files
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Install Python dependencies
+        run: python3 -m pip install -r ./mkdocs/requirements.txt
+
+      - name: Extract branch name
+        run: |
+          TAG_V=${{ github.ref_name}}
+          SPLITTED_TAG=($(echo $TAG_V | tr "v" "\n"))
+          echo "version=$(echo ${SPLITTED_TAG})" >> $GITHUB_OUTPUT
+        id: extract_branch
+        
+      - name: Deploy with mike 🚀
+        run: |
+          cd mkdocs
+          mike deploy --push ${{ steps.extract_branch.outputs.version }}
