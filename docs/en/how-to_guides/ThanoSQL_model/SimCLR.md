@@ -57,7 +57,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __BUILD MODEL Example__
 
-An example "__BUILD MODEL__" query can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
+An example "__BUILD MODEL__" query can be found in [Search Image by Image](../../../tutorials/thanosql_search/search_image_by_image/).
 ​
 
 ```sql
@@ -108,7 +108,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __CONVERT Example__
 
-An example "__CONVERT__" query can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
+An example "__CONVERT__" query can be found in [Search Image by Image](../../../tutorials/thanosql_search/search_image_by_image/).
 ​
 
 ```sql
@@ -163,7 +163,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __SEARCH IMAGE Example__
 
-An example "__SEARCH IMAGE__" query can be found in [Search Image by Image](/en/tutorials/thanosql_search/search_image_by_image/).
+An example "__SEARCH IMAGE__" query can be found in [Search Image by Image](../../../tutorials/thanosql_search/search_image_by_image/).
 
 ```sql
 %%thanosql

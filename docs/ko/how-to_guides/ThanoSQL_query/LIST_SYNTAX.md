@@ -15,28 +15,28 @@ title: LIST
 ```sql
 LIST MODEL
 ```
-[![IMAGE](/img/thanosql_syntax/query/LIST/img1.png)](/img/thanosql_syntax/query/LIST/img1.png)
+[![IMAGE](../../../img/thanosql_syntax/query/LIST/img1.png)](../../../img/thanosql_syntax/query/LIST/img1.png)
 
 "__LIST THANOSQL MODEL__" 구문은 ThanoSQL Pre-built 모델의 리스트를 확인합니다.
 
 ```sql
 LIST THANOSQL MODEL
 ```
-[![IMAGE](/img/thanosql_syntax/query/LIST/img2.png)](/img/thanosql_syntax/query/LIST/img2.png)
+[![IMAGE](../../../img/thanosql_syntax/query/LIST/img2.png)](../../../img/thanosql_syntax/query/LIST/img2.png)
 
 "__LIST THANOSQL DATASET__" 구문은 ThanoSQL 데이터 세트의 리스트를 확인합니다.
 
 ```sql
 LIST THANOSQL DATASET
 ```
-[![IMAGE](/img/thanosql_syntax/query/LIST/img3.png)](/img/thanosql_syntax/query/LIST/img3.png)
+[![IMAGE](../../../img/thanosql_syntax/query/LIST/img3.png)](../../../img/thanosql_syntax/query/LIST/img3.png)
 
 "__LIST TABLE__" 구문은 사용자가 만든 데이터 테이블의 리스트를 확인합니다.
 
 ```sql
 LIST TABLE
 ```
-[![IMAGE](/img/thanosql_syntax/query/LIST/img4.png)](/img/thanosql_syntax/query/LIST/img4.png)
+[![IMAGE](../../../img/thanosql_syntax/query/LIST/img4.png)](../../../img/thanosql_syntax/query/LIST/img4.png)
 
 !!! note "LIST as a Subquery"
     - "__LIST__" 구문은 "__SELECT__"의 서브쿼리로 사용할 수 있습니다.

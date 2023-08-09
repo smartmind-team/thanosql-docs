@@ -57,7 +57,7 @@ OPTIONS (
 
 __BUILD MODEL 예시__
 
-[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image/)에서 "__BUILD MODEL__" 구문 사용 예시를 확인하실 수 있습니다.
+[이미지로 이미지 검색하기](../../../tutorials/thanosql_search/search_image_by_image/)에서 "__BUILD MODEL__" 구문 사용 예시를 확인하실 수 있습니다.
 ​
 ```sql
 %%thanosql
@@ -106,7 +106,7 @@ OPTIONS (
 
 __CONVERT 예시__
 
-[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image/)에서 "__CONVERT__" 구문 사용 예시를 확인하실 수 있습니다.
+[이미지로 이미지 검색하기](../../../tutorials/thanosql_search/search_image_by_image/)에서 "__CONVERT__" 구문 사용 예시를 확인하실 수 있습니다.
 ​
 ```sql
 %%thanosql
@@ -159,7 +159,7 @@ OPTIONS (
 
 __SEARCH IMAGE 예시__
 
-[이미지로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_image/)에서 "__SEARCH IMAGE__" 구문 사용 예시를 확인하실 수 있습니다.
+[이미지로 이미지 검색하기](../../../tutorials/thanosql_search/search_image_by_image/)에서 "__SEARCH IMAGE__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

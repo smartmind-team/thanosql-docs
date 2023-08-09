@@ -56,7 +56,7 @@ OPTIONS (
 
 __CONVERT 예시__
 
-[텍스트로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_text/)에서 "__CONVERT__" 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 이미지 검색하기](../../../tutorials/thanosql_search/search_image_by_text/)에서 "__CONVERT__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql
@@ -111,7 +111,7 @@ OPTIONS (
 
 __SEARCH IMAGE 예시__
 
-[텍스트로 이미지 검색하기](/ko/tutorials/thanosql_search/search_image_by_text/)에서 "__SEARCH IMAGE__" 구문 사용 예시를 확인하실 수 있습니다.
+[텍스트로 이미지 검색하기](../../../tutorials/thanosql_search/search_image_by_text/)에서 "__SEARCH IMAGE__" 구문 사용 예시를 확인하실 수 있습니다.
 
 ```sql
 %%thanosql

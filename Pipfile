@@ -11,6 +11,8 @@ pymdown-extensions = "==9.5"
 mkdocs-static-i18n = {editable = true, ref = "feat/jupyter", git = "https://github.com/smartmind-team/mkdocs-static-i18n.git"}
 mkdocs-awesome-pages-plugin = "==2.8.0"
 mkdocs-jupyter = "==0.21.0"
+mike = "==1.1.2"
+lxml = "==4.9.2"
 
 [dev-packages]
 

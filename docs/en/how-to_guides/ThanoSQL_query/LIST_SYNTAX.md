@@ -16,7 +16,7 @@ The "__LIST MODEL__" statement outputs the models you have created.
 LIST MODEL
 ```
 
-[![IMAGE](/img/thanosql_syntax/query/LIST/img1.png)](/img/thanosql_syntax/query/LIST/img1.png)
+[![IMAGE](../../../img/thanosql_syntax/query/LIST/img1.png)](../../../img/thanosql_syntax/query/LIST/img1.png)
 
 The "__LIST THANOSQL MODEL__" statement outputs the latest pre-built models.
 
@@ -24,7 +24,7 @@ The "__LIST THANOSQL MODEL__" statement outputs the latest pre-built models.
 LIST THANOSQL MODEL
 ```
 
-[![IMAGE](/img/thanosql_syntax/query/LIST/img2.png)](/img/thanosql_syntax/query/LIST/img2.png)
+[![IMAGE](../../../img/thanosql_syntax/query/LIST/img2.png)](../../../img/thanosql_syntax/query/LIST/img2.png)
 
 
 The "__LIST THANOSQL DATASET__" statement outputs the latest datasets used by the tutorials.
@@ -33,7 +33,7 @@ The "__LIST THANOSQL DATASET__" statement outputs the latest datasets used by th
 LIST THANOSQL DATASET
 ```
 
-[![IMAGE](/img/thanosql_syntax/query/LIST/img3.png)](/img/thanosql_syntax/query/LIST/img3.png)
+[![IMAGE](../../../img/thanosql_syntax/query/LIST/img3.png)](../../../img/thanosql_syntax/query/LIST/img3.png)
 
 The "__LIST TABLE__" statement outputs the data tables you have created.
 
@@ -41,7 +41,7 @@ The "__LIST TABLE__" statement outputs the data tables you have created.
 LIST TABLE
 ```
 
-[![IMAGE](/img/thanosql_syntax/query/LIST/img4.png)](/img/thanosql_syntax/query/LIST/img4.png)
+[![IMAGE](../../../img/thanosql_syntax/query/LIST/img4.png)](../../../img/thanosql_syntax/query/LIST/img4.png)
 
 !!! note "LIST as a Subquery" 
     - "**LIST**" clause can be used as "**SELECT**" clause's subquery. 
