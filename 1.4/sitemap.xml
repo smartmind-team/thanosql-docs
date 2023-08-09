@@ -1,0 +1,459 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/FAQ/frequently_asked_question/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/FAQ/frequently_asked_question/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/FAQ/frequently_asked_question/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/getting_started/data_upload/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/getting_started/data_upload/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/getting_started/data_upload/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/getting_started/web_manual/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/getting_started/web_manual/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/getting_started/web_manual/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/getting_started/paas/workspace/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/getting_started/paas/workspace/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/getting_started/paas/workspace/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/getting_started/paas/workspace/lab/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/getting_started/paas/workspace/lab/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/getting_started/paas/workspace/lab/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/getting_started/paas/workspace/query_manager/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/getting_started/paas/workspace/query_manager/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/getting_started/paas/workspace/query_manager/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/getting_started/saas/autocrm/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/getting_started/saas/autocrm/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/getting_started/saas/autocrm/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/getting_started/saas/qe/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/getting_started/saas/qe/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/getting_started/saas/qe/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/reference/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/reference/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/reference/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_connecting/overview/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_connecting/overview/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_connecting/overview/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_file/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_file/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_file/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_query/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_query/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_query/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_search/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_search/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_search/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_tables/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_tables/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_tables/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_function/Compute/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_function/Compute/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_function/Compute/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_function/Preprocess/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_function/Preprocess/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_function/Preprocess/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/Albert_Electra/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/Albert_Electra/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/Albert_Electra/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/AutomlClassifier/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/AutomlClassifier/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/AutomlClassifier/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/AutomlRegressor/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/AutomlRegressor/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/AutomlRegressor/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/CLIP/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/CLIP/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/CLIP/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/ConvNeXt_EfficientNet/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/ConvNeXt_EfficientNet/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/ConvNeXt_EfficientNet/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/SBERT/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/SBERT/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/SBERT/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/SimCLR/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/SimCLR/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/SimCLR/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/TFT/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/TFT/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/TFT/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/ViLT/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/ViLT/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/ViLT/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/Wav2Vec2/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/Wav2Vec2/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/Wav2Vec2/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/Whisper/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/Whisper/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/Whisper/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_model/XCLIP/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_model/XCLIP/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_model/XCLIP/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/BUILD_MODEL_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/BUILD_MODEL_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/BUILD_MODEL_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/CONVERT_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/CONVERT_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/CONVERT_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/COPY_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/COPY_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/DELETE_MODEL_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/DELETE_MODEL_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/DELETE_MODEL_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/EVALUATE_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/EVALUATE_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/EVALUATE_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/FUNCTION_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/FUNCTION_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/FUNCTION_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/GET_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/GET_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/GET_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/LIST_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/LIST_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/LIST_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/PREDICT_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/PREDICT_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/PREDICT_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/PRINT_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/PRINT_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/PRINT_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/how-to_guides/ThanoSQL_query/UPLOAD_MODEL_SYNTAX/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/how-to_guides/ThanoSQL_query/UPLOAD_MODEL_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/how-to_guides/ThanoSQL_query/UPLOAD_MODEL_SYNTAX/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/algorithm_list/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/algorithm_list/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/algorithm_list/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_ml/udm_tutorial/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_ml/udm_tutorial/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_ml/udm_tutorial/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_ml/audio_recognition/speech_recognition/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_ml/audio_recognition/speech_recognition/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_ml/audio_recognition/speech_recognition/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_ml/audio_recognition/speech_recognition2/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_ml/audio_recognition/speech_recognition2/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_ml/audio_recognition/speech_recognition2/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_ml/classification/automl_classification/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_ml/classification/automl_classification/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_ml/classification/automl_classification/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_ml/classification/image_classification/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_ml/classification/image_classification/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_ml/classification/image_classification/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_ml/classification/text_classification/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_ml/classification/text_classification/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_ml/classification/text_classification/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_ml/question_answering/visual_question_answering/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_ml/question_answering/visual_question_answering/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_ml/question_answering/visual_question_answering/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_ml/regression/automl_regression/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_ml/regression/automl_regression/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_ml/regression/automl_regression/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_ml/timeseries/timeseries_forecasting/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_ml/timeseries/timeseries_forecasting/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_ml/timeseries/timeseries_forecasting/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_search/search_image_by_image/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_search/search_image_by_image/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_search/search_image_by_image/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_search/search_image_by_keyword/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_search/search_image_by_keyword/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_search/search_image_by_keyword/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_search/search_image_by_text/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_search/search_image_by_text/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_search/search_image_by_text/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_search/search_text_by_text/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_search/search_text_by_text/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_search/search_text_by_text/"/>
+         
+    </url>
+    <url>
+         <loc>https://docs.thanosql.ai/1.4/tutorials/thanosql_search/search_video_by_text/</loc>
+         <lastmod>2023-08-09</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.4/en/tutorials/thanosql_search/search_video_by_text/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.4/ko/tutorials/thanosql_search/search_video_by_text/"/>
+         
+    </url>
+</urlset>
