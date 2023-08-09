@@ -31,6 +31,4 @@ jobs:
         id: extract_branch
         
       - name: Deploy with mike 🚀
-        run: |
-          cd mkdocs
-          mike deploy --push ${{ steps.extract_branch.outputs.version }}
+        run: mike deploy --push ${{ steps.extract_branch.outputs.version }}
