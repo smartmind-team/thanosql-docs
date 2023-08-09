@@ -21,7 +21,7 @@ jobs:
           submodules: recursive
 
       - name: Install Python dependencies
-        run: python3 -m pip install -r ./mkdocs/requirements.txt
+        run: python3 -m pip install -r requirements.txt
 
       - name: Extract branch name
         run: |
