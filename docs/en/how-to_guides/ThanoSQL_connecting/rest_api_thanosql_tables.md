@@ -33,7 +33,7 @@ You can use the ThanoSQL Table REST API for several CRUD operations on your Than
 
 ## **`GET` /table**
 
-In order to get a list of all of your tables, use the method below. If no `schema_name` is provided, then tables from every schemas will be listed. 
+In order to get a list of all of your tables, use the method below. If no `schema_name` is provided, then tables from every schemas will be listed.
 
 === "Python"
 
@@ -69,7 +69,7 @@ In order to get a list of all of your tables, use the method below. If no `schem
 
 ## **`GET` /table/{table_name}**
 
-Use this method to get the objects of a single table. If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
+Use this method to get the objects of a single table. If no `schema_name` query parameter is provided, the parameter defaults to the public schema.
 
 === "Python"
 
@@ -105,7 +105,7 @@ Use this method to get the objects of a single table. If no `schema_name` query 
   
 ## **`PUT` /table/{table_name}**
 
-The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the `table_name` and `schema_name`. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. 
+The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the `table_name` and `schema_name`. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body.
 
 !!! note "__Order Execution__"
     The order of execution of the ALTER is as follows:
@@ -114,9 +114,10 @@ The ALTER Table API is used to do several ALTER TABLE operations. In order to al
 
 
 !!! warning ""
-    When dealing with columns, it is important to note that the id is the unique key that is used to identify the column. If this value is deleted, that means that the column will also be deleted. If you are making a change to the column, **make sure that the column id is present in the body**! When adding a new column, a column_id is not required as it will be assigned after the column is created. 
+    When dealing with columns, it is important to note that the id is the unique key that is used to identify the column. If this value is deleted, that means that the column will also be deleted. If you are making a change to the column, **make sure that the column id is present in the body**! When adding a new column, a column_id is not required as it will be assigned after the column is created.
 
 In the following example lets pretend we want to alter the table object below:
+
 ```json
 {
     "table": {
@@ -254,12 +255,12 @@ In the following example lets pretend we want to alter the table object below:
         }
     }'
     ```
-  If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
+  If no `schema_name` query parameter is provided, the parameter defaults to the public schema.
 
 
 ## **`POST` /table/{table_name}**
 
-Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema_name` as query params. 
+Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema_name` as query params.
 
 !!! note " "
     When adding Column objects to the list of columns, there is no need to specify the id since the id just refers to the ordinal position of the column. Additionally if the table is created with an empty body, an empty table will be created. If no table_name is specified, the table will be created with a random uuid string.
@@ -383,7 +384,7 @@ Use this method to execute the CREATE TABLE operation. In order to create the ta
 
 ## **`DELETE` /table/{table_name}**
 
-To delete a table, use the method below. If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
+To delete a table, use the method below. If no `schema_name` query parameter is provided, the parameter defaults to the public schema.
 
 
 === "Python"
