@@ -65,11 +65,14 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 #### 1) 테이블 추가 하는 방법 - ①
 데이터 베이스 탭을 클릭해 테이블 데이터 추가하기-> 테이블 추가하기를 클릭합니다.
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_13.png)
 
 ##### 1-1) 새 테이블을 직접 만들기
 테이블 추가하기 Drawer에서 새 테이블 직접 만들기를 클릭합니다.  
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_14.png)
 
 데이터 베이스 탭을 클릭해 테이블 데이터 추가하기-> 테이블 추가하기를 클릭합니다. 
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_15.png)
 
 ① 스키마 선택 : 테이블을 생성할  스키마를 선택할 수 있습니다. 
 ② 스키마 생성 : 서비스를 처음 이용하거나 새로운 스키마를 생성하고 싶을때 스키마 생성 버튼을 눌러 생성할 수 있습니다.
@@ -86,8 +89,10 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ##### 1-2) 로컬 파일 업로드로 만들기
 테이블 추가하기 -> 로컬 파일 업로드를 선택합니다. 
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_16.png)
 
 테이블 추가하기 -> 로컬 파일 업로드를 선택합니다. 
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_17.png)
 
 ① 파일 형식 선택 : CSV, Excel을 선택할 수 있습니다. CSV 선택 시, (.csv 파일)만 업로드 할 수 있고, Excel 선택 시, (.xls, .xlsx, .xlsm, .xlsb, .odf, .ods, .odt 파일)만 업로드 할 수 있습니다. 
 ② 파일 업로드 : 해당 파일 형식 선택 후, 형식에 맞는 파일을 업로드 할 수 있습니다. 
@@ -99,7 +104,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 파일을 자동감지 할 수도 있고, 직접 입력할 수도 있습니다. 
 - 자동 감지 : 업로드한 파일의 컬럼을 자동 감지합니다. 
 - 직접 입력 :  컬럼을 직접 입력 할 수 있습니다.  
-
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_18.png)
 ⑦ 옵션 
  - 데이터 쓰기 : 데이터 쓰기 옵션을 선택할 수 있습니다.
 ⑧ 취소 Button : 로컬 파일 업로드를 취소할 수 있습니다.
@@ -108,7 +113,9 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 #### 2) 스키마 생성 하는 법
 스키마를 생성할 수 있습니다. 
 
-데이터 베이스 탭을 클릭해 테이블 데이터 추가하기-> 스키마 추가하기를 클릭합니다. 
+데이터 베이스 탭을 클릭해 테이블 데이터 추가하기-> 스키마 추가하기를 클릭합니다.
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_19.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_20.png) 
 
 ① 스키마 이름 : 생성하려는 스키마의 이름을 입력할 수 있습니다. 
 ② 취소 Button : 스키마 생성을 취소할 수 있습니다.  
