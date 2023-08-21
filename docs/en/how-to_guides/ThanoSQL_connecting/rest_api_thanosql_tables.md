@@ -7,7 +7,7 @@ title: Table APIs
 You can use the ThanoSQL Table REST API for several CRUD operations on your ThanoSQL DB tables.
 
 !!! Note "__Table Object__"
-    A table object consists of four main componenets:
+    A table object consists of four main components:
 
     1. *`name`: The name of the table
     2. *`schema`: The schema that the table is a part of

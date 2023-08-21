@@ -4,36 +4,36 @@ title: Table APIs
 
 # **Table APIs**
 
-You can use the ThanoSQL Table REST API for several CRUD operations on your ThanoSQL DB tables.
+ThanoSQL 테이블 REST API를 사용하여 ThanoSQL DB 테이블에 대한 여러 CRUD 작업을 수행할 수 있습니다.
 
 !!! Note "__Table Object__"
-    A table object consists of four main componenets:
+    테이블 객체는 네 가지 주요 구성 요소로 구성됩니다:
 
-    1. *`name`: The name of the table
-    2. *`schema`: The schema that the table is a part of
+    1. *`name`: 테이블의 이름
+    2. *`schema`: 테이블이 속한 스키마
     3. `columns`
-        - `id`: The ordinal position of the column
-        - `default`: The default value of the column
-        - `is_nullable`: A boolean determining if the column is nullable
-        - `type`: [Data type](https://www.postgresql.org/docs/current/datatype.html#:~:text=Table%C2%A08.1.%C2%A0Data%20Types) of the column
-        - `name`: The name of the column
+        - `id`: 열의 서수 위치
+        - `default`: 열의 기본값
+        - `is_nullable`: 열이 널화 가능한지 여부를 나타내는 부울
+        - `type`: 열의 [데이터 타입](https://www.postgresql.org/docs/current/datatype.html#:~:text=Table%C2%A08.1.%C2%A0Data%20Types)
+        - `name`: 열의 이름
     4. `constraints`
-        - `primary_key`: The primary key of the table 
-            - `name`: The constraint name of the primary key
-            - `columns`: The columns that make up the primary key
+        - `primary_key`: 테이블의 기본 키
+            - `name`: 기본 키의 제약 조건 이름
+            - `columns`: 기본 키를 구성하는 열
         - `foreign_keys`: 
-            - `name`: The constraint name of the foreign key
-            - `reference_schema`: The schema that contains the `reference_table`
-            - `reference_table`: The table that contains the `reference_column`
-            - `reference_column`: The column that the foreign key is referring to
-            - `column`: The foreign key column
+            - `name`: 외래 키의 제약 조건 이름
+            - `reference_schema`: `reference_table` 포함하는 스키마
+            - `reference_table`: `reference_column` 포함하는 테이블
+            - `reference_column`: 외래 키가 참조하는 열
+            - `column`: 외래 키 열
 
-    _The above components that have a * next to its name will not be included in the body for the POST table API. Instead, it will be specified in the URL as query parameters._
+    _이름 옆에 *가 붙은 위의 구성 요소는 POST 테이블 API의 본문에 포함되지 않습니다. 대신 URL에 쿼리 매개변수로 지정됩니다._
 
 
 ## **`GET` /table**
 
-In order to get a list of all of your tables, use the method below. If no `schema_name` is provided, then tables from every schemas will be listed. 
+모든 테이블의 목록을 가져오려면 아래 메서드를 사용합니다. `schema_name`을 제공하지 않으면 모든 스키마의 테이블이 표시됩니다.
 
 === "Python"
 
@@ -69,7 +69,7 @@ In order to get a list of all of your tables, use the method below. If no `schem
 
 ## **`GET` /table/{table_name}**
 
-Use this method to get the objects of a single table. If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
+단일 테이블의 개체를 가져오려면 이 메서드를 사용합니다. `schema_name` 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
 
 === "Python"
 
@@ -105,18 +105,18 @@ Use this method to get the objects of a single table. If no `schema_name` query 
   
 ## **`PUT` /table/{table_name}**
 
-The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the `table_name` and `schema_name`. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. 
+ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용됩니다. 테이블을 변경하려면 `table_name` 및 `schema_name`으로 지정된 데이터베이스 객체를 변경하기만 하면 됩니다. UPDATE하려면 테이블 객체의 값을 변경하기만 하면 됩니다. DROP하려면 요청 본문에서 해당 개체를 제거하면 됩니다.
 
 !!! note "__Order Execution__"
-    The order of execution of the ALTER is as follows:
+    ALTER의 실행 순서는 다음과 같습니다:
 
     DROP PRIMARY KEY -> DROP FOREIGN KEY -> DROP COLUMN -> ADD COLUMN -> ALTER COLUMN -> RENAME COLUMN -> ADD PRIMARY KEY -> ADD FOREIGN KEY -> RENAME TABLE -> SET SCHEMA
 
 
 !!! warning ""
-    When dealing with columns, it is important to note that the id is the unique key that is used to identify the column. If this value is deleted, that means that the column will also be deleted. If you are making a change to the column, **make sure that the column id is present in the body**! When adding a new column, a column_id is not required as it will be assigned after the column is created. 
+    열을 다룰 때 id는 열을 식별하는 데 사용되는 고유 키라는 점에 유의하는 것이 중요합니다. 이 값이 삭제되면 열도 삭제된다는 의미입니다. 열을 변경하는 경우 **열 ID가 본문에 있는지 확인하세요**! 새 컬럼을 추가할 때는 컬럼이 생성된 후 할당되므로 column_id는 필요하지 않습니다.
 
-In the following example lets pretend we want to alter the table object below:
+다음 예제에서는 아래의 테이블 객체를 변경한다고 가정해 보겠습니다:
 ```json
 {
     "table": {
@@ -254,15 +254,15 @@ In the following example lets pretend we want to alter the table object below:
         }
     }'
     ```
-  If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
+  `schema_name` 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
 
 
 ## **`POST` /table/{table_name}**
 
-Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema_name` as query params. 
+이 메서드를 사용하여 CREATE TABLE 작업을 실행합니다. 테이블을 생성하려면 데이터베이스 객체를 본문으로 전달하고 쿼리 매개변수로 `table_name` 및 `schema_name`을 전달하기만 하면 됩니다.
 
 !!! note " "
-    When adding Column objects to the list of columns, there is no need to specify the id since the id just refers to the ordinal position of the column. Additionally if the table is created with an empty body, an empty table will be created. If no table_name is specified, the table will be created with a random uuid string.
+    열 개체를 열 목록에 추가할 때 id는 열의 서수 위치만 참조하므로 id를 지정할 필요가 없습니다. 또한 테이블이 빈 본문으로 생성되는 경우 빈 테이블이 생성됩니다. `table_name`을 지정하지 않으면 임의의 uuid 문자열로 테이블이 생성됩니다.
 
 
 === "Python"
@@ -276,7 +276,7 @@ Use this method to execute the CREATE TABLE operation. In order to create the ta
     base_url="https://{your-engine-url}/api/v1/table/"
     schema_name = "Schema Name"
 
-    # Note that the name and schema keys are missing from the body
+    # 본문에서 이름 및 스키마 키가 누락되었습니다.
     new_table = {
             "table": {
                 "columns": [
@@ -383,7 +383,7 @@ Use this method to execute the CREATE TABLE operation. In order to create the ta
 
 ## **`DELETE` /table/{table_name}**
 
-To delete a table, use the method below. If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
+테이블을 삭제하려면 아래 메서드를 사용합니다. `schema_name` 쿼리 매개변수가 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
 
 
 === "Python"
