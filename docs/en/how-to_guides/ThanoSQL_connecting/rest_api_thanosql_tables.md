@@ -420,51 +420,6 @@ To delete a table, use the method below. If no `schema` query parameter is provi
     ```
 
 
-## **`GET` /table/{table_name}/records**
-
-Retrieves the paginated records of a table in a schema.
-
-=== "Python"
-
-    ```python
-    import requests
-    import json
-
-    api_token = "Issued_API_TOKEN"
-    base_url = "https://{your-engine-url}/api/v1/table"
-    table_name = "Table name"
-    schema = "Target schema"
-    offset = "Offset"
-    limit = "Limit"
-
-    api_url = f"{base_url}/{table_name}/records?schema={schema}&offset={offset}&limit={limit}"
-
-    header = {
-        "Authorization": f"Bearer {api_token}"
-    }
-
-    r = requests.get(api_url, headers=header):
-    r.raise_for_status()
-    r.json()
-    ```
-
-=== "cURL"
-
-    ```shell
-      curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/table/{table_name}/records?schema={schema}&offset={offset}&limit={limit}' \
-      -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN'
-    ```
-
-
-### __Parameters__
-
-- `table_name`: The table name to retrieve the records from.
-- `schema`: The schema to search the table in (defaults to 'public').
-- `offset`: The offset to where the pagination count will start from (defaults to 0).
-- `limit`: The maximum number of records to retrieve starting from the offset (defaults to 100, max 100).
-
 ## **`POST` /table/{table_name}/records**
 
 Inserts row(s) of new records into a table in a schema.
@@ -538,42 +493,6 @@ Inserts row(s) of new records into a table in a schema.
                 "password": "ghi789"
             }
         ]'
-    ```
-
-
-## **`GET` /table/{table_name}/records/csv**
-
-Retrieves the records of a table in a schema as a CSV file.
-
-=== "Python"
-
-    ```python
-    import requests
-    import json
-
-    api_token = "Issued_API_TOKEN"
-    base_url = "https://{your-engine-url}/api/v1/table"
-    table_name = "Table name"
-    timezone_offset = "Timezone offset from GMT (default: 9 (GMT+9, Seoul time))"
-
-    api_url = f"{base_url}/{table_name}/records/csv?schema={schema}&timezone_offset={timezone_offset}"
-
-    header = {
-        "Authorization": f"Bearer {api_token}"
-    }
-
-    r = requests.get(api_url, headers=header):
-    r.raise_for_status()
-    r.json()
-    ```
-
-=== "cURL"
-
-    ```shell
-      curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/table/{table_name}/records/csv?schema={schema}&timezone_offset={timezone_offset}' \
-      -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
 
 
