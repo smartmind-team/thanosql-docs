@@ -6,43 +6,57 @@ title: Query APIs
 
 ## __`POST` /query__
 
-ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다.
+ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼리는 직접 입력하거나 기존 쿼리 템플릿에서 검색할 수 있습니다(매개변수 포함 또는 제외).
 
 === "Python"
 
     ```python
     import requests
+    import json
 
-    api_token = "발급받은_API_TOKEN"
-    api_url="https://{your-engine-url}/api/v1/query/"
-    query="요청할 쿼리"
-    query_type="쿼리를 실행할 sql type" #psql or thanosql
+    api_token = "Issued_API_TOKEN"
+    api_url = "https://{your-engine-url}/api/v1/query/"
+    query = "Query to request"
+    query_type = "SQL query type" #psql 또는 thanosql
 
     header = {
         "Authorization": f"Bearer {api_token}"
     }
 
+    # 템플릿 없는 쿼리의 경우(아래와 중 하나 선택합니다):
     data = {
         'query_string': query, 'query_type': query_type
     }
 
-    r = requests.post(api_url, json=data, headers=header)
+    # 템플릿 있는 쿼리의 경우(위와 중 하나 선택합니다):
+    template_name = "Name of template to use"
+    parameters = "Mapping of parameters to fill in the template"
 
+    data = {
+        'query_type': query_type,
+        'template_name': template_name,  # 또는 'template_id'
+        'parameters': parameters         # 선택 사항, 템플릿 필요한지 여부에 따라
+    }
+
+    r = requests.post(api_url, data=json.dumps(data), headers=header)
     r.raise_for_status()
-    return_json = r.json()
-    
+    r.json()
     ```
 
 === "cURL"
 
-    ```shell 
+    ```shell
     curl -X 'POST' \
       'https://{your-engine-url}/api/v1/query/' \
       -H 'accept: application/json' \
-      -H 'Authorization: Bearer 발급받은_API_TOKEN' \
+      -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: application/json' \
       -d '{"query_string": query, "query_type": query_type}'
+      # or -d '{"query_type": query_type, "template_name": template_name, "parameters": parameters}'
     ```
+
+!!! warning "쿼리 문자열 및 쿼리 템플릿"
+    쿼리 문자열과 템플릿(및/또는 매개변수)은 함께 사용해서는 안 됩니다. `template_id`, `template_name`, `parameters` 중 하나 이상과 함께 `query_string`을 사용하면 에러가 발생합니다.
 
 ### __Parameters__
     
@@ -77,3 +91,268 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다.
 !!! warning "__Warning__"
     - "__CONVERT__"를 사용해 만들어진 컬럼의 값들은 base64로 인코딩됩니다. 바이트 형식의 값을 사용하려면 base64의 b64decode를 사용하여 디코딩해야 합니다.
 
+
+## **`GET` /query/log**
+
+이 메서드는 모든 쿼리 로그의 paginated 목록을 검색합니다.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/query/log"
+    search = "Search keyword(s)"
+    offset = "Offset"
+    limit = "Limit"
+
+    api_url = f"{base_url}?search={search}&offset={offset}&limit={limit}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.get(api_url, headers=header):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'GET' \
+      'https://{your-engine-url}/api/v1/query/log/?search={search}&offset={offset}&limit={limit}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
+
+### __Parameters__
+
+- `search`: 반환된 쿼리 로그에 포함되어야 하는 단어입니다.
+- `offset`: pagination count이 시작되는 오프셋입니다(기본값은 0).
+- `limit`: 오프셋에서 시작하여 검색할 최대 항목 수입니다(기본값은 100, 최대 100).
+
+
+## **`GET` /query/template**
+
+모든 쿼리 템플릿을 검색합니다.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/query/template"
+    offset = "Offset"
+    limit = "Limit"
+
+    api_url = f"{base_url}?offset={offset}&limit={limit}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.get(api_url, headers=header):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'GET' \
+      'https://{your-engine-url}/api/v1/query/template/?offset={offset}&limit={limit}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
+
+### __Parameters__
+
+- `offset`: pagination count이 시작되는 오프셋입니다(기본값은 0).
+- `limit`: 오프셋에서 시작하여 검색할 최대 항목 수입니다(기본값은 100, 최대 100).
+
+### __Response__
+
+이 메서드는 쿼리 템플릿 목록(아래 표시)을 응답으로 표시합니다.
+
+!!! Note "__Query Template__"
+    쿼리 템플릿은 쿼리를 완성하기 위해 일부 매개변수가 필요할 수도 있고 필요하지 않을 수도 있는 문자열입니다. psql과 thanosql 모두 템플릿은 [Jinja](https://jinja.palletsprojects.com/en/3.1.x/)에서 사용하는 규칙을 따릅니다. 다음은 쿼리 템플릿을 구성하는 속성입니다.
+
+    - `id`: 쿼리 템플릿을 식별하는 고유 번호입니다.
+    - `name`: 쿼리 템플릿 이름입니다.
+    - `query`: 쿼리 템플릿 문자열입니다.
+    - `created_at`: 쿼리 템플릿이 생성된 시점의 타임스탬프를 표시합니다.
+    - `updated_at`: 쿼리 템플릿이 마지막으로 수정된 타임스탬프를 표시합니다.
+
+    매개변수가 필요한 템플릿의 한 예는:
+
+    ```sql
+    INSERT INTO {{ schema }}.\"{{ name }}\" ({% for column, _ in data.items() -%}{{ column }}{% if not loop.last %}, {% endif %}{%- endfor %})
+    VALUES ({% for _, value in data.items() -%}{% if value is string %}'{{ value }}'{% else %}{{ value }}{% endif %}{% if not loop.last %}, {% endif %}{%- endfor %});
+    ```
+    위의 템플릿은 매개변수 `schema`, `name` 및 `data`가 필요합니다. 반면에 아래 템플릿은 이미 완성되었으므로 유효한 쿼리가 되기 위해 매개변수가 필요하지 않습니다:
+
+    ```sql
+    GET THANOSQL DATASET diet_data
+    OPTIONS (overwrite=True)
+    ```
+
+
+## **`POST` /query/template**
+
+이름과 쿼리 문자열의 새 쿼리 템플릿을 생성합니다.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    api_url = "https://{your-engine-url}/api/v1/query/template"
+    name = "Name of query template"
+    query = "Query template string (in psql or thanosql)"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    data = {
+        'name': name, 'query': query
+    }
+
+    r = requests.post(api_url, data=json.dumps(data), headers=header)
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+    curl -X 'POST' \
+      'https://{your-engine-url}/api/v1/query/template' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN' \
+      -H 'Content-Type: application/json' \
+      -d '{"name": name, "query": query}'
+    ```
+
+
+## **`GET` /query/template/{template_name}**
+
+지정된 이름의 쿼리 템플릿을 검색합니다.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/query/template"
+    template_name = "Name of query template"
+
+    api_url = f"{base_url}/{template_name}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.get(api_url, headers=header)
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+    curl -X 'GET' \
+      'https://{your-engine-url}/api/v1/query/template/{template_name}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
+
+
+## **`PUT` /query/template/{template_name}**
+
+특정 이름으로 쿼리 템플릿을 업데이트합니다.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/query/template"
+    template_name = "Name of query template"
+    name = "Updated name of query template"
+    query = "Updated query template string (in psql or thanosql)"
+
+    api_url = f"{base_url}/{template_name}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    data = {
+        'name': name, 'query': query
+    }
+
+    r = requests.put(api_url, data=json.dumps(data), headers=header)
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+    curl -X 'PUT' \
+      'https://{your-engine-url}/api/v1/query/template/{template_name}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN' \
+      -H 'Content-Type: application/json' \
+      -d '{"name": name, "query": query}'
+    ```
+
+!!! Note
+    하나의 필드만 업데이트하려는 경우 다른 필드는 JSON에서 제외하세요. 예를 들어 쿼리 템플릿의 이름만 업데이트하려는 경우 데이터 본문에 `{"query": query}`를 사용합니다.
+
+
+## **`DELETE` /query/template/{template_name}**
+
+특정 이름의 쿼리 템플릿을 삭제합니다.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/query/template"
+    template_name = "Name of query template"
+
+    api_url = f"{base_url}/{template_name}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.delete(api_url, headers=header)
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+    curl -X 'DELETE' \
+      'https://{your-engine-url}/api/v1/query/template/{template_name}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
