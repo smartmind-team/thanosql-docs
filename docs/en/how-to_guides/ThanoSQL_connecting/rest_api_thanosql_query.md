@@ -95,8 +95,8 @@ This method retrieves a paginated list of all query logs.
     api_token = "Issued_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/log"
     search = "Search keyword(s)"
-    offset = "Offset"
-    limit = "Limit"
+    offset = {Offset}
+    limit = {Limit}
 
     api_url = f"{base_url}?search={search}&offset={offset}&limit={limit}"
 

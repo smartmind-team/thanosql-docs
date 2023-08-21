@@ -434,8 +434,8 @@ Retrieves the paginated records of a table in a schema.
     base_url = "https://{your-engine-url}/api/v1/table"
     table_name = "Table name"
     schema = "Target schema"
-    offset = "Offset"
-    limit = "Limit"
+    offset = {Offset}
+    limit = {Limit}
 
     api_url = f"{base_url}/{table_name}/records?schema={schema}&offset={offset}&limit={limit}"
 

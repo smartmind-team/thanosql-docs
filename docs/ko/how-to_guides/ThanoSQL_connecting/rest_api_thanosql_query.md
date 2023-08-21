@@ -91,8 +91,8 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다.
     api_token = "Issued_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/log"
     search = "Search keyword(s)"
-    offset = "Offset"
-    limit = "Limit"
+    offset = {Offset}
+    limit = {Limit}
 
     api_url = f"{base_url}?search={search}&offset={offset}&limit={limit}"
 
