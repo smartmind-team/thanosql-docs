@@ -435,7 +435,7 @@ To delete a table, use the method below. If no `schema_name` query parameter is 
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url="https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
 
     # 여기에 세 행을 삽입합니다
@@ -511,7 +511,7 @@ CSV 파일의 레코드를 스키마의 테이블에 삽입합니다.
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url="https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
     if_exists = "What to do if table of the same name already exists (one of fail, append, or overwrite)"
 
@@ -649,7 +649,7 @@ Excel같은 파일(xls, xlsx, xlsm, xlsb, odf, ods 및 odt)의 레코드를 스�
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url="https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
     if_exists = "What to do if table of the same name already exists (one of fail, append, or overwrite)"
 
