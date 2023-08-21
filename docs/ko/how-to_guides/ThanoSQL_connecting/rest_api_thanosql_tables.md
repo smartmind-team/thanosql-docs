@@ -254,7 +254,7 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
         }
     }'
     ```
-  `schema` 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
+  `schema`의 기본 값은 public 입니다.
 
 
 ## **`POST` /table/{table_name}**
