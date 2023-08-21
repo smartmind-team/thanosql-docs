@@ -33,7 +33,7 @@ ThanoSQL 테이블 REST API를 사용하여 ThanoSQL DB 테이블에 대한 여�
 
 ## **`GET` /table**
 
-모든 테이블의 목록을 가져오려면 아래 메서드를 사용합니다. `schema_name`을 제공하지 않으면 모든 스키마의 테이블이 표시됩니다.
+모든 테이블의 목록을 가져오려면 아래 메서드를 사용합니다. `schema`을 제공하지 않으면 모든 스키마의 테이블이 표시됩니다.
 
 === "Python"
 
@@ -43,9 +43,9 @@ ThanoSQL 테이블 REST API를 사용하여 ThanoSQL DB 테이블에 대한 여�
 
     api_token = "Issued_API_TOKEN"
     base_url="https://{your-engine-url}/api/v1/table"
-    schema_name = "Schema Name"
+    schema = "Schema Name"
 
-    api_url = f"{base_url}?schema_name={schema_name}"
+    api_url = f"{base_url}?schema={schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -69,7 +69,7 @@ ThanoSQL 테이블 REST API를 사용하여 ThanoSQL DB 테이블에 대한 여�
 
 ## **`GET` /table/{table_name}**
 
-단일 테이블의 개체를 가져오려면 이 메서드를 사용합니다. `schema_name` 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
+단일 테이블의 개체를 가져오려면 이 메서드를 사용합니다. `schema` 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
 
 === "Python"
 
@@ -80,9 +80,9 @@ ThanoSQL 테이블 REST API를 사용하여 ThanoSQL DB 테이블에 대한 여�
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
     base_url="https://{your-engine-url}/api/v1/table/"
-    schema_name = "Schema Name"
+    schema = "Schema Name"
 
-    api_url = f"{base_url}/{table_name}?schema_name={schema_name}"
+    api_url = f"{base_url}/{table_name}?schema={schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -105,7 +105,7 @@ ThanoSQL 테이블 REST API를 사용하여 ThanoSQL DB 테이블에 대한 여�
   
 ## **`PUT` /table/{table_name}**
 
-ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용됩니다. 테이블을 변경하려면 `table_name` 및 `schema_name`으로 지정된 데이터베이스 객체를 변경하기만 하면 됩니다. UPDATE하려면 테이블 객체의 값을 변경하기만 하면 됩니다. DROP하려면 요청 본문에서 해당 개체를 제거하면 됩니다.
+ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용됩니다. 테이블을 변경하려면 `table_name` 및 `schema`으로 지정된 데이터베이스 객체를 변경하기만 하면 됩니다. UPDATE하려면 테이블 객체의 값을 변경하기만 하면 됩니다. DROP하려면 요청 본문에서 해당 개체를 제거하면 됩니다.
 
 !!! note "__Order Execution__"
     ALTER의 실행 순서는 다음과 같습니다:
@@ -167,7 +167,7 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
     base_url="https://{your-engine-url}/api/v1/table/"
-    schema_name = "Schema Name"
+    schema = "Schema Name"
 
     new_table = {
             "table": {
@@ -202,7 +202,7 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
             }
         }
 
-    api_url = f"{base_url}/{table_name}?schema_name={schema_name}"
+    api_url = f"{base_url}/{table_name}?schema={schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -218,7 +218,7 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
 
     ```shell
       curl -X 'PUT' \
-    'https://{your-engine-url}/api/v1/table/{table_name}?schema={schema_name}' \
+    'https://{your-engine-url}/api/v1/table/{table_name}?schema={schema}' \
     -H 'accept: application/json' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -254,12 +254,12 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
         }
     }'
     ```
-  `schema_name` 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
+  `schema` 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
 
 
 ## **`POST` /table/{table_name}**
 
-이 메서드를 사용하여 CREATE TABLE 작업을 실행합니다. 테이블을 생성하려면 데이터베이스 객체를 본문으로 전달하고 쿼리 매개변수로 `table_name` 및 `schema_name`을 전달하기만 하면 됩니다.
+이 메서드를 사용하여 CREATE TABLE 작업을 실행합니다. 테이블을 생성하려면 데이터베이스 객체를 본문으로 전달하고 쿼리 매개변수로 `table_name` 및 `schema`을 전달하기만 하면 됩니다.
 
 !!! note " "
     열 개체를 열 목록에 추가할 때 id는 열의 서수 위치만 참조하므로 id를 지정할 필요가 없습니다. 또한 테이블이 빈 본문으로 생성되는 경우 빈 테이블이 생성됩니다. `table_name`을 지정하지 않으면 임의의 uuid 문자열로 테이블이 생성됩니다.
@@ -274,7 +274,7 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
     base_url="https://{your-engine-url}/api/v1/table/"
-    schema_name = "Schema Name"
+    schema = "Schema Name"
 
     # 본문에서 이름 및 스키마 키가 누락되었습니다.
     new_table = {
@@ -319,7 +319,7 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
             }
         }
 
-    api_url = f"{base_url}/{table_name}?schema_name={schema_name}"
+    api_url = f"{base_url}/{table_name}?schema={schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -335,7 +335,7 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
 
     ```shell
       curl -X 'POST' \
-    'https://{your-engine-url}/api/v1/table/{table_name}?schema={schema_name}' \
+    'https://{your-engine-url}/api/v1/table/{table_name}?schema={schema}' \
     -H 'accept: application/json' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -383,7 +383,7 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
 
 ## **`DELETE` /table/{table_name}**
 
-테이블을 삭제하려면 아래 메서드를 사용합니다. `schema_name` 쿼리 매개변수가 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
+테이블을 삭제하려면 아래 메서드를 사용합니다. `schema` 쿼리 매개변수가 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
 
 
 === "Python"
@@ -395,9 +395,9 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
     base_url="https://{your-engine-url}/api/v1/table"
-    schema_name = "Schema Name"
+    schema = "Schema Name"
 
-    api_url = f"{base_url}/{table_name}?schema_name={schema_name}"
+    api_url = f"{base_url}/{table_name}?schema={schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
