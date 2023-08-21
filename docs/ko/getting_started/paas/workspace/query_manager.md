@@ -13,7 +13,7 @@ Query Manager는 DBMS와 유사한 친숙한 UI로 ThanoSQL 쿼리를 실행하�
 
 Query Manager 페이지에는 세 가지 주요 섹션이 있습니다.
 
-[![IMAGE](/ko/img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/qm_img_0.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_0.png)
 
 ① 쿼리 에디터
 
@@ -25,7 +25,7 @@ Query Manager 페이지에는 세 가지 주요 섹션이 있습니다.
 
 ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
-[![IMAGE](/ko/img/getting_started/paas/workspace/qm_img_1.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/qm_img_1.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_1.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_1.png)
 
 ① 탭 : 탭 별로 쿼리문을 작성하고 결과를 볼 수 있습니다. 탭 추가 / 삭제가 가능합니다.
 
@@ -74,7 +74,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 해당 데이터 테이블의 컬럼명, 데이터 타입, Null 가능 여부를 확인 할 수 있습니다.
 
-[![IMAGE](/ko/img/getting_started/paas/workspace/img3.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/img3.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/img3.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/img3.png)
 
 **미리보기**
 
@@ -83,13 +83,13 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 !!! warning 
     미리보기에서는 데이터 테이블 편집이 불가능합니다.
 
-[![IMAGE](/ko/img/getting_started/paas/workspace/img4.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/img4.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/img4.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/img4.png)
 
 ### __쿼리 로그__
 
 Query Manager에서 실행한 모든 쿼리는 기록되어 쿼리 로그 섹션에서 확인할 수 있습니다. 쿼리 생성시간의 최신순으로 나열되며 실행한 쿼리 구문과 쿼리의 성공 여부를 보여줍니다.
 
-[![IMAGE](/ko/img/getting_started/paas/workspace/qm_img_2.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/qm_img_2.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_2.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_2.png)
 
 #### 상세 정보 창
 
