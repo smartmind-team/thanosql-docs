@@ -436,7 +436,7 @@ Inserts row(s) of new records into a table in a schema.
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url="https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
 
     # here we are inserting three rows
@@ -512,7 +512,7 @@ Inserts records from a CSV file into a table in a schema.
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url="https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
     if_exists = "What to do if table of the same name already exists (one of fail, append, or overwrite)"
 
@@ -650,7 +650,7 @@ Inserts records from an Excel-like file (xls, xlsx, xlsm, xlsb, odf, ods and odt
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url="https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
     if_exists = "What to do if table of the same name already exists (one of fail, append, or overwrite)"
 
