@@ -4,7 +4,7 @@ title: Table APIs
 
 # **Table APIs**
 
-ThanoSQL 테이블 REST API를 사용하여 ThanoSQL DB 테이블에 대한 여러 CRUD 작업을 수행할 수 있습니다.
+Table APIs로 ThanoSQL 워크스페이스 데이터베이스 테이블에 여러 CRUD 작업을 수행할 수 있습니다.
 
 !!! Note "__Table Object__"
     테이블 객체는 네 가지 주요 구성 요소로 구성됩니다:
@@ -12,28 +12,28 @@ ThanoSQL 테이블 REST API를 사용하여 ThanoSQL DB 테이블에 대한 여�
     1. *`name`: 테이블의 이름
     2. *`schema`: 테이블이 속한 스키마
     3. `columns`
-        - `id`: 열의 서수 위치
-        - `default`: 열의 기본값
-        - `is_nullable`: 열이 널화 가능한지 여부를 나타내는 부울
-        - `type`: 열의 [데이터 타입](https://www.postgresql.org/docs/current/datatype.html#:~:text=Table%C2%A08.1.%C2%A0Data%20Types)
-        - `name`: 열의 이름
+        - `id`: 컬럼의 서수 위치
+        - `default`: 컬럼의 기본값
+        - `is_nullable`: 해당 컬럼이 널(null)을 허용하는지 여부를 나타내는 부울(boolean)
+        - `type`: 컬럼의 [데이터 타입](https://www.postgresql.org/docs/current/datatype.html#:~:text=Table%C2%A08.1.%C2%A0Data%20Types)
+        - `name`: 컬럼의 이름
     4. `constraints`
-        - `primary_key`: 테이블의 기본 키
-            - `name`: 기본 키의 제약 조건 이름
-            - `columns`: 기본 키를 구성하는 열
+        - `primary_key`: 테이블의 기본키
+            - `name`: 기본키의 제약 조건 이름
+            - `columns`: 기본 키를 구성하는 컬럼
         - `foreign_keys`: 
-            - `name`: 외래 키의 제약 조건 이름
+            - `name`: 외래키의 제약 조건 이름
             - `reference_schema`: `reference_table` 포함하는 스키마
             - `reference_table`: `reference_column` 포함하는 테이블
-            - `reference_column`: 외래 키가 참조하는 열
-            - `column`: 외래 키 열
+            - `reference_column`: 외래키가 참조하는 컬럼
+            - `column`: 외래키 컬럼
 
-    _이름 옆에 *가 붙은 위의 구성 요소는 POST 테이블 API의 본문에 포함되지 않습니다. 대신 URL에 쿼리 매개변수로 지정됩니다._
+    _이름 옆에 *가 붙은 위의 구성 요소는 `POST` Table API의 본문(Body)에 포함되지 않습니다. 대신 URL에 쿼리 매개변수로 지정됩니다._
 
 
 ## **`GET` /table**
 
-모든 테이블의 목록을 가져오려면 아래 메서드를 사용합니다. `schema`을 제공하지 않으면 모든 스키마의 테이블이 표시됩니다.
+모든 테이블의 목록을 가져오려면 아래 메서드를 사용합니다. `schema`를 지정하지 않으면 모든 스키마의 테이블이 표시됩니다.
 
 === "Python"
 
@@ -69,7 +69,7 @@ ThanoSQL 테이블 REST API를 사용하여 ThanoSQL DB 테이블에 대한 여�
 
 ## **`GET` /table/{table_name}**
 
-단일 테이블의 개체를 가져오려면 이 메서드를 사용합니다. `schema` 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
+단일 테이블 객체를 가져오려면 이 메서드를 사용합니다. `schema`의 기본 값은 public 입니다.
 
 === "Python"
 
@@ -105,7 +105,7 @@ ThanoSQL 테이블 REST API를 사용하여 ThanoSQL DB 테이블에 대한 여�
   
 ## **`PUT` /table/{table_name}**
 
-ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용됩니다. 테이블을 변경하려면 `table_name` 및 `schema`으로 지정된 데이터베이스 객체를 변경하기만 하면 됩니다. UPDATE하려면 테이블 객체의 값을 변경하기만 하면 됩니다. DROP하려면 요청 본문에서 해당 개체를 제거하면 됩니다.
+ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다. 테이블을 변경하려면 `table_name` 및 `schema`로 지정된 '테이블 객체'를 변경합니다. UPDATE하려면 테이블 객체의 값을 수정하고, DROP하려면 요청 본문에서 해당 개체를 제거하면 됩니다.
 
 !!! note "__Order Execution__"
     ALTER의 실행 순서는 다음과 같습니다:
@@ -114,7 +114,7 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
 
 
 !!! warning ""
-    열을 다룰 때 id는 열을 식별하는 데 사용되는 고유 키라는 점에 유의하는 것이 중요합니다. 이 값이 삭제되면 열도 삭제된다는 의미입니다. 열을 변경하는 경우 **열 ID가 본문에 있는지 확인하세요**! 새 컬럼을 추가할 때는 컬럼이 생성된 후 할당되므로 column_id는 필요하지 않습니다.
+    컬럼을 다룰 때 `id`는 열을 식별하는 데 사용되는 고유 키라는 점에 유의하는 것이 중요합니다. 이 값이 삭제되면 열도 삭제된다는 의미입니다. 열을 변경하는 경우 **컬럼 `id`가 본문에 있는지 확인하세요**! 새 컬럼을 추가할 때는 컬럼이 생성된 후 할당되므로 컬럼 id는 필요하지 않습니다.
 
 다음 예제에서는 아래의 테이블 객체를 변경한다고 가정해 보겠습니다:
 ```json
@@ -259,10 +259,10 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
 
 ## **`POST` /table/{table_name}**
 
-이 메서드를 사용하여 CREATE TABLE 작업을 실행합니다. 테이블을 생성하려면 데이터베이스 객체를 본문으로 전달하고 쿼리 매개변수로 `table_name` 및 `schema`을 전달하기만 하면 됩니다.
+이 메서드를 사용하여 CREATE TABLE 작업을 실행합니다. 테이블을 생성하려면 테이블 객체를 본문으로 전달하고 쿼리 매개변수로 `table_name` 및 `schema`을 전달합니다.
 
 !!! note " "
-    열 개체를 열 목록에 추가할 때 id는 열의 서수 위치만 참조하므로 id를 지정할 필요가 없습니다. 또한 테이블이 빈 본문으로 생성되는 경우 빈 테이블이 생성됩니다. `table_name`을 지정하지 않으면 임의의 uuid 문자열로 테이블이 생성됩니다.
+    컬럼 객체를 열 목록에 추가할 때 id는 열의 서수 위치만 참조하므로, id를 지정할 필요가 없습니다. 또한 비어있는 본문(Body)은 빈 테이블이 생성됩니다. `table_name`을 지정하지 않으면 임의의 uuid 문자열을 이름으로 하는 테이블이 생성됩니다.
 
 
 === "Python"
@@ -276,7 +276,7 @@ ALTER 테이블 API는 여러 ALTER 테이블 작업을 수행하는 데 사용�
     base_url="https://{your-engine-url}/api/v1/table/"
     schema = "Schema Name"
 
-    # 본문에서 이름 및 스키마 키가 누락되었습니다.
+    # 본문(Body)에서 이름 및 스키마가 누락되었습니다.
     new_table = {
             "table": {
                 "columns": [
