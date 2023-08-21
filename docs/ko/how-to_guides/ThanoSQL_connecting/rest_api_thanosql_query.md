@@ -77,3 +77,45 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다.
 !!! warning "__Warning__"
     - "__CONVERT__"를 사용해 만들어진 컬럼의 값들은 base64로 인코딩됩니다. 바이트 형식의 값을 사용하려면 base64의 b64decode를 사용하여 디코딩해야 합니다.
 
+
+## **`GET` /query/log**
+
+이 메서드는 모든 쿼리 로그의 paginated 목록을 검색합니다.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/query/log"
+    search = "Search keyword(s)"
+    offset = "Offset"
+    limit = "Limit"
+
+    api_url = f"{base_url}?search={search}&offset={offset}&limit={limit}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.get(api_url, headers=header):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'GET' \
+      'https://{your-engine-url}/api/v1/query/log/?search={search}&offset={offset}&limit={limit}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
+
+### __Parameters__
+
+- `search`: 반환된 쿼리 로그에 포함되어야 하는 단어입니다.
+- `offset`: pagination count이 시작되는 오프셋입니다(기본값은 0).
+- `limit`: 오프셋에서 시작하여 검색할 최대 항목 수입니다(기본값은 100, 최대 100).
