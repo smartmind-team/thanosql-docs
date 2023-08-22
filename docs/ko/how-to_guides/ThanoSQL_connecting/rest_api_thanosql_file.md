@@ -14,7 +14,42 @@ File APIs로 자신의 워크스페이스 저장 공간에 원격으로 파일�
 
     - 위에서 언급되지 않은 모든 확장자의 파일은 "drive/others" 폴더에 저장됩니다. 
 
-## __`POST` /file/upload__
+
+## __`GET` /file/__
+
+지정한 경로의 파일과 폴더 목록을 가져옵니다. 파일 경로를 지정할 때 정규식을 사용할 수 있습니다.
+
+=== "Python"
+
+    ```python 
+    import requests
+    import json
+
+    api_token = "발급받은_API_TOKEN"
+    file_path = "파일 경로"
+    api_url = f"https://{your-engine-url}/api/v1/file/?file_path={file_path}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.get(api_url, headers=header)
+
+    r.raise_for_status()
+    return_json = r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+    curl -X 'GET' \
+      'https://{your-engine-url}/api/v1/file/?file_path={파일 경로}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer 발급받은_API_TOKEN' \
+      -H 'Content-Type: application/json'
+    ```
+
+## __`POST` /file/__
 
 파일만 업로드하려면 아래의 방법을 사용하여 파일을 워크스페이스 저장소로 보냅니다.
 API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저장됩니다.
@@ -26,7 +61,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
     import json
 
     api_token = "발급받은_API_TOKEN"
-    api_url = "https://{your-engine-url}/api/v1/file/upload/"
+    api_url = "https://{your-engine-url}/api/v1/file/"
     header = {
         "Authorization": f"Bearer {api_token}"
     }
@@ -42,7 +77,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell
     curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/file/upload/' \
+      'https://{your-engine-url}/api/v1/file/' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
@@ -58,7 +93,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url = "https://{your-engine-url}/api/v1/upload/"
+    base_url = "https://{your-engine-url}/api/v1/"
     table_name = "테이블 명"
     column_name = "컬럼 명"
     db_commit = True 
@@ -79,7 +114,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell 
     curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/file/upload/?db_commit=True&table_name=테이블 명&column_name=컬럼 명' \
+      'https://{your-engine-url}/api/v1/file/?db_commit=True&table_name=테이블 명&column_name=컬럼 명' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
@@ -90,7 +125,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
     - Jupyter 내부의 파일을 사용하려면 경로 앞에 '/'home/jovyan'을 붙여야 합니다.
 
 
-## __`POST` /file/delete__
+## __`DELETE` /file/__
 
 파일만 삭제하려면 아래의 방법을 사용하여 파일을 워크스페이스 저장소에서 삭제합니다.
 
@@ -102,13 +137,13 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     api_token = "발급받은_API_TOKEN"
     file_path = "데이터 파일 경로"
-    api_url = f"https://{your-engine-url}/api/v1/file/delete/?file_path={file_path}'
+    api_url = f"https://{your-engine-url}/api/v1/file/?file_path={file_path}'
 
     header = {
         "Authorization": f"Bearer {api_token}"
     }
 
-    r = requests.post(api_url, headers=header)
+    r = requests.delete(api_url, headers=header)
 
     r.raise_for_status()
     return_json = r.json()
@@ -117,8 +152,8 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 === "cURL"
 
     ```shell
-    curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/file/delete/?file_path=데이터 파일 경로' \
+    curl -X 'DELETE' \
+      'https://{your-engine-url}/api/v1/file/?file_path=데이터 파일 경로' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json' 
@@ -134,7 +169,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
     import json
 
     api_token = "발급받은_API_TOKEN"
-    base_url = "https://{your-engine-url}/api/v1/file/delete/"
+    base_url = "https://{your-engine-url}/api/v1/file/"
     db_commit = True 
     file_path = '데이터 파일 경로',
     table_name = '테이블 명',
@@ -146,7 +181,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
         "Authorization": f"Bearer {api_token}"
     }
 
-    r = requests.post(api_url, headers=header)
+    r = requests.delete(api_url, headers=header)
 
     r.raise_for_status()
     return_json = r.json()
@@ -155,42 +190,8 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 === "cURL"
 
     ```shell
-    curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/file/delete/?db_commit=True&file_path=데이터 파일 경로&table_name=테이블 명&column_name=컬럼 명' \
-      -H 'accept: application/json' \
-      -H 'Authorization: Bearer 발급받은_API_TOKEN' \
-      -H 'Content-Type: application/json'
-    ```
-
-## __`POST` /file/list__
-
-지정한 경로의 파일과 폴더 목록을 가져옵니다. 파일 경로를 지정할 때 정규식을 사용할 수 있습니다.
-
-=== "Python"
-
-    ```python 
-    import requests
-    import json
-
-    api_token = "발급받은_API_TOKEN"
-    file_path = "파일 경로"
-    api_url = f"https://{your-engine-url}/api/v1/file/list/?file_path={file_path}"
-
-    header = {
-        "Authorization": f"Bearer {api_token}"
-    }
-
-    r = requests.post(api_url, headers=header)
-
-    r.raise_for_status()
-    return_json = r.json()
-    ```
-
-=== "cURL"
-
-    ```shell
-    curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/file/list/?file_path={파일 경로}' \
+    curl -X 'DELETE' \
+      'https://{your-engine-url}/api/v1/file/?db_commit=True&file_path=데이터 파일 경로&table_name=테이블 명&column_name=컬럼 명' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json'
