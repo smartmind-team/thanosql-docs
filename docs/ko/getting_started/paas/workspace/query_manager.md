@@ -105,13 +105,13 @@ __컬럼 설정__
 
 ⑥ Field : Data Type(데이터 타입)에 따라 달라지고, 사용 용도에 따라 사용할 수 있습니다.  
 
-⑦ 컬럼 삭제 Button : 해당 컬럼을 삭제할 수 있습니다. 
+⑦ 컬럼 삭제 버튼 : 해당 컬럼을 삭제할 수 있습니다. 
 
 ⑧ 필드 추가 : 컬럼을 추가할 수 있습니다. 
 
-⑨ 취소 Button : 새 테이블 직접 만들기를 취소할 수 있습니다. 
+⑨ 취소 버튼 : 새 테이블 직접 만들기를 취소할 수 있습니다. 
 
-⑩ 완료 Button :  새 테이블 직접 만들기를 완료 할 수 있습니다. 
+⑩ 완료 버튼 :  새 테이블 직접 만들기를 완료 할 수 있습니다. 
 
 
 
@@ -145,15 +145,15 @@ __컬럼 설정__
 ⑦ 옵션 
  - 데이터 쓰기 : 데이터 쓰기 옵션을 선택할 수 있습니다.
 
-⑧ 취소 Button : 로컬 파일 업로드를 취소할 수 있습니다.
+⑧ 취소 버튼 : 로컬 파일 업로드를 취소할 수 있습니다.
 
-⑨ 완료 Button :  로컬 파일 업로드를 완료 할 수 있습니다.
+⑨ 완료 버튼 :  로컬 파일 업로드를 완료 할 수 있습니다.
 
 ****테이블을 삭제할 수도 있습니다.****
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_13.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_13.png)
 
-#### 2) 스키마 생성 하는 법
+#### 2) 스키마 생성하기
 스키마를 생성할 수 있습니다. 
 
 데이터 베이스 탭을 클릭해 테이블 데이터 추가하기-> 스키마 추가하기를 클릭합니다.
@@ -183,7 +183,7 @@ __컬럼 설정__
 
 해당 데이터 테이블의 컬럼명, 데이터 타입, Null 가능 여부를 확인 할 수 있습니다.
 
-[![IMAGE](../../../img/getting_started/paas/workspace/img3.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/img3.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_14.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_14.png)
 
 
 **미리보기**
@@ -193,14 +193,14 @@ __컬럼 설정__
 !!! warning 
     미리보기에서는 데이터 테이블 편집이 불가능합니다.
 
-[![IMAGE](../../../img/getting_started/paas/workspace/img4.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/img4.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_15.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_15.png)
 
 
 ### __쿼리 로그__
 
 Query Manager에서 실행한 모든 쿼리는 기록되어 쿼리 로그 섹션에서 확인할 수 있습니다. 쿼리 생성시간의 최신순으로 나열되며 실행한 쿼리 구문과 쿼리의 성공 여부를 보여줍니다.
 
-[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_2.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_2.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_16.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_16.png)
 
 
 #### 상세 정보 창
