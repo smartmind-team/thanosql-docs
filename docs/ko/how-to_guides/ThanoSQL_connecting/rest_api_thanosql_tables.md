@@ -79,7 +79,7 @@ Table APIs로 ThanoSQL 워크스페이스 데이터베이스 테이블에 여러
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url = "https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
 
     api_url = f"{base_url}/{table_name}?schema={schema}"
@@ -166,7 +166,7 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url = "https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
 
     new_table = {
@@ -273,7 +273,7 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url = "https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
 
     # 본문(Body)에서 이름 및 스키마가 누락되었습니다.
@@ -394,7 +394,7 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table"
+    base_url = "https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
 
     api_url = f"{base_url}/{table_name}?schema={schema}"

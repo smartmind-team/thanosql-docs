@@ -79,7 +79,7 @@ Use this method to get the objects of a single table. If no `schema` query param
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url = "https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
 
     api_url = f"{base_url}/{table_name}?schema={schema}"
@@ -167,7 +167,7 @@ In the following example lets pretend we want to alter the table object below:
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url = "https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
 
     new_table = {
@@ -274,7 +274,7 @@ Use this method to execute the CREATE TABLE operation. In order to create the ta
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
+    base_url = "https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
 
     # Note that the name and schema keys are missing from the body
@@ -395,7 +395,7 @@ To delete a table, use the method below. If no `schema` query parameter is provi
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table"
+    base_url = "https://{your-engine-url}/api/v1/table"
     schema = "Schema Name"
 
     api_url = f"{base_url}/{table_name}?schema={schema}"
