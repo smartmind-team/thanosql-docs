@@ -417,3 +417,85 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
+
+
+## **`GET` /table/{table_name}/records**
+
+스키마에서 테이블의 paginated 레코드를 검색합니다.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/table"
+    table_name = "Table name"
+    schema = "Target schema"
+    offset = {Offset}
+    limit = {Limit}
+
+    api_url = f"{base_url}/{table_name}/records?schema={schema}&offset={offset}&limit={limit}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.get(api_url, headers=header):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'GET' \
+      'https://{your-engine-url}/api/v1/table/{table_name}/records?schema={schema}&offset={offset}&limit={limit}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
+
+
+### __Parameters__
+
+- `table_name`: 레코드를 검색할 테이블 이름입니다.
+- `schema`: 테이블을 검색할 스키마입니다(기본값은 'public').
+- `offset`: pagination count이 시작되는 오프셋입니다(기본값은 0).
+- `limit`: 오프셋에서 시작하여 검색할 최대 항목 수입니다(기본값은 100, 최대 100).
+
+
+## **`GET` /table/{table_name}/records/csv**
+
+스키마에 있는 테이블의 레코드를 CSV 파일로 검색합니다.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/table"
+    table_name = "Table name"
+    timezone_offset = "Timezone offset from GMT (default: 9 (GMT+9, Seoul time))"
+
+    api_url = f"{base_url}/{table_name}/records/csv?schema={schema}&timezone_offset={timezone_offset}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.get(api_url, headers=header):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'GET' \
+      'https://{your-engine-url}/api/v1/table/{table_name}/records/csv?schema={schema}&timezone_offset={timezone_offset}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
