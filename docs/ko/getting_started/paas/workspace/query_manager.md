@@ -1,4 +1,4 @@
-# __Query Manager 매뉴얼__[Title](https://github.com/smartmind-team/thanosql-docs/assets/31684481/ca60f0d1-3f16-45fa-a9f4-6ceab74bafb4)
+# __Query Manager 매뉴얼__
 
 Query Manager는 DBMS와 유사한 친숙한 UI로 ThanoSQL 쿼리를 실행하고 결과를 분석할 수 있습니다. 워크스페이스 DB의 스키마 및 테이블 구조를 쉽게 파악 할 수 있으며, 쿼리 로그로 이전 쿼리 결과들을 쉽게 다룰 수 있습니다. 또한 쿼리 실행 결과의 데이터 뷰어로 이미지, 비디오 등의 비정형 데이터를 분석합니다.
 
@@ -66,10 +66,15 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
     쿼리 에디터는 VSCode에 사용되는 Monaco Editor를 사용하고 있습니다. 대부분의 단축키는 VSCode를 사용하는 방법과 동일합니다. Monaco Editor의 단축키 리스트는 [링크](https://en.docs.monaca.io/products_guide/monaca_ide/editor)를 참고하세요.
 
 
+### __데이터베이스 탐색기__
+
+워크스페이스 DB의 스키마 및 테이블 구성 정보를 확인 할 수 있습니다. 각 워크스페이스는 public과 임시 결과 테이블을 기본적으로 제공하며, 스키마를 명시하지 않은 모든 쿼리들은 public의 테이블을 참조합니다. 쿼리 에디터에서 실행한 쿼리 중 그 결과가 테이블 형태로 있는 모든 쿼리들은 임시 결과 테이블에 임의의 테이블 이름으로 저장됩니다. 이를 이용하여 이전 테이블 실행 결과들을 언제든지 재사용할 수 있습니다.
+
+
 ### __데이터 추가하기__
 
-자주 쓰는 테이블과 스키마를 추가할 수 있습니다.  
-테이블을 추가 하는 방법에는 2가지 방법이 있습니다. 
+자주 활용되는 기능 중 하나인 새로운 테이블과 스키마를 추가하는 방법은 간단합니다. 
+먼저 새로운 테이블을 추가하는 방법은 두 가지로 나눌 수 있습니다. 
 
 
 
@@ -136,9 +141,9 @@ __컬럼 설정__
 
 __컬럼 설정__
 
-파일을 자동감지할 수도 있고, 직접 입력할 수도 있습니다. 
+업로드한 파일을 자동감지할 수도 있고, 직접 입력할 수도 있습니다. 
 - 자동 감지 : 업로드한 파일의 컬럼을 자동 감지합니다. 
-- 직접 입력 :  컬럼을 직접 입력할 수 있습니다.  
+- 직접 입력 : 컬럼을 직접 입력할 수 있습니다.  
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_9.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_9.png)
 
@@ -149,14 +154,14 @@ __컬럼 설정__
 
 ⑨ 완료 버튼 : 로컬 파일 업로드를 완료할 수 있습니다.
 
-****테이블을 삭제할 수도 있습니다.****
+#### 테이블 삭제
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_13.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_13.png)
 
 #### 2) 스키마 생성하기
 스키마를 생성할 수 있습니다. 
 
-데이터베이스 탭을 클릭해 테이블 데이터 추가하기-> 스키마 추가하기를 클릭합니다.
+데이터베이스 탭을 클릭해 테이블 데이터 추가하기-> 스키마 생성하기를 클릭합니다.
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_11.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_9.png)
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_13.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_13.png) 
@@ -166,12 +171,6 @@ __컬럼 설정__
 ② 취소 버튼 : 스키마 생성을 취소할 수 있습니다.  
 
 ③ 완료 버튼 : 스키마 생성을 완료할 수 있습니다. 
-
-
-
-### __데이터베이스 탐색기__
-
-워크스페이스 DB의 스키마 및 테이블 구성 정보를 확인 할 수 있습니다. 각 워크스페이스는 public과 임시 결과 테이블을 기본적으로 제공하며, 스키마를 명시하지 않은 모든 쿼리들은 public의 테이블을 참조합니다. 쿼리 에디터에서 실행한 쿼리 중 그 결과가 테이블 형태로 있는 모든 쿼리들은 임시 결과 테이블에 임의의 테이블 이름으로 저장됩니다. 이를 이용하여 이전 테이블 실행 결과들을 언제든지 재사용할 수 있습니다.
 
 
 #### **테이블 정보**
