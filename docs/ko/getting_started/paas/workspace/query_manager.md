@@ -79,7 +79,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 
 #### 1) 테이블 추가 하는 방법
-데이터베이스 탐색기을 클릭해 테이블 데이터 추가하기-> 테이블 추가하기를 클릭합니다.
+데이터베이스 탐색기의 Database 우측에 위치한 **`+`** 버튼을 클릭해 테이블 데이터 추가하기 메뉴를 열고 테이블 추가하기를 클릭합니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_3.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_3.png)
 
