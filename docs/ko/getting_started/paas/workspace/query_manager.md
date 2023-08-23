@@ -167,7 +167,7 @@ __컬럼 설정__
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_13.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_13.png) 
 
-① 스키마 이름 : 생성하려는 스키마의 이름을 입력할 수 있습니다.
+① 스키마 이름 : 생성하려는 스키마의 작성할 수 있습니다. 스키마 이름은 문자, 숫자, 언더스코어를 포함할 수 있으며 숫자로 시작할 수 없습니다. 같은 데이터베이스 안에서는 중복된 이름의 스키마를 생성할 수 없습니다.
 
 ② 취소 버튼 : 스키마 생성을 취소할 수 있습니다.  
 
