@@ -82,7 +82,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_15.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_15.png)
 
-#### **데이터 추가**
+#### **데이터 추가하기**
 
 새로운 테이블과 스키마를 데이터베이스에 추가할 수 있는 기능입니다.
 
@@ -92,7 +92,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_3.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_3.png)
 
-**새 테이블을 직접 만들기**
+**새 테이블 직접 만들기**
 
 테이블 추가하기 창에서 새 테이블 직접 만들기를 선택한 후 다음 버튼을 클릭합니다.
 
@@ -106,11 +106,10 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ① 스키마 선택 : 테이블을 생성할 스키마를 선택할 수 있습니다.
 
-② 스키마 생성 : 서비스를 처음 이용하거나 새로운 스키마를 생성하고 싶을 때 스키마 생성 버튼을 눌러 생성할 수 있습니다.
+② 스키마 생성 : 스키마를 새로 생성합니다.
 
 ③ 이름 : 생성하려는 테이블의 이름을 작성할 수 있습니다. 테이블 이름은 문자, 숫자, 언더스코어를 포함할 수 있으며 숫자로 시작할 수 없습니다. 같은 스키마 안에서는 중복된 이름의 테이블을 생성할 수 없습니다.
 
-**컬럼 설정**
 
 ④ Name(이름) : 해당 컬럼 이름을 작성할 수 있습니다. 필수로 입력해야 하며 같은 테이블 안에서는 중복된 이름의 컬럼을 생성할 수 없습니다.
 
@@ -126,7 +125,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ⑩ 완료 버튼 : 새 테이블 직접 만들기를 완료할 수 있습니다.
 
-**로컬 파일 업로드를 통해 테이블 추가하기**
+**로컬 파일 업로드로 테이블 추가하기**
 
 테이블 추가하기 창에서 로컬 파일 업로드를 선택한 후 다음 버튼을 클릭합니다.
 
@@ -144,7 +143,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ⑤ 이름 : 생성하려는 테이블의 이름을 작성할 수 있습니다. 테이블 이름은 문자, 숫자, 언더스코어를 포함할 수 있으며 숫자로 시작할 수 없습니다. 같은 스키마 안에서는 중복된 이름의 테이블을 생성할 수 없습니다.
 
-**컬럼 설정**
+⑥**컬럼 설정**
 
 업로드한 파일을 자동감지할 수도 있고, 직접 입력할 수도 있습니다.
 
@@ -169,7 +168,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_11.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_9.png)
 
-[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_13.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_13.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_12.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_12.png)
 
 ① 스키마 이름 : 생성하려는 스키마의 작성할 수 있습니다. 스키마 이름은 문자, 숫자, 언더스코어를 포함할 수 있으며 숫자로 시작할 수 없습니다. 같은 데이터베이스 안에서는 중복된 이름의 스키마를 생성할 수 없습니다.
 
