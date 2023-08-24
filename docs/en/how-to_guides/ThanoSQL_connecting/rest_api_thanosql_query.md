@@ -120,6 +120,6 @@ This method retrieves a paginated list of all query logs.
 
 ### __Parameters__
 
-- `search`: Word(s) that the returned query logs should contain.
+- `search`: The string to search for in the logs' queries
 - `offset`: The offset to where the pagination count will start from (defaults to 0).
 - `limit`: The maximum number of items to retrieve starting from the offset (defaults to 100, max 100).

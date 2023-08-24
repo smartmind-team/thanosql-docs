@@ -52,7 +52,7 @@ A list of files and folders is returned from a specified file path. The file pat
 
 ## __`POST` /file/__
 
-In order to upload a file only, use the below methods to send a file to the Workspace storage.
+In order to upload a file, use the below methods to send a file to the Workspace storage.
 When the "dir=folder name" is added to the URL, the file will be uploaded to the
 designated folder.
 
@@ -86,7 +86,7 @@ designated folder.
       -F 'file=@Data File Path;type=file_type/Data File Type'
     ```
 
-If "db commit" is set to True and "table name" and "column name" are specified, the given file is sent to Workspace storage and the file path is inserted into a column of the specified table.
+If "db_commit" is set to True and "table_name" and "column_name" are specified, the given file is sent to Workspace storage and the file path is inserted into the specified column of the specified table.
 
 === "Python"
 
@@ -129,7 +129,7 @@ If "db commit" is set to True and "table name" and "column name" are specified, 
 
 ## __`DELETE` /file/__
 
-In order to delete a file only, use the below methods to delete a file from the Workspace storage.
+In order to delete a file from the Workspace storage, use the below methods.
 
 === "Python"
 
@@ -161,7 +161,7 @@ In order to delete a file only, use the below methods to delete a file from the 
       -H 'Content-Type: application/json'
     ```
 
-If "db_commit" is set to True and "table_name" and "column_name" are specified, the given file is deleted from Workspace storage, and all rows in the table with the same value as the specified file path in the specified column will be deleted.
+If "db_commit" is set to True and "table_name" and "column_name" are specified, the given file is deleted from Workspace storage, and all rows in the table with the same value as the given file path in the specified column will be deleted.
 
 === "Python"
 

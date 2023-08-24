@@ -23,12 +23,12 @@ Table APIs로 ThanoSQL 워크스페이스 데이터베이스 테이블에 여러
             - `columns`: 기본 키를 구성하는 컬럼
         - `foreign_keys`: 
             - `name`: 외래키의 제약 조건 이름
-            - `reference_schema`: `reference_table` 포함하는 스키마
-            - `reference_table`: `reference_column` 포함하는 테이블
+            - `reference_schema`: `reference_table`을 포함하는 스키마
+            - `reference_table`: `reference_column`을 포함하는 테이블
             - `reference_column`: 외래키가 참조하는 컬럼
             - `column`: 외래키 컬럼
 
-    _이름 옆에 *가 붙은 위의 구성 요소는 `POST` Table API의 본문(Body)에 포함되지 않습니다. 대신 URL에 쿼리 매개변수로 지정됩니다._
+    _이름 옆에 *가 붙은 위의 구성 요소는 `POST` Table API의 본문(Body)에서는 포함되지 않습니다. 대신 URL에 쿼리 매개변수로 지정됩니다._
 
 
 ## **`GET` /table**
@@ -421,7 +421,7 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
 
 ## **`GET` /table/{table_name}/records**
 
-스키마에서 테이블의 paginated 레코드를 검색합니다.
+스키마에서 테이블의 paginated 된 데이터를 가져옵니다.
 
 === "Python"
 
@@ -461,13 +461,13 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
 
 - `table_name`: 레코드를 검색할 테이블 이름입니다.
 - `schema`: 테이블을 검색할 스키마입니다(기본값은 'public').
-- `offset`: pagination count이 시작되는 오프셋입니다(기본값은 0).
-- `limit`: 오프셋에서 시작하여 검색할 최대 항목 수입니다(기본값은 100, 최대 100).
+- `offset`: 쿼리 로그를 조회를 시작할 기준점 (기본값: 0).
+- `limit`: offset에서 시작하여 조회 할 결과의 개수 (기본값: 100, 최대 100).
 
 
 ## **`GET` /table/{table_name}/records/csv**
 
-스키마에 있는 테이블의 레코드를 CSV 파일로 검색합니다.
+스키마에 있는 테이블의 레코드를 CSV 파일로 가져옵니다.
 
 === "Python"
 
