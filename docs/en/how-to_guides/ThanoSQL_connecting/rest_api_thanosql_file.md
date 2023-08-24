@@ -43,7 +43,7 @@ A list of files and folders is returned from a specified file path. The file pat
 
     ```shell
     curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/file/?file_path={File Path}' \
+      'https://{your-engine-url}/api/v1/file/?file_path={file_path}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: application/json'
@@ -116,7 +116,7 @@ If "db_commit" is set to True and "table_name" and "column_name" are specified, 
 
     ```shell
     curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/file/?db_commit=True&table_name=Table name&column_name=Column Name' \
+      'https://{your-engine-url}/api/v1/file/?db_commit={db_commit}&table_name={table_name}&column_name={column_name}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
@@ -155,7 +155,7 @@ In order to delete a file from the Workspace storage, use the below methods.
 
     ```shell
     curl -X 'DELETE' \
-      'https://{your-engine-url}/api/v1/file/?file_path=Data File Path' \
+      'https://{your-engine-url}/api/v1/file/?file_path={file_path}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: application/json'
@@ -192,7 +192,7 @@ If "db_commit" is set to True and "table_name" and "column_name" are specified, 
 
     ```shell
     curl -X 'DELETE' \
-      'https://{your-engine-url}/api/v1/file/?db_commit=True&file_path=File Path&table_name=Table Name&column_name=Column Name' \
+      'https://{your-engine-url}/api/v1/file/?db_commit={db_commit}&file_path={file_path}&table_name={table_name}&column_name={column_name}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: application/json'

@@ -43,7 +43,7 @@ File APIs로 자신의 워크스페이스 저장 공간에 원격으로 파일�
 
     ```shell
     curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/file/?file_path={파일 경로}' \
+      'https://{your-engine-url}/api/v1/file/?file_path={file_path}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json'
@@ -114,7 +114,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell 
     curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/file/?db_commit=True&table_name=테이블 명&column_name=컬럼 명' \
+      'https://{your-engine-url}/api/v1/file/?db_commit={db_commit}&table_name={table_name}&column_name={column_name}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: multipart/form-data' \
@@ -153,7 +153,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell
     curl -X 'DELETE' \
-      'https://{your-engine-url}/api/v1/file/?file_path=데이터 파일 경로' \
+      'https://{your-engine-url}/api/v1/file/?file_path={file_path}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json' 
@@ -191,7 +191,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
     ```shell
     curl -X 'DELETE' \
-      'https://{your-engine-url}/api/v1/file/?db_commit=True&file_path=데이터 파일 경로&table_name=테이블 명&column_name=컬럼 명' \
+      'https://{your-engine-url}/api/v1/file/?db_commit={db_commit}&file_path={file_path}&table_name={table_name}&column_name={column_name}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json'
