@@ -186,6 +186,10 @@ Query Manager에서 실행한 모든 쿼리는 기록되어 쿼리 로그 섹션
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_16.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_16.png)
 
+#### 쿼리문 검색
+
+쿼리 구문 입력 시 유사한 쿼리 구문으로 실행된 로그 목록을 검색해 줍니다
+
 #### 상세 정보 창
 
 쿼리 로그를 클릭하면 해당 쿼리의 상세 정보가 우측에 표시됩니다.
