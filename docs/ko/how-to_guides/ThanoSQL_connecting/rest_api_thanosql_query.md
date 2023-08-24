@@ -90,11 +90,10 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다.
 
     api_token = "Issued_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/log"
-    search = "Search keyword(s)"
     offset = {Offset}
     limit = {Limit}
 
-    api_url = f"{base_url}?search={search}&offset={offset}&limit={limit}"
+    api_url = f"{base_url}?offset={offset}&limit={limit}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -109,13 +108,12 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다.
 
     ```shell
       curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/query/log/?search={search}&offset={offset}&limit={limit}' \
+      'https://{your-engine-url}/api/v1/query/log/?offset={offset}&limit={limit}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
 
 ### __Parameters__
 
-- `search`: 로그의 쿼리 값 내에서 검색할 문자열.
 - `offset`: 쿼리 로그를 조회를 시작할 기준점 (기본값: 0).
 - `limit`: offset에서 시작하여 조회 할 결과의 개수 (기본값: 100, 최대 100).

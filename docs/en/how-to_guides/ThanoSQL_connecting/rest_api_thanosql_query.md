@@ -94,11 +94,10 @@ This method retrieves a paginated list of all query logs.
 
     api_token = "Issued_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/log"
-    search = "Search keyword(s)"
     offset = {Offset}
     limit = {Limit}
 
-    api_url = f"{base_url}?search={search}&offset={offset}&limit={limit}"
+    api_url = f"{base_url}?offset={offset}&limit={limit}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -113,13 +112,12 @@ This method retrieves a paginated list of all query logs.
 
     ```shell
       curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/query/log/?search={search}&offset={offset}&limit={limit}' \
+      'https://{your-engine-url}/api/v1/query/log/?offset={offset}&limit={limit}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
 
 ### __Parameters__
 
-- `search`: The string to search for in the logs' queries
 - `offset`: The offset to where the pagination count will start from (defaults to 0).
 - `limit`: The maximum number of items to retrieve starting from the offset (defaults to 100, max 100).
