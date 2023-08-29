@@ -1,10 +1,10 @@
 # **Query Manager Manual**
 
-The Query Manager enables you to execute ThanoSQL queries and analyze results through a user interface that is familiar and similar to a Database Management System (DBMS). It offers an easy way to understand the schema and table structure of the workspace database. You can effortlessly manage previous query results through query logs. Additionally, it provides a data viewer for analyzing unstructured data, such as images and videos, within query execution results.
+The Query Manager enables you to execute ThanoSQL queries and analyze results through a user interface that is similar to a Database Management System (DBMS). It offers an intuitive way to understand the schema and table structure of the workspace database. You can effortlessly manage and view previous query results with query logs. Additionally, the Query Manager provides a data viewer for analyzing unstructured data, such as images and videos, within query execution results.
 
 **Key Features**
 
-- Execution of both ThanoSQL and basic SQL commands
+- Execution of both ThanoSQL and regular SQL commands
 - 'Table Schema' / 'Preview' of data tables
 - Query logs
 - Data viewer
@@ -31,11 +31,11 @@ Execute ThanoSQL queries and view the results in a table format.
 
 ② Query Input Area: Input queries and execute/stop them. Supports [Keyboard Shortcuts](#keyboard-shortcuts).
 
-③ CSV Download: Download result tables in CSV format.
+③ CSV Download: Download result as a CSV file.
 
 ④ [Data Viewer](#data-viewer) : Used for analyzing unstructured data like images and videos.
 
-⑤ Result Table: Displays query results in a table format.
+⑤ Result Table: Displays query results as a table.
 
 #### **Data Viewer**
 
@@ -50,7 +50,7 @@ Here are the shortcuts supported in the query editor:
 
 | Action                                        | Key Combination (Windows/Linux) | Key Combination (Mac OS) |
 | --------------------------------------------- | ------------------------------- | ------------------------ |
-| Execute the current or selected query         | Ctrl+Enter                      | Cmd + Enter              |
+| Execute the current or highlighted query      | Ctrl+Enter                      | Cmd + Enter              |
 | Auto-complete the current word                | Tab or Ctrl + Space             | Tab or Cmd + Space       |
 | Add a comment to the current or selected line | Ctrl+/                          | Cmd + /                  |
 | Access the editor menu                        | Shift + F10                     | Shift + F10              |
@@ -61,7 +61,7 @@ Here are the shortcuts supported in the query editor:
 
 ### **Database Explorer**
 
-View schema and table configuration information of the workspace database. Each workspace provides default 'public' and temporary result tables. Queries that do not specify a schema refer to tables in the 'public' schema. Any queries with results in tabular form are saved in temporary result tables with arbitrary names. This allows you to reuse previous table execution results at any time.
+The Database Explorer shows the schema and table configuration information of the workspace database. Each workspace provides a default 'public' schema and temporary result tables. Queries that do not specify a schema refer to tables in the 'public' schema by default. �Additionally, table results are saved as temporary result tables with arbitrary names. This allows you to reuse and view previous table execution results.
 
 #### **Table Information**
 
@@ -75,7 +75,7 @@ View column names, data types, and nullability of columns in the data table.
 
 **Preview**
 
-Quickly grasp the content of the data table.
+Quickly understand the content of the data table.
 
 !!! warning
     Editing data tables is not possible in the preview.
@@ -88,13 +88,13 @@ You can add new tables and schemas to the database.
 
 ##### **Adding Tables**
 
-Click the **`+`** button located to the right of the Database in the database explorer to open the menu for adding table data, then click 'Add Table'.
+Click the **`+`** button located to the right of the Database in the database explorer to open the add table menu, then click 'Add Table'.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_3.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_3.png)
 
 **Create a New Table Directly**
 
-After opening the add table window, select 'Create a New Table Directly' and click Next.
+After opening the add table menu, select 'Create a New Table Directly' and click Next.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_4.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_4.png)
 
@@ -108,21 +108,21 @@ You can also add data using the + button to the right of the schema.
 
 ② Create Schema: Create a new schema.
 
-③ Name(table): Enter the name for the table to be created. Table names can include letters, numbers, and underscores, but cannot start with a number. Duplicate table names cannot be created within the same schema.
+③ Name(table): Enter the name of the table to be created. Table names can include letters, numbers, and underscores, but cannot start with a number. Duplicate table names cannot be created within the same schema.
 
-④ Name(column): Enter the column name. This is a required field, and duplicate column names cannot be created within the same table.
+④ Name(column): Enter the column name. Duplicate column names cannot be created within the same table. This is a required field.
 
 ⑤ Data Type: Select the data type for the column. This is a required field.
 
-⑥ Column Options: Depending on the Data Type, options can be adjusted, and settings can be customized according to the column's purpose.
+⑥ Column Options: Depending on the Data Type, the options can be adjusted and customized accordingly.
 
 ⑦ Column Delete Button: Delete the column.
 
 ⑧ Column Add Button: Add a new column.
 
-⑨ Cancel Button: Cancel creating a new table directly.
+⑨ Cancel Button: Cancel creating a new table.
 
-⑩ Complete Button: Complete creating a new table directly.
+⑩ Complete Button: Complete directly creating a new table.
 
 **Adding Tables via Local File Upload**
 
@@ -140,11 +140,11 @@ After opening the add table window, select 'Local File Upload' and click Next.
 
 ④ Create Schema: Press the Create Schema button to create a new schema, useful for initial usage or when you want to create a new schema.
 
-⑤ Name: Enter the name for the table to be created. Table names can include letters, numbers, and underscores, but cannot start with a number. Duplicate table names cannot be created within the same schema.
+⑤ Name: Enter the name of the table to be created. Table names can include letters, numbers, and underscores, but cannot start with a number. Duplicate table names cannot be created within the same schema.
 
 ⑥ Column Settings
 
-You can automatically detect the columns in the uploaded file or manually input them.
+Columns can be automatically detected in the uploaded file or you can manually input them.
 
 - Auto Detection: Automatically detects the columns in the uploaded file.
 - Manual Input: Manually input the columns.
@@ -161,15 +161,15 @@ You can automatically detect the columns in the uploaded file or manually input 
 
 ##### **Create Schemas**
 
-You can create a new schema.
+Create a new schema.
 
-Click the **`+`** button located to the right of the Database in the database explorer to open the menu for adding table data, then click 'Create Schema'.
+Click the **`+`** button located to the right of the Database in the database explorer to open the add table menu, then click 'Create Schema'.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_11.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_9.png)
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_12.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_12.png)
 
-① Schema Name: Enter the name for the schema to be created. Schema names can include letters, numbers, and underscores, but cannot start with a number. Duplicate schema names cannot be created within the same database.
+① Schema Name: Enter the name of the schema to be created. Schema names can include letters, numbers, and underscores, but cannot start with a number. Duplicate schema names cannot be created within the same database.
 
 ② Cancel Button: Cancel schema creation.
 
@@ -181,13 +181,13 @@ Click the **`+`** button located to the right of the Database in the database ex
 
 ### **Query Logs**
 
-All queries executed in the Query Manager are logged and can be viewed in the query logs section. They are listed in descending order of creation time. The logs show the executed query statement and whether the query was successful.
+All queries executed in the Query Manager are logged and can be viewed in the query logs section. They are listed in descending order of creation time. The logs show the executed query statement and whether the execution was successful.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_16.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_16.png)
 
 #### Query Search
 
-When you input a query statement, it searches for log entries with similar query statements.
+When you input a query statement, it searches for log entries that contain the given query statement.
 
 #### Detailed Information Pane
 
