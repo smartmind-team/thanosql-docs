@@ -731,7 +731,7 @@ Inserts records from a CSV file into a table in a schema.
 Inserts records from an Excel-like file (xls, xlsx, xlsm, xlsb, odf, ods and odt) into a table in a schema. Works the same way as uploading CSV file.
 
 !!! Note "Tip"
-    Pay attention to the different types of Excel file while specifying the content file type. Refer fo [this page](https://zappysys.zendesk.com/hc/en-us/articles/360034303774-Which-Content-Type-is-used-for-Multi-Part-Upload-File-Extension), for instance, for reference.
+    Pay attention to the different types of Excel file while specifying the content file type. Refer to [this page](https://zappysys.zendesk.com/hc/en-us/articles/360034303774-Which-Content-Type-is-used-for-Multi-Part-Upload-File-Extension), for instance, for reference.
 
 === "Python"
 
@@ -746,13 +746,59 @@ Inserts records from an Excel-like file (xls, xlsx, xlsm, xlsb, odf, ods and odt
     if_exists = "What to do if table of the same name already exists (one of fail, append, or overwrite)"
 
     file_name = "Excel file to be uploaded"
+    data = {
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }
 
-    # in case of xlsx and no body
+    # in case of xlsx
     excel_files = {
         "file": (
             file_name,
             open(file_name),
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
+        "body": (
+            None,
+            json.dumps(data),
+            "application/json",
         )
     }
 
@@ -775,5 +821,45 @@ Inserts records from an Excel-like file (xls, xlsx, xlsm, xlsb, odf, ods and odt
     -H 'accept: application/json' \
     -H 'Content-Type: multipart/form-data' \
     -F 'file=@file_name;type=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    -F 'body='
+    -F 'body={
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }'
     ```

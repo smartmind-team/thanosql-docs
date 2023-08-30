@@ -659,12 +659,12 @@ CSV 파일로 부터 해당 테이블에 새 데이터를 삽입합니다.
             open(file_name),
             "text/csv",
         )
-    }
-    csv_files["body"] = (
+        "body": (
             None,
             json.dumps(data),
             "application/json",
-    )
+        )
+    }
 
     api_url = f"{base_url}/{table_name}/upload/csv?schema={schema}&if_exists={if_exists}"
 
@@ -749,13 +749,59 @@ Excel 파일로 부터 해당 테이블에 새 데이터를 삽입합니다. 파
     if_exists = "What to do if table of the same name already exists (one of fail, append, or overwrite)"
 
     file_name = "Excel file to be uploaded"
+    data = {
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }
 
-    # in case of xlsx and no body
+    # in case of xlsx
     excel_files = {
         "file": (
             file_name,
             open(file_name),
             "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
+        "body": (
+            None,
+            json.dumps(data),
+            "application/json",
         )
     }
 
@@ -778,5 +824,45 @@ Excel 파일로 부터 해당 테이블에 새 데이터를 삽입합니다. 파
     -H 'accept: application/json' \
     -H 'Content-Type: multipart/form-data' \
     -F 'file=@file_name;type=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
-    -F 'body='
+    -F 'body={
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }'
     ```
