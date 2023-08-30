@@ -421,7 +421,14 @@ To delete a table, use the method below. If no `schema` query parameter is provi
 
 ## **`GET` /table/{table_name}/records**
 
-Retrieves the paginated records of a table in a schema.
+Retrieves the records of a table in a schema.
+
+### __Parameters__
+
+- `table_name`: The table name to retrieve the records from
+- `schema`: The schema to search the table in (default: 'public')
+- `offset`: The offset to where the pagination count will start from (default: to 0)
+- `limit`: The maximum number of records to retrieve starting from the offset (defaults: 100, max: 100)
 
 === "Python"
 
@@ -457,17 +464,15 @@ Retrieves the paginated records of a table in a schema.
     ```
 
 
-### __Parameters__
-
-- `table_name`: The table name to retrieve the records from.
-- `schema`: The schema to search the table in (defaults to 'public').
-- `offset`: The offset to where the pagination count will start from (defaults to 0).
-- `limit`: The maximum number of records to retrieve starting from the offset (defaults to 100, max 100).
-
-
 ## **`GET` /table/{table_name}/records/csv**
 
 Retrieves the records of a table in a schema as a CSV file.
+
+### __Parameters__
+
+- `table_name`: The table name to retrieve the records from
+- `schema`: The schema to search the table in (default: 'public')
+- `timezone_offset`: The timezone offset applied to the datetime formats (default: 9)
 
 === "Python"
 
