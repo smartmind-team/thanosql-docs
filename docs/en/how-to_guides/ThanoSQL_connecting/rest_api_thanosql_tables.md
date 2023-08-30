@@ -116,11 +116,8 @@ The ALTER Table API is used to do several ALTER TABLE operations. In order to al
 !!! warning ""
     When dealing with columns, it is important to note that the id is the unique key that is used to identify the column. If this value is deleted, that means that the column will also be deleted. If you are making a change to the column, **make sure that the column id is present in the body**! When adding a new column, a column_id is not required as it will be assigned after the column is created.
 
-In the following example lets pretend we want to alter the table object below with the following changes:
+In the following example lets pretend we want to alter the table object below:
 
-- Change the user_id column name to id.
-- Change the username column to is nullable.
-- Remove both the primary key and foreign key constraints.
 
 ```json
 {
@@ -161,6 +158,13 @@ In the following example lets pretend we want to alter the table object below wi
     }
 }
 ```
+
+The following changes will be applied:
+
+- Change the user_id column name to id.
+- Change the username column to is nullable.
+- Remove both the primary key and foreign key constraints.
+
 
 
 === "Python"
