@@ -87,10 +87,6 @@ Use this method to get the most recent version of table template object of a cer
 
 Use this method to create a new table template.
 
-!!! Note " "
-    As of now, there is no way to update or delete created table templates.
-
-
 === "Python"
 
     ```python
