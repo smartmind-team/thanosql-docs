@@ -77,3 +77,43 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다.
 !!! warning "__Warning__"
     - "__CONVERT__"를 사용해 만들어진 컬럼의 값들은 base64로 인코딩됩니다. 바이트 형식의 값을 사용하려면 base64의 b64decode를 사용하여 디코딩해야 합니다.
 
+
+## **`GET` /query/log**
+
+쿼리 로그 목록을 가져옵니다.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/query/log"
+    offset = {Offset}
+    limit = {Limit}
+
+    api_url = f"{base_url}?offset={offset}&limit={limit}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.get(api_url, headers=header):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'GET' \
+      'https://{your-engine-url}/api/v1/query/log/?offset={offset}&limit={limit}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
+
+### __Parameters__
+
+- `offset`: 쿼리 로그를 조회를 시작할 기준점 (기본값: 0).
+- `limit`: offset에서 시작하여 조회 할 결과의 개수 (기본값: 100, 최대 100).

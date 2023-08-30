@@ -1832,10 +1832,64 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecords" class="md-nav__link">
+    GET /table/{table_name}/records
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecordscsv" class="md-nav__link">
+    GET /table/{table_name}/records/csv
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records/csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest_api_thanosql_schema/" class="md-nav__link">
+        Schema APIs
+      </a>
     </li>
   
 
@@ -1963,6 +2017,46 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecords" class="md-nav__link">
+    GET /table/{table_name}/records
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecordscsv" class="md-nav__link">
+    GET /table/{table_name}/records/csv
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records/csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1985,7 +2079,7 @@
 <p>You can use the ThanoSQL Table REST API for several CRUD operations on your ThanoSQL DB tables.</p>
 <div class="admonition note">
 <p class="admonition-title"><strong>Table Object</strong></p>
-<p>A table object consists of four main componenets:</p>
+<p>A table object consists of four main components:</p>
 <ol>
 <li>*<code>name</code>: The name of the table</li>
 <li>*<code>schema</code>: The schema that the table is a part of</li>
@@ -2017,7 +2111,7 @@
 <p><em>The above components that have a * next to its name will not be included in the body for the POST table API. Instead, it will be specified in the URL as query parameters.</em></p>
 </div>
 <h2 id="get-table"><strong><code>GET</code> /table</strong><a class="headerlink" href="#get-table" title="Permanent link">&para;</a></h2>
-<p>In order to get a list of all of your tables, use the method below. If no <code>schema_name</code> is provided, then tables from every schemas will be listed. </p>
+<p>In order to get a list of all of your tables, use the method below. If no <code>schema</code> is provided, then tables from every schemas will be listed.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2026,9 +2120,9 @@
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?schema_name=</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2050,7 +2144,7 @@
 </div>
 </div>
 <h2 id="get-tabletable_name"><strong><code>GET</code> /table/{table_name}</strong><a class="headerlink" href="#get-tabletable_name" title="Permanent link">&para;</a></h2>
-<p>Use this method to get the objects of a single table. If no <code>schema_name</code> query parameter is provided, the parameter defaults to the public schema. </p>
+<p>Use this method to get the objects of a single table. If no <code>schema</code> query parameter is provided, the parameter defaults to the public schema.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2059,10 +2153,10 @@
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
-<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table/&quot;</span>
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema_name=</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2084,16 +2178,16 @@
 </div>
 </div>
 <h2 id="put-tabletable_name"><strong><code>PUT</code> /table/{table_name}</strong><a class="headerlink" href="#put-tabletable_name" title="Permanent link">&para;</a></h2>
-<p>The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the <code>table_name</code> and <code>schema_name</code>. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. </p>
+<p>The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the <code>table_name</code> and <code>schema</code>. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. If no <code>schema</code> query parameter is provided, the parameter defaults to the public schema.</p>
 <div class="admonition note">
 <p class="admonition-title"><strong>Order Execution</strong></p>
 <p>The order of execution of the ALTER is as follows:</p>
 <p>DROP PRIMARY KEY -&gt; DROP FOREIGN KEY -&gt; DROP COLUMN -&gt; ADD COLUMN -&gt; ALTER COLUMN -&gt; RENAME COLUMN -&gt; ADD PRIMARY KEY -&gt; ADD FOREIGN KEY -&gt; RENAME TABLE -&gt; SET SCHEMA</p>
 </div>
 <div class="admonition warning">
-<p>When dealing with columns, it is important to note that the id is the unique key that is used to identify the column. If this value is deleted, that means that the column will also be deleted. If you are making a change to the column, <strong>make sure that the column id is present in the body</strong>! When adding a new column, a column_id is not required as it will be assigned after the column is created. </p>
+<p>When dealing with columns, it is important to note that the id is the unique key that is used to identify the column. If this value is deleted, that means that the column will also be deleted. If you are making a change to the column, <strong>make sure that the column id is present in the body</strong>! When adding a new column, a column_id is not required as it will be assigned after the column is created.</p>
 </div>
-<p>In the following example lets pretend we want to alter the table object below:
+<p>In the following example lets pretend we want to alter the table object below:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;account&quot;</span><span class="p">,</span>
@@ -2131,7 +2225,13 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
+<p>The following changes will be applied:</p>
+<ul>
+<li>Change the user_id column name to id.</li>
+<li>Change the username column to is nullable.</li>
+<li>Remove both the primary key and foreign key constraints.</li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2140,8 +2240,8 @@
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
-<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table/&quot;</span>
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
 
 <span class="n">new_table</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;table&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2176,7 +2276,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema_name=</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2190,7 +2290,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;PUT&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}?schema={schema_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}?schema={schema}&#39;</span><span class="w"> </span><span class="se">\</span>
 -H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 -H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 -d<span class="w"> </span><span class="s1">&#39;{</span>
@@ -2229,9 +2329,8 @@
 </div>
 </div>
 </div>
-<p>If no <code>schema_name</code> query parameter is provided, the parameter defaults to the public schema. </p>
 <h2 id="post-tabletable_name"><strong><code>POST</code> /table/{table_name}</strong><a class="headerlink" href="#post-tabletable_name" title="Permanent link">&para;</a></h2>
-<p>Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the <code>table_name</code> and <code>schema_name</code> as query params. </p>
+<p>Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the <code>table_name</code> and <code>schema</code> as query params. If no <code>schema</code> query parameter is provided, the parameter defaults to the public schema.</p>
 <div class="admonition note">
 <p class="admonition-title"> </p>
 <p>When adding Column objects to the list of columns, there is no need to specify the id since the id just refers to the ordinal position of the column. Additionally if the table is created with an empty body, an empty table will be created. If no table_name is specified, the table will be created with a random uuid string.</p>
@@ -2244,8 +2343,8 @@
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
-<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table/&quot;</span>
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
 
 <span class="c1"># Note that the name and schema keys are missing from the body</span>
 <span class="n">new_table</span> <span class="o">=</span> <span class="p">{</span>
@@ -2290,7 +2389,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema_name=</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2304,7 +2403,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}?schema={schema_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}?schema={schema}&#39;</span><span class="w"> </span><span class="se">\</span>
 -H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 -H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 -d<span class="w"> </span><span class="s1">&#39;{</span>
@@ -2353,7 +2452,7 @@
 </div>
 </div>
 <h2 id="delete-tabletable_name"><strong><code>DELETE</code> /table/{table_name}</strong><a class="headerlink" href="#delete-tabletable_name" title="Permanent link">&para;</a></h2>
-<p>To delete a table, use the method below. If no <code>schema_name</code> query parameter is provided, the parameter defaults to the public schema. </p>
+<p>To delete a table, use the method below. If no <code>schema</code> query parameter is provided, the parameter defaults to the public schema.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2362,10 +2461,10 @@
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
-<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema_name=</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2386,13 +2485,94 @@
 </div>
 </div>
 </div>
+<h2 id="get-tabletable_namerecords"><strong><code>GET</code> /table/{table_name}/records</strong><a class="headerlink" href="#get-tabletable_namerecords" title="Permanent link">&para;</a></h2>
+<p>Retrieves the records of a table in a schema.</p>
+<h3 id="parameters"><strong>Parameters</strong><a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>table_name</code>: The table name to retrieve the records from</li>
+<li><code>schema</code>: The schema to search the table in (default: 'public')</li>
+<li><code>offset</code>: The offset to where the pagination count will start from (default: to 0)</li>
+<li><code>limit</code>: The maximum number of records to retrieve starting from the offset (defaults: 100, max: 100)</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table name&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Target schema&quot;</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="p">{</span><span class="n">Offset</span><span class="p">}</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="p">{</span><span class="n">Limit</span><span class="p">}</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">/records?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&amp;offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}/records?schema={schema}&amp;offset={offset}&amp;limit={limit}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="get-tabletable_namerecordscsv"><strong><code>GET</code> /table/{table_name}/records/csv</strong><a class="headerlink" href="#get-tabletable_namerecordscsv" title="Permanent link">&para;</a></h2>
+<p>Retrieves the records of a table in a schema as a CSV file.</p>
+<h3 id="parameters_1"><strong>Parameters</strong><a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>table_name</code>: The table name to retrieve the records from</li>
+<li><code>schema</code>: The schema to search the table in (default: 'public')</li>
+<li><code>timezone_offset</code>: The timezone offset applied to the datetime formats (default: 9)</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table name&quot;</span>
+<span class="n">timezone_offset</span> <span class="o">=</span> <span class="s2">&quot;Timezone offset from GMT (default: 9 (GMT+9, Seoul time))&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">/records/csv?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&amp;timezone_offset=</span><span class="si">{</span><span class="n">timezone_offset</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}/records/csv?schema={schema}&amp;timezone_offset={timezone_offset}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-24</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-30</span>
       
     
   </small>
@@ -2450,13 +2630,13 @@
       
       
         
-        <a href="../../../FAQ/frequently_asked_question/" class="md-footer__link md-footer__link--next" aria-label="Next: FAQs" rel="next">
+        <a href="../rest_api_thanosql_schema/" class="md-footer__link md-footer__link--next" aria-label="Next: Schema APIs" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              FAQs
+              Schema APIs
             </div>
           </div>
           <div class="md-footer__button md-icon">

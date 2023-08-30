@@ -1770,22 +1770,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#post-fileupload" class="md-nav__link">
-    POST /file/upload
+  <a href="#get-file" class="md-nav__link">
+    GET /file/
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#post-filedelete" class="md-nav__link">
-    POST /file/delete
+  <a href="#post-file" class="md-nav__link">
+    POST /file/
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#post-filelist" class="md-nav__link">
-    POST /file/list
+  <a href="#delete-file" class="md-nav__link">
+    DELETE /file/
   </a>
   
 </li>
@@ -1821,6 +1821,20 @@
     <li class="md-nav__item">
       <a href="../rest_api_thanosql_tables/" class="md-nav__link">
         Table APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest_api_thanosql_schema/" class="md-nav__link">
+        Schema APIs
       </a>
     </li>
   
@@ -1915,22 +1929,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#post-fileupload" class="md-nav__link">
-    POST /file/upload
+  <a href="#get-file" class="md-nav__link">
+    GET /file/
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#post-filedelete" class="md-nav__link">
-    POST /file/delete
+  <a href="#post-file" class="md-nav__link">
+    POST /file/
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#post-filelist" class="md-nav__link">
-    POST /file/list
+  <a href="#delete-file" class="md-nav__link">
+    DELETE /file/
   </a>
   
 </li>
@@ -1971,9 +1985,8 @@
 </li>
 </ul>
 </div>
-<h2 id="post-fileupload"><strong><code>POST</code> /file/upload</strong><a class="headerlink" href="#post-fileupload" title="Permanent link">&para;</a></h2>
-<p>파일만 업로드하려면 아래의 방법을 사용하여 파일을 워크스페이스 저장소로 보냅니다.
-API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저장됩니다.</p>
+<h2 id="get-file"><strong><code>GET</code> /file/</strong><a class="headerlink" href="#get-file" title="Permanent link">&para;</a></h2>
+<p>지정한 경로의 파일과 폴더 목록을 가져옵니다. 파일 경로를 지정할 때 정규식을 사용할 수 있습니다.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1981,7 +1994,40 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
-<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/file/upload/&quot;</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;파일 경로&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">your</span><span class="o">-</span><span class="n">engine</span><span class="o">-</span><span class="n">url</span><span class="si">}</span><span class="s2">/api/v1/file/?file_path=</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">return_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/file/?file_path={file_path}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="post-file"><strong><code>POST</code> /file/</strong><a class="headerlink" href="#post-file" title="Permanent link">&para;</a></h2>
+<p>파일만 업로드하려면 아래의 방법을 사용하여 파일을 워크스페이스 저장소로 보냅니다.
+API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저장됩니다.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/file/&quot;</span>
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
@@ -1995,7 +2041,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/file/upload/&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/file/&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: multipart/form-data&#39;</span><span class="w"> </span><span class="se">\</span>
@@ -2005,14 +2051,14 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 </div>
 </div>
 <p>"db commit"이 True로 설정되고 "table name"과 "column name"이 지정되면 지정된 파일이 ThanoSQL 저장소로 전송되고 파일 경로가 지정된 테이블의 열에 삽입됩니다.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
-<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/upload/&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/&quot;</span>
 <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;테이블 명&quot;</span>
 <span class="n">column_name</span> <span class="o">=</span> <span class="s2">&quot;컬럼 명&quot;</span>
 <span class="n">db_commit</span> <span class="o">=</span> <span class="kc">True</span> 
@@ -2031,7 +2077,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/file/upload/?db_commit=True&amp;table_name=테이블 명&amp;column_name=컬럼 명&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/file/?db_commit={db_commit}&amp;table_name={table_name}&amp;column_name={column_name}&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: multipart/form-data&#39;</span><span class="w"> </span><span class="se">\</span>
@@ -2046,9 +2092,9 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 <li>Jupyter 내부의 파일을 사용하려면 경로 앞에 '/'home/jovyan'을 붙여야 합니다.</li>
 </ul>
 </div>
-<h2 id="post-filedelete"><strong><code>POST</code> /file/delete</strong><a class="headerlink" href="#post-filedelete" title="Permanent link">&para;</a></h2>
+<h2 id="delete-file"><strong><code>DELETE</code> /file/</strong><a class="headerlink" href="#delete-file" title="Permanent link">&para;</a></h2>
 <p>파일만 삭제하려면 아래의 방법을 사용하여 파일을 워크스페이스 저장소에서 삭제합니다.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">cURL</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -2056,21 +2102,21 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
 <span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;데이터 파일 경로&quot;</span>
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">your</span><span class="o">-</span><span class="n">engine</span><span class="o">-</span><span class="n">url</span><span class="si">}</span><span class="s2">/api/v1/file/delete/?file_path=</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&#39;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">your</span><span class="o">-</span><span class="n">engine</span><span class="o">-</span><span class="n">url</span><span class="si">}</span><span class="s2">/api/v1/file/?file_path=</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&#39;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
 
 <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
 <span class="n">return_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/file/delete/?file_path=데이터 파일 경로&#39;</span><span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;DELETE&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/file/?file_path={file_path}&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span>
@@ -2079,14 +2125,14 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
 </div>
 </div>
 <p>"db_commit"이 True로 설정되고 "table_name" 및 "column_name"이 지정되면 지정된 파일을 워크스페이스 저장소에서 삭제하고 그 파일 경로와 같은 값이 지정된 열에 들어 있는 모든 행이 지정된 데이터베이스에서 제거됩니다.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">cURL</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
-<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/file/delete/&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/file/&quot;</span>
 <span class="n">db_commit</span> <span class="o">=</span> <span class="kc">True</span> 
 <span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;데이터 파일 경로&#39;</span><span class="p">,</span>
 <span class="n">table_name</span> <span class="o">=</span> <span class="s1">&#39;테이블 명&#39;</span><span class="p">,</span>
@@ -2098,47 +2144,15 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
 
 <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
 <span class="n">return_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/file/delete/?db_commit=True&amp;file_path=데이터 파일 경로&amp;table_name=테이블 명&amp;column_name=컬럼 명&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span>
-</code></pre></div>
-</div>
-</div>
-</div>
-<h2 id="post-filelist"><strong><code>POST</code> /file/list</strong><a class="headerlink" href="#post-filelist" title="Permanent link">&para;</a></h2>
-<p>지정한 경로의 파일과 폴더 목록을 가져옵니다. 파일 경로를 지정할 때 정규식을 사용할 수 있습니다.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">cURL</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-
-<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
-<span class="n">file_path</span> <span class="o">=</span> <span class="s2">&quot;파일 경로&quot;</span>
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;https://</span><span class="si">{</span><span class="n">your</span><span class="o">-</span><span class="n">engine</span><span class="o">-</span><span class="n">url</span><span class="si">}</span><span class="s2">/api/v1/file/list/?file_path=</span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s2">&quot;</span>
-
-<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="p">}</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
-
-<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-<span class="n">return_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/file/list/?file_path={파일 경로}&#39;</span><span class="w"> </span><span class="se">\</span>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;DELETE&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/file/?db_commit={db_commit}&amp;file_path={file_path}&amp;table_name={table_name}&amp;column_name={column_name}&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span>
@@ -2152,7 +2166,7 @@ API URL에 "dir=폴더 이름"을 덧붙이면 파일은 지정한 폴더에 저
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-24</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-30</span>
       
     
   </small>

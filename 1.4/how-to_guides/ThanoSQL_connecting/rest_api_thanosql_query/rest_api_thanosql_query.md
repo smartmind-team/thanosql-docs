@@ -48,17 +48,17 @@ Execute ThanoSQL queries and receive a query log as a response.
 
 
 ### __Parameters__
-    
+
 The API can set a destination table to save the results from a query using query parameters. If nothing is specified, then a destination table will be created in the qm schema.
 
 
 - `schema`: The schema to retrieve the tables from. If no parameter is provided, defaults to "qm".
-- `table_name`: The name that will be used to create the table. If not parameter is provided, defaults to a randomly generated table name 
+- `table_name`: The name that will be used to create the table. If not parameter is provided, defaults to a randomly generated table name.
 - `overwrite`: Determines if the table shall be overwritten or not. Defaults to False.
 
 ### __Response__
 
-The `/query` API returns a query log (shown below) as a response. 
+The `/query` API returns a query log (shown below) as a response.
 
 If the query statement yields results (statements such as SELECT, LIST), then the results are stored into a destination table. The destination table is specified by the `destination_table_name` and `destination_schema`. If the query produces no results, then the destination table indicates the table that was affected
 
@@ -80,3 +80,44 @@ If the query statement yields results (statements such as SELECT, LIST), then th
 
 !!! warning "__Warning__"
     - Columns created using "__CONVERT__" are encoded using base64. To use it as a column containing bytes, it must be decoded using base64's b64decode.
+
+
+## **`GET` /query/log**
+
+This method retrieves a paginated list of all query logs.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/query/log"
+    offset = {Offset}
+    limit = {Limit}
+
+    api_url = f"{base_url}?offset={offset}&limit={limit}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.get(api_url, headers=header):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'GET' \
+      'https://{your-engine-url}/api/v1/query/log/?offset={offset}&limit={limit}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
+
+### __Parameters__
+
+- `offset`: The offset to where the pagination count will start from (defaults to 0).
+- `limit`: The maximum number of items to retrieve starting from the offset (defaults to 100, max 100).

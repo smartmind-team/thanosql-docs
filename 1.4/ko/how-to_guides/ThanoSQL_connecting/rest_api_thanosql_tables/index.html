@@ -1832,10 +1832,64 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecords" class="md-nav__link">
+    GET /table/{table_name}/records
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecordscsv" class="md-nav__link">
+    GET /table/{table_name}/records/csv
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records/csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest_api_thanosql_schema/" class="md-nav__link">
+        Schema APIs
+      </a>
     </li>
   
 
@@ -1963,6 +2017,46 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecords" class="md-nav__link">
+    GET /table/{table_name}/records
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecordscsv" class="md-nav__link">
+    GET /table/{table_name}/records/csv
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records/csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1982,42 +2076,42 @@
 
 
 <h1 id="table-apis"><strong>Table APIs</strong><a class="headerlink" href="#table-apis" title="Permanent link">&para;</a></h1>
-<p>You can use the ThanoSQL Table REST API for several CRUD operations on your ThanoSQL DB tables.</p>
+<p>Table APIs로 ThanoSQL 워크스페이스 데이터베이스 테이블에 여러 CRUD 작업을 수행할 수 있습니다.</p>
 <div class="admonition note">
-<p class="admonition-title"><strong>Table Object</strong></p>
-<p>A table object consists of four main componenets:</p>
+<p class="admonition-title"><strong>테이블 객체</strong></p>
+<p>테이블 객체는 네 가지 주요 구성 요소로 구성됩니다:</p>
 <ol>
-<li>*<code>name</code>: The name of the table</li>
-<li>*<code>schema</code>: The schema that the table is a part of</li>
+<li>*<code>name</code>: 테이블의 이름</li>
+<li>*<code>schema</code>: 테이블이 속한 스키마</li>
 <li><code>columns</code><ul>
-<li><code>id</code>: The ordinal position of the column</li>
-<li><code>default</code>: The default value of the column</li>
-<li><code>is_nullable</code>: A boolean determining if the column is nullable</li>
-<li><code>type</code>: <a href="https://www.postgresql.org/docs/current/datatype.html#:~:text=Table%C2%A08.1.%C2%A0Data%20Types">Data type</a> of the column</li>
-<li><code>name</code>: The name of the column</li>
+<li><code>id</code>: 컬럼의 서수 위치</li>
+<li><code>default</code>: 컬럼의 기본값</li>
+<li><code>is_nullable</code>: 해당 컬럼이 널(null)을 허용하는지 여부를 나타내는 부울(boolean)</li>
+<li><code>type</code>: 컬럼의 <a href="https://www.postgresql.org/docs/current/datatype.html#:~:text=Table%C2%A08.1.%C2%A0Data%20Types">데이터 타입</a></li>
+<li><code>name</code>: 컬럼의 이름</li>
 </ul>
 </li>
 <li><code>constraints</code><ul>
-<li><code>primary_key</code>: The primary key of the table <ul>
-<li><code>name</code>: The constraint name of the primary key</li>
-<li><code>columns</code>: The columns that make up the primary key</li>
+<li><code>primary_key</code>: 테이블의 기본키<ul>
+<li><code>name</code>: 기본키의 제약 조건 이름</li>
+<li><code>columns</code>: 기본 키를 구성하는 컬럼</li>
 </ul>
 </li>
 <li><code>foreign_keys</code>: <ul>
-<li><code>name</code>: The constraint name of the foreign key</li>
-<li><code>reference_schema</code>: The schema that contains the <code>reference_table</code></li>
-<li><code>reference_table</code>: The table that contains the <code>reference_column</code></li>
-<li><code>reference_column</code>: The column that the foreign key is referring to</li>
-<li><code>column</code>: The foreign key column</li>
+<li><code>name</code>: 외래키의 제약 조건 이름</li>
+<li><code>reference_schema</code>: <code>reference_table</code>을 포함하는 스키마</li>
+<li><code>reference_table</code>: <code>reference_column</code>을 포함하는 테이블</li>
+<li><code>reference_column</code>: 외래키가 참조하는 컬럼</li>
+<li><code>column</code>: 외래키 컬럼</li>
 </ul>
 </li>
 </ul>
 </li>
 </ol>
-<p><em>The above components that have a * next to its name will not be included in the body for the POST table API. Instead, it will be specified in the URL as query parameters.</em></p>
+<p><em>이름 옆에 *가 붙은 위의 구성 요소는 <code>POST</code> Table API의 요청 본문에는 포함되지 않습니다. 대신 URL에 쿼리 매개변수로 지정됩니다.</em></p>
 </div>
 <h2 id="get-table"><strong><code>GET</code> /table</strong><a class="headerlink" href="#get-table" title="Permanent link">&para;</a></h2>
-<p>In order to get a list of all of your tables, use the method below. If no <code>schema_name</code> is provided, then tables from every schemas will be listed. </p>
+<p>모든 테이블의 목록을 가져오려면 아래 메서드를 사용합니다. <code>schema</code>를 지정하지 않으면 모든 스키마의 테이블이 표시됩니다.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2026,9 +2120,9 @@
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?schema_name=</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2050,7 +2144,7 @@
 </div>
 </div>
 <h2 id="get-tabletable_name"><strong><code>GET</code> /table/{table_name}</strong><a class="headerlink" href="#get-tabletable_name" title="Permanent link">&para;</a></h2>
-<p>Use this method to get the objects of a single table. If no <code>schema_name</code> query parameter is provided, the parameter defaults to the public schema. </p>
+<p>단일 테이블 객체를 가져오려면 이 메서드를 사용합니다. <code>schema</code>의 기본 값은 public 입니다.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2059,10 +2153,10 @@
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
-<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table/&quot;</span>
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema_name=</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2084,16 +2178,16 @@
 </div>
 </div>
 <h2 id="put-tabletable_name"><strong><code>PUT</code> /table/{table_name}</strong><a class="headerlink" href="#put-tabletable_name" title="Permanent link">&para;</a></h2>
-<p>The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the <code>table_name</code> and <code>schema_name</code>. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. </p>
+<p>ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다. 테이블을 변경하려면 <code>table_name</code> 및 <code>schema</code>로 지정된 '테이블 객체'를 변경합니다. UPDATE하려면 테이블 객체의 값을 수정하고, DROP하려면 요청 본문에서 해당 객체를 제거하면 됩니다. <code>schema</code>의 기본 값은 public 입니다.</p>
 <div class="admonition note">
-<p class="admonition-title"><strong>Order Execution</strong></p>
-<p>The order of execution of the ALTER is as follows:</p>
+<p class="admonition-title"><strong>실행 순서</strong></p>
+<p>ALTER의 실행 순서는 다음과 같습니다:</p>
 <p>DROP PRIMARY KEY -&gt; DROP FOREIGN KEY -&gt; DROP COLUMN -&gt; ADD COLUMN -&gt; ALTER COLUMN -&gt; RENAME COLUMN -&gt; ADD PRIMARY KEY -&gt; ADD FOREIGN KEY -&gt; RENAME TABLE -&gt; SET SCHEMA</p>
 </div>
 <div class="admonition warning">
-<p>When dealing with columns, it is important to note that the id is the unique key that is used to identify the column. If this value is deleted, that means that the column will also be deleted. If you are making a change to the column, <strong>make sure that the column id is present in the body</strong>! When adding a new column, a column_id is not required as it will be assigned after the column is created. </p>
+<p>컬럼을 다룰 때 <code>id</code>는 컬럼을 식별하는 데 사용되는 고유 키라는 점에 유의하는 것이 중요합니다. 이 값이 삭제되면 컬럼도 삭제된다는 의미입니다. 컬럼을 변경하는 경우 <strong>컬럼 <code>id</code>가 본문에 있는지 확인하세요</strong>! 새 컬럼을 추가할 때는 컬럼이 생성된 후 할당되므로 컬럼 id는 필요하지 않습니다.</p>
 </div>
-<p>In the following example lets pretend we want to alter the table object below:
+<p>다음 예제에서는 아래 테이블 객체를 변경한다고 가정해 보겠습니다:</p>
 <div class="highlight"><pre><span></span><code><span class="p">{</span>
 <span class="w">    </span><span class="nt">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;account&quot;</span><span class="p">,</span>
@@ -2131,7 +2225,13 @@
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
-</code></pre></div></p>
+</code></pre></div>
+<p>다음과 같은 변경 사항이 적용됩니다:</p>
+<ul>
+<li>user_id 컬럼의 이름을 id로 변경.</li>
+<li>username 컬럼을 NULLABLE로 변경.</li>
+<li>기본키 및 외래키 모두 제거.</li>
+</ul>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2140,8 +2240,8 @@
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
-<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table/&quot;</span>
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
 
 <span class="n">new_table</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;table&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2176,7 +2276,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema_name=</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2190,7 +2290,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;PUT&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}?schema={schema_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}?schema={schema}&#39;</span><span class="w"> </span><span class="se">\</span>
 -H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 -H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 -d<span class="w"> </span><span class="s1">&#39;{</span>
@@ -2229,12 +2329,11 @@
 </div>
 </div>
 </div>
-<p>If no <code>schema_name</code> query parameter is provided, the parameter defaults to the public schema. </p>
 <h2 id="post-tabletable_name"><strong><code>POST</code> /table/{table_name}</strong><a class="headerlink" href="#post-tabletable_name" title="Permanent link">&para;</a></h2>
-<p>Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the <code>table_name</code> and <code>schema_name</code> as query params. </p>
+<p>이 메서드를 사용하여 CREATE TABLE 작업을 실행합니다. 테이블을 생성하려면 테이블 객체를 본문으로 전달하고 쿼리 매개변수로 <code>table_name</code> 및 <code>schema</code>을 전달합니다. <code>schema</code>의 기본 값은 public 입니다.</p>
 <div class="admonition note">
 <p class="admonition-title"> </p>
-<p>When adding Column objects to the list of columns, there is no need to specify the id since the id just refers to the ordinal position of the column. Additionally if the table is created with an empty body, an empty table will be created. If no table_name is specified, the table will be created with a random uuid string.</p>
+<p>컬럼 객체를 컬럼 목록에 추가할 때 id는 컬럼의 서수 위치만 참조하므로, id를 지정할 필요가 없습니다. 또한 비어있는 요청 본문은 빈 테이블을 생성하며, <code>table_name</code>을 지정하지 않으면 임의의 uuid 문자열을 이름으로 하는 테이블이 생성됩니다.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">cURL</label></div>
 <div class="tabbed-content">
@@ -2244,10 +2343,10 @@
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
-<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table/&quot;</span>
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
 
-<span class="c1"># Note that the name and schema keys are missing from the body</span>
+<span class="c1"># 본문(Body)에서 이름 및 스키마가 누락되었습니다.</span>
 <span class="n">new_table</span> <span class="o">=</span> <span class="p">{</span>
         <span class="s2">&quot;table&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -2290,7 +2389,7 @@
         <span class="p">}</span>
     <span class="p">}</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema_name=</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2304,7 +2403,7 @@
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}?schema={schema_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}?schema={schema}&#39;</span><span class="w"> </span><span class="se">\</span>
 -H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 -H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 -d<span class="w"> </span><span class="s1">&#39;{</span>
@@ -2353,7 +2452,7 @@
 </div>
 </div>
 <h2 id="delete-tabletable_name"><strong><code>DELETE</code> /table/{table_name}</strong><a class="headerlink" href="#delete-tabletable_name" title="Permanent link">&para;</a></h2>
-<p>To delete a table, use the method below. If no <code>schema_name</code> query parameter is provided, the parameter defaults to the public schema. </p>
+<p>테이블을 삭제하려면 아래 메서드를 사용합니다. <code>schema</code> 쿼리 매개변수가 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2362,10 +2461,10 @@
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
-<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
-<span class="n">schema_name</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema_name=</span><span class="si">{</span><span class="n">schema_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2386,13 +2485,94 @@
 </div>
 </div>
 </div>
+<h2 id="get-tabletable_namerecords"><strong><code>GET</code> /table/{table_name}/records</strong><a class="headerlink" href="#get-tabletable_namerecords" title="Permanent link">&para;</a></h2>
+<p>해당 테이블의 데이터를 가져옵니다.</p>
+<h3 id="parameters"><strong>Parameters</strong><a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>table_name</code>: 데이터를 조회할 테이블 이름</li>
+<li><code>schema</code>: 해당 테이블의 스키마 (기본값: 'public')</li>
+<li><code>offset</code>: 쿼리 로그를 조회를 시작할 기준점 (기본값: 0)</li>
+<li><code>limit</code>: offset에서 시작하여 조회 할 결과의 개수 (기본값: 100, 최대 100)</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table name&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Target schema&quot;</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="p">{</span><span class="n">Offset</span><span class="p">}</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="p">{</span><span class="n">Limit</span><span class="p">}</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">/records?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&amp;offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}/records?schema={schema}&amp;offset={offset}&amp;limit={limit}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="get-tabletable_namerecordscsv"><strong><code>GET</code> /table/{table_name}/records/csv</strong><a class="headerlink" href="#get-tabletable_namerecordscsv" title="Permanent link">&para;</a></h2>
+<p>스키마에 있는 테이블의 레코드를 CSV 파일로 가져옵니다.</p>
+<h3 id="parameters_1"><strong>Parameters</strong><a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>table_name</code>: 데이터를 조회할 테이블 이름</li>
+<li><code>schema</code>: 해당 테이블의 스키마 (기본값: 'public')</li>
+<li><code>timezone_offset</code>: 날짜/시간 형식에 적용되는 시간대 (기본값: 9)</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table name&quot;</span>
+<span class="n">timezone_offset</span> <span class="o">=</span> <span class="s2">&quot;Timezone offset from GMT (default: 9 (GMT+9, Seoul time))&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">/records/csv?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&amp;timezone_offset=</span><span class="si">{</span><span class="n">timezone_offset</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}/records/csv?schema={schema}&amp;timezone_offset={timezone_offset}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-05-24</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-30</span>
       
     
   </small>
@@ -2450,13 +2630,13 @@
       
       
         
-        <a href="../../../FAQ/frequently_asked_question/" class="md-footer__link md-footer__link--next" aria-label="Next: FAQs" rel="next">
+        <a href="../rest_api_thanosql_schema/" class="md-footer__link md-footer__link--next" aria-label="Next: Schema APIs" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              FAQs
+              Schema APIs
             </div>
           </div>
           <div class="md-footer__button md-icon">
