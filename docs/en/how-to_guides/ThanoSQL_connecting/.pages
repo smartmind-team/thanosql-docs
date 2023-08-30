@@ -4,4 +4,5 @@ nav:
   - File APIs : rest_api_thanosql_file.md
   - Search APIs : rest_api_thanosql_search.md
   - Table APIs : rest_api_thanosql_tables.md
+  - Table Template APIs : rest_api_thanosql_table_templates.md
   - Schema APIs : rest_api_thanosql_schema.md
