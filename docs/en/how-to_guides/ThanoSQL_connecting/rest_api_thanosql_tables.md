@@ -105,7 +105,7 @@ Use this method to get the objects of a single table. If no `schema` query param
   
 ## **`PUT` /table/{table_name}**
 
-The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the `table_name` and `schema`. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body.
+The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the `table_name` and `schema`. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. If no `schema` query parameter is provided, the parameter defaults to the public schema.
 
 !!! note "__Order Execution__"
     The order of execution of the ALTER is as follows:
@@ -255,12 +255,11 @@ In the following example lets pretend we want to alter the table object below:
         }
     }'
     ```
-  If no `schema` query parameter is provided, the parameter defaults to the public schema.
 
 
 ## **`POST` /table/{table_name}**
 
-Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema` as query params.
+Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema` as query params. If no `schema` query parameter is provided, the parameter defaults to the public schema.
 
 !!! note " "
     When adding Column objects to the list of columns, there is no need to specify the id since the id just refers to the ordinal position of the column. Additionally if the table is created with an empty body, an empty table will be created. If no table_name is specified, the table will be created with a random uuid string.

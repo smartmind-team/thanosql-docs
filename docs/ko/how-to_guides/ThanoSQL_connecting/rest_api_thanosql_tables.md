@@ -6,7 +6,7 @@ title: Table APIs
 
 Table APIs로 ThanoSQL 워크스페이스 데이터베이스 테이블에 여러 CRUD 작업을 수행할 수 있습니다.
 
-!!! Note "__Table Object__"
+!!! Note "__테이블 객체__"
     테이블 객체는 네 가지 주요 구성 요소로 구성됩니다:
 
     1. *`name`: 테이블의 이름
@@ -28,7 +28,7 @@ Table APIs로 ThanoSQL 워크스페이스 데이터베이스 테이블에 여러
             - `reference_column`: 외래키가 참조하는 컬럼
             - `column`: 외래키 컬럼
 
-    _이름 옆에 *가 붙은 위의 구성 요소는 `POST` Table API의 본문(Body)에서는 포함되지 않습니다. 대신 URL에 쿼리 매개변수로 지정됩니다._
+    _이름 옆에 *가 붙은 위의 구성 요소는 `POST` Table API의 요청 본문에는 포함되지 않습니다. 대신 URL에 쿼리 매개변수로 지정됩니다._
 
 
 ## **`GET` /table**
@@ -105,16 +105,16 @@ Table APIs로 ThanoSQL 워크스페이스 데이터베이스 테이블에 여러
   
 ## **`PUT` /table/{table_name}**
 
-ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다. 테이블을 변경하려면 `table_name` 및 `schema`로 지정된 '테이블 객체'를 변경합니다. UPDATE하려면 테이블 객체의 값을 수정하고, DROP하려면 요청 본문에서 해당 개체를 제거하면 됩니다.
+ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다. 테이블을 변경하려면 `table_name` 및 `schema`로 지정된 '테이블 객체'를 변경합니다. UPDATE하려면 테이블 객체의 값을 수정하고, DROP하려면 요청 본문에서 해당 개체를 제거하면 됩니다. `schema`의 기본 값은 public 입니다.
 
-!!! note "__Order Execution__"
+!!! note "__실행 순서__"
     ALTER의 실행 순서는 다음과 같습니다:
 
     DROP PRIMARY KEY -> DROP FOREIGN KEY -> DROP COLUMN -> ADD COLUMN -> ALTER COLUMN -> RENAME COLUMN -> ADD PRIMARY KEY -> ADD FOREIGN KEY -> RENAME TABLE -> SET SCHEMA
 
 
 !!! warning ""
-    컬럼을 다룰 때 `id`는 열을 식별하는 데 사용되는 고유 키라는 점에 유의하는 것이 중요합니다. 이 값이 삭제되면 열도 삭제된다는 의미입니다. 열을 변경하는 경우 **컬럼 `id`가 본문에 있는지 확인하세요**! 새 컬럼을 추가할 때는 컬럼이 생성된 후 할당되므로 컬럼 id는 필요하지 않습니다.
+    컬럼을 다룰 때 `id`는 열을 식별하는 데 사용되는 고유 키라는 점에 유의하는 것이 중요합니다. 이 값이 삭제되면 컬럼도 삭제된다는 의미입니다. 컬럼을 변경하는 경우 **컬럼 `id`가 본문에 있는지 확인하세요**! 새 컬럼을 추가할 때는 컬럼이 생성된 후 할당되므로 컬럼 id는 필요하지 않습니다.
 
 다음 예제에서는 아래의 테이블 객체를 변경한다고 가정해 보겠습니다:
 ```json
@@ -254,12 +254,10 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
         }
     }'
     ```
-  `schema`의 기본 값은 public 입니다.
-
 
 ## **`POST` /table/{table_name}**
 
-이 메서드를 사용하여 CREATE TABLE 작업을 실행합니다. 테이블을 생성하려면 테이블 객체를 본문으로 전달하고 쿼리 매개변수로 `table_name` 및 `schema`을 전달합니다.
+이 메서드를 사용하여 CREATE TABLE 작업을 실행합니다. 테이블을 생성하려면 테이블 객체를 본문으로 전달하고 쿼리 매개변수로 `table_name` 및 `schema`을 전달합니다. `schema`의 기본 값은 public 입니다.
 
 !!! note " "
     컬럼 객체를 열 목록에 추가할 때 id는 열의 서수 위치만 참조하므로, id를 지정할 필요가 없습니다. 또한 비어있는 본문(Body)은 빈 테이블이 생성됩니다. `table_name`을 지정하지 않으면 임의의 uuid 문자열을 이름으로 하는 테이블이 생성됩니다.
