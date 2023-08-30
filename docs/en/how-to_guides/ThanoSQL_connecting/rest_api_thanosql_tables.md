@@ -165,8 +165,6 @@ The following changes will be applied:
 - Change the username column to is nullable.
 - Remove both the primary key and foreign key constraints.
 
-
-
 === "Python"
 
     ```python
