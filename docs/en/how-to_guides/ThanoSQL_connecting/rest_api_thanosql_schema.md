@@ -34,3 +34,4 @@ In order to get a list of all of your schemas from the database, use the method 
       'https://{your-engine-url}/api/v1/schema/' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```

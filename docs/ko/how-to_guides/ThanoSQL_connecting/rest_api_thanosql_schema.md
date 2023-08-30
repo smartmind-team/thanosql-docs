@@ -34,3 +34,4 @@ title: Schema APIs
       'https://{your-engine-url}/api/v1/schema/' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
