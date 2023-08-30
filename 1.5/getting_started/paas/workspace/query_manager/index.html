@@ -1,0 +1,2493 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ThanoSQL Documentation">
+      
+      
+        <meta name="author" content="Smartmind Team">
+      
+      
+        <link rel="canonical" href="https://docs.thanosql.ai/1.5/getting_started/paas/workspace/query_manager/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.2">
+    
+    
+      
+        <title>Query Manager - ThanoSQL</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.9f9400aa.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-8KVG4NMMFK"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-8KVG4NMMFK",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-8KVG4NMMFK",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#query-manager-manual" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+               You're not viewing the latest
+version.
+<a href="../../../../..">
+  <strong>Click here to go to the latest version.</strong>
+</a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="ThanoSQL" class="md-header__button md-logo" aria-label="ThanoSQL" data-md-component="logo">
+      
+  <img src="../../../../assets/images/docs_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ThanoSQL
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Query Manager
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="../../../../ko/getting_started/paas/workspace/query_manager/" hreflang="ko" class="md-select__link">
+                    한국어
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/smartmind-team/thanosql-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    smartmind-team/thanosql-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../../.." class="md-tabs__link">
+      Intro
+    </a>
+  </li>
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../web_manual/" class="md-tabs__link md-tabs__link--active">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../tutorials/algorithm_list/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../how-to_guides/reference/" class="md-tabs__link">
+        Reference
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../FAQ/frequently_asked_question/" class="md-tabs__link">
+        FAQ
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="ThanoSQL" class="md-nav__button md-logo" aria-label="ThanoSQL" data-md-component="logo">
+      
+  <img src="../../../../assets/images/docs_logo.png" alt="logo">
+
+    </a>
+    ThanoSQL
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/smartmind-team/thanosql-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    smartmind-team/thanosql-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../web_manual/" class="md-nav__link">
+        ThanoSQL Web Manual
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../data_upload/" class="md-nav__link">
+        How to Upload Your Data to the ThanoSQL Workspace
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          PaaS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PaaS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          PaaS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_3_1" type="checkbox" id="__nav_2_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1">
+          Workspace
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workspace" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Workspace
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Query Manager
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Query Manager
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#query-manager-page-overview" class="md-nav__link">
+    Query Manager Page Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Manager Page Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-editor" class="md-nav__link">
+    Query Editor
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-viewer" class="md-nav__link">
+    Data Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-shortcuts" class="md-nav__link">
+    Keyboard Shortcuts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-explorer" class="md-nav__link">
+    Database Explorer
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Explorer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-information" class="md-nav__link">
+    Table Information
+  </a>
+  
+    <nav class="md-nav" aria-label="Table Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-schema" class="md-nav__link">
+    Table Schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preview" class="md-nav__link">
+    Preview
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-data" class="md-nav__link">
+    Adding Data
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-table" class="md-nav__link">
+    Add Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-schemas" class="md-nav__link">
+    Create Schemas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-table" class="md-nav__link">
+    Delete Table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-logs" class="md-nav__link">
+    Query Logs
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-search-functionality" class="md-nav__link">
+    Query Search Functionality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detailed-information-pane" class="md-nav__link">
+    Detailed Information Pane
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab/" class="md-nav__link">
+        Lab
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          SasS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SasS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          SasS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_4_1" type="checkbox" id="__nav_2_4_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1">
+          AutoCRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AutoCRM" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          AutoCRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../saas/autocrm/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_4_2" type="checkbox" id="__nav_2_4_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_2">
+          Query Everything
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Query Everything" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Query Everything
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../saas/qe/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/algorithm_list/" class="md-nav__link">
+        ThanoSQL All Tutorials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ThanoSQL Search
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ThanoSQL Search" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ThanoSQL Search
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_search/search_image_by_keyword/" class="md-nav__link">
+        Search Image by Keyword
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_search/search_image_by_image/" class="md-nav__link">
+        Search Image by Image
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_search/search_image_by_text/" class="md-nav__link">
+        Search Image by Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_search/search_text_by_text/" class="md-nav__link">
+        Search Text by Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_search/search_video_by_text/" class="md-nav__link">
+        Search Video by Text
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          ThanoSQL ML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ThanoSQL ML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          ThanoSQL ML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_1" type="checkbox" id="__nav_3_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_1">
+          Classification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Classification" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Classification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_ml/classification/automl_classification/" class="md-nav__link">
+        Create a Classification Model Using AutoML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_ml/classification/image_classification/" class="md-nav__link">
+        Create an Image Classification Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_ml/classification/text_classification/" class="md-nav__link">
+        Create a Text Classification Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_2" type="checkbox" id="__nav_3_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_2">
+          Regression
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Regression" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Regression
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_ml/regression/automl_regression/" class="md-nav__link">
+        Create a Regression Model Using AutoML
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_3" type="checkbox" id="__nav_3_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_3">
+          Audio recognition
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Audio recognition" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Audio recognition
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_ml/audio_recognition/speech_recognition/" class="md-nav__link">
+        Create a Speech Recognition Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_ml/audio_recognition/speech_recognition2/" class="md-nav__link">
+        Using a Speech Recognition Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_4" type="checkbox" id="__nav_3_3_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_4">
+          Question answering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Question answering" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Question answering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_ml/question_answering/visual_question_answering/" class="md-nav__link">
+        Use the Visual Question Answering Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_5" type="checkbox" id="__nav_3_3_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_5">
+          Timeseries
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Timeseries" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Timeseries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_ml/timeseries/timeseries_forecasting/" class="md-nav__link">
+        Create a Time Series Forecasting Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../tutorials/thanosql_ml/udm_tutorial/" class="md-nav__link">
+        Using the Custom Model in ThanoSQL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/reference/" class="md-nav__link">
+        Reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          ThanoSQL Statement
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ThanoSQL Statement" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          ThanoSQL Statement
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/BUILD_MODEL_SYNTAX/" class="md-nav__link">
+        BUILD MODEL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/FIT_MODEL_SYNTAX/" class="md-nav__link">
+        FIT MODEL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/UPLOAD_MODEL_SYNTAX/" class="md-nav__link">
+        UPLOAD MODEL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/DELETE_MODEL_SYNTAX/" class="md-nav__link">
+        DELETE  MODEL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/PREDICT_SYNTAX/" class="md-nav__link">
+        PREDICT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/EVALUATE_SYNTAX/" class="md-nav__link">
+        EVALUATE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/CONVERT_SYNTAX/" class="md-nav__link">
+        CONVERT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/SEARCH_SYNTAX/" class="md-nav__link">
+        SEARCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/PRINT_SYNTAX/" class="md-nav__link">
+        PRINT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/GET_SYNTAX/" class="md-nav__link">
+        GET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/LIST_SYNTAX/" class="md-nav__link">
+        LIST
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/COPY_SYNTAX/" class="md-nav__link">
+        COPY
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_query/FUNCTION_SYNTAX/" class="md-nav__link">
+        FUNCTION
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Model Statement
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Model Statement" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Model Statement
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/AutomlClassifier/" class="md-nav__link">
+        AutomlClassifier
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/AutomlRegressor/" class="md-nav__link">
+        AutomlRegressor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/ConvNeXt_EfficientNet/" class="md-nav__link">
+        ConvNeXt & EfficientNet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/Albert_Electra/" class="md-nav__link">
+        Albert & Electra
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/Wav2Vec2/" class="md-nav__link">
+        Wav2Vec2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/SimCLR/" class="md-nav__link">
+        SimCLR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/CLIP/" class="md-nav__link">
+        CLIP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/SBERT/" class="md-nav__link">
+        SBERT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/Whisper/" class="md-nav__link">
+        Whisper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/XCLIP/" class="md-nav__link">
+        XCLIP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/ViLT/" class="md-nav__link">
+        ViLT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_model/TFT/" class="md-nav__link">
+        Temporal Fusion Transformer(TFT)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Function Statement
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Function Statement" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Function Statement
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_function/Compute/" class="md-nav__link">
+        Compute
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_function/Preprocess/" class="md-nav__link">
+        Preprocess
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_5" type="checkbox" id="__nav_4_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_5">
+          REST API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="REST API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          REST API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_connecting/overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_connecting/rest_api_thanosql_query/" class="md-nav__link">
+        Query APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_connecting/rest_api_thanosql_file/" class="md-nav__link">
+        File APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_connecting/rest_api_thanosql_search/" class="md-nav__link">
+        Search APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_connecting/rest_api_thanosql_tables/" class="md-nav__link">
+        Table APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_connecting/rest_api_thanosql_table_templates/" class="md-nav__link">
+        Table Template APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../how-to_guides/ThanoSQL_connecting/rest_api_thanosql_schema/" class="md-nav__link">
+        Schema APIs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../FAQ/frequently_asked_question/" class="md-nav__link">
+        FAQs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#query-manager-page-overview" class="md-nav__link">
+    Query Manager Page Overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Manager Page Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-editor" class="md-nav__link">
+    Query Editor
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Editor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#data-viewer" class="md-nav__link">
+    Data Viewer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keyboard-shortcuts" class="md-nav__link">
+    Keyboard Shortcuts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-explorer" class="md-nav__link">
+    Database Explorer
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Explorer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-information" class="md-nav__link">
+    Table Information
+  </a>
+  
+    <nav class="md-nav" aria-label="Table Information">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-schema" class="md-nav__link">
+    Table Schema
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preview" class="md-nav__link">
+    Preview
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adding-data" class="md-nav__link">
+    Adding Data
+  </a>
+  
+    <nav class="md-nav" aria-label="Adding Data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-table" class="md-nav__link">
+    Add Table
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-schemas" class="md-nav__link">
+    Create Schemas
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-table" class="md-nav__link">
+    Delete Table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-logs" class="md-nav__link">
+    Query Logs
+  </a>
+  
+    <nav class="md-nav" aria-label="Query Logs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#query-search-functionality" class="md-nav__link">
+    Query Search Functionality
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#detailed-information-pane" class="md-nav__link">
+    Detailed Information Pane
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                  
+                  
+
+
+<h1 id="query-manager-manual"><strong>Query Manager Manual</strong><a class="headerlink" href="#query-manager-manual" title="Permanent link">&para;</a></h1>
+<p>The Query Manager enables you to execute ThanoSQL queries and analyze results through a user interface that is similar to a Database Management System (DBMS). It offers an intuitive way to understand the schema and table structure of the workspace database. You can effortlessly manage and view previous query results with query logs. Additionally, the Query Manager provides a data viewer for analyzing unstructured data, such as images and videos, within query execution results.</p>
+<p><strong>Key Features</strong></p>
+<ul>
+<li>Execution of both ThanoSQL and regular SQL commands</li>
+<li>'Table Schema' / 'Preview' of data tables</li>
+<li>Query logs</li>
+<li>Data viewer</li>
+</ul>
+<h2 id="query-manager-page-overview"><strong>Query Manager Page Overview</strong><a class="headerlink" href="#query-manager-page-overview" title="Permanent link">&para;</a></h2>
+<p>The Query Manager page consists of three main sections.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_1.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_1.png" style="max-height:none" /></a></p>
+<p>① Query Editor</p>
+<p>② Database Explorer</p>
+<p>③ Query Logs</p>
+<h3 id="query-editor"><strong>Query Editor</strong><a class="headerlink" href="#query-editor" title="Permanent link">&para;</a></h3>
+<p>Execute ThanoSQL queries and view the results in a table format.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_2.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_2.png" style="max-height:none" /></a></p>
+<p>① Tabs: Write queries and view results in different tabs. You can add or delete tabs as needed.</p>
+<p>② Query Input Area: Input queries and execute/stop them. Supports <a href="#keyboard-shortcuts">keyboard shortcuts</a>.</p>
+<p>③ CSV Download: Download result as a CSV file.</p>
+<p>④ <a href="#data-viewer">Data Viewer</a> : Used for analyzing unstructured data like images and videos.</p>
+<p>⑤ Result Table: Displays query results as a table.</p>
+<h4 id="data-viewer"><strong>Data Viewer</strong><a class="headerlink" href="#data-viewer" title="Permanent link">&para;</a></h4>
+<p>The Data Viewer feature allows you to view unstructured data within the result table. You can select a column that contains the path to the unstructured file and choose the file format (image, video, audio) to display the unstructured data. The pagination feature at the bottom allows you to adjust the number of items displayed per page and navigate to different pages.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The Data Viewer displays unstructured data based on the file path. Therefore, the stored path value must actually exist in the workspace. (Sometimes it may not appear due to issues such as proxies.)</p>
+</div>
+<h4 id="keyboard-shortcuts"><strong>Keyboard Shortcuts</strong><a class="headerlink" href="#keyboard-shortcuts" title="Permanent link">&para;</a></h4>
+<p>Here are the shortcuts supported in the query editor:</p>
+<table>
+<thead>
+<tr>
+<th>Action</th>
+<th>Key Combination (Windows/Linux)</th>
+<th>Key Combination (Mac OS)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Execute the current or highlighted query</td>
+<td>Ctrl+Enter</td>
+<td>Cmd + Enter</td>
+</tr>
+<tr>
+<td>Auto-complete the current word</td>
+<td>Tab or Ctrl + Space</td>
+<td>Tab or Cmd + Space</td>
+</tr>
+<tr>
+<td>Add a comment to the current or selected line</td>
+<td>Ctrl+/</td>
+<td>Cmd + /</td>
+</tr>
+<tr>
+<td>Access the editor menu</td>
+<td>Shift + F10</td>
+<td>Shift + F10</td>
+</tr>
+<tr>
+<td>Access the list of editor shortcuts</td>
+<td>F1</td>
+<td>F1</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The query editor uses Monaco Editor, which is also used in VSCode. Most shortcuts are the same as those used in VSCode. Please refer to the <a href="https://en.docs.monaca.io/products_guide/monaca_ide/editor" target="_blank">link</a> for a list of Monaco Editor's shortcuts.</p>
+</div>
+<h3 id="database-explorer"><strong>Database Explorer</strong><a class="headerlink" href="#database-explorer" title="Permanent link">&para;</a></h3>
+<p>You can access the <a href="https://www.postgresql.org/docs/current/ddl-schemas.html">schema</a> and table configuration information of your workspace database.</p>
+<p>Each workspace provides the "public" schema and temporary result tables by default. Queries that do not specify a schema will refer to tables in the "public" schema. Any query executed in the query editor that produces results in tabular form will be stored as a <code>Temporary Result Table</code> with a random table name. This allows you to reuse previous query results as needed.</p>
+<h4 id="table-information"><strong>Table Information</strong><a class="headerlink" href="#table-information" title="Permanent link">&para;</a></h4>
+<p>The database explorer provides information about tables within the schema. Click on a table name to see the following information:</p>
+<h5 id="table-schema"><strong>Table Schema</strong><a class="headerlink" href="#table-schema" title="Permanent link">&para;</a></h5>
+<p>View column names, data types, and nullability of columns in the data table.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_14.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_14.png" style="max-height:none" /></a></p>
+<h5 id="preview"><strong>Preview</strong><a class="headerlink" href="#preview" title="Permanent link">&para;</a></h5>
+<p>Quickly understand the contents of the data table.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Editing data tables is not possible in the preview.</p>
+</div>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_15.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_15.png" style="max-height:none" /></a></p>
+<h4 id="adding-data"><strong>Adding Data</strong><a class="headerlink" href="#adding-data" title="Permanent link">&para;</a></h4>
+<p>This is a feature that allows you to add new tables and schemas to the database. You can open the Add Table Data menu by clicking the <strong><code>+</code></strong> button located in the top right corner of the database explorer.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_3.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_3.png" style="max-height:none" /></a></p>
+<h5 id="add-table"><strong>Add Table</strong><a class="headerlink" href="#add-table" title="Permanent link">&para;</a></h5>
+<p>Add a table to the database. Choose one of the following data source upload methods to proceed. (You can also add a table using the right <strong>+</strong> button in each schema)</p>
+<ol>
+<li>Create New Table Manually</li>
+<li>Local File Upload</li>
+</ol>
+<p><strong>1. Create New Table Manually</strong></p>
+<p>In the "Add Table" window, select <strong>Create New Table</strong> and then click the "Next" button.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_5.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_5.png" style="max-height:none" /></a></p>
+<p>Enter the information for the table you want to create.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_6.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_6.png" style="max-height:none" /></a></p>
+<p>① Select the schema in which to create the table.</p>
+<p>② If the desired schema doesn't exist, you can create a new one.</p>
+<p>③ Enter the name of the table you want to create. It can include letters, numbers, and underscores, but it cannot start with a number. You cannot create tables with duplicate names within the same schema.</p>
+<p>④ Enter the name of each column that makes up the table. This is a required field, and you cannot create columns with duplicate names within the same table.</p>
+<p>⑤ You can select the data type for the respective column. This field must be filled in.</p>
+<p>⑥ Depending on the data type, the available options for adjustment may vary, allowing you to configure the column according to its intended purpose.</p>
+<p>⑦ Deleting the respective column.</p>
+<p>⑧ Adding a new column.</p>
+<p>⑨ Cancelation of "Create New Table Manually".</p>
+<p>⑩ Completion of "Create New Table Manually".</p>
+<p><strong>2. Local File Upload</strong></p>
+<p>After opening the "Add Table" window, select <strong>Local File Upload</strong> and click "Next".</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_7.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_7.png" style="max-height:none" /></a></p>
+<p>Please provide the following information</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_8.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_8.png" style="max-height:none" /></a></p>
+<p>① You can choose the file format (CSV, Excel, etc.). The allowed file extensions are as follows:</p>
+<ul>
+<li>CSV: .csv</li>
+<li>Excel: .xls, .xlsx, .xlsm, .xlsb, .odf, .ods, .odt</li>
+</ul>
+<p>② Upload a file that matches the format.</p>
+<p>③ Select the schema in which to create the table.</p>
+<p>④ If the desired schema does not exist, you can create a new one.</p>
+<p>⑤ Enter the name of the table you want to create. The name can include letters, numbers, and underscores, but it cannot start with a number. You cannot create tables with duplicate names within the same schema.</p>
+<p>⑥ Select the column configuration method: You can choose to automatically detect columns from the uploaded file or input them manually.</p>
+<ul>
+<li>Auto Detection: Automatically detects the columns in the uploaded file.</li>
+<li>Manual Input: Input columns directly, similar to creating a new table from scratch.</li>
+</ul>
+<p>⑦ You can configure the data writing options as follows:</p>
+<ul>
+<li>Write if Empty: Writes data only when the table does not exist already.</li>
+<li>Append to Table: Adds data on top of existing contents if the table already exists.</li>
+<li>Overwrite Table: Overwrites the contents of the table if it already exists.</li>
+</ul>
+<p>⑧ Cancelation of "Local File Upload".</p>
+<p>⑨ Completion of "Local File Upload".</p>
+<h5 id="create-schemas"><strong>Create Schemas</strong><a class="headerlink" href="#create-schemas" title="Permanent link">&para;</a></h5>
+<p>In the Add Data menu, click on <strong>Create Schema</strong> to generate a new schema.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_12.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_12.png" style="max-height:none" /></a></p>
+<p>① Enter the name of the schema you want to create. The schema name can include letters, numbers, and underscores, but it cannot start with a number. You cannot create schemas with duplicate names within the same database.</p>
+<p>② Cancelation of "Create Schema".</p>
+<p>③ Completion of "Create Schema".</p>
+<h4 id="delete-table">Delete Table<a class="headerlink" href="#delete-table" title="Permanent link">&para;</a></h4>
+<p>You can delete a specific table by clicking the right-hand menu button for that table in the database explorer.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_13.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_13.png" style="max-height:none" /></a></p>
+<h3 id="query-logs"><strong>Query Logs</strong><a class="headerlink" href="#query-logs" title="Permanent link">&para;</a></h3>
+<p>All queries executed in Query Manager are logged and can be viewed in the "Query Logs" section. They are listed in descending order of creation time. The logs show the executed query statement and whether the execution was successful.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_16.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_16.png" style="max-height:none" /></a></p>
+<h4 id="query-search-functionality">Query Search Functionality<a class="headerlink" href="#query-search-functionality" title="Permanent link">&para;</a></h4>
+<p>You can enter a keyword to search for query logs that were executed with similar query syntax.</p>
+<h4 id="detailed-information-pane">Detailed Information Pane<a class="headerlink" href="#detailed-information-pane" title="Permanent link">&para;</a></h4>
+<p>Click on a query log to view its detailed information on the right side.</p>
+<p>① Query Information: Displays the ID, success status, creation time, start execution time, end time, and destination table name of the query.</p>
+<p>② Query Statement: Displays the executed query statement.</p>
+<p>③ Error Message: Displays error messages that occurred during query execution.</p>
+<p>④ Open as New Query: Opens the query editor tab with the content of the clicked query.</p>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-30</span>
+      
+    
+  </small>
+</div>
+
+
+  
+
+
+
+
+                
+
+<style>
+  .jupyter-wrapper a {
+    color: var(--md-typeset-a-color);
+  }
+  .jupyter-wrapper table.dataframe {
+    table-layout: auto;
+  }
+  .md-typeset h4 {
+    font-size: 1.1em;
+  }
+  .md-typeset h5 {
+    font-size: 1em;
+  }
+</style>
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Overview" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../lab/" class="md-footer__link md-footer__link--next" aria-label="Next: Lab" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Lab
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      D-201, 39, Maeheon-ro 8-gil, Seocho-gu, Seoul 06770 South Korea<br />Email : contact@smartmind.team<br />Phone : (+82) 070-7151-9357<br /><br />© Since 2018 SmartMind, Inc. All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.expand", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.suggest"], "search": "../../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      
+    
+  </body>
+</html>

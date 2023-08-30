@@ -1,0 +1,3081 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="ThanoSQL Documentation">
+      
+      
+        <meta name="author" content="Smartmind Team">
+      
+      
+        <link rel="canonical" href="https://docs.thanosql.ai/1.5/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_tables/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.2">
+    
+    
+      
+        <title>Table APIs - ThanoSQL</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.9f9400aa.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  
+
+
+  
+  
+
+
+  <script id="__analytics">function __md_analytics(){function n(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],n("js",new Date),n("config","G-8KVG4NMMFK"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){this.value&&n("event","search",{search_term:this.value})}),document$.subscribe(function(){var a=document.forms.feedback;if(void 0!==a)for(var e of a.querySelectorAll("[type=submit]"))e.addEventListener("click",function(e){e.preventDefault();var t=document.location.pathname,e=this.getAttribute("data-md-value");n("event","feedback",{page:t,data:e}),a.firstElementChild.disabled=!0;e=a.querySelector(".md-feedback__note [data-md-value='"+e+"']");e&&(e.hidden=!1)}),a.hidden=!1}),location$.subscribe(function(e){n("config","G-8KVG4NMMFK",{page_path:e.pathname})})});var e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id=G-8KVG4NMMFK",document.getElementById("__analytics").insertAdjacentElement("afterEnd",e)}</script>
+
+  
+    <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+  
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#table-apis" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-component="outdated" hidden>
+        
+          <aside class="md-banner md-banner--warning">
+            <div class="md-banner__inner md-grid md-typeset">
+               You're not viewing the latest
+version.
+<a href="../../../..">
+  <strong>Click here to go to the latest version.</strong>
+</a>
+
+            </div>
+            <script>var el=document.querySelector("[data-md-component=outdated]"),outdated=__md_get("__outdated",sessionStorage);!0===outdated&&el&&(el.hidden=!1)</script>
+          </aside>
+        
+      </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ThanoSQL" class="md-header__button md-logo" aria-label="ThanoSQL" data-md-component="logo">
+      
+  <img src="../../../assets/images/docs_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ThanoSQL
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Table APIs
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <div class="md-header__option">
+        <div class="md-select">
+          
+          <button class="md-header__button md-icon" aria-label="Select language">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.52 17.52 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04M18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12m-2.62 7 1.62-4.33L19.12 17h-3.24Z"/></svg>
+          </button>
+          <div class="md-select__inner">
+            <ul class="md-select__list">
+              
+                <li class="md-select__item">
+                  <a href="./" hreflang="en" class="md-select__link">
+                    English
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="../../../ko/how-to_guides/ThanoSQL_connecting/rest_api_thanosql_tables/" hreflang="ko" class="md-select__link">
+                    한국어
+                  </a>
+                </li>
+                
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/smartmind-team/thanosql-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    smartmind-team/thanosql-docs
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../../.." class="md-tabs__link">
+      Intro
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../getting_started/web_manual/" class="md-tabs__link">
+        Getting Started
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../tutorials/algorithm_list/" class="md-tabs__link">
+        Tutorials
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../reference/" class="md-tabs__link md-tabs__link--active">
+        Reference
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../FAQ/frequently_asked_question/" class="md-tabs__link">
+        FAQ
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ThanoSQL" class="md-nav__button md-logo" aria-label="ThanoSQL" data-md-component="logo">
+      
+  <img src="../../../assets/images/docs_logo.png" alt="logo">
+
+    </a>
+    ThanoSQL
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/smartmind-team/thanosql-docs" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    smartmind-team/thanosql-docs
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        Intro
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Getting Started
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Getting Started
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting_started/web_manual/" class="md-nav__link">
+        ThanoSQL Web Manual
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting_started/data_upload/" class="md-nav__link">
+        How to Upload Your Data to the ThanoSQL Workspace
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_3" type="checkbox" id="__nav_2_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3">
+          PaaS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="PaaS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          PaaS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_3_1" type="checkbox" id="__nav_2_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1">
+          Workspace
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Workspace" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Workspace
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting_started/paas/workspace/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting_started/paas/workspace/query_manager/" class="md-nav__link">
+        Query Manager
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting_started/paas/workspace/lab/" class="md-nav__link">
+        Lab
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_4" type="checkbox" id="__nav_2_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4">
+          SasS
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="SasS" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          SasS
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_4_1" type="checkbox" id="__nav_2_4_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_1">
+          AutoCRM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="AutoCRM" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          AutoCRM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting_started/saas/autocrm/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_2_4_2" type="checkbox" id="__nav_2_4_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4_2">
+          Query Everything
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Query Everything" data-md-level="3">
+        <label class="md-nav__title" for="__nav_2_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Query Everything
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../getting_started/saas/qe/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/algorithm_list/" class="md-nav__link">
+        ThanoSQL All Tutorials
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_2" type="checkbox" id="__nav_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2">
+          ThanoSQL Search
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ThanoSQL Search" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          ThanoSQL Search
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_search/search_image_by_keyword/" class="md-nav__link">
+        Search Image by Keyword
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_search/search_image_by_image/" class="md-nav__link">
+        Search Image by Image
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_search/search_image_by_text/" class="md-nav__link">
+        Search Image by Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_search/search_text_by_text/" class="md-nav__link">
+        Search Text by Text
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_search/search_video_by_text/" class="md-nav__link">
+        Search Video by Text
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3" type="checkbox" id="__nav_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3">
+          ThanoSQL ML
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ThanoSQL ML" data-md-level="2">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          ThanoSQL ML
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_1" type="checkbox" id="__nav_3_3_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_1">
+          Classification
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Classification" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Classification
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_ml/classification/automl_classification/" class="md-nav__link">
+        Create a Classification Model Using AutoML
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_ml/classification/image_classification/" class="md-nav__link">
+        Create an Image Classification Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_ml/classification/text_classification/" class="md-nav__link">
+        Create a Text Classification Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_2" type="checkbox" id="__nav_3_3_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_2">
+          Regression
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Regression" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Regression
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_ml/regression/automl_regression/" class="md-nav__link">
+        Create a Regression Model Using AutoML
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_3" type="checkbox" id="__nav_3_3_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_3">
+          Audio recognition
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Audio recognition" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Audio recognition
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_ml/audio_recognition/speech_recognition/" class="md-nav__link">
+        Create a Speech Recognition Model
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_ml/audio_recognition/speech_recognition2/" class="md-nav__link">
+        Using a Speech Recognition Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_4" type="checkbox" id="__nav_3_3_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_4">
+          Question answering
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Question answering" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Question answering
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_ml/question_answering/visual_question_answering/" class="md-nav__link">
+        Use the Visual Question Answering Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_3_3_5" type="checkbox" id="__nav_3_3_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3_5">
+          Timeseries
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Timeseries" data-md-level="3">
+        <label class="md-nav__title" for="__nav_3_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Timeseries
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_ml/timeseries/timeseries_forecasting/" class="md-nav__link">
+        Create a Time Series Forecasting Model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../tutorials/thanosql_ml/udm_tutorial/" class="md-nav__link">
+        Using the Custom Model in ThanoSQL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Reference
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Reference" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Reference
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/" class="md-nav__link">
+        Reference
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2">
+          ThanoSQL Statement
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="ThanoSQL Statement" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          ThanoSQL Statement
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/BUILD_MODEL_SYNTAX/" class="md-nav__link">
+        BUILD MODEL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/FIT_MODEL_SYNTAX/" class="md-nav__link">
+        FIT MODEL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/UPLOAD_MODEL_SYNTAX/" class="md-nav__link">
+        UPLOAD MODEL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/DELETE_MODEL_SYNTAX/" class="md-nav__link">
+        DELETE  MODEL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/PREDICT_SYNTAX/" class="md-nav__link">
+        PREDICT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/EVALUATE_SYNTAX/" class="md-nav__link">
+        EVALUATE
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/CONVERT_SYNTAX/" class="md-nav__link">
+        CONVERT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/SEARCH_SYNTAX/" class="md-nav__link">
+        SEARCH
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/PRINT_SYNTAX/" class="md-nav__link">
+        PRINT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/GET_SYNTAX/" class="md-nav__link">
+        GET
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/LIST_SYNTAX/" class="md-nav__link">
+        LIST
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/COPY_SYNTAX/" class="md-nav__link">
+        COPY
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_query/FUNCTION_SYNTAX/" class="md-nav__link">
+        FUNCTION
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_3" type="checkbox" id="__nav_4_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3">
+          Model Statement
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Model Statement" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Model Statement
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/AutomlClassifier/" class="md-nav__link">
+        AutomlClassifier
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/AutomlRegressor/" class="md-nav__link">
+        AutomlRegressor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/ConvNeXt_EfficientNet/" class="md-nav__link">
+        ConvNeXt & EfficientNet
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/Albert_Electra/" class="md-nav__link">
+        Albert & Electra
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/Wav2Vec2/" class="md-nav__link">
+        Wav2Vec2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/SimCLR/" class="md-nav__link">
+        SimCLR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/CLIP/" class="md-nav__link">
+        CLIP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/SBERT/" class="md-nav__link">
+        SBERT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/Whisper/" class="md-nav__link">
+        Whisper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/XCLIP/" class="md-nav__link">
+        XCLIP
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/ViLT/" class="md-nav__link">
+        ViLT
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_model/TFT/" class="md-nav__link">
+        Temporal Fusion Transformer(TFT)
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_4_4" type="checkbox" id="__nav_4_4" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4">
+          Function Statement
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Function Statement" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Function Statement
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_function/Compute/" class="md-nav__link">
+        Compute
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ThanoSQL_function/Preprocess/" class="md-nav__link">
+        Preprocess
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_5" type="checkbox" id="__nav_4_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_5">
+          REST API
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="REST API" data-md-level="2">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          REST API
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest_api_thanosql_query/" class="md-nav__link">
+        Query APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest_api_thanosql_file/" class="md-nav__link">
+        File APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest_api_thanosql_search/" class="md-nav__link">
+        Search APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Table APIs
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Table APIs
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-table" class="md-nav__link">
+    GET /table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-tabletable_name" class="md-nav__link">
+    GET /table/{table_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#put-tabletable_name" class="md-nav__link">
+    PUT /table/{table_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-tabletable_name" class="md-nav__link">
+    POST /table/{table_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-tabletable_name" class="md-nav__link">
+    DELETE /table/{table_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecords" class="md-nav__link">
+    GET /table/{table_name}/records
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecordscsv" class="md-nav__link">
+    GET /table/{table_name}/records/csv
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records/csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-tabletable_namerecords" class="md-nav__link">
+    POST /table/{table_name}/records
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-tabletable_nameuploadcsv" class="md-nav__link">
+    POST /table/{table_name}/upload/csv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-tabletable_nameuploadexcel" class="md-nav__link">
+    POST /table/{table_name}/upload/excel
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest_api_thanosql_table_templates/" class="md-nav__link">
+        Table Template APIs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../rest_api_thanosql_schema/" class="md-nav__link">
+        Schema APIs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          FAQ
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="FAQ" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          FAQ
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../FAQ/frequently_asked_question/" class="md-nav__link">
+        FAQs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-table" class="md-nav__link">
+    GET /table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-tabletable_name" class="md-nav__link">
+    GET /table/{table_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#put-tabletable_name" class="md-nav__link">
+    PUT /table/{table_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-tabletable_name" class="md-nav__link">
+    POST /table/{table_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-tabletable_name" class="md-nav__link">
+    DELETE /table/{table_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecords" class="md-nav__link">
+    GET /table/{table_name}/records
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-tabletable_namerecordscsv" class="md-nav__link">
+    GET /table/{table_name}/records/csv
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /table/{table_name}/records/csv">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_1" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-tabletable_namerecords" class="md-nav__link">
+    POST /table/{table_name}/records
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-tabletable_nameuploadcsv" class="md-nav__link">
+    POST /table/{table_name}/upload/csv
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-tabletable_nameuploadexcel" class="md-nav__link">
+    POST /table/{table_name}/upload/excel
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                  
+                  
+
+
+<h1 id="table-apis"><strong>Table APIs</strong><a class="headerlink" href="#table-apis" title="Permanent link">&para;</a></h1>
+<p>You can use the ThanoSQL Table REST API for several CRUD operations on your ThanoSQL DB tables.</p>
+<div class="admonition note">
+<p class="admonition-title"><strong>Table Object</strong></p>
+<p>A table object consists of four main components:</p>
+<ol>
+<li>*<code>name</code>: The name of the table</li>
+<li>*<code>schema</code>: The schema that the table is a part of</li>
+<li><code>columns</code><ul>
+<li><code>id</code>: The ordinal position of the column</li>
+<li><code>default</code>: The default value of the column</li>
+<li><code>is_nullable</code>: A boolean determining if the column is nullable</li>
+<li><code>type</code>: <a href="https://www.postgresql.org/docs/current/datatype.html#:~:text=Table%C2%A08.1.%C2%A0Data%20Types">Data type</a> of the column</li>
+<li><code>name</code>: The name of the column</li>
+</ul>
+</li>
+<li><code>constraints</code><ul>
+<li><code>primary_key</code>: The primary key of the table <ul>
+<li><code>name</code>: The constraint name of the primary key</li>
+<li><code>columns</code>: The columns that make up the primary key</li>
+</ul>
+</li>
+<li><code>foreign_keys</code>: <ul>
+<li><code>name</code>: The constraint name of the foreign key</li>
+<li><code>reference_schema</code>: The schema that contains the <code>reference_table</code></li>
+<li><code>reference_table</code>: The table that contains the <code>reference_column</code></li>
+<li><code>reference_column</code>: The column that the foreign key is referring to</li>
+<li><code>column</code>: The foreign key column</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><em>The above components that have a * next to its name will not be included in the body for the POST table API. Instead, it will be specified in the URL as query parameters.</em></p>
+</div>
+<h2 id="get-table"><strong><code>GET</code> /table</strong><a class="headerlink" href="#get-table" title="Permanent link">&para;</a></h2>
+<p>In order to get a list of all of your tables, use the method below. If no <code>schema</code> is provided, then tables from every schemas will be listed.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">## SEARCH WITH IMAGE</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table/?schema=public&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="get-tabletable_name"><strong><code>GET</code> /table/{table_name}</strong><a class="headerlink" href="#get-tabletable_name" title="Permanent link">&para;</a></h2>
+<p>Use this method to get the objects of a single table. If no <code>schema</code> query parameter is provided, the parameter defaults to the public schema.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">## SEARCH WITH IMAGE</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}/?schema=public&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="put-tabletable_name"><strong><code>PUT</code> /table/{table_name}</strong><a class="headerlink" href="#put-tabletable_name" title="Permanent link">&para;</a></h2>
+<p>The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the <code>table_name</code> and <code>schema</code>. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. If no <code>schema</code> query parameter is provided, the parameter defaults to the public schema.</p>
+<div class="admonition note">
+<p class="admonition-title"><strong>Order Execution</strong></p>
+<p>The order of execution of the ALTER is as follows:</p>
+<p>DROP PRIMARY KEY -&gt; DROP FOREIGN KEY -&gt; DROP COLUMN -&gt; ADD COLUMN -&gt; ALTER COLUMN -&gt; RENAME COLUMN -&gt; ADD PRIMARY KEY -&gt; ADD FOREIGN KEY -&gt; RENAME TABLE -&gt; SET SCHEMA</p>
+</div>
+<div class="admonition warning">
+<p>When dealing with columns, it is important to note that the id is the unique key that is used to identify the column. If this value is deleted, that means that the column will also be deleted. If you are making a change to the column, <strong>make sure that the column id is present in the body</strong>! When adding a new column, a column_id is not required as it will be assigned after the column is created.</p>
+</div>
+<p>In the following example lets pretend we want to alter the table object below:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="nt">&quot;table&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;account&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;public&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;nextval(&#39;accounts_user_id_seq&#39;::regclass)&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;is_nullable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_id&quot;</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;default&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;is_nullable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;character varying&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;username&quot;</span>
+<span class="w">        </span><span class="p">}],</span>
+<span class="w">        </span><span class="nt">&quot;constraints&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nt">&quot;primary_key&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;accounts_pkey&quot;</span><span class="p">,</span>
+<span class="w">            </span><span class="nt">&quot;columns&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="s2">&quot;user_id&quot;</span>
+<span class="w">            </span><span class="p">]</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nt">&quot;foreign_keys&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;account_id_fkey&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;reference_schema&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;public&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;reference_column&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;role_id&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;reference_table&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;roles&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">&quot;column&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;user_id&quot;</span>
+<span class="w">            </span><span class="p">}]</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>The following changes will be applied:</p>
+<ul>
+<li>Change the user_id column name to id.</li>
+<li>Change the username column to is nullable.</li>
+<li>Remove both the primary key and foreign key constraints.</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+
+<span class="n">new_table</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;table&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;account&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;schema&quot;</span><span class="p">:</span> <span class="s2">&quot;public&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;nextval(&#39;accounts_user_id_seq&#39;::regclass)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;id&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;character varying&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;character varying&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span>
+            <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;primary_key&quot;</span><span class="p">:</span> <span class="p">{},</span>
+                <span class="s2">&quot;foreign_keys&quot;</span><span class="p">:</span> <span class="p">[]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">## Alter Table</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">header</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">new_table</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;PUT&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}?schema={schema}&#39;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">    &quot;table&quot;: {</span>
+<span class="s1">        &quot;name&quot;: &quot;account&quot;,</span>
+<span class="s1">        &quot;schema&quot;: &quot;public&quot;,</span>
+<span class="s1">        &quot;columns&quot;: [</span>
+<span class="s1">        {</span>
+<span class="s1">            &quot;id&quot;: 1,</span>
+<span class="s1">            &quot;default&quot;: &quot;nextval(&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;accounts_user_id_seq&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;::regclass)&quot;,</span>
+<span class="s1">            &quot;is_nullable&quot;: false,</span>
+<span class="s1">            &quot;type&quot;: &quot;integer&quot;,</span>
+<span class="s1">            &quot;name&quot;: &quot;id&quot;</span>
+<span class="s1">        },</span>
+<span class="s1">        {</span>
+<span class="s1">            &quot;id&quot;: 2,</span>
+<span class="s1">            &quot;default&quot;: null,</span>
+<span class="s1">            &quot;is_nullable&quot;: true,</span>
+<span class="s1">            &quot;type&quot;: &quot;character varying&quot;,</span>
+<span class="s1">            &quot;name&quot;: &quot;username&quot;</span>
+<span class="s1">        },</span>
+<span class="s1">        {</span>
+<span class="s1">            &quot;default&quot;: null,</span>
+<span class="s1">            &quot;is_nullable&quot;: false,</span>
+<span class="s1">            &quot;type&quot;: &quot;character varying&quot;,</span>
+<span class="s1">            &quot;name&quot;: &quot;password&quot;</span>
+<span class="s1">        }</span>
+<span class="s1">        ],</span>
+<span class="s1">        &quot;constraints&quot;: {</span>
+<span class="s1">            &quot;primary_key&quot;: {},</span>
+<span class="s1">            &quot;foreign_keys&quot;: []</span>
+<span class="s1">        }</span>
+<span class="s1">    }</span>
+<span class="s1">}&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="post-tabletable_name"><strong><code>POST</code> /table/{table_name}</strong><a class="headerlink" href="#post-tabletable_name" title="Permanent link">&para;</a></h2>
+<p>Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the <code>table_name</code> and <code>schema</code> as query params. If no <code>schema</code> query parameter is provided, the parameter defaults to the public schema.</p>
+<div class="admonition note">
+<p class="admonition-title">Tip</p>
+<p>When adding Column objects to the list of columns, there is no need to specify the id since the id just refers to the ordinal position of the column. Additionally if the table is created with an empty body, an empty table will be created. If no table_name is specified, the table will be created with a random uuid string.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+
+<span class="c1"># Note that the name and schema keys are missing from the body</span>
+<span class="n">new_table</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;table&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;nextval(&#39;accounts_user_id_seq&#39;::regclass)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user_id&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;character varying&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;character varying&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span>
+            <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;primary_key&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;accounts_pkey&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;user_id&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;foreign_keys&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;account_id_fkey&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;reference_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;public&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;reference_column&quot;</span><span class="p">:</span> <span class="s2">&quot;role_id&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;reference_table&quot;</span><span class="p">:</span> <span class="s2">&quot;roles&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;column&quot;</span><span class="p">:</span> <span class="s2">&quot;user_id&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">## Create Table</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">header</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">new_table</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}?schema={schema}&#39;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+-d<span class="w"> </span><span class="s1">&#39;{</span>
+<span class="s1">        &quot;table&quot;: {</span>
+<span class="s1">            &quot;columns&quot;: [</span>
+<span class="s1">            {</span>
+<span class="s1">                &quot;default&quot;: &quot;nextval(&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;accounts_user_id_seq&#39;</span><span class="se">\&#39;</span><span class="s1">&#39;::regclass)&quot;,</span>
+<span class="s1">                &quot;is_nullable&quot;: false,</span>
+<span class="s1">                &quot;type&quot;: &quot;integer&quot;,</span>
+<span class="s1">                &quot;name&quot;: &quot;user_id&quot;</span>
+<span class="s1">            },</span>
+<span class="s1">            {</span>
+<span class="s1">                &quot;default&quot;: null,</span>
+<span class="s1">                &quot;is_nullable&quot;: true,</span>
+<span class="s1">                &quot;type&quot;: &quot;character varying&quot;,</span>
+<span class="s1">                &quot;name&quot;: &quot;username&quot;</span>
+<span class="s1">            },</span>
+<span class="s1">            {</span>
+<span class="s1">                &quot;default&quot;: null,</span>
+<span class="s1">                &quot;is_nullable&quot;: true,</span>
+<span class="s1">                &quot;type&quot;: &quot;character varying&quot;,</span>
+<span class="s1">                &quot;name&quot;: &quot;password&quot;</span>
+<span class="s1">            }</span>
+<span class="s1">            ],</span>
+<span class="s1">            &quot;constraints&quot;: {</span>
+<span class="s1">                &quot;primary_key&quot;: {</span>
+<span class="s1">                    &quot;name&quot;: &quot;accounts_pkey&quot;,</span>
+<span class="s1">                    &quot;columns&quot;: [</span>
+<span class="s1">                    &quot;user_id&quot;</span>
+<span class="s1">                    ]</span>
+<span class="s1">                },</span>
+<span class="s1">                &quot;foreign_keys&quot;: [</span>
+<span class="s1">                    {</span>
+<span class="s1">                        &quot;name&quot;: &quot;account_id_fkey&quot;,</span>
+<span class="s1">                        &quot;reference_schema&quot;: &quot;public&quot;,</span>
+<span class="s1">                        &quot;reference_column&quot;: &quot;role_id&quot;,</span>
+<span class="s1">                        &quot;reference_table&quot;: &quot;roles&quot;,</span>
+<span class="s1">                        &quot;column&quot;: &quot;user_id&quot;</span>
+<span class="s1">                    }</span>
+<span class="s1">                ]</span>
+<span class="s1">            }</span>
+<span class="s1">        }</span>
+<span class="s1">    }&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="delete-tabletable_name"><strong><code>DELETE</code> /table/{table_name}</strong><a class="headerlink" href="#delete-tabletable_name" title="Permanent link">&para;</a></h2>
+<p>To delete a table, use the method below. If no <code>schema</code> query parameter is provided, the parameter defaults to the public schema.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="c1">## DELETE Table</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;DELETE&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}?schema=public&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="get-tabletable_namerecords"><strong><code>GET</code> /table/{table_name}/records</strong><a class="headerlink" href="#get-tabletable_namerecords" title="Permanent link">&para;</a></h2>
+<p>Retrieves the records of a table in a schema.</p>
+<h3 id="parameters"><strong>Parameters</strong><a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>table_name</code>: The table name to retrieve the records from</li>
+<li><code>schema</code>: The schema to search the table in (default: 'public')</li>
+<li><code>offset</code>: The offset to where the pagination count will start from (default: to 0)</li>
+<li><code>limit</code>: The maximum number of records to retrieve starting from the offset (defaults: 100, max: 100)</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table name&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Target schema&quot;</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="p">{</span><span class="n">Offset</span><span class="p">}</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="p">{</span><span class="n">Limit</span><span class="p">}</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">/records?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&amp;offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}/records?schema={schema}&amp;offset={offset}&amp;limit={limit}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="get-tabletable_namerecordscsv"><strong><code>GET</code> /table/{table_name}/records/csv</strong><a class="headerlink" href="#get-tabletable_namerecordscsv" title="Permanent link">&para;</a></h2>
+<p>Retrieves the records of a table in a schema as a CSV file.</p>
+<h3 id="parameters_1"><strong>Parameters</strong><a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>table_name</code>: The table name to retrieve the records from</li>
+<li><code>schema</code>: The schema to search the table in (default: 'public')</li>
+<li><code>timezone_offset</code>: The timezone offset applied to the datetime formats (default: 9)</li>
+</ul>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table name&quot;</span>
+<span class="n">timezone_offset</span> <span class="o">=</span> <span class="s2">&quot;Timezone offset from GMT (default: 9 (GMT+9, Seoul time))&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">/records/csv?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&amp;timezone_offset=</span><span class="si">{</span><span class="n">timezone_offset</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}/records/csv?schema={schema}&amp;timezone_offset={timezone_offset}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="post-tabletable_namerecords"><strong><code>POST</code> /table/{table_name}/records</strong><a class="headerlink" href="#post-tabletable_namerecords" title="Permanent link">&para;</a></h2>
+<p>Inserts row(s) of new records into a table in a schema.</p>
+<div class="admonition note">
+<p class="admonition-title">Tip</p>
+<p>If the (existing) table columns and inserted row(s) don't match, the API will throw an error. Furthermore, since Postgres automatically converts all column names to lowercase, you can only use the API if all column names in the table are lowercase.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label><label for="__tabbed_8_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
+<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+
+<span class="c1"># here we are inserting three rows</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;abc&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;abc123&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;def&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;def456&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;user_id&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                <span class="s2">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;ghi&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;ghi789&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">/records?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">data</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}/records?schema={schema}&#39;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+-d<span class="w"> </span><span class="s1">&#39;[</span>
+<span class="s1">        {</span>
+<span class="s1">            &quot;user_id&quot;: 1,</span>
+<span class="s1">            &quot;username&quot;: &quot;abc&quot;,</span>
+<span class="s1">            &quot;password&quot;: &quot;abc123&quot;</span>
+<span class="s1">        },</span>
+<span class="s1">        {</span>
+<span class="s1">            &quot;user_id&quot;: 2,</span>
+<span class="s1">            &quot;username&quot;: &quot;def&quot;,</span>
+<span class="s1">            &quot;password&quot;: &quot;def456&quot;</span>
+<span class="s1">        },</span>
+<span class="s1">        {</span>
+<span class="s1">            &quot;user_id&quot;: 3,</span>
+<span class="s1">            &quot;username&quot;: &quot;ghi&quot;,</span>
+<span class="s1">            &quot;password&quot;: &quot;ghi789&quot;</span>
+<span class="s1">        }</span>
+<span class="s1">    ]&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="post-tabletable_nameuploadcsv"><strong><code>POST</code> /table/{table_name}/upload/csv</strong><a class="headerlink" href="#post-tabletable_nameuploadcsv" title="Permanent link">&para;</a></h2>
+<p>Inserts records from a CSV file into a table in a schema.</p>
+<div class="admonition note">
+<p class="admonition-title">Tip</p>
+<p>Unlike most other methods, this method uses <code>multipart/form-data</code> instead of <code>application/json</code> as its encoding in order to facilitate a file upload. While a file is required, a body is not. The structure of the table will be inferred from the file in case a body is not provided. When provided, the API will use the body as a base for the table structure. If the file and the body does not match, the API will throw an error.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Python</label><label for="__tabbed_9_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
+<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">if_exists</span> <span class="o">=</span> <span class="s2">&quot;What to do if table of the same name already exists (one of fail, append, or overwrite)&quot;</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;CSV file to be uploaded&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;table&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;nextval(&#39;accounts_user_id_seq&#39;::regclass)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user_id&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;character varying&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;character varying&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span>
+            <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;primary_key&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;accounts_pkey&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;user_id&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;foreign_keys&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;account_id_fkey&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;reference_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;public&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;reference_column&quot;</span><span class="p">:</span> <span class="s2">&quot;role_id&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;reference_table&quot;</span><span class="p">:</span> <span class="s2">&quot;roles&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;column&quot;</span><span class="p">:</span> <span class="s2">&quot;user_id&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="n">csv_files</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="n">file_name</span><span class="p">,</span>
+        <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">),</span>
+        <span class="s2">&quot;text/csv&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+        <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">/upload/csv?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&amp;if_exists=</span><span class="si">{</span><span class="n">if_exists</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">csv_files</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}/upload/csv?schema={schema}&amp;if_exists={if_exists}&#39;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s1">&#39;Content-Type: multipart/form-data&#39;</span><span class="w"> </span><span class="se">\</span>
+-F<span class="w"> </span><span class="s1">&#39;file=@file_name;type=text/csv&#39;</span>
+-F<span class="w"> </span><span class="s1">&#39;body={</span>
+<span class="s1">        &quot;table&quot;: {</span>
+<span class="s1">            &quot;columns&quot;: [</span>
+<span class="s1">            {</span>
+<span class="s1">                &quot;default&quot;: &quot;nextval(&#39;</span>accounts_user_id_seq<span class="s1">&#39;::regclass)&quot;,</span>
+<span class="s1">                &quot;is_nullable&quot;: False,</span>
+<span class="s1">                &quot;type&quot;: &quot;integer&quot;,</span>
+<span class="s1">                &quot;name&quot;: &quot;user_id&quot;</span>
+<span class="s1">            },</span>
+<span class="s1">            {</span>
+<span class="s1">                &quot;default&quot;: None,</span>
+<span class="s1">                &quot;is_nullable&quot;: True,</span>
+<span class="s1">                &quot;type&quot;: &quot;character varying&quot;,</span>
+<span class="s1">                &quot;name&quot;: &quot;username&quot;</span>
+<span class="s1">            },</span>
+<span class="s1">            {</span>
+<span class="s1">                &quot;default&quot;: None,</span>
+<span class="s1">                &quot;is_nullable&quot;: False,</span>
+<span class="s1">                &quot;type&quot;: &quot;character varying&quot;,</span>
+<span class="s1">                &quot;name&quot;: &quot;password&quot;</span>
+<span class="s1">            }</span>
+<span class="s1">            ],</span>
+<span class="s1">            &quot;constraints&quot;: {</span>
+<span class="s1">                &quot;primary_key&quot;: {</span>
+<span class="s1">                    &quot;name&quot;: &quot;accounts_pkey&quot;,</span>
+<span class="s1">                    &quot;columns&quot;: [</span>
+<span class="s1">                    &quot;user_id&quot;</span>
+<span class="s1">                    ]</span>
+<span class="s1">                },</span>
+<span class="s1">                &quot;foreign_keys&quot;: [</span>
+<span class="s1">                    {</span>
+<span class="s1">                        &quot;name&quot;: &quot;account_id_fkey&quot;,</span>
+<span class="s1">                        &quot;reference_schema&quot;: &quot;public&quot;,</span>
+<span class="s1">                        &quot;reference_column&quot;: &quot;role_id&quot;,</span>
+<span class="s1">                        &quot;reference_table&quot;: &quot;roles&quot;,</span>
+<span class="s1">                        &quot;column&quot;: &quot;user_id&quot;</span>
+<span class="s1">                    }</span>
+<span class="s1">                ]</span>
+<span class="s1">            }</span>
+<span class="s1">        }</span>
+<span class="s1">    }&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="post-tabletable_nameuploadexcel"><strong><code>POST</code> /table/{table_name}/upload/excel</strong><a class="headerlink" href="#post-tabletable_nameuploadexcel" title="Permanent link">&para;</a></h2>
+<p>Inserts records from an Excel-like file (xls, xlsx, xlsm, xlsb, odf, ods and odt) into a table in a schema. Works the same way as uploading CSV file.</p>
+<div class="admonition note">
+<p class="admonition-title">Tip</p>
+<p>Pay attention to the different types of Excel file while specifying the content file type. Refer to <a href="https://zappysys.zendesk.com/hc/en-us/articles/360034303774-Which-Content-Type-is-used-for-Multi-Part-Upload-File-Extension">this page</a>, for instance, for reference.</p>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Python</label><label for="__tabbed_10_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">table_name</span> <span class="o">=</span> <span class="s2">&quot;Table Name&quot;</span>
+<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table&quot;</span>
+<span class="n">schema</span> <span class="o">=</span> <span class="s2">&quot;Schema Name&quot;</span>
+<span class="n">if_exists</span> <span class="o">=</span> <span class="s2">&quot;What to do if table of the same name already exists (one of fail, append, or overwrite)&quot;</span>
+
+<span class="n">file_name</span> <span class="o">=</span> <span class="s2">&quot;Excel file to be uploaded&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;table&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;nextval(&#39;accounts_user_id_seq&#39;::regclass)&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;integer&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;user_id&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;character varying&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;username&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+                <span class="s2">&quot;is_nullable&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+                <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;character varying&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;password&quot;</span>
+            <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">&quot;constraints&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;primary_key&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;accounts_pkey&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="s2">&quot;user_id&quot;</span>
+                    <span class="p">]</span>
+                <span class="p">},</span>
+                <span class="s2">&quot;foreign_keys&quot;</span><span class="p">:</span> <span class="p">[</span>
+                    <span class="p">{</span>
+                        <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;account_id_fkey&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;reference_schema&quot;</span><span class="p">:</span> <span class="s2">&quot;public&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;reference_column&quot;</span><span class="p">:</span> <span class="s2">&quot;role_id&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;reference_table&quot;</span><span class="p">:</span> <span class="s2">&quot;roles&quot;</span><span class="p">,</span>
+                        <span class="s2">&quot;column&quot;</span><span class="p">:</span> <span class="s2">&quot;user_id&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="c1"># in case of xlsx</span>
+<span class="n">excel_files</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="n">file_name</span><span class="p">,</span>
+        <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">),</span>
+        <span class="s2">&quot;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="s2">&quot;body&quot;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span>
+        <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_name</span><span class="si">}</span><span class="s2">/upload/excel?schema=</span><span class="si">{</span><span class="n">schema</span><span class="si">}</span><span class="s2">&amp;if_exists=</span><span class="si">{</span><span class="n">if_exists</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">excel_files</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="s1">&#39;https://{your-engine-url}/api/v1/table/{table_name}/upload/excel?schema={schema}&amp;if_exists={if_exists}&#39;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+-H<span class="w"> </span><span class="s1">&#39;Content-Type: multipart/form-data&#39;</span><span class="w"> </span><span class="se">\</span>
+-F<span class="w"> </span><span class="s1">&#39;file=@file_name;type=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&#39;</span>
+-F<span class="w"> </span><span class="s1">&#39;body={</span>
+<span class="s1">        &quot;table&quot;: {</span>
+<span class="s1">            &quot;columns&quot;: [</span>
+<span class="s1">            {</span>
+<span class="s1">                &quot;default&quot;: &quot;nextval(&#39;</span>accounts_user_id_seq<span class="s1">&#39;::regclass)&quot;,</span>
+<span class="s1">                &quot;is_nullable&quot;: False,</span>
+<span class="s1">                &quot;type&quot;: &quot;integer&quot;,</span>
+<span class="s1">                &quot;name&quot;: &quot;user_id&quot;</span>
+<span class="s1">            },</span>
+<span class="s1">            {</span>
+<span class="s1">                &quot;default&quot;: None,</span>
+<span class="s1">                &quot;is_nullable&quot;: True,</span>
+<span class="s1">                &quot;type&quot;: &quot;character varying&quot;,</span>
+<span class="s1">                &quot;name&quot;: &quot;username&quot;</span>
+<span class="s1">            },</span>
+<span class="s1">            {</span>
+<span class="s1">                &quot;default&quot;: None,</span>
+<span class="s1">                &quot;is_nullable&quot;: False,</span>
+<span class="s1">                &quot;type&quot;: &quot;character varying&quot;,</span>
+<span class="s1">                &quot;name&quot;: &quot;password&quot;</span>
+<span class="s1">            }</span>
+<span class="s1">            ],</span>
+<span class="s1">            &quot;constraints&quot;: {</span>
+<span class="s1">                &quot;primary_key&quot;: {</span>
+<span class="s1">                    &quot;name&quot;: &quot;accounts_pkey&quot;,</span>
+<span class="s1">                    &quot;columns&quot;: [</span>
+<span class="s1">                    &quot;user_id&quot;</span>
+<span class="s1">                    ]</span>
+<span class="s1">                },</span>
+<span class="s1">                &quot;foreign_keys&quot;: [</span>
+<span class="s1">                    {</span>
+<span class="s1">                        &quot;name&quot;: &quot;account_id_fkey&quot;,</span>
+<span class="s1">                        &quot;reference_schema&quot;: &quot;public&quot;,</span>
+<span class="s1">                        &quot;reference_column&quot;: &quot;role_id&quot;,</span>
+<span class="s1">                        &quot;reference_table&quot;: &quot;roles&quot;,</span>
+<span class="s1">                        &quot;column&quot;: &quot;user_id&quot;</span>
+<span class="s1">                    }</span>
+<span class="s1">                ]</span>
+<span class="s1">            }</span>
+<span class="s1">        }</span>
+<span class="s1">    }&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+
+  <hr>
+<div class="md-source-file">
+  <small>
+    
+      Last update:
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-30</span>
+      
+    
+  </small>
+</div>
+
+
+  
+
+
+
+
+                
+
+<style>
+  .jupyter-wrapper a {
+    color: var(--md-typeset-a-color);
+  }
+  .jupyter-wrapper table.dataframe {
+    table-layout: auto;
+  }
+  .md-typeset h4 {
+    font-size: 1.1em;
+  }
+  .md-typeset h5 {
+    font-size: 1em;
+  }
+</style>
+
+              </article>
+            </div>
+          
+          
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" hidden>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+            Back to top
+          </a>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
+        
+        <a href="../rest_api_thanosql_search/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Search APIs" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Search APIs
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../rest_api_thanosql_table_templates/" class="md-footer__link md-footer__link--next" aria-label="Next: Table Template APIs" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Table Template APIs
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      D-201, 39, Maeheon-ro 8-gil, Seocho-gu, Seoul 06770 South Korea<br />Email : contact@smartmind.team<br />Phone : (+82) 070-7151-9357<br /><br />© Since 2018 SmartMind, Inc. All Rights Reserved.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.expand", "navigation.sections", "navigation.tabs", "navigation.tabs.sticky", "navigation.top", "navigation.tracking", "search.highlight", "search.suggest"], "search": "../../../assets/javascripts/workers/search.ecf98df9.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.39f04ddb.min.js"></script>
+      
+    
+  </body>
+</html>
