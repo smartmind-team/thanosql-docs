@@ -537,17 +537,17 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
     data = [
                 {
                     "user_id": 1,
-                    "username": "abc,
+                    "username": "abc",
                     "password": "abc123"
                 },
                 {
                     "user_id": 2,
-                    "username": "def,
+                    "username": "def",
                     "password": "def456"
                 },
                 {
                     "user_id": 3,
-                    "username": "ghi,
+                    "username": "ghi",
                     "password": "ghi789"
                 }
             ]
@@ -573,17 +573,17 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
     -d '[
             {
                 "user_id": 1,
-                "username": "abc,
+                "username": "abc",
                 "password": "abc123"
             },
             {
                 "user_id": 2,
-                "username": "def,
+                "username": "def",
                 "password": "def456"
             },
             {
                 "user_id": 3,
-                "username": "ghi,
+                "username": "ghi",
                 "password": "ghi789"
             }
         ]'

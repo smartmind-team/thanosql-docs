@@ -534,7 +534,7 @@ Inserts row(s) of new records into a table in a schema.
     data = [
                 {
                     "user_id": 1,
-                    "username": "abc,
+                    "username": "abc",
                     "password": "abc123"
                 },
                 {
@@ -544,7 +544,7 @@ Inserts row(s) of new records into a table in a schema.
                 },
                 {
                     "user_id": 3,
-                    "username": "ghi,
+                    "username": "ghi",
                     "password": "ghi789"
                 }
             ]
@@ -570,17 +570,17 @@ Inserts row(s) of new records into a table in a schema.
     -d '[
             {
                 "user_id": 1,
-                "username": "abc,
+                "username": "abc",
                 "password": "abc123"
             },
             {
                 "user_id": 2,
-                "username": "def,
+                "username": "def",
                 "password": "def456"
             },
             {
                 "user_id": 3,
-                "username": "ghi,
+                "username": "ghi",
                 "password": "ghi789"
             }
         ]'
