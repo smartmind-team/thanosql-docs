@@ -108,7 +108,7 @@ Table APIs로 ThanoSQL 워크스페이스 데이터베이스 테이블에 여러
 
 ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다. 테이블을 변경하려면 `table_name` 및 `schema`로 지정된 '테이블 객체'를 변경합니다. UPDATE하려면 테이블 객체의 값을 수정하고, DROP하려면 요청 본문에서 해당 객체를 제거하면 됩니다. `schema`의 기본 값은 public 입니다.
 
-!!! note "__실행 순서__"
+!!! Note "__실행 순서__"
     ALTER의 실행 순서는 다음과 같습니다:
 
     DROP PRIMARY KEY -> DROP FOREIGN KEY -> DROP COLUMN -> ADD COLUMN -> ALTER COLUMN -> RENAME COLUMN -> ADD PRIMARY KEY -> ADD FOREIGN KEY -> RENAME TABLE -> SET SCHEMA
@@ -268,7 +268,7 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
 
 이 메서드를 사용하여 CREATE TABLE 작업을 실행합니다. 테이블을 생성하려면 테이블 객체를 본문으로 전달하고 쿼리 매개변수로 `table_name` 및 `schema`을 전달합니다. `schema`의 기본 값은 public 입니다.
 
-!!! note " "
+!!! Note "Tip"
     컬럼 객체를 컬럼 목록에 추가할 때 id는 컬럼의 서수 위치만 참조하므로, id를 지정할 필요가 없습니다. 또한 비어있는 요청 본문은 빈 테이블을 생성하며, `table_name`을 지정하지 않으면 임의의 uuid 문자열을 이름으로 하는 테이블이 생성됩니다.
 
 
@@ -511,4 +511,358 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
       'https://{your-engine-url}/api/v1/table/{table_name}/records/csv?schema={schema}&timezone_offset={timezone_offset}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
+
+
+## **`POST` /table/{table_name}/records**
+
+해당 테이블에 새 데이터를 삽입합니다.
+
+!!! Note "Tip"
+    기존 테이블 컬럼과 삽입된 데이터가 일치하지 않으면 API에서 에러가 발생합니다. 또한 Postgres은 모든 컬럼 이름을 자동으로 소문자로 변환하므로 테이블의 모든 컬럼 이름이 소문자인 경우에만 API를 사용할 수 있습니다.
+
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    table_name = "Table Name"
+    base_url="https://{your-engine-url}/api/v1/table"
+    schema = "Schema Name"
+
+    # 여기에 세 행을 삽입합니다
+    data = [
+                {
+                    "user_id": 1,
+                    "username": "abc",
+                    "password": "abc123"
+                },
+                {
+                    "user_id": 2,
+                    "username": "def",
+                    "password": "def456"
+                },
+                {
+                    "user_id": 3,
+                    "username": "ghi",
+                    "password": "ghi789"
+                }
+            ]
+
+    api_url = f"{base_url}/{table_name}/records?schema={schema}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.post(api_url, headers=header, body=data):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'POST' \
+    'https://{your-engine-url}/api/v1/table/{table_name}/records?schema={schema}' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '[
+            {
+                "user_id": 1,
+                "username": "abc",
+                "password": "abc123"
+            },
+            {
+                "user_id": 2,
+                "username": "def",
+                "password": "def456"
+            },
+            {
+                "user_id": 3,
+                "username": "ghi",
+                "password": "ghi789"
+            }
+        ]'
+    ```
+
+
+## **`POST` /table/{table_name}/upload/csv**
+
+CSV 파일로 부터 해당 테이블에 새 데이터를 삽입합니다.
+
+!!! Note "Tip"
+    대부분의 다른 메서드과 달리 이 메서드는 파일 업로드를 용이하게 하기 위해 인코딩으로 'application/json' 대신 'multipart/form-data'를 사용합니다. 파일은 필요하지만 본문은 필요하지 않습니다. 본문이 제공되지 않은 경우 테이블의 구조는 파일에서 유추됩니다. 본문이 제공되면 API는 본문을 테이블 구조의 기본으로 사용합니다. 파일과 본문이 일치하지 않으면 API에서 에러가 발생합니다.
+
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    table_name = "Table Name"
+    base_url="https://{your-engine-url}/api/v1/table"
+    schema = "Schema Name"
+    if_exists = "What to do if table of the same name already exists (one of fail, append, or overwrite)"
+
+    file_name = "CSV file to be uploaded"
+    data = {
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }
+
+    csv_files = {
+        "file": (
+            file_name,
+            open(file_name),
+            "text/csv",
+        )
+        "body": (
+            None,
+            json.dumps(data),
+            "application/json",
+        )
+    }
+
+    api_url = f"{base_url}/{table_name}/upload/csv?schema={schema}&if_exists={if_exists}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.post(api_url, headers=header, files=csv_files):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'POST' \
+    'https://{your-engine-url}/api/v1/table/{table_name}/upload/csv?schema={schema}&if_exists={if_exists}' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: multipart/form-data' \
+    -F 'file=@file_name;type=text/csv'
+    -F 'body={
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }'
+    ```
+
+
+## **`POST` /table/{table_name}/upload/excel**
+
+Excel 파일로 부터 해당 테이블에 새 데이터를 삽입합니다. 파일 확장자는 xls, xlsx, xlsm, xlsb, odf, ods 및 odt 등이 가능합니다. API 요청 방식은 CSV 파일 업로드와 유사합니다.
+
+!!! Note "Tip"
+    콘텐츠 파일 타입을 지정할 때 다양한 유형의 Excel 파일에 주의하세요. 예를 들어 [이 페이지](https://zappysys.zendesk.com/hc/en-us/articles/360034303774-Which-Content-Type-is-used-for-Multi-Part-Upload-File-Extension)를 참조해 주세요.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    table_name = "Table Name"
+    base_url="https://{your-engine-url}/api/v1/table"
+    schema = "Schema Name"
+    if_exists = "What to do if table of the same name already exists (one of fail, append, or overwrite)"
+
+    file_name = "Excel file to be uploaded"
+    data = {
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }
+
+    # in case of xlsx
+    excel_files = {
+        "file": (
+            file_name,
+            open(file_name),
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
+        "body": (
+            None,
+            json.dumps(data),
+            "application/json",
+        )
+    }
+
+    api_url = f"{base_url}/{table_name}/upload/excel?schema={schema}&if_exists={if_exists}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.post(api_url, headers=header, files=excel_files):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'POST' \
+    'https://{your-engine-url}/api/v1/table/{table_name}/upload/excel?schema={schema}&if_exists={if_exists}' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: multipart/form-data' \
+    -F 'file=@file_name;type=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    -F 'body={
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }'
     ```
