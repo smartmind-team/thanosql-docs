@@ -37,7 +37,7 @@ In order to get a list of all of your schemas from the database, use the method 
     ```
 
 
-## __`POST` /schema__
+## __`POST` /schema/{schema}__
 
 Creates a new database schema.
 
@@ -48,10 +48,10 @@ Creates a new database schema.
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url = "https://{your-engine-url}/api/v1/schema/"
+    base_url = "https://{your-engine-url}/api/v1/schema"
     schema = "Name of schema to be created"
 
-    api_url = f"{base_url}?schema={schema}"
+    api_url = f"{base_url}/{schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -66,7 +66,7 @@ Creates a new database schema.
 
     ```shell
     curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/schema/?schema={schema}' \
+      'https://{your-engine-url}/api/v1/schema/{schema}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -d ''

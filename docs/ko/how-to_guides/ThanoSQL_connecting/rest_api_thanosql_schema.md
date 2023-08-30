@@ -37,7 +37,7 @@ title: Schema APIs
     ```
 
 
-## __`POST` /schema__
+## __`POST` /schema/{schema}__
 
 새 데이터베이스 스키마를 생성합니다.
 
@@ -48,10 +48,10 @@ title: Schema APIs
     import json
 
     api_token = "Issued_API_TOKEN"
-    base_url = "https://{your-engine-url}/api/v1/schema/"
+    base_url = "https://{your-engine-url}/api/v1/schema"
     schema = "Name of schema to be created"
 
-    api_url = f"{base_url}?schema={schema}"
+    api_url = f"{base_url}/{schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -66,7 +66,7 @@ title: Schema APIs
 
     ```shell
     curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/schema/?schema={schema}' \
+      'https://{your-engine-url}/api/v1/schema/{schema}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -d ''
