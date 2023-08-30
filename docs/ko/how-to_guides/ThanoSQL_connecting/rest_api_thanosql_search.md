@@ -86,7 +86,7 @@ Search APIs로 이미지나 텍스트와 "__BUILD__"한 모델을 기반으로 T
 
     ```shell 
     curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/search/text/?table_name={table_name}&model_name={model_name}&column_name={column_name}&text={text}' \
+      'https://{your-engine-url}/api/v1/search/text/?table_name={table_name}&model_name={model_name}&column_name={column_name}&text={text_to_search}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -d ''
