@@ -41,3 +41,6 @@ AS
 SELECT *
 FROM voc_text_data
 ```
+
+!!! note
+    - To use GPT for the GENERATE function, you will need an OpenAI API token. If you possess a token or require one, please reach out to us at [ThanoSQL Contact](contact@smartmind.team).
