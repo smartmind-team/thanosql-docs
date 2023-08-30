@@ -86,7 +86,7 @@ To search for images using a text, you can use the following endpoint.
 
     ```shell
     curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/search/text/?table_name={table_name}&model_name={model_name}&column_name={column_name}&text={text}' \
+      'https://{your-engine-url}/api/v1/search/text/?table_name={table_name}&model_name={model_name}&column_name={column_name}&text={text_to_search}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -d ''
