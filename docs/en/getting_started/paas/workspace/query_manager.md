@@ -61,19 +61,21 @@ Here are the shortcuts supported in the query editor:
 
 ### **Database Explorer**
 
-The Database Explorer shows the schema and table configuration information of the workspace database. Each workspace provides a default 'public' schema and temporary result tables. Queries that do not specify a schema refer to tables in the 'public' schema by default. �Additionally, table results are saved as temporary result tables with arbitrary names. This allows you to reuse and view previous table execution results.
+You can access the [schema](https://www.postgresql.org/docs/current/ddl-schemas.html) and table configuration information of your workspace database.
+
+Each workspace provides the "public" schema and temporary result tables by default. Queries that do not specify a schema will refer to tables in the "public" schema. Any query executed in the query editor that produces results in tabular form will be stored as a `Temporary Result Table` with a random table name. This allows you to reuse previous query results as needed.
 
 #### **Table Information**
 
 The database explorer provides information about tables within the schema. Click on a table name to see the following information:
 
-**Table Schema**
+##### **Table Schema**
 
 View column names, data types, and nullability of columns in the data table.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_14.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_14.png)
 
-**Preview**
+##### **Preview**
 
 Quickly understand the content of the data table.
 
@@ -84,98 +86,100 @@ Quickly understand the content of the data table.
 
 #### **Adding Data**
 
-You can add new tables and schemas to the database.
-
-##### **Adding Tables**
-
-Click the **`+`** button located to the right of the Database in the database explorer to open the add table menu, then click 'Add Table'.
+This is a feature that allows you to add new tables and schemas to the database. You can open the Add Table Data menu by clicking the **`+`** button located in the top right corner of the database explorer.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_3.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_3.png)
 
-**Create a New Table Directly**
+##### **Add Table**
 
-After opening the add table menu, select 'Create a New Table Directly' and click Next.
+Add a table to the database. Choose one of the following data source upload methods to proceed. (You can also add a table using the right **+** button in each schema)
 
-[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_4.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_4.png)
+1. Create New Table Manually
+2. Local File Upload
 
-You can also add data using the + button to the right of the schema.
+**1. Create New Table Manually**
+
+In the "Add Table" window, select **Create New Table** and then click the Next button.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_5.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_5.png)
 
+Enter the information for the table you want to create.
+
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_6.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_6.png)
 
-① Select Schema: Choose the schema to create the table in.
+① Select the schema in which to create the table.
 
-② Create Schema: Create a new schema.
+② If the desired schema doesn't exist, you can create a new one.
 
-③ Name(table): Enter the name of the table to be created. Table names can include letters, numbers, and underscores, but cannot start with a number. Duplicate table names cannot be created within the same schema.
+③ Enter the name of the table you want to create. It can include letters, numbers, and underscores, but it cannot start with a number. You cannot create tables with duplicate names within the same schema.
 
-④ Name(column): Enter the column name. Duplicate column names cannot be created within the same table. This is a required field.
+④ Enter the name of each column that makes up the table. This is a required field, and you cannot create columns with duplicate names within the same table.
 
-⑤ Data Type: Select the data type for the column. This is a required field.
+⑤ You can select the data type for the respective column. This field must be filled in.
 
-⑥ Column Options: Depending on the Data Type, the options can be adjusted and customized accordingly.
+⑥ Depending on the data type, the available options for adjustment may vary, allowing you to configure the column according to its intended purpose.
 
-⑦ Column Delete Button: Delete the column.
+⑦ Deleting the respective column.
 
-⑧ Column Add Button: Add a new column.
+⑧ Adding a new column.
 
-⑨ Cancel Button: Cancel creating a new table.
+⑨ Canceling the Direct Creation of New Table.
 
-⑩ Complete Button: Complete directly creating a new table.
+⑩ Completion of Direct Creation of New Table.
 
-**Adding Tables via Local File Upload**
+**2. Local File Upload**
 
 After opening the add table window, select 'Local File Upload' and click Next.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_7.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_7.png)
 
+Please provide the following information
+
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_8.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_8.png)
 
-① File Format Selection: Choose between CSV and Excel. For CSV, only .csv files can be uploaded. For Excel, only .xls, .xlsx, .xlsm, .xlsb, .odf, .ods, and .odt files can be uploaded.
+① You can choose the file format (CSV, Excel, etc.). The allowed file extensions are as follows:
 
-② File Upload: Upload the file according to the selected format.
+- CSV: .csv
+- Excel: .xls, .xlsx, .xlsm, .xlsb, .odf, .ods, .odt
 
-③ Schema Selection: Choose the schema in which to create the table.
+② Upload a file that matches the format.
 
-④ Create Schema: Press the Create Schema button to create a new schema, useful for initial usage or when you want to create a new schema.
+③ Select the schema in which to create the table.
 
-⑤ Name: Enter the name of the table to be created. Table names can include letters, numbers, and underscores, but cannot start with a number. Duplicate table names cannot be created within the same schema.
+④ If the desired schema does not exist, you can create a new one.
 
-⑥ Column Settings
+⑤ Enter the name of the table you want to create. The name can include letters, numbers, and underscores, but it cannot start with a number. You cannot create tables with duplicate names within the same schema.
 
-Columns can be automatically detected in the uploaded file or you can manually input them.
+⑥ Select the column configuration method: You can choose to automatically detect columns from the uploaded file or input them manually.
 
 - Auto Detection: Automatically detects the columns in the uploaded file.
-- Manual Input: Manually input the columns.
+- Manual Input: Input columns directly, similar to creating a new table from scratch.
 
-[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_9.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_9.png)
+⑦ You can configure the data writing options as follows:
 
-⑦ Options
+- Write if Empty: Adds data when the existing table is empty.
+- Append to Table: Adds data to the existing table.
+- Overwrite Table: Overwrites the content of the existing table.
 
-- Data Writing: Select data writing options.
+⑧ The local file upload is canceled.
 
-⑧ Cancel Button: Cancel local file upload.
-
-⑨ Complete Button: Complete local file upload.
+⑨ The local file upload is complete.
 
 ##### **Create Schemas**
 
-Create a new schema.
-
-Click the **`+`** button located to the right of the Database in the database explorer to open the add table menu, then click 'Create Schema'.
-
-[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_11.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_9.png)
+In the Add Data menu, click on Create Schema to generate a new schema.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_12.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_12.png)
 
-① Schema Name: Enter the name of the schema to be created. Schema names can include letters, numbers, and underscores, but cannot start with a number. Duplicate schema names cannot be created within the same database.
+① Enter the name of the schema you want to create. The schema name can include letters, numbers, and underscores, but it cannot start with a number. You cannot create schemas with duplicate names within the same database.
 
-② Cancel Button: Cancel schema creation.
+② The schema creation is canceled.
 
-③ Complete Button: Complete schema creation.
+③ The schema creation is complete.
 
 #### Delete Table
+
+You can delete a specific table by clicking the right-hand menu button for that table in the database explorer.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_13.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_13.png)
 
@@ -185,9 +189,9 @@ All queries executed in the Query Manager are logged and can be viewed in the qu
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_16.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_16.png)
 
-#### Query Search
+#### Query Search Functionality
 
-When you input a query statement, it searches for log entries that contain the given query statement.
+You can enter a query syntax to search for query logs that were executed with similar query syntax.
 
 #### Detailed Information Pane
 
