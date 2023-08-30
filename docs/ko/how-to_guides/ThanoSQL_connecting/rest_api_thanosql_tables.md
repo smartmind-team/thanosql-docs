@@ -516,10 +516,10 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
 
 ## **`POST` /table/{table_name}/records**
 
-스키마의 테이블에 새 레코드의 행을 삽입합니다.
+해당 테이블에 새 데이터를 삽입합니다.
 
-!!! note " "
-    (기존) 테이블 열과 삽입된 행이 일치하지 않으면 API에서 에러가 발생합니다. 또한 Postgres은 모든 열 이름을 자동으로 소문자로 변환하므로 테이블의 모든 열 이름이 소문자인 경우에만 API를 사용할 수 있습니다.
+!!! note "Tip"
+    기존 테이블 컬럼과 삽입된 데이터가 일치하지 않으면 API에서 에러가 발생합니다. 또한 Postgres은 모든 컬럼 이름을 자동으로 소문자로 변환하므로 테이블의 모든 컬럼 이름이 소문자인 경우에만 API를 사용할 수 있습니다.
 
 
 === "Python"
@@ -592,7 +592,7 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
 
 ## **`POST` /table/{table_name}/upload/csv**
 
-CSV 파일의 레코드를 스키마의 테이블에 삽입합니다.
+CSV 파일로 부터 해당 테이블에 새 데이터를 삽입합니다.
 
 !!! Note " "
     대부분의 다른 메서드과 달리 이 메서드는 파일 업로드를 용이하게 하기 위해 인코딩으로 'application/json' 대신 'multipart/form-data'를 사용합니다. 파일은 필요하지만 본문은 필요하지 않습니다. 본문이 제공되지 않은 경우 테이블의 구조는 파일에서 유추됩니다. 본문이 제공되면 API는 본문을 테이블 구조의 기본으로 사용합니다. 파일과 본문이 일치하지 않으면 API에서 에러가 발생합니다.
@@ -731,7 +731,7 @@ CSV 파일의 레코드를 스키마의 테이블에 삽입합니다.
 
 ## **`POST` /table/{table_name}/upload/excel**
 
-Excel같은 파일(xls, xlsx, xlsm, xlsb, odf, ods 및 odt)의 레코드를 스키마의 테이블에 삽입합니다. CSV 파일 업로드와 동일한 방식으로 작동합니다.
+Excel 파일로 부터 해당 테이블에 새 데이터를 삽입합니다. 파일 확장자는 xls, xlsx, xlsm, xlsb, odf, ods 및 odt 등이 가능합니다. API 요청 방식은 CSV 파일 업로드와 유사합니다.
 
 !!! Note " "
     콘텐츠 파일 타입을 지정할 때 다양한 유형의 Excel 파일에 주의하세요. 예를 들어 [이 페이지](https://zappysys.zendesk.com/hc/en-us/articles/360034303774-Which-Content-Type-is-used-for-Multi-Part-Upload-File-Extension)를 참조해 주세요.

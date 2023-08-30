@@ -539,7 +539,7 @@ Inserts row(s) of new records into a table in a schema.
                 },
                 {
                     "user_id": 2,
-                    "username": "def,
+                    "username": "def",
                     "password": "def456"
                 },
                 {
@@ -656,12 +656,12 @@ Inserts records from a CSV file into a table in a schema.
             open(file_name),
             "text/csv",
         )
-    }
-    csv_files["body"] = (
+        "body": (
             None,
             json.dumps(data),
             "application/json",
-    )
+        )
+    }
 
     api_url = f"{base_url}/{table_name}/upload/csv?schema={schema}&if_exists={if_exists}"
 

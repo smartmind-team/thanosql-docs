@@ -50,7 +50,7 @@ title: Table Template APIs
 
 ## **`GET` /table_template/{table_template_name}**
 
-특정 이름의 가장 최신 테이블 템플릿 개체를 가져오려면 이 메서드를 사용합니다.
+해당 이름의 최신 버전 테이블 템플릿을 가져옵니다.
 
 === "Python"
 

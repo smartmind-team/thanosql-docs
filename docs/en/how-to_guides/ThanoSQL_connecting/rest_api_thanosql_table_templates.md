@@ -50,7 +50,7 @@ In order to get a list of all of your table templates, use the method below.
 
 ## **`GET` /table_template/{table_template_name}**
 
-Use this method to get the most recent table template object of a certain name.
+Use this method to get the most recent version of table template object of a certain name.
 
 === "Python"
 
