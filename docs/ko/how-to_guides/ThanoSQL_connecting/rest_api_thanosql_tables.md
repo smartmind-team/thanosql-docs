@@ -102,7 +102,8 @@ Table APIs로 ThanoSQL 워크스페이스 데이터베이스 테이블에 여러
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
-  
+
+
 ## **`PUT` /table/{table_name}**
 
 ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다. 테이블을 변경하려면 `table_name` 및 `schema`로 지정된 '테이블 객체'를 변경합니다. UPDATE하려면 테이블 객체의 값을 수정하고, DROP하려면 요청 본문에서 해당 객체를 제거하면 됩니다. `schema`의 기본 값은 public 입니다.
@@ -262,6 +263,7 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
     }'
     ```
 
+
 ## **`POST` /table/{table_name}**
 
 이 메서드를 사용하여 CREATE TABLE 작업을 실행합니다. 테이블을 생성하려면 테이블 객체를 본문으로 전달하고 쿼리 매개변수로 `table_name` 및 `schema`을 전달합니다. `schema`의 기본 값은 public 입니다.
@@ -386,6 +388,7 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
         }'
     ```
 
+
 ## **`DELETE` /table/{table_name}**
 
 테이블을 삭제하려면 아래 메서드를 사용합니다. `schema` 쿼리 매개변수가 제공되지 않으면 기본적으로 public 스키마로 설정됩니다.
@@ -467,9 +470,6 @@ ALTER Table API는 여러 ALTER TABLE 작업을 수행하는 데 사용됩니다
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
-
-
-
 
 
 ## **`GET` /table/{table_name}/records/csv**
