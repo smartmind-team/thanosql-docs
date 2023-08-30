@@ -29,7 +29,7 @@ Execute ThanoSQL queries and view the results in a table format.
 
 ① Tabs: Write queries and view results in different tabs. You can add or delete tabs as needed.
 
-② Query Input Area: Input queries and execute/stop them. Supports [Keyboard Shortcuts](#keyboard-shortcuts).
+② Query Input Area: Input queries and execute/stop them. Supports [keyboard shortcuts](#keyboard-shortcuts).
 
 ③ CSV Download: Download result as a CSV file.
 
@@ -57,7 +57,7 @@ Here are the shortcuts supported in the query editor:
 | Access the list of editor shortcuts           | F1                              | F1                       |
 
 !!! tip
-    The query editor uses the Monaco Editor, which is also used in VSCode. Most shortcuts are the same as those used in VSCode. Refer to the [link](https://en.docs.monaca.io/products_guide/monaca_ide/editor){:target="\_blank"} for the Monaco Editor's shortcut list.
+    The query editor uses Monaco Editor, which is also used in VSCode. Most shortcuts are the same as those used in VSCode. Please refer to the [link](https://en.docs.monaca.io/products_guide/monaca_ide/editor){:target="\_blank"} for a list of Monaco Editor's shortcuts.
 
 ### **Database Explorer**
 
@@ -77,7 +77,7 @@ View column names, data types, and nullability of columns in the data table.
 
 ##### **Preview**
 
-Quickly understand the content of the data table.
+Quickly understand the contents of the data table.
 
 !!! warning
     Editing data tables is not possible in the preview.
@@ -99,7 +99,7 @@ Add a table to the database. Choose one of the following data source upload meth
 
 **1. Create New Table Manually**
 
-In the "Add Table" window, select **Create New Table** and then click the Next button.
+In the "Add Table" window, select **Create New Table** and then click the "Next" button.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_5.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_5.png)
 
@@ -123,13 +123,13 @@ Enter the information for the table you want to create.
 
 ⑧ Adding a new column.
 
-⑨ Canceling the Direct Creation of New Table.
+⑨ Cancelation of "Create New Table Manually".
 
-⑩ Completion of Direct Creation of New Table.
+⑩ Completion of "Create New Table Manually".
 
 **2. Local File Upload**
 
-After opening the add table window, select 'Local File Upload' and click Next.
+After opening the "Add Table" window, select **Local File Upload** and click "Next".
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_7.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_7.png)
 
@@ -157,25 +157,25 @@ Please provide the following information
 
 ⑦ You can configure the data writing options as follows:
 
-- Write if Empty: Adds data when the existing table is empty.
-- Append to Table: Adds data to the existing table.
-- Overwrite Table: Overwrites the content of the existing table.
+- Write if Empty: Writes data only when the table does not exist already.
+- Append to Table: Adds data on top of existing contents if the table already exists.
+- Overwrite Table: Overwrites the contents of the table if it already exists.
 
-⑧ The local file upload is canceled.
+⑧ Cancelation of "Local File Upload".
 
-⑨ The local file upload is complete.
+⑨ Completion of "Local File Upload".
 
 ##### **Create Schemas**
 
-In the Add Data menu, click on Create Schema to generate a new schema.
+In the Add Data menu, click on **Create Schema** to generate a new schema.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_12.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_12.png)
 
 ① Enter the name of the schema you want to create. The schema name can include letters, numbers, and underscores, but it cannot start with a number. You cannot create schemas with duplicate names within the same database.
 
-② The schema creation is canceled.
+② Cancelation of "Create Schema".
 
-③ The schema creation is complete.
+③ Completion of "Create Schema".
 
 #### Delete Table
 
@@ -185,19 +185,19 @@ You can delete a specific table by clicking the right-hand menu button for that 
 
 ### **Query Logs**
 
-All queries executed in the Query Manager are logged and can be viewed in the query logs section. They are listed in descending order of creation time. The logs show the executed query statement and whether the execution was successful.
+All queries executed in Query Manager are logged and can be viewed in the "Query Logs" section. They are listed in descending order of creation time. The logs show the executed query statement and whether the execution was successful.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_16.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_16.png)
 
 #### Query Search Functionality
 
-You can enter a query syntax to search for query logs that were executed with similar query syntax.
+You can enter a keyword to search for query logs that were executed with similar query syntax.
 
 #### Detailed Information Pane
 
 Click on a query log to view its detailed information on the right side.
 
-① Query Information: Displays the ID, success status, creation time, execution time, end time, and target table name of the query.
+① Query Information: Displays the ID, success status, creation time, start execution time, end time, and destination table name of the query.
 
 ② Query Statement: Displays the executed query statement.
 
