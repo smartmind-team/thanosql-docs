@@ -1,10 +1,10 @@
 # ThanoSQL Docs
 
-ThanoSQL Technical Documentation - https://docs.thanosql.ai
+ThanoSQL Technical Documentation - [https://docs.thanosql.ai](https://docs.thanosql.ai)
 
 The ThanoSQL documentation website provides comprehensive guidance on how to use ThanoSQL. The website is divided into several sections, including an introduction to ThanoSQL, a getting started guide, tutorials, a reference guide, and a frequently asked questions (FAQ) section.
 
-The `Intro` section provides a high-level overview of ThanoSQL, highlighting its features and capabilities. 
+The `Intro` section provides a high-level overview of ThanoSQL, highlighting its features and capabilities.
 
 The `Getting Started` guide offers step-by-step instructions on how to install and set up ThanoSQL, as well as tips on how to get started using the software.
 
@@ -17,6 +17,7 @@ The `FAQ` section offers answers to common questions about using ThanoSQL, troub
 ## Contributing
 
 We welcome contributions to the ThanoSQL documentation! To contribute, follow these steps:
+
 - Fork this repository.
 - Make your changes.
 - Submit a pull request.
