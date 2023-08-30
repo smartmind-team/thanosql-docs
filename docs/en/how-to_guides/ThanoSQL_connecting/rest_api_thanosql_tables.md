@@ -266,7 +266,7 @@ The following changes will be applied:
 
 Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema` as query params. If no `schema` query parameter is provided, the parameter defaults to the public schema.
 
-!!! note " "
+!!! Note "Tip"
     When adding Column objects to the list of columns, there is no need to specify the id since the id just refers to the ordinal position of the column. Additionally if the table is created with an empty body, an empty table will be created. If no table_name is specified, the table will be created with a random uuid string.
 
 
@@ -515,7 +515,7 @@ Retrieves the records of a table in a schema as a CSV file.
 
 Inserts row(s) of new records into a table in a schema.
 
-!!! note " "
+!!! Note "Tip"
     If the (existing) table columns and inserted row(s) don't match, the API will throw an error. Furthermore, since Postgres automatically converts all column names to lowercase, you can only use the API if all column names in the table are lowercase.
 
 
@@ -591,7 +591,7 @@ Inserts row(s) of new records into a table in a schema.
 
 Inserts records from a CSV file into a table in a schema.
 
-!!! Note " "
+!!! Note "Tip"
     Unlike most other methods, this method uses `multipart/form-data` instead of `application/json` as its encoding in order to facilitate a file upload. While a file is required, a body is not. The structure of the table will be inferred from the file in case a body is not provided. When provided, the API will use the body as a base for the table structure. If the file and the body does not match, the API will throw an error.
 
 
@@ -730,7 +730,7 @@ Inserts records from a CSV file into a table in a schema.
 
 Inserts records from an Excel-like file (xls, xlsx, xlsm, xlsb, odf, ods and odt) into a table in a schema. Works the same way as uploading CSV file.
 
-!!! Note " "
+!!! Note "Tip"
     Pay attention to the different types of Excel file while specifying the content file type. Refer fo [this page](https://zappysys.zendesk.com/hc/en-us/articles/360034303774-Which-Content-Type-is-used-for-Multi-Part-Upload-File-Extension), for instance, for reference.
 
 === "Python"
