@@ -41,7 +41,7 @@ Execute ThanoSQL queries and view the results in a table format.
 
 The Data Viewer feature allows you to view unstructured data within the result table. You can select a column that contains the path to the unstructured file and choose the file format (image, video, audio) to display the unstructured data. The pagination feature at the bottom allows you to adjust the number of items displayed per page and navigate to different pages.
 
-!!! warning
+!!! tip
     The Data Viewer displays unstructured data based on the file path. Therefore, the stored path value must actually exist in the workspace. (Sometimes it may not appear due to issues such as proxies.)
 
 #### **Keyboard Shortcuts**
