@@ -63,7 +63,7 @@ Here are the shortcuts supported in the query editor:
 
 You can access the [schema](https://www.postgresql.org/docs/current/ddl-schemas.html) and table configuration information of your workspace database.
 
-Each workspace provides the "public" schema and temporary result tables by default. Queries that do not specify a schema will refer to tables in the "public" schema. Any query executed in the query editor that produces results in tabular form will be stored as a `Temporary Result Table` with a random table name. This allows you to reuse previous query results as needed.
+Each workspace provides the public schema and temporary result tables by default. Queries that do not specify a schema will refer to tables in the public schema. Any query executed in the query editor that produces results in tabular form will be stored as a `Temporary Result Table` with a random table name. This allows you to reuse previous query results as needed.
 
 #### **Table Information**
 
@@ -99,7 +99,7 @@ Add a table to the database. Choose one of the following data source upload meth
 
 **1. Create New Table Manually**
 
-In the "Add Table" window, select **Create New Table** and then click the "Next" button.
+In the Add Table window, select **Create New Table** and then click the Next button.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_5.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_5.png)
 
@@ -123,13 +123,13 @@ Enter the information for the table you want to create.
 
 ⑧ Adding a new column.
 
-⑨ Cancelation of "Create New Table Manually".
+⑨ Cancelation of Create New Table Manually.
 
-⑩ Completion of "Create New Table Manually".
+⑩ Completion of Create New Table Manually.
 
 **2. Local File Upload**
 
-After opening the "Add Table" window, select **Local File Upload** and click "Next".
+After opening the Add Table window, select Local File Upload and click Next.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_7.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_7.png)
 
@@ -161,21 +161,21 @@ Please provide the following information
 - Append to Table: Adds data on top of existing contents if the table already exists.
 - Overwrite Table: Overwrites the contents of the table if it already exists.
 
-⑧ Cancelation of "Local File Upload".
+⑧ Cancelation of Local File Upload.
 
-⑨ Completion of "Local File Upload".
+⑨ Completion of Local File Upload.
 
 ##### **Create Schemas**
 
-In the Add Data menu, click on **Create Schema** to generate a new schema.
+In the Add Data menu, click on Create Schema to generate a new schema.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_12.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_12.png)
 
 ① Enter the name of the schema you want to create. The schema name can include letters, numbers, and underscores, but it cannot start with a number. You cannot create schemas with duplicate names within the same database.
 
-② Cancelation of "Create Schema".
+② Cancelation of Create Schema.
 
-③ Completion of "Create Schema".
+③ Completion of Create Schema.
 
 #### Delete Table
 
@@ -185,22 +185,22 @@ You can delete a specific table by clicking the right-hand menu button for that 
 
 ### **Query Logs**
 
-All queries executed in Query Manager are logged and can be viewed in the "Query Logs" section. They are listed in descending order of creation time. The logs show the executed query statement and whether the execution was successful.
+All queries executed in Query Manager are logged and can be viewed in the Query Logs section. They are listed in descending order of creation time. The logs show the executed query statement and whether the execution was successful.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_16.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_16.png)
 
 #### Query Search Functionality
 
-You can enter a keyword to search for query logs that were executed with similar query syntax.
+① You can enter a keyword to search for query logs that were executed with similar query syntax.
 
 #### Detailed Information Pane
 
 Click on a query log to view its detailed information on the right side.
 
-① Query Information: Displays the ID, success status, creation time, start execution time, end time, and destination table name of the query.
+② Query Information: Displays the ID, success status, creation time, start execution time, end time, and destination table name of the query.
 
-② Query Statement: Displays the executed query statement.
+③ Query Statement: Displays the executed query statement.
 
-③ Error Message: Displays error messages that occurred during query execution.
+④ Error Message: Displays error messages that occurred during query execution.
 
-④ Open as New Query: Opens the query editor tab with the content of the clicked query.
+⑤ Open as New Query: Opens the query editor tab with the content of the clicked query.
