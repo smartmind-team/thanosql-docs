@@ -2356,7 +2356,7 @@ version.
 </div>
 <h3 id="database-explorer"><strong>Database Explorer</strong><a class="headerlink" href="#database-explorer" title="Permanent link">&para;</a></h3>
 <p>You can access the <a href="https://www.postgresql.org/docs/current/ddl-schemas.html">schema</a> and table configuration information of your workspace database.</p>
-<p>Each workspace provides the "public" schema and temporary result tables by default. Queries that do not specify a schema will refer to tables in the "public" schema. Any query executed in the query editor that produces results in tabular form will be stored as a <code>Temporary Result Table</code> with a random table name. This allows you to reuse previous query results as needed.</p>
+<p>Each workspace provides the public schema and temporary result tables by default. Queries that do not specify a schema will refer to tables in the public schema. Any query executed in the query editor that produces results in tabular form will be stored as a <code>Temporary Result Table</code> with a random table name. This allows you to reuse previous query results as needed.</p>
 <h4 id="table-information"><strong>Table Information</strong><a class="headerlink" href="#table-information" title="Permanent link">&para;</a></h4>
 <p>The database explorer provides information about tables within the schema. Click on a table name to see the following information:</p>
 <h5 id="table-schema"><strong>Table Schema</strong><a class="headerlink" href="#table-schema" title="Permanent link">&para;</a></h5>
@@ -2379,7 +2379,7 @@ version.
 <li>Local File Upload</li>
 </ol>
 <p><strong>1. Create New Table Manually</strong></p>
-<p>In the "Add Table" window, select <strong>Create New Table</strong> and then click the "Next" button.</p>
+<p>In the Add Table window, select <strong>Create New Table</strong> and then click the Next button.</p>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_5.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_5.png" style="max-height:none" /></a></p>
 <p>Enter the information for the table you want to create.</p>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_6.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_6.png" style="max-height:none" /></a></p>
@@ -2391,10 +2391,10 @@ version.
 <p>⑥ Depending on the data type, the available options for adjustment may vary, allowing you to configure the column according to its intended purpose.</p>
 <p>⑦ Deleting the respective column.</p>
 <p>⑧ Adding a new column.</p>
-<p>⑨ Cancelation of "Create New Table Manually".</p>
-<p>⑩ Completion of "Create New Table Manually".</p>
+<p>⑨ Cancelation of Create New Table Manually.</p>
+<p>⑩ Completion of Create New Table Manually.</p>
 <p><strong>2. Local File Upload</strong></p>
-<p>After opening the "Add Table" window, select <strong>Local File Upload</strong> and click "Next".</p>
+<p>After opening the Add Table window, select Local File Upload and click Next.</p>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_7.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_7.png" style="max-height:none" /></a></p>
 <p>Please provide the following information</p>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_8.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_8.png" style="max-height:none" /></a></p>
@@ -2418,35 +2418,35 @@ version.
 <li>Append to Table: Adds data on top of existing contents if the table already exists.</li>
 <li>Overwrite Table: Overwrites the contents of the table if it already exists.</li>
 </ul>
-<p>⑧ Cancelation of "Local File Upload".</p>
-<p>⑨ Completion of "Local File Upload".</p>
+<p>⑧ Cancelation of Local File Upload.</p>
+<p>⑨ Completion of Local File Upload.</p>
 <h5 id="create-schemas"><strong>Create Schemas</strong><a class="headerlink" href="#create-schemas" title="Permanent link">&para;</a></h5>
-<p>In the Add Data menu, click on <strong>Create Schema</strong> to generate a new schema.</p>
+<p>In the Add Data menu, click on Create Schema to generate a new schema.</p>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_12.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_12.png" style="max-height:none" /></a></p>
 <p>① Enter the name of the schema you want to create. The schema name can include letters, numbers, and underscores, but it cannot start with a number. You cannot create schemas with duplicate names within the same database.</p>
-<p>② Cancelation of "Create Schema".</p>
-<p>③ Completion of "Create Schema".</p>
+<p>② Cancelation of Create Schema.</p>
+<p>③ Completion of Create Schema.</p>
 <h4 id="delete-table">Delete Table<a class="headerlink" href="#delete-table" title="Permanent link">&para;</a></h4>
 <p>You can delete a specific table by clicking the right-hand menu button for that table in the database explorer.</p>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_13.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_13.png" style="max-height:none" /></a></p>
 <h3 id="query-logs"><strong>Query Logs</strong><a class="headerlink" href="#query-logs" title="Permanent link">&para;</a></h3>
-<p>All queries executed in Query Manager are logged and can be viewed in the "Query Logs" section. They are listed in descending order of creation time. The logs show the executed query statement and whether the execution was successful.</p>
+<p>All queries executed in Query Manager are logged and can be viewed in the Query Logs section. They are listed in descending order of creation time. The logs show the executed query statement and whether the execution was successful.</p>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_16.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_16.png" style="max-height:none" /></a></p>
 <h4 id="query-search-functionality">Query Search Functionality<a class="headerlink" href="#query-search-functionality" title="Permanent link">&para;</a></h4>
-<p>You can enter a keyword to search for query logs that were executed with similar query syntax.</p>
+<p>① You can enter a keyword to search for query logs that were executed with similar query syntax.</p>
 <h4 id="detailed-information-pane">Detailed Information Pane<a class="headerlink" href="#detailed-information-pane" title="Permanent link">&para;</a></h4>
 <p>Click on a query log to view its detailed information on the right side.</p>
-<p>① Query Information: Displays the ID, success status, creation time, start execution time, end time, and destination table name of the query.</p>
-<p>② Query Statement: Displays the executed query statement.</p>
-<p>③ Error Message: Displays error messages that occurred during query execution.</p>
-<p>④ Open as New Query: Opens the query editor tab with the content of the clicked query.</p>
+<p>② Query Information: Displays the ID, success status, creation time, start execution time, end time, and destination table name of the query.</p>
+<p>③ Query Statement: Displays the executed query statement.</p>
+<p>④ Error Message: Displays error messages that occurred during query execution.</p>
+<p>⑤ Open as New Query: Opens the query editor tab with the content of the clicked query.</p>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-30</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-31</span>
       
     
   </small>
