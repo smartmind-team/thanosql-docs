@@ -111,5 +111,5 @@ LIST THANOSQL DATASET
 | `시각 질의 응답 모델 사용하기`    | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/v1.5/tutorial/thanosql_ml/question_answering/visual_question_answering.ipynb |
 | `시계열 예측 모델 만들기`| https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/v1.5/tutorial/thanosql_ml/timeseries/timeseries_forecasting.ipynb |
 | `사용자의 모델을 ThanoSQL에서 사용하기`| https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/v1.5/tutorial/thanosql_ml/udm_tutorial.ipynb |
-
+| `생성형 모델로 다양한 기능 수행하기`| https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/v1.5/tutorial/thanosql_generate/generate_gpt.ipynb |
 

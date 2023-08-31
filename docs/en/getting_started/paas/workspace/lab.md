@@ -109,5 +109,5 @@ If you want to import only certain tutorials into your workspace, use the wget m
 | `Use the Visual Question Answering Model to find an appropriate answer to a question` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/v1.5/tutorial_en/thanosql_ml/question_answering/visual_question_answering.ipynb |
 | `Create a Time Series Forecasting Model` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/v1.5/tutorial_en/thanosql_ml/timeseries/timeseries_forecasting.ipynb |  
 | `Use your model in ThanoSQL` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/v1.5/tutorial_en/thanosql_ml/udm_tutorial.ipynb |
-
+| `Perform Various Functions Using Generative Model` | https://raw.githubusercontent.com/smartmind-team/thanosql-tutorial/v1.5/tutorial_en/thanosql_generate/generate_gpt.ipynb |
 
