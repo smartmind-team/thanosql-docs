@@ -42,4 +42,4 @@ FROM voc_text_data
 ```
 
 !!! note
-    - GENERATE 문에서 GPT를 사용하기 위해서는 OpenAI API 토큰이 필요합니다. 토큰을 보유하고 계시거나 필요하신 분은 [ThanoSQL 문의처](contact@smartmind.team)로 문의주세요.
+    - GENERATE 문에서 GPT를 사용하기 위해서는 OpenAI API 토큰이 필요합니다. 토큰을 보유하고 계시거나 필요하신 분은 contact@smartmind.team로 문의주세요.
