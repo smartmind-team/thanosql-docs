@@ -22,6 +22,7 @@ title: 개요
 - [__LIST__](../ThanoSQL_query/LIST_SYNTAX/) — ThanoSQL 워크스페이스 데이터베이스에 저장되어 있는 모델, 데이터 세트 목록 조회
 - [__COPY__](../ThanoSQL_query/COPY_SYNTAX/) - 워크스페이스에 있는 데이터 파일들로 ThanoSQL 워크스페이스 데이터베이스 안의 데이터 테이블 생성
 - [__FUNCTION__](../ThanoSQL_query/FUNCTION_SYNTAX/) - ThanoSQL 함수를 사용하여 데이터 처리
+- [__GENERATE__](../ThanoSQL_query/GENERATE_SYNTAX/) - 생성형 모델을 사용하여 작업(FAQ 생성, 키워드 추출, 서비스 평가, 감정 분석, 텍스트 요약 등)을 수행
 
 ### __Model Statement__
 

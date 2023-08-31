@@ -305,6 +305,14 @@
          
     </url>
     <url>
+         <loc>https://docs.thanosql.ai/1.5/how-to_guides/ThanoSQL_query/GENERATE_SYNTAX/</loc>
+         <lastmod>2023-08-31</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.5/en/how-to_guides/ThanoSQL_query/GENERATE_SYNTAX/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.5/ko/how-to_guides/ThanoSQL_query/GENERATE_SYNTAX/"/>
+         
+    </url>
+    <url>
          <loc>https://docs.thanosql.ai/1.5/how-to_guides/ThanoSQL_query/GET_SYNTAX/</loc>
          <lastmod>2023-08-31</lastmod>
          <changefreq>daily</changefreq>
