@@ -35,6 +35,7 @@ plugins:
           Tutorials: Tutorials
           Thanosql search: ThanoSQL Search
           Thanosql ml: ThanoSQL ML
+          Thanosql generate: ThanoSQL Generate
           How to guides: Reference
           ThanoSQL query: ThanoSQL Statement
           ThanoSQL connecting: REST API
@@ -46,6 +47,7 @@ plugins:
           Tutorials: 튜토리얼
           Thanosql search: ThanoSQL Search
           Thanosql ml: ThanoSQL ML
+          Thanosql generate: ThanoSQL Generate
           Classification: 분류 모델 만들기
           Regression: 회귀 모델 만들기
           Audio recognition: 음성 인식 모델 만들기
