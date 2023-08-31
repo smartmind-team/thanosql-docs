@@ -7,7 +7,7 @@ title: Table APIs
 You can use the ThanoSQL Table REST API for several CRUD operations on your ThanoSQL DB tables.
 
 !!! Note "__Table Object__"
-    A table object consists of four main componenets:
+    A table object consists of four main components:
 
     1. *`name`: The name of the table
     2. *`schema`: The schema that the table is a part of
@@ -33,7 +33,7 @@ You can use the ThanoSQL Table REST API for several CRUD operations on your Than
 
 ## **`GET` /table**
 
-In order to get a list of all of your tables, use the method below. If no `schema_name` is provided, then tables from every schemas will be listed. 
+In order to get a list of all of your tables, use the method below. If no `schema` is provided, then tables from every schemas will be listed.
 
 === "Python"
 
@@ -43,9 +43,9 @@ In order to get a list of all of your tables, use the method below. If no `schem
 
     api_token = "Issued_API_TOKEN"
     base_url="https://{your-engine-url}/api/v1/table"
-    schema_name = "Schema Name"
+    schema = "Schema Name"
 
-    api_url = f"{base_url}?schema_name={schema_name}"
+    api_url = f"{base_url}?schema={schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -69,7 +69,7 @@ In order to get a list of all of your tables, use the method below. If no `schem
 
 ## **`GET` /table/{table_name}**
 
-Use this method to get the objects of a single table. If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
+Use this method to get the objects of a single table. If no `schema` query parameter is provided, the parameter defaults to the public schema.
 
 === "Python"
 
@@ -79,10 +79,10 @@ Use this method to get the objects of a single table. If no `schema_name` query 
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
-    schema_name = "Schema Name"
+    base_url = "https://{your-engine-url}/api/v1/table"
+    schema = "Schema Name"
 
-    api_url = f"{base_url}/{table_name}?schema_name={schema_name}"
+    api_url = f"{base_url}/{table_name}?schema={schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -105,7 +105,7 @@ Use this method to get the objects of a single table. If no `schema_name` query 
   
 ## **`PUT` /table/{table_name}**
 
-The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the `table_name` and `schema_name`. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. 
+The ALTER Table API is used to do several ALTER TABLE operations. In order to alter the table you simply alter the database object specified by the `table_name` and `schema`. To UPDATE something, simply change the value of the Table object. To DROP, just remove the object from the request body. If no `schema` query parameter is provided, the parameter defaults to the public schema.
 
 !!! note "__Order Execution__"
     The order of execution of the ALTER is as follows:
@@ -114,9 +114,10 @@ The ALTER Table API is used to do several ALTER TABLE operations. In order to al
 
 
 !!! warning ""
-    When dealing with columns, it is important to note that the id is the unique key that is used to identify the column. If this value is deleted, that means that the column will also be deleted. If you are making a change to the column, **make sure that the column id is present in the body**! When adding a new column, a column_id is not required as it will be assigned after the column is created. 
+    When dealing with columns, it is important to note that the id is the unique key that is used to identify the column. If this value is deleted, that means that the column will also be deleted. If you are making a change to the column, **make sure that the column id is present in the body**! When adding a new column, a column_id is not required as it will be assigned after the column is created.
 
 In the following example lets pretend we want to alter the table object below:
+
 ```json
 {
     "table": {
@@ -157,6 +158,11 @@ In the following example lets pretend we want to alter the table object below:
 }
 ```
 
+The following changes will be applied:
+
+- Change the user_id column name to id.
+- Change the username column to is nullable.
+- Remove both the primary key and foreign key constraints.
 
 === "Python"
 
@@ -166,8 +172,8 @@ In the following example lets pretend we want to alter the table object below:
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
-    schema_name = "Schema Name"
+    base_url = "https://{your-engine-url}/api/v1/table"
+    schema = "Schema Name"
 
     new_table = {
             "table": {
@@ -202,7 +208,7 @@ In the following example lets pretend we want to alter the table object below:
             }
         }
 
-    api_url = f"{base_url}/{table_name}?schema_name={schema_name}"
+    api_url = f"{base_url}/{table_name}?schema={schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -218,7 +224,7 @@ In the following example lets pretend we want to alter the table object below:
 
     ```shell
       curl -X 'PUT' \
-    'https://{your-engine-url}/api/v1/table/{table_name}?schema={schema_name}' \
+    'https://{your-engine-url}/api/v1/table/{table_name}?schema={schema}' \
     -H 'accept: application/json' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -254,14 +260,13 @@ In the following example lets pretend we want to alter the table object below:
         }
     }'
     ```
-  If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
 
 
 ## **`POST` /table/{table_name}**
 
-Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema_name` as query params. 
+Use this method to execute the CREATE TABLE operation. In order to create the table you simply pass in a database object as a body with the `table_name` and `schema` as query params. If no `schema` query parameter is provided, the parameter defaults to the public schema.
 
-!!! note " "
+!!! Note "Tip"
     When adding Column objects to the list of columns, there is no need to specify the id since the id just refers to the ordinal position of the column. Additionally if the table is created with an empty body, an empty table will be created. If no table_name is specified, the table will be created with a random uuid string.
 
 
@@ -273,8 +278,8 @@ Use this method to execute the CREATE TABLE operation. In order to create the ta
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table/"
-    schema_name = "Schema Name"
+    base_url = "https://{your-engine-url}/api/v1/table"
+    schema = "Schema Name"
 
     # Note that the name and schema keys are missing from the body
     new_table = {
@@ -319,7 +324,7 @@ Use this method to execute the CREATE TABLE operation. In order to create the ta
             }
         }
 
-    api_url = f"{base_url}/{table_name}?schema_name={schema_name}"
+    api_url = f"{base_url}/{table_name}?schema={schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -335,7 +340,7 @@ Use this method to execute the CREATE TABLE operation. In order to create the ta
 
     ```shell
       curl -X 'POST' \
-    'https://{your-engine-url}/api/v1/table/{table_name}?schema={schema_name}' \
+    'https://{your-engine-url}/api/v1/table/{table_name}?schema={schema}' \
     -H 'accept: application/json' \
     -H 'Content-Type: application/json' \
     -d '{
@@ -383,7 +388,7 @@ Use this method to execute the CREATE TABLE operation. In order to create the ta
 
 ## **`DELETE` /table/{table_name}**
 
-To delete a table, use the method below. If no `schema_name` query parameter is provided, the parameter defaults to the public schema. 
+To delete a table, use the method below. If no `schema` query parameter is provided, the parameter defaults to the public schema.
 
 
 === "Python"
@@ -394,10 +399,10 @@ To delete a table, use the method below. If no `schema_name` query parameter is 
 
     api_token = "Issued_API_TOKEN"
     table_name = "Table Name"
-    base_url="https://{your-engine-url}/api/v1/table"
-    schema_name = "Schema Name"
+    base_url = "https://{your-engine-url}/api/v1/table"
+    schema = "Schema Name"
 
-    api_url = f"{base_url}/{table_name}?schema_name={schema_name}"
+    api_url = f"{base_url}/{table_name}?schema={schema}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -416,4 +421,445 @@ To delete a table, use the method below. If no `schema_name` query parameter is 
       'https://{your-engine-url}/api/v1/table/{table_name}?schema=public' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
+
+
+## **`GET` /table/{table_name}/records**
+
+Retrieves the records of a table in a schema.
+
+### __Parameters__
+
+- `table_name`: The table name to retrieve the records from
+- `schema`: The schema to search the table in (default: 'public')
+- `offset`: The offset to where the pagination count will start from (default: to 0)
+- `limit`: The maximum number of records to retrieve starting from the offset (defaults: 100, max: 100)
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/table"
+    table_name = "Table name"
+    schema = "Target schema"
+    offset = {Offset}
+    limit = {Limit}
+
+    api_url = f"{base_url}/{table_name}/records?schema={schema}&offset={offset}&limit={limit}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.get(api_url, headers=header):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'GET' \
+      'https://{your-engine-url}/api/v1/table/{table_name}/records?schema={schema}&offset={offset}&limit={limit}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
+
+
+## **`GET` /table/{table_name}/records/csv**
+
+Retrieves the records of a table in a schema as a CSV file.
+
+### __Parameters__
+
+- `table_name`: The table name to retrieve the records from
+- `schema`: The schema to search the table in (default: 'public')
+- `timezone_offset`: The timezone offset applied to the datetime formats (default: 9)
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/table"
+    table_name = "Table name"
+    timezone_offset = "Timezone offset from GMT (default: 9 (GMT+9, Seoul time))"
+
+    api_url = f"{base_url}/{table_name}/records/csv?schema={schema}&timezone_offset={timezone_offset}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.get(api_url, headers=header):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'GET' \
+      'https://{your-engine-url}/api/v1/table/{table_name}/records/csv?schema={schema}&timezone_offset={timezone_offset}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
+    ```
+
+
+## **`POST` /table/{table_name}/records**
+
+Inserts row(s) of new records into a table in a schema.
+
+!!! Note "Tip"
+    If the (existing) table columns and inserted row(s) don't match, the API will throw an error. Furthermore, since Postgres automatically converts all column names to lowercase, you can only use the API if all column names in the table are lowercase.
+
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    table_name = "Table Name"
+    base_url="https://{your-engine-url}/api/v1/table"
+    schema = "Schema Name"
+
+    # here we are inserting three rows
+    data = [
+                {
+                    "user_id": 1,
+                    "username": "abc",
+                    "password": "abc123"
+                },
+                {
+                    "user_id": 2,
+                    "username": "def",
+                    "password": "def456"
+                },
+                {
+                    "user_id": 3,
+                    "username": "ghi",
+                    "password": "ghi789"
+                }
+            ]
+
+    api_url = f"{base_url}/{table_name}/records?schema={schema}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.post(api_url, headers=header, body=data):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'POST' \
+    'https://{your-engine-url}/api/v1/table/{table_name}/records?schema={schema}' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: application/json' \
+    -d '[
+            {
+                "user_id": 1,
+                "username": "abc",
+                "password": "abc123"
+            },
+            {
+                "user_id": 2,
+                "username": "def",
+                "password": "def456"
+            },
+            {
+                "user_id": 3,
+                "username": "ghi",
+                "password": "ghi789"
+            }
+        ]'
+    ```
+
+
+## **`POST` /table/{table_name}/upload/csv**
+
+Inserts records from a CSV file into a table in a schema.
+
+!!! Note "Tip"
+    Unlike most other methods, this method uses `multipart/form-data` instead of `application/json` as its encoding in order to facilitate a file upload. While a file is required, a body is not. The structure of the table will be inferred from the file in case a body is not provided. When provided, the API will use the body as a base for the table structure. If the file and the body does not match, the API will throw an error.
+
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    table_name = "Table Name"
+    base_url="https://{your-engine-url}/api/v1/table"
+    schema = "Schema Name"
+    if_exists = "What to do if table of the same name already exists (one of fail, append, or overwrite)"
+
+    file_name = "CSV file to be uploaded"
+    data = {
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }
+
+    csv_files = {
+        "file": (
+            file_name,
+            open(file_name),
+            "text/csv",
+        )
+        "body": (
+            None,
+            json.dumps(data),
+            "application/json",
+        )
+    }
+
+    api_url = f"{base_url}/{table_name}/upload/csv?schema={schema}&if_exists={if_exists}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.post(api_url, headers=header, files=csv_files):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'POST' \
+    'https://{your-engine-url}/api/v1/table/{table_name}/upload/csv?schema={schema}&if_exists={if_exists}' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: multipart/form-data' \
+    -F 'file=@file_name;type=text/csv'
+    -F 'body={
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }'
+    ```
+
+
+## **`POST` /table/{table_name}/upload/excel**
+
+Inserts records from an Excel-like file (xls, xlsx, xlsm, xlsb, odf, ods and odt) into a table in a schema. Works the same way as uploading CSV file.
+
+!!! Note "Tip"
+    Pay attention to the different types of Excel file while specifying the content file type. Refer to [this page](https://zappysys.zendesk.com/hc/en-us/articles/360034303774-Which-Content-Type-is-used-for-Multi-Part-Upload-File-Extension), for instance, for reference.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    table_name = "Table Name"
+    base_url="https://{your-engine-url}/api/v1/table"
+    schema = "Schema Name"
+    if_exists = "What to do if table of the same name already exists (one of fail, append, or overwrite)"
+
+    file_name = "Excel file to be uploaded"
+    data = {
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }
+
+    # in case of xlsx
+    excel_files = {
+        "file": (
+            file_name,
+            open(file_name),
+            "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
+        "body": (
+            None,
+            json.dumps(data),
+            "application/json",
+        )
+    }
+
+    api_url = f"{base_url}/{table_name}/upload/excel?schema={schema}&if_exists={if_exists}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.post(api_url, headers=header, files=excel_files):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'POST' \
+    'https://{your-engine-url}/api/v1/table/{table_name}/upload/excel?schema={schema}&if_exists={if_exists}' \
+    -H 'accept: application/json' \
+    -H 'Content-Type: multipart/form-data' \
+    -F 'file=@file_name;type=application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+    -F 'body={
+            "table": {
+                "columns": [
+                {
+                    "default": "nextval('accounts_user_id_seq'::regclass)",
+                    "is_nullable": False,
+                    "type": "integer",
+                    "name": "user_id"
+                },
+                {
+                    "default": None,
+                    "is_nullable": True,
+                    "type": "character varying",
+                    "name": "username"
+                },
+                {
+                    "default": None,
+                    "is_nullable": False,
+                    "type": "character varying",
+                    "name": "password"
+                }
+                ],
+                "constraints": {
+                    "primary_key": {
+                        "name": "accounts_pkey",
+                        "columns": [
+                        "user_id"
+                        ]
+                    },
+                    "foreign_keys": [
+                        {
+                            "name": "account_id_fkey",
+                            "reference_schema": "public",
+                            "reference_column": "role_id",
+                            "reference_table": "roles",
+                            "column": "user_id"
+                        }
+                    ]
+                }
+            }
+        }'
     ```

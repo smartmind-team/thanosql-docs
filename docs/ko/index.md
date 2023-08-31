@@ -18,7 +18,7 @@ AI 기반 디지털 전환은 다양한 언어, 프레임 워크 그리고 람�
 
 아래 그림은 데이터 엔지니어링 에코시스템 맵으로, 데이터 사이언스 및 빅데이터 분석 시스템 구축을 위한 60여 가지의 기술들을 한눈에 보여주고 있습니다. 
 
-[![IMAGE](/img/index/img1.png)](/img/index/img1.png)
+[![IMAGE](../img/index/img1.png)](../img/index/img1.png)
 
 이러한 배경에서 ThanoSQL은
 
@@ -34,7 +34,7 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/ko/getting_started/web_manual/">
+            <a href="getting_started/web_manual/">
                 <h3>
                     ThanoSQL 웹 사용법
                 </h3>
@@ -44,7 +44,7 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
             </a>
         </li>
         <li>
-            <a href="/ko/getting_started/data_upload/">
+            <a href="getting_started/data_upload/">
                 <h3>
                     ThanoSQL 데이터 업로드하기
                 </h3>
@@ -54,7 +54,7 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
             </a>
         </li>
         <li>
-            <a href="/ko/getting_started/paas/workspace/">
+            <a href="getting_started/paas/workspace/">
                 <h3>
                     ThanoSQL 워크스페이스 사용법
                 </h3>
@@ -64,7 +64,7 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
             </a>
         </li>
         <li>
-            <a href="/ko/getting_started/saas/autocrm/">
+            <a href="getting_started/saas/autocrm/">
                 <h3>
                     AutoCRM 사용법
                 </h3>
@@ -74,7 +74,7 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
             </a>
         </li>
         <li>
-            <a href="/ko/getting_started/saas/qe/">
+            <a href="getting_started/saas/qe/">
                 <h3>
                     Query Everything 사용법
                 </h3>
@@ -93,7 +93,7 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/ko/tutorials/algorithm_list/">
+            <a href="tutorials/algorithm_list/">
                 <h3>
                     ThanoSQL 튜토리얼
                 </h3>
@@ -111,7 +111,7 @@ ThanoSQL을 활용하면 위 그림의 수많은 기술 스택들을 전혀 알 
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/ko/how-to_guides/reference/">
+            <a href="how-to_guides/reference/">
                 <h3>
                     ThanoSQL 참조
                 </h3>
