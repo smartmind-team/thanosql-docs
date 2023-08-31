@@ -369,6 +369,14 @@
          
     </url>
     <url>
+         <loc>https://docs.thanosql.ai/1.5/tutorials/thanosql_generate/generate_gpt/</loc>
+         <lastmod>2023-08-31</lastmod>
+         <changefreq>daily</changefreq>
+         <xhtml:link rel="alternate" hreflang="en" href="https://docs.thanosql.ai/1.5/en/tutorials/thanosql_generate/generate_gpt/"/>
+         <xhtml:link rel="alternate" hreflang="ko" href="https://docs.thanosql.ai/1.5/ko/tutorials/thanosql_generate/generate_gpt/"/>
+         
+    </url>
+    <url>
          <loc>https://docs.thanosql.ai/1.5/tutorials/thanosql_ml/udm_tutorial/</loc>
          <lastmod>2023-08-31</lastmod>
          <changefreq>daily</changefreq>
