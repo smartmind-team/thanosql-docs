@@ -21,7 +21,7 @@ Reference page provides a formal overview of each topic. More information on usi
 - [__LIST__](/en/how-to_guides/ThanoSQL_query/LIST_SYNTAX/) — List Model and Data Tables Stored in the ThanoSQL Workspace Database
 - [__COPY__](/en/how-to_guides/ThanoSQL_query/COPY_SYNTAX/) - Copy Data Files in the Workspace and Create Data Tables Within the ThanoSQL Workspace Database
 - [__FUNCTION__](/en/how-to_guides/ThanoSQL_query/FUNCTION_SYNTAX/) - Process Data With ThanoSQL's Functions  
-- [__GENERATE__](/en/how-to_guides/ThanoSQL_query/GENERATE_SYNTAX/) - Perform Tasks(FAQ generation, keyword extraction, service evaluation, sentiment analysis, text summarization, etc.) Using Generative Model  
+- [__GENERATE__](../ThanoSQL_query/GENERATE_SYNTAX/) - Perform Tasks(FAQ generation, keyword extraction, service evaluation, sentiment analysis, text summarization, etc.) Using Generative Model  
 
 ### __Model Statement__
 
