@@ -54,8 +54,8 @@ Retrieves a list of all of available table templates in a certain order. Optiona
 
 ### __Parameters__
 
-- `search`: Word(s) that the names of queried table templates must contain.
-- `order_by`: How the query results should be ordered, there are three possible values: 'recent', based on date of creation from latest to oldest, 'name_asc', based on name from A to Z, and 'name_desc', based on name from Z to A.
+- `search`: Word(s) that the names of queried table templates must contain (defaults to empty string).
+- `order_by`: How the query results should be ordered, there are three possible values: 'recent', based on date of creation from latest to oldest, 'name_asc', based on name from A to Z, and 'name_desc', based on name from Z to A (defaults to 'recent').
 - `latest`: A boolean value that can be set to `True` if you only want to return the latest version of each table template. Otherwise, it returns all available versions (default: `False`).
 
 
@@ -174,7 +174,6 @@ Use this method to create a new table template.
         "Authorization": f"Bearer {api_token}"
     }
 
-    ## Create Table
     r = requests.post(api_url, headers=header, body=data):
     r.raise_for_status()
     r.json()

@@ -178,7 +178,7 @@ Retrieves all available query templates.
 - `offset`: The offset to where the pagination count will start from (defaults to 0).
 - `limit`: The maximum number of items to retrieve starting from the offset (defaults to 100, max 100).
 - `search`: Word(s) that the names of returned query templates should contain (defaults to empty string).
-- `order_by`: How the query results should be ordered, there are three possible values: 'recent', based on date of creation from latest to oldest, 'name_asc', based on name from A to Z, and 'name_desc', based on name from Z to A.
+- `order_by`: How the query results should be ordered, there are three possible values: 'recent', based on date of creation from latest to oldest, 'name_asc', based on name from A to Z, and 'name_desc', based on name from Z to A (defaults to 'recent').
 
 ### __Response__
 
