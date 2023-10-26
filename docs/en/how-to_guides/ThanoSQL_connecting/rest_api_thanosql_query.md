@@ -17,7 +17,6 @@ Execute ThanoSQL queries and receive a query log as a response. The query can be
 
     api_token = "Issued_API_TOKEN"
     api_url = "https://{your-engine-url}/api/v1/query/"
-    query = "Query to request"
     query_type = "SQL query type" #psql or thanosql
 
     header = {
@@ -25,6 +24,8 @@ Execute ThanoSQL queries and receive a query log as a response. The query can be
     }
 
     # For query without templates (pick 1 between this and below):
+    query = "Query to request"
+
     data = {
         'query_string': query, 'query_type': query_type
     }
@@ -105,8 +106,8 @@ This method retrieves a paginated list of all query logs.
     api_token = "Issued_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/log"
     search = "Search keyword(s)"
-    offset = "Offset"
-    limit = "Limit"
+    offset = {Offset}
+    limit = {Limit}
 
     api_url = f"{base_url}?search={search}&offset={offset}&limit={limit}"
 
@@ -147,10 +148,12 @@ Retrieves all available query templates.
 
     api_token = "Issued_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/template"
-    offset = "Offset"
-    limit = "Limit"
+    offset = {Offset}
+    limit = {Limit}
+    search = "Search keyword(s)"
+    order_by = "Order by"
 
-    api_url = f"{base_url}?offset={offset}&limit={limit}"
+    api_url = f"{base_url}?offset={offset}&limit={limit}&search={search}&order_by={order_by}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -165,7 +168,7 @@ Retrieves all available query templates.
 
     ```shell
       curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/query/template/?offset={offset}&limit={limit}' \
+      'https://{your-engine-url}/api/v1/query/template/?offset={offset}&limit={limit}&search={search}&order_by={order_by}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
@@ -174,6 +177,8 @@ Retrieves all available query templates.
 
 - `offset`: The offset to where the pagination count will start from (defaults to 0).
 - `limit`: The maximum number of items to retrieve starting from the offset (defaults to 100, max 100).
+- `search`: Word(s) that the names of returned query templates should contain (defaults to empty string).
+- `order_by`: How the query results should be ordered, there are three possible values: 'recent', based on date of creation from latest to oldest, 'name_asc', based on name from A to Z, and 'name_desc', based on name from Z to A.
 
 ### __Response__
 
