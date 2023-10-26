@@ -16,7 +16,6 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
 
     api_token = "Issued_API_TOKEN"
     api_url = "https://{your-engine-url}/api/v1/query/"
-    query = "Query to request"
     query_type = "SQL query type" #psql 또는 thanosql
 
     header = {
@@ -24,6 +23,8 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     }
 
     # 템플릿 없는 쿼리의 경우(아래와 중 하나 선택합니다):
+    query = "Query to request"
+
     data = {
         'query_string': query, 'query_type': query_type
     }
@@ -147,10 +148,12 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
 
     api_token = "Issued_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/template"
-    offset = "Offset"
-    limit = "Limit"
+    offset = {Offset}
+    limit = {Limit}
+    search = "Search keyword(s)"
+    order_by = "Order by"
 
-    api_url = f"{base_url}?offset={offset}&limit={limit}"
+    api_url = f"{base_url}?offset={offset}&limit={limit}&search={search}&order_by={order_by}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -165,15 +168,17 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
 
     ```shell
       curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/query/template/?offset={offset}&limit={limit}' \
+      'https://{your-engine-url}/api/v1/query/template/?offset={offset}&limit={limit}&search={search}&order_by={order_by}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
 
 ### __Parameters__
 
-- `offset`: pagination count이 시작되는 오프셋입니다(기본값은 0).
-- `limit`: 오프셋에서 시작하여 검색할 최대 항목 수입니다(기본값은 100, 최대 100).
+- `offset`: pagination count이 시작되는 오프셋입니다 (기본값 0).
+- `limit`: 오프셋에서 시작하여 검색할 최대 항목 수입니다 (기본값 100, 최대 100).
+- `search`: 반환된 쿼리 템플릿에 포함되어야 하는 단어입니다 (기본값 빈 문자열).
+- `order_by`: 쿼리 결과의 순서를 지정하는 방법입니다. 세 가지 가능한 값이 있습니다: 최근에서 가장 오래된 순으로 생성 날짜를 기준으로 하는 'recent', A에서 Z까지 이름을 기준으로 하는 'name_asc', Z에서 A까지 이름을 기준으로 하는 'name_desc'입니다 (기본값 'recent').
 
 ### __Response__
 
