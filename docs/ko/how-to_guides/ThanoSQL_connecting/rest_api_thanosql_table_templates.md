@@ -18,7 +18,7 @@ title: Table Template APIs
 
 ## **`GET` /table_template**
 
-모든 테이블 템플릿의 목록을 가져오려면 아래 방법을 사용하세요.
+모든 테이블 템플릿 목록을 특정 순서로 검색합니다. 선택적으로 검색 키워드 사용할 수도 있습니다.
 
 === "Python"
 
@@ -27,7 +27,12 @@ title: Table Template APIs
     import json
 
     api_token = "Issued_API_TOKEN"
-    api_url="https://{your-engine-url}/api/v1/table_template"
+    base_url="https://{your-engine-url}/api/v1/table_template/"
+    search = "Search keyword(s)"
+    order_by = "Order by"
+    latest = {Latest}
+
+    api_url = f"{base_url}?search={search}&order_by={order_by}&latest={latest}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -42,15 +47,21 @@ title: Table Template APIs
 
     ```shell
       curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/table_template/' \
+      'https://{your-engine-url}/api/v1/table_template/?search={search}&order_by={order_by}&latest={latest}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
 
+### __Parameters__
+
+- `search`: 반환된 테이블 템플릿에 포함되어야 하는 단어입니다.
+- `order_by`: 결과의 순서를 지정하는 방법입니다. 세 가지 가능한 값이 있습니다: 최근에서 가장 오래된 순으로 생성 날짜를 기준으로 하는 'recent', A에서 Z까지 이름을 기준으로 하는 'name_asc', Z에서 A까지 이름을 기준으로 하는 'name_desc'입니다.
+- `latest`: 각 테이블 템플릿의 최신 버전만 반환하려는 경우 `True`로 설정할 수 있는 부울 값입니다. 그렇지 않으면 모든 버전을 반환합니다 (기본값: `False`).
+
 
 ## **`GET` /table_template/{table_template_name}**
 
-해당 이름의 최신 버전 테이블 템플릿을 가져옵니다.
+특정 이름의 테이블 템플릿을 검색하기 위해 사용됩니다. 필요한 경우 특정 버전이나 최신 버전을 요청에 추가할 수도 있습니다.
 
 === "Python"
 
@@ -61,8 +72,9 @@ title: Table Template APIs
     api_token = "Issued_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/table_template"
     table_template_name = "Table template name"
+    version = "A specific version, or 'latest' to request the latest table template"
 
-    api_url = f"{base_url}/{table_template_name}"
+    api_url = f"{base_url}/{table_template_name}?version={version}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -77,10 +89,21 @@ title: Table Template APIs
 
     ```shell
       curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/table_template/{table_template_name}' \
+      'https://{your-engine-url}/api/v1/table_template/{table_template_name}?version={version}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
+
+### __Response__
+
+이 API의 응답 구조는 다음과 같습니다:
+
+```
+{
+  "table_templates": ["요청된 이름을 가진 모든 테이블 템플릿 목록 또는 'version'이 비어 있지 않은 경우 하나의 테이블 템플릿입니다"]
+  "versions": ["모든 버전 목록입니다"]
+}
+```
 
 
 ## **`POST` /table_template/{table_template_name}**
@@ -210,4 +233,40 @@ title: Table Template APIs
         "version": "string",
         "compatibility": "string"
         }'
+    ```
+
+
+## **`DELETE` /table_template/{table_template_name}**
+
+특정 이름의 테이블 템플릿을 삭제하려면 이 메서드를 사용합니다. 필요한 경우 특정 버전만 삭제할 수도 있습니다.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/table_template"
+    table_template_name = "Table template name"
+    version = "A specific version of the table template"
+
+    api_url = f"{base_url}/{table_template_name}?version={version}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.delete(api_url, headers=header):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'DELETE' \
+      'https://{your-engine-url}/api/v1/table_template/{table_template_name}?version={version}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
