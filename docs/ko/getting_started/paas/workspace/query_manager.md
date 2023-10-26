@@ -184,6 +184,128 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_13.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_13.png)
 
+### **테이블 템플릿 관리하기**
+
+테이블을 템플릿화해서 저장 / 불러오기 / 조회를 할 수 있습니다. 
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_17.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_17.png)
+
+#### 1) 테이블 관리하기 메인 페이지
+
+테이블 템플릿 메인입니다.    
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_18.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_18.png)
+
+① 메인으로 돌아가기 button : 쿼리 매니저 메인으로 돌아갑니다. 
+
+② 테이블 템플릿 생성하기 button : 테이블 템플릿 생성하기 페이지로 이동해 테이블 템플릿을 생성할 수 있습니다.
+
+③ 테이블 템플릿 검색 입력창 : 테이블 템플릿 이름을 입력해 원하는 테이블 템플렛을 찾을 수 있습니다. 
+
+④ 테이블 템플릿 필터 : 최근 업데이트 한 순, 이름(오름차순, 내림차순)으로 정렬할 수 있습니다.
+
+⑤ 템플릿 버전 리스트 : 템플릿마다의 버전 리스트를 바꿔서 미리보기로 테이블 템플릿을 볼 수 있습니다.
+
+⑥ 템플릿 상세보기 버튼 :  테이블 템플릿 정보를 상세하게 볼 수 있습니다.
+
+⑦ 템플릿 정보 : 만들어진 날짜와 호환성을 알 수 있습니다. 
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_19.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_19.png)
+
+① 테이블 템플릿 이름 입력창 : 저장할 테이블 템플릿 이름을 입력할 수 있습니다. 
+
+② 버전 관리 : 새롭게 생성할 때에는 버전이 1.0으로 고정되어 만들어 집니다. 
+
+③ 컬럼 설정 : 테이블 템플릿에 들어갈 컬럼 정보를 입력합니다. 
+
+④ 취소 버튼 : 테이블 템플릿 생성을 취소할 수 있습니다. 
+
+⑤ 생성하기 버튼 : 테이블 템플릿을 생성할 수 있습니다.  
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_20.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_20.png)
+
+① 테이블 템플릿 이름 입력창 : 테이블 템플릿 메인으로 돌아갑니다. 
+
+② 이 템플릿 삭제하기 : 템플릿을 삭제할 수 있습니다. 
+
+③ 버전 리스트 : 템플릿을 버전별로 선택해 볼 수 있습니다.
+
+④ 버전 생성하기 버튼 : 새로운 버전의 템플릿을 만들 수 있습니다. 
+
+⑤ 버전 삭제하기 버튼 : 템플릿의 해당 버전을 삭제할 수 있습니다. 
+
+⑥ 템플릿 정보 : 만들어진 날짜와 호환성을 알 수 있습니다. 
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_21.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_21.png)
+
+① 테이블 템플릿 이름 입력창(비활성화) : 어떤 테이블 템플릿인지 알 수 있습니다. 
+
+② 버전관리 입력창 : 버전을 낮출수도, 올릴수도 있습니다. (전 버전과 동일하지 말아야 합니다.)
+
+③ 컬럼 설정 : 컬럼을 추가, 삭제, 수정을 할 수 있습니다. 
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_22.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_22.png)
+
+① 테이블 템플릿 이름 입력창 : 저장할 테이블 템플릿 이름을 입력합니다.
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_23.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_23.png)
+
+① 테이블 템플릿 이름 입력창 : 테이블 템플릿 이름으로 검색해 찾을 수 있습니다. 
+
+### **쿼리 템플릿**
+
+쿼리 도구를 이용해 쿼리 템플릿을 저장 / 불러올 수 있습니다.  
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_24.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_24.png)
+
+#### 1) 쿼리 템플릿 저장하기
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_25.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_25.png)
+
+① 쿼리 템플릿 이름 입력창 : 저장할 쿼리 템플릿의 이름을 입력할 수 있습니다.
+
+② 쿼리문 입력창 : 저장할 쿼리문을 입력 할 수 있습니다.  
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_26.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_26.png)
+
+① 쿼리 템플릿 이름 입력창 : 저장되어 있던 쿼리 템플릿 이름으로 검색해 찾을 수 있습니다. 
+
+#### 2) 쿼리 템플릿 관리하기
+
+데이터베이스 탐색기의 Database 우측에 위치한 **`서랍`** 버튼을 클릭해 테이블 데이터 추가하기 메뉴를 열고 쿼리 템플릿 관리하기를 클릭합니다.
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_27.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_27.png)
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_28.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_28.png)
+
+① 쿼리 템플릿 생성하기 버튼 : 쿼리 템플릿을 생성할 수 있는 페이지로 이동하는 버튼입니다. 
+
+② 쿼리 템플릿 검색창 : 쿼리 템플릿의 이름을 입력해 원하는 쿼리 템플릿을 찾을 수 있습니다.  
+
+③ 정렬 리스트 : 최근 업데이트순, 이름순(오름차순, 내림차순)으로 정렬할 수 있습니다. 
+
+④ 최종 업데이트 날짜 : 최종 업데이트 날짜를 알 수 있습니다.  
+
+⑤ 상세보기 버튼 : 해당 템플릿 상세보기 페이지로 이동하는 버튼입니다.  
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_29.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_29.png)
+
+① 쿼리 템플릿 이름 입력창 : 저장할 쿼리 템플릿의 이름을 입력할 수 있습니다.  
+
+② 쿼리문 입력창 : 저장할 쿼리문을 입력 할 수 있습니다.  
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_30.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_30.png)
+
+① 더보기 버튼 : 템플릿을 삭제하거나 수정할 수 있습니다.  
+
+② 템플릿 정보 : 만들어진 날짜와 업데이트 날짜를 알 수 있습니다. 
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_31.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_31.png)
+
+① 쿼리 템플릿 이름 입력창 : 저장할 쿼리 템플릿의 이름을 수정할 수 있습니다.  
+
+② 쿼리문 입력창 : 저장할 쿼리문을 수정 할 수 있습니다.  
+
 ### **쿼리 로그**
 
 Query Manager에서 실행한 모든 쿼리는 기록되어 쿼리 로그 섹션에서 확인할 수 있습니다. 쿼리 생성시간의 최신순으로 나열되며 실행한 쿼리 구문과 쿼리의 성공 여부를 보여줍니다.
