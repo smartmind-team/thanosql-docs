@@ -11,7 +11,7 @@
 
 워크스페이스 목록을 확인하고 관리 할 수 있습니다. 보유한 워크스페이스가 없을 경우 **시작하기 버튼**으로 워크스페이스를 새로 만들 수 있습니다. [워크스페이스 생성하기](#_4) 가이드를 참고하세요.
 
-[![IMAGE](/ko/img/getting_started/img6.png){: style="max-height:none"}](/ko/img/getting_started/img6.png)
+[![IMAGE](../../../img/getting_started/img6.png){: style="max-height:none"}](../../../img/getting_started/img6.png)
 
 ① 워크스페이스 생성하기
 
@@ -31,11 +31,11 @@
 
 다음은 서비스 페이지에서 사용 가능한 기능입니다.
 
-- **Query Manager** : ThanoSQL 쿼리를 실행하고 추적하는데 도움이 되는 도구입니다. 쿼리 편집기, 쿼리 로그 및 데이터 뷰어 등의 인터페이스를 제공합니다. 사용해 보려면 [Query Manager 매뉴얼](./query_manager.md)를 참조하세요.
+- **Query Manager** : ThanoSQL 쿼리를 실행하고 추적하는데 도움이 되는 도구입니다. 쿼리 편집기, 쿼리 로그 및 데이터 뷰어 등의 인터페이스를 제공합니다. 사용해 보려면 [Query Manager 매뉴얼](query_manager)를 참조하세요.
 
-- **Lab** : Jupyter Notebook을 기반으로 데이터 탐색, AI/ML 모델링 및 응용 프로그램 개발을 위한 다목적 환경을 제공합니다. 사용해 보려면 [Lab 매뉴얼](./lab.md)를 참조하세요.
+- **Lab** : Jupyter Notebook을 기반으로 데이터 탐색, AI/ML 모델링 및 응용 프로그램 개발을 위한 다목적 환경을 제공합니다. 사용해 보려면 [Lab 매뉴얼](lab)를 참조하세요.
 
-[![IMAGE](/ko/img/getting_started/paas/workspace/img0.png){: style="max-height:none"}](/ko/img/getting_started/paas/workspace/img0.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/img0.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/img0.png)
 
 서비스 페이지의 공통 컴포넌트인 사이드 내비(①)에서는 각 기능으로의 화면 이동과 해당 [워크스페이스 설정 화면](#_5) 바로가기를 제공합니다. 또한 우측 상단의 드롭박스 메뉴(②)로 다른 워크스페이스 서비스 페이지로 이동 할 수 있습니다.
 ## __워크스페이스 생성하기__
@@ -43,11 +43,11 @@
 - 메인 페이지에서 Workspace 추가 생성하기 버튼을 클릭합니다.
 - 기존 워크스페이스가 **없는** 경우 초기 메인 페이지에서 **시작하기 버튼**을 클릭해 워크스페이스를 생성 화면으로 이동합니다.
 
-[![IMAGE](/ko/img/getting_started/img3.png){: style="max-height:none"}](/ko/img/getting_started/img3.png)
+[![IMAGE](../../../img/getting_started/img3.png){: style="max-height:none"}](../../../img/getting_started/img3.png)
 
 ### __1. 플랜 설정__
 
-[![IMAGE](/ko/img/getting_started/img4.png){: style="max-height:none"}](/ko/img/getting_started/img4.png)
+[![IMAGE](../../../img/getting_started/img4.png){: style="max-height:none"}](../../../img/getting_started/img4.png)
 
 ① **플랜**
 
@@ -66,7 +66,7 @@
 
 ### __2. 신청서 작성__
 
-[![IMAGE](/ko/img/getting_started/img5.png){: style="max-height:none"}](/ko/img/getting_started/img5.png)
+[![IMAGE](../../../img/getting_started/img5.png){: style="max-height:none"}](../../../img/getting_started/img5.png)
 
 ① 워크스페이스 이름을 **입력**합니다.
 
@@ -99,7 +99,7 @@
 
 ### __General__
 
-[![IMAGE](/ko/img/getting_started/img10.png){: style="max-height:none"}](/ko/img/getting_started/img10.png)
+[![IMAGE](../../../img/getting_started/img10.png){: style="max-height:none"}](../../../img/getting_started/img10.png)
 
 ① Workspace Start / Stop
 
@@ -127,7 +127,7 @@
 
 ### __Log__
 
-[![IMAGE](/ko/img/getting_started/img11.png){: style="max-height:none"}](/ko/img/getting_started/img11.png)
+[![IMAGE](../../../img/getting_started/img11.png){: style="max-height:none"}](../../../img/getting_started/img11.png)
 
 ① Workspace Usage
 
@@ -139,7 +139,7 @@
 
 ### __Developer__
 
-[![IMAGE](/ko/img/getting_started/img12.png){: style="max-height:none"}](/ko/img/getting_started/img12.png)
+[![IMAGE](../../../img/getting_started/img12.png){: style="max-height:none"}](../../../img/getting_started/img12.png)
 
 ① API 토큰 복사
 

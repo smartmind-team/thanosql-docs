@@ -60,16 +60,16 @@ Execute ThanoSQL queries and receive a query log as a response. The query can be
     Query strings and templates (and/or parameters) should not be used together. If `query_string` appears together with at least one of `template_id`, `template_name`, and `parameters`, an error will be returned.
 
 ### __Parameters__
-    
+
 The API can set a destination table to save the results from a query using query parameters. If nothing is specified, then a destination table will be created in the qm schema.
 
 - `schema`: The schema to retrieve the tables from. If no parameter is provided, defaults to "qm".
-- `table_name`: The name that will be used to create the table. If not parameter is provided, defaults to a randomly generated table name 
+- `table_name`: The name that will be used to create the table. If not parameter is provided, defaults to a randomly generated table name.
 - `overwrite`: Determines if the table shall be overwritten or not. Defaults to False.
 
 ### __Response__
 
-The `/query` API returns a query log (shown below) as a response. 
+The `/query` API returns a query log (shown below) as a response.
 
 If the query statement yields results (statements such as SELECT, LIST), then the results are stored into a destination table. The destination table is specified by the `destination_table_name` and `destination_schema`. If the query produces no results, then the destination table indicates the table that was affected
 

@@ -35,6 +35,7 @@ plugins:
           Tutorials: Tutorials
           Thanosql search: ThanoSQL Search
           Thanosql ml: ThanoSQL ML
+          Thanosql generate: ThanoSQL Generate
           How to guides: Reference
           ThanoSQL query: ThanoSQL Statement
           ThanoSQL connecting: REST API
@@ -46,6 +47,7 @@ plugins:
           Tutorials: 튜토리얼
           Thanosql search: ThanoSQL Search
           Thanosql ml: ThanoSQL ML
+          Thanosql generate: ThanoSQL Generate
           Classification: 분류 모델 만들기
           Regression: 회귀 모델 만들기
           Audio recognition: 음성 인식 모델 만들기
@@ -97,7 +99,12 @@ extra:
     property: G-8KVG4NMMFK
   generator: false # Hide "Made with Material for Mkdocs"
 
+  # versioning
+  version:
+    provider: mike
+    default: latest
+
 extra_css:
-  - /assets/css/extra.css # For grid sections
+  - assets/css/extra.css # For grid sections
 
 copyright: "D-201, 39, Maeheon-ro 8-gil, Seocho-gu, Seoul 06770 South Korea<br />Email : contact@smartmind.team<br />Phone : (+82) 070-7151-9357<br /><br />© Since 2018 SmartMind, Inc. All Rights Reserved."

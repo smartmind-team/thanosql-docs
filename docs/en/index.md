@@ -18,7 +18,7 @@ AI-based digital transformation requires a wide range of knowledge and technolog
 
 The diagram below is a data engineering ecosystem map that shows more than 60 technologies at a glance for building data science and big data analytics systems.
 
-[![IMAGE](/img/index/img1.png)](/img/index/img1.png)
+[![IMAGE](../img/index/img1.png)](../img/index/img1.png)
 
 Against this situation, ThanoSQL
 
@@ -34,7 +34,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/en/getting_started/web_manual/">
+            <a href="getting_started/web_manual/">
                 <h3>
                     ThanoSQL Web Manual
                 </h3>
@@ -44,7 +44,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
             </a>
         </li>
         <li>
-            <a href="/en/getting_started/data_upload/">
+            <a href="getting_started/data_upload/">
                 <h3>
                     How to Upload Your Data to the ThanoSQL Workspace
                 </h3>
@@ -54,7 +54,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
             </a>
         </li>
         <li>
-            <a href="/en/getting_started/paas/workspace/">
+            <a href="getting_started/paas/workspace/">
                 <h3>
                     ThanoSQL Workspace Manual
                 </h3>
@@ -64,7 +64,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
             </a>
         </li>
         <li>
-            <a href="/en/getting_started/saas/autocrm/">
+            <a href="getting_started/saas/autocrm/">
                 <h3>
                     AutoCRM Manual
                 </h3>
@@ -74,7 +74,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
             </a>
         </li>
         <li>
-            <a href="/en/getting_started/saas/qe/">
+            <a href="getting_started/saas/qe/">
                 <h3>
                     Query Everything Manual
                 </h3>
@@ -93,12 +93,12 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/en/tutorials/algorithm_list/">
+            <a href="tutorials/algorithm_list/">
                 <h3>
                     ThanoSQL Tutorial
                 </h3>
                 <p>
-                    Describe examples of tutorials using ThanoSQL. 
+                    Describe examples of tutorials using ThanoSQL.
                 </p>
             </a>
         </li>
@@ -111,7 +111,7 @@ With ThanoSQL, you don't need to know many of the technology stacks in the figur
     </header>
     <ul class="fullclick">
         <li>
-            <a href="/en/how-to_guides/reference/">
+            <a href="how-to_guides/reference/">
                 <h3>
                     ThanoSQL Reference
                 </h3>

@@ -74,7 +74,7 @@ SELECT *
 FROM audio_table
 ```
 
-[![IMAGE](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)](/img/thanosql_syntax/query/PRINT/PRINT_img1.png)
+[![IMAGE](../../../img/thanosql_syntax/query/PRINT/PRINT_img1.png)](../../../img/thanosql_syntax/query/PRINT/PRINT_img1.png)
 
 !!! note ""
     - "audio_table": 오디오 파일 경로가 저장되어 있는 데이터 테이블
@@ -100,7 +100,7 @@ FROM video_table
 
 ### __3-4. 서브 쿼리를 사용하여 출력하기__
 
-다음 쿼리는 [SEARCH](/ko/how-to_guides/ThanoSQL_query/SEARCH_SYNTAX)에서 만들었던 "__SEARCH__" 쿼리문을 "__PRINT__" 구문의 서브 쿼리로 사용하여 "__SEARCH__"의 결과 테이블을 바로 출력합니다.
+다음 쿼리는 [SEARCH](../SEARCH_SYNTAX)에서 만들었던 "__SEARCH__" 쿼리문을 "__PRINT__" 구문의 서브 쿼리로 사용하여 "__SEARCH__"의 결과 테이블을 바로 출력합니다.
 
 ```sql
 %%thanosql

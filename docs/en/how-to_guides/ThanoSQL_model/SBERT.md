@@ -56,7 +56,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __BUILD MODEL Example__
 
-An example "__BUILD MODEL__" query can be found in [Search Text by Text](/en/tutorials/thanosql_search/search_text_by_text/).
+An example "__BUILD MODEL__" query can be found in [Search Text by Text](../../../tutorials/thanosql_search/search_text_by_text/).
 
 ```sql
 %%thanosql
@@ -106,7 +106,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __CONVERT Example__
 
-An example "__CONVERT__" query can be found in [Search Text by Text](/en/tutorials/thanosql_search/search_text_by_text/).
+An example "__CONVERT__" query can be found in [Search Text by Text](../../../tutorials/thanosql_search/search_text_by_text/).
 
 ```sql
 %%thanosql
@@ -159,7 +159,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __SEARCH TEXT Example__
 
-An example "__SEARCH TEXT__" query can be found in [Search Text by Text](/en/tutorials/thanosql_search/search_text_by_text/).
+An example "__SEARCH TEXT__" query can be found in [Search Text by Text](../../../tutorials/thanosql_search/search_text_by_text/).
 
 ```sql
 SELECT review, sentiment, score
@@ -223,7 +223,7 @@ The "__OPTIONS__" clause allows you to change the value of a parameter. The defi
 
 __SEARCH KEYWORD Example__
 
-An example "__SEARCH KEYWORD__" query can be found in [Search Text by Text](/en/tutorials/thanosql_search/search_text_by_text/).
+An example "__SEARCH KEYWORD__" query can be found in [Search Text by Text](../../../tutorials/thanosql_search/search_text_by_text/).
 
 ```sql
 %%thanosql
