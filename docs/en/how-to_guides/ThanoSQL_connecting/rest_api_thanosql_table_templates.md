@@ -20,12 +20,6 @@ You can use the ThanoSQL Table Template REST API for several CRUD operations on 
 
 Retrieves a list of all of available table templates in a certain order. Optionally can include search keywords as well.
 
-### __Parameters__
-
-- `search`: Word(s) that the names of queried table templates must contain.
-- `order_by`: How the query results should be ordered, there are three possible values: 'recent', based on date of creation from latest to oldest, 'name_asc', based on name from A to Z, and 'name_desc', based on name from Z to A.
-- `latest`: A boolean value that can be set to `True` if you only want to return the latest version of each table template. Otherwise, it returns all available versions (default: `False`).
-
 === "Python"
 
     ```python
@@ -57,6 +51,12 @@ Retrieves a list of all of available table templates in a certain order. Optiona
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
+
+### __Parameters__
+
+- `search`: Word(s) that the names of queried table templates must contain.
+- `order_by`: How the query results should be ordered, there are three possible values: 'recent', based on date of creation from latest to oldest, 'name_asc', based on name from A to Z, and 'name_desc', based on name from Z to A.
+- `latest`: A boolean value that can be set to `True` if you only want to return the latest version of each table template. Otherwise, it returns all available versions (default: `False`).
 
 
 ## **`GET` /table_template/{table_template_name}**
