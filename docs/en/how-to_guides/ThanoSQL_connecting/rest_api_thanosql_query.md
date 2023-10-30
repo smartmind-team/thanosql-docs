@@ -132,7 +132,7 @@ This method retrieves a paginated list of all query logs.
 
 ### __Parameters__
 
-- `search`: Word(s) that the returned query logs should contain.
+- `search`: Word(s) that the query in the query log should contain.
 - `offset`: The offset to where the pagination count will start from (defaults to 0).
 - `limit`: The maximum number of items to retrieve starting from the offset (defaults to 100, max 100).
 
@@ -251,7 +251,7 @@ Creates a new query template with a certain name and query string.
 
 ## **`GET` /query/template/{template_name}**
 
-Retrieves the query template with a certain name.
+Retrieves the query template with the given name.
 
 === "Python"
 
@@ -286,7 +286,7 @@ Retrieves the query template with a certain name.
 
 ## **`PUT` /query/template/{template_name}**
 
-Updates a query template with a certain name.
+Updates the query template with the given name.
 
 === "Python"
 
@@ -332,7 +332,7 @@ Updates a query template with a certain name.
 
 ## **`DELETE` /query/template/{template_name}**
 
-Deletes a query template with a certain name.
+Deletes the query template with the given name.
 
 === "Python"
 

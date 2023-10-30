@@ -54,14 +54,14 @@ Retrieves a list of all of available table templates in a certain order. Optiona
 
 ### __Parameters__
 
-- `search`: Word(s) that the names of queried table templates must contain (defaults to empty string).
+- `search`: Word(s) that the table templates' name must contain (defaults to empty string).
 - `order_by`: How the query results should be ordered, there are three possible values: 'recent', based on date of creation from latest to oldest, 'name_asc', based on name from A to Z, and 'name_desc', based on name from Z to A (defaults to 'recent').
 - `latest`: A boolean value that can be set to `True` if you only want to return the latest version of each table template. Otherwise, it returns all available versions (default: `False`).
 
 
 ## **`GET` /table_template/{table_template_name}**
 
-Use this method to get the table template object of a certain name. If needed, a specific or latest version can also be added to the request.
+Use this method to get the table template object with the given name. If needed, a specific or latest version can also be added to the request.
 
 === "Python"
 
@@ -96,7 +96,7 @@ Use this method to get the table template object of a certain name. If needed, a
 
 ### __Response__
 
-This API's response has the following structure:
+The API response has the following structure:
 
 ```
 {
@@ -238,7 +238,7 @@ Use this method to create a new table template.
 
 ## **`DELETE` /table_template/{table_template_name}**
 
-Use this method to delete table templates of a certain name. If needed, it is also possible to delete only a specific version.
+Use this method to delete table templates with the given name. If needed, it is also possible to delete only a specific version.
 
 === "Python"
 
