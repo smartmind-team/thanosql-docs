@@ -30,12 +30,13 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     }
 
     # 템플릿 있는 쿼리의 경우(위와 중 하나 선택합니다):
-    template_name = "Name of template to use"
+    template_name = "Name of template to use"     # template_id로 쿼리하는 경우에는 이 줄이 필요하지 않습니다
+    template_id = "ID number of template to use"  # template_name로 쿼리하는 경우에는 이 줄이 필요하지 않습니다
     parameters = "Mapping of parameters to fill in the template"
 
     data = {
         'query_type': query_type,
-        'template_name': template_name,  # 또는 'template_id'
+        'template_name': template_name,  # 또는 template_id로 쿼리하는 경우 `'template_id': template_id`
         'parameters': parameters         # 선택 사항, 템플릿 필요한지 여부에 따라
     }
 
@@ -53,7 +54,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: application/json' \
       -d '{"query_string": query, "query_type": query_type}'
-      # or -d '{"query_type": query_type, "template_name": template_name, "parameters": parameters}'
+      # 또는 -d '{"query_type": query_type, "template_name": template_name, "parameters": parameters}'
     ```
 
 !!! warning "쿼리 문자열 및 쿼리 템플릿"

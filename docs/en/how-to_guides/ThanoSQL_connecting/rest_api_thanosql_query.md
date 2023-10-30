@@ -31,12 +31,13 @@ Execute ThanoSQL queries and receive a query log as a response. The query can be
     }
 
     # For query with templates (pick 1 between this and above):
-    template_name = "Name of template to use"
+    template_name = "Name of template to use"     # we don't need this line if we query by template_id
+    template_id = "ID number of template to use"  # we don't need this line if we query by template_name
     parameters = "Mapping of parameters to fill in the template"
 
     data = {
         'query_type': query_type,
-        'template_name': template_name,  # or 'template_id'
+        'template_name': template_name,  # or `'template_id': template_id` if we query by template_id
         'parameters': parameters         # optional, depending on whether it is needed by the template or not
     }
 
