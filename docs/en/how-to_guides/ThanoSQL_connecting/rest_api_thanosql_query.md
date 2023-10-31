@@ -161,7 +161,7 @@ Retrieves a paginated list of all query logs.
 
 ### __Parameters__
 
-- `search`: Word(s) that the query in the query log should contain.
+- `search`: Word(s) that the query in the query log should contain (defaults to empty string).
 - `offset`: The offset to where the pagination count will start from (defaults to 0).
 - `limit`: The maximum number of items to retrieve starting from the offset (defaults to 100, max 100).
 
