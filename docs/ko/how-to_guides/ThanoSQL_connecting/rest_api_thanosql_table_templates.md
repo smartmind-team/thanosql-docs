@@ -26,11 +26,11 @@ title: Table Template APIs
     import requests
     import json
 
-    api_token = "Issued_API_TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url="https://{your-engine-url}/api/v1/table_template/"
-    search = "Search keyword(s)"
-    order_by = "Order by"
-    latest = {Latest}
+    search = "검색 키워드"
+    order_by = "정렬 기준"
+    latest = {최신 부울 True 또는 False}
 
     api_url = f"{base_url}?search={search}&order_by={order_by}&latest={latest}"
 
@@ -69,10 +69,10 @@ title: Table Template APIs
     import requests
     import json
 
-    api_token = "Issued_API_TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/table_template"
-    table_template_name = "Table template name"
-    version = "A specific version, or 'latest' to request the latest table template"
+    table_template_name = "테이블 템플릿 이름"
+    version = "특정 버전 또는 최신 테이블 템플릿을 요청하려면 'latest'"
 
     api_url = f"{base_url}/{table_template_name}?version={version}"
 
@@ -116,9 +116,9 @@ title: Table Template APIs
     import requests
     import json
 
-    api_token = "Issued_API_TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url="https://{your-engine-url}/api/v1/table_template/"
-    table_template_name = "Table template name"
+    table_template_name = "테이블 템플릿 이름"
 
     data = {
     "table_template": {
@@ -246,10 +246,10 @@ title: Table Template APIs
     import requests
     import json
 
-    api_token = "Issued_API_TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/table_template"
-    table_template_name = "Table template name"
-    version = "A specific version of the table template"
+    table_template_name = "테이블 템플릿 이름"
+    version = "테이블 템플릿의 특정 버전"
 
     api_url = f"{base_url}/{table_template_name}?version={version}"
 

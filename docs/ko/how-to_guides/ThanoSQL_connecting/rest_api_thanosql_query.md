@@ -14,25 +14,25 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     import requests
     import json
 
-    api_token = "Issued_API_TOKEN"
+    api_token = "발급받은_API_TOKEN"
     api_url = "https://{your-engine-url}/api/v1/query/"
-    query_type = "SQL query type" #psql 또는 thanosql
+    query_type = "쿼리를 실행할 SQL 타입" #psql 또는 thanosql
 
     header = {
         "Authorization": f"Bearer {api_token}"
     }
 
     # 템플릿 없는 쿼리의 경우(아래와 중 하나 선택합니다):
-    query = "Query to request"
+    query = "요청할 쿼리"
 
     data = {
         'query_string': query, 'query_type': query_type
     }
 
     # 템플릿 있는 쿼리의 경우(위와 중 하나 선택합니다):
-    template_name = "Name of template to use"     # template_id로 쿼리하는 경우에는 이 줄이 필요하지 않습니다
-    template_id = "ID number of template to use"  # template_name로 쿼리하는 경우에는 이 줄이 필요하지 않습니다
-    parameters = "Mapping of parameters to fill in the template"
+    template_name = "사용할 템플릿 이름"     # template_id로 쿼리하는 경우에는 이 줄이 필요하지 않습니다
+    template_id = "사용할 템플릿의 ID 번호"  # template_name로 쿼리하는 경우에는 이 줄이 필요하지 않습니다
+    parameters = "템플릿을 채울 매개변수 매핑"
 
     data = {
         'query_type': query_type,
@@ -104,11 +104,11 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     import requests
     import json
 
-    api_token = "Issued_API_TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/log"
-    search = "Search keyword(s)"
-    offset = "Offset"
-    limit = "Limit"
+    search = "검색 키워드"
+    offset = "오프셋"
+    limit = "리밋"
 
     api_url = f"{base_url}?search={search}&offset={offset}&limit={limit}"
 
@@ -147,11 +147,11 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     import requests
     import json
 
-    api_token = "Issued_API_TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/template"
-    offset = {Offset}
-    limit = {Limit}
-    search = "Search keyword(s)"
+    offset = {오프셋}
+    limit = {리밋}
+    search = "검색 키워드"
     order_by = "Order by"
 
     api_url = f"{base_url}?offset={offset}&limit={limit}&search={search}&order_by={order_by}"
@@ -218,10 +218,10 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     import requests
     import json
 
-    api_token = "Issued_API_TOKEN"
+    api_token = "발급받은_API_TOKEN"
     api_url = "https://{your-engine-url}/api/v1/query/template"
-    name = "Name of query template"
-    query = "Query template string (in psql or thanosql)"
+    name = "쿼리 템플릿의 이름"
+    query = "쿼리 템플릿 문자열 (psql로 또는 thanosql로)"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -258,9 +258,9 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     import requests
     import json
 
-    api_token = "Issued_API_TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/template"
-    template_name = "Name of query template"
+    template_name = "쿼리 템플릿의 이름"
 
     api_url = f"{base_url}/{template_name}"
 
@@ -293,11 +293,11 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     import requests
     import json
 
-    api_token = "Issued_API_TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/template"
-    template_name = "Name of query template"
-    name = "Updated name of query template"
-    query = "Updated query template string (in psql or thanosql)"
+    template_name = "쿼리 템플릿의 이름"
+    name = "쿼리 템플릿의 새 이름"
+    query = "쿼리 템플릿 새 문자열 (psql로 또는 thanosql로)"
 
     api_url = f"{base_url}/{template_name}"
 
@@ -339,9 +339,9 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     import requests
     import json
 
-    api_token = "Issued_API_TOKEN"
+    api_token = "발급받은_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/query/template"
-    template_name = "Name of query template"
+    template_name = "쿼리 템플릿의 이름"
 
     api_url = f"{base_url}/{template_name}"
 
