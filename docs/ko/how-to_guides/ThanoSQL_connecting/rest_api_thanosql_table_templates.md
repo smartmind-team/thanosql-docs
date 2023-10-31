@@ -96,7 +96,7 @@ title: Table Template APIs
 
 ### __Response__
 
-이 API의 응답 구조는 다음과 같습니다:
+API의 응답 구조는 다음과 같습니다:
 
 ```
 {
@@ -238,7 +238,7 @@ title: Table Template APIs
 
 ## **`DELETE` /table_template/{table_template_name}**
 
-특정 이름의 테이블 템플릿을 삭제하려면 이 메서드를 사용합니다. 필요한 경우 특정 버전만 삭제할 수도 있습니다.
+특정 이름의 테이블 템플릿을 삭제하려면 이 API를 호출합니다. 필요한 경우 특정 버전만 삭제할 수도 있습니다.
 
 === "Python"
 

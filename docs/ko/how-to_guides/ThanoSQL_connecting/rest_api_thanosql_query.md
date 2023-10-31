@@ -51,7 +51,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     curl -X 'POST' \
       'https://{your-engine-url}/api/v1/query/' \
       -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN' \
+      -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json' \
       -d '{"query_string": query, "query_type": query_type}'
       # 또는 -d '{"query_type": query_type, "template_name": template_name, "parameters": parameters}'
@@ -139,7 +139,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
 
 ## **`GET` /query/template**
 
-모든 쿼리 템플릿을 검색합니다.
+모든 쿼리 템플릿을 불러옵니다.
 
 === "Python"
 
@@ -152,7 +152,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     offset = {오프셋}
     limit = {리밋}
     search = "검색 키워드"
-    order_by = "Order by"
+    order_by = "정렬 기준"
 
     api_url = f"{base_url}?offset={offset}&limit={limit}&search={search}&order_by={order_by}"
 
@@ -242,7 +242,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     curl -X 'POST' \
       'https://{your-engine-url}/api/v1/query/template' \
       -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN' \
+      -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json' \
       -d '{"name": name, "query": query}'
     ```
@@ -320,7 +320,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     curl -X 'PUT' \
       'https://{your-engine-url}/api/v1/query/template/{template_name}' \
       -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN' \
+      -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json' \
       -d '{"name": name, "query": query}'
     ```
