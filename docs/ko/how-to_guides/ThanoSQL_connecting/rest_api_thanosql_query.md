@@ -8,6 +8,8 @@ title: Query APIs
 
 ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼리는 직접 입력하거나 기존 쿼리 템플릿에서 검색할 수 있습니다(매개변수 포함 또는 제외).
 
+### 템플릿 사용하지 않는 쿼리
+
 === "Python"
 
     ```python
@@ -16,23 +18,51 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
 
     api_token = "발급받은_API_TOKEN"
     api_url = "https://{your-engine-url}/api/v1/query/"
-    query_type = "쿼리를 실행할 SQL 타입" #psql 또는 thanosql
+    query = "요청할 쿼리"
+    query_type = "쿼리를 실행할 SQL 타입" # psql 또는 thanosql
 
     header = {
         "Authorization": f"Bearer {api_token}"
-    }
-
-    # 템플릿 없는 쿼리의 경우(아래와 중 하나 선택합니다):
-    query = "요청할 쿼리"
+    }    
 
     data = {
         'query_string': query, 'query_type': query_type
     }
 
-    # 템플릿 있는 쿼리의 경우(위와 중 하나 선택합니다):
-    template_name = "사용할 템플릿 이름"     # template_id로 쿼리하는 경우에는 이 줄이 필요하지 않습니다
+    r = requests.post(api_url, data=json.dumps(data), headers=header)
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+    curl -X 'POST' \
+      'https://{your-engine-url}/api/v1/query/' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer 발급받은_API_TOKEN' \
+      -H 'Content-Type: application/json' \
+      -d '{"query_string": query, "query_type": query_type}'
+    ```
+
+### 템플릿 사용하는 쿼리
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "발급받은_API_TOKEN"
+    api_url = "https://{your-engine-url}/api/v1/query/"
+    template_name = "사용할 템플릿 이름"  # template_id로 쿼리하는 경우에는 이 줄이 필요하지 않습니다
     template_id = "사용할 템플릿의 ID 번호"  # template_name로 쿼리하는 경우에는 이 줄이 필요하지 않습니다
-    parameters = "템플릿을 채울 매개변수 매핑"
+    parameters = "템플릿을 채울 매개변수 매핑"  # 딕셔너리
+    query_type = "쿼리를 실행할 SQL 타입"  # psql 또는 thanosql
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
 
     data = {
         'query_type': query_type,
@@ -53,8 +83,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
       -H 'accept: application/json' \
       -H 'Authorization: Bearer 발급받은_API_TOKEN' \
       -H 'Content-Type: application/json' \
-      -d '{"query_string": query, "query_type": query_type}'
-      # 또는 -d '{"query_type": query_type, "template_name": template_name, "parameters": parameters}'
+      -d '{"query_type": query_type, "template_name": template_name, "parameters": parameters}'
     ```
 
 !!! warning "쿼리 문자열 및 쿼리 템플릿"
@@ -69,8 +98,8 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
 - `overwrite`: 테이블을 덮어쓸지 여부를 결정합니다. 기본값은 False입니다.
 
 ### __Response__
-    
-응답 형태는 아래의 ‘쿼리 로그’ 형식입니다. 
+
+응답 형태는 아래의 ‘쿼리 로그’ 형식입니다.
 
 `statement_type이` SELECT, LIST 등과 같이 결과가 있으면 파라미터로 설정한 ‘대상 테이블‘로 결과를 저장합니다. 이 ‘대상 테이블’ 정보는 `destination_schema`, `detination_table_name` 값으로 확인 가능합니다. (쿼리 결과가 없을 경우 파라미터 값으로 따로 지정된 테이블이 아닌 쿼리로 영향을 받은 테이블이 ‘대상 테이블’이 됩니다.)
 
@@ -96,7 +125,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
 
 ## **`GET` /query/log**
 
-이 메서드는 모든 쿼리 로그의 paginated 목록을 검색합니다.
+모든 쿼리 로그의 paginated 목록을 검색합니다.
 
 === "Python"
 
@@ -127,7 +156,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
       curl -X 'GET' \
       'https://{your-engine-url}/api/v1/query/log/?search={search}&offset={offset}&limit={limit}' \
       -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN'
+      -H 'Authorization: Bearer 발급받은_API_TOKEN'
     ```
 
 ### __Parameters__
@@ -171,7 +200,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
       curl -X 'GET' \
       'https://{your-engine-url}/api/v1/query/template/?offset={offset}&limit={limit}&search={search}&order_by={order_by}' \
       -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN'
+      -H 'Authorization: Bearer 발급받은_API_TOKEN'
     ```
 
 ### __Parameters__
@@ -279,13 +308,13 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     curl -X 'GET' \
       'https://{your-engine-url}/api/v1/query/template/{template_name}' \
       -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN'
+      -H 'Authorization: Bearer 발급받은_API_TOKEN'
     ```
 
 
 ## **`PUT` /query/template/{template_name}**
 
-특정 이름으로 쿼리 템플릿을 업데이트합니다.
+특정 이름의 쿼리 템플릿을 업데이트합니다.
 
 === "Python"
 
@@ -360,5 +389,5 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다. 쿼�
     curl -X 'DELETE' \
       'https://{your-engine-url}/api/v1/query/template/{template_name}' \
       -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN'
+      -H 'Authorization: Bearer 발급받은_API_TOKEN'
     ```

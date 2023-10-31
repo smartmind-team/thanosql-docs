@@ -61,7 +61,7 @@ Retrieves a list of all of available table templates in a certain order. Optiona
 
 ## **`GET` /table_template/{table_template_name}**
 
-Use this method to get the table template object with the given name. If needed, a specific or latest version can also be added to the request.
+Retrieves the table template object with the given name. If needed, a specific or latest version can also be added to the request.
 
 === "Python"
 
@@ -108,7 +108,7 @@ The API response has the following structure:
 
 ## **`POST` /table_template/{table_template_name}**
 
-Use this method to create a new table template.
+Creates a new table template.
 
 === "Python"
 
@@ -238,7 +238,7 @@ Use this method to create a new table template.
 
 ## **`DELETE` /table_template/{table_template_name}**
 
-Use this method to delete table templates with the given name. If needed, it is also possible to delete only a specific version.
+Deletes table templates with the given name. If needed, it is also possible to delete only a specific version.
 
 === "Python"
 

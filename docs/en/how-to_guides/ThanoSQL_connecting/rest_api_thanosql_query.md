@@ -7,7 +7,9 @@ title: Query APIs
 
 ## __`POST` /query__
 
-Execute ThanoSQL queries and receive a query log as a response. The query can be either typed directly or retrieved from an existing query template (with or without parameters).
+Executes ThanoSQL queries and receives a query log as a response. The query can be either typed directly or retrieved from an existing query template (with or without parameters).
+
+### Query without Templates
 
 === "Python"
 
@@ -17,23 +19,51 @@ Execute ThanoSQL queries and receive a query log as a response. The query can be
 
     api_token = "Issued_API_TOKEN"
     api_url = "https://{your-engine-url}/api/v1/query/"
-    query_type = "SQL query type" #psql or thanosql
+    query = "Query to request"
+    query_type = "SQL query type" # psql or thanosql
 
     header = {
         "Authorization": f"Bearer {api_token}"
     }
 
-    # For query without templates (pick 1 between this and below):
-    query = "Query to request"
-
     data = {
         'query_string': query, 'query_type': query_type
     }
 
-    # For query with templates (pick 1 between this and above):
+    r = requests.post(api_url, data=json.dumps(data), headers=header)
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+    curl -X 'POST' \
+      'https://{your-engine-url}/api/v1/query/' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN' \
+      -H 'Content-Type: application/json' \
+      -d '{"query_string": query, "query_type": query_type}'
+    ```
+
+### Query with Templates
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    api_url = "https://{your-engine-url}/api/v1/query/"
     template_name = "Name of template to use"     # we don't need this line if we query by template_id
     template_id = "ID number of template to use"  # we don't need this line if we query by template_name
-    parameters = "Mapping of parameters to fill in the template"
+    parameters = "Mapping of parameters to fill in the template"  # dictionary
+    query_type = "SQL query type" # psql or thanosql
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
 
     data = {
         'query_type': query_type,
@@ -54,8 +84,7 @@ Execute ThanoSQL queries and receive a query log as a response. The query can be
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
       -H 'Content-Type: application/json' \
-      -d '{"query_string": query, "query_type": query_type}'
-      # or -d '{"query_type": query_type, "template_name": template_name, "parameters": parameters}'
+      -d '{"query_type": query_type, "template_name": template_name, "parameters": parameters}'
     ```
 
 !!! warning "Query String and Query Template"
@@ -96,7 +125,7 @@ If the query statement yields results (statements such as SELECT, LIST), then th
 
 ## **`GET` /query/log**
 
-This method retrieves a paginated list of all query logs.
+Retrieves a paginated list of all query logs.
 
 === "Python"
 
