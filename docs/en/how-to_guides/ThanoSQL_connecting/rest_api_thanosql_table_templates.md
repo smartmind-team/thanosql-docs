@@ -18,7 +18,7 @@ You can use the ThanoSQL Table Template REST API for several CRUD operations on 
 
 ## **`GET` /table_template**
 
-In order to get a list of all of your table templates, use the method below.
+Retrieves a list of all of available table templates in a certain order. Optionally can include search keywords as well.
 
 === "Python"
 
@@ -27,7 +27,12 @@ In order to get a list of all of your table templates, use the method below.
     import json
 
     api_token = "Issued_API_TOKEN"
-    api_url="https://{your-engine-url}/api/v1/table_template"
+    base_url="https://{your-engine-url}/api/v1/table_template/"
+    search = "Search keyword(s)"
+    order_by = "Order by"
+    latest = {Latest}
+
+    api_url = f"{base_url}?search={search}&order_by={order_by}&latest={latest}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -42,15 +47,21 @@ In order to get a list of all of your table templates, use the method below.
 
     ```shell
       curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/table_template/' \
+      'https://{your-engine-url}/api/v1/table_template/?search={search}&order_by={order_by}&latest={latest}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
 
+### __Parameters__
+
+- `search`: Word(s) that the table templates' name must contain (defaults to empty string).
+- `order_by`: How the query results should be ordered, there are three possible values: 'recent', based on date of creation from latest to oldest, 'name_asc', based on name from A to Z, and 'name_desc', based on name from Z to A (defaults to 'recent').
+- `latest`: A boolean value that can be set to `True` if you only want to return the latest version of each table template. Otherwise, it returns all available versions (default: `False`).
+
 
 ## **`GET` /table_template/{table_template_name}**
 
-Use this method to get the most recent version of table template object of a certain name.
+Retrieves the table template object with the given name. If needed, a specific or latest version can also be added to the request.
 
 === "Python"
 
@@ -61,8 +72,9 @@ Use this method to get the most recent version of table template object of a cer
     api_token = "Issued_API_TOKEN"
     base_url = "https://{your-engine-url}/api/v1/table_template"
     table_template_name = "Table template name"
+    version = "A specific version, or 'latest' to request the latest table template"
 
-    api_url = f"{base_url}/{table_template_name}"
+    api_url = f"{base_url}/{table_template_name}?version={version}"
 
     header = {
         "Authorization": f"Bearer {api_token}"
@@ -77,15 +89,26 @@ Use this method to get the most recent version of table template object of a cer
 
     ```shell
       curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/table_template/{table_template_name}' \
+      'https://{your-engine-url}/api/v1/table_template/{table_template_name}?version={version}' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
 
+### __Response__
+
+The API response has the following structure:
+
+```
+{
+  "table_templates": ["list of all table templates with the requested name, or one table template if version is not empty"]
+  "versions": ["list of all available versions"]
+}
+```
+
 
 ## **`POST` /table_template/{table_template_name}**
 
-Use this method to create a new table template.
+Creates a new table template.
 
 === "Python"
 
@@ -151,7 +174,6 @@ Use this method to create a new table template.
         "Authorization": f"Bearer {api_token}"
     }
 
-    ## Create Table
     r = requests.post(api_url, headers=header, body=data):
     r.raise_for_status()
     r.json()
@@ -211,4 +233,40 @@ Use this method to create a new table template.
         "version": "string",
         "compatibility": "string"
         }'
+    ```
+
+
+## **`DELETE` /table_template/{table_template_name}**
+
+Deletes table templates with the given name. If needed, it is also possible to delete only a specific version.
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    base_url = "https://{your-engine-url}/api/v1/table_template"
+    table_template_name = "Table template name"
+    version = "A specific version of the table template"
+
+    api_url = f"{base_url}/{table_template_name}?version={version}"
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    r = requests.delete(api_url, headers=header):
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+      curl -X 'DELETE' \
+      'https://{your-engine-url}/api/v1/table_template/{table_template_name}?version={version}' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN'
     ```
