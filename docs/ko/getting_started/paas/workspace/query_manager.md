@@ -86,7 +86,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ##### 정의
 
-해당 뷰의 정의(쿼리문)을 알 수  있습니다.  
+해당 뷰의 정의(쿼리문)를 알 수  있습니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_32.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_32.png)
 
