@@ -174,8 +174,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ##### **스키마 생성하기**
 
-데이터 추가하기 메뉴에서 **스키마 생성하기**
-를 클릭하여 새 스키마를 생성합니다.
+데이터 추가하기 메뉴에서 **스키마 생성하기**를 클릭하여 새 스키마를 생성합니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_12.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_12.png)
 
