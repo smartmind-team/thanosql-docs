@@ -186,8 +186,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 #### 테이블 삭제
 
-데이터베이스 탐색기의 각 테이블 우측 메뉴 버튼을 클릭하여 해당 테이
-블을 삭제할 수 있습니다.
+데이터베이스 탐색기의 각 테이블 우측 메뉴 버튼을 클릭하여 해당 테이블을 삭제할 수 있습니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_13.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_13.png)
 
