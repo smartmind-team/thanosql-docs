@@ -86,7 +86,8 @@ You can quickly understand the contents of that data table.
 
 ##### Definition
 
-You can see the definition (query statement) of that view.
+You can see the definition (query statement) of the view.
+
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_32.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_32.png)
 
