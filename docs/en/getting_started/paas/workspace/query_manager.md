@@ -67,10 +67,11 @@ Each workspace provides the public schema and temporary result tables by default
 
 #### **Table / View Information**
 
-데이터베이스 탐색기는 스키마 내의 테이블 / 뷰 에 대한 정보를 제공합니다. 테이블명을 클릭하면 다음의 정보를 확인 할 수 있습니다.
+The Database Explorer provides information about tables/views within the schema. Click the table name to see the following information.
 
 ##### Table Schema
-The Database Explorer provides information about tables/views within the schema. Click the table name to see the following information.
+
+You can check the column name, data type, and nullability of the table/view.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_14.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_14.png)
 
