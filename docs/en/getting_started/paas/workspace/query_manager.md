@@ -65,24 +65,29 @@ You can access the [schema](https://www.postgresql.org/docs/current/ddl-schemas.
 
 Each workspace provides the public schema and temporary result tables by default. Queries that do not specify a schema will refer to tables in the public schema. Any query executed in the query editor that produces results in tabular form will be stored as a `Temporary Result Table` with a random table name. This allows you to reuse previous query results as needed.
 
-#### **Table Information**
+#### **Table / View Information**
 
-The database explorer provides information about tables within the schema. Click on a table name to see the following information:
+데이터베이스 탐색기는 스키마 내의 테이블 / 뷰 에 대한 정보를 제공합니다. 테이블명을 클릭하면 다음의 정보를 확인 할 수 있습니다.
 
-##### **Table Schema**
-
-View column names, data types, and nullability of columns in the data table.
+##### Table Schema
+The Database Explorer provides information about tables/views within the schema. Click the table name to see the following information.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_14.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_14.png)
 
-##### **Preview**
+##### Preview
 
-Quickly understand the contents of the data table.
+You can quickly understand the contents of that data table.
 
 !!! warning
-    Editing data tables is not possible in the preview.
+    You cannot edit the data table in the preview.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_15.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_15.png)
+
+##### Definition
+
+You can see the definition (query statement) of that view.
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_32.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_32.png)
 
 #### **Adding Data**
 
@@ -182,6 +187,140 @@ In the Add Data menu, click on Create Schema to generate a new schema.
 You can delete a specific table by clicking the right-hand menu button for that table in the database explorer.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_13.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_13.png)
+
+### **Managing Templates**
+
+You can manage table templates and query templates. Move by clicking the menu button located in the upper right corner of the Database Explorer.
+
+#### **Table Template**    
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_18.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_18.png)
+
+① Returns to the query editor. 
+
+② Go to the Create Table Template page to create a table template.
+
+③ You can enter a table template name to find the table template you want. 
+
+④ Sort by creation date, name (upward, downward).
+
+⑤ Look up the versions of the template.
+
+⑥ View table template details. 
+
+⑦ Compatibility with date created.
+
+**Create table templates** 
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_19.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_19.png)
+
+① Enter the name of the table template to save. 
+
+② When you create a new version, the version is fixed at 1.0. 
+
+③ Enter the column information to enter in the table template. 
+
+④ Cancel the creation of table templates.
+
+⑤ Create a table template.
+
+**View Table Template Details**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_20.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_20.png)
+
+① Returns to the query editor. 
+
+② Delete the template. 
+
+③ Select the version of the template.
+
+④ Create a new version of the template.
+
+⑤ Delete the corresponding version of the template.
+
+⑥ Compatibility with date created.
+
+**Modifying table templates**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_21.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_21.png)
+
+① You can tell if this is the current table template. 
+
+② You can lower the version or upload it. (It should not be the same as the previous version.)
+
+③ You can add, delete, or modify columns.
+
+**Save table templates**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_22.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_22.png)
+
+① Enter the name of the table template to save.
+
+**Import table templates**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_23.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_23.png)
+
+① You can search by table template name to find it.
+
+#### **Query template**
+
+Use the query tool to save/recall query templates.
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_24.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_24.png)
+
+**Save Query Template**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_25.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_25.png)
+
+① Query Template Name window: Enter the name of the query template you want to save.
+
+② Query Statement Type window: Type the query statement you want to save.
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_26.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_26.png)
+
+① Query Template Name Type window: Search by the saved query template name and locate it.
+
+**Managing Query Templates**
+
+Click the **`Draw'** button located to the right of Database in the Database Explorer to open the Add Table Data menu and click Manage Query Templates.
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_27.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_27.png)
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_28.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_28.png)
+
+① Navigate to the page where you can create query templates.
+
+② You can enter a name for the query template to find the desired query template.  
+
+③ Sort by modification date, name by name (upward, downward).
+
+④ You can know the date of modification.  
+
+⑤ A button that takes you to the View Template Details page.
+
+**Create Query Template**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_29.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_29.png)
+
+① Type the name of the query template that you want to save. 
+
+② Type the query statement you want to save.
+
+**View query template details**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_30.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_30.png)
+
+① Delete or modify the template. 
+
+② Date created and date of update.
+
+**To modify a query template**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_31.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_31.png)
+
+① Modify the name of the query template that you want to save. 
+
+② Modify the query statement to save.
 
 ### **Query Logs**
 
