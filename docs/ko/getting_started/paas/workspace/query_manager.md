@@ -65,13 +65,13 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 각 워크스페이스는 public과 임시 결과 테이블을 기본적으로 제공하며, 스키마를 명시하지 않은 모든 쿼리들은 public의 테이블을 참조합니다. 쿼리 에디터에서 실행한 쿼리 중 그 결과가 테이블 형태로 있는 모든 쿼리들은 `임시 결과 테이블`에 임의의 테이블 이름으로 저장됩니다. 이를 이용하여 이전 테이블 실행 결과들을 언제든지 재사용할 수 있습니다.
 
-#### **테이블 정보**
+#### **테이블 / 뷰 정보**
 
-데이터베이스 탐색기는 스키마 내의 테이블에 대한 정보를 제공합니다. 테이블명을 클릭하면 다음의 정보를 확인할 수 있습니다.
+데이터베이스 탐색기는 스키마 내의 테이블 / 뷰 에 대한 정보를 제공합니다. 테이블명을 클릭하면 다음의 정보를 확인 할 수 있습니다.
 
 ##### 테이블 스키마
 
-해당 데이터 테이블의 컬럼명, 데이터 타입, Null 가능 여부를 확인할 수 있습니다.
+해당 테이블 / 뷰 의 컬럼명, 데이터 타입, Null 가능 여부를 확인 할 수 있습니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_14.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_14.png)
 
@@ -83,6 +83,12 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
     미리보기에서는 데이터 테이블 편집이 불가능합니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_15.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_15.png)
+
+##### 정의
+
+해당 뷰의 정의(쿼리문)을 알 수  있습니다.  
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_32.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_32.png)
 
 #### **데이터 추가하기**
 
