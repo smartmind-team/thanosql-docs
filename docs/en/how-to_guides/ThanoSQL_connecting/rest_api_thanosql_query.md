@@ -7,7 +7,7 @@ title: Query APIs
 
 ## __`POST` /query__
 
-Executes ThanoSQL queries and receives a query log as a response. The query can be either typed directly or retrieved from an existing query template (with or without parameters).
+Executes ThanoSQL queries and receives a query log response. The query can be either typed directly or retrieved from an existing query template (with or without parameters).
 
 ### Query without Templates
 
@@ -97,15 +97,16 @@ The API can set a destination table to save the results from a query using query
 - `schema`: The schema to retrieve the tables from. If no parameter is provided, defaults to "qm".
 - `table_name`: The name that will be used to create the table. If not parameter is provided, defaults to a randomly generated table name.
 - `overwrite`: Determines if the table shall be overwritten or not. Defaults to False.
+- `max_results`: Specifies the maximum number of records that should be returned (max: 100)
 
 ### __Response__
 
-The `/query` API returns a query log (shown below) as a response.
+The `/query` API returns a query log response (shown below).
 
 If the query statement yields results (statements such as SELECT, LIST), then the results are stored into a destination table. The destination table is specified by the `destination_table_name` and `destination_schema`. If the query produces no results, then the destination table indicates the table that was affected
 
-!!! Note "__Query Log__"
-    A query log contains information about the query that was executed. Below are the attributes that make up a query log.
+!!! Note "__Query Log Response__"
+    A query log response contains information about the query that was executed. Below are the attributes that make up a query log response.
 
     - `query_id`: A unique ID that identifies the query.
     - `statement_type`: The query type (ex. SELECT, BUILD, etc.).
@@ -118,7 +119,7 @@ If the query statement yields results (statements such as SELECT, LIST), then th
     - `destination_schema`: Shows the destination table's schema.
     - `error_result`: Stores the error message if there was an error executing the query.
     - `created_at`: Shows the timestamp of when the query log was created.
-
+    - `records`: Returns a sample of the data (max. 100)
 !!! warning "__Warning__"
     - Columns created using "__CONVERT__" are encoded using base64. To use it as a column containing bytes, it must be decoded using base64's b64decode.
 
