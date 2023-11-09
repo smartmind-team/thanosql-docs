@@ -314,7 +314,7 @@ Click the **`Draw'** button located to the right of Database in the Database Exp
 
 ① Delete or modify the query template. 
 
-② Date created and date of update.
+② Date of creation and date of update.
 
 **To modify a query template**
 
