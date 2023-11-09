@@ -232,7 +232,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ① Return to the query editor. 
 
-② Delete the template. 
+② Delete the table template. 
 
 ③ Select the version of the template.
 
