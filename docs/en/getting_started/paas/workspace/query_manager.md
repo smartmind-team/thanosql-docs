@@ -212,7 +212,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ⑦ Compatibility and creation date of the table template.
 
-**Create table templates** 
+**Creating table templates** 
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_19.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_19.png)
 
