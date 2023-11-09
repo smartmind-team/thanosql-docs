@@ -226,7 +226,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ⑤ Confirm the creation of the table template.
 
-**View Table Template Details**
+**Viewing table template details**
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_20.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_20.png)
 
