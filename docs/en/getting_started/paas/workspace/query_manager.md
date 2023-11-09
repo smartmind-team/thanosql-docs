@@ -80,7 +80,7 @@ You can check the column name, data type, and nullability of the table/view.
 You can quickly understand the contents of that data table.
 
 !!! warning
-    You cannot edit the data table in the preview.
+    You cannot edit data tables in the preview.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_15.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_15.png)
 
