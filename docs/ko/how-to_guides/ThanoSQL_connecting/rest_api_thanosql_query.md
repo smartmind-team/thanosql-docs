@@ -100,12 +100,16 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그 결과를 응답으로 받습니�
 
 ### __Response__
 
-응답 형태는 아래의 ‘쿼리 로그 결과’ 형식입니다.
+응답으로 쿼리 로그와 레코드를 반환합니다.
 
-`statement_type이` SELECT, LIST 등과 같이 결과가 있으면 파라미터로 설정한 ‘대상 테이블‘로 결과를 저장합니다. 이 ‘대상 테이블’ 정보는 `destination_schema`, `detination_table_name` 값으로 확인 가능합니다. (쿼리 결과가 없을 경우 파라미터 값으로 따로 지정된 테이블이 아닌 쿼리로 영향을 받은 테이블이 ‘대상 테이블’이 됩니다.)
+```json
+{
+    ...QueryLog,
+    "records" : [{}] | null # 쿼리 결과
+}
+```
 
-
-!!! Note "__Query Log Response__"
+!!! Note "__Query Log__"
     쿼리 로그 결과는 실행된 쿼리에 대한 정보가 포함됩니다. 아래는 쿼리 로그 결과를 구성하는 속성입니다.
 
     - `query_id`: 쿼리를 식별하는 고유한 ID입니다.
@@ -119,7 +123,8 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그 결과를 응답으로 받습니�
     - `destination_schema`: 대상 테이블의 스키마를 나타냅니다.
     - `error_result`: 쿼리 실행 중 발생한 오류 메시지를 저장합니다.
     - `created_at`: 쿼리 로그가 생성된 시간을 나타냅니다.
-    - `result`: 데이터의 샘플을 보여줍니다. (최대 100개)
+
+`statement_type이` SELECT, LIST 등과 같이 결과가 있으면 파라미터로 설정한 ‘대상 테이블‘로 결과를 저장합니다. 이 ‘대상 테이블’ 정보는 `destination_schema`, `detination_table_name` 값으로 확인 가능합니다. (쿼리 결과가 없을 경우 파라미터 값으로 따로 지정된 테이블이 아닌 쿼리로 영향을 받은 테이블이 ‘대상 테이블’이 됩니다.)
 
 !!! warning "__Warning__"
     - "__CONVERT__"를 사용해 만들어진 컬럼의 값들은 base64로 인코딩됩니다. 바이트 형식의 값을 사용하려면 base64의 b64decode를 사용하여 디코딩해야 합니다.
