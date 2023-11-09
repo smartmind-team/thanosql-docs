@@ -322,7 +322,7 @@ Click the **`Draw'** button located to the right of Database in the Database Exp
 
 ① Modify the name of the query template. 
 
-② Modify the query statement to save.
+② Modify the query statement.
 
 ### **Query Logs**
 
