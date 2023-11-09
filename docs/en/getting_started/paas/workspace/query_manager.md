@@ -86,7 +86,7 @@ You can quickly see the contents of the selected table/view.
 
 ##### Definition
 
-You can see the definition (query statement) of the view.
+You can see the definition (query statement) of the selected view.
 
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_32.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_32.png)
