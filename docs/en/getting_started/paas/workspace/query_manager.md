@@ -298,7 +298,7 @@ Click the **`Draw'** button located to the right of Database in the Database Exp
 
 ④ You can know the date of modification.  
 
-⑤ A button that takes you to the View Template Details page.
+⑤ Go to the "View Template Details" page.
 
 **Create Query Template**
 
