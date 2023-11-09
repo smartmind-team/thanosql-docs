@@ -320,7 +320,7 @@ Click the **`Draw'** button located to the right of Database in the Database Exp
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_31.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_31.png)
 
-① Modify the name of the query template that you want to save. 
+① Modify the name of the query template. 
 
 ② Modify the query statement to save.
 
