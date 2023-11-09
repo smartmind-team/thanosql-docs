@@ -204,7 +204,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ③ Enter a table template name to find the table template you want. 
 
-④ Sort by creation date, name (upward, downward).
+④ Sort by creation date or name (ascending or descending).
 
 ⑤ Look up the versions of the template.
 
