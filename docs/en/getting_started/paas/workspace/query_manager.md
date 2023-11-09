@@ -230,7 +230,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_20.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_20.png)
 
-① Returns to the query editor. 
+① Return to the query editor. 
 
 ② Delete the template. 
 
