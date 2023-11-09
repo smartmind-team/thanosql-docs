@@ -67,7 +67,7 @@ Each workspace provides the public schema and temporary result tables by default
 
 #### **Table / View Information**
 
-The Database Explorer provides information about tables/views within the schema. Click the table name to see the following information.
+The Database Explorer provides information about tables/views within the schema. Click on the table/view name to see the following information.
 
 ##### Table Schema
 
