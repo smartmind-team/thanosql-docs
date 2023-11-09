@@ -202,7 +202,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ② Go to the "Create Table Template" page to create a new table template.
 
-③ You can enter a table template name to find the table template you want. 
+③ Enter a table template name to find the table template you want. 
 
 ④ Sort by creation date, name (upward, downward).
 
