@@ -71,7 +71,7 @@ OPTIONS (
 - "max_encoder_length": 모델이 예측할 때 사용할 과거 데이터 최대 길이(time_idx)입니다. (int, default: 24)
 - "min_encoder_length": 모델이 예측할 때 사용할 과거 데이터의 최소 길이(time_idx)입니다. 기본값은 max_encoder_length 값에 맞춰집니다. (int, optional)
 - "max_prediction_length": 최대 예측 길이입니다. 너무 짧지 않도록 선택합니다. (int, default: 24)
-- "min_prediction_length": 최소 예측 길이입니다. 기본값은 max_encoder_length 값에 맞춰집니다. (int, optional)
+- "min_prediction_length": 최소 예측 길이입니다. 기본값은 max_prediction_length 값에 맞춰집니다. (int, optional)
 - "group_id_cols": 시계열 식별자 컬럼입니다. 데이터 세트에 여러 시계열이 존재하는 경우 해당 식별자를 리스트 형태로 기재합니다. (List[str])
 - "group_normalizer": GroupNormalizer의 사용 유무를 설정합니다. True일 경우 그룹 아이디, 타겟, 시간 인덱스를 사용하여 정규화를 진행합니다. (bool, optional, True|False, default: False)
 - "static_categorical_cols": 시간이 지나도 변하지 않는 범주형 변수 리스트입니다. e.g. 제품 범주 (List[str])
