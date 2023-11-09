@@ -222,7 +222,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ③ Fill in the column information to include in the table template. 
 
-④ Cancel the creation of table templates.
+④ Cancel the creation of the table template.
 
 ⑤ Confirm the creation of the table template.
 
