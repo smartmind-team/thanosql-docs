@@ -312,7 +312,7 @@ Click the **`Draw'** button located to the right of Database in the Database Exp
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_30.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_30.png)
 
-① Delete or modify the template. 
+① Delete or modify the query template. 
 
 ② Date created and date of update.
 
