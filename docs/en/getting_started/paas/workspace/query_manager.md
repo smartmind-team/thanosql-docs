@@ -224,7 +224,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ④ Cancel the creation of table templates.
 
-⑤ Create a table template.
+⑤ Confirm the creation of the table template.
 
 **View Table Template Details**
 
