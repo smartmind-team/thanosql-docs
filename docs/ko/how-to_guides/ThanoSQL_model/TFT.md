@@ -83,7 +83,7 @@ OPTIONS (
 - "special_day_cols": 동시에 여러 값을 가지는 범주형 변수 리스트입니다. e.g. 공휴일 (List[str], optional)
 - "allow_missing_timesteps": 누락된 시간 인덱스 허용 가능 설정입니다. True일 경우 결측 타임 인덱스에 대한 샘플이 생성됩니다. e.g 특정 시계열에 1,2,4,5에 대한 샘플만 있으면 3에 대한 샘플이 생성됩니다. 단 NA값은 처리하지 않습니다. (bool, True|False, default: False)
 - "validate": 교차검증 사용옵션을 설정합니다. (bool, optional, True|False, default: False)
-- "seed": 실험의 재현성을 위해 난수 고정용 값입니다. (int, optional, default: 42)
+- "seed": 실험의 재현성을 위해 난수 고정용 값입니다. (int, optional, default: None)
 - "batch_size": 한 번의 학습에서 읽는 데이터 세트 묶음의 크기입니다. (int, optional, default: 128)
 - "max_epochs": 모든 학습 데이터 세트를 학습하는 횟수를 설정합니다. (int, optional, default: 30)
 - "learning_rate": 모델의 학습률입니다. (float, optional, default: 3e-3)
