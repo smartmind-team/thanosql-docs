@@ -206,7 +206,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ④ Sort by creation date or name (ascending or descending).
 
-⑤ Look up the versions of the template.
+⑤ Look up the versions of the table template.
 
 ⑥ View table template details. 
 
