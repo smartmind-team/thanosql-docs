@@ -77,7 +77,7 @@ You can check the column name, data type, and nullability of the table/view.
 
 ##### Preview
 
-You can quickly understand the contents of that data table.
+You can quickly see the contents of the selected table/view.
 
 !!! warning
     You cannot edit data tables in the preview.
