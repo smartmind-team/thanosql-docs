@@ -210,7 +210,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ⑥ View table template details. 
 
-⑦ Compatibility with date created.
+⑦ Compatibility and creation date of the table template.
 
 **Create table templates** 
 
