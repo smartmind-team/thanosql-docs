@@ -220,7 +220,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ② When you create a new table template, the version is fixed at 1.0. 
 
-③ Enter the column information to enter in the table template. 
+③ Fill in the column information to include in the table template. 
 
 ④ Cancel the creation of table templates.
 
