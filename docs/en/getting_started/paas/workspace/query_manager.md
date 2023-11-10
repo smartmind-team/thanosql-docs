@@ -294,7 +294,7 @@ Click the **`Draw`** button located to the right of "Database" in the Database E
 
 ② You can enter a name for the query template to find the desired query template.  
 
-③ Sort by modification date, name by name (upward, downward).
+③ Sort by update date or name (ascending or descending).
 
 ④ Check the date of latest update.  
 
