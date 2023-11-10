@@ -246,7 +246,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_21.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_21.png)
 
-① You can tell if this is the current table template. 
+① Table template name to indicate the current table template.
 
 ② You can lower the version or upload it. (It should not be the same as the previous version.)
 
