@@ -264,7 +264,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ① You can search by name to find the table template to import.
 
-#### **Query template**
+#### **Query Template**
 
 Use the query tool to save/recall query templates.
 
