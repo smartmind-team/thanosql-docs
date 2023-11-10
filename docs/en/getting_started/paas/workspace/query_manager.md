@@ -276,7 +276,7 @@ Use the query tool to save/recall query templates.
 
 ① Query Template Name: Enter the name of the query template you want to save.
 
-② Query Statement Type window: Type the query statement you want to save.
+② Query Statement: Type the query statement you want to save.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_26.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_26.png)
 
