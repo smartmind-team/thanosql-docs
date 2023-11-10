@@ -258,7 +258,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ① Enter the name of the table template to save.
 
-**Import table templates**
+**Importing table templates**
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_23.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_23.png)
 
