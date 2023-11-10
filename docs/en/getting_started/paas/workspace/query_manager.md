@@ -270,7 +270,7 @@ Use the query tool to save/recall query templates.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_24.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_24.png)
 
-**Save Query Template**
+**Saving query templates**
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_25.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_25.png)
 
