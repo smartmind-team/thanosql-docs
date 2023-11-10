@@ -316,7 +316,7 @@ Click the **`Draw'** button located to the right of Database in the Database Exp
 
 ② Date of creation and date of update.
 
-**To modify a query template**
+**Modifying query templates**
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_31.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_31.png)
 
