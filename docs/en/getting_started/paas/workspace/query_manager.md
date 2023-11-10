@@ -284,7 +284,7 @@ Use the query tool to save/recall query templates.
 
 **Managing query templates**
 
-Click the **`Draw'** button located to the right of Database in the Database Explorer to open the Add Table Data menu and click Manage Query Templates.
+Click the **`Draw`** button located to the right of "Database" in the Database Explorer to open the "Add Table Data" menu and click "Manage Query Templates".
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_27.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_27.png)
 
