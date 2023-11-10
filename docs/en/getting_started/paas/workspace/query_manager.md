@@ -296,7 +296,7 @@ Click the **`Draw'** button located to the right of Database in the Database Exp
 
 ③ Sort by modification date, name by name (upward, downward).
 
-④ You can know the date of modification.  
+④ Check the date of latest update.  
 
 ⑤ Go to the "View Template Details" page.
 
