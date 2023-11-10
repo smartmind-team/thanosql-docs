@@ -240,7 +240,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ⑤ Delete the corresponding version of the table template.
 
-⑥ Compatibility with date created.
+⑥ Compatibility and creation date of the table template.
 
 **Modifying table templates**
 
