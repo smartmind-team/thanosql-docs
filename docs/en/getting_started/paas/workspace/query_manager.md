@@ -248,7 +248,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ① Table template name to indicate the current table template.
 
-② You can lower the version or upload it. (It should not be the same as the previous version.)
+② Enter new version (it should not be the same as the previous version).
 
 ③ You can add, delete, or modify columns.
 
