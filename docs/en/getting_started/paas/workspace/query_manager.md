@@ -308,7 +308,7 @@ Click the **`Draw'** button located to the right of Database in the Database Exp
 
 ② Type the query statement you want to save.
 
-**View query template details**
+**Viewing query template details**
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_30.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_30.png)
 
