@@ -252,7 +252,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ③ You can add, delete, or modify columns.
 
-**Save table templates**
+**Saving table templates**
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_22.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_22.png)
 
