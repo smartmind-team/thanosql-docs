@@ -292,7 +292,7 @@ Click the **`Draw`** button located to the right of "Database" in the Database E
 
 ① Navigate to the page where you can create query templates.
 
-② You can enter a name for the query template to find the desired query template.  
+② Enter query template name to find the desired query template.  
 
 ③ Sort by update date or name (ascending or descending).
 
