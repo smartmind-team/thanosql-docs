@@ -262,7 +262,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_23.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_23.png)
 
-① You can search by table template name to find it.
+① You can search by name to find the table template to import.
 
 #### **Query template**
 
