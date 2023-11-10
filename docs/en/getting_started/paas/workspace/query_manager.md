@@ -280,7 +280,7 @@ Use the query tool to save/recall query templates.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_26.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_26.png)
 
-① Query Template Name Type window: Search by the saved query template name and locate it.
+① Query Template Search Bar: Search by name to find saved query templates.
 
 **Managing Query Templates**
 
