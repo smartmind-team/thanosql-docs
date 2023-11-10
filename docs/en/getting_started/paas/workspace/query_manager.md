@@ -250,7 +250,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ② Enter new version (it should not be the same as the previous version).
 
-③ You can add, delete, or modify columns.
+③ Add, delete, or modify columns.
 
 **Saving table templates**
 
