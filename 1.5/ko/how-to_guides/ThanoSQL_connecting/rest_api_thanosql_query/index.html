@@ -1827,6 +1827,20 @@ version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    템플릿 사용하지 않는 쿼리
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    템플릿 사용하는 쿼리
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#parameters" class="md-nav__link">
     Parameters
   </a>
@@ -1862,6 +1876,61 @@ version.
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-querytemplate" class="md-nav__link">
+    GET /query/template
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /query/template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_1" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-querytemplate" class="md-nav__link">
+    POST /query/template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-querytemplatetemplate_name" class="md-nav__link">
+    GET /query/template/{template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#put-querytemplatetemplate_name" class="md-nav__link">
+    PUT /query/template/{template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-querytemplatetemplate_name" class="md-nav__link">
+    DELETE /query/template/{template_name}
+  </a>
   
 </li>
       
@@ -2040,6 +2109,20 @@ version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    템플릿 사용하지 않는 쿼리
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    템플릿 사용하는 쿼리
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#parameters" class="md-nav__link">
     Parameters
   </a>
@@ -2078,6 +2161,61 @@ version.
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-querytemplate" class="md-nav__link">
+    GET /query/template
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /query/template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_1" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-querytemplate" class="md-nav__link">
+    POST /query/template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-querytemplatetemplate_name" class="md-nav__link">
+    GET /query/template/{template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#put-querytemplatetemplate_name" class="md-nav__link">
+    PUT /query/template/{template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-querytemplatetemplate_name" class="md-nav__link">
+    DELETE /query/template/{template_name}
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2095,29 +2233,30 @@ version.
 
 <h1 id="query-apis"><strong>Query APIs</strong><a class="headerlink" href="#query-apis" title="Permanent link">&para;</a></h1>
 <h2 id="post-query"><strong><code>POST</code> /query</strong><a class="headerlink" href="#post-query" title="Permanent link">&para;</a></h2>
-<p>ThanoSQL 쿼리를 실행하고 쿼리 로그를 응답으로 받습니다.</p>
+<p>ThanoSQL 쿼리를 실행하고 쿼리 로그 결과를 응답으로 받습니다. 쿼리는 직접 입력하거나 기존 쿼리 템플릿을 사용하여 불러 올 수 있습니다(매개변수 포함 또는 제외).</p>
+<h3 id="_1">템플릿 사용하지 않는 쿼리<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
-<span class="n">api_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/query/&quot;</span>
-<span class="n">query</span><span class="o">=</span><span class="s2">&quot;요청할 쿼리&quot;</span>
-<span class="n">query_type</span><span class="o">=</span><span class="s2">&quot;쿼리를 실행할 sql type&quot;</span> <span class="c1">#psql or thanosql</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/&quot;</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;요청할 쿼리&quot;</span>
+<span class="n">query_type</span> <span class="o">=</span> <span class="s2">&quot;쿼리를 실행할 SQL 타입&quot;</span> <span class="c1"># psql 또는 thanosql</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
-<span class="p">}</span>
+<span class="p">}</span>    
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;query_string&#39;</span><span class="p">:</span> <span class="n">query</span><span class="p">,</span> <span class="s1">&#39;query_type&#39;</span><span class="p">:</span> <span class="n">query_type</span>
 <span class="p">}</span>
 
-<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
-
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
 <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-<span class="n">return_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2131,19 +2270,68 @@ version.
 </div>
 </div>
 </div>
+<h3 id="_2">템플릿 사용하는 쿼리<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/&quot;</span>
+<span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;사용할 템플릿 이름&quot;</span>  <span class="c1"># template_id로 쿼리하는 경우에는 이 줄이 필요하지 않습니다</span>
+<span class="n">template_id</span> <span class="o">=</span> <span class="s2">&quot;사용할 템플릿의 ID&quot;</span>  <span class="c1"># template_name로 쿼리하는 경우에는 이 줄이 필요하지 않습니다</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="s2">&quot;템플릿을 채울 매개변수 매핑&quot;</span>  <span class="c1"># 딕셔너리</span>
+<span class="n">query_type</span> <span class="o">=</span> <span class="s2">&quot;쿼리를 실행할 SQL 타입&quot;</span>  <span class="c1"># psql 또는 thanosql</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;query_type&#39;</span><span class="p">:</span> <span class="n">query_type</span><span class="p">,</span>
+    <span class="s1">&#39;template_name&#39;</span><span class="p">:</span> <span class="n">template_name</span><span class="p">,</span>  <span class="c1"># 또는 template_id로 쿼리하는 경우 `&#39;template_id&#39;: template_id`</span>
+    <span class="s1">&#39;parameters&#39;</span><span class="p">:</span> <span class="n">parameters</span>         <span class="c1"># 선택 사항, 템플릿 필요한지 여부에 따라</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;query_type&quot;: query_type, &quot;template_name&quot;: template_name, &quot;parameters&quot;: parameters}&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">쿼리 문자열 및 쿼리 템플릿</p>
+<p>쿼리 문자열과 템플릿(및/또는 매개변수)은 함께 사용해서는 안 됩니다. <code>template_id</code>, <code>template_name</code>, <code>parameters</code> 중 하나 이상과 함께 <code>query_string</code>을 사용하면 에러가 발생합니다.</p>
+</div>
 <h3 id="parameters"><strong>Parameters</strong><a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <p>파라미터로 쿼리 결과를 저장할 ‘대상 테이블‘을 설정할 수 있습니다. 아무것도 설정하지 않으면 qm 스키마의 임시테이블이 ‘대상 테이블‘이 됩니다.</p>
 <ul>
 <li><code>schema</code>: 테이블을 가져올 스키마입니다. 매개변수가 제공되지 않은 경우 "qm"으로 기본 설정됩니다.</li>
 <li><code>table_name</code>: 테이블을 생성하는 데 사용할 이름입니다. 매개변수가 제공되지 않은 경우 무작위로 테이블 이름을 생성합니다.</li>
 <li><code>overwrite</code>: 테이블을 덮어쓸지 여부를 결정합니다. 기본값은 False입니다.</li>
+<li><code>max_results</code>: 결과가 있는 쿼리 일 경우 반환되는 결과의 최대 수를 지정합니다. 기본값은 0 최대값은 100 입니다. </li>
 </ul>
 <h3 id="response"><strong>Response</strong><a class="headerlink" href="#response" title="Permanent link">&para;</a></h3>
-<p>응답 형태는 아래의 ‘쿼리 로그’ 형식입니다. </p>
-<p><code>statement_type이</code> SELECT, LIST 등과 같이 결과가 있으면 파라미터로 설정한 ‘대상 테이블‘로 결과를 저장합니다. 이 ‘대상 테이블’ 정보는 <code>destination_schema</code>, <code>detination_table_name</code> 값으로 확인 가능합니다. (쿼리 결과가 없을 경우 파라미터 값으로 따로 지정된 테이블이 아닌 쿼리로 영향을 받은 테이블이 ‘대상 테이블’이 됩니다.)</p>
+<p>응답으로 쿼리 로그와 레코드를 반환합니다.</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">...QueryLog</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;records&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{}]</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">쿼리</span><span class="w"> </span><span class="err">결과</span>
+<span class="p">}</span>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title"><strong>Query Log</strong></p>
-<p>쿼리 로그는 실행된 쿼리에 대한 정보가 포함됩니다. 아래는 쿼리 로그를 구성하는 속성입니다.</p>
+<p>쿼리 로그 결과는 실행된 쿼리에 대한 정보가 포함됩니다. 아래는 쿼리 로그 결과를 구성하는 속성입니다.</p>
 <ul>
 <li><code>query_id</code>: 쿼리를 식별하는 고유한 ID입니다.</li>
 <li><code>statement_type</code>: 쿼리 유형 (예: SELECT, BUILD 등).</li>
@@ -2158,6 +2346,7 @@ version.
 <li><code>created_at</code>: 쿼리 로그가 생성된 시간을 나타냅니다.</li>
 </ul>
 </div>
+<p><code>statement_type이</code> SELECT, LIST 등과 같이 결과가 있으면 파라미터로 설정한 ‘대상 테이블‘로 결과를 저장합니다. 이 ‘대상 테이블’ 정보는 <code>destination_schema</code>, <code>detination_table_name</code> 값으로 확인 가능합니다. (쿼리 결과가 없을 경우 파라미터 값으로 따로 지정된 테이블이 아닌 쿼리로 영향을 받은 테이블이 ‘대상 테이블’이 됩니다.)</p>
 <div class="admonition warning">
 <p class="admonition-title"><strong>Warning</strong></p>
 <ul>
@@ -2165,19 +2354,20 @@ version.
 </ul>
 </div>
 <h2 id="get-querylog"><strong><code>GET</code> /query/log</strong><a class="headerlink" href="#get-querylog" title="Permanent link">&para;</a></h2>
-<p>쿼리 로그 목록을 가져옵니다.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
+<p>모든 쿼리 로그의 paginated 목록을 검색합니다.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
 <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/log&quot;</span>
-<span class="n">offset</span> <span class="o">=</span> <span class="p">{</span><span class="n">Offset</span><span class="p">}</span>
-<span class="n">limit</span> <span class="o">=</span> <span class="p">{</span><span class="n">Limit</span><span class="p">}</span>
+<span class="n">search</span> <span class="o">=</span> <span class="s2">&quot;검색 키워드&quot;</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="s2">&quot;오프셋&quot;</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="s2">&quot;리밋&quot;</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?search=</span><span class="si">{</span><span class="n">search</span><span class="si">}</span><span class="s2">&amp;offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2190,25 +2380,234 @@ version.
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/log/?offset={offset}&amp;limit={limit}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/log/?search={search}&amp;offset={offset}&amp;limit={limit}&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 <h3 id="parameters_1"><strong>Parameters</strong><a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>offset</code>: 쿼리 로그를 조회를 시작할 기준점 (기본값: 0).</li>
-<li><code>limit</code>: offset에서 시작하여 조회 할 결과의 개수 (기본값: 100, 최대 100).</li>
+<li><code>search</code>: 반환된 로그의 쿼리 구문에 포함되어야 하는 텍스트입니다 (기본: 빈 문자열).</li>
+<li><code>offset</code>: 쿼리 로그 조회를 시작할 기준점입니다 (기본값: 0).</li>
+<li><code>limit</code>: offset에서 시작하여 조회 할 결과의 개수입니다 (기본: 100, 최대: 100).</li>
 </ul>
+<h2 id="get-querytemplate"><strong><code>GET</code> /query/template</strong><a class="headerlink" href="#get-querytemplate" title="Permanent link">&para;</a></h2>
+<p>모든 쿼리 템플릿을 불러옵니다.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/template&quot;</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="p">{</span><span class="n">오프셋</span><span class="p">}</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="p">{</span><span class="n">리밋</span><span class="p">}</span>
+<span class="n">search</span> <span class="o">=</span> <span class="s2">&quot;검색 키워드&quot;</span>
+<span class="n">order_by</span> <span class="o">=</span> <span class="s2">&quot;정렬 기준&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&amp;search=</span><span class="si">{</span><span class="n">search</span><span class="si">}</span><span class="s2">&amp;order_by=</span><span class="si">{</span><span class="n">order_by</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/template/?offset={offset}&amp;limit={limit}&amp;search={search}&amp;order_by={order_by}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="parameters_2"><strong>Parameters</strong><a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>offset</code>: 쿼리 템플렛 조회를 시작할 기준점입니다 (기본값: 0).</li>
+<li><code>limit</code>: offset에서 시작하여 조회 할 결과의 개수입니다 (기본: 100, 최대: 100).</li>
+<li><code>search</code>: 반환된 템플렛의 이름에 포함되어야 하는 텍스트입니다 (기본: 빈 문자열).</li>
+<li><code>order_by</code>: 쿼리 템플렛 결과의 순서를 지정하는 방법입니다. 세 가지 가능한 값이 있습니다: 최근에서 가장 오래된 순으로 정렬 하는 'recent', A에서 Z까지 이름을 기준으로 하는 'name_asc', Z에서 A까지 이름을 기준으로 하는 'name_desc'입니다 (기본: 'recent').</li>
+</ul>
+<h3 id="response_1"><strong>Response</strong><a class="headerlink" href="#response_1" title="Permanent link">&para;</a></h3>
+<p>이 메서드는 쿼리 템플릿 목록(아래 표시)을 응답으로 표시합니다.</p>
+<div class="admonition note">
+<p class="admonition-title"><strong>Query Template</strong></p>
+<p>쿼리 템플릿은 매개변수가 필요/필요하지 않을 수도 있는 쿼리 문자열입니다. psql과 thanosql 모두 템플릿은 <a href="https://jinja.palletsprojects.com/en/3.1.x/">Jinja</a>에서 사용하는 규칙을 따릅니다. 다음은 쿼리 템플릿을 구성하는 속성입니다.</p>
+<ul>
+<li><code>id</code>: 쿼리 템플릿을 식별하는 고유 ID 번호입니다.</li>
+<li><code>name</code>: 쿼리 템플릿 이름입니다.</li>
+<li><code>query</code>: 쿼리 템플릿 문자열입니다.</li>
+<li><code>created_at</code>: 쿼리 템플릿이 생성된 시점의 타임스탬프를 표시합니다.</li>
+<li><code>updated_at</code>: 쿼리 템플릿이 마지막으로 수정된 타임스탬프를 표시합니다.</li>
+</ul>
+<p>매개변수가 필요한 템플릿의 예:</p>
+<p><div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="k">schema</span><span class="w"> </span><span class="err">}}</span><span class="p">.</span><span class="err">\</span><span class="ss">&quot;{{ name }}\&quot;</span><span class="w"> </span><span class="p">(</span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">column</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">data</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="w"> </span><span class="o">-%</span><span class="err">}{{</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="err">}}{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">loop</span><span class="p">.</span><span class="k">last</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endif</span><span class="w"> </span><span class="o">%</span><span class="err">}{</span><span class="o">%-</span><span class="w"> </span><span class="n">endfor</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="p">)</span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">data</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="w"> </span><span class="o">-%</span><span class="err">}{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="s1">&#39;{{ value }}&#39;</span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="o">%</span><span class="err">}{{</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="err">}}{</span><span class="o">%</span><span class="w"> </span><span class="n">endif</span><span class="w"> </span><span class="o">%</span><span class="err">}{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">loop</span><span class="p">.</span><span class="k">last</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endif</span><span class="w"> </span><span class="o">%</span><span class="err">}{</span><span class="o">%-</span><span class="w"> </span><span class="n">endfor</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="p">);</span>
+</code></pre></div>
+위의 템플릿은 매개변수 <code>schema</code>, <code>name</code> 및 <code>data</code>가 필요합니다. 반면에 아래 템플릿은 이미 완성되었으므로 유효한 쿼리가 되기 위해 매개변수가 필요하지 않습니다:</p>
+<div class="highlight"><pre><span></span><code><span class="k">GET</span><span class="w"> </span><span class="n">THANOSQL</span><span class="w"> </span><span class="n">DATASET</span><span class="w"> </span><span class="n">diet_data</span>
+<span class="k">OPTIONS</span><span class="w"> </span><span class="p">(</span><span class="n">overwrite</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2 id="post-querytemplate"><strong><code>POST</code> /query/template</strong><a class="headerlink" href="#post-querytemplate" title="Permanent link">&para;</a></h2>
+<p>이름과 쿼리 문자열의 새 쿼리 템플릿을 생성합니다.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/template&quot;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;쿼리 템플릿의 이름&quot;</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;쿼리 템플릿 문자열 (psql로 또는 thanosql로)&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="n">query</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/template&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: name, &quot;query&quot;: query}&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="get-querytemplatetemplate_name"><strong><code>GET</code> /query/template/{template_name}</strong><a class="headerlink" href="#get-querytemplatetemplate_name" title="Permanent link">&para;</a></h2>
+<p>지정된 이름의 쿼리 템플릿을 검색합니다.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/template&quot;</span>
+<span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;쿼리 템플릿의 이름&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/template/{template_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="put-querytemplatetemplate_name"><strong><code>PUT</code> /query/template/{template_name}</strong><a class="headerlink" href="#put-querytemplatetemplate_name" title="Permanent link">&para;</a></h2>
+<p>특정 이름의 쿼리 템플릿을 업데이트합니다.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/template&quot;</span>
+<span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;쿼리 템플릿의 이름&quot;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;쿼리 템플릿의 새 이름&quot;</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;쿼리 템플릿 새 문자열 (psql로 또는 thanosql로)&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="n">query</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;PUT&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/template/{template_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: name, &quot;query&quot;: query}&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>하나의 필드만 업데이트하려는 경우 다른 필드는 JSON에서 제외하십시오. 예를 들어 쿼리 템플릿의 이름만 업데이트하려는 경우 데이터 본문에 <code>{"query": query}</code>만 사용합니다.</p>
+</div>
+<h2 id="delete-querytemplatetemplate_name"><strong><code>DELETE</code> /query/template/{template_name}</strong><a class="headerlink" href="#delete-querytemplatetemplate_name" title="Permanent link">&para;</a></h2>
+<p>특정 이름의 쿼리 템플릿을 삭제합니다.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label><label for="__tabbed_8_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/template&quot;</span>
+<span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;쿼리 템플릿의 이름&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;DELETE&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/template/{template_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-30</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-11-10</span>
       
     
   </small>

@@ -578,11 +578,11 @@ version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#table-information" class="md-nav__link">
-    Table Information
+  <a href="#table-view-information" class="md-nav__link">
+    Table / View Information
   </a>
   
-    <nav class="md-nav" aria-label="Table Information">
+    <nav class="md-nav" aria-label="Table / View Information">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -595,6 +595,13 @@ version.
           <li class="md-nav__item">
   <a href="#preview" class="md-nav__link">
     Preview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Definition
   </a>
   
 </li>
@@ -634,6 +641,33 @@ version.
           <li class="md-nav__item">
   <a href="#delete-table" class="md-nav__link">
     Delete Table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-templates" class="md-nav__link">
+    Managing Templates
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-template" class="md-nav__link">
+    Table Template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-template" class="md-nav__link">
+    Query Template
   </a>
   
 </li>
@@ -2171,11 +2205,11 @@ version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#table-information" class="md-nav__link">
-    Table Information
+  <a href="#table-view-information" class="md-nav__link">
+    Table / View Information
   </a>
   
-    <nav class="md-nav" aria-label="Table Information">
+    <nav class="md-nav" aria-label="Table / View Information">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2188,6 +2222,13 @@ version.
           <li class="md-nav__item">
   <a href="#preview" class="md-nav__link">
     Preview
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    Definition
   </a>
   
 </li>
@@ -2227,6 +2268,33 @@ version.
           <li class="md-nav__item">
   <a href="#delete-table" class="md-nav__link">
     Delete Table
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#managing-templates" class="md-nav__link">
+    Managing Templates
+  </a>
+  
+    <nav class="md-nav" aria-label="Managing Templates">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#table-template" class="md-nav__link">
+    Table Template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-template" class="md-nav__link">
+    Query Template
   </a>
   
 </li>
@@ -2357,18 +2425,21 @@ version.
 <h3 id="database-explorer"><strong>Database Explorer</strong><a class="headerlink" href="#database-explorer" title="Permanent link">&para;</a></h3>
 <p>You can access the <a href="https://www.postgresql.org/docs/current/ddl-schemas.html">schema</a> and table configuration information of your workspace database.</p>
 <p>Each workspace provides the public schema and temporary result tables by default. Queries that do not specify a schema will refer to tables in the public schema. Any query executed in the query editor that produces results in tabular form will be stored as a <code>Temporary Result Table</code> with a random table name. This allows you to reuse previous query results as needed.</p>
-<h4 id="table-information"><strong>Table Information</strong><a class="headerlink" href="#table-information" title="Permanent link">&para;</a></h4>
-<p>The database explorer provides information about tables within the schema. Click on a table name to see the following information:</p>
-<h5 id="table-schema"><strong>Table Schema</strong><a class="headerlink" href="#table-schema" title="Permanent link">&para;</a></h5>
-<p>View column names, data types, and nullability of columns in the data table.</p>
+<h4 id="table-view-information"><strong>Table / View Information</strong><a class="headerlink" href="#table-view-information" title="Permanent link">&para;</a></h4>
+<p>The Database Explorer provides information about tables/views within the schema. Click on the table/view name to see the following information.</p>
+<h5 id="table-schema">Table Schema<a class="headerlink" href="#table-schema" title="Permanent link">&para;</a></h5>
+<p>You can check the column name, data type, and nullability of the table/view.</p>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_14.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_14.png" style="max-height:none" /></a></p>
-<h5 id="preview"><strong>Preview</strong><a class="headerlink" href="#preview" title="Permanent link">&para;</a></h5>
-<p>Quickly understand the contents of the data table.</p>
+<h5 id="preview">Preview<a class="headerlink" href="#preview" title="Permanent link">&para;</a></h5>
+<p>You can quickly see the contents of the selected table/view.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Editing data tables is not possible in the preview.</p>
+<p>You cannot edit data tables in the preview.</p>
 </div>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_15.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_15.png" style="max-height:none" /></a></p>
+<h5 id="definition">Definition<a class="headerlink" href="#definition" title="Permanent link">&para;</a></h5>
+<p>You can see the definition (query statement) of the selected view.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_32.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_32.png" style="max-height:none" /></a></p>
 <h4 id="adding-data"><strong>Adding Data</strong><a class="headerlink" href="#adding-data" title="Permanent link">&para;</a></h4>
 <p>This is a feature that allows you to add new tables and schemas to the database. You can open the Add Table Data menu by clicking the <strong><code>+</code></strong> button located in the top right corner of the database explorer.</p>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_3.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_3.png" style="max-height:none" /></a></p>
@@ -2429,6 +2500,73 @@ version.
 <h4 id="delete-table">Delete Table<a class="headerlink" href="#delete-table" title="Permanent link">&para;</a></h4>
 <p>You can delete a specific table by clicking the right-hand menu button for that table in the database explorer.</p>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_13.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_13.png" style="max-height:none" /></a></p>
+<h3 id="managing-templates"><strong>Managing Templates</strong><a class="headerlink" href="#managing-templates" title="Permanent link">&para;</a></h3>
+<p>You can manage table templates and query templates. Move by clicking the menu button located in the upper right corner of the Database Explorer.</p>
+<h4 id="table-template"><strong>Table Template</strong><a class="headerlink" href="#table-template" title="Permanent link">&para;</a></h4>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_18.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_18.png" style="max-height:none" /></a></p>
+<p>① Return to the query editor. </p>
+<p>② Go to the "Create Table Template" page to create a new table template.</p>
+<p>③ Enter a table template name to find the table template you want. </p>
+<p>④ Sort by creation date or name (ascending or descending).</p>
+<p>⑤ Look up the versions of the table template.</p>
+<p>⑥ View table template details. </p>
+<p>⑦ Compatibility and creation date of the table template.</p>
+<p><strong>Creating table templates</strong> </p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_19.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_19.png" style="max-height:none" /></a></p>
+<p>① Enter the name of the table template to save. </p>
+<p>② When you create a new table template, the version is fixed at 1.0. </p>
+<p>③ Fill in the column information to include in the table template. </p>
+<p>④ Cancel the creation of the table template.</p>
+<p>⑤ Confirm the creation of the table template.</p>
+<p><strong>Viewing table template details</strong></p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_20.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_20.png" style="max-height:none" /></a></p>
+<p>① Return to the query editor. </p>
+<p>② Delete the table template. </p>
+<p>③ Select the version of the table template.</p>
+<p>④ Create a new version of the table template.</p>
+<p>⑤ Delete the corresponding version of the table template.</p>
+<p>⑥ Compatibility and creation date of the table template.</p>
+<p><strong>Modifying table templates</strong></p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_21.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_21.png" style="max-height:none" /></a></p>
+<p>① Table template name to indicate the current table template.</p>
+<p>② Enter new version (it should not be the same as the previous version).</p>
+<p>③ Add, delete, or modify columns.</p>
+<p><strong>Saving table templates</strong></p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_22.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_22.png" style="max-height:none" /></a></p>
+<p>① Enter the name of the table template to save.</p>
+<p><strong>Importing table templates</strong></p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_23.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_23.png" style="max-height:none" /></a></p>
+<p>① You can search by name to find the table template to import.</p>
+<h4 id="query-template"><strong>Query Template</strong><a class="headerlink" href="#query-template" title="Permanent link">&para;</a></h4>
+<p>Use the query tool to save/recall query templates.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_24.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_24.png" style="max-height:none" /></a></p>
+<p><strong>Saving query templates</strong></p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_25.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_25.png" style="max-height:none" /></a></p>
+<p>① Query Template Name: Enter the name of the query template you want to save.</p>
+<p>② Query Statement: Type the query statement you want to save.</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_26.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_26.png" style="max-height:none" /></a></p>
+<p>① Query Template Search Bar: Search by name to find saved query templates.</p>
+<p><strong>Managing query templates</strong></p>
+<p>Click the <strong><code>Draw</code></strong> button located to the right of "Database" in the Database Explorer to open the "Add Table Data" menu and click "Manage Query Templates".</p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_27.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_27.png" style="max-height:none" /></a></p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_28.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_28.png" style="max-height:none" /></a></p>
+<p>① Navigate to the page where you can create query templates.</p>
+<p>② Enter query template name to find the desired query template.  </p>
+<p>③ Sort by update date or name (ascending or descending).</p>
+<p>④ Check the date of latest update.  </p>
+<p>⑤ Go to the "View Template Details" page.</p>
+<p><strong>Creating query templates</strong></p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_29.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_29.png" style="max-height:none" /></a></p>
+<p>① Type the name of the query template that you want to save. </p>
+<p>② Type the query statement you want to save.</p>
+<p><strong>Viewing query template details</strong></p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_30.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_30.png" style="max-height:none" /></a></p>
+<p>① Delete or modify the query template. </p>
+<p>② Date of creation and date of update.</p>
+<p><strong>Modifying query templates</strong></p>
+<p><a href="../../../../img/getting_started/paas/workspace/qm_img_31.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_31.png" style="max-height:none" /></a></p>
+<p>① Modify the name of the query template. </p>
+<p>② Modify the query statement.</p>
 <h3 id="query-logs"><strong>Query Logs</strong><a class="headerlink" href="#query-logs" title="Permanent link">&para;</a></h3>
 <p>All queries executed in Query Manager are logged and can be viewed in the Query Logs section. They are listed in descending order of creation time. The logs show the executed query statement and whether the execution was successful.</p>
 <p><a href="../../../../img/getting_started/paas/workspace/qm_img_16.png"><img alt="IMAGE" src="../../../../img/getting_started/paas/workspace/qm_img_16.png" style="max-height:none" /></a></p>
@@ -2446,7 +2584,7 @@ version.
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-31</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-11-10</span>
       
     
   </small>

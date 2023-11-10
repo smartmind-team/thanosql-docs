@@ -1827,6 +1827,20 @@ version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#query-without-templates" class="md-nav__link">
+    Query without Templates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-with-templates" class="md-nav__link">
+    Query with Templates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#parameters" class="md-nav__link">
     Parameters
   </a>
@@ -1862,6 +1876,61 @@ version.
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-querytemplate" class="md-nav__link">
+    GET /query/template
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /query/template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_1" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-querytemplate" class="md-nav__link">
+    POST /query/template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-querytemplatetemplate_name" class="md-nav__link">
+    GET /query/template/{template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#put-querytemplatetemplate_name" class="md-nav__link">
+    PUT /query/template/{template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-querytemplatetemplate_name" class="md-nav__link">
+    DELETE /query/template/{template_name}
+  </a>
   
 </li>
       
@@ -2040,6 +2109,20 @@ version.
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#query-without-templates" class="md-nav__link">
+    Query without Templates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-with-templates" class="md-nav__link">
+    Query with Templates
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#parameters" class="md-nav__link">
     Parameters
   </a>
@@ -2078,6 +2161,61 @@ version.
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#get-querytemplate" class="md-nav__link">
+    GET /query/template
+  </a>
+  
+    <nav class="md-nav" aria-label="GET /query/template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_2" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_1" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#post-querytemplate" class="md-nav__link">
+    POST /query/template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-querytemplatetemplate_name" class="md-nav__link">
+    GET /query/template/{template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#put-querytemplatetemplate_name" class="md-nav__link">
+    PUT /query/template/{template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-querytemplatetemplate_name" class="md-nav__link">
+    DELETE /query/template/{template_name}
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -2095,7 +2233,8 @@ version.
 
 <h1 id="query-apis"><strong>Query APIs</strong><a class="headerlink" href="#query-apis" title="Permanent link">&para;</a></h1>
 <h2 id="post-query"><strong><code>POST</code> /query</strong><a class="headerlink" href="#post-query" title="Permanent link">&para;</a></h2>
-<p>Execute ThanoSQL queries and receive a query log as a response.</p>
+<p>Executes ThanoSQL queries and receives a query log response. The query can be either typed directly or retrieved from an existing query template (with or without parameters).</p>
+<h3 id="query-without-templates">Query without Templates<a class="headerlink" href="#query-without-templates" title="Permanent link">&para;</a></h3>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2103,9 +2242,9 @@ version.
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
-<span class="n">api_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/query/&quot;</span>
-<span class="n">query</span><span class="o">=</span><span class="s2">&quot;Query to request&quot;</span>
-<span class="n">query_type</span><span class="o">=</span><span class="s2">&quot;SQL query type&quot;</span> <span class="c1">#psql or thanosql</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/&quot;</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;Query to request&quot;</span>
+<span class="n">query_type</span> <span class="o">=</span> <span class="s2">&quot;SQL query type&quot;</span> <span class="c1"># psql or thanosql</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2116,9 +2255,8 @@ version.
 <span class="p">}</span>
 
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
-
 <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
-<span class="n">return_json</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -2132,16 +2270,65 @@ version.
 </div>
 </div>
 </div>
+<h3 id="query-with-templates">Query with Templates<a class="headerlink" href="#query-with-templates" title="Permanent link">&para;</a></h3>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/&quot;</span>
+<span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;Name of template to use&quot;</span>     <span class="c1"># we don&#39;t need this line if we query by template_id</span>
+<span class="n">template_id</span> <span class="o">=</span> <span class="s2">&quot;ID number of template to use&quot;</span>  <span class="c1"># we don&#39;t need this line if we query by template_name</span>
+<span class="n">parameters</span> <span class="o">=</span> <span class="s2">&quot;Mapping of parameters to fill in the template&quot;</span>  <span class="c1"># dictionary</span>
+<span class="n">query_type</span> <span class="o">=</span> <span class="s2">&quot;SQL query type&quot;</span> <span class="c1"># psql or thanosql</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;query_type&#39;</span><span class="p">:</span> <span class="n">query_type</span><span class="p">,</span>
+    <span class="s1">&#39;template_name&#39;</span><span class="p">:</span> <span class="n">template_name</span><span class="p">,</span>  <span class="c1"># or `&#39;template_id&#39;: template_id` if we query by template_id</span>
+    <span class="s1">&#39;parameters&#39;</span><span class="p">:</span> <span class="n">parameters</span>         <span class="c1"># optional, depending on whether it is needed by the template or not</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;query_type&quot;: query_type, &quot;template_name&quot;: template_name, &quot;parameters&quot;: parameters}&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Query String and Query Template</p>
+<p>Query strings and templates (and/or parameters) should not be used together. If <code>query_string</code> appears together with at least one of <code>template_id</code>, <code>template_name</code>, and <code>parameters</code>, an error will be returned.</p>
+</div>
 <h3 id="parameters"><strong>Parameters</strong><a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
 <p>The API can set a destination table to save the results from a query using query parameters. If nothing is specified, then a destination table will be created in the qm schema.</p>
 <ul>
 <li><code>schema</code>: The schema to retrieve the tables from. If no parameter is provided, defaults to "qm".</li>
 <li><code>table_name</code>: The name that will be used to create the table. If not parameter is provided, defaults to a randomly generated table name.</li>
 <li><code>overwrite</code>: Determines if the table shall be overwritten or not. Defaults to False.</li>
+<li><code>max_results</code>: Specifies the maximum number of records that should be returned (default: 0, max: 100)</li>
 </ul>
 <h3 id="response"><strong>Response</strong><a class="headerlink" href="#response" title="Permanent link">&para;</a></h3>
-<p>The <code>/query</code> API returns a query log (shown below) as a response.</p>
-<p>If the query statement yields results (statements such as SELECT, LIST), then the results are stored into a destination table. The destination table is specified by the <code>destination_table_name</code> and <code>destination_schema</code>. If the query produces no results, then the destination table indicates the table that was affected</p>
+<p>The <code>/query</code> API returns a query log and records as a response (shown below).</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span><span class="err">...QueryLog</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">&quot;records&quot;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="p">[{}]</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">query</span><span class="w"> </span><span class="err">resul</span><span class="kc">ts</span>
+<span class="p">}</span>
+</code></pre></div>
 <div class="admonition note">
 <p class="admonition-title"><strong>Query Log</strong></p>
 <p>A query log contains information about the query that was executed. Below are the attributes that make up a query log.</p>
@@ -2159,6 +2346,7 @@ version.
 <li><code>created_at</code>: Shows the timestamp of when the query log was created.</li>
 </ul>
 </div>
+<p>If the query statement yields results (statements such as SELECT, LIST), then the results are stored into a destination table. The destination table is specified by the <code>destination_table_name</code> and <code>destination_schema</code>. If the query produces no results, then the destination table indicates the table that was affected</p>
 <div class="admonition warning">
 <p class="admonition-title"><strong>Warning</strong></p>
 <ul>
@@ -2166,8 +2354,8 @@ version.
 </ul>
 </div>
 <h2 id="get-querylog"><strong><code>GET</code> /query/log</strong><a class="headerlink" href="#get-querylog" title="Permanent link">&para;</a></h2>
-<p>This method retrieves a paginated list of all query logs.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
+<p>Retrieves a paginated list of all query logs.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -2175,10 +2363,11 @@ version.
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/log&quot;</span>
+<span class="n">search</span> <span class="o">=</span> <span class="s2">&quot;Search keyword(s)&quot;</span>
 <span class="n">offset</span> <span class="o">=</span> <span class="p">{</span><span class="n">Offset</span><span class="p">}</span>
 <span class="n">limit</span> <span class="o">=</span> <span class="p">{</span><span class="n">Limit</span><span class="p">}</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?search=</span><span class="si">{</span><span class="n">search</span><span class="si">}</span><span class="s2">&amp;offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2191,7 +2380,7 @@ version.
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/log/?offset={offset}&amp;limit={limit}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/log/?search={search}&amp;offset={offset}&amp;limit={limit}&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
 </code></pre></div>
@@ -2200,16 +2389,225 @@ version.
 </div>
 <h3 id="parameters_1"><strong>Parameters</strong><a class="headerlink" href="#parameters_1" title="Permanent link">&para;</a></h3>
 <ul>
+<li><code>search</code>: Word(s) that the query in the query log should contain (defaults to empty string).</li>
 <li><code>offset</code>: The offset to where the pagination count will start from (defaults to 0).</li>
 <li><code>limit</code>: The maximum number of items to retrieve starting from the offset (defaults to 100, max 100).</li>
 </ul>
+<h2 id="get-querytemplate"><strong><code>GET</code> /query/template</strong><a class="headerlink" href="#get-querytemplate" title="Permanent link">&para;</a></h2>
+<p>Retrieves all available query templates.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/template&quot;</span>
+<span class="n">offset</span> <span class="o">=</span> <span class="p">{</span><span class="n">Offset</span><span class="p">}</span>
+<span class="n">limit</span> <span class="o">=</span> <span class="p">{</span><span class="n">Limit</span><span class="p">}</span>
+<span class="n">search</span> <span class="o">=</span> <span class="s2">&quot;Search keyword(s)&quot;</span>
+<span class="n">order_by</span> <span class="o">=</span> <span class="s2">&quot;Order by&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?offset=</span><span class="si">{</span><span class="n">offset</span><span class="si">}</span><span class="s2">&amp;limit=</span><span class="si">{</span><span class="n">limit</span><span class="si">}</span><span class="s2">&amp;search=</span><span class="si">{</span><span class="n">search</span><span class="si">}</span><span class="s2">&amp;order_by=</span><span class="si">{</span><span class="n">order_by</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/template/?offset={offset}&amp;limit={limit}&amp;search={search}&amp;order_by={order_by}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h3 id="parameters_2"><strong>Parameters</strong><a class="headerlink" href="#parameters_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>offset</code>: The offset to where the pagination count will start from (defaults to 0).</li>
+<li><code>limit</code>: The maximum number of items to retrieve starting from the offset (defaults to 100, max 100).</li>
+<li><code>search</code>: Word(s) that the names of returned query templates should contain (defaults to empty string).</li>
+<li><code>order_by</code>: How the query results should be ordered, there are three possible values: 'recent', based on date of creation from latest to oldest, 'name_asc', based on name from A to Z, and 'name_desc', based on name from Z to A (defaults to 'recent').</li>
+</ul>
+<h3 id="response_1"><strong>Response</strong><a class="headerlink" href="#response_1" title="Permanent link">&para;</a></h3>
+<p>This method returns a list of query templates (shown below) as a response.</p>
+<div class="admonition note">
+<p class="admonition-title"><strong>Query Template</strong></p>
+<p>A query template contains a string that may or may not need some parameters in order to be complete. The templates, for both psql and thanosql, follow the conventions used by <a href="https://jinja.palletsprojects.com/en/3.1.x/">Jinja</a>. Below are the attributes that make up a query template.</p>
+<ul>
+<li><code>id</code>: A unique number that identifies the query template.</li>
+<li><code>name</code>: The query template name.</li>
+<li><code>query</code>: The query template string.</li>
+<li><code>created_at</code>: Shows the timestamp of when the query template was created.</li>
+<li><code>updated_at</code>: Shows the timestamp of when the query template was last modified.</li>
+</ul>
+<p>One example of templates that require parameters is:</p>
+<div class="highlight"><pre><span></span><code><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="err">{{</span><span class="w"> </span><span class="k">schema</span><span class="w"> </span><span class="err">}}</span><span class="p">.</span><span class="err">\</span><span class="ss">&quot;{{ name }}\&quot;</span><span class="w"> </span><span class="p">(</span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="k">column</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">data</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="w"> </span><span class="o">-%</span><span class="err">}{{</span><span class="w"> </span><span class="k">column</span><span class="w"> </span><span class="err">}}{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">loop</span><span class="p">.</span><span class="k">last</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endif</span><span class="w"> </span><span class="o">%</span><span class="err">}{</span><span class="o">%-</span><span class="w"> </span><span class="n">endfor</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="p">)</span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">_</span><span class="p">,</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">data</span><span class="p">.</span><span class="n">items</span><span class="p">()</span><span class="w"> </span><span class="o">-%</span><span class="err">}{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">string</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="s1">&#39;{{ value }}&#39;</span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="o">%</span><span class="err">}{{</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="err">}}{</span><span class="o">%</span><span class="w"> </span><span class="n">endif</span><span class="w"> </span><span class="o">%</span><span class="err">}{</span><span class="o">%</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="n">loop</span><span class="p">.</span><span class="k">last</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="p">,</span><span class="w"> </span><span class="err">{</span><span class="o">%</span><span class="w"> </span><span class="n">endif</span><span class="w"> </span><span class="o">%</span><span class="err">}{</span><span class="o">%-</span><span class="w"> </span><span class="n">endfor</span><span class="w"> </span><span class="o">%</span><span class="err">}</span><span class="p">);</span>
+</code></pre></div>
+<p>The template above requires parameters <code>schema</code>, <code>name</code>, and <code>data</code>. The template below, on the other hand, is already complete and thus does not require parameters in order to be a valid query:</p>
+<div class="highlight"><pre><span></span><code><span class="k">GET</span><span class="w"> </span><span class="n">THANOSQL</span><span class="w"> </span><span class="n">DATASET</span><span class="w"> </span><span class="n">diet_data</span>
+<span class="k">OPTIONS</span><span class="w"> </span><span class="p">(</span><span class="n">overwrite</span><span class="o">=</span><span class="k">True</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<h2 id="post-querytemplate"><strong><code>POST</code> /query/template</strong><a class="headerlink" href="#post-querytemplate" title="Permanent link">&para;</a></h2>
+<p>Creates a new query template with a certain name and query string.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/template&quot;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Name of query template&quot;</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;Query template string (in psql or thanosql)&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="n">query</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;POST&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/template&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: name, &quot;query&quot;: query}&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="get-querytemplatetemplate_name"><strong><code>GET</code> /query/template/{template_name}</strong><a class="headerlink" href="#get-querytemplatetemplate_name" title="Permanent link">&para;</a></h2>
+<p>Retrieves the query template with the given name.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/template&quot;</span>
+<span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;Name of query template&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/template/{template_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<h2 id="put-querytemplatetemplate_name"><strong><code>PUT</code> /query/template/{template_name}</strong><a class="headerlink" href="#put-querytemplatetemplate_name" title="Permanent link">&para;</a></h2>
+<p>Updates the query template with the given name.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/template&quot;</span>
+<span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;Name of query template&quot;</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Updated name of query template&quot;</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;Updated query template string (in psql or thanosql)&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s1">&#39;query&#39;</span><span class="p">:</span> <span class="n">query</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;PUT&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/template/{template_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Content-Type: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-d<span class="w"> </span><span class="s1">&#39;{&quot;name&quot;: name, &quot;query&quot;: query}&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you only want to update one field, leave the other field out of the data JSON. For example, if you only want to update the name of the query template, use <code>{"query": query}</code> as the data body.</p>
+</div>
+<h2 id="delete-querytemplatetemplate_name"><strong><code>DELETE</code> /query/template/{template_name}</strong><a class="headerlink" href="#delete-querytemplatetemplate_name" title="Permanent link">&para;</a></h2>
+<p>Deletes the query template with the given name.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label><label for="__tabbed_8_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/query/template&quot;</span>
+<span class="n">template_name</span> <span class="o">=</span> <span class="s2">&quot;Name of query template&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">template_name</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;DELETE&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/query/template/{template_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-30</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-11-10</span>
       
     
   </small>

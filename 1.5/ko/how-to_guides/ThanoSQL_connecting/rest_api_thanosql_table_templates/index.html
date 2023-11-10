@@ -1879,6 +1879,19 @@ version.
     GET /table_template
   </a>
   
+    <nav class="md-nav" aria-label="GET /table_template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1886,11 +1899,31 @@ version.
     GET /table_template/{table_template_name}
   </a>
   
+    <nav class="md-nav" aria-label="GET /table_template/{table_template_name}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#post-table_templatetable_template_name" class="md-nav__link">
     POST /table_template/{table_template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-table_templatetable_template_name" class="md-nav__link">
+    DELETE /table_template/{table_template_name}
   </a>
   
 </li>
@@ -2010,6 +2043,19 @@ version.
     GET /table_template
   </a>
   
+    <nav class="md-nav" aria-label="GET /table_template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2017,11 +2063,31 @@ version.
     GET /table_template/{table_template_name}
   </a>
   
+    <nav class="md-nav" aria-label="GET /table_template/{table_template_name}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#post-table_templatetable_template_name" class="md-nav__link">
     POST /table_template/{table_template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-table_templatetable_template_name" class="md-nav__link">
+    DELETE /table_template/{table_template_name}
   </a>
   
 </li>
@@ -2042,28 +2108,33 @@ version.
 
 
 <h1 id="table-template-apis"><strong>Table Template APIs</strong><a class="headerlink" href="#table-template-apis" title="Permanent link">&para;</a></h1>
-<p>테이블 템플릿에서 여러 CRUD 작업에 ThanoSQL Table Template REST API를 사용할 수 있습니다.</p>
+<p>Table Template APIs로 ThanoSQL 워크스페이스 데이터베이스 테이블 템플렛에 여러 CRUD 작업을 수행할 수 있습니다.</p>
 <div class="admonition note">
 <p class="admonition-title"><strong>Table Template Object</strong></p>
-<p>테이블 템플릿 개체는 다섯 가지 주요 구성 요소로 구성됩니다:</p>
+<p>테이블 템플릿 개체는 다섯 가지 주요 요소로 구성됩니다:</p>
 <ol>
 <li><code>name</code>: 테이블 템플릿의 이름</li>
-<li><code>table_template</code>: 테이블 템플릿의 본문으로, 열과 제약 조건으로 구성됩니다(자세한 내용은 <a href="../rest_api_thanosql_tables">테이블 객체 문서</a> 참조하세요)</li>
-<li><code>version</code>: 테이블 템플릿의 버전(현재 이 값은 불변)</li>
+<li><code>table_template</code>: 테이블 템플릿의 body, 칼럼들과 제약조건들로 구성됩니다(자세한 내용은 <a href="../rest_api_thanosql_tables">테이블 객체 문서</a> 참조하세요)</li>
+<li><code>version</code>: 테이블 템플릿의 버전(현재 이 값은 변경 불가)</li>
 <li><code>compatibility</code>: 테이블 템플릿의 호환성(<code>backward</code>, <code>forward</code>, <code>full</code>, 또는 <code>none</code> 중 하나)</li>
 <li><code>created_at</code>: 테이블 템플릿의 생성한 날짜</li>
 </ol>
 </div>
 <h2 id="get-table_template"><strong><code>GET</code> /table_template</strong><a class="headerlink" href="#get-table_template" title="Permanent link">&para;</a></h2>
-<p>모든 테이블 템플릿의 목록을 가져오려면 아래 방법을 사용하세요.</p>
+<p>모든 테이블 템플릿 목록을 특정 순서로 검색합니다. 선택적으로 검색 키워드 사용할 수도 있습니다.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
-<span class="n">api_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table_template&quot;</span>
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
+<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table_template/&quot;</span>
+<span class="n">search</span> <span class="o">=</span> <span class="s2">&quot;검색 키워드&quot;</span>
+<span class="n">order_by</span> <span class="o">=</span> <span class="s2">&quot;정렬 기준&quot;</span>
+<span class="n">latest</span> <span class="o">=</span> <span class="p">{</span><span class="n">최신</span><span class="p">:</span> <span class="kc">True</span> <span class="ow">or</span> <span class="kc">False</span><span class="p">}</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?search=</span><span class="si">{</span><span class="n">search</span><span class="si">}</span><span class="s2">&amp;order_by=</span><span class="si">{</span><span class="n">order_by</span><span class="si">}</span><span class="s2">&amp;latest=</span><span class="si">{</span><span class="n">latest</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2076,26 +2147,33 @@ version.
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table_template/&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table_template/?search={search}&amp;order_by={order_by}&amp;latest={latest}&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
+<h3 id="parameters"><strong>Parameters</strong><a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>search</code>: 반환된 테이블 템플릿의 이름에 포함되어야 하는 텍스트입니다 (기본: 빈 문자열).</li>
+<li><code>order_by</code>: 결과의 순서를 지정하는 방법입니다. 세 가지 가능한 값이 있습니다: 최근에서 가장 오래된 순으로 정렬 하는 'recent', A에서 Z까지 이름을 기준으로 하는 'name_asc', Z에서 A까지 이름을 기준으로 하는 'name_desc'입니다 (기본: 'recent').</li>
+<li><code>latest</code>: 각 테이블 템플릿의 최신 버전만 반환하려는 경우 <code>True</code>로 설정할 수 있는 부울 값입니다. 그렇지 않으면 모든 버전을 반환합니다 (기본: <code>False</code>).</li>
+</ul>
 <h2 id="get-table_templatetable_template_name"><strong><code>GET</code> /table_template/{table_template_name}</strong><a class="headerlink" href="#get-table_templatetable_template_name" title="Permanent link">&para;</a></h2>
-<p>해당 이름의 최신 버전 테이블 템플릿을 가져옵니다.</p>
+<p>특정 이름의 테이블 템플릿을 불러오기 위해 사용됩니다. 필요한 경우 특정 버전이나 최신 버전을 요청에 추가할 수도 있습니다.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
 <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table_template&quot;</span>
-<span class="n">table_template_name</span> <span class="o">=</span> <span class="s2">&quot;Table template name&quot;</span>
+<span class="n">table_template_name</span> <span class="o">=</span> <span class="s2">&quot;테이블 템플릿 이름&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;특정 버전 또는 최신 테이블 템플릿을 요청하려면 &#39;latest&#39;&quot;</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_template_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_template_name</span><span class="si">}</span><span class="s2">?version=</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2108,24 +2186,31 @@ version.
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table_template/{table_template_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table_template/{table_template_name}?version={version}&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
+<h3 id="response"><strong>Response</strong><a class="headerlink" href="#response" title="Permanent link">&para;</a></h3>
+<p>API의 응답 구조는 다음과 같습니다:</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;table_templates&quot;: [&quot;요청된 이름의 모든 테이블 템플릿 목록 또는 &#39;version&#39;이 명시 되어 있으면 테이블 템플릿 하나&quot;]
+  &quot;versions&quot;: [&quot;해당 테이블 템플렛의 모든 버전 목록입니다&quot;]
+}
+</code></pre></div>
 <h2 id="post-table_templatetable_template_name"><strong><code>POST</code> /table_template/{table_template_name}</strong><a class="headerlink" href="#post-table_templatetable_template_name" title="Permanent link">&para;</a></h2>
-<p>이 메서드를 사용하여 새 테이블 템플릿을 만듭니다.</p>
+<p>새 테이블 템플릿을 만듭니다.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
 <span class="kn">import</span> <span class="nn">json</span>
 
-<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
 <span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table_template/&quot;</span>
-<span class="n">table_template_name</span> <span class="o">=</span> <span class="s2">&quot;Table template name&quot;</span>
+<span class="n">table_template_name</span> <span class="o">=</span> <span class="s2">&quot;테이블 템플릿 이름&quot;</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
 <span class="s2">&quot;table_template&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2242,13 +2327,46 @@ version.
 </div>
 </div>
 </div>
+<h2 id="delete-table_templatetable_template_name"><strong><code>DELETE</code> /table_template/{table_template_name}</strong><a class="headerlink" href="#delete-table_templatetable_template_name" title="Permanent link">&para;</a></h2>
+<p>특정 이름의 테이블 템플릿을 삭제합니다. 필요한 경우 특정 버전만 삭제할 수도 있습니다.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;발급받은_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table_template&quot;</span>
+<span class="n">table_template_name</span> <span class="o">=</span> <span class="s2">&quot;테이블 템플릿 이름&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;테이블 템플릿의 특정 버전&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_template_name</span><span class="si">}</span><span class="s2">?version=</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;DELETE&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table_template/{table_template_name}?version={version}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer 발급받은_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-30</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-11-10</span>
       
     
   </small>

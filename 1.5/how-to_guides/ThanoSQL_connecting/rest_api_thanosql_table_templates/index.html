@@ -1879,6 +1879,19 @@ version.
     GET /table_template
   </a>
   
+    <nav class="md-nav" aria-label="GET /table_template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1886,11 +1899,31 @@ version.
     GET /table_template/{table_template_name}
   </a>
   
+    <nav class="md-nav" aria-label="GET /table_template/{table_template_name}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#post-table_templatetable_template_name" class="md-nav__link">
     POST /table_template/{table_template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-table_templatetable_template_name" class="md-nav__link">
+    DELETE /table_template/{table_template_name}
   </a>
   
 </li>
@@ -2010,6 +2043,19 @@ version.
     GET /table_template
   </a>
   
+    <nav class="md-nav" aria-label="GET /table_template">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters" class="md-nav__link">
+    Parameters
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -2017,11 +2063,31 @@ version.
     GET /table_template/{table_template_name}
   </a>
   
+    <nav class="md-nav" aria-label="GET /table_template/{table_template_name}">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    Response
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
   <a href="#post-table_templatetable_template_name" class="md-nav__link">
     POST /table_template/{table_template_name}
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#delete-table_templatetable_template_name" class="md-nav__link">
+    DELETE /table_template/{table_template_name}
   </a>
   
 </li>
@@ -2055,7 +2121,7 @@ version.
 </ol>
 </div>
 <h2 id="get-table_template"><strong><code>GET</code> /table_template</strong><a class="headerlink" href="#get-table_template" title="Permanent link">&para;</a></h2>
-<p>In order to get a list of all of your table templates, use the method below.</p>
+<p>Retrieves a list of all of available table templates in a certain order. Optionally can include search keywords as well.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2063,7 +2129,12 @@ version.
 <span class="kn">import</span> <span class="nn">json</span>
 
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
-<span class="n">api_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table_template&quot;</span>
+<span class="n">base_url</span><span class="o">=</span><span class="s2">&quot;https://{your-engine-url}/api/v1/table_template/&quot;</span>
+<span class="n">search</span> <span class="o">=</span> <span class="s2">&quot;Search keyword(s)&quot;</span>
+<span class="n">order_by</span> <span class="o">=</span> <span class="s2">&quot;Order by&quot;</span>
+<span class="n">latest</span> <span class="o">=</span> <span class="p">{</span><span class="n">Latest</span><span class="p">}</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">?search=</span><span class="si">{</span><span class="n">search</span><span class="si">}</span><span class="s2">&amp;order_by=</span><span class="si">{</span><span class="n">order_by</span><span class="si">}</span><span class="s2">&amp;latest=</span><span class="si">{</span><span class="n">latest</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2076,15 +2147,21 @@ version.
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table_template/&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table_template/?search={search}&amp;order_by={order_by}&amp;latest={latest}&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
+<h3 id="parameters"><strong>Parameters</strong><a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>search</code>: Word(s) that the table templates' name must contain (defaults to empty string).</li>
+<li><code>order_by</code>: How the query results should be ordered, there are three possible values: 'recent', based on date of creation from latest to oldest, 'name_asc', based on name from A to Z, and 'name_desc', based on name from Z to A (defaults to 'recent').</li>
+<li><code>latest</code>: A boolean value that can be set to <code>True</code> if you only want to return the latest version of each table template. Otherwise, it returns all available versions (default: <code>False</code>).</li>
+</ul>
 <h2 id="get-table_templatetable_template_name"><strong><code>GET</code> /table_template/{table_template_name}</strong><a class="headerlink" href="#get-table_templatetable_template_name" title="Permanent link">&para;</a></h2>
-<p>Use this method to get the most recent version of table template object of a certain name.</p>
+<p>Retrieves the table template object with the given name. If needed, a specific or latest version can also be added to the request.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2094,8 +2171,9 @@ version.
 <span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
 <span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table_template&quot;</span>
 <span class="n">table_template_name</span> <span class="o">=</span> <span class="s2">&quot;Table template name&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;A specific version, or &#39;latest&#39; to request the latest table template&quot;</span>
 
-<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_template_name</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_template_name</span><span class="si">}</span><span class="s2">?version=</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span>
 
 <span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
@@ -2108,15 +2186,22 @@ version.
 </div>
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table_template/{table_template_name}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table_template/{table_template_name}?version={version}&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
 <span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
 </code></pre></div>
 </div>
 </div>
 </div>
+<h3 id="response"><strong>Response</strong><a class="headerlink" href="#response" title="Permanent link">&para;</a></h3>
+<p>The API response has the following structure:</p>
+<div class="highlight"><pre><span></span><code>{
+  &quot;table_templates&quot;: [&quot;list of all table templates with the requested name, or one table template if version is not empty&quot;]
+  &quot;versions&quot;: [&quot;list of all available versions&quot;]
+}
+</code></pre></div>
 <h2 id="post-table_templatetable_template_name"><strong><code>POST</code> /table_template/{table_template_name}</strong><a class="headerlink" href="#post-table_templatetable_template_name" title="Permanent link">&para;</a></h2>
-<p>Use this method to create a new table template.</p>
+<p>Creates a new table template.</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">cURL</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -2181,7 +2266,6 @@ version.
     <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
 <span class="p">}</span>
 
-<span class="c1">## Create Table</span>
 <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">,</span> <span class="n">body</span><span class="o">=</span><span class="n">data</span><span class="p">):</span>
 <span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
 <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -2243,13 +2327,46 @@ version.
 </div>
 </div>
 </div>
+<h2 id="delete-table_templatetable_template_name"><strong><code>DELETE</code> /table_template/{table_template_name}</strong><a class="headerlink" href="#delete-table_templatetable_template_name" title="Permanent link">&para;</a></h2>
+<p>Deletes table templates with the given name. If needed, it is also possible to delete only a specific version.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">cURL</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">api_token</span> <span class="o">=</span> <span class="s2">&quot;Issued_API_TOKEN&quot;</span>
+<span class="n">base_url</span> <span class="o">=</span> <span class="s2">&quot;https://{your-engine-url}/api/v1/table_template&quot;</span>
+<span class="n">table_template_name</span> <span class="o">=</span> <span class="s2">&quot;Table template name&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;A specific version of the table template&quot;</span>
+
+<span class="n">api_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">base_url</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">table_template_name</span><span class="si">}</span><span class="s2">?version=</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">header</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">api_token</span><span class="si">}</span><span class="s2">&quot;</span>
+<span class="p">}</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">api_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">):</span>
+<span class="n">r</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span class="w">  </span>curl<span class="w"> </span>-X<span class="w"> </span><span class="s1">&#39;DELETE&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="s1">&#39;https://{your-engine-url}/api/v1/table_template/{table_template_name}?version={version}&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;accept: application/json&#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-H<span class="w"> </span><span class="s1">&#39;Authorization: Bearer Issued_API_TOKEN&#39;</span>
+</code></pre></div>
+</div>
+</div>
+</div>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-08-30</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-iso_date">2023-11-10</span>
       
     
   </small>
