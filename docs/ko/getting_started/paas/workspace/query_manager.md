@@ -65,13 +65,13 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 각 워크스페이스는 public과 임시 결과 테이블을 기본적으로 제공하며, 스키마를 명시하지 않은 모든 쿼리들은 public의 테이블을 참조합니다. 쿼리 에디터에서 실행한 쿼리 중 그 결과가 테이블 형태로 있는 모든 쿼리들은 `임시 결과 테이블`에 임의의 테이블 이름으로 저장됩니다. 이를 이용하여 이전 테이블 실행 결과들을 언제든지 재사용할 수 있습니다.
 
-#### **테이블 정보**
+#### **테이블 / 뷰 정보**
 
-데이터베이스 탐색기는 스키마 내의 테이블에 대한 정보를 제공합니다. 테이블명을 클릭하면 다음의 정보를 확인할 수 있습니다.
+데이터베이스 탐색기는 스키마 내의 테이블 / 뷰 에 대한 정보를 제공합니다. 테이블명을 클릭하면 다음의 정보를 확인 할 수 있습니다.
 
 ##### 테이블 스키마
 
-해당 데이터 테이블의 컬럼명, 데이터 타입, Null 가능 여부를 확인할 수 있습니다.
+해당 테이블 / 뷰 의 컬럼명, 데이터 타입, Null 가능 여부를 확인 할 수 있습니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_14.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_14.png)
 
@@ -84,15 +84,21 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_15.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_15.png)
 
+##### 정의
+
+해당 뷰의 정의(쿼리문)를 알 수  있습니다.
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_32.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_32.png)
+
 #### **데이터 추가하기**
 
-새로운 테이블과 스키마를 데이터베이스에 추가할 수 있는 기능입니다. 데이터베이스 탐색기의 우측 상단에 위치한 **`+`** 버튼을 클릭해 테이블 데이터 추가하기 메뉴를 열 수 있습니다.
+새로운 테이블과 스키마를 데이터베이스에 추가할 수 있는 기능입니다. 데이터베이스 탐색기의 우측 상단에 위치한 메뉴 버튼을 클릭해 테이블 데이터 추가하기 메뉴를 열 수 있습니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_3.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_3.png)
 
 ##### **테이블 추가하기**
 
-테이블을 데이터베이스에 추가합니다. 다음에 제시된 데이터 소스 업로드 방법 중 하나를 선택하여 진행합니다. (각 스키마의 우측 **+** 버튼으로도 테이블 추가하기가 가능합니다)
+테이블을 데이터베이스에 추가합니다. 다음에 제시된 데이터 소스 업로드 방법 중 하나를 선택하여 진행합니다. (각 스키마의 우측 메뉴 버튼으로도 테이블 추가하기가 가능합니다)
 
 1. 새 테이블 직접 만들기
 2. 로컬 파일 업로드
@@ -183,6 +189,140 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 데이터베이스 탐색기의 각 테이블 우측 메뉴 버튼을 클릭하여 해당 테이블을 삭제할 수 있습니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_13.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_13.png)
+
+### **템플릿 관리하기**
+
+테이블 템플릿과 쿼리 템플릿을 관리할 수 있습니다. 데이터베이스 탐색기의 우측 상단에 위치한 메뉴 버튼을 클릭해 이동합니다.
+
+#### **테이블 템플릿**    
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_18.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_18.png)
+
+① 쿼리 에디터로 돌아갑니다. 
+
+② 테이블 템플릿 생성하기 페이지로 이동해 테이블 템플릿을 생성합니다.
+
+③ 테이블 템플릿 이름을 입력해 원하는 테이블 템플렛을 찾을 수 있습니다. 
+
+④ 생성 날짜, 이름(오름차순, 내림차순)으로 정렬합니다.
+
+⑤ 해당 템플릿의 버전들을 조회합니다.
+
+⑥ 테이블 템플릿 상세정보를 확인합니다. 
+
+⑦ 만들어진 날짜와 호환성입니다.  
+
+**테이블 템플릿 생성하기** 
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_19.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_19.png)
+
+① 저장할 테이블 템플릿 이름을 입력합니다. 
+
+② 새롭게 생성할 때는 버전이 1.0으로 고정되어 만들어집니다. 
+
+③ 테이블 템플릿에 들어갈 컬럼 정보를 입력합니다. 
+
+④ 테이블 템플릿 생성을 취소합니다.
+
+⑤ 테이블 템플릿을 생성합니다.
+
+**테이블 템플릿 상세보기**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_20.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_20.png)
+
+① 쿼리 에디터로 돌아갑니다. 
+
+② 템플릿을 삭제합니다. 
+
+③ 템플릿의 버전을 선택합니다.
+
+④ 새로운 버전의 템플릿을 생성합니다.
+
+⑤ 템플릿의 해당 버전을 삭제합니다.
+
+⑥ 만들어진 날짜와 호환성입니다.
+
+**테이블 템플릿 수정하기**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_21.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_21.png)
+
+① 현재 테이블 템플릿인지 알 수 있습니다. 
+
+② 버전을 낮출수도, 올릴수도 있습니다. (전 버전과 동일하지 말아야 합니다.)
+
+③ 컬럼을 추가, 삭제, 수정이 가능합니다. 
+
+**테이블 템플릿 저장하기**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_22.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_22.png)
+
+① 저장할 테이블 템플릿 이름을 입력합니다.
+
+**테이블 템플릿 불러오기**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_23.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_23.png)
+
+① 테이블 템플릿 이름으로 검색해 찾을 수 있습니다.
+
+#### **쿼리 템플릿**
+
+쿼리 도구를 이용해 쿼리 템플릿을 저장 / 불러옵니다.
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_24.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_24.png)
+
+**쿼리 템플릿 저장하기**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_25.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_25.png)
+
+① 쿼리 템플릿 이름 입력창 : 저장할 쿼리 템플릿의 이름을 입력합니다.
+
+② 쿼리문 입력창 : 저장할 쿼리문을 입력합니다.  
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_26.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_26.png)
+
+① 쿼리 템플릿 이름 입력창 : 저장되어 있던 쿼리 템플릿 이름으로 검색해 찾습니다.
+
+**쿼리 템플릿 관리하기**
+
+데이터베이스 탐색기의 Database 우측에 위치한 **`서랍`** 버튼을 클릭해 테이블 데이터 추가하기 메뉴를 열고 쿼리 템플릿 관리하기를 클릭합니다.
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_27.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_27.png)
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_28.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_28.png)
+
+① 쿼리 템플릿을 생성할 수 있는 페이지로 이동합니다.
+
+② 쿼리 템플릿의 이름을 입력해 원하는 쿼리 템플릿을 찾을 수 있습니다.  
+
+③ 수정 날짜, 이름순(오름차순, 내림차순)으로 정렬합니다.
+
+④ 수정 날짜를 알 수 있습니다.  
+
+⑤ 해당 템플릿 상세보기 페이지로 이동하는 버튼입니다.  
+
+**쿼리 템플릿 생성하기**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_29.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_29.png)
+
+① 저장할 쿼리 템플릿의 이름을 입력합니다. 
+
+② 저장할 쿼리문을 입력합니다.  
+
+**쿼리 템플릿 상세보기**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_30.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_30.png)
+
+① 템플릿을 삭제하거나 수정합니다. 
+
+② 만들어진 날짜와 업데이트 날짜 입니다. 
+
+**쿼리 템플릿 수정하기**
+
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_31.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_31.png)
+
+① 저장할 쿼리 템플릿의 이름을 수정합니다. 
+
+② 저장할 쿼리문을 수정합니다. 
 
 ### **쿼리 로그**
 
