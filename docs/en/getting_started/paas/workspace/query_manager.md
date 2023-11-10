@@ -300,7 +300,7 @@ Click the **`Draw'** button located to the right of Database in the Database Exp
 
 ⑤ Go to the "View Template Details" page.
 
-**Create Query Template**
+**Creating query templates**
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_29.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_29.png)
 
