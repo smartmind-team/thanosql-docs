@@ -238,7 +238,7 @@ You can manage table templates and query templates. Move by clicking the menu bu
 
 ④ Create a new version of the table template.
 
-⑤ Delete the corresponding version of the template.
+⑤ Delete the corresponding version of the table template.
 
 ⑥ Compatibility with date created.
 
