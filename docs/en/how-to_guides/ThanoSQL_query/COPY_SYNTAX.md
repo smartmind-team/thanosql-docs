@@ -14,6 +14,9 @@ The "__COPY__" statement allows users to create data tables in the ThanoSQL work
     - xls, xlsx, xlsm, xlsb
     - pqt, parquet 
 
+!!! warning "__Warning__"
+    - The PostgreSQL __COPY__ clause is not supported.
+
 ## __2. COPY Syntax__
 
 ```sql

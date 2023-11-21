@@ -14,6 +14,9 @@ title: COPY
     - xls, xlsx, xlsm, xlsb
     - pqt, parquet 
 
+!!! warning "__Warning__"
+    - 기존 PostgreSQL 쿼리 __COPY__ 구문은 지원하지 않습니다.
+
 ## __2. COPY 구문__
 
 ```sql
