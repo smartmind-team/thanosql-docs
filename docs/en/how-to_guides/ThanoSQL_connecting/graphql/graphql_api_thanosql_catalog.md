@@ -4,20 +4,10 @@ title: ThanoSQL Catalog APIs
 
 # **ThanoSQL Catalog APIs**
 
-You can use File APIs to remotely send and upload files to your Workspace storage and insert them into any of your table within the database. The default root folder for all user files is set to "drive."
 
-!!! warning "__Warning__"
-    - File API supports image, audio, and video data with the following extensions:
-        - Image:  "jpg", "png", "jpeg"
-        - Audio: "mp3", "wav
-        - Video: "mp4", "wmv", "avi"
-        
-    - Files with extensions not listed above are stored in the "drive/others" folder.
+## __`query` getCatalogData__
 
-
-## __`GET` /file/__
-
-A list of files and folders is returned from a specified file path. The file path can be expressed using a regular expression.
+Lists all publicly available ThanoSQL models, datasets, and tables.
 
 === "Python"
 
@@ -26,174 +16,68 @@ A list of files and folders is returned from a specified file path. The file pat
     import json
 
     api_token = "Issued_API_TOKEN"
-    file_path = "File Path"
-    api_url = f"https://{your-engine-url}/api/v1/file/?file_path={file_path}"
+    catalog_name = "Name of catalog"  # optional
+    id = "ID of catalog data"  # optional
+    search = "Search keyword(s)"  # optional
+    type = "Type of catalog data (model/dataset/table)"  # optional
+    api_url = "https://{your-engine-url}/api/v1/catalog/thanosql"
 
     header = {
         "Authorization": f"Bearer {api_token}"
     }
 
-    r = requests.get(api_url, headers=header)
+    # Choose which parameters and fields you need (for full list, see below)
+    query = f"""query {{
+        getCatalogData(search: "{search}", type: "{type}") {{
+            name
+            type
+            importQuery
+        }}
+    }}
+    """
 
-    r.raise_for_status()
-    return_json = r.json()
-    ```
-
-=== "cURL"
-
-    ```shell
-    curl -X 'GET' \
-      'https://{your-engine-url}/api/v1/file/?file_path={file_path}' \
-      -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN' \
-      -H 'Content-Type: application/json'
-    ```
-
-
-## __`POST` /file/__
-
-In order to upload a file, use the below methods to send a file to the Workspace storage.
-When the "dir=folder name" is added to the URL, the file will be uploaded to the
-designated folder.
-
-=== "Python"
-
-    ```python
-    import requests
-    import json
-
-    api_token = "Issued_API_TOKEN"
-    api_url = "https://{your-engine-url}/api/v1/file/"
-    header = {
-        "Authorization": f"Bearer {api_token}"
-    }
-    files = {'file': open('Data File Path', 'rb')}
-
-    r = requests.post(api_url, files=files, headers=header)
-
-    r.raise_for_status()
-    return_json = r.json()
+    r = requests.post(api_url, json={"query": query}, headers=header)
+    # No need to raise for status as GraphQL requests always return a 200 status code
+    r.json()
     ```
 
 === "cURL"
 
     ```shell
     curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/file/' \
+      'https://{your-engine-url}/api/v1/catalog/thanosql' \
       -H 'accept: application/json' \
       -H 'Authorization: Bearer Issued_API_TOKEN' \
-      -H 'Content-Type: multipart/form-data' \
-      -F 'file=@Data File Path;type=file_type/Data File Type'
+      -H 'Content-Type: application/json' \
+      -d '{"query": "query{getCatalogData(search: \"{search}\", type: \"{type}\"){name type importQuery}}"}'
     ```
 
-If "db_commit" is set to True and "table_name" and "column_name" are specified, the given file is sent to Workspace storage and the file path is inserted into the specified column of the specified table.
+### __Parameters__
 
-=== "Python"
+The API can be called with or without any of the following parameters. Each parameter adds a filter to the query result. For example, setting `catalogName` to "tutorial" will tell the API to return only results with "tutorial" as their `catalogName`.
 
-    ```python
-    import requests
-    import json
+- `catalogName`: The name of the catalog the data belongs to.
+- `id`: The id number of the catalog data.
+- `search`: Keyword(s) that the catalog data names must contain.
+- `type`: The type of the catalog data (must be either empty or one of "model", "dataset", and "table").
 
-    api_token = "Issued_API_TOKEN"
-    base_url = "https://{your-engine-url}/api/v1/file/"
-    table_name = "Table Name"
-    column_name = "Column Name"
-    db_commit = True 
+### __Response__
 
-    api_url = f"{base_url}?db_commit={db_commit}&table_name={table_name}&column_name={column_name}"
-    header = {
-        "Authorization": f"Bearer {api_token}"
-    }
-    files = {'file': open('Data File Path', 'rb')}
+The following lists all attributes of a catalog data. When calling the API, select at least one of the available attributes. Only values of the selected attributes will appear in the response.
 
-    r = requests.post(api_url, files=files, headers=header)
-
-    r.raise_for_status()
-    return_json = r.json()
-    ```
-
-=== "cURL"
-
-    ```shell
-    curl -X 'POST' \
-      'https://{your-engine-url}/api/v1/file/?db_commit={db_commit}&table_name={table_name}&column_name={column_name}' \
-      -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN' \
-      -H 'Content-Type: multipart/form-data' \
-      -F 'file=@Data File Path;type=file_type/Data File Type'
-    ```
-
-!!! faq "__FAQ__"
-    - In order to use a file within the Jupyter workspace, you must put '/'home/jovyan' in front of the path.
-
-
-## __`DELETE` /file/__
-
-In order to delete a file from the Workspace storage, use the below methods.
-
-=== "Python"
-
-    ```python
-    import requests
-    import json
-
-    api_token = "Issued_API_TOKEN"
-    file_path = "Data File Path"
-    api_url = f"https://{your-engine-url}/api/v1/file/?file_path={file_path}'
-
-    header = {
-        "Authorization": f"Bearer {api_token}"
-    }
-
-    r = requests.delete(api_url, headers=header)
-
-    r.raise_for_status()
-    return_json = r.json()
-    ```
-
-=== "cURL"
-
-    ```shell
-    curl -X 'DELETE' \
-      'https://{your-engine-url}/api/v1/file/?file_path={file_path}' \
-      -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN' \
-      -H 'Content-Type: application/json'
-    ```
-
-If "db_commit" is set to True and "table_name" and "column_name" are specified, the given file is deleted from Workspace storage, and all rows in the table with the same value as the given file path in the specified column will be deleted.
-
-=== "Python"
-
-    ```python 
-    import requests
-    import json
-
-    api_token = "Issued_API_TOKEN"
-    base_url = "https://{your-engine-url}/api/v1/file/"
-    db_commit = True 
-    file_path = 'File Path'
-    table_name = 'Table Name'
-    column_name = 'Column Name'
-
-    api_url = f"{base_url}?db_commit={db_commit}&file_path={file_path}&table_name={table_name}&column_name={column_name}"
-
-    header = {
-        "Authorization": f"Bearer {api_token}"
-    }
-
-    r = requests.delete(api_url, headers=header)
-
-    r.raise_for_status()
-    return_json = r.json()
-    ```
-
-=== "cURL"
-
-    ```shell
-    curl -X 'DELETE' \
-      'https://{your-engine-url}/api/v1/file/?db_commit={db_commit}&file_path={file_path}&table_name={table_name}&column_name={column_name}' \
-      -H 'accept: application/json' \
-      -H 'Authorization: Bearer Issued_API_TOKEN' \
-      -H 'Content-Type: application/json'
-    ```
+- `catalogName`: The name of the catalog the data belongs to.
+- `createdAt`: The date of creation of the catalog data.
+- `dataType`: The data type of the catalog data (only applies to models and datasets).
+- `description`: Brief description of the catalog data.
+- `id`: The id number of the catalog data.
+- `importQuery`: The query statement used to import the catalog data to workspace.
+- `modelClassName`: The name of the model class (only applies to models).
+- `modelType`: The type of the model (only applies to models).
+- `name`: The name of the catalog data.
+- `s3Bucket`: The S3 bucket where the data is hosted (only applies to models and datasets).
+- `s3Key`: The S3 key of the catalog data (only applies to models and datasets).
+- `schemaName`: The name of the schema the table belongs to (only applies to tables).
+- `tableType`: The type of the table (view or table, only applies to tables).
+- `type`: The type of the catalog data (model, dataset, or table).
+- `updatedAt`: The last date of update of the catalog data.
+- `version`: The model version (only applies to models).
