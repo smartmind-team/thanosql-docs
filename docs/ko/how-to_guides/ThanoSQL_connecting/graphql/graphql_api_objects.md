@@ -7,7 +7,7 @@ title: GraphQL Objects
 
 ## __PublicCatalogData__
 
-공통으로 사용 가능한 ThanoSQL 모델, 데이터셋 및 테이블 데이터입니다.
+공용 ThanoSQL 모델, 데이터셋 및 테이블 데이터입니다.
 
 ### __Fields__
 

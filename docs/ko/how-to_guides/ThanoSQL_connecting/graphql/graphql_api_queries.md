@@ -7,7 +7,7 @@ title: GraphQL Queries
 
 ## __publicCatalogData__
 
-공통으로 사용 가능한 ThanoSQL 모델, 데이터셋 및 테이블을 나열합니다.
+공용 ThanoSQL 모델, 데이터셋 및 테이블을 나열합니다.
 
 === "Python"
 
