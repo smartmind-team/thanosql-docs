@@ -1,2 +1,3 @@
 nav:
-  - ThanoSQL Catalog APIs : graphql_api_thanosql_catalog.md
+  - Queries: graphql_api_queries.md
+  - Objects: graphql_api_objects.md
