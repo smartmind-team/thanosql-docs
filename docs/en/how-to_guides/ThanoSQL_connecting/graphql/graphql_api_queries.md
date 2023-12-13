@@ -63,4 +63,4 @@ The API can be called with or without any of the following arguments. Each argum
 
 ### __Response__
 
-For the full list of fields in a catalog data object, please refer to the [PublicCatalogData Objects page](../graphql_api_objects/#publiccatalogdata). When calling the API, select at least one of the available field names. Only values of the selected fields will appear in the response.
+The publicCatalogData query returns a PublicCatalogData object. For the full list of fields, please refer to the [PublicCatalogData section](../graphql_api_objects/#publiccatalogdata) in the Objects page. When calling the API, select at least one of the available field names. Only values of the selected fields will appear in the response.
