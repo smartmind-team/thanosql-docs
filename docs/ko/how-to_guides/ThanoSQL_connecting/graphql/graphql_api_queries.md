@@ -26,7 +26,7 @@ title: GraphQL Queries
         "Authorization": f"Bearer {api_token}"
     }
 
-    # 필요한 매개변수와 필드를 선택합니다(전체 목록은 아래 참조해 주세요).
+    # 필요한 인수와 필드를 선택합니다(전체 목록은 아래 참조해 주세요).
     query = f"""query {{
         publicCatalogData(search: "{search}", type: "{type}") {{
             name
@@ -52,9 +52,9 @@ title: GraphQL Queries
       -d '{"query": "query{publicCatalogData(search: \"{search}\", type: \"{type}\"){name type importQuery}}"}'
     ```
 
-### __Parameters__
+### __Arguments__
 
-API는 다음 매개변수를 포함하거나 포함하지 않고 요청할 수 있습니다. 각 매개변수는 쿼리 결과에 필터를 추가합니다. 예를 들어 `catalogName`을 'tutorial'로 설정하면 `catalogName`이 'tutorial'인 결과만 반환하도록 API에 지시합니다.
+API는 다음 인수를 포함하거나 포함하지 않고 요청할 수 있습니다. 각 인수는 쿼리 결과에 필터를 추가합니다. 예를 들어 `catalogName`을 'tutorial'로 설정하면 `catalogName`이 'tutorial'인 결과만 반환하도록 API에 지시합니다.
 
 - `catalogName`: 데이터가 속한 카탈로그의 이름입니다.
 - `id`: 카탈로그 데이터의 ID 번호입니다.

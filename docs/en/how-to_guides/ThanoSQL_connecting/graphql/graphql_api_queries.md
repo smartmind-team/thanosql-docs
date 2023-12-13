@@ -26,7 +26,7 @@ Lists all publicly available ThanoSQL models, datasets, and tables.
         "Authorization": f"Bearer {api_token}"
     }
 
-    # Choose which parameters and fields you need (for full list, see below)
+    # Choose which arguments and fields you need (for full list, see below)
     query = f"""query {{
         publicCatalogData(search: "{search}", type: "{type}") {{
             name
@@ -52,9 +52,9 @@ Lists all publicly available ThanoSQL models, datasets, and tables.
       -d '{"query": "query{publicCatalogData(search: \"{search}\", type: \"{type}\"){name type importQuery}}"}'
     ```
 
-### __Parameters__
+### __Arguments__
 
-The API can be called with or without any of the following parameters. Each parameter adds a filter to the query result. For example, setting `catalogName` to "tutorial" will tell the API to return only results with "tutorial" as their `catalogName`.
+The API can be called with or without any of the following arguments. Each argument adds a filter to the query result. For example, setting `catalogName` to "tutorial" will tell the API to return only results with "tutorial" as their `catalogName`.
 
 - `catalogName`: The name of the catalog the data belongs to.
 - `id`: The id number of the catalog data.
