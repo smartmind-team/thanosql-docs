@@ -300,29 +300,18 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ⑤ 해당 템플릿 상세보기 페이지로 이동하는 버튼입니다.  
 
-**쿼리 템플릿 생성하기**
+**쿼리 템플릿 생성 / 편집 하기**
 
-[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_29.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_29.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_33.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_33.png)
 
-① 저장할 쿼리 템플릿의 이름을 입력합니다. 
+① 쿼리 템플릿 이름 생성 / 편집 : 쿼리 템플릿 이름을 정하거나 편집할 수 있습니다.
 
-② 저장할 쿼리문을 입력합니다.  
+② 쿼리 입력 : 템플릿화 하려는 쿼리를 입력할 수 있습니다. 편집, 초기화도 가능합니다.
 
-**쿼리 템플릿 상세보기**
+④ 파라미터 : 위에서 입력한 쿼리에서 변수를 자동으로 가져올 수 있습니다. 각각의 변수에 테스트 값을 채워 넣을 수 있습니다. 
 
-[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_30.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_30.png)
+⑤ 테스트 결과 : 위에서 자동으로 입력된 변수와 테스트 값을 채워넣고 해당 쿼리문을 테스트 할 수 있습니다.  
 
-① 템플릿을 삭제하거나 수정합니다. 
-
-② 만들어진 날짜와 업데이트 날짜 입니다. 
-
-**쿼리 템플릿 수정하기**
-
-[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_31.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_31.png)
-
-① 저장할 쿼리 템플릿의 이름을 수정합니다. 
-
-② 저장할 쿼리문을 수정합니다. 
 
 ### **쿼리 로그**
 
