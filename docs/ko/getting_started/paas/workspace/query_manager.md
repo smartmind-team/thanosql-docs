@@ -270,7 +270,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_24.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_24.png)
 
-**쿼리 템플릿 저장하기**
+##### 쿼리 템플릿 저장하기
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_25.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_25.png)
 
@@ -282,7 +282,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ① 쿼리 템플릿 이름 입력창 : 저장되어 있던 쿼리 템플릿 이름으로 검색해 찾습니다.
 
-**쿼리 템플릿 관리하기**
+##### 쿼리 템플릿 관리하기
 
 데이터베이스 탐색기의 Database 우측에 위치한 **`서랍`** 버튼을 클릭해 테이블 데이터 추가하기 메뉴를 열고 쿼리 템플릿 관리하기를 클릭합니다.
 
@@ -300,7 +300,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ⑤ 해당 쿼리 템플릿 상세보기 페이지로 이동하는 버튼입니다.  
 
-**쿼리 템플릿 상세보기**
+##### 쿼리 템플릿 상세보기
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_33.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_33.png)
 
