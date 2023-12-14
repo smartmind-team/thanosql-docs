@@ -9,13 +9,13 @@ Data Catalog는 ThanoSQL에서 사용할 수 있는 Dataset, Model, Table 등의
 
 - 데이터 카탈로그 그룹
 
-  - Public : ThanoSQL에서 기본으로 제공하는 카탈로그 그룹
+    - Public : ThanoSQL에서 기본으로 제공하는 카탈로그 그룹
 
-  - Organization : Workspace 조직 단위로 데이터를 관리할 수 있는 그룹
+    - Organization : Workspace 조직 단위로 데이터를 관리할 수 있는 그룹
 
-  - Workspace : 유저 워크스페이스의 데이터 카탈로그 그룹
+    - Workspace : 유저 워크스페이스의 데이터 카탈로그 그룹
 
-    *Organization, Workspace는 서비스 준비중입니다.*
+      *Organization, Workspace는 서비스 준비중입니다.*
 
 - 필터 : 카탈로그 타입과 카탈로그 이름, 데이터 이름으로 검색 및 필터링 가능합니다.
 
