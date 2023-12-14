@@ -6,7 +6,7 @@ Data Catalog는 ThanoSQL에서 사용할 수 있는 Dataset, Model, Table 등의
 
 - Organization : Workspace 조직 단위로 리소스를 관리할 수 있는 공간
 
-- Private : 유저가 개인적으로 리소스를 관리할 수 있는 공간
+- Workspace : 유저 워크스페이스의 데이터 카탈로그 그룹
 
   *Organization, Workspace는 서비스 준비중입니다. 
 
