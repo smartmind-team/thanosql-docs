@@ -38,7 +38,7 @@ plugins:
           Thanosql generate: ThanoSQL Generate
           How to guides: Reference
           ThanoSQL query: ThanoSQL Statement
-          ThanoSQL connecting: REST API
+          ThanoSQL connecting: ThanoSQL API
           ThanoSQL model: Model Statement
           ThanoSQL function: Function Statement
           FAQ: FAQ
@@ -55,7 +55,7 @@ plugins:
           Timeseries: 시계열 모델 만들기
           How to guides: 참조
           ThanoSQL query: ThanoSQL Statement
-          ThanoSQL connecting: REST API
+          ThanoSQL connecting: ThanoSQL API
           ThanoSQL model: Model Statement
           ThanoSQL function: Function Statement
           FAQ: 자주 묻는 질문
