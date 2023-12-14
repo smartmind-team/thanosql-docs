@@ -1,3 +1,4 @@
 nav:
+  - Overview: overview.md
   - Queries: graphql_api_queries.md
   - Objects: graphql_api_objects.md
