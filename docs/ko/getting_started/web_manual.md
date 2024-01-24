@@ -30,20 +30,20 @@ ThanoSQL 로그인 화면에서 **회원가입 하기 버튼**을 클릭합니�
 
 ## __3. 콘솔__
 
-원하는 제품을 선택해 사용이 가능하며, Playground에서 ThanoSQL의 강력한 AI를 기반으로 제작된 샘플 어플리케이션을 경험할 수 있습니다.
+원하는 제품을 선택해 사용이 가능하며, Playground에서 ThanoSQL의 강력한 AI를 기반으로 제작된 샘플 애플리케이션을 경험할 수 있습니다.
 
 [![IMAGE](../img/getting_started/img2_2.png){: style="max-height:none"}](../img/getting_started/img2_2.png)
 
 - **Products**
       
-      thanoSQL에서 제공하는 제품을 사용할 수 있습니다. 
+      ThanoSQL에서 제공하는 제품을 사용할 수 있습니다. 
 
 
 - **Playground**
       
-      ThanoSQL의 강력한 AI를 기반으로 제작된 샘플 어플리케이션을 경험할 수 있습니다.
+      ThanoSQL의 강력한 AI를 기반으로 제작된 샘플 애플리케이션을 경험할 수 있습니다.
 
 
  - **Settings**
       
-      계정, 요금제 등 관리할 수 있습니다.(현재는 계정만 관리할 수 있습니다.)        
+      계정을 관리할 수 있습니다.      
