@@ -7,7 +7,7 @@ title: Query APIs
 
 ## __`POST` /query__
 
-Executes ThanoSQL queries and receives a query log response. The query can be either typed directly or retrieved from an existing query template (with or without parameters).
+Executes ThanoSQL queries and receives a query log response. The query can be either typed directly or processed from a query template (with or without parameters). In the latter case, the query template can also be typed directly or retrieved from database.
 
 ### Query without Templates
 
@@ -46,7 +46,47 @@ Executes ThanoSQL queries and receives a query log response. The query can be ei
       -d '{"query_string": query, "query_type": query_type}'
     ```
 
-### Query with Templates
+### Query with Templates (Direct Input)
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "Issued_API_TOKEN"
+    api_url = "https://{your-engine-url}/api/v1/query/"
+    query_template = "Query template to be used"
+    parameters = "Mapping of parameters to fill in the template"  # dictionary
+    query_type = "SQL query type" # psql or thanosql
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    data = {
+        'query_type': query_type,
+        'query_string': query_template,
+        'parameters': parameters
+    }
+
+    r = requests.post(api_url, data=json.dumps(data), headers=header)
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+    curl -X 'POST' \
+      'https://{your-engine-url}/api/v1/query/' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN' \
+      -H 'Content-Type: application/json' \
+      -d '{"query_type": query_type, "query_string": query_template, "parameters": parameters}'
+    ```
+
+### Query with Templates from Database
 
 === "Python"
 
@@ -88,7 +128,7 @@ Executes ThanoSQL queries and receives a query log response. The query can be ei
     ```
 
 !!! warning "Query String and Query Template"
-    Query strings and templates (and/or parameters) should not be used together. If `query_string` appears together with at least one of `template_id`, `template_name`, and `parameters`, an error will be returned.
+    Plain query strings and templates should not be used together. If `query_string` appears together with at least one of `template_id` and `template_name`, an error will be returned.
 
 ### __Parameters__
 
@@ -248,7 +288,7 @@ This method returns a list of query templates (shown below) as a response.
 
 ## **`POST` /query/template**
 
-Creates a new query template with a certain name and query string.
+Creates a new query template with a certain name and query string. If name is empty or unspecified, a name with format "query_template_{number}" will be automatically given.
 
 === "Python"
 
@@ -284,6 +324,10 @@ Creates a new query template with a certain name and query string.
       -H 'Content-Type: application/json' \
       -d '{"name": name, "query": query}'
     ```
+
+### __Parameters__
+
+- `dry_run`: If set to True, the query template will not be saved to database (defaults to False).
 
 
 ## **`GET` /query/template/{template_name}**

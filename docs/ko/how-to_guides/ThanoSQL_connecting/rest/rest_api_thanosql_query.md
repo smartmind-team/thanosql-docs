@@ -6,7 +6,7 @@ title: Query APIs
 
 ## __`POST` /query__
 
-ThanoSQL 쿼리를 실행하고 쿼리 로그 결과를 응답으로 받습니다. 쿼리는 직접 입력하거나 기존 쿼리 템플릿을 사용하여 불러 올 수 있습니다(매개변수 포함 또는 제외).
+ThanoSQL 쿼리를 실행하고 쿼리 로그 결과를 응답으로 받습니다. 쿼리는 직접 입력하거나 쿼리 템플릿을 사용하여 처리될 수 있습니다(매개변수 포함 또는 제외). 후자의 경우 쿼리 템플릿을 직접 입력하거나 데이터베이스에서 불러 올 수도 있습니다.
 
 ### 템플릿 사용하지 않는 쿼리
 
@@ -45,7 +45,47 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그 결과를 응답으로 받습니�
       -d '{"query_string": query, "query_type": query_type}'
     ```
 
-### 템플릿 사용하는 쿼리
+### 템플릿 사용하는 쿼리 (직접 입력)
+
+=== "Python"
+
+    ```python
+    import requests
+    import json
+
+    api_token = "발급받은_API_TOKEN"
+    api_url = "https://{your-engine-url}/api/v1/query/"
+    query_template = "사용할 쿼리 템플릿"
+    parameters = "템플릿을 채울 매개변수 매핑"  # 딕셔너리
+    query_type = "쿼리를 실행할 SQL 타입"  # psql 또는 thanosql
+
+    header = {
+        "Authorization": f"Bearer {api_token}"
+    }
+
+    data = {
+        'query_type': query_type,
+        'query_string': query_template,
+        'parameters': parameters
+    }
+
+    r = requests.post(api_url, data=json.dumps(data), headers=header)
+    r.raise_for_status()
+    r.json()
+    ```
+
+=== "cURL"
+
+    ```shell
+    curl -X 'POST' \
+      'https://{your-engine-url}/api/v1/query/' \
+      -H 'accept: application/json' \
+      -H 'Authorization: Bearer Issued_API_TOKEN' \
+      -H 'Content-Type: application/json' \
+      -d '{"query_type": query_type, "query_string": query_template, "parameters": parameters}'
+    ```
+
+### 템플릿 사용하는 쿼리 (데이터베이스에서 로드)
 
 === "Python"
 
@@ -87,7 +127,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그 결과를 응답으로 받습니�
     ```
 
 !!! warning "쿼리 문자열 및 쿼리 템플릿"
-    쿼리 문자열과 템플릿(및/또는 매개변수)은 함께 사용해서는 안 됩니다. `template_id`, `template_name`, `parameters` 중 하나 이상과 함께 `query_string`을 사용하면 에러가 발생합니다.
+    일반 쿼리 문자열과 템플릿은 함께 사용해서는 안 됩니다. `template_id`과 `template_name` 중 하나 이상과 함께 `query_string`을 사용하면 에러가 발생합니다.
 
 ### __Parameters__
     
@@ -246,7 +286,7 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그 결과를 응답으로 받습니�
 
 ## **`POST` /query/template**
 
-이름과 쿼리 문자열의 새 쿼리 템플릿을 생성합니다.
+이름과 쿼리 문자열의 새 쿼리 템플릿을 생성합니다. 이름이 비어 있거나 지정되지 않은 경우 "query_template_{번호}" 형식의 이름이 자동으로 지정됩니다.
 
 === "Python"
 
@@ -282,6 +322,10 @@ ThanoSQL 쿼리를 실행하고 쿼리 로그 결과를 응답으로 받습니�
       -H 'Content-Type: application/json' \
       -d '{"name": name, "query": query}'
     ```
+
+### __Parameters__
+
+- `dry_run`: True로 설정하면 쿼리 템플릿이 데이터베이스에 저장되지 않습니다(기본값은 False).
 
 
 ## **`GET` /query/template/{template_name}**

@@ -2,3 +2,4 @@ nav:
   - 개요 : index.md
   - Query Manager : query_manager.md
   - Lab : lab.md
+  - Data Catalog : data_catalog.md

@@ -270,7 +270,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_24.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_24.png)
 
-**쿼리 템플릿 저장하기**
+##### 쿼리 템플릿 저장하기
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_25.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_25.png)
 
@@ -282,7 +282,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ① 쿼리 템플릿 이름 입력창 : 저장되어 있던 쿼리 템플릿 이름으로 검색해 찾습니다.
 
-**쿼리 템플릿 관리하기**
+##### 쿼리 템플릿 관리하기
 
 데이터베이스 탐색기의 Database 우측에 위치한 **`서랍`** 버튼을 클릭해 테이블 데이터 추가하기 메뉴를 열고 쿼리 템플릿 관리하기를 클릭합니다.
 
@@ -290,7 +290,7 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 [![IMAGE](../../../img/getting_started/paas/workspace/qm_img_28.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_28.png)
 
-① 쿼리 템플릿을 생성할 수 있는 페이지로 이동합니다.
+① 쿼리 템플릿을 신규로 생성하고, 해당 쿼리 템플릿의 상세보기 페이지로 이동합니다.
 
 ② 쿼리 템플릿의 이름을 입력해 원하는 쿼리 템플릿을 찾을 수 있습니다.  
 
@@ -298,31 +298,22 @@ ThanoSQL 쿼리를 실행하고 결과를 테이블로 확인합니다.
 
 ④ 수정 날짜를 알 수 있습니다.  
 
-⑤ 해당 템플릿 상세보기 페이지로 이동하는 버튼입니다.  
+⑤ 해당 쿼리 템플릿 상세보기 페이지로 이동하는 버튼입니다.  
 
-**쿼리 템플릿 생성하기**
+##### 쿼리 템플릿 상세보기
 
-[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_29.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_29.png)
+[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_33.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_33.png)
 
-① 저장할 쿼리 템플릿의 이름을 입력합니다. 
+① 쿼리 템플릿 이름 : 쿼리 템플릿 이름을 편집할 수 있습니다.
 
-② 저장할 쿼리문을 입력합니다.  
+② 쿼리 : 쿼리를 입력할 수 있고, 편집 할 수 있습니다.
 
-**쿼리 템플릿 상세보기**
+④ 파라미터 : 쿼리에서 작성된 파라미터를 감지합니다. 각각의 파라미터에 테스트 값을 넣어 테스트 할 수 있습니다.
 
-[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_30.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_30.png)
+!!! note "쿼리 템플릿의 파라미터"
+    ThanoSQL의 쿼리 템플릿은 Jinja 형식의 파라미터 선언을 제공합니다. 쿼리에 `{{ ... }}` 형태로 작성하면 해당 내용을 파라미터로 인식합니다.
 
-① 템플릿을 삭제하거나 수정합니다. 
-
-② 만들어진 날짜와 업데이트 날짜 입니다. 
-
-**쿼리 템플릿 수정하기**
-
-[![IMAGE](../../../img/getting_started/paas/workspace/qm_img_31.png){: style="max-height:none"}](../../../img/getting_started/paas/workspace/qm_img_31.png)
-
-① 저장할 쿼리 템플릿의 이름을 수정합니다. 
-
-② 저장할 쿼리문을 수정합니다. 
+⑤ 테스트 결과 : Run 버튼을 눌러 쿼리를 테스트합니다. 실제 Query Manager에서 쿼리를 실행하는 것과 동일하게 작동하며 제한된 수의 결과만 보여집니다.
 
 ### **쿼리 로그**
 
