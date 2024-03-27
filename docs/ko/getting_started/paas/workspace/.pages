@@ -3,3 +3,4 @@ nav:
   - Query Manager : query_manager.md
   - Lab : lab.md
   - Data Catalog : data_catalog.md
+  - File Manager : file_manager.md
